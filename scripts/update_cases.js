@@ -417,6 +417,15 @@ function _caseFolder(numberOrId) {
     return String(numberOrId || '').split(',')[0].trim();
 }
 
+// The web app resolves a case by its first docket number alone (or by id when
+// there is no number) even for consolidated cases with several comma-joined
+// numbers, so collection-style output files (noteworthy.json, transcripts.json,
+// briefs.json, issues.json, the per-justice people/justices/*.json sets, etc.)
+// only need to record that one number — never the full comma-joined list.
+function _primaryCaseNumber(c) {
+    return (c.number || c.id || '').split(',')[0].trim();
+}
+
 export function syncFilesCount(casesPath) {
     let data;
     try { data = _readJson(casesPath); } catch { return; }
@@ -3887,7 +3896,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
             const entry = {
                 title:    titled,
                 term,
-                number:   c.number || c.id || '',
+                number:   _primaryCaseNumber(c),
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
@@ -4004,7 +4013,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
                 const entry = {
                     title:    titled,
                     term,
-                    number:   c.number || c.id || '',
+                    number:   _primaryCaseNumber(c),
                     argument: c.argument || '',
                     decision: c.decision || '',
                 };
@@ -4145,7 +4154,7 @@ function processVocalJustices(allTerms, dryRun) {
             const caseMeta   = {
                 title:    titled,
                 term,
-                number:   c.number || c.id || '',
+                number:   _primaryCaseNumber(c),
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
@@ -4304,6 +4313,21 @@ function processVocalJustices(allTerms, dryRun) {
 // composition of the Court.  A new bench is recorded each time the membership
 // changes (a justice joins or departs).  The first bench starts the day after
 // the Court's very first departure.
+// Resolve a bench's group photo: an exact "<id>.jpg" (e.g. "burger1.jpg"), else
+// the chief-justice family's default "<slug>.jpg" (e.g. "burger.jpg", the id
+// with its trailing bench number stripped), else null if neither exists.
+const _BENCH_IMAGES_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'benches');
+function _benchImagePath(benchId) {
+    if (fs.existsSync(path.join(_BENCH_IMAGES_DIR, `${benchId}.jpg`))) {
+        return `/courts/ussc/collections/benches/${benchId}.jpg`;
+    }
+    const base = benchId.replace(/\d+$/, '');
+    if (base !== benchId && fs.existsSync(path.join(_BENCH_IMAGES_DIR, `${base}.jpg`))) {
+        return `/courts/ussc/collections/benches/${base}.jpg`;
+    }
+    return null;
+}
+
 function processBenches(dryRun) {
     _ensureSeniorityLoaded();
 
@@ -4459,7 +4483,7 @@ function processBenches(dryRun) {
             const baseTitle = firstTitle(c.title) || '';
             const decMatch = /^(\d{4})/.exec(dec);
             const titled = (baseTitle && decMatch) ? `${baseTitle} (${decMatch[1]})` : baseTitle;
-            const meta = { title: titled, term: termName, number: c.number || c.id || '', argument: c.argument || '', decision: dec };
+            const meta = { title: titled, term: termName, number: _primaryCaseNumber(c), argument: c.argument || '', decision: dec };
             if (c.files) meta.files = c.files;
             allCases.push(meta);
         }
@@ -4547,7 +4571,13 @@ function processBenches(dryRun) {
             benchName = `${lastChiefDisplay} ${n} (${yearRange})`;
         }
 
-        return { id: benchId, name: benchName, dateStart, dateStop, cases: benchCaseLists[benchIdx].length, justices: servingTenures.map(t => t.id) };
+        const image = _benchImagePath(benchId);
+        return {
+            id: benchId, name: benchName, dateStart, dateStop,
+            cases: benchCaseLists[benchIdx].length,
+            justices: servingTenures.map(t => t.canonical),
+            ...(image ? { image } : {}),
+        };
     });
 
     const changed = _jsonChanged(OUT_FILE, benches);
@@ -4847,7 +4877,7 @@ function _setCaseEntry(c, term, extra = null) {
     const baseTitle = firstTitle(c.title) || '';
     const title = year ? `${baseTitle} (${year})` : baseTitle;
     const entry = { title, term };
-    const numberVal = c.number || c.id || '';
+    const numberVal = _primaryCaseNumber(c);
     if (numberVal) entry.number = numberVal;
     if (c.argument)   entry.argument   = c.argument;
     if (c.reargument) entry.reargument = c.reargument;
@@ -9070,7 +9100,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
             results.get(ref).count++;
         } else {
             const titled = hit.year ? `${title} (${hit.year})` : title;
-            results.set(ref, { title: titled, ref, count: 1 });
+            results.set(ref, { title: titled, term: hit.term, id: hit.id, count: 1 });
             order.push(ref);
         }
     };
@@ -9198,7 +9228,7 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
 
     console.log(`${term}/${label}: found ${opCite.length} cited opinion(s)`);
     for (const entry of opCite) {
-        console.log(`  [${entry.count}x] ${entry.title} -> ${entry.ref}`);
+        console.log(`  [${entry.count}x] ${entry.title} -> ${entry.term}/${entry.id}`);
     }
 
     if (dryRun) {
@@ -9323,7 +9353,7 @@ async function runDissentCheck(termFilter) {
                 termCases.push({
                     title:    `${firstTitle(c.title) || c.id}: ${title}`,
                     term,
-                    number:   c.number || c.id || undefined,
+                    number:   _primaryCaseNumber(c) || undefined,
                     decision: c.decision || undefined,
                     event:    i + 1,
                 });
@@ -10859,7 +10889,7 @@ function runGenerateIssues(dryRun) {
             const ref = {
                 title: c.title + (year ? ` (${year})` : ''),
                 term,
-                number: c.number || c.id,
+                number: _primaryCaseNumber(c),
             };
             if (c.argument) ref.argument = c.argument.split(',')[0].trim();
             if (c.decision) ref.decision = c.decision;

@@ -294,7 +294,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     container.appendChild(svg);
     var leg = document.createElement('div');
     leg.style.cssText = 'display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:0.72rem;';
-    [['Cases decided','#4a9eff'],['Unanimous','#2ecc71'],['Argument days','#ff9f40']].forEach(function(item) {
+    [['Decisions','#4a9eff'],['Unanimous Decisions','#2ecc71'],['Argument Days','#ff9f40']].forEach(function(item) {
       var s = document.createElement('span');
       s.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
       var sw = document.createElement('span');

@@ -9,6 +9,8 @@ let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
+let _fileClickSeq = 0; // bumped on every file/citation click so a stale async citation
+                        // lookup can't clobber a URL change made by a later click
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentEvents    = [];    // unsorted events[] for the active case (URL `event` indexes into this)
 let _currentBasePath  = '';    // base URL path for the active case
@@ -328,6 +330,97 @@ function _updateTagsBtn() {
   row.hidden = false;
 }
 
+// Cache of collection/topic JSON group-array fetches, keyed by file URL —
+// used only to resolve a tag to a specific group's 1-based position.
+const _collectionGroupsCache = new Map();
+function _fetchCollectionGroups(fileUrl) {
+  if (_collectionGroupsCache.has(fileUrl)) return _collectionGroupsCache.get(fileUrl);
+  const p = fetch(fileUrl, { cache: 'reload' }).then(r => r.ok ? r.json() : []).catch(() => []);
+  _collectionGroupsCache.set(fileUrl, p);
+  return p;
+}
+
+// Flatten collections.json / topics.json (including nested "collections"
+// categories like Justices/Advocates) into a list of tag-bearing group defs:
+// { isTopic, id, fileUrl, requiredTags, groupName, isFanout }.
+// isFanout marks a "*" group whose real sub-groups are generated per unique
+// non-required tag found on qualifying cases (see _buildTagsCollection in
+// scripts/update_cases.js).
+function _collectTagGroupDefs() {
+  const out = [];
+  function walk(entries, isTopic) {
+    for (const e of entries || []) {
+      if (Array.isArray(e.collections)) { walk(e.collections, isTopic); continue; }
+      const fileUrl = e.file ?? e.collection;
+      if (!fileUrl || !Array.isArray(e.groups)) continue;
+      const id = fileUrl.split('/').pop().replace('.json', '');
+      for (const g of e.groups) {
+        if (!Array.isArray(g.tags) || !g.tags.length) continue;
+        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, isFanout: g.name === '*' });
+      }
+    }
+  }
+  walk(COLLECTIONS, false);
+  walk(TOPICS, true);
+  return out;
+}
+
+// Resolve one of a case's own tags to a { isTopic, id, groupIdx } navigation
+// target within collections.json/topics.json, or null when the tag doesn't
+// correspond to any collection/topic. groupIdx (1-based, matching the URL
+// 'group' param) is resolved by fetching the collection/topic's generated
+// file and finding the matching group's position — null means "link to the
+// collection/topic root, no specific group".
+async function _resolveTagTarget(tag, caseTags) {
+  const defs = _collectTagGroupDefs();
+  // Direct match: tag is a named (non-fan-out) group's own declared tag.
+  const direct = defs.find(d => !d.isFanout && d.requiredTags.includes(tag));
+  if (direct) {
+    const groups = await _fetchCollectionGroups(direct.fileUrl);
+    const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === direct.groupName) : -1;
+    return { isTopic: direct.isTopic, id: direct.id, groupIdx: idx >= 0 ? idx + 1 : null };
+  }
+  // Fan-out root match: tag is the fan-out's own required tag — link to the
+  // collection/topic root (e.g. the "Noteworthy" tag itself, as opposed to
+  // one of its per-category sub-tags).
+  const fanoutRoot = defs.find(d => d.isFanout && d.requiredTags.includes(tag));
+  if (fanoutRoot) return { isTopic: fanoutRoot.isTopic, id: fanoutRoot.id, groupIdx: null };
+  // Fan-out sub-group match: the case qualifies for some fan-out (carries all
+  // of its required tags), and `tag` may be one of its dynamically-generated
+  // per-category sub-group names — the only way to know is to check the
+  // fan-out's generated file for a group whose name equals this tag.
+  for (const d of defs) {
+    if (!d.isFanout) continue;
+    if (!d.requiredTags.every(rt => caseTags.includes(rt))) continue;
+    const groups = await _fetchCollectionGroups(d.fileUrl);
+    const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === tag) : -1;
+    if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupIdx: idx + 1 };
+  }
+  return null;
+}
+
+// Navigate to a resolved tag target, focusing the current case within it.
+function _navigateToTagTarget(target) {
+  if (!_currentCaseEntry || !_currentCaseKey) return;
+  const term = _currentCaseKey.split('/')[0];
+  // Reuse the URL's own 'case' value (rather than caseId(_currentCaseEntry))
+  // so that a specific consolidated docket currently being viewed (e.g. "760"
+  // via a Consolidations link) carries over into the target collection/topic.
+  const currentCaseParam = new URLSearchParams(location.search).get('case') || caseId(_currentCaseEntry);
+  const params = {
+    [target.isTopic ? 'topic' : 'collection']: target.id,
+    term,
+    case: currentCaseParam,
+  };
+  if (target.groupIdx != null) params.group = target.groupIdx;
+  const href = buildUrlParams(
+    params,
+    ['highlight', 'file', 'citation', 'event', 'turn', 'find', 'group', 'id'],
+  );
+  navigate(href);
+  restoreFromURL();
+}
+
 function _buildTagsMenu(anchorEl) {
   const existing = document.querySelector('.tags-menu');
   if (existing) { existing.remove(); return; }
@@ -384,11 +477,24 @@ function _buildTagsMenu(anchorEl) {
     }
   }
 
-  for (const tag of _getBuiltinTags()) {
+  const _builtinTags = _getBuiltinTags();
+  for (const tag of _builtinTags) {
     const item = document.createElement('li');
     item.className = 'term-sort-option tag-builtin';
     item.textContent = tag;
     menu.appendChild(item);
+    // Upgrade to a clickable link once we know this tag maps to a
+    // collection/topic (and, for fan-out sub-tags, which group within it).
+    _resolveTagTarget(tag, _builtinTags).then(target => {
+      if (!target || !menu.isConnected) return;
+      item.classList.add('tag-linked');
+      item.title = 'View in ' + (target.isTopic ? 'topic' : 'collection');
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.remove();
+        _navigateToTagTarget(target);
+      });
+    });
   }
 
   addLi.className = 'term-sort-option tag-add-item';
@@ -1312,9 +1418,10 @@ function buildUrlParams(updates, deletes = []) {
   const event      = url.searchParams.get('event');
   const turn       = url.searchParams.get('turn');
   const file       = url.searchParams.get('file');
+  const citation   = url.searchParams.get('citation');
   const sortPrm    = url.searchParams.get('sort');
   const orderPrm   = url.searchParams.get('o');
-  const orderedKeys = ['collection', 'topic', 'source', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'sort', 'o'];
+  const orderedKeys = ['collection', 'topic', 'source', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'citation', 'sort', 'o'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
   if (collection != null) reordered.push(['collection', collection]);
@@ -1329,6 +1436,7 @@ function buildUrlParams(updates, deletes = []) {
   if (event != null) reordered.push(['event', event]);
   if (turn != null) reordered.push(['turn', turn]);
   if (file != null) reordered.push(['file', file]);
+  if (citation != null) reordered.push(['citation', citation]);
   if (sortPrm  != null) reordered.push(['sort', sortPrm]);
   if (orderPrm != null) reordered.push(['o',    orderPrm]);
   reordered.push(...rest);
@@ -1791,6 +1899,18 @@ function _subCaseForOption(caseEntry, optionText) {
   return { title: titles[0], number: numbers[0] };
 }
 
+// For a consolidated case, return the { title, number } sub-case whose docket
+// number exactly matches `number` (e.g. the specific docket a URL's 'case'
+// param named). Returns null for non-consolidated cases or an unmatched number.
+function _subCaseForNumber(caseEntry, number) {
+  if (!number) return null;
+  const titles  = (caseEntry.title  || '').split('|');
+  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  if (titles.length < 2 || numbers.length !== titles.length) return null;
+  const idx = numbers.indexOf(number);
+  return idx === -1 ? null : { title: titles[idx], number: numbers[idx] };
+}
+
 // Build the text for the case‑title label above the transcript pane.
 // subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
 // Priority for parenthesised annotation: docket number → usCite → nothing.
@@ -1811,8 +1931,11 @@ function caseTitleLabel(caseEntry, subCase) {
 // Set the case-title-label element to a link that reveals the case in the nav pane.
 // optionText: text of the currently selected audio dropdown option — used to resolve
 // the matching sub-case title for consolidated cases.
-function setCaseTitleLabel(term, caseEntry, optionText) {
-  const subCase = _subCaseForOption(caseEntry, optionText);
+// numberOverride: a specific docket number (e.g. from a URL 'case' param) that takes
+// priority over optionText — lets a link to one docket in a consolidated case show
+// that docket's own title even before/without a matching audio entry being selected.
+function setCaseTitleLabel(term, caseEntry, optionText, numberOverride) {
+  const subCase = _subCaseForNumber(caseEntry, numberOverride) || _subCaseForOption(caseEntry, optionText);
   const span = document.getElementById('case-title-label');
   span.innerHTML = '';
   const urlParams = new URLSearchParams({ term, case: caseId(caseEntry) });
@@ -2315,29 +2438,117 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
 // Always append this last so Citations follows any Briefs/References/Other groups.
 function _buildCitationsEntry(caseEntry) {
   if (!caseEntry.opCite?.length) return null;
-  const files = caseEntry.opCite.map(entry => ({
+  const files = caseEntry.opCite.map((entry, i) => ({
     title: entry.title,
-    citationRef: entry.ref,
+    citationTerm: entry.term,
+    citationId: entry.id,
+    citationIdx: i + 1, // 1-based index into opCite, mirrored in the 'citation' URL param
   }));
   return { kind: 'group', label: 'Citations', files };
+}
+
+// Build the { kind: 'group', label: 'Consolidations', files } entry listing
+// every title of a consolidated case — including the first/base one shown on
+// the case's own row, so there's always a way back to it from a sub-case's
+// page — each labelled with its docket number and linking to it so the header
+// title and default event switch to it (see _subCaseForNumber and the
+// numberOverride handling in restoreFromURL). Returns null when the case isn't
+// consolidated (a single title, or title/number counts that don't line up).
+// Appears after Citations but before flat transcript/decision entries.
+function _buildOtherTitlesEntry(caseEntry, term) {
+  const titles  = (caseEntry.title  || '').split('|');
+  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  if (titles.length < 2 || numbers.length !== titles.length) return null;
+  const files = titles.map((title, i) => ({
+    title: `${title} (No. ${_normNum(numbers[i])})`,
+    otherTitleTerm: term,
+    otherTitleNumber: numbers[i],
+  }));
+  return { kind: 'group', label: 'Consolidations', files };
+}
+
+// Find a rendered citation file-item by its 1-based 'citation' URL param value.
+function findCitationItem(param) {
+  if (param == null) return null;
+  return document.querySelector(`.file-item-citation[data-citation-idx="${CSS.escape(String(param))}"]`);
+}
+
+// Look up a cited case's own decision link (decision_loc, else decision_ussc,
+// else decision_reports) by loading its term's cases.json and matching on id.
+async function _resolveCitationHref(term, id) {
+  const cases = await fetchTermCases(term);
+  const c = Array.isArray(cases) ? cases.find(x => x?.id === id) : null;
+  return c ? (c.decision_loc || c.decision_ussc || c.decision_reports || null) : null;
 }
 
 // Build a single <li class="file-item"> with the standard click handler.
 function _makeCaseFileItem(f, caseEntry) {
   const fi = document.createElement('li');
   fi.className = 'file-item';
-  if (f.citationRef) {
+  if (f.citationTerm != null) {
     fi.classList.add('file-item-citation');
+    if (f.citationIdx != null) fi.dataset.citationIdx = f.citationIdx;
+
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'citation-title';
+    titleSpan.textContent = f.title;
+    titleSpan.addEventListener('click', async e => {
+      e.stopPropagation();
+      const mySeq = ++_fileClickSeq;
+      const href = await _resolveCitationHref(f.citationTerm, f.citationId);
+      if (!href) return;
+      if (mySeq !== _fileClickSeq) return; // a newer file/citation click superseded this one
+      document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+      fi.classList.add('active');
+      if (f.citationIdx != null) {
+        // Only update the URL if this citation belongs to the currently URL-encoded case.
+        const ci = fi.closest('.case-item');
+        const caseKey = ci?.dataset.caseKey || '';
+        const slash = caseKey.indexOf('/');
+        const citeTerm = slash >= 0 ? caseKey.slice(0, slash) : '';
+        const citeCase = slash >= 0 ? caseKey.slice(slash + 1) : '';
+        const url = new URL(location.href);
+        const urlMatches = !citeTerm || !citeCase
+          || (url.searchParams.get('term') === citeTerm
+              && url.searchParams.get('case') === citeCase);
+        if (urlMatches) {
+          url.searchParams.set('citation', f.citationIdx);
+          url.searchParams.delete('file');
+          history.replaceState(null, '', url);
+        }
+      }
+      showDocViewer({ href, title: f.title }, { autoScroll: true });
+    });
+    fi.appendChild(titleSpan);
+
+    const arrow = document.createElement('span');
+    arrow.className = 'citation-goto-arrow';
+    arrow.textContent = '→';
+    arrow.title = 'Open cited case';
+    arrow.addEventListener('click', e => {
+      e.stopPropagation();
+      const href = buildUrlParams(
+        { term: f.citationTerm, case: f.citationId },
+        ['collection', 'group', 'id', 'highlight', 'file', 'citation', 'event', 'turn', 'find'],
+      );
+      navigate(href);
+      restoreFromURL();
+    });
+    fi.appendChild(arrow);
+
+    return fi;
+  }
+  if (f.otherTitleNumber != null) {
+    fi.classList.add('file-item-other-title');
     fi.textContent = f.title;
     fi.addEventListener('click', e => {
       e.stopPropagation();
-      const slash = f.citationRef.indexOf('/');
-      if (slash === -1) return;
-      const refTerm = f.citationRef.slice(0, slash);
-      const refCase = f.citationRef.slice(slash + 1);
+      // Unlike Citations (a link to an unrelated cited case), a consolidation is
+      // the same underlying case under a different docket number — so keep any
+      // active collection/topic/group/id context instead of dropping it.
       const href = buildUrlParams(
-        { term: refTerm, case: refCase },
-        ['collection', 'group', 'id', 'highlight', 'file', 'event', 'turn', 'find'],
+        { term: f.otherTitleTerm, case: f.otherTitleNumber },
+        ['file', 'citation', 'event', 'turn', 'find'],
       );
       navigate(href);
       restoreFromURL();
@@ -2353,6 +2564,7 @@ function _makeCaseFileItem(f, caseEntry) {
   if (f.source) fi.title = f.source;
   fi.addEventListener('click', e => {
     e.stopPropagation();
+    ++_fileClickSeq; // invalidate any in-flight async citation lookup
     document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
     fi.classList.add('active');
     {
@@ -2371,6 +2583,7 @@ function _makeCaseFileItem(f, caseEntry) {
               && url.searchParams.get('case') === fileCase);
         if (urlMatches) {
           url.searchParams.set('file', fileKey);
+          url.searchParams.delete('citation');
           history.replaceState(null, '', url);
         }
       }
@@ -2719,7 +2932,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       caseKey,
       title:    caseTitle(caseEntry.title),
       tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
-      hasFiles: !!caseEntry.files || !!caseEntry.opCite?.length,
+      hasFiles: !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|'),
       href:     buildUrlParams(
         { term, case: urlId },
         ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
@@ -2822,10 +3035,12 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const groupEntries = entries.filter(e => e.kind === 'group');
           const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
           if (groupEntries.length === 1 && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
-          // Citations is the last group, but transcript/decision entries (flat,
-          // ungrouped) still follow it at the very bottom.
+          // Citations and Consolidations are the last groups, but transcript/decision
+          // entries (flat, ungrouped) still follow them at the very bottom.
           const citationsEntry = _buildCitationsEntry(caseEntry);
           if (citationsEntry) entries.push(citationsEntry);
+          const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, term);
+          if (otherTitlesEntry) entries.push(otherTitlesEntry);
           if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
           if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
@@ -2843,6 +3058,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     titleSpan.addEventListener('click', async (e) => {
       const fromRestore = !!e.fromRestore;
       const fileRestore = e.fileRestore ?? null;
+      const citationRestore = e.citationRestore ?? null;
+      const numberOverride = e.numberOverride ?? null;
       if (!fromRestore && ci.classList.contains('active')) {
         if (ci.classList.toggle('open')) await ensureFilesLoaded();
         return;
@@ -2858,21 +3075,23 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           initialTurn = saved.turnNum ?? null;
         }
         const urlParams  = { term, case: urlId };
-        const urlDeletes = ['collection', 'group', 'id', 'highlight', 'file'];
+        const urlDeletes = ['collection', 'group', 'id', 'highlight', 'file', 'citation'];
         if (audioIdx >= 1) urlParams.event = audioIdx; else urlDeletes.push('event');
         if (initialTurn != null) urlParams.turn = initialTurn; else urlDeletes.push('turn');
         document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
         navigate(buildUrlParams(urlParams, urlDeletes));
-      } else {
+      } else if (!numberOverride) {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
-        // via an id-based param like ?case=1959-099 instead of ?case=376).
+        // via an id-based param like ?case=1959-099 instead of ?case=376). Skip
+        // this when numberOverride is set — the URL intentionally names one
+        // specific docket within a consolidated case, not the canonical one.
         const url = new URL(location.href);
         if (url.searchParams.get('case') !== urlId) {
           url.searchParams.set('case', urlId);
           history.replaceState(null, '', url);
         }
       }
-      await loadCase(term, caseEntry, audioIdx, initialTurn != null ? { initialTurn } : {});
+      await loadCase(term, caseEntry, audioIdx, { ...(initialTurn != null ? { initialTurn } : {}), numberOverride });
       if (fromRestore) trackPageView(location.href);
       if (!fromRestore && mode === 'decided' && caseEntry.events?.some(a => a.audio_href) && hasDecisionHref(caseEntry)) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
@@ -2881,6 +3100,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       if (fileRestore != null && !caseEntry.events?.length) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
+      }
+      if (citationRestore != null && !caseEntry.events?.length) {
+        const citeEl = findCitationItem(citationRestore);
+        if (citeEl) { citeEl.closest('.file-type-group')?.classList.add('open'); citeEl.querySelector('.citation-title')?.click(); }
       }
     });
 
@@ -4331,16 +4554,18 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             files: groups[typeKey],
           });
         });
-        // Citations is the last group, but transcript/decision entries (flat,
-        // ungrouped) still follow it at the very bottom.
+        // Citations and Consolidations are the last groups, but transcript/decision
+        // entries (flat, ungrouped) still follow them at the very bottom.
         const citationsEntry = _buildCitationsEntry(caseEntry);
         if (citationsEntry) entries.push(citationsEntry);
+        const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, caseRef.term);
+        if (otherTitlesEntry) entries.push(otherTitlesEntry);
         if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 
         // Also hide the toggle when the only available files are transcript entries —
         // transcript-only cases are not considered "browsable" via the toggle.
-        const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript') || !!citationsEntry;
+        const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript') || !!citationsEntry || !!otherTitlesEntry;
         return { entries, hideToggle: !hasNonTranscriptFiles };
       },
     });
@@ -4358,6 +4583,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
 
   titleSpan.addEventListener('click', async (e) => {
     const fromRestore = !!e.fromRestore;
+    const numberOverride = e.numberOverride ?? null;
     if (!fromRestore && ci.classList.contains('active')) {
       // Already the selected case — clicking the title just toggles its file list open/closed.
       if (ci.classList.toggle('open')) {
@@ -4415,12 +4641,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
           ...(initialTurn ? { turn: initialTurn } : {}),
         },
-        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', ...(initialTurn ? [] : ['turn'])],
+        [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'citation', ...(initialTurn ? [] : ['turn'])],
       );
       document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
       navigate(url);
     }
-    await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn });
+    await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn, numberOverride });
     if (fromRestore) trackPageView(location.href);
     if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
         ci.closest('ul')?.dataset.sortMode === 'decided') {
@@ -4436,6 +4662,14 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
         fileEl.click();
+      }
+    }
+    const citationRestore = e.citationRestore ?? null;
+    if (citationRestore != null && !hasPlayableAudio) {
+      const citeEl = findCitationItem(citationRestore);
+      if (citeEl) {
+        citeEl.closest('.file-type-group')?.classList.add('open');
+        citeEl.querySelector('.citation-title')?.click();
       }
     }
   });
@@ -5017,7 +5251,7 @@ function _buildJournalRefOptions(caseEntry, term) {
 // the opinion PDF (if any) opens full-height in the document viewer. Used for
 // historical cases without playable audio, and when a collection click forces
 // no-audio display (forceNoAudio: true).
-async function loadCaseAsOpinion(term, caseEntry) {
+async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
 
@@ -5059,8 +5293,9 @@ async function loadCaseAsOpinion(term, caseEntry) {
   activeBottomLinkText = null;
 
   // Show case title (hide audio select since there is no audio).
-  setCaseTitleLabel(term, caseEntry);
-  document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
+  setCaseTitleLabel(term, caseEntry, null, numberOverride);
+  const _opSub = _subCaseForNumber(caseEntry, numberOverride);
+  document.title = (_opSub ? _opSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud';
   const audioSelect = document.getElementById('audio-select');
   const decisionLabel = document.getElementById('decision-date-label');
 
@@ -5172,7 +5407,7 @@ async function loadCaseAsOpinion(term, caseEntry) {
   }
 }
 
-async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null } = {}) {
+async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, numberOverride = null } = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
   _currentTerm    = term;
@@ -5186,7 +5421,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // loadCaseAsOpinion which handles the simpler opinion-only display path.
   const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_href);
   if (!hasPlayableAudio) {
-    return loadCaseAsOpinion(term, caseEntry);
+    return loadCaseAsOpinion(term, caseEntry, numberOverride);
   }
 
   // Restore audio-select visibility for normal audio cases.
@@ -5428,15 +5663,20 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // The active sibling among collection items for this case is the one whose
   // audioDate matches the resolved event's date. When multiple siblings share
   // the same date (e.g. two consolidated dockets argued the same day), break
-  // the tie using the 1-based event index stored on the element.
+  // the tie using the 1-based event index stored on the element. Skip this
+  // disambiguation entirely when numberOverride is set: we've deliberately
+  // jumped to one specific consolidated docket (e.g. via the Consolidations
+  // list), so the collection's one row for the case should highlight even
+  // though the docket's own event may fall on a different date/index than
+  // whatever the collection entry originally recorded.
   const _resolvedDate = allAudio[resolvedOptionValue - 1]?.date || null;
   const _resolvedEventIdx = caseEntry.events.indexOf(allAudio[resolvedOptionValue - 1]) + 1; // 1-based, 0 if not found
   _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
     .forEach(el => {
-      if (el.dataset.audioDate !== undefined &&
+      if (!numberOverride && el.dataset.audioDate !== undefined &&
           _resolvedDate !== null &&
           el.dataset.audioDate !== _resolvedDate) return;
-      if (el.dataset.eventIdx !== undefined &&
+      if (!numberOverride && el.dataset.eventIdx !== undefined &&
           _resolvedEventIdx >= 1 &&
           parseInt(el.dataset.eventIdx, 10) !== _resolvedEventIdx) return;
       el.classList.add('active');
@@ -5455,10 +5695,11 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _updateFavoriteBtn();
   _updateTagsBtn();
 
-  // Update case title — for consolidated cases, reflect the selected sub-case.
+  // Update case title — for consolidated cases, reflect the selected sub-case
+  // (or numberOverride, e.g. from a URL 'case' param naming one specific docket).
   const _selOptText = audioSelect.options[audioSelect.selectedIndex]?.textContent || '';
-  setCaseTitleLabel(term, caseEntry, _selOptText);
-  const _selSub = _subCaseForOption(caseEntry, _selOptText);
+  setCaseTitleLabel(term, caseEntry, _selOptText, numberOverride);
+  const _selSub = _subCaseForNumber(caseEntry, numberOverride) || _subCaseForOption(caseEntry, _selOptText);
   document.title = (_selSub ? _selSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud';
 
   const qEl = document.getElementById('case-questions');
@@ -7487,6 +7728,36 @@ async function init() {
   await restoreFromURL();
 }
 
+// Returns the section <li> that contains the given collection, opened and built.
+// Checks _collectionsSectionLi then _topicsSectionLi so both sources are routable.
+async function _openCollectionSection(collId) {
+  for (const sLi of [_collectionsSectionLi, _topicsSectionLi]) {
+    if (!sLi) continue;
+    sLi.classList.add('open');
+    await sLi._ensureBuilt();
+    if (sLi.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`)) return sLi;
+  }
+  return null;
+}
+
+// Scroll a collection's sidebar so a specific group (e.g. one bench) is in
+// view, without navigating/reloading the page-viewer iframe itself — used by
+// embedded pages (e.g. the benches list) that want to keep the sidebar synced
+// with whichever item they consider "first" under their own sort order.
+async function _scrollSidebarToCollectionItem(collId, itemId) {
+  const sLi = await _openCollectionSection(collId);
+  const collLi = sLi?.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`);
+  if (!collLi) return;
+  let ancestor = collLi.parentElement?.closest('.term-group');
+  while (ancestor && sLi.contains(ancestor)) { ancestor.classList.add('open'); ancestor = ancestor.parentElement?.closest('.term-group'); }
+  collLi.classList.add('open');
+  await collLi._ensureBuilt?.();
+  const groupLi = collLi.querySelector(`.month-group[data-group-id="${CSS.escape(itemId)}"]`);
+  if (!groupLi) return;
+  collLi._centerOnGroup?.(groupLi);
+  requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+}
+
 async function restoreFromURL() {
   const params = new URLSearchParams(location.search);
 
@@ -7571,22 +7842,12 @@ async function restoreFromURL() {
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
   const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into caseEntry.events (original on-disk order)
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
+  const citationParam = params.get('citation') != null ? parseInt(params.get('citation'), 10) : null; // 1-based index into caseEntry.opCite
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
   const _parsedSort = _parseSortParam(params.get('sort'), params.get('o'));
 
   // ── Collection restore ───────────────────────────────────────────────────
 
-  // Returns the section <li> that contains the given collection, opened and built.
-  // Checks _collectionsSectionLi then _topicsSectionLi so both sources are routable.
-  async function _openCollectionSection(collId) {
-    for (const sLi of [_collectionsSectionLi, _topicsSectionLi]) {
-      if (!sLi) continue;
-      sLi.classList.add('open');
-      await sLi._ensureBuilt();
-      if (sLi.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`)) return sLi;
-    }
-    return null;
-  }
   function _findAnyCollectionEntry(collId) {
     return _findCollectionEntry(COLLECTIONS, collId) ?? _findCollectionEntry(TOPICS, collId);
   }
@@ -7759,6 +8020,33 @@ async function restoreFromURL() {
           });
       }
 
+      // Fetch the term's full case data — needed below regardless of whether a
+      // DOM match was found yet, since a collection entry is only keyed by one
+      // case's primary docket number (see _primaryCaseNumber in update_cases.js).
+      const termCases = await fetchTermCases(termParam);
+      const matchedCase = termCases.find(c => {
+        if (c.id && c.id === caseParam) return true;
+        if (!c.number) return false;
+        return c.number === caseParam
+          || c.number.split(',').map(n => n.trim()).includes(caseParam);
+      });
+
+      // Sibling-docket fallback: caseParam may name a *different* docket number
+      // of a consolidated case whose own row in this collection is keyed by its
+      // primary number instead (e.g. a "Consolidations" link to "No. 760" while
+      // this collection only lists the case as "No. 759"). Re-resolve the DOM
+      // match via the primary number and remember the requested one as an
+      // override so the title/event still reflect it.
+      let numberOverride = null;
+      if (candidates.length === 0 && matchedCase?.number) {
+        const _numbers = matchedCase.number.split(',').map(n => n.trim());
+        if (_numbers.length > 1 && _numbers.includes(caseParam)) {
+          numberOverride = caseParam;
+          const primaryKey = CSS.escape(termParam + '/' + _numbers[0]);
+          candidates = Array.from(_caseSearchRoot.querySelectorAll(`.case-item[data-case-key="${primaryKey}"]`));
+        }
+      }
+
       // If audioParam is specified and multiple case items exist for this case
       // (e.g., an advocate argued the same case twice), filter by data-event-idx
       // to select the correct one.
@@ -7769,14 +8057,13 @@ async function restoreFromURL() {
         );
         if (eventMatch) ci = eventMatch;
       }
-      // Still fetch term cases so fileRestore can check events length below.
-      const termCases = ci ? await fetchTermCases(termParam) : [];
-      const matchedCase = termCases.find(c => {
-        if (c.id && c.id === caseParam) return true;
-        if (!c.number) return false;
-        return c.number === caseParam
-          || c.number.split(',').map(n => n.trim()).includes(caseParam);
-      });
+      let _defaultAudioIdx = audioParam;
+      if (_defaultAudioIdx == null && numberOverride) {
+        const _escaped = numberOverride.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const _numRe = new RegExp('\\bNo\\.\\s*' + _escaped + '\\b');
+        const _evIdx = matchedCase.events?.findIndex(ev => _numRe.test(ev.title || '')) ?? -1;
+        if (_evIdx >= 0) _defaultAudioIdx = _evIdx + 1;
+      }
       if (ci) {
         _collCaseFocused = true;
         ci.closest('.month-group')?._centerOnItem?.(ci);
@@ -7784,7 +8071,7 @@ async function restoreFromURL() {
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
         const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
-        if ((fileParam != null || turnParam != null) && _hasAudio) {
+        if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
@@ -7818,6 +8105,14 @@ async function restoreFromURL() {
                 fileEl.click();
               }
             }
+            if (citationParam != null) {
+              const citeEl = findCitationItem(citationParam);
+              if (citeEl) {
+                citeEl.closest('.file-type-group')?.classList.add('open');
+                requestAnimationFrame(() => citeEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
+                citeEl.querySelector('.citation-title')?.click();
+              }
+            }
           }, { once: true });
         }
         if (isMobile()) {
@@ -7829,11 +8124,13 @@ async function restoreFromURL() {
         const titleEl = ci.querySelector('.case-title-nav');
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
           fromRestore: true,
-          ...(audioParam != null ? { audioIdx: audioParam } : {}),
+          ...(_defaultAudioIdx != null ? { audioIdx: _defaultAudioIdx } : {}),
           ...(turnParam != null ? { initialTurn: turnParam } : {}),
-          // Pass fileRestore so the title click handler can open the file directly
-          // for no-audio cases (where transcriptloaded never fires).
+          numberOverride,
+          // Pass fileRestore/citationRestore so the title click handler can open
+          // the file/citation directly for no-audio cases (where transcriptloaded never fires).
           fileRestore: (fileParam != null && !_hasAudio) ? String(fileParam) : null,
+          citationRestore: (citationParam != null && !_hasAudio) ? citationParam : null,
         }));
       }
     }
@@ -7886,7 +8183,20 @@ async function restoreFromURL() {
       const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
         const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
-        if ((fileParam != null || turnParam != null) && _hasAudio) {
+
+        // When 'case' named one specific docket number within a consolidated case
+        // (rather than its overall id), show that docket's own title, and — if a
+        // matching "No. N" event exists — default to it instead of the first event.
+        const _numbers = (matchedCase?.number || '').split(',').map(n => n.trim());
+        const numberOverride = (_numbers.length > 1 && _numbers.includes(caseParam)) ? caseParam : null;
+        let _defaultAudioIdx = audioParam;
+        if (_defaultAudioIdx == null && numberOverride) {
+          const _escaped = numberOverride.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const _numRe = new RegExp('\\bNo\\.\\s*' + _escaped + '\\b');
+          const _evIdx = matchedCase.events?.findIndex(ev => _numRe.test(ev.title || '')) ?? -1;
+          if (_evIdx >= 0) _defaultAudioIdx = _evIdx + 1;
+        }
+        if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
@@ -7920,6 +8230,14 @@ async function restoreFromURL() {
                 fileEl.click();
               }
             }
+            if (citationParam != null) {
+              const citeEl = findCitationItem(citationParam);
+              if (citeEl) {
+                citeEl.closest('.file-type-group')?.classList.add('open');
+                requestAnimationFrame(() => citeEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
+                citeEl.querySelector('.citation-title')?.click();
+              }
+            }
           }, { once: true });
         }
         // On mobile, scroll to playerSection once the transcript is loaded.
@@ -7933,8 +8251,10 @@ async function restoreFromURL() {
         const titleEl = caseEl.querySelector('.case-title-nav');
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), {
           fromRestore: true,
-          audioIdx: audioParam ?? 0,
+          audioIdx: _defaultAudioIdx ?? 0,
           fileRestore: (fileParam != null && !_hasAudio) ? String(fileParam) : null,
+          citationRestore: (citationParam != null && !_hasAudio) ? citationParam : null,
+          numberOverride,
         }));
         // For no-audio cases, file restore is handled inside the title click handler
         // (after ensureFilesLoaded). For audio cases it fires on transcriptloaded above.
@@ -8031,6 +8351,8 @@ window.addEventListener('message', async (e) => {
     if (e.data.s) newUrl.searchParams.set('s', e.data.s);
     else          newUrl.searchParams.delete('s');
     history.replaceState(null, '', newUrl.toString());
+  } else if (e.data?.type === 'ussc-scroll-collection-item' && e.data.collection && e.data.id) {
+    _scrollSidebarToCollectionItem(e.data.collection, e.data.id);
   }
 });
 

@@ -901,6 +901,28 @@ button.term-case-count.sort-active:hover {
   font-weight: 600;
 }
 
+.file-item-citation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.citation-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.citation-goto-arrow {
+  flex-shrink: 0;
+  opacity: 0.55;
+  padding: 0 2px;
+}
+
+.citation-goto-arrow:hover {
+  opacity: 1;
+}
+
 /* ── Right main panel ────────────────────────────────────── */
 #main-panel {
   flex: 1;
@@ -1099,6 +1121,16 @@ button.term-case-count.sort-active:hover {
 
 .tag-builtin:hover {
   background: none !important;
+}
+
+.tag-builtin.tag-linked {
+  cursor: pointer;
+  color: #2672b4;
+}
+
+.tag-builtin.tag-linked:hover {
+  background: #e4eef8 !important;
+  text-decoration: underline;
 }
 
 .tag-user {
@@ -2535,6 +2567,8 @@ button.term-case-count.sort-active:hover {
   #tags-btn { color: #6c7280; }
   #tags-btn:hover { color: #5eaee0; text-decoration: underline; }
   .tag-builtin { color: #6c7280; }
+  .tag-builtin.tag-linked { color: #5eaee0; }
+  .tag-builtin.tag-linked:hover { background: #252a35 !important; }
   .tag-delete-btn { color: #6c7280; }
   .tag-add-item { border-top-color: #3a3d4a; color: #7bc8f0; }
   .tag-add-input { border-color: #3a3d4a; background: #252830; color: #c8ccd8; }
@@ -2648,6 +2682,8 @@ html[data-theme="dark"] #case-cite:hover  { color: #5eaee0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }
 html[data-theme="dark"] #tags-btn:hover   { color: #5eaee0; }
 html[data-theme="dark"] .tag-builtin      { color: #6c7280; }
+html[data-theme="dark"] .tag-builtin.tag-linked      { color: #5eaee0; }
+html[data-theme="dark"] .tag-builtin.tag-linked:hover { background: #252a35 !important; }
 html[data-theme="dark"] .tag-delete-btn   { color: #6c7280; }
 html[data-theme="dark"] .tag-delete-btn:hover { color: #d44; }
 html[data-theme="dark"] .tag-add-item     { border-top-color: #3a3d4a; color: #7bc8f0; }

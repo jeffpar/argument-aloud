@@ -1503,6 +1503,15 @@ function _parseTotalSecs(total) {
     return +m[1] * 3600 + +m[2] * 60 + +m[3];
 }
 
+const _MS_PER_DAY = 86400000;
+
+// Tenure durations are inclusive of both the start and stop day (a justice
+// sworn in and retiring the same day served 1 day, not 0), so add one day's
+// worth of ms to the raw difference before converting to days/years.
+function _inclusiveDurationMs(startMs, stopMs) {
+    return Math.max(0, stopMs - startMs) + _MS_PER_DAY;
+}
+
 /** Sum tenure durations in fractional years (open tenures use today's date). */
 function _computeYearsServed(tenures) {
     let totalMs = 0;
@@ -1512,9 +1521,9 @@ function _computeYearsServed(tenures) {
         const start = Date.parse(t.dateStart);
         const stop  = t.dateStop ? Date.parse(t.dateStop) : now;
         if (isNaN(start) || isNaN(stop)) continue;
-        totalMs += Math.max(0, stop - start);
+        totalMs += _inclusiveDurationMs(start, stop);
     }
-    return totalMs / (365.25 * 24 * 3600 * 1000);
+    return totalMs / (365.25 * _MS_PER_DAY);
 }
 
 /** Return the HTML body for a justice page.
@@ -1525,9 +1534,10 @@ function _justiceBody(servedBase) {
         '<div style="flex:2; min-width:0; overflow:hidden;">',
         '<h1>{{ page.title }}</h1>',
         '<p>' + servedBase + '{% if page.years_served %}{% assign yr_str = page.years_served | append: "" | remove: ".0" %} ({{ yr_str }} year{% unless yr_str == "1" %}s{% endunless %} or {{ page.days_served }} days){% elsif page.date_start %} <span id="jp-dur"></span>{% endif %}.</p>',
-        '{% if page.date_start %}<script>(function(){var e=document.getElementById("jp-dur");if(!e)return;var ms=Date.now()-Date.parse("{{ page.date_start }}");var d=Math.floor(ms/86400000);var y=(ms/(365.25*86400000)).toFixed(1).replace(/\\.0$/,"");e.textContent="("+y+" year"+(y==="1"?"":"s")+" or "+d.toLocaleString()+" days)";}());</script>{% endif %}',
+        '{% if page.date_start %}<script>(function(){var e=document.getElementById("jp-dur");if(!e)return;var ms=Date.now()-Date.parse("{{ page.date_start }}")+86400000;var d=Math.floor(ms/86400000);var y=(ms/(365.25*86400000)).toFixed(1).replace(/\\.0$/,"");e.textContent="("+y+" year"+(y==="1"?"":"s")+" or "+d.toLocaleString()+" days)";}());</script>{% endif %}',
         '{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">case</a> on {{ page.last_argument }}{% else %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">cases</a> from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
         '{% if page.opinions or page.lone_dissents or page.vocal_secs %}<p>{% if page.opinions or page.lone_dissents %}Wrote {% if page.opinions %}{{ page.opinions }} majority <a href="/courts/ussc/?collection=opinions&id={{ page.justice_id }}">opinion{% if page.opinions != 1 %}s{% endif %}</a>{% endif %}{% if page.opinions and page.lone_dissents %} and {% endif %}{% if page.lone_dissents %}{{ page.lone_dissents }} lone <a href="/courts/ussc/?collection=lone_dissents&id={{ page.justice_id }}">dissent{% if page.lone_dissents != 1 %}s{% endif %}</a>{% endif %}{% if page.vocal_secs %}, and spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}{% elsif page.vocal_secs %}Spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}.</p>{% endif %}',
+        '<p>Note: All service calculations are inclusive, meaning they include the first and last days of service, as well as all days between.</p>',
         '</div>',
         '<div class="jp-frame"><img src="portrait.jpg" alt="{{ page.title }}" onerror="this.parentElement.style.display=\'none\'"></div>',
         '</div>',
@@ -1633,9 +1643,9 @@ function syncJusticePages({ verbose = false } = {}) {
         const daysMs   = tenures.reduce((sum, t) => {
             if (!t.dateStart) return sum;
             const s = Date.parse(t.dateStart), e = t.dateStop ? Date.parse(t.dateStop) : Date.now();
-            return sum + Math.max(0, e - s);
+            return sum + _inclusiveDurationMs(s, e);
         }, 0);
-        const daysStr  = yrs > 0 ? Math.round(daysMs / 86400000).toLocaleString('en-US') : '';
+        const daysStr  = yrs > 0 ? Math.round(daysMs / _MS_PER_DAY).toLocaleString('en-US') : '';
         const wikiUrl  = wikiMap.get(id) || '';
 
         const body = _justiceBody(servedBase);
@@ -1684,11 +1694,14 @@ function syncJusticePages({ verbose = false } = {}) {
 
             // Migrate body if frame is absent, still carries the old inline <style> block,
             // is an active justice whose body predates the dynamic duration span,
-            // or has the old unlinked "argued N cases" text.
+            // has the old unlinked "argued N cases" text, or predates the inclusive-
+            // service-calculation note (also catches stale copies of the pre-fix,
+            // non-inclusive jp-dur duration script).
             const needsDynDuration = isActive && !mdText.includes('id="jp-dur"');
             const needsCasesLink   = mdText.includes('{% else %}cases from {{ page.first_argument }}');
             const needsCombinedP   = mdText.includes('View vocal statistics');
-            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP) {
+            const needsServiceNote = !mdText.includes('All service calculations are inclusive');
+            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP || needsServiceNote) {
                 const fmEnd = /^---\r?\n[\s\S]*?\n---\r?\n/.exec(mdText);
                 if (fmEnd) mdText = mdText.slice(0, fmEnd[0].length) + body + '\n';
             }

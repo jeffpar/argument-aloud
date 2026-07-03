@@ -308,7 +308,8 @@ html[data-theme="dark"] .jg-portrait { background: #3a3c45; }
       var nowMs = Date.now();
       justices = data.map(function (j) {
         if (!j.dateStop && j.dateStart) {
-          j.yearsServed = Math.max(0, nowMs - Date.parse(j.dateStart)) / (365.25 * 86400000);
+          // Inclusive of both the start day and today.
+          j.yearsServed = (Math.max(0, nowMs - Date.parse(j.dateStart)) + 86400000) / (365.25 * 86400000);
         }
         return j;
       });

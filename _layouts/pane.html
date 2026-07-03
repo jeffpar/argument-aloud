@@ -122,8 +122,8 @@
   {%- if page.date_start %}
   <script>
     (function () {
-      var ms   = Date.now() - Date.parse('{{ page.date_start }}');
-      var days = Math.round(ms / 86400000);
+      var ms   = Date.now() - Date.parse('{{ page.date_start }}') + 86400000; // inclusive of start day and today
+      var days = Math.floor(ms / 86400000);
       var yrs  = ms / (365.25 * 86400000);
       var yr   = yrs.toFixed(1).replace(/\.0$/, '');
       var txt  = '(' + yr + ' year' + (yr === '1' ? '' : 's') + ' or ' + days.toLocaleString() + ' days)';
