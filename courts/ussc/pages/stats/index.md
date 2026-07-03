@@ -220,7 +220,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     var cW = W - P.l - P.r, cH = H - P.t - P.b;
     var n = data.length;
     var maxRaw = 0;
-    for (var i = 0; i < n; i++) maxRaw = Math.max(maxRaw, data[i].d, data[i].ad);
+    for (var i = 0; i < n; i++) maxRaw = Math.max(maxRaw, data[i].d, data[i].ad, data[i].un || 0);
     var step = maxRaw > 200 ? 50 : maxRaw > 100 ? 25 : 10;
     var maxY = Math.ceil(maxRaw * 1.1 / step) * step;
     function xOf(i) { return P.l + i / (n - 1) * cW; }
@@ -254,16 +254,17 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     }
     function makePath(field, color) {
       var d = '';
-      for (var i = 0; i < n; i++) d += (i ? 'L' : 'M') + xOf(i).toFixed(1) + ' ' + yOf(data[i][field]).toFixed(1);
+      for (var i = 0; i < n; i++) d += (i ? 'L' : 'M') + xOf(i).toFixed(1) + ' ' + yOf(data[i][field] || 0).toFixed(1);
       return svgEl('path', { d:d, fill:'none', stroke:color, 'stroke-width':'1.5', 'stroke-linejoin':'round' });
     }
     svg.appendChild(makePath('ad', '#ff9f40'));
     svg.appendChild(makePath('d',  '#4a9eff'));
+    svg.appendChild(makePath('un', '#2ecc71'));
     var cursor = svgEl('line', { x1:P.l, x2:P.l, y1:P.t, y2:P.t+cH }, 'stroke:var(--chart-label);stroke-width:1;opacity:0;pointer-events:none');
     svg.appendChild(cursor);
     var tip = svgEl('g', {}, 'opacity:0;pointer-events:none');
-    tip.appendChild(svgEl('rect', { rx:'3', width:'88', height:'46' }, 'fill:var(--chart-tip-bg);stroke:var(--chart-axis);stroke-width:1'));
-    var tipT = [svgEl('text',{},null), svgEl('text',{},null), svgEl('text',{},null)];
+    tip.appendChild(svgEl('rect', { rx:'3', width:'106', height:'59' }, 'fill:var(--chart-tip-bg);stroke:var(--chart-axis);stroke-width:1'));
+    var tipT = [svgEl('text',{},null), svgEl('text',{},null), svgEl('text',{},null), svgEl('text',{},null)];
     tipT.forEach(function(t) { t.style.cssText = 'fill:var(--chart-label);font-size:10px;font-family:inherit'; tip.appendChild(t); });
     svg.appendChild(tip);
     var hit = svgEl('rect', { x:P.l, y:P.t, width:cW, height:cH, fill:'transparent' }, 'cursor:crosshair');
@@ -277,10 +278,13 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
       var parts = row.t.split('-');
       tipT[0].textContent = (MON[parseInt(parts[1],10)-1]||'') + ' ' + parts[0];
       tipT[1].textContent = 'Decided: ' + row.d;
-      tipT[2].textContent = 'Arg. days: ' + row.ad;
+      var unCount = row.un || 0;
+      var unPct = row.d ? Math.round(unCount / row.d * 100) : 0;
+      tipT[2].textContent = 'Unanimous: ' + unCount + ' (' + unPct + '%)';
+      tipT[3].textContent = 'Arg. days: ' + row.ad;
       tipT.forEach(function(t, i) { t.setAttribute('x', 6); t.setAttribute('y', 12 + i * 13); });
       var tx = +cx + 6;
-      if (tx + 88 > P.l + cW) tx = +cx - 94;
+      if (tx + 106 > P.l + cW) tx = +cx - 112;
       tip.setAttribute('transform', 'translate(' + tx + ',' + (P.t + 4) + ')');
       tip.style.opacity = '1';
     }
@@ -290,7 +294,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     container.appendChild(svg);
     var leg = document.createElement('div');
     leg.style.cssText = 'display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:0.72rem;';
-    [['Cases decided','#4a9eff'],['Argument days','#ff9f40']].forEach(function(item) {
+    [['Cases decided','#4a9eff'],['Unanimous','#2ecc71'],['Argument days','#ff9f40']].forEach(function(item) {
       var s = document.createElement('span');
       s.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
       var sw = document.createElement('span');
@@ -382,12 +386,16 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
           document.getElementById('stat-argument-days').textContent = summary.argDays.toLocaleString();
           document.getElementById('stat-with-audio').textContent    = summary.audio.toLocaleString();
         }
-        // Build per-term chart data from non-hidden group entries.
+        // Build per-term chart data from non-hidden group entries. Special terms
+        // (e.g. "July Special Term 1942") decide only a handful of cases and
+        // create sharp, misleading spikes next to normal full-length terms, so
+        // they're excluded from the chart entirely.
         var chartData = [];
         data.forEach(function(decade) {
           if (decade.hidden) return;
           (decade.groups || []).forEach(function(g) {
-            if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays });
+            if (g.name && /special/i.test(g.name)) return;
+            if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays, un: g.unanimous });
           });
         });
         if (chartData.length) {

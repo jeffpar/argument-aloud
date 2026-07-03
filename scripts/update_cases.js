@@ -5096,7 +5096,7 @@ function _buildNoteworthyCollection(allTerms) {
     return { output, skipped: 0, unmatched: 0 };
 }
 
-const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports', 'decided', 'argued', 'argDays', 'audio'];
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
 
 function syncTermsJson() {
     let tj;
@@ -5104,7 +5104,7 @@ function syncTermsJson() {
     if (!Array.isArray(tj)) return;
 
     let modified = false;
-    let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0;
+    let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0, totalUnanimous = 0;
 
     for (const decade of tj) {
         for (let i = 0; i < (decade.groups || []).length; i++) {
@@ -5116,7 +5116,7 @@ function syncTermsJson() {
 
             const termId = m[1];
             const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'cases.json');
-            let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0;
+            let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0, unanimous = 0;
             if (fs.existsSync(casesPath)) {
                 try {
                     const data = _readJson(casesPath);
@@ -5131,14 +5131,16 @@ function syncTermsJson() {
                             }
                         });
                         argDays = argDaySet.size;
-                        audio   = data.filter(c => (c.events || []).some(e => e.audio_href)).length;
+                        audio     = data.filter(c => (c.events || []).some(e => e.audio_href)).length;
+                        unanimous = data.filter(c => c.voteMinority === 0).length;
                     }
                 } catch {}
             }
-            totalDecided += decided;
-            totalArgued  += argued;
-            totalArgDays += argDays;
-            totalAudio   += audio;
+            totalDecided   += decided;
+            totalArgued    += argued;
+            totalArgDays   += argDays;
+            totalAudio     += audio;
+            totalUnanimous += unanimous;
 
             // Rebuild page with canonical key order, file=URL, cases=count, stats at end.
             const newPage = {};
@@ -5151,6 +5153,7 @@ function syncTermsJson() {
                 if (k === 'argued')  { newPage.argued  = argued;  continue; }
                 if (k === 'argDays') { newPage.argDays = argDays; continue; }
                 if (k === 'audio')   { newPage.audio   = audio;   continue; }
+                if (k === 'unanimous') { newPage.unanimous = unanimous; continue; }
                 if (Object.prototype.hasOwnProperty.call(page, k)) newPage[k] = page[k];
             }
             // Preserve extra keys not in the canonical order.
@@ -5170,7 +5173,7 @@ function syncTermsJson() {
         tj.pop(); modified = true;
     }
     // Update or append the hidden all-terms container.
-    const newSummaryGroup = { id: 'all', decided: totalDecided, argued: totalArgued, argDays: totalArgDays, audio: totalAudio };
+    const newSummaryGroup = { id: 'all', decided: totalDecided, argued: totalArgued, argDays: totalArgDays, audio: totalAudio, unanimous: totalUnanimous };
     const newContainer    = { name: 'All', hidden: true, groups: [newSummaryGroup] };
     const lastItem = tj[tj.length - 1];
     if (lastItem?.hidden === true && lastItem?.name === 'All' && Array.isArray(lastItem?.groups)) {
@@ -6421,15 +6424,14 @@ const KEYWORD_STOP_WORDS = new Set([
 
 // Scan every term's cases.json, read all referenced transcript files, and
 // rebuild courts/ussc/indexes/cases/keywords/{ch}.json.
-// Format matches the title index: { "word": ["term/ref", ...], ... }
-// Scan every term's cases.json, read all referenced transcript files, and
-// rebuild courts/ussc/indexes/cases/keywords/{ch}.json.
 //
-// Index format (differs from the title index):
-//   { "word": { "term/ref": [eventIdx, turnNum], ... }, ... }
-// where eventIdx is the 1-based position of the event in c.events and turnNum
-// is turn.turn from the transcript — together they form the first occurrence of
-// the word in that case, suitable for use as ?event=N&turn=N URL params.
+// Index format:
+//   { "word": { "term/ref": [e1,t1,p1,nid1, e2,t2,p2,nid2, ...], ... }, ... }
+// Each group of 4 numbers is one (event, turn) occurrence of the word, sorted by
+// (eventIdx, turnNum).  eventIdx is the 1-based position in c.events; turnNum is
+// turn.turn from the transcript (also 1-based).  p is the 1-based word position
+// within that turn (first occurrence of the word in the turn).  nid is the justice's
+// numeric id when the speaker's title contains "JUSTICE", and 0 otherwise.
 function processKeywordIndex(allTerms, dryRun) {
     const INDEX_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'keywords');
     if (!dryRun && !fs.existsSync(INDEX_DIR)) {
@@ -6448,12 +6450,7 @@ function processKeywordIndex(allTerms, dryRun) {
         }
     } catch { /* ignore — justice data is optional */ }
 
-    // word → Map<ref, [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, c1, ...]>
-    // First 3 elements are the first-occurrence location and turn-count (unchanged).
-    // Additional groups of 5 (eventIdx, turnNum, wordPos, nid, turnCount) record the first
-    // occurrence of this word per justice whose title contains "JUSTICE", plus the count of
-    // distinct turns where that justice says this word, enabling navigation, sequential phrase
-    // filtering, and accurate per-justice match counts.
+    // word → Map<ref, [e1,t1,p1,nid1, e2,t2,p2,nid2, ...]>
     // ref is a short id ("YYYY-NNN") when term is YYYY-10 and c.id starts with YYYY;
     // otherwise the full "term/id-or-number" string.
     const wordLocs = new Map();
@@ -6481,10 +6478,8 @@ function processKeywordIndex(allTerms, dryRun) {
                 c.events.filter(e => e.source === 'oyez' && e.text_href).map(e => e.date)
             );
 
-            // word → [eventIdx, turnNum] of first occurrence; word → unique (event,turn) pairs
-            const caseFirstLoc  = new Map();
-            const caseWordTurns = new Map(); // word → Set<"eventIdx:turnNum">
-            const caseJusticeLocs = new Map(); // word → Map<nid, [e, t, p, Set<"e:t">]>
+            // word → Array of [eventIdx, turnNum, wordPos, nid] — one per occurrence.
+            const caseWordOccurrences = new Map();
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
                 if (!ev.text_href) continue;
@@ -6512,49 +6507,21 @@ function processKeywordIndex(allTerms, dryRun) {
                     if (!turn.text) continue;
                     const speakerTitle = speakerTitleMap.get(turn.name) || '';
                     const isJustice = speakerTitle.includes('JUSTICE');
-                    const justiceNid = isJustice ? justiceNidByName.get(turn.name) : undefined;
+                    const nid = isJustice ? (justiceNidByName.get(turn.name) || 0) : 0;
                     const words = turn.text.toLowerCase().split(/[^a-z]+/);
                     for (let wIdx = 0; wIdx < words.length; wIdx++) {
                         const word = words[wIdx];
                         if (word.length < 3) continue;
                         if (KEYWORD_STOP_WORDS.has(word)) continue;
-                        if (!caseFirstLoc.has(word)) {
-                            caseFirstLoc.set(word, [eventIdx, turn.turn]);
-                        }
-                        if (!caseWordTurns.has(word)) caseWordTurns.set(word, new Set());
-                        caseWordTurns.get(word).add(`${eventIdx}:${turn.turn}`);
-                        if (justiceNid !== undefined) {
-                            if (!caseJusticeLocs.has(word)) caseJusticeLocs.set(word, new Map());
-                            const jMap = caseJusticeLocs.get(word);
-                            if (!jMap.has(justiceNid)) jMap.set(justiceNid, [eventIdx, turn.turn, wIdx + 1, new Set()]);
-                            jMap.get(justiceNid)[3].add(`${eventIdx}:${turn.turn}`);
-                        }
+                        if (!caseWordOccurrences.has(word)) caseWordOccurrences.set(word, []);
+                        caseWordOccurrences.get(word).push([eventIdx, turn.turn, wIdx + 1, nid]);
                     }
                 }
             }
 
-            for (const [word, loc] of caseFirstLoc) {
+            for (const [word, tuples] of caseWordOccurrences) {
                 if (!wordLocs.has(word)) wordLocs.set(word, new Map());
-                // Third element: number of distinct (event, turn) pairs containing this word.
-                // Used at query time to approximate co-occurrence count across tokens via min().
-                const entry = [loc[0], loc[1], caseWordTurns.get(word)?.size || 0];
-                // Append per-justice groups: [e, t, p, nid, count, e2, t2, e3, t3, ...]
-                // where (e,t,p) is the first occurrence, count is the total distinct turns,
-                // and (e2,t2)...(eN,tN) are the additional turns beyond the first.
-                // This allows exact phrase-match counts via turn-set intersection at query time.
-                const jMap = caseJusticeLocs.get(word);
-                if (jMap) {
-                    for (const [nid, data] of jMap) {
-                        const count = data[3].size;
-                        entry.push(data[0], data[1], data[2], nid, count);
-                        if (count > 1) {
-                            // Sort all turns; first is already (data[0], data[1])
-                            const turns = [...data[3]].map(s => s.split(':').map(Number))
-                                                      .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-                            for (let k = 1; k < turns.length; k++) entry.push(turns[k][0], turns[k][1]);
-                        }
-                    }
-                }
+                const entry = tuples.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]).flat();
                 wordLocs.get(word).set(ref, entry);
             }
         }

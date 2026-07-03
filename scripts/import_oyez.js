@@ -12,6 +12,14 @@
  *   node scripts/import_oyez.js 2025-10 24-1063
  *   node scripts/import_oyez.js https://www.oyez.org/cases/1961/2
  *
+ * A case that Oyez's docket_number can't match to any local case (common in
+ * older terms originally filed from a different source) is not immediately
+ * treated as new: if a local case decided the same day already has every one
+ * of that Oyez case's audio files — and matching transcript content, where
+ * Oyez has a transcript — filed under a different event, it's skipped as
+ * already imported rather than risk creating a duplicate. See
+ * caseFullyFiledOn().
+ *
  * © 2026 by Jeff Parsons
  */
 
@@ -475,6 +483,82 @@ function isDir(p) {
     try { return fs.statSync(p).isDirectory(); } catch { return false; }
 }
 
+// ── Already-filed detection (docket-number mismatch guard) ─────────────────
+//
+// Some terms were originally populated from a source other than Oyez's own
+// docket_number (e.g. NARA/USSC listings), so a case can fail to match by
+// docket number even though it's already fully filed under a different
+// number. Before treating such a case as new, we check whether every one of
+// its Oyez audio files — and, where Oyez has a transcript, its content — is
+// already accounted for on some local case decided the same day. Only when
+// every item can be matched do we consider the case "already filed" and
+// skip it outright, rather than risk creating a duplicate.
+
+function readLocalTurns(termCasesDir, textHref) {
+    if (!textHref) return null;
+    const p = path.join(termCasesDir, textHref);
+    if (!exists(p)) return null;
+    try {
+        const data = readJson(p);
+        return Array.isArray(data?.turns) ? data.turns : null;
+    } catch { return null; }
+}
+
+// Compares the first few turns' text, ignoring whitespace/case, so minor
+// re-transcription or speaker-name cleanup doesn't cause a false mismatch.
+function turnsMatch(oyezTurns, localTurns, sampleSize = 3) {
+    if (!Array.isArray(oyezTurns) || !Array.isArray(localTurns)) return false;
+    if (oyezTurns.length === 0 || localTurns.length === 0) return false;
+    const norm = (s) => (s || '').trim().replace(/\s+/g, ' ').toLowerCase();
+    const n = Math.min(sampleSize, oyezTurns.length, localTurns.length);
+    for (let i = 0; i < n; i++) {
+        if (norm(oyezTurns[i].text) !== norm(localTurns[i].text)) return false;
+    }
+    return true;
+}
+
+// Returns true only if EVERY oral-argument/opinion audio file Oyez lists for
+// this case is already present on `candidate` (matched by audio_href on a
+// source:'oyez' event), and — for any of those Oyez items that has its own
+// transcript — the matched event already has a text_href whose stored turns
+// agree with Oyez's. A single unmatched or unverifiable item means we can't
+// be sure it's the same case, so the caller should fall back to normal
+// new-case handling.
+async function caseFullyFiledOn(detail, candidate, termCasesDir, justices) {
+    const items = [];
+    for (const oa of detail.oral_argument_audio || []) {
+        if (oa && !oa.unavailable) items.push(oa);
+    }
+    for (const oa of detail.opinion_announcement || []) {
+        if (oa && !oa.unavailable) items.push(oa);
+    }
+    if (!items.length) return false; // nothing to compare against — can't confirm
+
+    const oyezEvents = (candidate.events || []).filter(a => a.source === 'oyez' && a.audio_href);
+    if (!oyezEvents.length) return false;
+
+    for (const item of items) {
+        let envelope, mp3Url;
+        try {
+            [envelope, mp3Url] = await fetchOyezTranscript(item.href, justices);
+            await sleep(200);
+        } catch {
+            return false; // can't verify this item — don't risk a false match
+        }
+        const matchedEvent = mp3Url ? oyezEvents.find(a => a.audio_href === mp3Url) : null;
+        if (!matchedEvent) return false; // this audio file isn't accounted for
+
+        if (envelope) {
+            // Oyez has a transcript for this item — it only counts as filed if
+            // the matched event already has one too, and the content agrees.
+            if (!matchedEvent.text_href) return false;
+            const localTurns = readLocalTurns(termCasesDir, matchedEvent.text_href);
+            if (!turnsMatch(envelope.turns, localTurns)) return false;
+        }
+    }
+    return true;
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -624,7 +708,13 @@ async function main() {
             caseNumForTitle = oyezComps.length > 1 ? number : '';
         }
 
+        // existingOyezFilenames tracks by text_href/filename; existingOyezAudioHrefs
+        // tracks by the actual audio_href regardless of filename, so a recording
+        // already filed under a different date/name (a known issue in some
+        // historical terms) is recognized as filed rather than downloaded again
+        // under a second name — see caseAlreadyHasAudio() below.
         const existingOyezFilenames = new Set();
+        const existingOyezAudioHrefs = new Set();
         if (localCase) {
             for (const a of localCase.events || []) {
                 let src = a.source;
@@ -638,6 +728,7 @@ async function main() {
                     const th = a.text_href;
                     if (th) existingOyezFilenames.add(th);
                     else if (a.audio_href) existingOyezFilenames.add(a.audio_href);
+                    if (a.audio_href) existingOyezAudioHrefs.add(a.audio_href);
                     if (!a.title) {
                         const cn = caseNumFromHref(a.text_href || '', a.audio_href || '');
                         a.title = audioTitle(a.type || 'argument', a.date || '',
@@ -673,6 +764,7 @@ async function main() {
                     if (newArg.aligned === null) delete newArg.aligned;
                     (localCase.events = localCase.events || []).push(newArg);
                     existingOyezFilenames.add(oyezHref);
+                    if (audioHref) existingOyezAudioHrefs.add(audioHref);
                     casesModified = true;
                 }
             }
@@ -728,6 +820,8 @@ async function main() {
                 caseDir = path.join(path.dirname(laterCasesPath), 'cases', number);
                 _redirectSnapshots.push([laterCasesPath, laterLocal, stableJson(laterLocal)]);
 
+                existingOyezFilenames.clear();
+                existingOyezAudioHrefs.clear();
                 for (const ra of localCase.events || []) {
                     let rsrc = ra.source;
                     if (!rsrc) {
@@ -739,6 +833,7 @@ async function main() {
                     if (rsrc === 'oyez') {
                         if (ra.text_href) existingOyezFilenames.add(ra.text_href);
                         else if (ra.audio_href) existingOyezFilenames.add(ra.audio_href);
+                        if (ra.audio_href) existingOyezAudioHrefs.add(ra.audio_href);
                     }
                 }
                 if (isDir(caseDir)) {
@@ -763,18 +858,37 @@ async function main() {
                         });
                         if (rnew.aligned === null) delete rnew.aligned;
                         (localCase.events = localCase.events || []).push(rnew);
+                        if (rurl) existingOyezAudioHrefs.add(rurl);
                         existingOyezFilenames.add(rh);
                         casesModified = true;
                     }
                 }
-            } else if (!ADD_CASES) {
-                console.log(`  WARNING: ${number} (${oyezCase.name || ''}) is a new case not in cases.json; pass --cases to add it`);
-                continue;
             } else {
-                localCase = { title: oyezCase.name, number, audio: [] };
-                ourCases.push(localCase);
-                ourByNum[number] = localCase;
-                casesModified = true;
+                const oyezDecisionDate = timelineDecisionDate(detail.timeline)
+                    || timelineDecisionDate(oyezCase.timeline);
+                let alreadyFiledAs = null;
+                if (oyezDecisionDate) {
+                    const termCasesDir = path.join(path.dirname(casesPath), 'cases');
+                    for (const candidate of ourCases) {
+                        if (candidate.decision !== oyezDecisionDate) continue;
+                        if (await caseFullyFiledOn(detail, candidate, termCasesDir, justices)) {
+                            alreadyFiledAs = candidate;
+                            break;
+                        }
+                    }
+                }
+                if (alreadyFiledAs) {
+                    console.log(`  ${number} (${oyezCase.name || ''}): already filed as ${alreadyFiledAs.number || alreadyFiledAs.id} (decided ${oyezDecisionDate}) — skipping`);
+                    continue;
+                } else if (!ADD_CASES) {
+                    console.log(`  WARNING: ${number} (${oyezCase.name || ''}) is a new case not in cases.json; pass --cases to add it`);
+                    continue;
+                } else {
+                    localCase = { title: oyezCase.name, number, audio: [] };
+                    ourCases.push(localCase);
+                    ourByNum[number] = localCase;
+                    casesModified = true;
+                }
             }
         }
 
@@ -814,27 +928,12 @@ async function main() {
         }
 
         for (const [dateStr, parts] of Object.entries(argsByDate)) {
+            // Note: an existing unnumbered file for this date is never renamed to
+            // "-1" here, even when Oyez now shows multiple parts — a file already
+            // on disk under any name is assumed already filed and is left alone.
+            // Only parts whose audio isn't matched anywhere on the case (checked
+            // below via existingOyezAudioHrefs) are treated as missing and fetched.
             const useParts = parts.length > 1;
-
-            if (useParts) {
-                const unnumbered = path.join(caseDir, oyezFilename(dateStr));
-                const part1Path  = path.join(caseDir, oyezFilename(dateStr, 1));
-                if (exists(unnumbered) && !exists(part1Path)) {
-                    fs.renameSync(unnumbered, part1Path);
-                    console.log(`  ${number}: renamed ${path.basename(unnumbered)} → ${path.basename(part1Path)}`);
-                    for (const a of localCase.events || []) {
-                        if (a.source === 'oyez' && a.date === dateStr
-                                && a.text_href === number + '/' + path.basename(unnumbered)) {
-                            a.text_href = number + '/' + path.basename(part1Path);
-                            a.title = audioTitle(a.type || 'argument', dateStr, 1, caseNumForTitle);
-                            existingOyezFilenames.delete(number + '/' + path.basename(unnumbered));
-                            existingOyezFilenames.add(number + '/' + path.basename(part1Path));
-                            casesModified = true;
-                            break;
-                        }
-                    }
-                }
-            }
 
             for (let partIdx = 0; partIdx < parts.length; partIdx++) {
                 const oyezArg = parts[partIdx];
@@ -852,7 +951,12 @@ async function main() {
                 try {
                     const [envelope, mp3Url] = await fetchOyezTranscript(oyezArg.href, justices);
                     if (envelope === null) {
-                        if (mp3Url && !existingOyezFilenames.has(mp3Url) && !existingOyezFilenames.has(outHref)) {
+                        if (!mp3Url) {
+                            console.log('no transcript data');
+                        } else if (existingOyezAudioHrefs.has(mp3Url) || existingOyezFilenames.has(outHref)) {
+                            const matched = (localCase.events || []).find(a => a.source === 'oyez' && a.audio_href === mp3Url);
+                            console.log(`already filed as ${matched?.text_href || matched?.date || 'an existing entry'} — skipping`);
+                        } else {
                             const typeVal = oyezArgType(oyezArg.title || '');
                             const newArg = reorderEvent({
                                 source: 'oyez', type: typeVal, date: dateStr,
@@ -861,11 +965,16 @@ async function main() {
                             });
                             (localCase.events = localCase.events || []).push(newArg);
                             existingOyezFilenames.add(mp3Url);
+                            existingOyezAudioHrefs.add(mp3Url);
                             casesModified = true;
                             console.log('no transcript — audio entry added');
-                        } else {
-                            console.log('no transcript data');
                         }
+                        continue;
+                    }
+                    const audioHref = envelope?.media?.url || '';
+                    if (audioHref && existingOyezAudioHrefs.has(audioHref)) {
+                        const matched = (localCase.events || []).find(a => a.source === 'oyez' && a.audio_href === audioHref);
+                        console.log(`already filed as ${matched?.text_href || matched?.date || 'an existing entry'} — skipping`);
                         continue;
                     }
                     applySpeakerMap(envelope, speakerMap, titleMap);
@@ -876,7 +985,6 @@ async function main() {
                     downloaded++;
 
                     if (!existingOyezFilenames.has(outHref)) {
-                        const audioHref = envelope?.media?.url || '';
                         const typeVal = oyezArgType(oyezArg.title || '');
                         const newArg = reorderEvent({
                             source: 'oyez', type: typeVal, date: dateStr,
@@ -888,6 +996,7 @@ async function main() {
                         if (newArg.aligned === null) delete newArg.aligned;
                         (localCase.events = localCase.events || []).push(newArg);
                         existingOyezFilenames.add(outHref);
+                        if (audioHref) existingOyezAudioHrefs.add(audioHref);
                         casesModified = true;
                     }
                     await sleep(300);
@@ -940,29 +1049,12 @@ async function main() {
             }
 
             for (const [dateStr, parts] of Object.entries(opinionsByDate)) {
+                // See the matching comment in the oral-arguments loop above: an
+                // existing unnumbered file is never renamed to "-1" here either.
                 const useParts = parts.length > 1;
                 if (hasUnique) { skipped += parts.length; continue; }
                 if (isSecondary && existingOpinionDates.has(dateStr)) {
                     skipped += parts.length; continue;
-                }
-                if (useParts) {
-                    const unnumbered = path.join(caseDir, oyezFilename(dateStr));
-                    const part1Path  = path.join(caseDir, oyezFilename(dateStr, 1));
-                    if (exists(unnumbered) && !exists(part1Path)) {
-                        fs.renameSync(unnumbered, part1Path);
-                        console.log(`  ${number}: renamed ${path.basename(unnumbered)} → ${path.basename(part1Path)}`);
-                        for (const a of localCase.events || []) {
-                            if (a.source === 'oyez' && a.date === dateStr
-                                    && a.text_href === number + '/' + path.basename(unnumbered)) {
-                                a.text_href = number + '/' + path.basename(part1Path);
-                                a.title = audioTitle('opinion', dateStr, 1, caseNumForTitle);
-                                existingOyezFilenames.delete(number + '/' + path.basename(unnumbered));
-                                existingOyezFilenames.add(number + '/' + path.basename(part1Path));
-                                casesModified = true;
-                                break;
-                            }
-                        }
-                    }
                 }
 
                 for (let partIdx = 0; partIdx < parts.length; partIdx++) {
@@ -984,7 +1076,12 @@ async function main() {
                     try {
                         const [envelope, mp3Url] = await fetchOyezTranscript(oyezOp.href, justices);
                         if (envelope === null) {
-                            if (mp3Url && !existingOyezFilenames.has(mp3Url) && !existingOyezFilenames.has(outHref)) {
+                            if (!mp3Url) {
+                                console.log('no transcript data');
+                            } else if (existingOyezAudioHrefs.has(mp3Url) || existingOyezFilenames.has(outHref)) {
+                                const matched = (localCase.events || []).find(a => a.source === 'oyez' && a.audio_href === mp3Url);
+                                console.log(`already filed as ${matched?.text_href || matched?.date || 'an existing entry'} — skipping`);
+                            } else {
                                 const newEntry = reorderEvent({
                                     source: 'oyez', type: 'opinion', date: dateStr,
                                     title: audioTitle('opinion', dateStr, partNum, caseNumForTitle),
@@ -992,11 +1089,16 @@ async function main() {
                                 });
                                 (localCase.events = localCase.events || []).push(newEntry);
                                 existingOyezFilenames.add(mp3Url);
+                                existingOyezAudioHrefs.add(mp3Url);
                                 casesModified = true;
                                 console.log('no transcript — audio entry added');
-                            } else {
-                                console.log('no transcript data');
                             }
+                            continue;
+                        }
+                        const audioHref = envelope?.media?.url || '';
+                        if (audioHref && existingOyezAudioHrefs.has(audioHref)) {
+                            const matched = (localCase.events || []).find(a => a.source === 'oyez' && a.audio_href === audioHref);
+                            console.log(`already filed as ${matched?.text_href || matched?.date || 'an existing entry'} — skipping`);
                             continue;
                         }
                         applySpeakerMap(envelope, speakerMap, titleMap);
@@ -1007,7 +1109,6 @@ async function main() {
                         downloaded++;
 
                         if (!existingOyezFilenames.has(outHref)) {
-                            const audioHref = envelope?.media?.url || '';
                             const newEntry = reorderEvent({
                                 source: 'oyez', type: 'opinion', date: dateStr,
                                 title: audioTitle('opinion', dateStr, partNum, caseNumForTitle),
@@ -1017,6 +1118,7 @@ async function main() {
                             if (newEntry.aligned === null) delete newEntry.aligned;
                             (localCase.events = localCase.events || []).push(newEntry);
                             existingOyezFilenames.add(outHref);
+                            if (audioHref) existingOyezAudioHrefs.add(audioHref);
                             casesModified = true;
                         }
                         await sleep(300);
@@ -1036,64 +1138,10 @@ async function main() {
         const componentNums = localNumber.split(',').map(n => normalizeCaseNum(n.trim()));
         const oyezComponentNums = componentNums.filter(cn => cn in oyezByNum);
         const useCaseNums = oyezComponentNums.length > 1;
-
-        const _casesDir = path.join(path.dirname(casesPath), 'cases');
-
-        // Fix text_href folder vs audio_href case-number mismatches.
-        for (const a of localCase.events || []) {
-            if (a.source !== 'oyez') continue;
-            const th = a.text_href || '';
-            if (!th || !th.includes('/')) continue;
-            const [folderNum, ...rest] = th.split('/');
-            const fname = rest.join('/');
-            const cnAudio = caseNumFromHref('', a.audio_href || '');
-            if (cnAudio && cnAudio !== folderNum && componentNums.includes(cnAudio)) {
-                const srcPath = path.join(_casesDir, folderNum, fname);
-                const destDir = path.join(_casesDir, cnAudio);
-                const destPath = path.join(destDir, fname);
-                const audioHrefVal = a.audio_href || '';
-                if (exists(srcPath) && audioHrefVal) {
-                    let fileUrl = '';
-                    try { fileUrl = (readJson(srcPath)?.media?.url) || ''; } catch { /* */ }
-                    if (fileUrl && fileUrl !== audioHrefVal) {
-                        console.log(`  WARNING: ${th} media.url ≠ audio_href — skipping refile`);
-                        continue;
-                    }
-                }
-                if (exists(srcPath)) {
-                    ensureDir(destDir);
-                    fs.renameSync(srcPath, destPath);
-                    console.log(`  ${localNumber}: moved ${folderNum}/${fname} → ${cnAudio}/${fname}`);
-                    const srcFolder = path.join(_casesDir, folderNum);
-                    try {
-                        if (isDir(srcFolder) && fs.readdirSync(srcFolder).length === 0) {
-                            fs.rmdirSync(srcFolder);
-                        }
-                    } catch { /* */ }
-                }
-                a.text_href = cnAudio + '/' + fname;
-                casesModified = true;
-            }
-        }
-
-        // Backfill " in No. N" titles.
-        for (const a of localCase.events || []) {
-            if (a.type === 'opinion') continue;
-            const hasCaseNum = (a.title || '').includes(' in No.');
-            const cn = caseNumFromHref(a.text_href || '', a.audio_href || '');
-            if (!cn || !componentNums.includes(cn)) continue;
-            const typeV = a.type || 'argument';
-            const dateV = a.date || '';
-            const partM = /Part (\d+)/.exec(a.title || '');
-            const partN = partM ? +partM[1] : 0;
-            if (useCaseNums && !hasCaseNum) {
-                a.title = audioTitle(typeV, dateV, partN, cn);
-                casesModified = true;
-            } else if (!useCaseNums && hasCaseNum) {
-                a.title = audioTitle(typeV, dateV, partN, '');
-                casesModified = true;
-            }
-        }
+        // Note: existing events' titles are never rewritten here to add/remove an
+        // " in No. N" qualifier based on Oyez's current docket listing — titles on
+        // already-filed events are assumed to reflect deliberate preferences and
+        // are left alone. useCaseNums is only used below for newly-added events.
 
         // Add missing audio from each component number.
         for (const compNum of componentNums) {
@@ -1200,7 +1248,12 @@ async function main() {
                                 const [envelope, mp3Url] = await fetchOyezTranscript(oyezArg.href, justices);
                                 mp3 = mp3Url;
                                 if (envelope === null) {
-                                    if (mp3 && !existingCompMp3s.has(mp3)) {
+                                    if (!mp3) {
+                                        console.log('no transcript data');
+                                    } else if (existingCompMp3s.has(mp3) || existingOyezAudioHrefs.has(mp3)) {
+                                        skipped++;
+                                        console.log('already tracked — skipped');
+                                    } else {
                                         const newEntry = reorderEvent({
                                             source: 'oyez', type: typeVal, date: dateStr,
                                             title: audioTitle(typeVal, dateStr, partNum, useCaseNums ? compNum : ''),
@@ -1208,27 +1261,26 @@ async function main() {
                                         });
                                         (localCase.events = localCase.events || []).push(newEntry);
                                         existingCompMp3s.add(mp3);
+                                        existingOyezAudioHrefs.add(mp3);
                                         casesModified = true;
                                         console.log('no transcript — audio entry added');
-                                    } else {
-                                        console.log('no transcript data');
                                     }
+                                    continue;
+                                }
+                                mp3 = envelope?.media?.url || '';
+                                if (mp3 && existingOyezAudioHrefs.has(mp3)) {
+                                    skipped++;
+                                    console.log('already tracked — skipped');
                                     continue;
                                 }
                                 applySpeakerMap(envelope, speakerMap, titleMap);
                                 mergeEnvelopeSpeakers(outPath, envelope);
                                 ensureDir(compDir);
                                 writeText(outPath, JSON.stringify(envelope, null, 2) + '\n');
-                                mp3 = envelope?.media?.url || '';
                                 algnd = turnsAreAligned(envelope);
                                 console.log(`${envelope.turns.length} turns -> ${relRepo(outPath)}`);
                                 downloaded++;
                                 await sleep(300);
-                                if (mp3 && existingOyezAudioHrefs.has(mp3)) {
-                                    skipped++;
-                                    console.log('already tracked — skipped');
-                                    continue;
-                                }
                             }
 
                             const newEntry = reorderEvent({
@@ -1270,7 +1322,17 @@ async function main() {
     console.log(`Done.  Downloaded: ${downloaded}  |  Already existed: ${skipped}  |  Errors: ${errors}`);
 }
 
-main().catch(err => {
-    console.error(err);
-    process.exit(1);
-});
+// Run main only when invoked directly (not when imported as a library).
+const _isMain = (() => {
+    try { return path.resolve(process.argv[1] || '') === fileURLToPath(import.meta.url); }
+    catch { return false; }
+})();
+
+if (_isMain) {
+    main().catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+}
+
+export { caseFullyFiledOn, turnsMatch, readLocalTurns, fetchOyezTranscript, loadJustices };

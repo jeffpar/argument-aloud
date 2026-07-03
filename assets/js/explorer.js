@@ -6730,15 +6730,16 @@ let _navSearchActivate = null;
     return out;
   }
 
-  // Return a Map<ref, [eventIdx, turnNum] | null> for `token` from a keyword
-  // index.  Current format: values are objects { ref: [ev, turn] } where ref is
-  // either a short id ("YYYY-NNN") for standard October terms or "term/id-or-number".
+  // Return a Map<ref, locArray | null> for `token` from a keyword index.
+  // Format: values are objects { ref: [e1,t1,p1,nid1, e2,t2,p2,nid2, ...] } —
+  // flat 4-tuple arrays, one tuple per (event, turn) occurrence, sorted by (event, turn).
   // Legacy format (pre-location): values are arrays [ref, ...] — those refs are
   // returned with loc=null (no turn navigation) until rebuilt.
-  // For prefix wildcards, keeps the earliest location per ref.
+  // For prefix wildcards, collapses to [e, t, combinedCount] (earliest location, total turns).
   function _locationsForToken(index, token) {
-    const out = new Map(); // ref → [ev, turn, count] | null
+    const out = new Map(); // ref → locArray | null
     const earlier = (a, b) => a && b && (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]));
+    const countOf = (l) => !l ? 0 : (l.length % 4 === 0 ? l.length / 4 : (l[2] || 0));
     const addLocs = (val) => {
       if (!val) return;
       if (Array.isArray(val)) {
@@ -6751,10 +6752,8 @@ let _navSearchActivate = null;
           } else {
             // For prefix matches: keep earliest location, accumulate counts.
             const prev = out.get(ref);
-            const prevCount = prev ? (prev[2] || 0) : 0;
-            const newCount  = loc  ? (loc[2]  || 0) : 0;
             const base = earlier(loc, prev) ? loc : (earlier(prev, loc) ? prev : (prev ?? loc));
-            out.set(ref, base ? [base[0], base[1], prevCount + newCount] : null);
+            out.set(ref, base ? [base[0], base[1], countOf(prev) + countOf(loc)] : null);
           }
         }
       }
@@ -6770,31 +6769,60 @@ let _navSearchActivate = null;
     return out;
   }
 
-  // Justice entries in the extended loc array use variable-length groups:
-  //   [eventIdx, turnNum, distinctTurnCount, e1, t1, p1, n1, c1, e1b, t1b, ..., e2, t2, p2, n2, c2, ...]
-  // Each group starts with (e, t, p, nid, count): the first occurrence plus total distinct-turn count.
-  // When count > 1, (count-1) additional (e, t) pairs follow before the next group.
-  // Group stride: 5 + 2*(count-1) elements.
-
-  // Returns {e, t, p, turns} for a given justice nid, where turns is a Set of (e*1e6+t) values.
-  // Returns null if the nid is not found.
+  // Returns {e, t, p, turns, turnPositions} for a given justice nid from a flat 4-tuple
+  // loc array [e1,t1,p1,nid1, ...].  turns is a Set<e*1e6+t>; turnPositions is a
+  // Map<e*1e6+t, Set<p>> holding every position where this justice says this word in
+  // that turn — required for correct phrase-adjacency checking when the word appears
+  // more than once in a turn.  Returns null if the nid is not found.
   function _justiceDataForNid(loc, nid) {
-    if (!loc || loc.length <= 3) return null;
-    let i = 3;
-    while (i + 4 < loc.length) {
-      const count = loc[i + 4];
+    if (!loc || loc.length < 4) return null;
+    const turns = new Set();
+    const turnPositions = new Map();
+    let firstE, firstT, firstP;
+    for (let i = 0; i < loc.length; i += 4) {
       if (loc[i + 3] === nid) {
-        const turns = new Set();
-        turns.add(loc[i] * 1e6 + loc[i + 1]);
-        for (let k = 0; k < count - 1; k++) {
-          const ai = i + 5 + 2 * k;
-          if (ai + 1 < loc.length) turns.add(loc[ai] * 1e6 + loc[ai + 1]);
-        }
-        return { e: loc[i], t: loc[i + 1], p: loc[i + 2], turns };
+        if (!turns.size) { firstE = loc[i]; firstT = loc[i + 1]; firstP = loc[i + 2]; }
+        const key = loc[i] * 1e6 + loc[i + 1];
+        turns.add(key);
+        if (!turnPositions.has(key)) turnPositions.set(key, new Set());
+        turnPositions.get(key).add(loc[i + 2]);
       }
-      i += 5 + 2 * Math.max(0, count - 1);
     }
-    return null;
+    return turns.size ? { e: firstE, t: firstT, p: firstP, turns, turnPositions } : null;
+  }
+
+  // Intersect two flat 4-tuple loc arrays for adjacent phrase tokens.
+  // `a` holds all surviving phrase-start occurrences so far: each tuple's p is the
+  //     position of the first phrase token at that occurrence.
+  // `b` holds every occurrence of the current token across all turns.
+  // `offset` is this token's index in the phrase (1 for second word, 2 for third, …).
+  // An occurrence in `a` survives only when `b` contains a tuple in the same (e,t)
+  // whose position equals a's p + offset.  Because a word can appear multiple times per
+  // turn, `b` is indexed as Map<e*1e6+t, Set<p>> so every position is checked.
+  // Falls back to count-based [e, t, minCount] when either side is already collapsed
+  // (prefix wildcard).  Returns null when no occurrences survive — ref is excluded.
+  function _phraseIntersect(a, b, offset) {
+    const countOf = (l) => !l ? 0 : (l.length % 4 === 0 ? l.length / 4 : (l[2] || 0));
+    if (!a || !b) return null;
+    if (a.length % 4 !== 0 || b.length % 4 !== 0) {
+      const earlier = (x, y) => x && y && (x[0] < y[0] || (x[0] === y[0] && x[1] < y[1]));
+      const base = earlier(a, b) ? a : (earlier(b, a) ? b : (a ?? b));
+      return base ? [base[0], base[1], Math.min(countOf(a), countOf(b))] : null;
+    }
+    // Build Map<e*1e6+t, Set<p>> from b so every occurrence position is reachable.
+    const bMap = new Map();
+    for (let i = 0; i < b.length; i += 4) {
+      const key = b[i] * 1e6 + b[i + 1];
+      if (!bMap.has(key)) bMap.set(key, new Set());
+      bMap.get(key).add(b[i + 2]);
+    }
+    // Keep each tuple from a whose required next position exists in b.
+    const result = [];
+    for (let i = 0; i < a.length; i += 4) {
+      if (bMap.get(a[i] * 1e6 + a[i + 1])?.has(a[i + 2] + offset))
+        result.push(a[i], a[i + 1], a[i + 2], a[i + 3]);
+    }
+    return result.length ? result : null;
   }
 
   function _showNormal() {
@@ -7006,11 +7034,11 @@ let _navSearchActivate = null;
     }
 
     // Intersect across all tokens.
-    // Title mode: Set<"term/ref">; keyword mode: Map<"term/ref", [ev, turn] | null>
-    // with the earliest location kept when a ref appears under multiple tokens.
-    // null locs (legacy index format) are treated as "unknown location" — kept
-    // in the intersection but not used for turn navigation.
-    const earlier = (a, b) => a && b && (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]));
+    // Keyword mode: phrase-aware — a turn qualifies only when each successive token
+    // appears at the next word position in the same turn.  The resulting Map value is a
+    // flat 4-tuple array of matching turns (or a [e, t, count] collapsed form for
+    // prefix wildcards).  null locs (legacy index) are kept with no navigation.
+    // Title mode: Set<"term/ref"> plain intersection.
     let combined = null; // Set or Map depending on mode
     const tokenLocs = []; // per-token Map<ref, locArray> saved for justice filter
     for (const tok of toks) {
@@ -7021,15 +7049,11 @@ let _navSearchActivate = null;
           combined = locs;
         } else {
           const next = new Map();
+          const phraseOffset = tokenLocs.length - 1;
           for (const [ref, a] of combined) {
             if (!locs.has(ref)) continue;
-            const b = locs.get(ref);
-            // Keep the earliest [ev, turn] location; count = min across tokens —
-            // the rarest token's unique-turn count bounds how many co-occurring turns
-            // can exist, giving a meaningful per-case relevance score.
-            const base = earlier(a, b) ? a : (earlier(b, a) ? b : (a ?? b));
-            const minCount = Math.min(a ? (a[2] || 0) : 0, b ? (b[2] || 0) : 0);
-            next.set(ref, base ? [base[0], base[1], minCount] : null);
+            const phraseResult = _phraseIntersect(a, locs.get(ref), phraseOffset);
+            if (phraseResult !== null) next.set(ref, phraseResult);
           }
           combined = next;
         }
@@ -7042,30 +7066,46 @@ let _navSearchActivate = null;
     }
 
     // Apply justice filter: keep only cases where the specified justice says ALL query
-    // words in at least one common turn (turn-set intersection).  The count equals the
-    // number of turns where the justice says all words; the nav loc points to the
-    // justice's first occurrence of the first search token.
+    // words as a phrase (adjacent positions) in at least one common turn.  The count
+    // equals the number of qualifying turns; the nav loc points to the justice's first
+    // occurrence of the first search token.
     if (keywordMode && justiceNid !== undefined && combined?.size) {
       if (justiceNid === null) {
         combined = new Map(); // unrecognised justice name → no results
       } else {
         const filtered = new Map();
         for (const [ref, loc] of combined) {
-          let intersection = null; // Set of (e*1e6+t) values common to all tokens
-          let firstData = null;    // {e,t} nav target from token 0
+          let intersection = null; // Set<e*1e6+t> of turns common to all tokens
+          const posByToken = [];   // per-token Map<e*1e6+t, p> for phrase checking
+          let firstData = null;
           let ok = true;
           for (let ti = 0; ti < tokenLocs.length; ti++) {
             const jd = _justiceDataForNid(tokenLocs[ti].get(ref), justiceNid);
             if (!jd) { ok = false; break; }
-            if (intersection === null) {
-              intersection = jd.turns;
-              firstData = jd;
-            } else {
-              const next = new Set([...intersection].filter(x => jd.turns.has(x)));
-              intersection = next;
-            }
+            intersection = intersection === null
+              ? jd.turns
+              : new Set([...intersection].filter(x => jd.turns.has(x)));
+            posByToken.push(jd.turnPositions);
+            if (!firstData) firstData = jd;
           }
-          if (ok && intersection && intersection.size > 0) {
+          // Phrase check: try every starting position of token 0; keep turns where some
+          // starting position p0 has each successive token at p0 + offset.
+          if (ok && intersection?.size && posByToken.length > 1) {
+            const phraseMatches = new Set();
+            for (const key of intersection) {
+              const p0Set = posByToken[0].get(key);
+              if (!p0Set) continue;
+              for (const p0 of p0Set) {
+                let isPhrase = true;
+                for (let ti = 1; ti < posByToken.length; ti++) {
+                  if (!posByToken[ti].get(key)?.has(p0 + ti)) { isPhrase = false; break; }
+                }
+                if (isPhrase) { phraseMatches.add(key); break; }
+              }
+            }
+            intersection = phraseMatches;
+          }
+          if (ok && intersection?.size) {
             filtered.set(ref, firstData
               ? [firstData.e, firstData.t, intersection.size]
               : [loc[0], loc[1], intersection.size]);
@@ -7103,7 +7143,7 @@ let _navSearchActivate = null;
       if (keywordMode) {
         for (const c of cases) {
           const loc = idData.has(c.id) ? idData.get(c.id) : idData.has(c.number) ? idData.get(c.number) : undefined;
-          if (loc !== undefined) results.push({ term, c, loc, count: loc ? (loc[2] || 0) : 0 });
+          if (loc !== undefined) results.push({ term, c, loc, count: loc ? (loc.length % 4 === 0 ? loc.length / 4 : (loc[2] || 0)) : 0 });
         }
       } else {
         const idSet = new Set(idData);
