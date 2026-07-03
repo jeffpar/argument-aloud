@@ -8722,6 +8722,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
+       node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
 
@@ -8774,6 +8775,11 @@ Examples:
   node update_cases.js --unargued                          # list all argument anomalies across all terms
   node update_cases.js 2024-10 --unargued                  # list anomalies for one term
   node update_cases.js 2024-10 24-1260 --unargued          # check one case
+
+  # Tag a single case
+  node update_cases.js 2025-10 24-1260 --tag Noteworthy
+  node update_cases.js 2025-10 24-1260 --tag "Fourth Amendment"
+  node update_cases.js 2025-10 24-1260 --tag Noteworthy --dry-run
 
   # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
   node update_cases.js --import ~/Downloads/ussc-favorites.json
@@ -8872,6 +8878,60 @@ async function runImportTags(filePath, dryRun) {
     } else {
         console.log(`[dry-run] Would delete ${absPath}`);
     }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// --tag: add a single tag (word or quoted phrase) to one case.
+// node update_cases.js TERM CASE --tag "Some Phrase"
+
+function runTagAdd(term, caseNumber, tagValue, dryRun) {
+    const tag = (tagValue || '').trim();
+    if (!tag) {
+        console.error('ERROR: --tag requires a non-empty word or phrase');
+        process.exit(1);
+    }
+
+    const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
+    let cases;
+    try {
+        cases = _readJson(casesPath);
+    } catch {
+        console.error(`ERROR: could not read ${path.relative(REPO_ROOT, casesPath)}`);
+        process.exit(1);
+    }
+    if (!Array.isArray(cases)) {
+        console.error(`ERROR: ${path.relative(REPO_ROOT, casesPath)} is not an array`);
+        process.exit(1);
+    }
+
+    const c = cases.find(x => x && (x.id === caseNumber || (x.number || '').split(',').map(s => s.trim()).includes(caseNumber)));
+    if (!c) {
+        console.error(`ERROR: ${term}: case "${caseNumber}" not found`);
+        process.exit(1);
+    }
+
+    const label = c.number || c.id || '?';
+    const existing = Array.isArray(c.tags) ? c.tags : [];
+    if (existing.includes(tag)) {
+        console.log(`Tags: ${term}/${label} already has "${tag}"; nothing to do.`);
+        return;
+    }
+
+    console.log(`  ${term}/${label}: +[${tag}]`);
+    if (dryRun) {
+        console.log(`[dry-run] Would add tag "${tag}" to ${term}/${label}`);
+        return;
+    }
+
+    c.tags = [...existing, tag];
+    // Reorder keys in-place to keep tags in schema position.
+    const reordered = reorderCase(c);
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, reordered);
+
+    _writeJson(casesPath, cases);
+    console.log(`Tags: added "${tag}" to ${term}/${label}.`);
 }
 
 
@@ -10563,7 +10623,7 @@ async function main() {
             } else {
                 const key = a.slice(2);
                 // Flags that take a value
-                if (['case', 'import', 'add', 'volume'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                if (['case', 'import', 'add', 'volume', 'tag'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
                     flagValues[key] = argv[++i];
                 } else {
                     boolFlags.add(key);
@@ -10725,6 +10785,15 @@ async function main() {
             const cp = path.join(termsDir, t, 'cases.json');
             await backfillTitlesFromLoc(cp, t, cf, dryRun);
         }
+        return;
+    }
+
+    if (flagValues.tag) {
+        if (positional.length < 2) {
+            console.error('Usage: node update_cases.js TERM CASE --tag WORD_OR_PHRASE');
+            process.exit(1);
+        }
+        runTagAdd(positional[0], positional[1], flagValues.tag, dryRun);
         return;
     }
 
