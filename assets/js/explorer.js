@@ -2310,10 +2310,40 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
   });
 }
 
+// Build the { kind: 'group', label: 'Citations', files } entry from a case's
+// opCite array (see scripts/update_cases.js --cites), or null when absent.
+// Always append this last so Citations follows any Briefs/References/Other groups.
+function _buildCitationsEntry(caseEntry) {
+  if (!caseEntry.opCite?.length) return null;
+  const files = caseEntry.opCite.map(entry => ({
+    title: entry.title,
+    citationRef: entry.ref,
+  }));
+  return { kind: 'group', label: 'Citations', files };
+}
+
 // Build a single <li class="file-item"> with the standard click handler.
 function _makeCaseFileItem(f, caseEntry) {
   const fi = document.createElement('li');
   fi.className = 'file-item';
+  if (f.citationRef) {
+    fi.classList.add('file-item-citation');
+    fi.textContent = f.title;
+    fi.addEventListener('click', e => {
+      e.stopPropagation();
+      const slash = f.citationRef.indexOf('/');
+      if (slash === -1) return;
+      const refTerm = f.citationRef.slice(0, slash);
+      const refCase = f.citationRef.slice(slash + 1);
+      const href = buildUrlParams(
+        { term: refTerm, case: refCase },
+        ['collection', 'group', 'id', 'highlight', 'file', 'event', 'turn', 'find'],
+      );
+      navigate(href);
+      restoreFromURL();
+    });
+    return fi;
+  }
   if ((f.title || '').startsWith('Transcript of ')) {
     fi.classList.add('file-item-transcript');
   }
@@ -2689,7 +2719,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       caseKey,
       title:    caseTitle(caseEntry.title),
       tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
-      hasFiles: !!caseEntry.files,
+      hasFiles: !!caseEntry.files || !!caseEntry.opCite?.length,
       href:     buildUrlParams(
         { term, case: urlId },
         ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
@@ -2792,6 +2822,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const groupEntries = entries.filter(e => e.kind === 'group');
           const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
           if (groupEntries.length === 1 && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
+          // Citations is the last group, but transcript/decision entries (flat,
+          // ungrouped) still follow it at the very bottom.
+          const citationsEntry = _buildCitationsEntry(caseEntry);
+          if (citationsEntry) entries.push(citationsEntry);
           if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
           if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
@@ -4297,12 +4331,16 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             files: groups[typeKey],
           });
         });
+        // Citations is the last group, but transcript/decision entries (flat,
+        // ungrouped) still follow it at the very bottom.
+        const citationsEntry = _buildCitationsEntry(caseEntry);
+        if (citationsEntry) entries.push(citationsEntry);
         if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 
         // Also hide the toggle when the only available files are transcript entries —
         // transcript-only cases are not considered "browsable" via the toggle.
-        const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript');
+        const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript') || !!citationsEntry;
         return { entries, hideToggle: !hasNonTranscriptFiles };
       },
     });

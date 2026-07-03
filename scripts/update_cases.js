@@ -535,6 +535,7 @@ const TERMS_JSON   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
 const REPORTS_JSON = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 const TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const PDFS_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'pdfs');
+const OPINIONS_HTML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -8723,6 +8724,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
+       node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
 
@@ -8745,6 +8747,10 @@ Examples:
   node update_cases.js 1922-10 96 --votes loss 9-0 --result "dismissed for want of jurisdiction"
   node update_cases.js 2024-10 23-975 --recused gorsuch
   node update_cases.js 2024-10 2024-001 --minority sotomayor kagan jackson
+
+  # Build opCite from the opinion's cited-case links
+  node update_cases.js 1965-10 759 --cites
+  node update_cases.js 1965-10 759 --cites --verbose --dry-run
 
   node update_cases.js --scdb                              # rebuild cache + verify all terms
   node update_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
@@ -8932,6 +8938,283 @@ function runTagAdd(term, caseNumber, tagValue, dryRun) {
 
     _writeJson(casesPath, cases);
     console.log(`Tags: added "${tag}" to ${term}/${label}.`);
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// --cites: scan a case's opinion HTML for citations to earlier opinions and
+// record them in a new "opCite" array ({ title, ref, count }).
+//
+// Full citations are identified by an italicized (<em>) case name adjacent to
+// a link to another /cases/federal/us/VOL/PAGE/ opinion (Justia links early
+// reporter citations like "6 Wheat. 264" to their equivalent U.S. volume, so
+// this covers both modern and pre-1875 citations uniformly). Once a case has
+// been cited in full, later shorthand mentions (an italicized single name
+// matching the first word before or after " v. " in an established title)
+// just increment that entry's count. Pincite page numbers after the primary
+// citation (e.g. the "392" in "251 U. S. 385, 392") are ignored — only the
+// cited opinion's own starting page (from the href) is used.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// vol -> page -> { term, id, title }, built from every case's usCite.
+function _buildUsCiteIndex() {
+    const idx = new Map();
+    const terms = fs.readdirSync(TERMS_DIR).filter(d => /^\d{4}-\d{2}$/.test(d));
+    for (const term of terms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        for (const c of cases) {
+            const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+            if (!m) continue;
+            const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+            if (!idx.has(vol)) idx.set(vol, new Map());
+            const year = /^(\d{4})-/.exec(c.decision || '')?.[1] || null;
+            idx.get(vol).set(page, { term, id: c.id, title: c.title, year });
+        }
+    }
+    return idx;
+}
+
+// reporter name (lowercase) -> number -> U.S. Reports volume, from reports.json's
+// "alt_citation" field (e.g. "6 Wheaton" on volume key "v019" -> wheaton/6 -> 19).
+function _buildReporterIndex() {
+    let reports;
+    try { reports = _readJson(REPORTS_JSON); } catch { return new Map(); }
+    const idx = new Map();
+    for (const [key, entry] of Object.entries(reports || {})) {
+        if (!entry?.alt_citation) continue;
+        const m = /^(\d+)\s+(.+)$/.exec(entry.alt_citation.trim());
+        if (!m) continue;
+        const num = parseInt(m[1], 10);
+        const name = m[2].trim().toLowerCase();
+        const vol = parseInt(key.replace(/^v/, ''), 10);
+        if (!idx.has(name)) idx.set(name, new Map());
+        idx.get(name).set(num, vol);
+    }
+    return idx;
+}
+
+const _OPCITE_REPORTER_ABBREV = {
+    dall: 'dallas', dallas: 'dallas',
+    cranch: 'cranch', cr: 'cranch',
+    wheat: 'wheaton', wheaton: 'wheaton',
+    pet: 'peters', peters: 'peters',
+    how: 'howard', howard: 'howard',
+    black: 'black',
+    wall: 'wallace', wallace: 'wallace',
+};
+
+function _resolveOldReporter(reporterIdx, numStr, abbrev) {
+    const name = _OPCITE_REPORTER_ABBREV[abbrev.toLowerCase().replace(/\.$/, '')];
+    if (!name) return null;
+    return reporterIdx.get(name)?.get(parseInt(numStr, 10)) ?? null;
+}
+
+// Bound the substantive syllabus+opinion HTML region, excluding nav/header/
+// audio-materials/footer chrome that can contain unrelated italicized text.
+function _boundOpinionContent(html) {
+    let start = html.indexOf('id="tab-opinion-');
+    if (start === -1) start = 0;
+    let end = html.indexOf('id="tab-materials"');
+    if (end === -1) end = html.indexOf('id="footer"');
+    if (end === -1) end = html.length;
+    return html.slice(start, end);
+}
+
+// Leading citation-signal words that aren't part of the case name itself
+// (e.g. "Cf. Betts v. Brady" -> "Betts v. Brady").
+function _stripCiteSignalPrefix(s) {
+    let prev;
+    do {
+        prev = s;
+        s = s.replace(/^(see,?\s+e\.g\.,?|see\s+also|see\s+generally|see|cf\.|accord,?|compare|contra|e\.g\.,?|with)\s+/i, '').trim();
+    } while (s !== prev);
+    return s;
+}
+
+// Procedural-history annotations ("aff'd, 381 U. S. 654") cite the case named
+// in the preceding em-span, not the annotation word itself.
+const _OPCITE_PROCEDURAL_RE = /^(aff'd|affirmed|rev'd|reversed|vacated|modified|remanded|denied|granted|aff'g|rev'g|quoting|quoted in|cited in|citing|overruled(?:\s+by)?|distinguished|explained in|on remand)\.?,?$/i;
+
+function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = false } = {}) {
+    let content = _boundOpinionContent(html);
+
+    // Replace federal US case links with a marker holding vol:page, keeping the
+    // link's inner text in place (covers both "<em>Title</em> <a>VOL U.S. PAGE</a>"
+    // and "<em><a>Title</a></em>, VOL U.S. PAGE" markup styles).
+    content = content.replace(
+        /<a\s+[^>]*href="\/cases\/federal\/us\/(\d+)\/(\d+)\/(?:#[^"]*)?"[^>]*>([\s\S]*?)<\/a>/g,
+        (_, vol, page, inner) => `\x01${vol}:${page}\x01${inner}`
+    );
+
+    content = content.replace(/<em>/g, '\x02').replace(/<\/em>/g, '\x03');
+    content = content.replace(/<[^>]+>/g, ' ');
+    content = _decodeHtmlEntities(content);
+
+    const results = new Map(); // ref -> { title, ref, count }
+    const order = [];
+    const OLD_REPORTER_RE = /^\s*,?\s*(\d+)\s+(Dall\.?|Cranch|Wheat\.?|Pet\.?|How\.?|Black|Wall\.?)\s+(\d+)/i;
+    const US_RE = /^\s*,?\s*(\d+)\s+U\.?\s*S\.?\s+(\d+)/;
+
+    const register = (title, vol, page) => {
+        const hit = usCiteIdx.get(vol)?.get(page);
+        const ref = hit ? `${hit.term}/${hit.id}` : null;
+        if (!ref) {
+            if (verbose) console.log(`  [unresolved] "${title}" -> ${vol} U.S. ${page} (no matching case in terms data)`);
+            return;
+        }
+        if (ref === selfRef) return; // don't cite ourselves
+        if (results.has(ref)) {
+            results.get(ref).count++;
+        } else {
+            const titled = hit.year ? `${title} (${hit.year})` : title;
+            results.set(ref, { title: titled, ref, count: 1 });
+            order.push(ref);
+        }
+    };
+
+    const incrementByTitleMatch = (title) => {
+        for (const entry of results.values()) {
+            const bareTitle = entry.title.replace(/\s*\(\d{4}\)$/, '');
+            if (bareTitle.toLowerCase() === title.toLowerCase()) { entry.count++; return true; }
+        }
+        return false;
+    };
+
+    const incrementByShorthand = (word) => {
+        const wl = word.toLowerCase();
+        for (const entry of results.values()) {
+            const parts = entry.title.split(/\s+v\.?\s+/i);
+            if (parts.length < 2) continue;
+            const firstOfFirst  = parts[0].trim().split(/\s+/)[0].toLowerCase().replace(/[.,]$/, '');
+            const firstOfSecond = parts[1].trim().split(/\s+/)[0].toLowerCase().replace(/[.,]$/, '');
+            if (wl === firstOfFirst || wl === firstOfSecond) { entry.count++; return true; }
+        }
+        return false;
+    };
+
+    const emRe = /\x02([\s\S]*?)\x03/g;
+    let m, lastTitleSeen = null;
+    while ((m = emRe.exec(content))) {
+        let inner = m[1];
+        const after = content.slice(emRe.lastIndex, emRe.lastIndex + 150);
+
+        let vol = null, page = null, title;
+
+        // Marker at the very start of the em content (title text was inside <a>),
+        // allowing for leading whitespace left behind by a stripped <span> wrapper.
+        const markerAtStart = /^\s*\x01(\d+):(\d+)\x01([\s\S]*)$/.exec(inner);
+        if (markerAtStart) {
+            vol = parseInt(markerAtStart[1], 10);
+            page = parseInt(markerAtStart[2], 10);
+            title = markerAtStart[3];
+        } else {
+            title = inner;
+            const adjMarker = /^([,:;]?\s{0,10})\x01(\d+):(\d+)\x01/.exec(after);
+            if (adjMarker) {
+                vol = parseInt(adjMarker[2], 10);
+                page = parseInt(adjMarker[3], 10);
+            }
+        }
+
+        title = title.replace(/\x01\d+:\d+\x01/g, '').replace(/\s+/g, ' ').trim();
+        title = title.replace(/[,:;]+$/, '').trim();
+        title = title.replace(/,?\s*supra\.?$/i, '').trim();
+        title = _stripCiteSignalPrefix(title);
+
+        const hasVPattern = / v\.? /i.test(title) || /\bv\.\s*$/i.test(title);
+        if (hasVPattern) lastTitleSeen = title;
+
+        if (vol != null && page != null) {
+            const useTitle = (!hasVPattern && _OPCITE_PROCEDURAL_RE.test(title) && lastTitleSeen) ? lastTitleSeen : title;
+            register(useTitle, vol, page);
+            continue;
+        }
+
+        if (hasVPattern) {
+            // No href — fall back to a trailing plain-text citation (old reporter
+            // or a bare "NUM U.S. NUM" mention that Justia didn't link).
+            const usM = US_RE.exec(after);
+            const oldM = OLD_REPORTER_RE.exec(after);
+            if (usM) { register(title, parseInt(usM[1], 10), parseInt(usM[2], 10)); continue; }
+            if (oldM) {
+                const resolvedVol = _resolveOldReporter(reporterIdx, oldM[1], oldM[2]);
+                if (resolvedVol != null) { register(title, resolvedVol, parseInt(oldM[3], 10)); continue; }
+            }
+            // No nearby citation — maybe a repeat full-title mention; match by title text.
+            if (incrementByTitleMatch(title)) continue;
+            if (verbose) console.log(`  [skip] full title w/o resolvable cite: "${title}"`);
+            continue;
+        }
+
+        // Shorthand candidate: a short italicized proper noun, no " v. ".
+        const word = title.replace(/['’]s$/i, '').replace(/[.,:;'"’]+$/, '').trim();
+        if (!word || !/^[A-Z]/.test(word)) continue; // skip Latin terms, "Held:", etc.
+        incrementByShorthand(word);
+    }
+
+    return order.map(ref => results.get(ref));
+}
+
+function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
+    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+    if (!fs.existsSync(casesPath)) {
+        console.error(`ERROR: cases.json not found at ${casesPath}`);
+        process.exit(1);
+    }
+    const cases = _readJson(casesPath);
+    const c = Array.isArray(cases) && cases.find(x =>
+        x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg))
+    );
+    if (!c) {
+        console.error(`ERROR: ${term}: case "${caseArg}" not found`);
+        process.exit(1);
+    }
+    const label = c.number || c.id || '?';
+
+    const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+    if (!m) {
+        console.error(`ERROR: ${term}/${label} has no usable usCite ("${c.usCite || ''}")`);
+        process.exit(1);
+    }
+    const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+    const volDir = 'us' + String(vol).padStart(3, '0');
+    const opinionPath = path.join(OPINIONS_HTML_DIR, volDir, `${volDir}-${String(page).padStart(4, '0')}.html`);
+    if (!fs.existsSync(opinionPath)) {
+        console.error(`ERROR: opinion HTML not found at ${path.relative(REPO_ROOT, opinionPath)}`);
+        process.exit(1);
+    }
+
+    const html = fs.readFileSync(opinionPath, 'utf8');
+    const usCiteIdx = _buildUsCiteIndex();
+    const reporterIdx = _buildReporterIndex();
+    const selfRef = `${term}/${c.id}`;
+
+    const opCite = _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose })
+        .filter(entry => entry.count > 1)
+        .sort((a, b) => b.count - a.count);
+
+    console.log(`${term}/${label}: found ${opCite.length} cited opinion(s)`);
+    for (const entry of opCite) {
+        console.log(`  [${entry.count}x] ${entry.title} -> ${entry.ref}`);
+    }
+
+    if (dryRun) {
+        console.log(`[dry-run] Would ${opCite.length ? 'set' : 'clear'} opCite on ${term}/${label}`);
+        return;
+    }
+
+    if (opCite.length) c.opCite = opCite;
+    else delete c.opCite;
+
+    const reordered = reorderCase(c);
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, reordered);
+
+    _writeJson(casesPath, cases);
+    console.log(`Wrote opCite (${opCite.length} entries) to ${term}/${label}.`);
 }
 
 
@@ -10794,6 +11077,15 @@ async function main() {
             process.exit(1);
         }
         runTagAdd(positional[0], positional[1], flagValues.tag, dryRun);
+        return;
+    }
+
+    if (flags.has('--cites')) {
+        if (positional.length < 2) {
+            console.error('Usage: node update_cases.js TERM CASE --cites [--verbose] [--dry-run]');
+            process.exit(1);
+        }
+        runOpCites(positional[0], positional[1], dryRun, { verbose });
         return;
     }
 
