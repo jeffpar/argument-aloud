@@ -11355,7 +11355,11 @@ async function main() {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         // terms.json is decade-grouped: [{title, pages:[{title, file, cases(count), term?},...]}]
         // Derive the term key from the file URL: /courts/ussc/terms/YYYY-MM/cases.json
-        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+        // terms.json itself stores decades/terms newest-first (for display), so
+        // reverse to chronological (oldest-first) order — the term-processing
+        // loop and downstream aggregations (vocal justices, lone dissents, etc.)
+        // depend on this order, including as an insertion-order tie-break.
+        allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;

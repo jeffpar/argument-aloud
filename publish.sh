@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-rsync -r --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
+rsync -vrt --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
+pushd ../argument-apart > /dev/null
+git status
+popd > /dev/null
 
 if [ -n "$1" ]; then
   MSG="$1"
