@@ -62,7 +62,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
-import { execFile } from 'node:child_process';
+import { execFile, spawnSync } from 'node:child_process';
 import { promisify } from 'node:util';
 
 import {
@@ -4803,7 +4803,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
 }
 
 // =====================================================================
-// Collection-set builders: transcripts.json / briefs.json / noteworthy.json
+// Collection-set builders: transcripts.json / briefs.json
 // =====================================================================
 
 const _COLLECTIONS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
@@ -4812,7 +4812,6 @@ const _INDEX_JSON            = path.join(REPO_ROOT, 'courts', 'ussc', 'index.jso
 const _TRANSCRIPTS_PATH      = path.join(_COLLECTIONS_DIR, 'transcripts.json');
 const _BRIEFS_PATH           = path.join(_COLLECTIONS_DIR, 'briefs.json');
 const _ISSUES_PATH           = path.join(_COLLECTIONS_DIR, 'issues.json');
-const _NOTEWORTHY_PATH  = path.join(_COLLECTIONS_DIR, 'noteworthy.json');
 
 const _TRANSCRIPTS_SET_BASENAME = 'Transcripts';
 const _BRIEFS_SET_BASENAME      = 'Briefs';
@@ -5114,17 +5113,6 @@ function _findCaseInList(cases, row) {
         }
     }
     return null;
-}
-
-function _buildNoteworthyCollection(allTerms) {
-    // Delegate to _buildTagsCollection using the same definition that
-    // collections.json uses: groups:[{ title:"*", tags:["Noteworthy"] }].
-    // This ensures both paths (explicit call here and the taggedCollections
-    // loop) produce identical output so the second write is always a no-op.
-    const output = _buildTagsCollection(allTerms, {
-        groups: [{ title: '*', tags: ['Noteworthy'] }],
-    });
-    return { output, skipped: 0, unmatched: 0 };
 }
 
 const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
@@ -6215,7 +6203,6 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
 function processCollectionSets(allTerms, dryRun) {
     const transcripts = _buildTranscriptsCollection(allTerms);
     const briefs      = _buildBriefsCollection(allTerms);
-    const noteworthy  = _buildNoteworthyCollection(allTerms);
 
     // Tags/conditions-based collections: walk index.json to discover all
     // collection-definition files (collections.json, topics.json, etc.), then
@@ -6241,31 +6228,21 @@ function processCollectionSets(allTerms, dryRun) {
 
     const tCount = transcripts[0].cases.length;
     const bCount = briefs[0].cases.length;
-    const nGroups = noteworthy ? noteworthy.output.length : 0;
-    const nCount  = noteworthy ? noteworthy.output.reduce((a, g) => a + g.cases.length, 0) : 0;
 
     const tChanged = _jsonChanged(_TRANSCRIPTS_PATH, transcripts);
     const bChanged = _jsonChanged(_BRIEFS_PATH, briefs);
-    const nChanged = noteworthy ? _jsonChanged(_NOTEWORTHY_PATH, noteworthy.output) : false;
 
     const verb = dryRun ? 'Would write' : 'Wrote';
     if (!dryRun) {
         _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
         if (tChanged) _writeJson(_TRANSCRIPTS_PATH, transcripts);
         if (bChanged) _writeJson(_BRIEFS_PATH,      briefs);
-        if (noteworthy && nChanged) _writeJson(_NOTEWORTHY_PATH, noteworthy.output);
         for (const { filePath, output } of taggedCollections) {
             if (_jsonChanged(filePath, output)) _writeJson(filePath, output);
         }
     }
     if (_VERBOSE || tChanged) console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
     if (_VERBOSE || bChanged) console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
-    if (noteworthy && (_VERBOSE || nChanged)) {
-        console.log(`Noteworthy:  ${verb} ${nGroups} subset(s) / ${nCount} case(s) → courts/ussc/collections/noteworthy.json`);
-        if (noteworthy.skipped || noteworthy.unmatched) {
-            console.log(`Noteworthy:  skipped ${noteworthy.skipped} row(s), unmatched ${noteworthy.unmatched} case(s).`);
-        }
-    }
     for (const { collEntry, filePath, output } of taggedCollections) {
         const changed = _jsonChanged(filePath, output);
         const count = output.reduce((s, g) => s + (g.cases?.length ?? 0), 0);
@@ -6511,6 +6488,11 @@ function processKeywordIndex(allTerms, dryRun) {
 
             // word → Array of [eventIdx, turnNum, wordPos, nid] — one per occurrence.
             const caseWordOccurrences = new Map();
+            // text_href -> parsed transcript (or null) — several events can share
+            // the same transcript (e.g. "Oral Announcement by Justice X" events
+            // pointing at the same file as the main opinion event), so cache the
+            // parse per case instead of re-reading/re-parsing it for each one.
+            const txCache = new Map();
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
                 if (!ev.text_href) continue;
@@ -6519,11 +6501,13 @@ function processKeywordIndex(allTerms, dryRun) {
                 if (ev.source !== 'oyez') {
                     if (!ev.title || oyezDates.has(ev.date)) continue;
                 }
-                const txPath = path.join(TERMS_DIR, term, 'cases', ev.text_href);
-                if (!fs.existsSync(txPath)) continue;
-                let tx;
-                try { tx = _readJson(txPath); } catch { continue; }
-                if (!Array.isArray(tx.turns)) continue;
+                let tx = txCache.get(ev.text_href);
+                if (tx === undefined) {
+                    const txPath = path.join(TERMS_DIR, term, 'cases', ev.text_href);
+                    try { tx = fs.existsSync(txPath) ? _readJson(txPath) : null; } catch { tx = null; }
+                    txCache.set(ev.text_href, tx);
+                }
+                if (!tx || !Array.isArray(tx.turns)) continue;
                 const eventIdx = evIdx + 1; // 1-based, matches ?event= URL param
 
                 // Build name → title map from the transcript's speaker list.
@@ -8190,7 +8174,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 // Fallback: derive justice last name from title and find their
                 // first turn after the offset time (by parsed seconds).
                 if (matchIdx < 0) {
-                    const m = /^Announcement by Justice (\S+)\b/i.exec(ev.title || '');
+                    const m = /^(?:Oral )?Announcement by Justice (\S+)\b/i.exec(ev.title || '');
                     if (m) {
                         const lastName = m[1].toUpperCase();
                         const offsetSecs = _splitParseTime(String(ev.offset));
@@ -8235,7 +8219,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
     // title, examine each opinion event's transcript to find the primary
     // speaker (most words). If the primary speaker is the opinion author,
     // strip "Part N" from the title; otherwise rename to
-    // "Announcement by Justice <Last> on <Date>".
+    // "Oral Announcement by Justice <Last> on <Date>".
     const _PART_N_RE = /\s+Part \d+/i;
     let renameFound   = 0;
     let renameUpdated = 0;
@@ -8285,7 +8269,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 } else {
                     const lastName = primarySpeaker.trim().split(' ').pop();
                     const capitalized = lastName.charAt(0) + lastName.slice(1).toLowerCase();
-                    newTitle = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
+                    newTitle = `Oral Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
                 }
 
                 if (newTitle === ev.title) continue;
@@ -8347,15 +8331,20 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 const turns = Array.isArray(transcript.turns) ? transcript.turns : [];
                 if (!turns.length) continue;
 
-                // Find the writer's last turn index in the transcript.
+                // Find the writer's first turn index in the transcript — used as
+                // the anchor rather than their last turn, since the writer (often
+                // the Chief Justice) may return for brief closing remarks *after*
+                // other justices have delivered their own concurrence/dissent, and
+                // anchoring on "last" would miss everyone in between.
                 const writerName = opinionVote.name;
-                let writerLastTurnIdx = -1;
+                let writerFirstTurnIdx = -1;
                 for (let i = 0; i < turns.length; i++) {
                     if (_splitSpeakerMatches(turns[i].name, writerName)) {
-                        writerLastTurnIdx = i;
+                        writerFirstTurnIdx = i;
+                        break;
                     }
                 }
-                if (writerLastTurnIdx < 0) continue; // writer not in transcript
+                if (writerFirstTurnIdx < 0) continue; // writer not in transcript
 
                 // Build a set of speaker names whose title is CHIEF JUSTICE
                 // (from media.speakers) — they are skipped as additional
@@ -8366,22 +8355,37 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                         .map(s => (s.name || '').trim().toUpperCase())
                 );
 
-                // Collect additional speakers (in order of first appearance)
-                // from turns that come after the writer's last turn.
-                // Skip any chief justice speaker.
-                const additionalSpeakers = [];
-                const seenAdditional = new Set();
-                for (let i = writerLastTurnIdx + 1; i < turns.length; i++) {
+                // Tally each additional speaker's turns (in order of first
+                // appearance) from after the writer's first turn. Skip any chief
+                // justice speaker, any of the writer's own later turns (e.g.
+                // closing remarks after other justices have spoken), and any
+                // individual "Thank you"/"Mr. Clerk" transitional turn.
+                const speakerInfo = new Map(); // name -> { firstIdx, totalWords }
+                for (let i = writerFirstTurnIdx + 1; i < turns.length; i++) {
                     const sp = turns[i].name;
                     if (chiefJusticeNames.has(sp.trim().toUpperCase())) continue;
                     if (_splitSpeakerMatches(sp, writerName)) continue;
-                    if (seenAdditional.has(sp)) continue;
-                    // If this speaker's first post-writer turn opens with "Thank you" or "Mr. Clerk",
-                    // treat them as a closing/thank-you speaker and skip.
-                    if (/^thank you\b|^mr\. clerk\b/i.test((turns[i].text || '').trim())) continue;
-                    seenAdditional.add(sp);
-                    // First occurrence of this speaker after the writer.
-                    additionalSpeakers.push({ name: sp, turnIdx: i });
+                    const text = (turns[i].text || '').trim();
+                    if (/^thank you\b|^mr\. clerk\b/i.test(text)) continue;
+                    const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+                    const info = speakerInfo.get(sp) || { firstIdx: i, totalWords: 0 };
+                    info.totalWords += words;
+                    speakerInfo.set(sp, info);
+                }
+
+                // Only treat a speaker as delivering a genuine separate announcement
+                // — not a stray interjection, pronunciation aside, or cross-reference
+                // to another case — if they said enough to matter: either a
+                // substantial total word count, or a shorter remark backed by their
+                // own "wrote an opinion" vote entry. (A justice reading on behalf of
+                // an absent colleague may have no such entry themselves, but will
+                // always say enough words to clear the length bar alone.)
+                const additionalSpeakers = [];
+                for (const [sp, info] of speakerInfo) {
+                    const wroteOpinion = c.votes.some(v =>
+                        _splitSpeakerMatches(sp, v.name) && /wrote an opinion/i.test(v.action || ''));
+                    if (info.totalWords < 100 && !(info.totalWords >= 10 && wroteOpinion)) continue;
+                    additionalSpeakers.push({ name: sp, turnIdx: info.firstIdx });
                 }
 
                 if (!additionalSpeakers.length) continue;
@@ -8411,7 +8415,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                         const capitalized = lastName.charAt(0) + lastName.slice(1).toLowerCase();
                         const turnNumber = turns[sp.turnIdx].turn ?? (sp.turnIdx + 1);
                         const newEv = { ...ev };
-                        newEv.title = `Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
+                        newEv.title = `Oral Announcement by Justice ${capitalized} on ${_splitFormatDate(ev.date)}`;
                         newEv.turn  = turnNumber;
                         delete newEv.offset;
                         delete newEv.advocates;
@@ -9188,6 +9192,165 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
     return order.map(ref => results.get(ref));
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// opCite -> files.json "reference" entries: scan a case's own oral-argument
+// transcripts for mentions of the parties named in each opCite title, and
+// record a "reference" file entry (with a "refs" list of the actual words/
+// phrases found) for every cited opinion that turns out to be discussed by
+// name in the argument itself.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const _US_STATE_NAMES = [
+    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+    'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
+    'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
+    'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+    'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
+    'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia',
+    'Wisconsin', 'Wyoming',
+];
+
+// Party names/phrases to strip entirely before candidate extraction: they're
+// too common as case parties (all 50 states, plus "United States") to make
+// useful "refs" matches on their own.
+const _OPCITE_REF_STOP_PHRASES = ['United States', ..._US_STATE_NAMES.filter(n => /\s/.test(n))];
+const _OPCITE_REF_STOPWORDS = new Set(['A', 'An', 'The', ..._US_STATE_NAMES.filter(n => !/\s/.test(n))]);
+
+// Split a "Party v. Party (YEAR)" opCite title into its two party names.
+function _titleParties(title) {
+    const bare = title.replace(/\s*\(\d{4}\)$/, '').trim();
+    return bare.split(/\s+v\.?\s+/i).map(s => s.trim()).filter(Boolean);
+}
+
+// Extract candidate capitalized words/phrases from an opCite title's party
+// names, skipping "United States", U.S. state names, and leading articles
+// ("A", "An", "The") — all too common as case parties to be useful "refs".
+function _extractRefCandidates(title) {
+    const candidates = new Set();
+    for (const party of _titleParties(title)) {
+        let cleaned = party;
+        for (const phrase of _OPCITE_REF_STOP_PHRASES) {
+            cleaned = cleaned.replace(new RegExp('\\b' + phrase + '\\b', 'g'), ' ');
+        }
+        const words = cleaned.split(/\s+/).filter(Boolean);
+        let run = [];
+        const flush = () => {
+            if (run.length) candidates.add(run.join(' '));
+            run = [];
+        };
+        for (const w of words) {
+            const bare = w.replace(/[.,;:]+$/, '');
+            if (bare && /^[A-Z]/.test(bare) && !_OPCITE_REF_STOPWORDS.has(bare)) run.push(bare);
+            else flush();
+        }
+        flush();
+    }
+    return [...candidates];
+}
+
+function _escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Find every distinct word/phrase in `corpus` matching `candidate` — an exact
+// match for multi-word phrases, or a word-prefix match for single words (so
+// "Bruen" also picks up derived forms like "Bruenize" mentioned at argument).
+function _findRefMatches(candidate, corpus) {
+    const escaped = _escapeRegExp(candidate);
+    const re = /\s/.test(candidate) ? new RegExp('\\b' + escaped + '\\b', 'g')
+                                     : new RegExp('\\b' + escaped + '\\w*', 'g');
+    const found = new Set();
+    let m;
+    while ((m = re.exec(corpus))) found.add(m[0]);
+    return found;
+}
+
+// term -> Map(id -> case), lazily built and cached across opCite entries.
+const _caseByRefCache = new Map();
+function _loadCaseByRef(term, id) {
+    if (!_caseByRefCache.has(term)) {
+        const map = new Map();
+        try {
+            const cases = _readJson(path.join(TERMS_DIR, term, 'cases.json'));
+            if (Array.isArray(cases)) for (const cc of cases) if (cc?.id) map.set(cc.id, cc);
+        } catch {}
+        _caseByRefCache.set(term, map);
+    }
+    return _caseByRefCache.get(term).get(id) || null;
+}
+
+// For each opCite entry, search the case's own argument transcript(s) for
+// mentions of its parties, returning { title, href, refs } for every entry
+// that's actually discussed by name (href comes from the cited case's own
+// decision_loc / decision_ussc / decision_reports, in that preference order).
+function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
+    if (!opCite.length || !Array.isArray(c.events)) return [];
+
+    const casesDir = path.join(TERMS_DIR, term, 'cases');
+    const texts = [];
+    for (const ev of c.events) {
+        if (!ev.text_href) continue;
+        let transcript;
+        try { transcript = _readJson(path.join(casesDir, ev.text_href)); } catch { continue; }
+        for (const t of transcript.turns || []) if (t.text) texts.push(t.text);
+    }
+    if (!texts.length) return [];
+    const corpus = texts.join(' ');
+
+    const refEntries = [];
+    for (const entry of opCite) {
+        const matches = new Set();
+        for (const cand of _extractRefCandidates(entry.title)) {
+            for (const found of _findRefMatches(cand, corpus)) matches.add(found);
+        }
+        if (!matches.size) continue;
+
+        const cited = _loadCaseByRef(entry.term, entry.id);
+        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_reports || null;
+        if (!href) {
+            if (verbose) console.log(`  [ref-skip] "${entry.title}" matched but has no decision href`);
+            continue;
+        }
+
+        const refs = [...matches];
+        refEntries.push({ title: entry.title, href, refs: refs.length === 1 ? refs[0] : refs });
+    }
+    return refEntries;
+}
+
+// Append new "reference" entries to the case's files.json, skipping any
+// title that's already present so repeat runs stay idempotent.
+function _addReferenceEntries(term, c, refEntries) {
+    if (!refEntries.length) return;
+
+    const folderName = _caseFolder(c.number || c.id || '');
+    const filesPath = path.join(TERMS_DIR, term, 'cases', folderName, 'files.json');
+    let files = [];
+    if (fs.existsSync(filesPath)) {
+        try { files = _readJson(filesPath); } catch { files = []; }
+    }
+    if (!Array.isArray(files)) files = [];
+
+    const existingTitles = new Set(files.filter(f => f?.type === 'reference').map(f => f.title));
+    let maxId = files.reduce((mx, f) => Math.max(mx, f.file || 0), 0);
+    let added = 0;
+
+    for (const r of refEntries) {
+        if (existingTitles.has(r.title)) continue;
+        files.push({ file: ++maxId, type: 'reference', group: 'reference', title: r.title, href: r.href, refs: r.refs });
+        existingTitles.add(r.title);
+        added++;
+        console.log(`  [ref] added "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
+    }
+
+    if (added) {
+        _mkdirSync(path.dirname(filesPath), { recursive: true });
+        _writeJson(filesPath, files);
+        console.log(`Added ${added} reference(s) to ${path.relative(REPO_ROOT, filesPath)}.`);
+    }
+}
+
 function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     const casesPath = path.join(TERMS_DIR, term, 'cases.json');
     if (!fs.existsSync(casesPath)) {
@@ -9231,8 +9394,13 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
         console.log(`  [${entry.count}x] ${entry.title} -> ${entry.term}/${entry.id}`);
     }
 
+    const refEntries = _computeOpCiteRefs(term, c, opCite, { verbose });
+
     if (dryRun) {
         console.log(`[dry-run] Would ${opCite.length ? 'set' : 'clear'} opCite on ${term}/${label}`);
+        for (const r of refEntries) {
+            console.log(`[dry-run] Would add reference "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
+        }
         return;
     }
 
@@ -9245,6 +9413,8 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
 
     _writeJson(casesPath, cases);
     console.log(`Wrote opCite (${opCite.length} entries) to ${term}/${label}.`);
+
+    _addReferenceEntries(term, c, refEntries);
 }
 
 
@@ -11325,6 +11495,16 @@ const _isMain = (() => {
 })();
 
 if (_isMain) {
+    if (!process.env.__UPDATE_CASES_BIG_HEAP) {
+        // A full run builds a keyword index across the entire transcript corpus
+        // (700MB+ of JSON and growing) in memory, which can exceed Node's default
+        // ~4GB heap ceiling. Re-exec once with a larger heap rather than relying
+        // on every caller to remember a --max-old-space-size flag.
+        const result = spawnSync(process.execPath,
+            ['--max-old-space-size=8192', fileURLToPath(import.meta.url), ...process.argv.slice(2)],
+            { stdio: 'inherit', env: { ...process.env, __UPDATE_CASES_BIG_HEAP: '1' } });
+        process.exit(result.status ?? 1);
+    }
     main().catch(err => { console.error(err); process.exit(1); });
 }
 

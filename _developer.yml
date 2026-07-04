@@ -22,7 +22,6 @@ exclude:
   - package-lock.json
   - node_modules/
   - courts/ussc/cache/
-  - courts/ussc/indexes/
   - courts/ussc/journals/
   - courts/ussc/opinions/html/
   - courts/ussc/opinions/pdfs/
@@ -40,4 +39,4 @@ defaults:
       path: ""
     values:
       image: /assets/img/aa_exterior1.jpg
-indexes_base_url: http://localhost:4009
+indexes_base_url: http://localhost:4008

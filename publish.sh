@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-node scripts/update_cases.js
 rsync -r --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
 
 if [ -n "$1" ]; then

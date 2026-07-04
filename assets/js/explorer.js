@@ -1911,6 +1911,30 @@ function _subCaseForNumber(caseEntry, number) {
   return idx === -1 ? null : { title: titles[idx], number: numbers[idx] };
 }
 
+// Among a case's events, find the best default event whose title names docket
+// `number` (e.g. "No. 11-393") — preferring an aligned entry, breaking ties by
+// source (oyez > ussc > others), same preference order as loadCase's bestSource
+// selection. Returns a 0-based index into `events`, or -1 if none match.
+function _bestEventIndexForNumber(events, number) {
+  if (!events || !number) return -1;
+  const escaped = number.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const numRe = new RegExp('\\bNo\\.\\s*' + escaped + '\\b');
+  const SOURCE_PREF = ['oyez', 'ussc', 'nara'];
+  let bestIdx = -1, bestAligned = -1, bestPref = Infinity;
+  events.forEach((ev, idx) => {
+    if (!numRe.test(ev.title || '')) return;
+    const aligned = ev.aligned ? 1 : 0;
+    const pref = SOURCE_PREF.indexOf(ev.source);
+    const prefScore = pref === -1 ? SOURCE_PREF.length : pref;
+    if (aligned > bestAligned || (aligned === bestAligned && prefScore < bestPref)) {
+      bestAligned = aligned;
+      bestPref = prefScore;
+      bestIdx = idx;
+    }
+  });
+  return bestIdx;
+}
+
 // Build the text for the case‑title label above the transcript pane.
 // subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
 // Priority for parenthesised annotation: docket number → usCite → nothing.
@@ -8059,9 +8083,7 @@ async function restoreFromURL() {
       }
       let _defaultAudioIdx = audioParam;
       if (_defaultAudioIdx == null && numberOverride) {
-        const _escaped = numberOverride.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const _numRe = new RegExp('\\bNo\\.\\s*' + _escaped + '\\b');
-        const _evIdx = matchedCase.events?.findIndex(ev => _numRe.test(ev.title || '')) ?? -1;
+        const _evIdx = _bestEventIndexForNumber(matchedCase.events, numberOverride);
         if (_evIdx >= 0) _defaultAudioIdx = _evIdx + 1;
       }
       if (ci) {
@@ -8184,16 +8206,16 @@ async function restoreFromURL() {
       if (caseEl) {
         const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
 
-        // When 'case' named one specific docket number within a consolidated case
-        // (rather than its overall id), show that docket's own title, and — if a
-        // matching "No. N" event exists — default to it instead of the first event.
+        // When 'case' named one specific *secondary* docket number within a
+        // consolidated case (not its primary/first number, which needs no
+        // override), show that docket's own title, and — if a matching "No. N"
+        // event exists — default to its best (aligned) event instead of the
+        // first event overall.
         const _numbers = (matchedCase?.number || '').split(',').map(n => n.trim());
-        const numberOverride = (_numbers.length > 1 && _numbers.includes(caseParam)) ? caseParam : null;
+        const numberOverride = (_numbers.length > 1 && caseParam !== _numbers[0] && _numbers.includes(caseParam)) ? caseParam : null;
         let _defaultAudioIdx = audioParam;
         if (_defaultAudioIdx == null && numberOverride) {
-          const _escaped = numberOverride.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          const _numRe = new RegExp('\\bNo\\.\\s*' + _escaped + '\\b');
-          const _evIdx = matchedCase.events?.findIndex(ev => _numRe.test(ev.title || '')) ?? -1;
+          const _evIdx = _bestEventIndexForNumber(matchedCase.events, numberOverride);
           if (_evIdx >= 0) _defaultAudioIdx = _evIdx + 1;
         }
         if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
