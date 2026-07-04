@@ -1314,7 +1314,7 @@ async function fetchTermCases(term) {
 
 async function _fetchTitleIndex(prefix) {
   if (_titleIndexCache.has(prefix)) return _titleIndexCache.get(prefix);
-  const p = fetch('/courts/ussc/indexes/cases/titles/' + prefix + '.json')
+  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/titles/' + prefix + '.json')
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
   _titleIndexCache.set(prefix, p);
@@ -1325,7 +1325,7 @@ async function _fetchTitleIndex(prefix) {
 
 async function _fetchKeywordIndex(prefix) {
   if (_keywordIndexCache.has(prefix)) return _keywordIndexCache.get(prefix);
-  const p = fetch('/courts/ussc/indexes/cases/keywords/' + prefix + '.json', { cache: 'reload' })
+  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/keywords/' + prefix + '.json', { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
   _keywordIndexCache.set(prefix, p);
@@ -1340,7 +1340,7 @@ let _numberIndexPromise = null;
 async function _fetchNumberIndex() {
   if (_numberIndex) return _numberIndex;
   if (_numberIndexPromise) return _numberIndexPromise;
-  _numberIndexPromise = fetch('/courts/ussc/indexes/cases/numbers.json')
+  _numberIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/numbers.json')
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _numberIndex = d; return d; });

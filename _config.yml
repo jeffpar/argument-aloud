@@ -22,6 +22,7 @@ exclude:
   - package-lock.json
   - node_modules/
   - courts/ussc/cache/
+  - courts/ussc/indexes/
   - courts/ussc/journals/
   - courts/ussc/opinions/html/
   - courts/ussc/opinions/pdfs/
@@ -40,3 +41,4 @@ defaults:
     values:
       image: /assets/img/aa_exterior1.jpg
 google_analytics: G-F4VGXJWVZL
+indexes_base_url: https://data.argumentaloud.org
