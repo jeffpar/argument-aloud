@@ -398,6 +398,9 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
             if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays, un: g.unanimous });
           });
         });
+        // terms.json stores decades/terms newest-first; the chart should always
+        // read oldest-to-newest left-to-right regardless of storage order.
+        chartData.reverse();
         if (chartData.length) {
           var histView = document.getElementById('history-view');
           histView.hidden = false;
@@ -428,6 +431,9 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
           if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
         });
       });
+      // terms.json stores decades/terms newest-first; reverse so "prev"/"next"
+      // below mean chronologically older/newer regardless of storage order.
+      allTerms.reverse();
       var idx = allTerms.findIndex(function (t) { return t.id === term; });
       if (idx >= 0) document.getElementById('stat-term-title').textContent = allTerms[idx].name;
       var prevEntry = idx > 0 ? allTerms[idx - 1] : null;

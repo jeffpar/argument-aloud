@@ -5512,13 +5512,19 @@ async function syncTermsReports(termFilter, volFilter = null) {
     if (_VERBOSE)
         console.log(`  Found ${localVols.size} local PDFs (v${Math.min(...localVols)}–v${Math.max(...localVols)})`);
 
+    // terms.json stores decades/terms newest-first; the "earliest term wins"
+    // registry-building below needs chronological (oldest-first) order, so
+    // iterate a reversed copy. The page objects inside are the same references
+    // as in `tj`, so in-place mutations below still land in `tj` correctly.
+    const tjAscending = tj.slice().reverse().map(d => ({ ...d, groups: (d.groups || []).slice().reverse() }));
+
     // Pre-pass: (1) build a registry of the earliest term where each volume's
     // cover image already exists on disk; (2) collect the best-known href for
     // each volume from existing terms.json entries so we don't need to derive
     // it for volumes already tracked.
     const coverRegistry = new Map();   // vol → { term, coverName }
     const existingHrefByVol = new Map(); // vol → href
-    for (const decade of tj) {
+    for (const decade of tjAscending) {
         for (const page of (decade.groups || [])) {
             const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
             const termMatch = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
@@ -5541,7 +5547,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
     let modified = false;
 
-    for (const decade of tj) {
+    for (const decade of tjAscending) {
         for (let i = 0; i < (decade.groups || []).length; i++) {
             const page = decade.groups[i];
             const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
@@ -9484,11 +9490,14 @@ async function runDissentCheck(termFilter) {
         }
     } catch {}
 
-    // Collect all terms in order.
+    // Collect all terms in chronological (oldest-first) order — terms.json
+    // itself stores decades/terms newest-first, so this output's per-term
+    // group order (and the "group=" URL param it defines) doesn't depend on
+    // that file's storage order.
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+        allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -9519,7 +9528,11 @@ async function runDissentCheck(termFilter) {
                 if (ev.type !== 'opinion') continue;
                 const title = ev.title || '';
                 if (title.startsWith('Opinion')) continue;
-                // This opinion event's title is non-standard.
+                // This opinion event's title is non-standard. A case can have
+                // more than one (e.g. separate "Oral Announcement by Justice X"
+                // events for several dissenting/concurring justices), so each
+                // qualifying event gets its own entry rather than stopping at
+                // the first match.
                 termCases.push({
                     title:    `${firstTitle(c.title) || c.id}: ${title}`,
                     term,
@@ -9527,8 +9540,6 @@ async function runDissentCheck(termFilter) {
                     decision: c.decision || undefined,
                     event:    i + 1,
                 });
-                // Only take the first matching event per case.
-                break;
             }
         }
 

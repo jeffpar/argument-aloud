@@ -173,19 +173,19 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">
     <div class="hp-icon">🔗</div>
     <div class="hp-card-title">Links</div>
-    <p class="hp-card-desc">As you're reading and listening to a case, notice that every speaker is a link, and every date is a window onto what else happened on the same day.</p>
+	<p class="hp-card-desc">Click <a href="/courts/ussc/?term=1965-10&case=759">Miranda</a> to see links to cited cases in the transcript. <strong>Tags</strong> show related cases, <strong>Speakers</strong> show other arguments, and <strong>Dates</strong> are a window onto other events.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc?collection=all">
     <div class="hp-icon">🔖</div>
     <div class="hp-card-title">Tags</div>
-    <p class="hp-card-desc">Mark cases as favorites or apply your own tags. Export your selections at any time for safekeeping or to share. Nothing is stored remotely, everything is saved in your browser.</p>
+    <p class="hp-card-desc">Mark cases as <strong>Favorites</strong> or apply your own <strong>Tags</strong>. Export your selections at any time for safekeeping or to share. Nothing is stored remotely, everything is saved in your browser.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc?source=all">
     <div class="hp-icon">🏛️</div>
     <div class="hp-card-title">Sources</div>
-    <p class="hp-card-desc">Only trusted sources of data are used, starting with The U.S. Supreme Court, The National Archives, The Oyez Project, and other scholarly work.</p>
+    <p class="hp-card-desc">Only trusted sources of data are used, starting with the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/nara">National Archives</a>, the <a href="/courts/ussc/?source=oyez">Oyez Project</a>, and other scholarly work.</p>
   </div>
 
   <div class="hp-card" data-href="https://github.com/jeffpar/argument-aloud">

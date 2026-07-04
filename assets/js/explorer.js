@@ -7807,7 +7807,7 @@ async function restoreFromURL() {
 
   const linkParam       = params.get('link');
   let termParam         = params.get('term');
-  if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
+  if (termParam === 'current') termParam = TERMS[0]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
   let collectionParam = params.get('collection') ?? params.get('topic');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
