@@ -167,7 +167,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?term=all&find=%3F">
     <div class="hp-icon">🔍</div>
     <div class="hp-card-title">Searches</div>
-    <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, <a href="/courts/ussc/?term=all&find=%23Orig">Type</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=2011-10&case=11-393&event=4&turn=35&find="broccoli"&speaker=scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
+    <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, <a href="/courts/ussc/?term=all&find=%23Orig">Type</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=2011-10&case=11-393&event=4&turn=35&find="broccoli"'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">

@@ -1334,6 +1334,20 @@ async function _fetchKeywordIndex(prefix) {
   return data;
 }
 
+// Resolve the word-map that actually holds `token`'s entries.
+// A 2-letter prefix file over ~1MB is split by scripts/update_cases.js
+// (processKeywordIndex) into 3-letter sub-files; the 2-letter file then holds
+// a flat array of the 3-letter sub-prefixes that exist (e.g. "co.json" → ["coa",
+// "cob", ...]) instead of a word map. Every indexed word is ≥ 3 chars, so the
+// token's first 3 characters always name the right sub-file when one exists.
+async function _fetchKeywordIndexForToken(token) {
+  const index = await _fetchKeywordIndex(token.slice(0, 2));
+  if (!Array.isArray(index)) return index || {};
+  const subPrefix = token.slice(0, 3);
+  if (!index.includes(subPrefix)) return {};
+  return await _fetchKeywordIndex(subPrefix);
+}
+
 let _numberIndex = null;
 let _numberIndexPromise = null;
 
@@ -1387,11 +1401,10 @@ function buildUrlParams(updates, deletes = []) {
   // 'collection' and 'topic' are mutually exclusive nav params — deleting one removes the other.
   if (deletes.includes('collection')) url.searchParams.delete('topic');
   if (deletes.includes('topic'))      url.searchParams.delete('collection');
-  // Always remove 'link', 'find', and 'speaker' when navigating — they are only
-  // meaningful on keyword-search result URLs and are re-added explicitly by callers.
+  // Always remove 'link' and 'find' when navigating — they are only meaningful
+  // on keyword-search result URLs and are re-added explicitly by callers.
   url.searchParams.delete('link');
   url.searchParams.delete('find');
-  url.searchParams.delete('speaker');
   // Remove any section-level "=all" nav params (e.g. source=all) that are not
   // being explicitly set in this call.  term/collection/topic have their own
   // handling above; all other registered section IDs are mutually exclusive with
@@ -4674,6 +4687,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           case: caseRef.number,
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
           ...(initialTurn ? { turn: initialTurn } : {}),
+          ...(caseRef.find ? { find: caseRef.find } : {}),
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'citation', ...(initialTurn ? [] : ['turn'])],
       );
@@ -6133,6 +6147,10 @@ function renderTranscript() {
         url = buildUrlParams({ turn: turnId });
       }
       history.replaceState(null, '', url);
+      // buildUrlParams always drops 'find' (it re-adds it only when a caller
+      // explicitly asks), so a ?find= highlight from a deep link no longer has
+      // a URL to match it — clear it too, rather than leaving a stale mark.
+      _transcriptSearchClearHighlight?.();
       if (_currentCaseKey) {
         const _audioSel  = document.getElementById('audio-select');
         const _selVal    = parseInt(_audioSel?.value ?? '0', 10);
@@ -6308,6 +6326,12 @@ function jumpToTurn(target) {
   const _turnNum = turns[target]?.turn ?? (target + 1);
   const _turnUrl = new URL(location.href);
   _turnUrl.searchParams.set('turn', _turnNum);
+  // A ?find= highlight names one specific turn — once the user moves to a
+  // different one, drop it from the URL and clear the highlight together.
+  if (_turnUrl.searchParams.has('find')) {
+    _turnUrl.searchParams.delete('find');
+    _transcriptSearchClearHighlight?.();
+  }
   history.replaceState(null, '', _turnUrl);
   if (turns[target]?.time != null) {
     const wasPlaying = !audio.paused;
@@ -6621,6 +6645,10 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 let _transcriptSearchInit  = null;
 // Set by the transcript-search IIFE; called to close the overlay from outside.
 let _transcriptSearchClose = null;
+// Set by the transcript-search IIFE; called (by buildUrlParams) to clear a
+// silent ?find= highlight when navigation drops the 'find' param, so the
+// on-page highlight never outlives the URL that produced it.
+let _transcriptSearchClearHighlight = null;
 
 // ── Transcript search ────────────────────────────────────────────────────────
 (function () {
@@ -6925,21 +6953,14 @@ let _transcriptSearchClose = null;
     }
   });
 
-  // Expose an entry point for auto-running a search from the URL ?find= / ?speaker= params.
+  // Expose an entry point for auto-running a search from the URL ?find= param.
   // Called after the transcriptloaded handler above has already reset the input and dropdown.
-  _transcriptSearchInit = (query, speakerName) => {
-    openSearch();
-    // Select the matching speaker in the dropdown before running the search.
-    if (speakerName) {
-      const n = speakerName.trim().toLowerCase();
-      const opt = [...speakerSelect.options].find(o => {
-        if (!o.value) return false;
-        if (o.value.toLowerCase() === n) return true;
-        const parts = o.value.trim().split(/\s+/);
-        return parts[parts.length - 1].toLowerCase() === n;
-      });
-      if (opt) speakerSelect.value = opt.value;
-    }
+  // opts.silent skips opening the overlay (used for a ?find=+?turn= deep link that should
+  // just highlight the quote in place — see the transcriptloaded listener below).
+  // opts.targetTurnIdx, when given, is preferred over "first match in the transcript"
+  // when picking which occurrence becomes the 'current' highlighted one.
+  _transcriptSearchInit = (query, { silent = false, targetTurnIdx = null } = {}) => {
+    if (!silent) openSearch();
     input.value = query;
     clearHighlights();
     matchEntries = [];
@@ -6948,31 +6969,60 @@ let _transcriptSearchClose = null;
     computeMatches();
     input.dataset.lastSearchKey = query.trim().toLowerCase() + '|' + speakerSelect.value;
     if (matchEntries.length) {
-      matchCursor = -1;
-      // Defer scroll one frame so input.focus() inside openSearch() doesn't
-      // compete with scrollIntoView and win.
-      requestAnimationFrame(() => goToMatch(1));
+      const preferredIdx = targetTurnIdx != null
+        ? matchEntries.findIndex(m => m.turnIdx === targetTurnIdx)
+        : -1;
+      matchCursor = preferredIdx >= 0 ? preferredIdx - 1 : -1;
+      if (silent) {
+        goToMatch(1);
+      } else {
+        // Defer scroll one frame so input.focus() inside openSearch() doesn't
+        // compete with scrollIntoView and win.
+        requestAnimationFrame(() => goToMatch(1));
+      }
     }
   };
   _transcriptSearchClose = closeSearch;
+  _transcriptSearchClearHighlight = () => {
+    clearHighlights();
+    matchEntries = [];
+    matchCursor  = -1;
+    input.value  = '';
+    delete input.dataset.lastSearchKey;
+    updateStatus();
+  };
 })();
 
-// When a transcript loads and the URL contains ?find= (and optionally ?speaker=),
-// open the transcript search overlay, pre-select the speaker, and highlight matches.
+// When a transcript loads and the URL contains ?find=, highlight the matching
+// word/phrase. If the URL also names a specific ?turn= (a deep link straight
+// to one quote), highlight it in place — silently, without popping open the
+// search overlay — and prefer that turn's occurrence as the 'current' match
+// instead of whichever occurrence comes first in the transcript. Otherwise
+// (no turn given, e.g. a plain nav-search query), fall back to opening the
+// overlay as a normal in-transcript search.
 // This listener is registered after the search IIFE's own transcriptloaded
 // handler (which resets the input and dropdown), so it runs second.
 document.addEventListener('transcriptloaded', () => {
-  const params       = new URLSearchParams(location.search);
-  let findParam      = params.get('find')?.trim() ?? '';
-  const speakerParam = params.get('speaker');
+  const params    = new URLSearchParams(location.search);
+  let findParam   = params.get('find')?.trim() ?? '';
+  const turnParam = params.get('turn');
   // Strip keyword-mode quoting — transcript search wants the bare phrase, not the '"…"' wrapper.
   if (findParam.startsWith('"')) {
     const closeIdx = findParam.indexOf('"', 1);
     findParam = closeIdx !== -1 ? findParam.slice(1, closeIdx) : findParam.slice(1);
   }
   // A bare '?' is reserved shorthand for "open an empty search box", not a literal query.
-  if (findParam === '?' && _transcriptSearchInit) { _transcriptSearchInit('', speakerParam?.trim() || null); return; }
-  if (findParam && _transcriptSearchInit) _transcriptSearchInit(findParam, speakerParam?.trim() || null);
+  if (findParam === '?' && _transcriptSearchInit) { _transcriptSearchInit(''); return; }
+  if (!findParam || !_transcriptSearchInit) return;
+  const turnNum = turnParam != null ? parseInt(turnParam, 10) : null;
+  const targetTurnIdx = turnNum != null
+    ? turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnNum)
+    : -1;
+  if (targetTurnIdx >= 0) {
+    _transcriptSearchInit(findParam, { silent: true, targetTurnIdx });
+  } else {
+    _transcriptSearchInit(findParam);
+  }
 });
 
 // Find a rendered file-item element by the URL 'file' param value.
@@ -7330,12 +7380,14 @@ let _navSearchActivate = null;
     }
 
     // Fetch required index files in parallel (cached after first load).
-    // Index files are keyed by the first 2 chars of each token; all tokens are
-    // guaranteed ≥ 3 chars by _tokens(), so the prefix is always available.
-    const prefixes = [...new Set(toks.map(t => t.slice(0, 2)))];
-    const fetchIndex = keywordMode ? _fetchKeywordIndex : _fetchTitleIndex;
+    // Title-mode index files are keyed by the first 2 chars of each token (all
+    // tokens are guaranteed ≥ 3 chars by _tokens(), so the prefix is always
+    // available). Keyword-mode indexes may be split into 3-letter sub-files
+    // (see _fetchKeywordIndexForToken), so those are resolved per-token instead.
     const [indexMap, nidMaps] = await Promise.all([
-      Promise.all(prefixes.map(async p => [p, await fetchIndex(p)])).then(Object.fromEntries),
+      keywordMode
+        ? Promise.all(toks.map(async t => [t, await _fetchKeywordIndexForToken(t)])).then(Object.fromEntries)
+        : Promise.all([...new Set(toks.map(t => t.slice(0, 2)))].map(async p => [p, await _fetchTitleIndex(p)])).then(Object.fromEntries),
       keywordMode && justiceFilter ? _fetchJusticeNids() : Promise.resolve(null),
     ]);
 
@@ -7356,7 +7408,7 @@ let _navSearchActivate = null;
     const tokenLocs = []; // per-token Map<ref, locArray> saved for justice filter
     for (const tok of toks) {
       if (keywordMode) {
-        const locs = _locationsForToken(indexMap[tok.slice(0, 2)] || {}, tok);
+        const locs = _locationsForToken(indexMap[tok] || {}, tok);
         tokenLocs.push(locs);
         if (combined === null) {
           combined = locs;
@@ -7495,7 +7547,6 @@ let _navSearchActivate = null;
         else deletes.push('event', 'turn');
         if (keywordMode) {
           updates.find = '"' + keywords.trim() + '"';
-          if (justiceFilter) updates.speaker = justiceFilter;
         } else deletes.push('find');
         const href = buildUrlParams(updates, deletes);
         const li  = document.createElement('li');
@@ -7518,8 +7569,6 @@ let _navSearchActivate = null;
           if (keywordMode) {
             const cur = new URL(location.href);
             cur.searchParams.set('find', '"' + keywords.trim() + '"');
-            if (justiceFilter) cur.searchParams.set('speaker', justiceFilter);
-            else cur.searchParams.delete('speaker');
             history.replaceState(null, '', cur.pathname + '?' + cur.searchParams.toString());
           }
           navigate(href);
@@ -7589,25 +7638,19 @@ let _navSearchActivate = null;
       if (val.length > 0 && val !== '"' && val !== '#') {
         const url = new URL(location.href);
         url.searchParams.set('find', val);
-        url.searchParams.delete('speaker');
         ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
         history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
       }
     }
   });
 
-  _navSearchActivate = (findQuery, justiceQuery) => {
+  _navSearchActivate = (findQuery) => {
     // A bare '?' is a reserved shorthand for "open an empty search box" —
     // e.g. from a shared link like ?find=%3F — so don't search for it literally.
     if (findQuery === '?') { openNavSearch(); return; }
-    // Keyword mode (starts with '"'): speaker/justice filter may be appended.
-    // Number mode (starts with '#') and title mode: use verbatim.
-    const q = findQuery.startsWith('"')
-      ? findQuery + (justiceQuery ? ' ' + justiceQuery : '')
-      : findQuery;
     openNavSearch();
-    navSearchInput.value = q;
-    runNavSearch(q);
+    navSearchInput.value = findQuery;
+    runNavSearch(findQuery);
   };
 })();
 
@@ -7808,11 +7851,10 @@ async function restoreFromURL() {
   // Run the search but do NOT return — let the rest of restoreFromURL continue
   // so that other params (e.g. term=all) are still handled normally.
   const findParam  = params.get('find');
-  const speakerParam = params.get('speaker');
   const caseParam    = params.get('case');
   if (!caseParam) _transcriptSearchClose?.();
   if (findParam && !caseParam && _navSearchActivate) {
-    _navSearchActivate(findParam, speakerParam || null);
+    _navSearchActivate(findParam);
   }
 
   const linkParam       = params.get('link');

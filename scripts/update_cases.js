@@ -6444,6 +6444,33 @@ const KEYWORD_STOP_WORDS = new Set([
     'both', 'same', 'way', 'like', 'been',
 ]);
 
+// Return the set of 1-based word positions (matching the `p` position used
+// elsewhere — i.e. wIdx+1 from `text.toLowerCase().split(/[^a-z]+/)`) in `text`
+// whose word looks like a person's (or case's) name: capitalized and either
+// not preceded by a period (so not just ordinary sentence-initial
+// capitalization), or preceded by "Mr.", "Mrs.", "Ms.", "Miss", or "v." (as in
+// "Smith v. Jones") regardless of sentence position. Used only to keep names
+// out of the rare-words list — the main keyword search index is unaffected
+// and still indexes every word.
+function _nameLikePositions(text) {
+    const positions = new Set();
+    const matches = [...text.matchAll(/[A-Za-z]+/g)];
+    // split(/[^a-z]+/) inserts a leading empty-string entry (shifting every
+    // later position by 1) whenever the text starts with a non-letter char —
+    // replicate that offset so positions line up with the main tokenizer.
+    const leadingOffset = /^[^A-Za-z]/.test(text) ? 1 : 0;
+    const HONORIFICS = new Set(['mr', 'mrs', 'ms', 'miss', 'v']);
+    for (let i = 0; i < matches.length; i++) {
+        const word = matches[i][0];
+        if (!/^[A-Z]/.test(word)) continue;
+        const sentenceInitial = i === 0 || /\.\s*$/.test(text.slice(0, matches[i].index));
+        const prevWord = i > 0 ? matches[i - 1][0].toLowerCase() : null;
+        const precededByHonorific = prevWord != null && HONORIFICS.has(prevWord);
+        if (!sentenceInitial || precededByHonorific) positions.add(i + 1 + leadingOffset);
+    }
+    return positions;
+}
+
 // Scan every term's cases.json, read all referenced transcript files, and
 // rebuild courts/ussc/indexes/cases/keywords/{ch}.json.
 //
@@ -6477,6 +6504,16 @@ function processKeywordIndex(allTerms, dryRun) {
     // otherwise the full "term/id-or-number" string.
     const wordLocs = new Map();
 
+    // Words seen at least once anywhere in the corpus at a name-like position
+    // (see _nameLikePositions) — treated as a proper noun everywhere it
+    // appears (even where a given occurrence looks innocuous) and excluded
+    // wholesale from the rare-words collection built below.
+    const properNounWords = new Set();
+
+    // ref → { term, c } — needed to resolve rare-word case metadata below
+    // without re-reading every term's cases.json a second time.
+    const caseByRef = new Map();
+
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
@@ -6494,6 +6531,7 @@ function processKeywordIndex(allTerms, dryRun) {
             // the id year matches; the lookup side can infer "YYYY-10" from the id prefix.
             const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
             const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+            caseByRef.set(ref, { term, c });
 
             // Dates that have an oyez transcript — used to skip redundant ussc transcripts.
             const oyezDates = new Set(
@@ -6538,12 +6576,14 @@ function processKeywordIndex(allTerms, dryRun) {
                     const isJustice = speakerTitle.includes('JUSTICE');
                     const nid = isJustice ? (justiceNidByName.get(turn.name) || 0) : 0;
                     const words = turn.text.toLowerCase().split(/[^a-z]+/);
+                    const namePositions = _nameLikePositions(turn.text);
                     for (let wIdx = 0; wIdx < words.length; wIdx++) {
                         const word = words[wIdx];
                         if (word.length < 3) continue;
                         if (KEYWORD_STOP_WORDS.has(word)) continue;
                         if (!caseWordOccurrences.has(word)) caseWordOccurrences.set(word, []);
                         caseWordOccurrences.get(word).push([eventIdx, turn.turn, wIdx + 1, nid]);
+                        if (namePositions.has(wIdx + 1)) properNounWords.add(word);
                     }
                 }
             }
@@ -6554,6 +6594,15 @@ function processKeywordIndex(allTerms, dryRun) {
                 wordLocs.get(word).set(ref, entry);
             }
         }
+    }
+
+    // Words flagged as name-like anywhere in the corpus are excluded from the
+    // rare-words collection wholesale — including occurrences that looked
+    // innocuous on their own (e.g. "Bachowski" used mid-sentence without a
+    // preceding "Mr."/"v." still gets treated as a proper noun everywhere).
+    const rareWordLocs = new Map();
+    for (const [word, locMap] of wordLocs) {
+        if (!properNounWords.has(word)) rareWordLocs.set(word, locMap);
     }
 
     // Group words by their first two characters, then write one file per prefix.
@@ -6567,26 +6616,160 @@ function processKeywordIndex(allTerms, dryRun) {
         byPrefix.get(prefix)[word] = Object.fromEntries(sortedRefs.map(r => [r, locMap.get(r)]));
     }
 
+    // 2-letter prefix files over this size are split into 3-letter sub-files
+    // (see below) to keep individual index files small enough to fetch quickly.
+    const KEYWORD_MAX_BYTES = 1024 * 1024;
+
+    const writeIfChanged = (outPath, content) => {
+        if (dryRun) {
+            if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, outPath)}`);
+            return false;
+        }
+        let changed = true;
+        try { changed = fs.readFileSync(outPath, 'utf8') !== content; } catch { /* new file */ }
+        if (changed) fs.writeFileSync(outPath, content, 'utf8');
+        return changed;
+    };
+
     let written = 0;
     for (const [prefix, index] of byPrefix) {
         const outPath = path.join(INDEX_DIR, `${prefix}.json`);
         // Sort by frequency (number of cases) descending, then alphabetically.
-        const sorted = Object.fromEntries(
-            Object.keys(index)
-                .sort((a, b) => Object.keys(index[b]).length - Object.keys(index[a]).length || a.localeCompare(b))
-                .map(k => [k, index[k]])
-        );
-        const content = JSON.stringify(sorted);
-        if (dryRun) {
-            if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, outPath)}`);
-        } else {
-            let changed = true;
-            try { changed = fs.readFileSync(outPath, 'utf8') !== content; } catch { /* new file */ }
-            if (changed) { fs.writeFileSync(outPath, content, 'utf8'); written++; }
+        const words = Object.keys(index)
+            .sort((a, b) => Object.keys(index[b]).length - Object.keys(index[a]).length || a.localeCompare(b));
+        const sorted = Object.fromEntries(words.map(k => [k, index[k]]));
+        let content = JSON.stringify(sorted);
+
+        if (Buffer.byteLength(content, 'utf8') > KEYWORD_MAX_BYTES) {
+            // Split by the word's 3rd character. Every indexed word is ≥ 3 chars
+            // (see the `word.length < 3` check above), so nothing is left behind —
+            // the 2-letter file is replaced by a flat array naming the 3-letter
+            // sub-prefixes, which the front end resolves per token
+            // (see _fetchKeywordIndexForToken in explorer.js).
+            const bySubPrefix = new Map();
+            for (const word of words) {
+                const subPrefix = word.slice(0, 3);
+                if (!bySubPrefix.has(subPrefix)) bySubPrefix.set(subPrefix, {});
+                bySubPrefix.get(subPrefix)[word] = index[word];
+            }
+            const subPrefixes = [...bySubPrefix.keys()].sort();
+            for (const subPrefix of subPrefixes) {
+                const subPath = path.join(INDEX_DIR, `${subPrefix}.json`);
+                if (writeIfChanged(subPath, JSON.stringify(bySubPrefix.get(subPrefix)))) written++;
+            }
+            content = JSON.stringify(subPrefixes);
         }
+
+        if (writeIfChanged(outPath, content)) written++;
     }
 
     if (written || _VERBOSE) console.log(`Keyword index: wrote ${written} file(s) in courts/ussc/indexes/cases/keywords/`);
+
+    _writeRareWordsCollection(rareWordLocs, caseByRef, writeIfChanged);
+}
+
+// Build courts/ussc/collections/rare_words.json (an ordinary embedded-format
+// collection: [{ name: <word>, cases: [...] }, ...], browsable the same way
+// as e.g. orig.json) — the RARE_WORD_COUNT least-uttered words across the
+// whole corpus. courts/ussc/collections/rare/index.md renders this file
+// client-side (fetch + DOM) rather than being regenerated here, so hand
+// edits to that page's prose/markup are never overwritten.
+function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
+    const RARE_WORD_COUNT = 250;
+    // Require the word to have been spoken in at least 2 distinct arguments.
+    // Words unique to a single case are overwhelmingly one-off transcription
+    // typos/ASR artifacts (e.g. a stutter transcribed as "aaainst") rather than
+    // genuinely rare vocabulary — requiring independent reuse across cases
+    // filters those out while still surfacing truly uncommon words.
+    const MIN_CASE_COUNT = 2;
+
+    const candidates = [];
+    for (const [word, locMap] of wordLocs) {
+        if (locMap.size < MIN_CASE_COUNT) continue;
+        let totalOccurrences = 0;
+        for (const tuples of locMap.values()) totalOccurrences += tuples.length / 4;
+        candidates.push({ word, caseCount: locMap.size, totalOccurrences });
+    }
+
+    // Group into rarity tiers (same occurrence count + case count), rarest first.
+    // The very first tier is typically huge — thousands of words that were each
+    // spoken exactly twice, in two different cases — so it alone blows past
+    // RARE_WORD_COUNT. Truncating that tier alphabetically would leave the
+    // whole collection stuck on words starting with "a"; instead, once a tier
+    // doesn't fully fit in the remaining budget, sample across it by bucketing
+    // words by their first letter and round-robining through the buckets, so
+    // the selection spans the alphabet instead of clustering at the front.
+    const tiers = new Map(); // "occurrences:caseCount" → candidates
+    for (const cand of candidates) {
+        const key = `${cand.totalOccurrences}:${cand.caseCount}`;
+        if (!tiers.has(key)) tiers.set(key, []);
+        tiers.get(key).push(cand);
+    }
+    const tierKeys = [...tiers.keys()].sort((a, b) => {
+        const [aOcc, aCount] = a.split(':').map(Number);
+        const [bOcc, bCount] = b.split(':').map(Number);
+        return aOcc - bOcc || aCount - bCount;
+    });
+
+    const selected = [];
+    let remaining = RARE_WORD_COUNT;
+    for (const key of tierKeys) {
+        if (remaining <= 0) break;
+        const tierWords = tiers.get(key);
+        if (tierWords.length <= remaining) {
+            selected.push(...tierWords.sort((a, b) => a.word.localeCompare(b.word)));
+            remaining -= tierWords.length;
+            continue;
+        }
+        const byLetter = new Map();
+        for (const cand of tierWords) {
+            const letter = cand.word[0];
+            if (!byLetter.has(letter)) byLetter.set(letter, []);
+            byLetter.get(letter).push(cand);
+        }
+        for (const bucket of byLetter.values()) bucket.sort((a, b) => a.word.localeCompare(b.word));
+        const letters = [...byLetter.keys()].sort();
+        const picked = [];
+        for (let round = 0; picked.length < remaining; round++) {
+            let any = false;
+            for (const letter of letters) {
+                if (picked.length >= remaining) break;
+                const bucket = byLetter.get(letter);
+                if (round < bucket.length) { picked.push(bucket[round]); any = true; }
+            }
+            if (!any) break; // every bucket exhausted
+        }
+        selected.push(...picked.sort((a, b) => a.word.localeCompare(b.word)));
+        remaining -= picked.length;
+    }
+
+    const rareWords = selected.map(({ word }) => {
+        const cases = [...wordLocs.get(word).entries()].map(([ref, tuples]) => {
+            const found = caseByRef.get(ref);
+            if (!found) return null;
+            const { term, c } = found;
+            return {
+                title: firstTitle(c.title) || '',
+                term,
+                number: _primaryCaseNumber(c),
+                argument: c.argument || '',
+                decision: c.decision || '',
+                event: tuples[0],
+                turn: tuples[1],
+                find: word,
+            };
+        }).filter(Boolean).sort((a, b) =>
+            (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : 0
+        );
+        return { name: word, cases };
+    }).filter(g => g.cases.length);
+
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'rare_words.json');
+    const jsonWritten = writeIfChanged(jsonPath, JSON.stringify(rareWords, null, 2) + '\n');
+
+    if (jsonWritten || _VERBOSE) {
+        console.log(`Rare words: wrote ${rareWords.length} word(s) → courts/ussc/collections/rare_words.json`);
+    }
 }
 
 function _scdbVotesSubset(row) {

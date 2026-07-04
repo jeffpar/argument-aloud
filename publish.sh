@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-rsync -vrt --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
+rsync -vrt --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
 pushd ../argument-apart > /dev/null
 git status
 popd > /dev/null
