@@ -8,7 +8,7 @@ if [ -n "$1" ]; then
 
   sync_to_website() {
     git add -A
-    git diff --cached --quiet || git commit -m "$MSG"
+    git diff --cached --quiet || { git diff --cached --name-status; git commit -m "$MSG"; }
     git push
     git checkout website
     git merge main --no-edit

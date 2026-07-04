@@ -6,7 +6,7 @@ layout: home
 <style>
 .hp-hero {
   text-align: center;
-  padding: 40px 0 32px;
+  padding: 0 0 32px;
   max-width: 620px;
   margin: 0 auto;
 }
