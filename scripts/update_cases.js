@@ -9000,8 +9000,7 @@ function _buildUsCiteIndex() {
             if (!m) continue;
             const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
             if (!idx.has(vol)) idx.set(vol, new Map());
-            const year = /^(\d{4})-/.exec(c.decision || '')?.[1] || null;
-            idx.get(vol).set(page, { term, id: c.id, title: c.title, year });
+            idx.get(vol).set(page, { term, id: c.id, title: c.title, decision: c.decision || null });
         }
     }
     return idx;
@@ -9099,8 +9098,9 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
         if (results.has(ref)) {
             results.get(ref).count++;
         } else {
-            const titled = hit.year ? `${title} (${hit.year})` : title;
-            results.set(ref, { title: titled, term: hit.term, id: hit.id, count: 1 });
+            const year = /^(\d{4})-/.exec(hit.decision || '')?.[1] || null;
+            const titled = year ? `${title} (${year})` : title;
+            results.set(ref, { title: titled, term: hit.term, id: hit.id, decision: hit.decision, count: 1 });
             order.push(ref);
         }
     };
@@ -9224,7 +9224,7 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
 
     const opCite = _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose })
         .filter(entry => entry.count > 1)
-        .sort((a, b) => b.count - a.count);
+        .sort((a, b) => (b.decision || '').localeCompare(a.decision || ''));
 
     console.log(`${term}/${label}: found ${opCite.length} cited opinion(s)`);
     for (const entry of opCite) {
