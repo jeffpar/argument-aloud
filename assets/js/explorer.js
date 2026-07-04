@@ -2459,7 +2459,8 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
 
 // Build the { kind: 'group', label: 'Citations', files } entry from a case's
 // opCite array (see scripts/update_cases.js --cites), or null when absent.
-// Always append this last so Citations follows any Briefs/References/Other groups.
+// Always append this after any Briefs/Media/Other groups but before
+// Consolidations and References (the very last groups).
 function _buildCitationsEntry(caseEntry) {
   if (!caseEntry.opCite?.length) return null;
   const files = caseEntry.opCite.map((entry, i) => ({
@@ -2478,7 +2479,8 @@ function _buildCitationsEntry(caseEntry) {
 // title and default event switch to it (see _subCaseForNumber and the
 // numberOverride handling in restoreFromURL). Returns null when the case isn't
 // consolidated (a single title, or title/number counts that don't line up).
-// Appears after Citations but before flat transcript/decision entries.
+// Appears after Citations but before References (the very last group) and
+// any flat transcript/decision entries.
 function _buildOtherTitlesEntry(caseEntry, term) {
   const titles  = (caseEntry.title  || '').split('|');
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
@@ -3050,7 +3052,9 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           delete groups.transcript;
           const opinionFiles = groups.opinion || [];
           delete groups.opinion;
-          const effectiveOrder = MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER;
+          const referenceFiles = groups.reference || [];
+          delete groups.reference;
+          const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'reference');
           const entries = [];
           effectiveOrder.forEach(typeKey => {
             if (!groups[typeKey]?.length) return;
@@ -3058,13 +3062,15 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           });
           const groupEntries = entries.filter(e => e.kind === 'group');
           const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
-          if (groupEntries.length === 1 && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
-          // Citations and Consolidations are the last groups, but transcript/decision
+          if (groupEntries.length === 1 && !referenceFiles.length && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
+          // Citations, Consolidations, and References are the last groups (in
+          // that order — References always comes last), but transcript/decision
           // entries (flat, ungrouped) still follow them at the very bottom.
           const citationsEntry = _buildCitationsEntry(caseEntry);
           if (citationsEntry) entries.push(citationsEntry);
           const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, term);
           if (otherTitlesEntry) entries.push(otherTitlesEntry);
+          if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.reference, files: referenceFiles });
           if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
           if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
@@ -4570,20 +4576,24 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         const suppressHeader = totalFiles === 1 || nonEmptyGroupKeys.length === 1;
 
         const entries = [];
-        effectiveOrder.forEach(typeKey => {
+        effectiveOrder.filter(c => c !== 'References').forEach(typeKey => {
           if (!groups[typeKey] || !groups[typeKey].length) return;
           entries.push({
-            kind: suppressHeader && typeKey !== 'References' && typeKey !== 'Media' && typeKey !== 'Other' ? 'flat' : 'group',
+            kind: suppressHeader && typeKey !== 'Media' && typeKey !== 'Other' ? 'flat' : 'group',
             label: typeKey,
             files: groups[typeKey],
           });
         });
-        // Citations and Consolidations are the last groups, but transcript/decision
+        // Citations, Consolidations, and References are the last groups (in
+        // that order — References always comes last), but transcript/decision
         // entries (flat, ungrouped) still follow them at the very bottom.
         const citationsEntry = _buildCitationsEntry(caseEntry);
         if (citationsEntry) entries.push(citationsEntry);
         const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, caseRef.term);
         if (otherTitlesEntry) entries.push(otherTitlesEntry);
+        if (groups.References?.length) {
+          entries.push({ kind: 'group', label: 'References', files: groups.References });
+        }
         if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
         if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 

@@ -1364,41 +1364,46 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
 }
 
 // Valid normalized type and group values for files.json entries.
+// Type "reference" never carries a "group" — a reference entry is always
+// implicitly grouped under "reference" (see explorer.js's type→group fallback),
+// so the redundant property is omitted entirely.
 const _FILE_TYPES  = new Set(['brief', 'opinion', 'reference', 'other', 'mp4', 'mp3']);
-const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'reference', 'other', 'media']);
+const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'other', 'media']);
 
-// Map a legacy files.json "type" to [normalizedType, group].
+// Map a legacy files.json "type" to [normalizedType, group|null].
 // Only called for entries that are NOT already in the normalized format.
 // "petitioner"|"respondent"|"amicus" → ["brief",     <original>]
-// "reference"                        → ["reference", "reference"]
+// "reference"                        → ["reference", null]
 // "brief"|"opinion"                  → [<original>,  "other"]
 // anything else (including missing)  → ["other",     "other"]
 function _fileTypeGroup(rawType) {
     if (rawType === 'petitioner' || rawType === 'respondent' || rawType === 'amicus')
         return ['brief', rawType];
     if (rawType === 'reference')
-        return ['reference', 'reference'];
+        return ['reference', null];
     if (rawType === 'brief' || rawType === 'opinion')
         return [rawType, 'other'];
     return ['other', 'other'];
 }
 
-// Return the correct group for a given normalized type.
-// "reference" must always use group "reference"; everything else keeps its group.
+// Return the correct group for a given normalized type, or null when the
+// group should be omitted. "reference" never has a group; everything else
+// keeps its group.
 function _canonicalGroup(type, group) {
-    if (type === 'reference') return 'reference';
+    if (type === 'reference') return null;
     if (type === 'mp4' || type === 'mp3') return 'media';
     return group;
 }
 
 // Return a normalized copy of a files.json entry with property order:
-// file → type → group → (remaining keys in original order).
+// file → type → group → (remaining keys in original order). "group" is
+// omitted for type "reference" entries.
 // If the entry already has valid type+group values, they are preserved as-is
 // (subject to _canonicalGroup); otherwise the legacy type is mapped via _fileTypeGroup().
 function _normalizeFileEntry(entry) {
     if (!entry || typeof entry !== 'object') return entry;
     let newType, newGroup;
-    if (_FILE_TYPES.has(entry.type) && _FILE_GROUPS.has(entry.group)) {
+    if (_FILE_TYPES.has(entry.type) && (entry.type === 'reference' || _FILE_GROUPS.has(entry.group))) {
         newType  = entry.type;
         newGroup = _canonicalGroup(entry.type, entry.group);
     } else {
@@ -1406,8 +1411,8 @@ function _normalizeFileEntry(entry) {
     }
     const rebuilt = {};
     if ('file' in entry) rebuilt.file = entry.file;
-    rebuilt.type  = newType;
-    rebuilt.group = newGroup;
+    rebuilt.type = newType;
+    if (newGroup != null) rebuilt.group = newGroup;
     for (const [k, v] of Object.entries(entry)) {
         if (k !== 'file' && k !== 'type' && k !== 'group') rebuilt[k] = v;
     }
@@ -1417,13 +1422,16 @@ function _normalizeFileEntry(entry) {
 // Returns true if entry already has valid type, group, and property order.
 function _fileEntryIsNormalized(entry) {
     if (!entry || typeof entry !== 'object') return true;
-    if (!_FILE_TYPES.has(entry.type) || !_FILE_GROUPS.has(entry.group)) return false;
-    if (entry.group !== _canonicalGroup(entry.type, entry.group)) return false;
+    if (!_FILE_TYPES.has(entry.type)) return false;
     const keys = Object.keys(entry);
     const fi = keys.indexOf('file');
     const ti = keys.indexOf('type');
+    if (ti < 0 || ti !== fi + 1) return false;
+    if (entry.type === 'reference') return !('group' in entry);
+    if (!_FILE_GROUPS.has(entry.group)) return false;
+    if (entry.group !== _canonicalGroup(entry.type, entry.group)) return false;
     const gi = keys.indexOf('group');
-    return ti >= 0 && gi >= 0 && ti === fi + 1 && gi === ti + 1;
+    return gi >= 0 && gi === ti + 1;
 }
 
 // Normalize every file entry in files.json across all cases in the given term(s).
@@ -9344,7 +9352,7 @@ function _addReferenceEntries(term, c, refEntries) {
 
     for (const r of refEntries) {
         if (existingTitles.has(r.title)) continue;
-        files.push({ file: ++maxId, type: 'reference', group: 'reference', title: r.title, href: r.href, refs: r.refs });
+        files.push({ file: ++maxId, type: 'reference', title: r.title, href: r.href, refs: r.refs });
         existingTitles.add(r.title);
         added++;
         console.log(`  [ref] added "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
