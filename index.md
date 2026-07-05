@@ -122,7 +122,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
 
 <div class="hp-hero">
   <h1>Argument Aloud</h1>
-  <p class="hp-tagline">A media hub that connects (almost) every U.S. Supreme Court argument with all available files (briefs, transcripts, recordings, opinions) &mdash; all in one place.</p>
+  <p class="hp-tagline">A media hub that connects (almost) every U.S. Supreme Court argument with all available files (briefs, transcripts, recordings, opinions) &mdash; all on one page per case.</p>
   <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. Republican National Committee (No.&nbsp;24-1260)</a></p>
 </div>
 
@@ -173,7 +173,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">
     <div class="hp-icon">🔗</div>
     <div class="hp-card-title">Links</div>
-	<p class="hp-card-desc">Click <a href="/courts/ussc/?term=1965-10&case=759">Miranda</a> to see links to cited cases in the transcript. <strong>Tags</strong> show related cases, <strong>Speakers</strong> show other arguments, and <strong>Dates</strong> are a window onto other events.</p>
+	<p class="hp-card-desc">Click <a href="/courts/ussc/?term=1965-10&case=759">Miranda</a> to see links to cited cases in the transcript. <strong>Tags</strong> show related cases, <strong>Speakers</strong> show other arguments, and <strong>Dates</strong> are windows onto other events.</p>
   </div>
 
   <div class="hp-card" data-href="/courts/ussc?collection=all">

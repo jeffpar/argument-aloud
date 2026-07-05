@@ -61,6 +61,13 @@ const _sectionLiById      = new Map(); // entry.id → top-level section <li>
 
 // ── Transcript edit mode state ──────────────────────────────────────────────
 let _editMode = false;
+// Removing a focused element from the DOM (e.g. turnList.innerHTML = '' during
+// the re-render after a Ctrl/Cmd+Enter split) fires a native blur on it — but
+// at the moment that blur handler runs, the element's `isConnected` can still
+// read true (the browser fires blur before actually detaching the node), so
+// isConnected alone can't tell a real user blur apart from this one. This
+// flag is set explicitly around that kind of programmatic teardown instead.
+let _suppressTurnBlurSave = false;
 // caseKey -> { title, number?, id?, eventEdits: Map<text_href, Map<turnIdx, {turnNum,name,text?}>> }
 let _transcriptEdits = new Map();
 let _currentTextHref = ''; // text_href of the currently loaded transcript
@@ -5236,6 +5243,7 @@ async function loadAudioEntry(arg, basePath) {
     renderTranscript();
     document.getElementById('transcript-viewer')
       .classList.toggle('no-transcript', turns.length === 0);
+    _updateEditModeMenu();
     const docPanel = document.getElementById('doc-viewer');
     if (!docPanel.hidden && !docPanel.classList.contains('collapsed')) {
       collapseDocViewer();
@@ -5930,6 +5938,7 @@ function renderTranscript() {
       tx.textContent = editedTurn?.text ?? turn.text;
       tx.contentEditable = 'true';
       tx.spellcheck = false;
+      tx.title = 'Enter: confirm  •  Shift+Enter: newline  •  Ctrl/Cmd+Enter: split into a new turn at the cursor';
       tx.addEventListener('click', e => {
         if (idx === activeTurnIdx) {
           e.stopPropagation();
@@ -5941,13 +5950,24 @@ function renderTranscript() {
         // active turn, updates the URL, and seeks audio (matching non-edit behavior).
       });
       tx.addEventListener('blur', () => {
+        // Programmatic teardown (e.g. turnList.innerHTML = '' during the
+        // re-render after a Ctrl/Cmd+Enter split) fires a blur on the old,
+        // still-focused tx too — skip saving in that case, since
+        // tx.textContent is now stale (this element is being discarded, not
+        // edited). isConnected can't detect this: the blur fires before the
+        // node is actually detached, so it still reads true here.
+        if (_suppressTurnBlurSave || !tx.isConnected) return;
         _saveEditedTurn(idx, { text: tx.textContent });
         div.classList.toggle('turn-modified', _getEditedTurn(idx) !== null);
       });
       tx.addEventListener('keydown', e => {
-        if (e.key === 'Enter' && !e.shiftKey) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          // Ctrl/Cmd+Enter splits this turn into two at the caret.
           e.preventDefault();
-          tx.blur(); // plain Enter or Cmd+Enter = confirm
+          _insertTurnAtCursor(idx, tx);
+        } else if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          tx.blur(); // plain Enter = confirm
         } else if (e.key === 'Enter' && e.shiftKey) {
           // Shift+Enter inserts a literal newline at the cursor.
           e.preventDefault();
@@ -8524,12 +8544,12 @@ function _getEditedTurn(turnIdx) {
   return _transcriptEdits.get(_currentCaseKey)?.eventEdits.get(_currentTextHref)?.get(turnIdx) ?? null;
 }
 
-function _saveEditedTurn(turnIdx, changes) {
-  if (!_currentCaseKey || !_currentTextHref) return;
-  const caseKey = _currentCaseKey;
-
-  if (!_transcriptEdits.has(caseKey)) {
-    _transcriptEdits.set(caseKey, {
+// Return (creating as needed) the Map<turnIdx, edit> for the transcript currently
+// being viewed. Shared by _saveEditedTurn and _insertTurnAtCursor.
+function _ensureEventEdits() {
+  if (!_currentCaseKey || !_currentTextHref) return null;
+  if (!_transcriptEdits.has(_currentCaseKey)) {
+    _transcriptEdits.set(_currentCaseKey, {
       title: _caseDisplayTitle(_currentCaseEntry, _currentLoadedEntry),
       term: _currentCaseKey.split('/')[0],
       number: _currentCaseEntry?.number,
@@ -8537,11 +8557,17 @@ function _saveEditedTurn(turnIdx, changes) {
       eventEdits: new Map()
     });
   }
-  const caseData = _transcriptEdits.get(caseKey);
+  const caseData = _transcriptEdits.get(_currentCaseKey);
   if (!caseData.eventEdits.has(_currentTextHref)) {
     caseData.eventEdits.set(_currentTextHref, new Map());
   }
-  const eventEdits = caseData.eventEdits.get(_currentTextHref);
+  return caseData.eventEdits.get(_currentTextHref);
+}
+
+function _saveEditedTurn(turnIdx, changes) {
+  const eventEdits = _ensureEventEdits();
+  if (!eventEdits) return;
+  const caseData = _transcriptEdits.get(_currentCaseKey);
 
   const origTurn = turns[turnIdx];
   const existing = eventEdits.get(turnIdx) || {};
@@ -8551,18 +8577,30 @@ function _saveEditedTurn(turnIdx, changes) {
   const nameChanged = newName !== origTurn.name;
   const textChanged = newText !== undefined && newText !== origTurn.text;
 
-  if (!nameChanged && !textChanged) {
+  // A split-derived entry (see _insertTurnAtCursor) must survive even when
+  // nothing further has changed: turns[] was deliberately mutated to already
+  // match it, so "no change from turns[]" here just means the user hasn't
+  // additionally edited this turn on top of the split, not that there's
+  // nothing left to track (the insert/truncate/renumber itself still is).
+  const isSplitDerived = !!(existing.isNewTurn || existing.splitTruncated || existing.renumbered);
+
+  if (!nameChanged && !textChanged && !isSplitDerived) {
     eventEdits.delete(turnIdx);
   } else {
     eventEdits.set(turnIdx, {
+      ...existing,
       turnNum: origTurn.turn ?? (turnIdx + 1),
       name: newName,
-      ...(textChanged ? { text: newText } : {})
+      text: newText,
+      // A renumbered turn only needs prev/turn exported (bareRenumber) until
+      // the user genuinely overrides its name/text beyond what the split
+      // already carried forward.
+      ...(existing.renumbered ? { bareRenumber: !nameChanged && !textChanged } : {}),
     });
   }
 
   if (!eventEdits.size) caseData.eventEdits.delete(_currentTextHref);
-  if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
+  if (!caseData.eventEdits.size) _transcriptEdits.delete(_currentCaseKey);
   _persistEditsToStorage();
 }
 
@@ -8578,6 +8616,128 @@ function _removeEditedTurn(turnIdx) {
   _persistEditsToStorage();
 }
 
+// Split `el`'s text content at the caret and return { before, after }. Used by
+// _insertTurnAtCursor. Falls back to "no selection" (whole text, nothing after)
+// if the caret position can't be determined.
+function _splitTextAtCursor(el) {
+  const sel = window.getSelection();
+  if (!sel || !sel.rangeCount) return { before: el.textContent, after: '' };
+  const range = sel.getRangeAt(0);
+  const preRange = document.createRange();
+  preRange.selectNodeContents(el);
+  preRange.setEnd(range.startContainer, range.startOffset);
+  const before = preRange.toString();
+  const after = el.textContent.slice(before.length);
+  return { before, after };
+}
+
+// Split turn `idx` at the caret inside its contenteditable text element `tx`:
+// the text before the caret stays on turn idx, and a brand-new turn — with
+// speaker UNKNOWN SPEAKER — is inserted immediately after it holding the text
+// from the caret onward. Every turn from idx+1 to the end of the transcript
+// has its 1-based `turn` number bumped by one to stay sequential.
+// All of it — the truncated turn, the new turn, and every renumbered turn
+// after it — is marked modified, since all of it differs from the server's
+// current transcript (even turns whose text/speaker didn't change now sit at
+// a different turn number). A renumbered-only entry records both its new
+// number (turnNum) and its true original number (prevTurnNum) — needed so
+// update_transcripts.js can find the right turn in the untouched server
+// transcript and renumber it there. If this same turn was already shifted by
+// an earlier split in this session, prevTurnNum is carried forward from that
+// entry rather than recomputed, so a chain of splits still traces back to the
+// real original instead of an intermediate, locally-shifted number.
+function _insertTurnAtCursor(idx, tx) {
+  const { before, after } = _splitTextAtCursor(tx);
+  const origTurn = turns[idx];
+  const origTurnNum = origTurn.turn ?? (idx + 1);
+  const effectiveName = _getEditedTurn(idx)?.name ?? origTurn.name;
+  const eventEdits = _ensureEventEdits();
+
+  // Snapshot each subsequent turn's "true original number" (old, pre-splice
+  // indices) before any mutation below.
+  const oldPrevNums = [];
+  for (let i = idx + 1; i < turns.length; i++) {
+    const existing = eventEdits?.get(i);
+    oldPrevNums[i] = existing?.prevTurnNum ?? (turns[i].turn ?? (i + 1));
+  }
+
+  // Bump every subsequent turn's number by one. Walking backward lets this
+  // happen in place, before the splice below shifts everyone's array index.
+  for (let i = turns.length - 1; i > idx; i--) {
+    turns[i].turn = (turns[i].turn ?? (i + 1)) + 1;
+  }
+  const newTurnNum = origTurnNum + 1;
+  turns[idx].text = before;
+  turns.splice(idx + 1, 0, { turn: newTurnNum, name: 'UNKNOWN SPEAKER', text: after, time: origTurn.time });
+  if (Array.isArray(turnTimes)) turnTimes.splice(idx + 1, 0, turnTimes[idx]);
+
+  // The speaker dropdown only lists names already present in this transcript —
+  // add the sentinel so the new turn's dropdown can actually show it selected.
+  if (!caseSpeakers.some(s => s.name === 'UNKNOWN SPEAKER')) {
+    caseSpeakers.push({ name: 'UNKNOWN SPEAKER' });
+  }
+
+  if (eventEdits) {
+    // Re-key existing local edits (Map<arrayIndex, edit>) so they stay attached
+    // to the same turn object now that every index after idx moved up by one.
+    const rekeyed = new Map();
+    for (const [key, val] of eventEdits) rekeyed.set(key > idx ? key + 1 : key, val);
+    eventEdits.clear();
+    for (const [key, val] of rekeyed) eventEdits.set(key, val);
+
+    // splitTruncated (like renumbered/isNewTurn below) marks an entry that
+    // trivially matches the local, already-mutated turns[] array by
+    // construction — it must not be pruned just because it "matches" here;
+    // only downloadTranscriptEdits()'s round-trip check against the real
+    // server transcript can tell whether it's actually been applied yet.
+    eventEdits.set(idx, { turnNum: origTurnNum, name: effectiveName, text: before, splitTruncated: true });
+    eventEdits.set(idx + 1, { turnNum: newTurnNum, name: 'UNKNOWN SPEAKER', text: after, time: origTurn.time, isNewTurn: true });
+    // Everything from here on was at (new index - 1) before the splice, which
+    // is how oldPrevNums (snapshotted pre-splice) is indexed.
+    for (let i = idx + 2; i < turns.length; i++) {
+      const existing = rekeyed.get(i);
+      // name/text always reflect this turn's real current content (its
+      // override if one exists, otherwise its untouched original content) —
+      // needed so downloadTranscriptEdits() can confirm against the server
+      // whether the shift has actually landed. bareRenumber records whether
+      // that content is a genuine user override or just carried along for
+      // that comparison, so _generateEditsJson() knows whether to actually
+      // export name/text or leave them out per the "prev"/"turn"-only spec.
+      eventEdits.set(i, {
+        turnNum: turns[i].turn,
+        prevTurnNum: oldPrevNums[i - 1],
+        name: turns[i].name,
+        text: turns[i].text,
+        bareRenumber: existing?.name === undefined && existing?.text === undefined,
+        renumbered: true,
+      });
+    }
+    _persistEditsToStorage();
+  }
+
+  // The old tx is still focused at this point; clearing turnList fires a
+  // native blur on it that must not be allowed to re-save stale full text
+  // over the truncation above (see the blur handler and _suppressTurnBlurSave).
+  _suppressTurnBlurSave = true;
+  turnList.innerHTML = '';
+  renderTranscript();
+  _suppressTurnBlurSave = false;
+
+  // Move focus to the start of the new turn's text.
+  requestAnimationFrame(() => {
+    const newTx = document.querySelector('#turn-' + (idx + 1) + ' .turn-text');
+    if (!newTx) return;
+    newTx.focus();
+    const r = document.createRange();
+    r.selectNodeContents(newTx);
+    r.collapse(true);
+    const wSel = window.getSelection();
+    wSel.removeAllRanges();
+    wSel.addRange(r);
+    newTx.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+
 // Remove stored edits for the current transcript that already match the server data.
 function _pruneStaleEditsForCurrentTranscript() {
   if (!_currentCaseKey || !_currentTextHref) return;
@@ -8589,6 +8749,13 @@ function _pruneStaleEditsForCurrentTranscript() {
   for (const [turnIdx, edit] of eventEdits) {
     const turn = turns[turnIdx];
     if (!turn) { eventEdits.delete(turnIdx); changed = true; continue; }
+    // A renumbered, brand-new-turn, or split-truncated entry (see
+    // _insertTurnAtCursor) always "matches" the in-memory turn it's attached
+    // to, by construction — that's just how these entries get built, not a
+    // sign they're stale. Never auto-prune them here; downloadTranscriptEdits()
+    // does its own check against the real server transcript and will drop
+    // them once actually applied.
+    if (edit.renumbered || edit.isNewTurn || edit.splitTruncated) continue;
     const nameApplied = edit.name === turn.name;
     const textApplied = edit.text === undefined || edit.text === turn.text;
     if (nameApplied && textApplied) { eventEdits.delete(turnIdx); changed = true; }
@@ -8608,7 +8775,17 @@ function _generateEditsJson() {
       events.push({
         text_href: textHref,
         turns: [...turnEdits.values()]
-          .map(e => ({ turn: e.turnNum, name: e.name, ...(e.text !== undefined ? { text: e.text } : {}) }))
+          .map(e => ({
+            ...(e.prevTurnNum !== undefined ? { prev: e.prevTurnNum } : {}),
+            turn: e.turnNum,
+            // A bare renumber (no genuine name/text override) only needs
+            // prev/turn — the shifted turn's content hasn't actually changed.
+            ...(e.bareRenumber ? {} : {
+              ...(e.name !== undefined ? { name: e.name } : {}),
+              ...(e.text !== undefined ? { text: e.text } : {}),
+            }),
+            ...(e.time !== undefined ? { time: e.time } : {}),
+          }))
           .sort((a, b) => a.turn - b.turn)
       });
     }
@@ -8628,7 +8805,7 @@ const _unknownSpeakerNames = new Set(['UNKNOWN JUSTICE', 'UNKNOWN SPEAKER']);
 function _updateEditModeMenu() {
   const editBtn   = document.getElementById('edit-transcripts-btn');
   const endBtn    = document.getElementById('end-editing-btn');
-  if (editBtn) editBtn.hidden = _editMode;
+  if (editBtn) { editBtn.hidden = _editMode; editBtn.disabled = turns.length === 0; }
   if (endBtn)  endBtn.hidden  = !_editMode;
 }
 
@@ -8636,7 +8813,7 @@ let _editAlertShown = false;
 
 function startEditTranscripts() {
   if (!_editAlertShown) {
-    alert('Your edits are saved in your browser. Use "Download Edits" from the menu when you\'re ready to submit them.');
+    alert('Your edits are saved in your browser. Use "Download Edits" from the menu when you\'re ready to submit them.\n\nNote: You can use Shift+Enter to insert blank lines and Cmd+Enter to insert new turns.');
     _editAlertShown = true;
   }
   _editMode = true;
@@ -8675,9 +8852,15 @@ async function downloadTranscriptEdits() {
       } catch { continue; }
 
       for (const [turnIdx, edit] of turnEdits) {
+        // edit.name/edit.text always reflect this turn's real expected
+        // content (see _insertTurnAtCursor), even for a bare renumber with
+        // nothing exported for those fields — so comparing them against the
+        // server's actual turn content reliably detects whether the shift
+        // has landed, without risking a false match against an unrelated,
+        // still-unshifted turn that happens to share the new number.
         const serverTurn = serverTurns.find((t, i) => (t.turn ?? (i + 1)) === edit.turnNum);
         if (!serverTurn) continue;
-        const nameApplied = edit.name === serverTurn.name;
+        const nameApplied = edit.name === undefined || edit.name === serverTurn.name;
         const textApplied = edit.text === undefined || edit.text === serverTurn.text;
         if (nameApplied && textApplied) turnEdits.delete(turnIdx);
       }
@@ -8809,11 +8992,27 @@ function restoreFavorites() {
   document.body.appendChild(input); input.click(); document.body.removeChild(input);
 }
 
+function clearFavorites() {
+  if (!confirm('This will erase all your local favorites (including any custom tags). Are you sure?')) return;
+  localStorage.removeItem(_LS_FAVORITES_KEY);
+  localStorage.removeItem(_LS_TAGS_KEY);
+  window.location.href = '/';
+}
+
+function clearTranscriptEdits() {
+  if (!confirm('This will erase all your local transcript edits. Are you sure?')) return;
+  localStorage.removeItem(_LS_EDITS_KEY);
+  window.location.href = '/';
+}
+
 window._startEditTranscripts    = startEditTranscripts;
 window._endEditTranscripts      = endEditTranscripts;
 window._downloadTranscriptEdits = downloadTranscriptEdits;
+window._clearTranscriptEdits    = clearTranscriptEdits;
 window._saveFavorites           = saveFavorites;
 window._restoreFavorites        = restoreFavorites;
+window._clearFavorites          = clearFavorites;
 
 _loadEditsFromStorage();
+_updateEditModeMenu();
 init();

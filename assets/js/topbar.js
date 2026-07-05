@@ -28,30 +28,20 @@
     menu.setAttribute('aria-hidden', 'true');
   }
 
-  function isUsscPage() {
-    return window.location.pathname.startsWith('/courts/ussc');
-  }
-
-  function syncEditTranscriptsBtn() {
-    var onUssc = isUsscPage();
-    var editBtn         = document.getElementById('edit-transcripts-btn');
-    var downloadBtn     = document.getElementById('download-edits-btn');
-    var saveFavBtn      = document.getElementById('save-favorites-btn');
-    var restoreFavBtn   = document.getElementById('restore-favorites-btn');
-    if (editBtn)       editBtn.disabled       = !onUssc;
-    if (downloadBtn)   downloadBtn.disabled   = !onUssc;
-    if (saveFavBtn)    saveFavBtn.disabled    = !onUssc;
-    if (restoreFavBtn) restoreFavBtn.disabled = !onUssc;
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
+    // Standalone/installed web-app mode hides the browser's own back/forward
+    // controls, so provide equivalents here.
+    var backBtn    = document.getElementById('nav-back-btn');
+    var forwardBtn = document.getElementById('nav-forward-btn');
+    if (backBtn)    backBtn.addEventListener('click', function () { history.back(); });
+    if (forwardBtn) forwardBtn.addEventListener('click', function () { history.forward(); });
+
     var menuBtn = document.getElementById('menu-btn');
     var menu    = document.getElementById('topbar-menu');
     if (!menuBtn || !menu) return;
 
     menuBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      syncEditTranscriptsBtn();
       var open = menu.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
       menu.setAttribute('aria-hidden', String(!open));
@@ -65,8 +55,6 @@
       if (e.key === 'Escape') { closeMenu(); menuBtn.focus(); }
     });
 
-    window.addEventListener('popstate', syncEditTranscriptsBtn);
-
     document.querySelectorAll('[data-theme-value]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         setTheme(btn.dataset.themeValue);
@@ -77,7 +65,6 @@
     });
 
     updateThemeMenu();
-    syncEditTranscriptsBtn();
 
     var editBtn        = document.getElementById('edit-transcripts-btn');
     var endEditBtn     = document.getElementById('end-editing-btn');
@@ -85,7 +72,6 @@
 
     if (editBtn) {
       editBtn.addEventListener('click', function () {
-        if (editBtn.disabled) return;
         closeMenu();
         if (typeof window._startEditTranscripts === 'function') window._startEditTranscripts();
       });
@@ -102,9 +88,17 @@
         if (typeof window._downloadTranscriptEdits === 'function') window._downloadTranscriptEdits();
       });
     }
+    var clearEditsBtn = document.getElementById('clear-edits-btn');
+    if (clearEditsBtn) {
+      clearEditsBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._clearTranscriptEdits === 'function') window._clearTranscriptEdits();
+      });
+    }
 
     var saveFavBtn    = document.getElementById('save-favorites-btn');
     var restoreFavBtn = document.getElementById('restore-favorites-btn');
+    var clearFavBtn   = document.getElementById('clear-favorites-btn');
     if (saveFavBtn) {
       saveFavBtn.addEventListener('click', function () {
         closeMenu();
@@ -115,6 +109,12 @@
       restoreFavBtn.addEventListener('click', function () {
         closeMenu();
         if (typeof window._restoreFavorites === 'function') window._restoreFavorites();
+      });
+    }
+    if (clearFavBtn) {
+      clearFavBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._clearFavorites === 'function') window._clearFavorites();
       });
     }
   });

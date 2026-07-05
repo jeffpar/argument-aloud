@@ -170,3 +170,10 @@ Below is a list of all transcripts updates that have been applied to the server 
       - [Turn 217](/courts/ussc/?term=1986-10&case=86-475&event=2&turn=217): UNKNOWN JUSTICE -> ANTONIN SCALIA
   - [Carnival Cruise Lines, Inc. v. Shute (No. 89-1647)](/courts/ussc/?term=1990-10&case=89-1647&event=2)
       - [Turn 35](/courts/ussc/?term=1990-10&case=89-1647&event=2&turn=35): BYRON WHITE -> ANTHONY KENNEDY
+  - [Cooper v. Federal Reserve Bank of Richmond (No. 83-185)](/courts/ussc/?term=1983-10&case=83-185&event=1)
+      - [Turn 59](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=59): "... was her abaction to pursue ..." -> "... was her election to pursue ..."; "... prior to 1 66 was exactly ..." -> "... prior to 1966 was exactly ..."; "... the plaintiff, and QUESTION; I don’t see [+760 more words] deals directly with that issue." -> "... is a deal anybody would love."
+      - [Turn 60](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=60): new turn (SANDRA DAY O'CONNOR)
+      - [Turn 61](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=61): new turn (GEORGE R. HODGES)
+      - [Turn 62](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=62): new turn (UNKNOWN JUSTICE)
+      - [Turn 63](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=63): new turn (GEORGE R. HODGES)
+      - [Turn 64](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=64): new turn (UNKNOWN JUSTICE)

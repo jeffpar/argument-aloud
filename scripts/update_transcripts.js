@@ -791,13 +791,21 @@ function _textDiffSummary(oldText, newText, ctx = 2) {
     if (region) regions.push(region);
     if (!regions.length) return null;
 
+    // Cap how much of a single changed region gets quoted — a large
+    // insertion/deletion (e.g. a turn split, or a big rewrite) would
+    // otherwise dump the entire changed block into the log verbatim.
+    const MAX_CHANGED_WORDS = 10;
     function snippet(words, firstIdx, lastIdx) {
-        const start = Math.max(0, firstIdx - ctx);
-        const end   = lastIdx + 1 + ctx;
-        const slice = words.slice(start, end);
-        const pre   = start > 0            ? '...' : '';
-        const post  = end < words.length   ? '...' : '';
-        return '"' + [pre, ...slice, post].filter(Boolean).join(' ') + '"';
+        const before = words.slice(Math.max(0, firstIdx - ctx), firstIdx);
+        const after  = words.slice(lastIdx + 1, lastIdx + 1 + ctx);
+        const changed = words.slice(firstIdx, lastIdx + 1);
+        const half = Math.floor(MAX_CHANGED_WORDS / 2);
+        const changedPart = changed.length > MAX_CHANGED_WORDS
+            ? [...changed.slice(0, half), `[+${changed.length - half * 2} more words]`, ...changed.slice(-half)]
+            : changed;
+        const pre  = (firstIdx - ctx) > 0 ? '...' : '';
+        const post = (lastIdx + 1 + ctx) < words.length ? '...' : '';
+        return '"' + [pre, ...before, ...changedPart, ...after, post].filter(Boolean).join(' ') + '"';
     }
 
     return regions.map(r => {
@@ -872,32 +880,114 @@ async function applyEditsFromFile(filePath) {
             const turns = isEnvelope ? (transcript.turns ?? []) : transcript;
 
             const turnChanges = [];
-            for (const edit of turnEdits) {
-                const turnNum = edit.turn;
-                // Find turn by its 1-based “turn” field (falling back to positional index+1).
-                const t = turns.find((t, i) => (t.turn ?? (i + 1)) === turnNum);
+            // Tracks whether anything was actually written to `turns`, even
+            // when it's not the kind of change worth logging (a pure
+            // renumber with no other edit) — the file still needs saving.
+            let anyMutation = false;
+
+            // "prev"-tagged edits identify an ORIGINAL turn by its pre-split
+            // number and move it to a new number (recording any genuine
+            // name/text override at the same time). These must be applied
+            // before the plain edits below, since a new turn's slot is only
+            // free once the turn that used to occupy that number has been
+            // shifted out of the way.
+            const prevEdits  = turnEdits.filter(e => e.prev !== undefined);
+            const otherEdits = turnEdits.filter(e => e.prev === undefined);
+
+            // Resolve every prevEdit's target turn against the array BEFORE
+            // any of them are mutated. Shifts of more than 1 make the
+            // destination range overlap the source range (e.g. originals
+            // 60-73 moving to 65-78) — if targets were looked up one at a
+            // time while mutating as we go, an earlier reassignment's new
+            // number could be mistaken for a later edit's source number
+            // (turns.find() returns the first match by array position,
+            // which after an earlier rename may no longer be the true
+            // original). Resolving all targets up front against the
+            // untouched array avoids that entirely.
+            const prevTargets = [];
+            for (const edit of prevEdits) {
+                const t = turns.find((t, i) => (t.turn ?? (i + 1)) === edit.prev);
                 if (!t) {
-                    console.warn(`  Turn ${turnNum} not found in ${text_href}`);
+                    // Re-running an edits file that was already (partially)
+                    // applied: the turn that used to be `edit.prev` has
+                    // already moved to `edit.turn` — nothing left to do.
+                    if (!turns.some(t => t.turn === edit.turn)) {
+                        console.warn(`  Turn ${edit.prev} (renumbering to ${edit.turn}) not found in ${text_href}`);
+                    }
                     continue;
                 }
+                prevTargets.push({ edit, t });
+            }
+            for (const { edit, t } of prevTargets) {
                 const oldName = t.name;
                 const oldText = t.text;
-                let changed = false;
-                if (edit.name !== undefined && t.name !== edit.name) {
-                    t.name = edit.name;
-                    changed = true;
-                }
-                if (edit.text !== undefined && t.text !== edit.text) {
-                    t.text = edit.text;
-                    changed = true;
-                }
-                if (changed) {
-                    t.modified = true;
-                    turnChanges.push({ turnNum, oldName, newName: t.name, oldText, newText: t.text });
+                const oldTurn = t.turn ?? edit.prev;
+                let contentChanged = false;
+                if (t.turn !== edit.turn) { t.turn = edit.turn; anyMutation = true; }
+                if (edit.name !== undefined && t.name !== edit.name) { t.name = edit.name; t.modified = true; contentChanged = true; }
+                if (edit.text !== undefined && t.text !== edit.text) { t.text = edit.text; t.modified = true; contentChanged = true; }
+                if (contentChanged) {
+                    anyMutation = true;
+                    turnChanges.push({ turnNum: edit.turn, prevTurnNum: oldTurn, oldName, newName: t.name, oldText, newText: t.text });
                 }
             }
 
-            if (turnChanges.length === 0) {
+            for (const edit of otherEdits) {
+                const turnNum = edit.turn;
+                // Find turn by its 1-based “turn” field (falling back to positional index+1).
+                const t = turns.find((t, i) => (t.turn ?? (i + 1)) === turnNum);
+                if (t) {
+                    const oldName = t.name;
+                    const oldText = t.text;
+                    let changed = false;
+                    if (edit.name !== undefined && t.name !== edit.name) {
+                        t.name = edit.name;
+                        changed = true;
+                    }
+                    if (edit.text !== undefined && t.text !== edit.text) {
+                        t.text = edit.text;
+                        changed = true;
+                    }
+                    if (changed) {
+                        t.modified = true;
+                        anyMutation = true;
+                        turnChanges.push({ turnNum, oldName, newName: t.name, oldText, newText: t.text });
+                    }
+                    continue;
+                }
+
+                // No existing turn claims this number, even after the
+                // renumbering pass above — this is a brand-new turn the
+                // editor inserted mid-transcript. (If this edits file was
+                // already applied in a previous run, the turn now exists and
+                // the `.find` above would have matched it, so this branch is
+                // only reached for a genuinely unapplied insert.)
+                const newTurn = {
+                    turn: turnNum,
+                    name: edit.name ?? 'UNKNOWN SPEAKER',
+                    text: edit.text ?? '',
+                    ...(edit.time !== undefined ? { time: edit.time } : {}),
+                    modified: true,
+                };
+                let insertAt = turns.findIndex((t, i) => (t.turn ?? (i + 1)) > turnNum);
+                if (insertAt === -1) insertAt = turns.length;
+                turns.splice(insertAt, 0, newTurn);
+                anyMutation = true;
+                turnChanges.push({ turnNum, isNewTurn: true, oldName: null, newName: newTurn.name, oldText: null, newText: newTurn.text });
+
+                // A transcript that gains an UNKNOWN SPEAKER turn needs that
+                // name present in the envelope's speaker list, or the app has
+                // nothing to show for it.
+                if (isEnvelope && newTurn.name === 'UNKNOWN SPEAKER') {
+                    transcript.media = transcript.media || {};
+                    transcript.media.speakers = transcript.media.speakers || [];
+                    if (!transcript.media.speakers.some(s => s.name === 'UNKNOWN SPEAKER')) {
+                        transcript.media.speakers.push({ name: 'UNKNOWN SPEAKER' });
+                    }
+                }
+            }
+
+            if (!anyMutation) {
                 console.log(`No new changes in ${path.relative(REPO_ROOT, transcriptPath)}`);
                 continue;
             }
@@ -905,6 +995,10 @@ async function applyEditsFromFile(filePath) {
             const transcriptJson = JSON.stringify(transcript, null, 2) + '\n';
             writeText(transcriptPath, transcriptJson);
             console.log(`Applied ${turnChanges.length} change(s) → ${path.relative(REPO_ROOT, transcriptPath)}`);
+
+            // A batch that was purely renumbers (no content worth logging)
+            // still needed saving above, but has nothing to add to the log.
+            if (turnChanges.length === 0) continue;
 
             // Find 1-based event index for the URL.
             let eventIdx = null;
@@ -935,9 +1029,11 @@ async function applyEditsFromFile(filePath) {
             for (const tc of turnChanges) {
                 const turnUrl = `${caseUrl}&turn=${tc.turnNum}`;
                 const parts = [];
-                if (tc.oldName !== tc.newName) parts.push(`${tc.oldName} -> ${tc.newName}`);
+                if (tc.isNewTurn) parts.push(`new turn (${tc.newName})`);
+                if (tc.prevTurnNum !== undefined) parts.push(`renumbered from ${tc.prevTurnNum}`);
+                if (!tc.isNewTurn && tc.oldName !== tc.newName) parts.push(`${tc.oldName} -> ${tc.newName}`);
                 const textDiff = _textDiffSummary(tc.oldText, tc.newText);
-                if (textDiff) parts.push(textDiff);
+                if (!tc.isNewTurn && textDiff) parts.push(textDiff);
                 logLines.push(`      - [Turn ${tc.turnNum}](${turnUrl}): ${parts.join('; ')}`);
             }
         }

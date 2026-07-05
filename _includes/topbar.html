@@ -2,6 +2,8 @@
   <a id="site-link" href="/">Argument Aloud</a>
   {%- if include.court_title %}
   <a id="page-title" href="{{ include.court_href | default: '#' }}">{{ include.court_title }}</a>
+  <button id="nav-back-btn" title="Back" aria-label="Go back"><svg viewBox="0 0 24 24" width="12" height="12"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button id="nav-forward-btn" title="Forward" aria-label="Go forward"><svg viewBox="0 0 24 24" width="12" height="12"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   {%- endif %}
   <span id="topbar-term"></span>
   <a id="random-case-btn" href="/courts/ussc/?action=randomize&amp;start=1955-10" title="Random case" aria-label="Random case">&#127922;</a>
@@ -13,12 +15,15 @@
     <button class="menu-item" role="menuitem" data-theme-value="dark"><span class="menu-check">&#10003;</span>Dark</button>
     <div class="menu-divider"></div>
     <div class="menu-section-label">Favorites</div>
-    <button class="menu-item" id="save-favorites-btn" role="menuitem">Save Favorites</button>
-    <button class="menu-item" id="restore-favorites-btn" role="menuitem">Restore Favorites</button>
+    <button class="menu-item" id="save-favorites-btn" role="menuitem"><span class="menu-check"></span>Save Favorites</button>
+    <button class="menu-item" id="restore-favorites-btn" role="menuitem"><span class="menu-check"></span>Restore Favorites</button>
+    <button class="menu-item" id="clear-favorites-btn" role="menuitem"><span class="menu-check"></span>Clear Favorites</button>
     <div class="menu-divider"></div>
     <div class="menu-section-label">Transcripts</div>
-    <button class="menu-item" id="edit-transcripts-btn" role="menuitem">Edit Transcripts</button>
-    <button class="menu-item" id="end-editing-btn" role="menuitem" hidden>End Edits</button>
-    <button class="menu-item" id="download-edits-btn" role="menuitem">Download Edits</button>
+    <button class="menu-item" id="edit-transcripts-btn" role="menuitem" disabled><span class="menu-check"></span>Edit Transcripts</button>
+    <button class="menu-item" id="end-editing-btn" role="menuitem" hidden><span class="menu-check"></span>End Edits</button>
+    <button class="menu-item" id="download-edits-btn" role="menuitem"><span class="menu-check"></span>Download Edits</button>
+    <button class="menu-item" id="clear-edits-btn" role="menuitem"><span class="menu-check"></span>Clear Edits</button>
   </div>
 </div>
+<script src="{{ '/assets/js/storage-actions.js' | relative_url }}"></script>
