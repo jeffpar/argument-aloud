@@ -1537,7 +1537,6 @@ function _justiceBody(servedBase) {
         '{% if page.date_start %}<script>(function(){var e=document.getElementById("jp-dur");if(!e)return;var ms=Date.now()-Date.parse("{{ page.date_start }}")+86400000;var d=Math.floor(ms/86400000);var y=(ms/(365.25*86400000)).toFixed(1).replace(/\\.0$/,"");e.textContent="("+y+" year"+(y==="1"?"":"s")+" or "+d.toLocaleString()+" days)";}());</script>{% endif %}',
         '{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">case</a> on {{ page.last_argument }}{% else %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">cases</a> from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
         '{% if page.opinions or page.lone_dissents or page.vocal_secs %}<p>{% if page.opinions or page.lone_dissents %}Wrote {% if page.opinions %}{{ page.opinions }} majority <a href="/courts/ussc/?collection=opinions&id={{ page.justice_id }}">opinion{% if page.opinions != 1 %}s{% endif %}</a>{% endif %}{% if page.opinions and page.lone_dissents %} and {% endif %}{% if page.lone_dissents %}{{ page.lone_dissents }} lone <a href="/courts/ussc/?collection=lone_dissents&id={{ page.justice_id }}">dissent{% if page.lone_dissents != 1 %}s{% endif %}</a>{% endif %}{% if page.vocal_secs %}, and spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}{% elsif page.vocal_secs %}Spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}.</p>{% endif %}',
-        '<p>Note: All service calculations are inclusive, meaning they include the first and last days of service, as well as all days between.</p>',
         '</div>',
         '<div class="jp-frame"><img src="portrait.jpg" alt="{{ page.title }}" onerror="this.parentElement.style.display=\'none\'"></div>',
         '</div>',
@@ -1694,14 +1693,14 @@ function syncJusticePages({ verbose = false } = {}) {
 
             // Migrate body if frame is absent, still carries the old inline <style> block,
             // is an active justice whose body predates the dynamic duration span,
-            // has the old unlinked "argued N cases" text, or predates the inclusive-
-            // service-calculation note (also catches stale copies of the pre-fix,
-            // non-inclusive jp-dur duration script).
-            const needsDynDuration = isActive && !mdText.includes('id="jp-dur"');
-            const needsCasesLink   = mdText.includes('{% else %}cases from {{ page.first_argument }}');
-            const needsCombinedP   = mdText.includes('View vocal statistics');
-            const needsServiceNote = !mdText.includes('All service calculations are inclusive');
-            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP || needsServiceNote) {
+            // has the old unlinked "argued N cases" text, or still carries the
+            // now-removed inclusive-service-calculation note (also catches stale
+            // copies of the pre-fix, non-inclusive jp-dur duration script).
+            const needsDynDuration  = isActive && !mdText.includes('id="jp-dur"');
+            const needsCasesLink    = mdText.includes('{% else %}cases from {{ page.first_argument }}');
+            const needsCombinedP    = mdText.includes('View vocal statistics');
+            const needsNoteRemoved  = mdText.includes('All service calculations are inclusive');
+            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP || needsNoteRemoved) {
                 const fmEnd = /^---\r?\n[\s\S]*?\n---\r?\n/.exec(mdText);
                 if (fmEnd) mdText = mdText.slice(0, fmEnd[0].length) + body + '\n';
             }
