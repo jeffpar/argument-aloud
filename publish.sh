@@ -1,14 +1,12 @@
 #!/bin/bash
 set -e
-
+node scripts/update_cases.js
 rsync -vrt --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
 pushd ../argument-apart > /dev/null
 git status
 popd > /dev/null
-
 if [ -n "$1" ]; then
   MSG="$1"
-
   sync_to_website() {
     local repo_name="$1"
     echo "Committing ${repo_name}..."
@@ -20,9 +18,7 @@ if [ -n "$1" ]; then
     git push || exit 1
     git checkout main || exit 1
   }
-
   sync_to_website "argument-aloud"
-
   pushd ../argument-apart > /dev/null
   sync_to_website "argument-apart"
   popd > /dev/null
