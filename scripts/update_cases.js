@@ -4206,8 +4206,16 @@ function processVocalJustices(allTerms, dryRun) {
                     if (canon && _scdbJusticesTenures[canon]) nameToCanon.set(nm, canon);
                 }
 
-                // Parse all turn start times once.
+                // Parse all turn start times once. A turn occasionally has a bogus
+                // timestamp (e.g. "00:00:00.00" from a failed alignment) sandwiched
+                // between otherwise-correct times; left as-is, that turn's "duration"
+                // (next turn's start minus its own) balloons to nearly the whole
+                // transcript. Clamp each time to be no earlier than the previous one
+                // so a bad reset can't manufacture a huge bogus gap.
                 const times = rawTurns.map(t => _parseTimeSecs(t?.time));
+                for (let i = 1; i < times.length; i++) {
+                    if (times[i] < times[i - 1]) times[i] = times[i - 1];
+                }
 
                 for (let i = 0; i < rawTurns.length; i++) {
                     const turn = rawTurns[i];
@@ -6560,7 +6568,21 @@ function processKeywordIndex(allTerms, dryRun) {
                     txCache.set(ev.text_href, tx);
                 }
                 if (!tx || !Array.isArray(tx.turns)) continue;
-                const eventIdx = evIdx + 1; // 1-based, matches ?event= URL param
+                // Normally this transcript's words are indexed under this event's own
+                // position. But when this event has no audio_href, the front end's
+                // dropdown (see sortedAudio in explorer.js) excludes it from the
+                // selectable list in favor of a same-date/type sibling that borrows
+                // this text_href via withTranscriptFallback() — so ?event=<this index>
+                // never actually resolves to this transcript. Index the words under
+                // that sibling's position instead, since that's the only reachable one.
+                let effectiveEvIdx = evIdx;
+                if (!ev.audio_href) {
+                    const siblingIdx = c.events.findIndex(sib =>
+                        sib !== ev && sib.date === ev.date && sib.type === ev.type && !sib.text_href && sib.audio_href
+                    );
+                    if (siblingIdx !== -1) effectiveEvIdx = siblingIdx;
+                }
+                const eventIdx = effectiveEvIdx + 1; // 1-based, matches ?event= URL param
 
                 // Build name → title map from the transcript's speaker list.
                 const speakerTitleMap = new Map();
@@ -6668,37 +6690,35 @@ function processKeywordIndex(allTerms, dryRun) {
     _writeRareWordsCollection(rareWordLocs, caseByRef, writeIfChanged);
 }
 
-// Build courts/ussc/collections/rare_words.json (an ordinary embedded-format
-// collection: [{ name: <word>, cases: [...] }, ...], browsable the same way
-// as e.g. orig.json) — the RARE_WORD_COUNT least-uttered words across the
-// whole corpus. courts/ussc/collections/rare/index.md renders this file
-// client-side (fetch + DOM) rather than being regenerated here, so hand
-// edits to that page's prose/markup are never overwritten.
-function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
-    const RARE_WORD_COUNT = 250;
-    // Require the word to have been spoken in at least 2 distinct arguments.
-    // Words unique to a single case are overwhelmingly one-off transcription
-    // typos/ASR artifacts (e.g. a stutter transcribed as "aaainst") rather than
-    // genuinely rare vocabulary — requiring independent reuse across cases
-    // filters those out while still surfacing truly uncommon words.
-    const MIN_CASE_COUNT = 2;
+// Lazily loaded Set of ~211k common English words (Webster's Second
+// International — 1934 copyright lapsed, public domain), one per line, from
+// scripts/dictionary.txt. Used by the rare-words collection below to split
+// candidates into a "real dictionary word" list and a "everything else"
+// list of likely typos/oddities.
+let _dictionaryWords = null;
+function _loadDictionaryWords() {
+    if (_dictionaryWords) return _dictionaryWords;
+    _dictionaryWords = new Set();
+    try {
+        const text = fs.readFileSync(path.join(REPO_ROOT, 'scripts', 'dictionary.txt'), 'utf8');
+        for (const line of text.split('\n')) {
+            const w = line.trim();
+            if (w) _dictionaryWords.add(w);
+        }
+    } catch { /* dictionary is optional — everything falls into the non-dictionary list */ }
+    return _dictionaryWords;
+}
 
-    const candidates = [];
-    for (const [word, locMap] of wordLocs) {
-        if (locMap.size < MIN_CASE_COUNT) continue;
-        let totalOccurrences = 0;
-        for (const tuples of locMap.values()) totalOccurrences += tuples.length / 4;
-        candidates.push({ word, caseCount: locMap.size, totalOccurrences });
-    }
-
-    // Group into rarity tiers (same occurrence count + case count), rarest first.
-    // The very first tier is typically huge — thousands of words that were each
-    // spoken exactly twice, in two different cases — so it alone blows past
-    // RARE_WORD_COUNT. Truncating that tier alphabetically would leave the
-    // whole collection stuck on words starting with "a"; instead, once a tier
-    // doesn't fully fit in the remaining budget, sample across it by bucketing
-    // words by their first letter and round-robining through the buckets, so
-    // the selection spans the alphabet instead of clustering at the front.
+// Select the `count` rarest candidates (ascending total occurrences, then
+// ascending case count), grouped into tiers of equal rarity. The very first
+// tier is typically huge — thousands of words spoken only once or twice — so
+// it alone can blow past `count`. Truncating that tier alphabetically would
+// leave the whole selection stuck on words starting with "a"; instead, once a
+// tier doesn't fully fit in the remaining budget, sample across it by
+// bucketing words by their first letter and round-robining through the
+// buckets, so the selection spans the alphabet instead of clustering at the
+// front. Returns an array of the original candidate objects.
+function _selectRarestSpread(candidates, count) {
     const tiers = new Map(); // "occurrences:caseCount" → candidates
     for (const cand of candidates) {
         const key = `${cand.totalOccurrences}:${cand.caseCount}`;
@@ -6712,12 +6732,12 @@ function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
     });
 
     const selected = [];
-    let remaining = RARE_WORD_COUNT;
+    let remaining = count;
     for (const key of tierKeys) {
         if (remaining <= 0) break;
         const tierWords = tiers.get(key);
         if (tierWords.length <= remaining) {
-            selected.push(...tierWords.sort((a, b) => a.word.localeCompare(b.word)));
+            selected.push(...tierWords);
             remaining -= tierWords.length;
             continue;
         }
@@ -6739,11 +6759,48 @@ function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
             }
             if (!any) break; // every bucket exhausted
         }
-        selected.push(...picked.sort((a, b) => a.word.localeCompare(b.word)));
+        selected.push(...picked);
         remaining -= picked.length;
     }
+    return selected;
+}
 
-    const rareWords = selected.map(({ word }) => {
+// Build courts/ussc/collections/rare_words.json (an ordinary embedded-format
+// collection: [{ name: <word>, cases: [...] }, ...], browsable the same way
+// as e.g. orig.json) — two lists of RARE_WORD_COUNT words each, back to back:
+// the rarest words that are real dictionary words (any case count, even a
+// single one — dictionary membership is itself the quality signal), followed
+// by the rarest words that are NOT in the dictionary (tagged "dictionary":
+// false), which are mostly one-off transcription typos/ASR artifacts (e.g. a
+// stutter transcribed as "aaainst") but occasionally legal/technical terms or
+// other oddities the dictionary doesn't cover.
+// courts/ussc/collections/rare/index.md renders this file client-side
+// (fetch + DOM) as two labeled lists, rather than being regenerated here, so
+// hand edits to that page's prose/markup are never overwritten.
+function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
+    const RARE_WORD_COUNT = 250;
+    // A short dictionary match is excluded from the "real word" list because
+    // a mid-word split (e.g. alignment/OCR turning "unreasonable" into
+    // "unreaso" + "nable", or "secular" into "sec" + "ula" + "r") coincidentally
+    // collides with real short dictionary headwords far more often than long
+    // ones do — such a word instead falls into the non-dictionary list.
+    const MIN_DICTIONARY_WORD_LENGTH = 5;
+    const dictionary = _loadDictionaryWords();
+
+    const dictCandidates = [];
+    const nonDictCandidates = [];
+    for (const [word, locMap] of wordLocs) {
+        let totalOccurrences = 0;
+        for (const tuples of locMap.values()) totalOccurrences += tuples.length / 4;
+        const cand = { word, caseCount: locMap.size, totalOccurrences };
+        const isDictionaryWord = word.length >= MIN_DICTIONARY_WORD_LENGTH && dictionary.has(word);
+        (isDictionaryWord ? dictCandidates : nonDictCandidates).push(cand);
+    }
+
+    const buildGroup = (word, extra) => {
+        // "find" is omitted here — it's always just the group's own "name"
+        // repeated on every case, so consumers fall back to that instead
+        // (see _buildCollectionCaseItem in explorer.js and rare/index.md).
         const cases = [...wordLocs.get(word).entries()].map(([ref, tuples]) => {
             const found = caseByRef.get(ref);
             if (!found) return null;
@@ -6756,19 +6813,30 @@ function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
                 decision: c.decision || '',
                 event: tuples[0],
                 turn: tuples[1],
-                find: word,
             };
         }).filter(Boolean).sort((a, b) =>
             (a.argument || '') < (b.argument || '') ? -1 : (a.argument || '') > (b.argument || '') ? 1 : 0
         );
-        return { name: word, cases };
-    }).filter(g => g.cases.length);
+        return { name: word, cases, ...extra };
+    };
+    const byCaseCountThenName = (a, b) => a.cases.length - b.cases.length || a.name.localeCompare(b.name);
+
+    const dictGroups = _selectRarestSpread(dictCandidates, RARE_WORD_COUNT)
+        .map(({ word }) => buildGroup(word, {}))
+        .filter(g => g.cases.length)
+        .sort(byCaseCountThenName);
+    const nonDictGroups = _selectRarestSpread(nonDictCandidates, RARE_WORD_COUNT)
+        .map(({ word }) => buildGroup(word, { dictionary: false }))
+        .filter(g => g.cases.length)
+        .sort(byCaseCountThenName);
+
+    const rareWords = [...dictGroups, ...nonDictGroups];
 
     const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'rare_words.json');
     const jsonWritten = writeIfChanged(jsonPath, JSON.stringify(rareWords, null, 2) + '\n');
 
     if (jsonWritten || _VERBOSE) {
-        console.log(`Rare words: wrote ${rareWords.length} word(s) → courts/ussc/collections/rare_words.json`);
+        console.log(`Rare words: wrote ${dictGroups.length} dictionary word(s) + ${nonDictGroups.length} non-dictionary word(s) → courts/ussc/collections/rare_words.json`);
     }
 }
 

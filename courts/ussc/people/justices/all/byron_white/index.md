@@ -7,7 +7,7 @@ years_served: 31.2
 days_served: "11,397"
 opinions: 476
 lone_dissents: 33
-vocal_secs: 556896
+vocal_secs: 550224
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">

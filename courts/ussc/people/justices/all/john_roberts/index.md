@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/John_Roberts
 date_start: 2005-09-29
 opinions: 150
 lone_dissents: 1
-vocal_secs: 272893
+vocal_secs: 261841
 case_count: 39
 first_argument: January 17, 1989
 last_argument: November 13, 2002

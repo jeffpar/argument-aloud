@@ -3892,6 +3892,23 @@ function showPageViewer(url, { pushState = true } = {}) {
   if (isMobile()) setMobileNavVisible(false);
 }
 
+// Run `renderFn` (a DOM mutation, e.g. paginating a list by toggling many
+// items' `hidden` state), then adjust #doc-browser's scroll position so that
+// `anchorEl` — a DOM node reused across the mutation, typically the
+// prev/next button just clicked — stays at the same on-screen spot.
+// Hiding/revealing a page's worth of items shifts everything below/above
+// them, which otherwise reads as the whole sidebar jumping (e.g. scrolling
+// all the way back up to "Terms") even though only this list's layout changed.
+function _preserveScrollAcrossRerender(anchorEl, renderFn) {
+  const docBrowser = document.getElementById('doc-browser');
+  const before = anchorEl.getBoundingClientRect().top;
+  renderFn();
+  if (docBrowser) {
+    const after = anchorEl.getBoundingClientRect().top;
+    docBrowser.scrollTop += (after - before);
+  }
+}
+
 function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   // Group entry: contains sub-collections with no data file of their own.
   if (Array.isArray(collEntry.collections)) {
@@ -4063,18 +4080,20 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   const _collPrevBtn = _collPrevSentinel.appendChild(document.createElement('button'));
   _collPrevBtn.className = 'page-sentinel-btn';
   _collPrevBtn.addEventListener('click', () => {
-    _collPageStart = Math.max(0, _collPageStart - COLL_PAGE_SIZE);
-    _renderCollPage();
-    requestAnimationFrame(() => _collNextSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    _preserveScrollAcrossRerender(_collPrevBtn, () => {
+      _collPageStart = Math.max(0, _collPageStart - COLL_PAGE_SIZE);
+      _renderCollPage();
+    });
   });
 
   const _collNextSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
   const _collNextBtn = _collNextSentinel.appendChild(document.createElement('button'));
   _collNextBtn.className = 'page-sentinel-btn';
   _collNextBtn.addEventListener('click', () => {
-    _collPageStart += COLL_PAGE_SIZE;
-    _renderCollPage();
-    requestAnimationFrame(() => _collPrevSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    _preserveScrollAcrossRerender(_collNextBtn, () => {
+      _collPageStart += COLL_PAGE_SIZE;
+      _renderCollPage();
+    });
   });
 
   function _renderCollPage() {
@@ -4392,8 +4411,12 @@ function _ordinal(n) {
   return n + suffix;
 }
 
-function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false, groupName = null) {
   const caseKey = caseRef.term + '/' + caseRef.number;
+  // caseRef.find, when present, names the word/phrase to highlight on arrival
+  // (see rare_words.json). It's omitted from the JSON when it's just the
+  // group's own name repeated on every case, so fall back to that.
+  const _find = caseRef.find ?? groupName;
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
   const _ciGroupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
@@ -4687,7 +4710,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           case: caseRef.number,
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
           ...(initialTurn ? { turn: initialTurn } : {}),
-          ...(caseRef.find ? { find: caseRef.find } : {}),
+          ...(_find ? { find: _find } : {}),
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'citation', ...(initialTurn ? [] : ['turn'])],
       );
@@ -4848,18 +4871,20 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     const prevBtn = prevSentinel.appendChild(document.createElement('button'));
     prevBtn.className = 'page-sentinel-btn';
     prevBtn.addEventListener('click', () => {
-      _pageStart = Math.max(0, _pageStart - PAGE_SIZE);
-      _renderGroupPage();
-      requestAnimationFrame(() => nextSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+      _preserveScrollAcrossRerender(prevBtn, () => {
+        _pageStart = Math.max(0, _pageStart - PAGE_SIZE);
+        _renderGroupPage();
+      });
     });
 
     const nextSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
     const nextBtn = nextSentinel.appendChild(document.createElement('button'));
     nextBtn.className = 'page-sentinel-btn';
     nextBtn.addEventListener('click', () => {
-      _pageStart += PAGE_SIZE;
-      _renderGroupPage();
-      requestAnimationFrame(() => prevSentinel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+      _preserveScrollAcrossRerender(nextBtn, () => {
+        _pageStart += PAGE_SIZE;
+        _renderGroupPage();
+      });
     });
 
     function _renderGroupPage() {
@@ -4985,7 +5010,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       if (Array.isArray(group.cases)) {
         // Embedded format: build case items from the in-memory array.
         for (const caseRef of group.cases) {
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
         }
         n = group.cases.length;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -5021,7 +5046,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
               _cases = sorted.map((c, i) => ({ ...c, appearance: i + 1 }));
             }
             for (const caseRef of _cases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
             }
             n = _cases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -5086,8 +5111,15 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
         // The group itself has no page/document (e.g. a single-group collection
         // like Original Jurisdiction's "Archive") — fall back to the collection's
-        // own page so the page-viewer isn't left blank.
-        else if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
+        // own page so the page-viewer isn't left blank. For Rarest Spoken Words,
+        // point it at the matching word's <li id="rare-word-..."> so the page on
+        // the right scrolls to (and highlights) the word selected on the left.
+        else if (collEntry.page) {
+          const _pageUrl = collId === 'rare_words' && group.name
+            ? collEntry.page + '#rare-word-' + encodeURIComponent(group.name)
+            : collEntry.page;
+          showPageViewer(_pageUrl, { pushState: false });
+        }
       },
     });
 
@@ -6390,7 +6422,17 @@ let _seekBarDragging = false;
 audioSeekBar.addEventListener('mousedown',  () => { _seekBarDragging = true; });
 audioSeekBar.addEventListener('touchstart', () => { _seekBarDragging = true; }, { passive: true });
 audioSeekBar.addEventListener('input', () => {
-  audioCurrentTime.textContent = formatTime(parseFloat(audioSeekBar.value));
+  const t = parseFloat(audioSeekBar.value);
+  audioCurrentTime.textContent = formatTime(t);
+  // Scroll the transcript to follow the drag position, without touching
+  // activeTurnIdx/audio.currentTime — those only update once the drag commits
+  // (on 'change'), so this is just a visual preview of where dragging will land.
+  if (hasTimes) {
+    const idx = findCurrentTurn(t);
+    if (idx >= 0) {
+      document.getElementById('turn-' + idx)?.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+    }
+  }
 });
 audioSeekBar.addEventListener('change', () => {
   _seekBarDragging = false;
@@ -6693,7 +6735,11 @@ let _transcriptSearchClearHighlight = null;
         }
       }
     }
-    clearHighlights();
+    // Leave the highlight marks in place — closing the box shouldn't un-highlight
+    // what it found, matching a silent ?find= deep link's persistent highlight.
+    // The next search (computeMatches() clears highlights before redrawing) or
+    // an explicit turn navigation (_transcriptSearchClearHighlight) will clean
+    // these up when they're actually no longer relevant.
     matchEntries = [];
     matchCursor  = -1;
     statusEl.textContent = '';
@@ -6959,8 +7005,20 @@ let _transcriptSearchClearHighlight = null;
   // just highlight the quote in place — see the transcriptloaded listener below).
   // opts.targetTurnIdx, when given, is preferred over "first match in the transcript"
   // when picking which occurrence becomes the 'current' highlighted one.
-  _transcriptSearchInit = (query, { silent = false, targetTurnIdx = null } = {}) => {
+  // opts.speakerName, when given, pre-selects the matching option in the speaker
+  // filter dropdown (matched by full name or by last name alone).
+  _transcriptSearchInit = (query, { silent = false, targetTurnIdx = null, speakerName = null } = {}) => {
     if (!silent) openSearch();
+    if (speakerName) {
+      const n = speakerName.trim().toLowerCase();
+      const opt = [...speakerSelect.options].find(o => {
+        if (!o.value) return false;
+        if (o.value.toLowerCase() === n) return true;
+        const parts = o.value.trim().split(/\s+/);
+        return parts[parts.length - 1].toLowerCase() === n;
+      });
+      if (opt) speakerSelect.value = opt.value;
+    }
     input.value = query;
     clearHighlights();
     matchEntries = [];
@@ -7006,22 +7064,31 @@ document.addEventListener('transcriptloaded', () => {
   const params    = new URLSearchParams(location.search);
   let findParam   = params.get('find')?.trim() ?? '';
   const turnParam = params.get('turn');
+  let speakerName = null;
   // Strip keyword-mode quoting — transcript search wants the bare phrase, not the '"…"' wrapper.
+  // Trailing text after the closing quote (e.g. '"strict scrutiny" scalia') names a
+  // speaker filter — same convention as the plain nav-search box (runNavSearch).
   if (findParam.startsWith('"')) {
     const closeIdx = findParam.indexOf('"', 1);
-    findParam = closeIdx !== -1 ? findParam.slice(1, closeIdx) : findParam.slice(1);
+    if (closeIdx !== -1) {
+      const afterQuote = findParam.slice(closeIdx + 1).trim();
+      findParam = findParam.slice(1, closeIdx);
+      if (afterQuote) speakerName = afterQuote;
+    } else {
+      findParam = findParam.slice(1);
+    }
   }
   // A bare '?' is reserved shorthand for "open an empty search box", not a literal query.
-  if (findParam === '?' && _transcriptSearchInit) { _transcriptSearchInit(''); return; }
+  if (findParam === '?' && _transcriptSearchInit) { _transcriptSearchInit('', { speakerName }); return; }
   if (!findParam || !_transcriptSearchInit) return;
   const turnNum = turnParam != null ? parseInt(turnParam, 10) : null;
   const targetTurnIdx = turnNum != null
     ? turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnNum)
     : -1;
   if (targetTurnIdx >= 0) {
-    _transcriptSearchInit(findParam, { silent: true, targetTurnIdx });
+    _transcriptSearchInit(findParam, { silent: true, targetTurnIdx, speakerName });
   } else {
-    _transcriptSearchInit(findParam);
+    _transcriptSearchInit(findParam, { speakerName });
   }
 });
 
@@ -7208,8 +7275,13 @@ let _navSearchActivate = null;
   // Background phrase verification for keyword searches.
   // Fetches each case's transcript(s), counts exact phrase occurrences, then
   // updates the "? matches" label or removes the result if count is zero.
-  async function _verifyPhrases(phrase, tasks, gen) {
+  // speakerFilter, when given, restricts the count to turns spoken by that
+  // justice (matched by full name or last name alone) — otherwise this count
+  // would include every speaker and disagree with the transcript search box,
+  // which always applies the speaker filter.
+  async function _verifyPhrases(phrase, tasks, gen, speakerFilter) {
     const CONCURRENCY = 3;
+    const filterName = speakerFilter ? speakerFilter.trim().toLowerCase() : null;
     const queue = [...tasks];
     await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
       while (queue.length) {
@@ -7227,6 +7299,11 @@ let _navSearchActivate = null;
             const data = await res.json();
             const turns = Array.isArray(data) ? data : (data.turns || []);
             for (const turn of turns) {
+              if (filterName) {
+                const turnName = (turn.name || '').trim().toLowerCase();
+                const lastName = turnName.split(/\s+/).pop();
+                if (turnName !== filterName && lastName !== filterName) continue;
+              }
               let i = 0;
               const text = (turn.text || '').toLowerCase();
               while (true) {
@@ -7545,8 +7622,12 @@ let _navSearchActivate = null;
         const deletes = ['collection', 'group', 'id', 'highlight', 'file'];
         if (loc) { updates.event = loc[0]; updates.turn = loc[1]; }
         else deletes.push('event', 'turn');
+        // A trailing justice-name filter (e.g. '"strict scrutiny" scalia') travels as
+        // part of the find= value itself — see the transcriptloaded listener below,
+        // which parses it back out to pre-select the transcript search's speaker filter.
+        const findValue = '"' + keywords.trim() + '"' + (justiceFilter ? ' ' + justiceFilter : '');
         if (keywordMode) {
-          updates.find = '"' + keywords.trim() + '"';
+          updates.find = findValue;
         } else deletes.push('find');
         const href = buildUrlParams(updates, deletes);
         const li  = document.createElement('li');
@@ -7568,7 +7649,7 @@ let _navSearchActivate = null;
           e.preventDefault();
           if (keywordMode) {
             const cur = new URL(location.href);
-            cur.searchParams.set('find', '"' + keywords.trim() + '"');
+            cur.searchParams.set('find', findValue);
             history.replaceState(null, '', cur.pathname + '?' + cur.searchParams.toString());
           }
           navigate(href);
@@ -7597,7 +7678,7 @@ let _navSearchActivate = null;
       if (keywordMode && verifyTasks.length) {
         const phrase = toks.join(' ');
         const gen = _verifyGen;
-        _verifyPhrases(phrase, verifyTasks, gen); // fire-and-forget
+        _verifyPhrases(phrase, verifyTasks, gen, justiceFilter); // fire-and-forget
       }
     }
 
@@ -8030,9 +8111,16 @@ async function restoreFromURL() {
         else {
           // The group itself has no page/document (e.g. a single-group collection
           // like Original Jurisdiction's "Archive") — fall back to the collection's
-          // own page so the page-viewer isn't left blank.
+          // own page so the page-viewer isn't left blank. For Rarest Spoken Words,
+          // point it at the matching word's <li id="rare-word-..."> so the page on
+          // the right scrolls to (and highlights) the word selected on the left.
           const collEntry = _findAnyCollectionEntry(collectionParam);
-          if (collEntry?.page) showPageViewer(collEntry.page, { pushState: false });
+          if (collEntry?.page) {
+            const _pageUrl = collectionParam === 'rare_words' && _groupNameText
+              ? collEntry.page + '#rare-word-' + encodeURIComponent(_groupNameText)
+              : collEntry.page;
+            showPageViewer(_pageUrl, { pushState: false });
+          }
         }
         collLi._centerOnGroup?.(groupLi);
         requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));

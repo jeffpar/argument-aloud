@@ -7,7 +7,7 @@ years_served: 29.4
 days_served: "10,733"
 opinions: 282
 lone_dissents: 19
-vocal_secs: 596978
+vocal_secs: 588098
 case_count: 1
 first_argument: January 19, 1976
 last_argument: January 19, 1976

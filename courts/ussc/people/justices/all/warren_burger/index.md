@@ -7,7 +7,7 @@ years_served: 17.3
 days_served: "6,305"
 opinions: 258
 lone_dissents: 17
-vocal_secs: 409739
+vocal_secs: 408568
 case_count: 1
 first_argument: April 19, 1955
 last_argument: April 19, 1955

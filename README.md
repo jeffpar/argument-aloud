@@ -40,15 +40,23 @@ There is still more work to do in terms of producing a complete and accurate lis
 
   - The [Library of Congress](https://www.loc.gov) currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for **Sullivan v. Florida (560 U.S. 181)**; you can only find it at the bottom of the document for [United States v. Comstock (560 U.S. 126)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep560/usrep560126/usrep560126.pdf#page=56). There are numerous other instances where opinions that should exist on loc.gov cannot be found, so at some point, a comprehensive audit should be performed.
 
-  - Happily, the U.S. Supreme Court continues to "up its game" and now provides online copies of all [U.S. Reports Volumes](https://www.supremecourt.gov/opinions/USReports.aspx), so that may prove to be a better, more reliable source going forward.  We will need to add a process for converting all `opinion_href` links to the correct page within those PDFs.
+  - Happily, the U.S. Supreme Court continues to "up its game" and now provides online copies of all [U.S. Reports Volumes](https://www.supremecourt.gov/opinions/USReports.aspx), so that may prove to be a better, more reliable source going forward.  We will need to add a process for converting all `opinion_href` links to the correct page within those PDFs.  Unfortunately, some of the (earlier) volumes have unusual page numbering (eg, in [Volume 6](https://www.supremecourt.gov/pdfs/USReports/USREPORTS-6_PDFA.pdf), page numbers such as 12 and 15 are skipped).
 
-## Examples
+## Command-Line Examples
 
-Adding cases from the command-line:
+Adding missing cases:
 
 `node scripts/update_cases.js 1952-10 --add "United States v. Wilson|United States v. Purchasing Corporation of America" --number 197,198 --argument 1953-01-05,1953-01-06 --decision 1953-02-02 --cite 344 U.S. 923 --votes 6-2 loss --dissent douglas burton --recused clark --appellant John F. Davis --appellee Selden S. McNeer`
 
 `node scripts/update_cases.js 1952-10 --add "Ward v. United States" --number 390 --argument 1953-01-13 --decision 1953-02-02 --cite 344 U.S. 924 --votes 9-0 win --petitioner John M. Coe --petitioner Ralph E. Powe --respondent John R. Benney`
+
+Adding votes to an existing case:
+
+`node scripts/update_cases.js 2025-10 25-112 --votes win 6-3 kagan --dissent alito barrett --minority thomas`
+
+Applying a downloaded set of transcript edits (speaker/text corrections submitted via "Download Edits" in the transcript editor) — this patches the named turns directly in their transcript JSON files and records a changelog entry at `courts/ussc/transcripts/updates`:
+
+`node scripts/update_transcripts.js ussc-edits.json`
 
 ## MIT License
 

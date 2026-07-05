@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/Sonia_Sotomayor
 date_start: 2009-08-08
 opinions: 114
 lone_dissents: 18
-vocal_secs: 303312
+vocal_secs: 298769
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">
