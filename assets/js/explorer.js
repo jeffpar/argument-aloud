@@ -4422,8 +4422,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   const caseKey = caseRef.term + '/' + caseRef.number;
   // caseRef.find, when present, names the word/phrase to highlight on arrival
   // (see rare_words.json). It's omitted from the JSON when it's just the
-  // group's own name repeated on every case, so fall back to that.
-  const _find = caseRef.find ?? groupName;
+  // group's own name repeated on every case, so fall back to that — but only
+  // for Rarest Spoken Words groups; other collections' group.name is a
+  // justice/advocate name that was never actually searched for.
+  const _find = caseRef.find ?? (collId === 'rare_words' ? groupName : null);
 
   // ── Shell: <li>, header (toggle + title), file <ul> ──
   const _ciGroupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
