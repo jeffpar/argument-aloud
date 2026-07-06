@@ -1040,6 +1040,13 @@ button.term-case-count.sort-active:hover {
   background: none;
   cursor: pointer;
   text-align: right;
+  /* Safari's native <option> popup ignores text-align entirely (only the
+     closed box respects it) but does honor direction — this is the standard
+     workaround. Harmless for our plain-English option text: the Unicode
+     bidi algorithm keeps LTR-script runs in normal reading order regardless
+     of the container's overall direction; only the alignment/anchor edge
+     flips. */
+  direction: rtl;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2330,7 +2337,7 @@ button.term-case-count.sort-active:hover {
   /* 2nd: audio dropdown or decision label */
   #audio-select,
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
-  #audio-select { text-align: left; }
+  #audio-select { text-align: left; direction: ltr; }
 
   /* 3rd: argued / decided dates + favorite + tags */
   #case-info-row2    { order: 3; flex-basis: 100%; }
