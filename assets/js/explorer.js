@@ -654,7 +654,7 @@ function _buildFavGroupEl(groupId, groupName) {
 
   const tog = document.createElement('span');
   tog.className = 'term-toggle';
-  tog.textContent = '▶';
+  tog.textContent = '▶︎';
 
   const label = document.createElement('span');
   label.className = 'term-label fav-group-label';
@@ -794,7 +794,7 @@ function _initFavoritesCollectionItem(sectionLi) {
 
   const tog = document.createElement('span');
   tog.className = 'term-toggle';
-  tog.textContent = '▶';
+  tog.textContent = '▶︎';
 
   const label = document.createElement('span');
   label.className = 'term-label';
@@ -935,7 +935,7 @@ function _initEditsNavItem(sectionLi) {
 
   const tog = document.createElement('span');
   tog.className = 'term-toggle';
-  tog.textContent = '▶';
+  tog.textContent = '▶︎';
 
   const label = document.createElement('span');
   label.className = 'term-label';
@@ -991,7 +991,7 @@ function _rebuildEditsItems() {
 
     const termTog = document.createElement('span');
     termTog.className = 'term-toggle';
-    termTog.textContent = '▶';
+    termTog.textContent = '▶︎';
 
     const termLabel = document.createElement('span');
     termLabel.className = 'term-label';
@@ -2802,7 +2802,7 @@ function _renderFileGroup(fileUl, label, files, makeFileItem, open = false) {
 
   const typeTog = document.createElement('span');
   typeTog.className = 'file-type-toggle';
-  typeTog.textContent = '▶';
+  typeTog.textContent = '▶︎';
 
   typeHeader.appendChild(typeTog);
   typeHeader.appendChild(typeLabel);
@@ -2910,7 +2910,7 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 
   const toggle = document.createElement('span');
   toggle.className = 'case-toggle';
-  toggle.textContent = '▶';
+  toggle.textContent = '▶︎';
   if (!hasFiles) toggle.style.display = 'none';
 
   const titleSpan = href ? document.createElement('a') : document.createElement('span');
@@ -3387,7 +3387,7 @@ function buildNav(title = 'Terms', id = '') {
   termsHeader.className = 'terms-header';
   const termsTog = document.createElement('span');
   termsTog.className = 'terms-toggle';
-  termsTog.textContent = '▶';
+  termsTog.textContent = '▶︎';
   const termsLabel = document.createElement('span');
   termsLabel.className = 'terms-label';
   termsLabel.textContent = title;
@@ -3423,7 +3423,7 @@ function buildNav(title = 'Terms', id = '') {
 
     const decTog = document.createElement('span');
     decTog.className = 'decade-toggle';
-    decTog.textContent = '▶';
+    decTog.textContent = '▶︎';
 
     const decLabel = document.createElement('span');
     decLabel.className = 'decade-label';
@@ -3461,7 +3461,7 @@ function buildNav(title = 'Terms', id = '') {
 
       const termTog = document.createElement('span');
       termTog.className = 'term-toggle';
-      termTog.textContent = '▶';
+      termTog.textContent = '▶︎';
 
       const label = document.createElement('span');
       label.className = 'term-label';
@@ -3652,7 +3652,7 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
 
   const sectionTog = document.createElement('span');
   sectionTog.className = 'terms-toggle';
-  sectionTog.textContent = '▶';
+  sectionTog.textContent = '▶︎';
 
   const sectionLabel = document.createElement('span');
   sectionLabel.className = 'terms-label';
@@ -3729,7 +3729,7 @@ function buildStaticNavSection(termListEl, entry) {
 
   const tog = document.createElement('span');
   tog.className = 'terms-toggle';
-  tog.textContent = '▶';
+  tog.textContent = '▶︎';
 
   const label = document.createElement('span');
   label.className = 'terms-label';
@@ -3828,7 +3828,7 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
 
     const tog = document.createElement('span');
     tog.className = 'term-toggle';
-    tog.textContent = '▶';
+    tog.textContent = '▶︎';
 
     let label;
     if (usesSourceScheme || pagePath) {
@@ -4066,7 +4066,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     groupHeader.className = 'term-header';
     const groupTog = document.createElement('span');
     groupTog.className = 'term-toggle';
-    groupTog.textContent = '▶';
+    groupTog.textContent = '▶︎';
     const groupLabel = document.createElement('span');
     groupLabel.className = 'term-label';
     groupLabel.textContent = collEntry.name;
@@ -4127,7 +4127,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
 
   const collTog = document.createElement('span');
   collTog.className = 'term-toggle';
-  collTog.textContent = '▶';
+  collTog.textContent = '▶︎';
 
   const collLabel = document.createElement('span');
   collLabel.className = 'term-label';
@@ -4976,7 +4976,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
 
     const groupTog = document.createElement('span');
     groupTog.className = 'month-toggle';
-    groupTog.textContent = '▶';
+    groupTog.textContent = '▶︎';
 
     const groupName = document.createElement('span');
     groupName.className = 'month-name';
