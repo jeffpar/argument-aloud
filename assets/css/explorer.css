@@ -57,16 +57,26 @@ body {
   border: none;
   cursor: pointer;
   padding: 3px;
-  margin-left: 2px;
+  margin-left: 6px;
   line-height: 1;
   border-radius: 4px;
   color: #2672b4;
   opacity: 0.55;
   transition: opacity 0.15s;
+  font-family: inherit;
+  font-size: 15px;
 }
-#nav-forward-btn { margin-left: 0; }
+#nav-forward-btn { margin-left: 6px; }
 #nav-back-btn:hover, #nav-forward-btn:hover {
   opacity: 1;
+}
+
+#nav-back-btn:disabled, #nav-forward-btn:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+#nav-back-btn:disabled:hover, #nav-forward-btn:disabled:hover {
+  opacity: 0.2;
 }
 
 #topbar-term {
@@ -706,7 +716,7 @@ button.term-case-count.sort-active:hover {
 
 .case-toggle {
   flex-shrink: 0;
-  font-size: 10px;
+  font-size: 9px;
   color: #999;
   margin-top: 3px;
   transition: transform 0.15s;
@@ -1021,13 +1031,31 @@ button.term-case-count.sort-active:hover {
 #audio-select {
   font-size: 12px;
   font-weight: bold;
-  color: #555;
+  font-family: inherit;
+  color: #2672b4;
   flex-shrink: 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px 5px;
-  background: #fff;
+  border: none;
+  outline: none;
+  padding: 0 0 4px;
+  background: none;
   cursor: pointer;
+  text-align: right;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#audio-select:focus {
+  outline: none;
+}
+
+#audio-select::-moz-focus-inner {
+  border: 0;
+}
+
+#audio-select:hover {
+  color: #4a9eff;
+  text-decoration: underline;
 }
 
 #decision-date-label {
@@ -2027,7 +2055,8 @@ button.term-case-count.sort-active:hover {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-family: inherit;
+  font-size: 26px;
   color: #999;
   line-height: 1;
   padding: 0 2px;
@@ -2042,7 +2071,8 @@ button.term-case-count.sort-active:hover {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 11px;
+  font-family: inherit;
+  font-size: 16px;
   color: #999;
   line-height: 1;
   padding: 0 2px;
@@ -2058,7 +2088,8 @@ button.term-case-count.sort-active:hover {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 11px;
+  font-family: inherit;
+  font-size: 16px;
   color: #999;
   line-height: 1;
   padding: 0 2px;
@@ -2155,6 +2186,17 @@ button.term-case-count.sort-active:hover {
     font-size: 12px;
   }
 
+  /* Full term name ("October Term 1965") is too wide for the topbar on
+     mobile — hide the text node itself and show just the year instead
+     (data-year, set alongside it in setTopbarTerm()). */
+  #topbar-term {
+    font-size: 0;
+  }
+  #topbar-term::after {
+    content: attr(data-year);
+    font-size: 11px;
+  }
+
   #browser {
     flex-direction: column;
   }
@@ -2234,6 +2276,7 @@ button.term-case-count.sort-active:hover {
   /* 2nd: audio dropdown or decision label */
   #audio-select,
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
+  #audio-select { text-align: left; }
 
   /* 3rd: argued / decided dates */
   #case-info-row2    { order: 3; flex-basis: 100%; }
@@ -2252,7 +2295,8 @@ button.term-case-count.sort-active:hover {
     background: none;
     border: none;
     padding: 2px 0;
-    font-size: 11px;
+    font-family: inherit;
+    font-size: 18px;
     color: #aaa;
     cursor: pointer;
     line-height: 1;
@@ -2393,9 +2437,10 @@ button.term-case-count.sort-active:hover {
   #case-title-label a.case-title-link { color: inherit; }
 
   #audio-select {
-    color: #9da5b4;
-    border-color: #404450;
-    background: #252830;
+    color: #5eaee0;
+  }
+  #audio-select:hover {
+    color: #7bc8f0;
   }
 
   #decision-date-label            { color: #9da5b4; }
@@ -2608,10 +2653,14 @@ html[data-theme="dark"] #site-link:hover { color: #a8dcf4; }
 html[data-theme="dark"] #page-title { color: #fff; }
 html[data-theme="dark"] #nav-back-btn, html[data-theme="dark"] #nav-forward-btn { color: #fff; opacity: 0.4; }
 html[data-theme="dark"] #nav-back-btn:hover, html[data-theme="dark"] #nav-forward-btn:hover { opacity: 0.85; }
+html[data-theme="dark"] #nav-back-btn:disabled, html[data-theme="dark"] #nav-forward-btn:disabled,
+html[data-theme="dark"] #nav-back-btn:disabled:hover, html[data-theme="dark"] #nav-forward-btn:disabled:hover { opacity: 0.15; }
 html[data-theme="dark"] #topbar-term { color: #fff; }
 html[data-theme="light"] #page-title { color: #2672b4; }
 html[data-theme="light"] #nav-back-btn, html[data-theme="light"] #nav-forward-btn { color: #2672b4; opacity: 0.55; }
 html[data-theme="light"] #nav-back-btn:hover, html[data-theme="light"] #nav-forward-btn:hover { opacity: 1; }
+html[data-theme="light"] #nav-back-btn:disabled, html[data-theme="light"] #nav-forward-btn:disabled,
+html[data-theme="light"] #nav-back-btn:disabled:hover, html[data-theme="light"] #nav-forward-btn:disabled:hover { opacity: 0.2; }
 html[data-theme="light"] #topbar-term { color: #2672b4; }
 html[data-theme="dark"] #random-case-btn { opacity: 0.4; }
 html[data-theme="dark"] #random-case-btn:hover { opacity: 0.85; }
@@ -2696,7 +2745,8 @@ html[data-theme="dark"] #player-section { background: #1a1c22; border-bottom-col
 html[data-theme="dark"] #audio-controls { background: #1a1c22; border-top-color: #2d2f38; }
 html[data-theme="dark"] #case-title-label               { color: #d0d3dc; }
 html[data-theme="dark"] #case-title-label a.case-title-link { color: inherit; }
-html[data-theme="dark"] #audio-select { color: #9da5b4; border-color: #404450; background: #252830; }
+html[data-theme="dark"] #audio-select { color: #5eaee0; }
+html[data-theme="dark"] #audio-select:hover { color: #7bc8f0; }
 html[data-theme="dark"] #decision-date-label            { color: #9da5b4; }
 html[data-theme="dark"] #decision-date-label[href]       { color: #5eaee0; }
 html[data-theme="dark"] #decision-date-label[href]:hover { color: #7bc8f0; }
@@ -2905,7 +2955,8 @@ html[data-theme="light"] #player-section { background: #fafafa; border-bottom-co
 html[data-theme="light"] #audio-controls { background: #fafafa; border-top-color: #e0e0e0; }
 html[data-theme="light"] #case-title-label               { color: #222; }
 html[data-theme="light"] #case-title-label a.case-title-link { color: inherit; }
-html[data-theme="light"] #audio-select { color: #555; border-color: #ccc; background: #fff; }
+html[data-theme="light"] #audio-select { color: #2672b4; }
+html[data-theme="light"] #audio-select:hover { color: #4a9eff; }
 html[data-theme="light"] #decision-date-label            { color: #555; }
 html[data-theme="light"] #decision-date-label[href]       { color: #2672b4; }
 html[data-theme="light"] #decision-date-label[href]:hover { color: #4a9eff; }

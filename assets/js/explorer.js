@@ -8,6 +8,11 @@ let _pendingSeekListener = null;           // seeked listener waiting to re-affi
 let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
+// True once the user explicitly closes the doc viewer (the "x" button) for the
+// current transcript — suppresses further auto-open-on-turn-change until a
+// different case/transcript loads (see loadAudioEntry/loadCaseAsOpinion), but
+// never blocks an explicit click (a ref-mark or a file-list item).
+let _docViewerAutoOpenSuppressed = false;
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 let _fileClickSeq = 0; // bumped on every file/citation click so a stale async citation
                         // lookup can't clobber a URL change made by a later click
@@ -1115,6 +1120,85 @@ function navigate(url) {
   trackPageView(url);
 }
 
+// ── Topbar back/forward enable/disable ───────────────────────────────────
+// The whole app navigates via this file's single pushState call (above) plus
+// many replaceState calls elsewhere that only ever adjust the *current* entry.
+// Wrapping both lets us tag every entry with a running index (navIdx) without
+// touching each replaceState call site individually, so we can tell whether
+// there's really anywhere to go back/forward to — including detecting when
+// "back" would land on the site's home page ("/"), which the "Argument Aloud"
+// link already covers, so that case is treated as disabled too.
+(function () {
+  const backBtn = document.getElementById('nav-back-btn');
+  const forwardBtn = document.getElementById('nav-forward-btn');
+  if (!backBtn || !forwardBtn) return;
+
+  const MAX_KEY  = 'aa-nav-max-idx';
+  const HOME_KEY = 'aa-nav-back-target';  // 'home' | 'other', decided once per fresh entry
+
+  const _origPushState    = history.pushState.bind(history);
+  const _origReplaceState = history.replaceState.bind(history);
+
+  let navIdx = (history.state && Number.isInteger(history.state.navIdx)) ? history.state.navIdx : 0;
+
+  let maxNavIdx = parseInt(sessionStorage.getItem(MAX_KEY) || '0', 10);
+  if (!Number.isFinite(maxNavIdx) || maxNavIdx < navIdx) maxNavIdx = navIdx;
+
+  // backTarget describes what's one step behind navIdx 0 — decided once, the
+  // first time this tab reaches this entry (not yet re-derivable afterward,
+  // since a reload's document.referrer no longer reflects it), then persisted.
+  // No referrer at all (direct URL entry, bookmark, new tab) means there's no
+  // meaningful page to go back to, same as 'none' — history.length isn't a
+  // reliable signal here (browsers can carry an extra internal entry, e.g.
+  // an initial about:blank, that isn't a real "back" destination).
+  let backTarget = sessionStorage.getItem(HOME_KEY);
+  if (backTarget == null) {
+    if (!document.referrer) {
+      backTarget = 'none';
+    } else {
+      let refPath = null;
+      try { refPath = new URL(document.referrer).pathname; } catch { /* ignore */ }
+      const sameOrigin = document.referrer.startsWith(location.origin);
+      backTarget = (sameOrigin && refPath === '/') ? 'home' : 'other';
+    }
+    try { sessionStorage.setItem(HOME_KEY, backTarget); } catch { /* ignore */ }
+  }
+
+  function updateNavButtons() {
+    const canBack    = navIdx > 0 || backTarget === 'other';
+    const canForward = navIdx < maxNavIdx;
+    backBtn.disabled    = !canBack;
+    forwardBtn.disabled = !canForward;
+  }
+
+  history.pushState = function (state, title, url) {
+    navIdx += 1;
+    if (navIdx > maxNavIdx) {
+      maxNavIdx = navIdx;
+      try { sessionStorage.setItem(MAX_KEY, String(maxNavIdx)); } catch { /* ignore */ }
+    }
+    _origPushState(Object.assign({}, state, { navIdx }), title, url);
+    updateNavButtons();
+  };
+
+  history.replaceState = function (state, title, url) {
+    _origReplaceState(Object.assign({}, state, { navIdx }), title, url);
+    updateNavButtons();
+  };
+
+  window.addEventListener('popstate', (e) => {
+    navIdx = (e.state && Number.isInteger(e.state.navIdx)) ? e.state.navIdx : 0;
+    updateNavButtons();
+  });
+
+  // Tag the entry we loaded on (no navIdx yet) without adding a new one.
+  if (!history.state || !Number.isInteger(history.state.navIdx)) {
+    _origReplaceState(Object.assign({}, history.state, { navIdx }), '', location.href);
+  }
+
+  updateNavButtons();
+})();
+
 function parseTime(s) {
   const [h, m, sec] = s.split(':');
   return parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
@@ -1137,6 +1221,20 @@ function termDisplayName(term) {
   if (entry?.name) return entry.name.replace(/ /g, '\u00a0');
   const [year, month] = term.split('-');
   return (MONTHS[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
+}
+
+// Sets the topbar's term label \u2014 the full name (e.g. "October Term 1965") for
+// desktop, plus a data-year attribute so mobile layout (see explorer.css) can
+// swap to showing just the year via a ::after pseudo-element.
+function setTopbarTerm(term) {
+  const el = document.getElementById('topbar-term');
+  if (!term) {
+    el.textContent = '';
+    delete el.dataset.year;
+    return;
+  }
+  el.textContent = termDisplayName(term);
+  el.dataset.year = term.split('-')[0];
 }
 
 function decisionTooltip(term, caseEntry, decision) {
@@ -1579,6 +1677,13 @@ function renderTurnText(textEl, rawText, searchQuery, currentRange) {
         e.stopPropagation();
         const page = getRefPage(link, refText);
         showDocViewer(link, { autoScroll: true, matchedRef: refText, page });
+        _revealReferenceFileItem(link);
+        if (link.file != null) {
+          const url = new URL(location.href);
+          url.searchParams.set('file', String(link.file));
+          url.searchParams.delete('citation');
+          history.replaceState(null, '', url);
+        }
       });
       frag.appendChild(span);
     } else {
@@ -1602,14 +1707,31 @@ function isMobile() {
   return window.innerWidth <= 768;
 }
 
+// When a transcript reference (a [ref] mark, or an auto-shown match) points
+// at one of the active case's own files.json "reference" entries, expand its
+// References group in the sidebar and mark it active — same visual state as
+// clicking it there directly. The case's file list is already built by this
+// point (titleSpan's click handler awaits ensureFilesLoaded() before the
+// transcript ever loads), so this is just a lookup, not a rebuild.
+function _revealReferenceFileItem(link) {
+  if (link.file == null) return;
+  const fileEl = findFileItem(link.file);
+  if (!fileEl) return;
+  fileEl.closest('.file-type-group')?.classList.add('open');
+  document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+  fileEl.classList.add('active');
+  requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+}
+
 function checkLinksForActiveTurn(idx, autoScroll = false) {
   if (!links.length || idx < 0 || idx >= turns.length) return false;
   const turnText = turns[idx].text;
   const match = links.find(l => getRefTexts(l).some(r => matchesWholeWord(turnText, r)));
-  if (match && match.href !== activeBottomLinkText) {
+  if (match && match.href !== activeBottomLinkText && !_docViewerAutoOpenSuppressed) {
     const matchedRef = getRefTexts(match).find(r => matchesWholeWord(turnText, r)) || null;
     const page = matchedRef ? getRefPage(match, matchedRef) : null;
     showDocViewer(match, { autoScroll, matchedRef, page });
+    _revealReferenceFileItem(match);
   }
   return !!match;
 }
@@ -2101,6 +2223,25 @@ function _buildTranscriptEntries(caseEntry) {
                    title: 'Transcript\u00a0of\u00a0' + (a.title || '') });
   }
   return entries;
+}
+
+// Reference-type files.json entries (the same ones grouped under "References"
+// in the sidebar) get pulled out of #audio-select's alphabetized file list and
+// appended as their own block at the very end (after decisions/video), each
+// prefixed "Reference: " so they read as a distinct group rather than mingling
+// with briefs/transcripts by title alone.
+function _buildReferenceOptions(rawFiles) {
+  return rawFiles
+    .filter(f => (f.type || '').toLowerCase() === 'reference')
+    .slice()
+    .sort((a, b) => (a.title || '').localeCompare(b.title || ''))
+    .map(f => {
+      const opt = document.createElement('option');
+      opt.value = 'file:' + f.file;
+      const t = f.title || '';
+      opt.textContent = 'Reference: ' + (t.length > 40 ? t.slice(0, 40) + '…' : t);
+      return opt;
+    });
 }
 
 // Show or hide the case/event notes line below the dates row.
@@ -3449,7 +3590,7 @@ function buildNav(title = 'Terms', id = '') {
           // Term collapsed — remove term param too.
           const url = buildUrlParams({}, ['collection', 'group', 'id', 'highlight', 'term', 'case', 'event', 'file', 'turn', 'sort', 'o']);
           navigate(url);
-          document.getElementById('topbar-term').textContent = '';
+          setTopbarTerm('');
         },
         onOpen: async () => {
           await ensureBuilt();
@@ -3459,7 +3600,7 @@ function buildNav(title = 'Terms', id = '') {
             termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
           }
           updateEmptyStateForTerm(term);
-          document.getElementById('topbar-term').textContent = termDisplayName(term);
+          setTopbarTerm(term);
           // Update URL: set term param, clear navigation params.
           // Always reflect the term's current sort: include sort+o when non-default, delete otherwise.
           const _nonDefaultSort = _sortMode !== _defaultMode || _sortAsc !== _defaultAsc;
@@ -3835,7 +3976,7 @@ function resetToHome() {
   document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
   // Clear the topbar term label.
-  document.getElementById('topbar-term').textContent = '';
+  setTopbarTerm('');
   // Show the home page in the page viewer (right pane).
   showPageViewer('/courts/ussc/pages/home', { pushState: false });
   // Reset the URL to the base path without any query parameters.
@@ -4373,7 +4514,7 @@ async function loadHighlight(highlight) {
   span.appendChild(titleText);
 
   document.title = highlight.title + ' | Argument Aloud';
-  document.getElementById('topbar-term').textContent = '';
+  setTopbarTerm('');
 
   playerSection.hidden = true;
   audioControls.hidden = true;
@@ -5273,6 +5414,7 @@ async function loadAudioEntry(arg, basePath) {
       collapseDocViewer();
     }
     activeBottomLinkText = null;
+    _docViewerAutoOpenSuppressed = false;
 
     // When a specific turn is requested (arg.turn), highlight it immediately
     // after rendering so the correct turn is shown even before timeupdate fires.
@@ -5403,6 +5545,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   docPanel.style.height = '';
   docPanel.hidden = true;
   activeBottomLinkText = null;
+  _docViewerAutoOpenSuppressed = false;
 
   // Show case title (hide audio select since there is no audio).
   setCaseTitleLabel(term, caseEntry, null, numberOverride);
@@ -5441,6 +5584,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     });
     _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
       if ((f.type || '').toLowerCase() === 'opinion' && caseEntry.decision_ussc) return;
+      if ((f.type || '').toLowerCase() === 'reference') return;
       const opt = document.createElement('option');
       opt.value = 'file:' + f.file;
       const t = f.title || '';
@@ -5465,6 +5609,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       opt.textContent = v.title;
       audioSelect.appendChild(opt);
     });
+    _buildReferenceOptions(_opRawFiles).forEach(opt => audioSelect.appendChild(opt));
     // Default to the first decision entry when present, since it opens in the document viewer.
     if (_currentDecisionEntries.length) audioSelect.value = _currentDecisionEntries[0].value;
     audioSelect.hidden = false;
@@ -5526,7 +5671,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
   // Update topbar term label
-  document.getElementById('topbar-term').textContent = termDisplayName(term);
+  setTopbarTerm(term);
 
   // Treat as no-audio when forceNoAudio is set OR when no audio entry has a
   // playable audio_href (e.g. transcript-only placeholder entries). Defer to
@@ -5883,10 +6028,11 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
   _currentFiles = rawFiles;
   links = rawFiles.filter(f => f.refs);
+  const _fileSel = document.getElementById('audio-select');
   if (rawFiles.length) {
-    const _fileSel = document.getElementById('audio-select');
     const _fileFrag = document.createDocumentFragment();
     rawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
+      if ((f.type || '').toLowerCase() === 'reference') return;
       const opt = document.createElement('option');
       opt.value = 'file:' + f.file;
       const t = f.title || '';
@@ -5895,6 +6041,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     });
     _fileSel.insertBefore(_fileFrag, _fileSel.firstChild);
   }
+  _buildReferenceOptions(rawFiles).forEach(opt => _fileSel.appendChild(opt));
 
   playerSection.hidden = false;
   audioControls.hidden = false;
@@ -6314,6 +6461,11 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     const fileNum = parseInt(e.target.value.slice(5), 10);
     const file = _currentFiles.find(f => f.file === fileNum);
     if (file?.href) showDocViewer({ href: file.href, title: file.title || '' }, { force: true });
+    if (file) _revealReferenceFileItem(file);
+    const url = new URL(location.href);
+    url.searchParams.set('file', String(fileNum));
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
     return;
   }
   const val = parseInt(e.target.value, 10); // 1-based index into the date-sorted audio list
@@ -6546,8 +6698,10 @@ mobileBackBtn.addEventListener('click', () => {
 document.getElementById('doc-viewer-close').addEventListener('click', (e) => {
   e.stopPropagation();
   hideDocViewerFully();
+  _docViewerAutoOpenSuppressed = true;
   const url = new URL(location.href);
   url.searchParams.delete('file');
+  url.searchParams.delete('citation');
   history.replaceState(null, '', url);
 });
 
@@ -8527,7 +8681,7 @@ async function restoreFromURL() {
         })();
       }
       updateEmptyStateForTerm(termParam, dateParam);
-      document.getElementById('topbar-term').textContent = termDisplayName(termParam);
+      setTopbarTerm(termParam);
       document.title = termDisplayName(termParam) + ' | Argument Aloud';
       trackPageView(location.href);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));

@@ -82,7 +82,7 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 html[data-theme="dark"]  .date-section { border-color: #2d2f38; }
 html[data-theme="light"] .date-section { border-color: #e0e0e0; }
 .date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
-.date-case-list { list-style: none; margin: 0; padding: 0; }
+.date-case-list { list-style: none; margin: 0; padding: 0 0 0 1rem; }
 .date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
 .date-case-list a { color: #2672b4; text-decoration: none; }
 .date-case-list a:hover { text-decoration: underline; color: #4a9eff; }

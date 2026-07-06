@@ -2,8 +2,8 @@
   <a id="site-link" href="/">Argument Aloud</a>
   {%- if include.court_title %}
   <a id="page-title" href="{{ include.court_href | default: '#' }}">{{ include.court_title }}</a>
-  <button id="nav-back-btn" title="Back" aria-label="Go back"><svg viewBox="0 0 24 24" width="12" height="12"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <button id="nav-forward-btn" title="Forward" aria-label="Go forward"><svg viewBox="0 0 24 24" width="12" height="12"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button id="nav-back-btn" title="Back" aria-label="Go back">&#9664;</button>
+  <button id="nav-forward-btn" title="Forward" aria-label="Go forward">&#9654;</button>
   {%- endif %}
   <span id="topbar-term"></span>
   <a id="random-case-btn" href="/courts/ussc/?action=randomize&amp;start=1955-10" title="Random case" aria-label="Random case">&#127922;</a>
