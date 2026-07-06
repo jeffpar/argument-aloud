@@ -13,7 +13,7 @@
         "file": "/courts/ussc/people/justices/benches.json",
         "folder": "/courts/ussc/people/justices/benches",
         "page": "/courts/ussc/collections/benches",
-        "order": "decided:ascending",
+        "order": "decision:ascending",
         "search": "name"
       },
       {
@@ -21,7 +21,7 @@
         "file": "/courts/ussc/people/justices/opinions.json",
         "folder": "/courts/ussc/people/justices/opinions",
         "page": "/courts/ussc/collections/opinions",
-        "order": "decided:ascending",
+        "order": "decision:ascending",
         "search": "name",
         "pageLabel": "justices"
       },
@@ -30,14 +30,14 @@
         "file": "/courts/ussc/people/justices/lone_dissents.json",
         "folder": "/courts/ussc/people/justices/lone",
         "page": "/courts/ussc/collections/lone",
-        "order": "decided:ascending",
+        "order": "decision:ascending",
         "search": "name",
         "pageLabel": "justices"
       },
       {
         "name": "Oral Dissents",
         "file": "/courts/ussc/people/justices/oral_dissents.json",
-        "order": "decided:ascending",
+        "order": "decision:ascending",
         "search": "cases:title"
       },
       {
@@ -59,7 +59,7 @@
         "file": "/courts/ussc/people/advocates/all_advocates.json",
         "page": "/courts/ussc/people/advocates",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates",
         "hidden": false
@@ -69,7 +69,7 @@
         "file": "/courts/ussc/people/advocates/top100/top100_advocates.json",
         "page": "/courts/ussc/people/advocates/top100",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates"
       },
@@ -79,7 +79,7 @@
         "page": "/courts/ussc/people/advocates/top21st",
         "folder": "/courts/ussc/people/advocates/all",
         "minTerm": "2000-10",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates"
       },
@@ -87,7 +87,7 @@
         "name": "Justice Advocates",
         "file": "/courts/ussc/people/advocates/justice/justice_advocates.json",
         "page": "/courts/ussc/people/advocates/justice",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates"
       },
@@ -96,7 +96,7 @@
         "file": "/courts/ussc/people/advocates/women/women_advocates.json",
         "page": "/courts/ussc/people/advocates/women",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates"
       },
@@ -104,7 +104,7 @@
         "name": "Transgender Advocates",
         "file": "/courts/ussc/people/advocates/transgender/transgender_advocates.json",
         "folder": "/courts/ussc/people/advocates/all",
-        "order": "argued:descending",
+        "order": "argument:descending",
         "search": "name",
         "pageLabel": "advocates"
       }
@@ -114,13 +114,13 @@
     "name": "Historical Briefs",
     "file": "/courts/ussc/collections/briefs.json",
     "search": "cases:title",
-    "order": "argued:ascending"
+    "order": "argument:ascending"
   },
   {
     "name": "Historical Transcripts",
     "file": "/courts/ussc/collections/transcripts.json",
     "search": "cases:title",
-    "order": "argued:ascending"
+    "order": "argument:ascending"
   },
   {
     "name": "Media Files",
@@ -132,14 +132,14 @@
         "conditions": [
           "COUNT(file.type == 'mp3') > 0"
         ],
-        "order": "decided:ascending"
+        "order": "decision:ascending"
       },
       {
         "name": "Video Files",
         "conditions": [
           "COUNT(file.type == 'mp4') > 0"
         ],
-        "order": "decided:ascending"
+        "order": "decision:ascending"
       }
     ],
     "search": "cases:title"
@@ -176,21 +176,21 @@
           "argument >= '1955-10-01'",
           "COUNT(event.audio_href) == 0"
         ],
-        "order": "argued:ascending"
+        "order": "argument:ascending,titles:ascending"
       },
       {
         "name": "Cases with Unaligned Audio",
         "conditions": [
           "event.source == 'oyez' && event.audio_href && !event.aligned"
         ],
-        "order": "argued:ascending"
+        "order": "argument:ascending,titles:ascending"
       },
       {
         "name": "Cases with Unidentified Speakers",
         "conditions": [
           "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
         ],
-        "order": "argued:ascending",
+        "order": "argument:ascending,titles:ascending",
         "page": "/courts/ussc/transcripts/updates"
       },
       {
@@ -198,7 +198,7 @@
         "conditions": [
           "event.source == 'ussc' && event.type == 'opinion'"
         ],
-        "order": "decided:ascending",
+        "order": "decision:ascending,titles:ascending",
         "page": "/courts/ussc/transcripts/opinions"
       },
       {
@@ -207,7 +207,7 @@
           "volume <= 578",
           "decision_loc == undefined"
         ],
-        "order": "decided:ascending"
+        "order": "decision:ascending,titles:ascending"
       },
       {
         "name": "Cases Missing from SCDB",
@@ -215,7 +215,7 @@
           "term <= '2024-10'",
           "id == undefined"
         ],
-        "order": "decided:ascending"
+        "order": "decision:ascending,titles:ascending"
       }
     ],
     "search": "cases:title"

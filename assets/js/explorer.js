@@ -303,7 +303,128 @@ function _addUserTag(tag) {
   if (!trimmed) return;
   const data = _getTagData();
   if (!data[key]) data[key] = [];
-  if (!data[key].includes(trimmed)) { data[key].push(trimmed); _setTagData(data); _updateTagsBtn(); }
+  if (!data[key].includes(trimmed)) {
+    data[key].push(trimmed);
+    _setTagData(data);
+    _updateTagsBtn();
+    _injectLocalTagIntoLoadedGroups(trimmed);
+  }
+}
+
+// Build a group-listing case ref (matching the shape update_cases.js writes
+// into tag-based collection/topic files) from a full case entry.
+function _buildGroupCaseRefFromEntry(caseEntry, term) {
+  const ref = {
+    term,
+    number: caseEntry.number || caseEntry.id || '',
+    title:  caseEntry.title || '',
+  };
+  if (caseEntry.argument)   ref.argument   = caseEntry.argument;
+  if (caseEntry.reargument) ref.reargument = caseEntry.reargument;
+  if (caseEntry.decision)   ref.decision   = caseEntry.decision;
+  if (caseEntry.files)      ref.files      = caseEntry.files;
+  const events = Array.isArray(caseEntry.events) ? caseEntry.events : [];
+  if (events.some(e => e.audio_href)) ref.event      = true;
+  if (events.some(e => e.text_href))  ref.transcript = true;
+  return ref;
+}
+
+// Resolve the set of tags a case must carry to belong to a rendered
+// collection/topic group, for the purposes of local (client-only) tag
+// merging. Named (non-fan-out) groups declare their own "tags" (merged in
+// from collections.json/topics.json onto the fetched group object — see
+// _ensureCollectionBuilt). Fan-out ("*") sub-groups have no such declaration
+// of their own: their base tags normally come from the "*" group's def in
+// collEntry.groups, plus the sub-group's own name (which IS the qualifying
+// tag) — UNLESS that "*" group def opts in to "allow_group_merging", in
+// which case the sub-group's own name alone is sufficient (the base tag,
+// e.g. "Noteworthy", is not required for a locally-added tag to merge in).
+function _requiredTagsForGroup(collEntry, group) {
+  if (Array.isArray(group.tags) && group.tags.length) return group.tags.slice();
+  const fanoutDef = (collEntry.groups || []).find(g => (g.name ?? g.title) === '*');
+  if (fanoutDef && Array.isArray(fanoutDef.tags)) {
+    return fanoutDef.allow_group_merging ? [group.name] : [...fanoutDef.tags, group.name];
+  }
+  return [];
+}
+
+// Scan localStorage tag data for cases that now qualify for `group` (per
+// _requiredTagsForGroup) but aren't in its server-generated case list — i.e.
+// cases that only qualify because of a user-added tag. Only checks cases that
+// have at least one *user* tag among the group's required tags, since a case
+// that already qualifies from its static (builtin) tags alone would already
+// be present in the generated file.
+async function _localTagMatchesForGroup(collEntry, group) {
+  const requiredTags = _requiredTagsForGroup(collEntry, group);
+  if (!requiredTags.length) return [];
+  const tagData = _getTagData();
+  const matches = [];
+  for (const [key, userTags] of Object.entries(tagData)) {
+    if (!userTags.length || !requiredTags.some(t => userTags.includes(t))) continue;
+    const [, term, number] = key.split(':');
+    const cases = await fetchTermCases(term);
+    const entry = cases.find(c => c.number === number
+      || (c.number && c.number.split(',').map(n => n.trim()).includes(number))
+      || (!c.number && c.id === number));
+    if (!entry) continue;
+    const builtinTags = Array.isArray(entry.tags) ? entry.tags : (entry.tags ? [String(entry.tags)] : []);
+    const allTags = [...builtinTags, ...userTags];
+    if (!requiredTags.every(t => allTags.includes(t))) continue;
+    matches.push(_buildGroupCaseRefFromEntry(entry, term));
+  }
+  return matches;
+}
+
+// Check whether one specific case still qualifies for `group` (per
+// _requiredTagsForGroup), using its builtin tags plus whatever localStorage
+// user tags it currently carries. Shared by the group-load reconciliation
+// scan (_localTagMatchesForGroup) and the single-case removal check below.
+async function _caseQualifiesForGroup(collEntry, group, term, number) {
+  const requiredTags = _requiredTagsForGroup(collEntry, group);
+  if (!requiredTags.length) return false;
+  const cases = await fetchTermCases(term);
+  const entry = cases.find(c => c.number === number
+    || (c.number && c.number.split(',').map(n => n.trim()).includes(number))
+    || (!c.number && c.id === number));
+  if (!entry) return false;
+  const builtinTags = Array.isArray(entry.tags) ? entry.tags : (entry.tags ? [String(entry.tags)] : []);
+  const userTags = _getTagData()[`ussc:${term}:${number}`] || [];
+  const allTags = [...builtinTags, ...userTags];
+  return requiredTags.every(t => allTags.includes(t));
+}
+
+// When a tag is added to the current case, check whether any already-built
+// collection/topic nav has a group matching that tag, and if so inject the
+// case directly into that group's listing (so it shows up without a reload).
+async function _injectLocalTagIntoLoadedGroups(tag) {
+  if (!_currentCaseEntry || !_currentCaseKey) return;
+  const term = _currentCaseKey.split('/')[0];
+  const allTags = [..._getBuiltinTags(), ..._getUserTags()];
+  const target = await _resolveTagTarget(tag, allTags);
+  if (!target || target.groupIdx == null) return;
+  const reg = _collRegistryById.get(target.id);
+  if (!reg) return;
+  await reg.ensureBuilt();
+  const groupLi = reg.collUl.querySelector(`:scope > .month-group[data-group-idx="${target.groupIdx}"]`);
+  if (!groupLi || typeof groupLi._addLocalCase !== 'function') return;
+  groupLi._addLocalCase(_buildGroupCaseRefFromEntry(_currentCaseEntry, term));
+}
+
+// Mirror image of _injectLocalTagIntoLoadedGroups: when a tag is removed,
+// check whether it was the case's only qualifying link to a rendered group,
+// and if so drop the case from that group's listing immediately.
+async function _removeLocalTagFromLoadedGroups(tag) {
+  if (!_currentCaseEntry || !_currentCaseKey) return;
+  const term = _currentCaseKey.split('/')[0];
+  const allTags = [..._getBuiltinTags(), ..._getUserTags()];
+  const target = await _resolveTagTarget(tag, allTags);
+  if (!target || target.groupIdx == null) return;
+  const reg = _collRegistryById.get(target.id);
+  if (!reg) return;
+  const groupLi = reg.collUl.querySelector(`:scope > .month-group[data-group-idx="${target.groupIdx}"]`);
+  if (!groupLi || typeof groupLi._removeLocalCaseIfUnqualified !== 'function') return;
+  const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
+  groupLi._removeLocalCaseIfUnqualified(term, number);
 }
 
 function _removeUserTag(tag) {
@@ -315,6 +436,7 @@ function _removeUserTag(tag) {
   if (!data[key].length) delete data[key];
   _setTagData(data);
   _updateTagsBtn();
+  _removeLocalTagFromLoadedGroups(tag);
 }
 
 function _pruneRedundantUserTags() {
@@ -332,7 +454,9 @@ function _pruneRedundantUserTags() {
 }
 
 function _updateTagsBtn() {
-  const row = document.getElementById('case-info-row3');
+  // Tags sits in row2, next to the favorite button — not row3, which now
+  // holds only the vote line.
+  const row = document.getElementById('case-info-row2');
   const btn = document.getElementById('tags-btn');
   if (!row || !btn) return;
   if (!_currentCaseEntry || !_currentCaseKey) { btn.hidden = true; return; }
@@ -345,6 +469,11 @@ function _updateTagsBtn() {
 // Cache of collection/topic JSON group-array fetches, keyed by file URL —
 // used only to resolve a tag to a specific group's 1-based position.
 const _collectionGroupsCache = new Map();
+
+// Registry of built collection/topic nav entries, keyed by collId — lets tag
+// mutations reach into an already-rendered nav to inject/refresh a case
+// without waiting for a full page reload. Populated in buildCollectionItem().
+const _collRegistryById = new Map();
 function _fetchCollectionGroups(fileUrl) {
   if (_collectionGroupsCache.has(fileUrl)) return _collectionGroupsCache.get(fileUrl);
   const p = fetch(fileUrl, { cache: 'reload' }).then(r => r.ok ? r.json() : []).catch(() => []);
@@ -354,10 +483,11 @@ function _fetchCollectionGroups(fileUrl) {
 
 // Flatten collections.json / topics.json (including nested "collections"
 // categories like Justices/Advocates) into a list of tag-bearing group defs:
-// { isTopic, id, fileUrl, requiredTags, groupName, isFanout }.
+// { isTopic, id, fileUrl, requiredTags, groupName, isFanout, allowMerge }.
 // isFanout marks a "*" group whose real sub-groups are generated per unique
 // non-required tag found on qualifying cases (see _buildTagsCollection in
-// scripts/update_cases.js).
+// scripts/update_cases.js). allowMerge mirrors that "*" group def's own
+// "allow_group_merging" flag — see _requiredTagsForGroup.
 function _collectTagGroupDefs() {
   const out = [];
   function walk(entries, isTopic) {
@@ -368,7 +498,7 @@ function _collectTagGroupDefs() {
       const id = fileUrl.split('/').pop().replace('.json', '');
       for (const g of e.groups) {
         if (!Array.isArray(g.tags) || !g.tags.length) continue;
-        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, isFanout: g.name === '*' });
+        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, isFanout: g.name === '*', allowMerge: !!g.allow_group_merging });
       }
     }
   }
@@ -398,12 +528,14 @@ async function _resolveTagTarget(tag, caseTags) {
   const fanoutRoot = defs.find(d => d.isFanout && d.requiredTags.includes(tag));
   if (fanoutRoot) return { isTopic: fanoutRoot.isTopic, id: fanoutRoot.id, groupIdx: null };
   // Fan-out sub-group match: the case qualifies for some fan-out (carries all
-  // of its required tags), and `tag` may be one of its dynamically-generated
-  // per-category sub-group names — the only way to know is to check the
-  // fan-out's generated file for a group whose name equals this tag.
+  // of its required tags — or, when the fan-out opts in to
+  // "allow_group_merging", just the candidate tag itself), and `tag` may be
+  // one of its dynamically-generated per-category sub-group names — the only
+  // way to know is to check the fan-out's generated file for a group whose
+  // name equals this tag.
   for (const d of defs) {
     if (!d.isFanout) continue;
-    if (!d.requiredTags.every(rt => caseTags.includes(rt))) continue;
+    if (!d.allowMerge && !d.requiredTags.every(rt => caseTags.includes(rt))) continue;
     const groups = await _fetchCollectionGroups(d.fileUrl);
     const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === tag) : -1;
     if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupIdx: idx + 1 };
@@ -448,21 +580,6 @@ function _buildTagsMenu(anchorEl) {
   addInput.placeholder = 'New tag…';
   addSaveBtn.className = 'tag-add-save-btn';
   addSaveBtn.textContent = 'Add';
-  let addOpen = false;
-
-  function showAddInput() {
-    addOpen = true;
-    addLi.textContent = '';
-    addLi.appendChild(addInput);
-    addLi.appendChild(addSaveBtn);
-    addInput.value = '';
-    requestAnimationFrame(() => addInput.focus());
-  }
-
-  function hideAddInput() {
-    addOpen = false;
-    addLi.textContent = 'Add…';
-  }
 
   function doAdd() {
     const val = addInput.value.trim();
@@ -478,12 +595,18 @@ function _buildTagsMenu(anchorEl) {
       const span = document.createElement('span');
       span.className = 'tag-label';
       span.textContent = tag;
+      const copy = document.createElement('button');
+      copy.className = 'tag-copy-btn';
+      copy.title = 'Copy tag to clipboard';
+      copy.appendChild(makeClipboardIconSvg());
+      copy.addEventListener('click', (e) => { e.stopPropagation(); _copyTagPlainText(tag); });
       const del = document.createElement('button');
       del.className = 'tag-delete-btn';
-      del.textContent = '×';
-      del.title = 'Remove tag';
+      del.title = 'Delete tag';
+      del.appendChild(makeTrashIconSvg());
       del.addEventListener('click', (e) => { e.stopPropagation(); _removeUserTag(tag); renderUserTags(); });
       item.appendChild(span);
+      item.appendChild(copy);
       item.appendChild(del);
       menu.insertBefore(item, addLi);
     }
@@ -493,7 +616,16 @@ function _buildTagsMenu(anchorEl) {
   for (const tag of _builtinTags) {
     const item = document.createElement('li');
     item.className = 'term-sort-option tag-builtin';
-    item.textContent = tag;
+    const span = document.createElement('span');
+    span.className = 'tag-label';
+    span.textContent = tag;
+    const copy = document.createElement('button');
+    copy.className = 'tag-copy-btn';
+    copy.title = 'Copy tag to clipboard';
+    copy.appendChild(makeClipboardIconSvg());
+    copy.addEventListener('click', (e) => { e.stopPropagation(); _copyTagPlainText(tag); });
+    item.appendChild(span);
+    item.appendChild(copy);
     menu.appendChild(item);
     // Upgrade to a clickable link once we know this tag maps to a
     // collection/topic (and, for fan-out sub-tags, which group within it).
@@ -510,13 +642,12 @@ function _buildTagsMenu(anchorEl) {
   }
 
   addLi.className = 'term-sort-option tag-add-item';
-  addLi.textContent = 'Add…';
-  addLi.addEventListener('click', (e) => { e.stopPropagation(); if (!addOpen) showAddInput(); });
+  addLi.appendChild(addInput);
+  addLi.appendChild(addSaveBtn);
+  addLi.addEventListener('click', (e) => e.stopPropagation());
   addSaveBtn.addEventListener('click', (e) => { e.stopPropagation(); doAdd(); });
-  addInput.addEventListener('click', (e) => e.stopPropagation());
   addInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.stopPropagation(); doAdd(); }
-    else if (e.key === 'Escape') { e.stopPropagation(); hideAddInput(); }
   });
   menu.appendChild(addLi);
   renderUserTags();
@@ -525,6 +656,7 @@ function _buildTagsMenu(anchorEl) {
   const rect = anchorEl.getBoundingClientRect();
   menu.style.top  = (rect.bottom + window.scrollY) + 'px';
   menu.style.left = Math.max(0, rect.right + window.scrollX - menu.offsetWidth) + 'px';
+  requestAnimationFrame(() => addInput.focus());
 
   const close = (e) => {
     if (!menu.contains(e.target) && e.target !== anchorEl) {
@@ -685,6 +817,26 @@ function _buildFavGroupEl(groupId, groupName) {
   header.appendChild(tog);
   header.appendChild(label);
   header.appendChild(activeDot);
+  // The "Unfiled" group is permanent — never gets a delete button. Every
+  // other group shows one only while open/selected, immediately left of the
+  // count button; a MutationObserver keeps that in sync regardless of which
+  // code path toggles the 'open' class (manual click, _addFavGroup, restore
+  // after a rebuild, etc.) instead of having to hook every call site.
+  if (groupId !== 'unfiled') {
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'fav-group-delete-btn';
+    delBtn.title = 'Delete group';
+    delBtn.hidden = true;
+    delBtn.appendChild(makeTrashIconSvg());
+    delBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      _deleteFavGroup(groupId);
+    });
+    header.appendChild(delBtn);
+    new MutationObserver(() => { delBtn.hidden = !li.classList.contains('open'); })
+      .observe(li, { attributes: true, attributeFilter: ['class'] });
+  }
   header.appendChild(countBtn);
 
   const ul = document.createElement('ul');
@@ -742,6 +894,23 @@ function _addFavGroup() {
       if (lbl) _startGroupRename(id, lbl);
     });
   }
+}
+
+// Delete a favorites group instantly (no confirmation — low-stakes, and
+// reversible by dragging cases back into a new group). Its cases move to
+// Unfiled rather than being un-favorited. "Unfiled" itself is never
+// deletable (see _buildFavGroupEl, which doesn't even render the button).
+function _deleteFavGroup(groupId) {
+  if (groupId === 'unfiled') return;
+  const data = _getFavData();
+  if (!data.groups.some(g => g.id === groupId)) return;
+  data.groups = data.groups.filter(g => g.id !== groupId);
+  for (const item of data.items) {
+    if (item.groupId === groupId) item.groupId = 'unfiled';
+  }
+  _setFavData(data);
+  if (_activeFavGroupId === groupId) _activeFavGroupId = 'unfiled';
+  _rebuildFavoritesItems();
 }
 
 function _closeFavSearch() {
@@ -1304,9 +1473,13 @@ function formatSpeaker(speaker) {
 }
 
 // Full name for use where abbreviations are unwanted (e.g. edit-mode dropdowns).
+// Roman-numeral generational suffixes (", II", ", III", ", IV") are fully
+// uppercased rather than title-cased — same convention as _justiceDisplayName
+// in scripts/update_cases.js.
 function formatSpeakerFull(speaker) {
   const name = typeof speaker === 'string' ? speaker : speaker.name;
-  return name.split(' ').map(toTitleCase).join(' ');
+  return name.split(' ').map(toTitleCase).join(' ')
+    .replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
 }
 
 function speakerClass(speaker) {
@@ -1890,6 +2063,10 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 
   const videoEl = document.getElementById('doc-viewer-video');
   const audioEl = document.getElementById('doc-viewer-audio');
+  // Set below when displaying a PDF — the actual visible iframe comes from
+  // _pdfIframePool (dynamically created, inserted after the static, always-
+  // hidden #doc-viewer-pdf placeholder), not that placeholder element itself.
+  let activePdfIframe = null;
   if (inPane) {
     card.style.display = 'none';
     if (isMp4) {
@@ -1911,6 +2088,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
       // Show only this iframe; others stay hidden but alive — no reload needed on return.
       for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
       if (isNew) iframe.src = src;
+      activePdfIframe = iframe;
     }
   } else {
     for (const el of _pdfIframePool.values()) el.style.display = 'none';
@@ -1927,23 +2105,75 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     panel.style.height = '0px';
     panel.hidden = false;
     panel.offsetHeight; // force reflow so transition plays
+    const bottomBarEl = document.getElementById('bottom-bar');
     if (isMobile()) {
-      // On mobile the doc-viewer lives in #bottom-bar which is sticky at the
-      // bottom. Animate from 0 to the natural content height so it slides up
-      // above the audio controls without requiring the user to scroll.
-      // Use scrollHeight (measures full content even while height:0) so card
-      // content and PDF iframes both size themselves correctly.
-      const naturalH = panel.scrollHeight;
-      const maxH = Math.round(window.innerHeight * 0.50);
-      const targetH = Math.min(naturalH, maxH);
-      panel.style.height = targetH + 'px';
-      // After the animation, release to auto height so the panel fits its
-      // content rather than leaving dead space (important for card content).
-      panel.addEventListener('transitionend', function onMobileOpen(e) {
-        if (e.target !== panel || e.propertyName !== 'height') return;
-        panel.removeEventListener('transitionend', onMobileOpen);
-        panel.style.height = 'auto';
-      }, { once: true });
+      // On mobile the doc-viewer lives in #bottom-bar which is normally
+      // sticky at the *bottom* of the viewport. Animate from 0 to the
+      // natural content height so it slides up above the audio controls
+      // without requiring the user to scroll.
+      //
+      // For an opinion-only case (docViewerOpenHeight set — see
+      // loadCaseAsOpinion) that isn't the right anchor: a bottom anchor
+      // can't simultaneously (a) sit flush against #player-section with no
+      // gap, and (b) give #main-panel enough total height to scroll
+      // #doc-browser fully out of view — those two needs pull #bottom-bar's
+      // height in opposite directions when it's measured from the viewport
+      // bottom. So in this mode #bottom-bar switches to a *top* anchor
+      // instead, pinned right at #player-section's own bottom edge:
+      //   - the PDF itself is sized to exactly the space actually visible
+      //     below #player-section (topbarH + playerH to viewport bottom);
+      //   - the outer panel is made taller than that (by topbarH) so
+      //     #main-panel has enough scrollable height overall — that extra
+      //     slice trails off past the bottom of the screen, unreachable
+      //     (there's nothing to scroll into it once #doc-browser is fully
+      //     cleared), so nothing visible is clipped.
+      if (docViewerOpenHeight) {
+        const topbarH  = 44; // matches #player-section's sticky top offset
+        const playerH  = document.getElementById('player-section').getBoundingClientRect().height;
+        const visibleH = Math.max(0, Math.round(window.innerHeight - topbarH - playerH));
+        const outerH   = Math.max(0, Math.round(window.innerHeight - playerH));
+        // A sticky element can never be pushed past its own containing
+        // block's bounds. #main-panel's natural height is just playerH +
+        // outerH (topbarH short of what #bottom-bar needs to have room to
+        // slide down to top: topbarH+playerH) — #transcript-viewer sits
+        // between them and normally collapses to ~0 here (no turns to
+        // show), so give it that missing sliver back.
+        document.getElementById('transcript-viewer').style.minHeight = topbarH + 'px';
+        bottomBarEl.style.top = (topbarH + playerH) + 'px';
+        bottomBarEl.style.bottom = 'auto';
+        if (activePdfIframe) activePdfIframe.style.height = visibleH + 'px';
+        // Skip the slide-up animation for the full-page opinion view.
+        // loadCaseAsOpinion scrollIntoView()s #player-section synchronously
+        // right after this call returns — with the normal 0.3s transition
+        // still in flight at that instant, the page would momentarily be
+        // too short (mid-grow) and the scroll would fall short of fully
+        // hiding the doc-browser nav. Jumping straight to the final height
+        // keeps layout accurate the moment this function returns.
+        panel.style.transition = 'none';
+        panel.style.height = outerH + 'px';
+        panel.offsetHeight; // commit before re-enabling transitions
+        panel.style.transition = '';
+      } else {
+        // Normal in-context peek: reset any leftover opinion-mode override
+        // from a previous case.
+        document.getElementById('transcript-viewer').style.minHeight = '';
+        bottomBarEl.style.top = '';
+        bottomBarEl.style.bottom = '';
+        if (activePdfIframe) activePdfIframe.style.height = '';
+        // Use scrollHeight (measures full content even while height:0) so
+        // card content and PDF iframes both size themselves correctly.
+        const naturalH = panel.scrollHeight;
+        const maxH = Math.round(window.innerHeight * 0.50);
+        const targetH = Math.min(naturalH, maxH);
+        panel.style.height = targetH + 'px';
+        // After the animation, release to auto height so the panel fits its
+        // content rather than leaving dead space (important for card content).
+        panel.addEventListener('transitionend', function onMobileOpen(e) {
+          if (e.target !== panel || e.propertyName !== 'height') return;
+          panel.removeEventListener('transitionend', onMobileOpen);
+          panel.style.height = 'auto';
+        }, { once: true });
+      }
     } else {
       const h = docViewerOpenHeight ?? Math.round(window.innerHeight * 0.45);
       panel.style.height = h + 'px';
@@ -2305,6 +2535,9 @@ function _setCaseInfoRow2(caseEntry) {
   _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
+  // Kept in sync with #case-decided's own visibility — see the mobile
+  // #case-decided-break rule in explorer.css.
+  document.getElementById('case-decided-break').hidden = !caseEntry.decision;
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
@@ -2563,6 +2796,49 @@ function makeScalesRingSvg(blue, filled = false, orange = false) {
   svg.appendChild(arc);
   svg.appendChild(g);
   return svg;
+}
+
+// Small trash-can icon used to delete a user-added tag (tags menu).
+function makeTrashIconSvg() {
+  const svg = _svgEl('svg', { width: 13, height: 13, viewBox: '0 0 16 16', class: 'tag-icon' });
+  const g = _svgEl('g', { stroke: 'currentColor', 'stroke-width': '1.3', fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  g.appendChild(_svgEl('line', { x1: 3,   y1: 4.5, x2: 13,  y2: 4.5 }));
+  g.appendChild(_svgEl('path', { d: 'M5.5,4.5 V3 a1,1 0 0 1 1,-1 h3 a1,1 0 0 1 1,1 V4.5' }));
+  g.appendChild(_svgEl('path', { d: 'M4.5,4.5 L5.2,13 a1,1 0 0 0 1,0.9 h3.6 a1,1 0 0 0 1,-0.9 L11.5,4.5' }));
+  g.appendChild(_svgEl('line', { x1: 6.5, y1: 7,   x2: 6.8,  y2: 11.5 }));
+  g.appendChild(_svgEl('line', { x1: 9.5, y1: 7,   x2: 9.2,  y2: 11.5 }));
+  svg.appendChild(g);
+  return svg;
+}
+
+// Small clipboard icon used to copy a tag's plain-text value (tags menu).
+function makeClipboardIconSvg() {
+  const svg = _svgEl('svg', { width: 13, height: 13, viewBox: '0 0 16 16', class: 'tag-icon' });
+  const g = _svgEl('g', { stroke: 'currentColor', 'stroke-width': '1.3', fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  g.appendChild(_svgEl('rect',  { x: 3.5, y: 2.5,  width: 9, height: 11.5, rx: 1.2 }));
+  g.appendChild(_svgEl('path',  { d: 'M6,2.5 V1.8 a1,1 0 0 1 1,-1 h2 a1,1 0 0 1 1,1 V2.5' }));
+  g.appendChild(_svgEl('line',  { x1: 6, y1: 6.3,  x2: 10,  y2: 6.3  }));
+  g.appendChild(_svgEl('line',  { x1: 6, y1: 8.6,  x2: 10,  y2: 8.6  }));
+  g.appendChild(_svgEl('line',  { x1: 6, y1: 10.9, x2: 8.5, y2: 10.9 }));
+  svg.appendChild(g);
+  return svg;
+}
+
+// Copy a tag's plain-text value to the system clipboard.
+function _copyTagPlainText(tag) {
+  const text = String(tag);
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).catch(() => {});
+    return;
+  }
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch { /* ignore */ }
+  document.body.removeChild(ta);
 }
 
 // Synchronously mark a case-item as the active selection in the nav. Provides
@@ -4213,6 +4489,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   }
 
   collLi._ensureBuilt = _ensureCollectionBuilt;
+  _collRegistryById.set(collId, { collEntry, collUl, isTopic, ensureBuilt: _ensureCollectionBuilt });
 
   // ── Collection-level pagination ──────────────────────────────────────────
   // chunk:0 in the collection entry disables pagination (show all groups at once).
@@ -4924,6 +5201,29 @@ async function _loadCaseFromGroupLink(link) {
   await loadCase(linkTerm, caseEntry, 0, { forceNoAudio: !hasPlayableAudio });
 }
 
+// Parse the primary (first) "key:direction" segment of a collection/topic
+// "order" spec into a { mode, asc } pair for the interactive sort-mode system
+// (_GROUP_SORT_OPTIONS / _applyGroupSortMode). The spec may be a compound,
+// comma-separated list (e.g. "argument:ascending,titles:ascending") — see
+// scripts/update_cases.js's _parseOrderSpec, which is what actually applies
+// every rule when generating the file. The client only needs the primary key:
+// as long as the file itself is pre-sorted with the same tie-break, ties are
+// preserved automatically because Array.prototype.sort is stable. "titles"
+// (plus legacy aliases "title"/"cases") maps to the built-in "cases" sort
+// mode (alphabetical by title); "argument"/"decision" (the case fields
+// collections.json/topics.json should name) map to the "argued"/"decided"
+// sort modes, whose labels match the UI's user-facing "Argued"/"Decided"
+// sort options.
+function _parseOrderModeSpec(orderSpec) {
+  const first = String(orderSpec || '').split(',')[0];
+  const [rawKey, rawDir] = first.split(':').map(s => (s || '').trim().toLowerCase());
+  let mode = rawKey || 'none';
+  if (mode === 'title' || mode === 'titles') mode = 'cases';
+  else if (mode === 'argument') mode = 'argued';
+  else if (mode === 'decision') mode = 'decided';
+  return { mode, asc: rawDir !== 'descending' };
+}
+
 function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = false) {
   // Base path for per-advocate JSON files (split format): collectionDir/folder/
   // Uses collEntry.folder if specified, otherwise falls back to collId.
@@ -4939,9 +5239,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
   let _defaultSortMode = 'none';
   let _defaultSortAsc  = true;
   if (collEntry.order) {
-    const [om, od] = collEntry.order.split(':');
-    if (om) _defaultSortMode = om.trim().toLowerCase();
-    if (od) _defaultSortAsc  = od.trim().toLowerCase() !== 'descending';
+    const { mode, asc } = _parseOrderModeSpec(collEntry.order);
+    _defaultSortMode = mode;
+    _defaultSortAsc  = asc;
   }
 
   for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
@@ -5020,9 +5320,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     let _groupSortMode = _defaultSortMode;
     let _groupSortAsc  = _defaultSortAsc;
     if (group.order) {
-      const [gom, god] = group.order.split(':');
-      if (gom) _groupSortMode = gom.trim().toLowerCase();
-      if (god) _groupSortAsc  = god.trim().toLowerCase() !== 'descending';
+      const { mode, asc } = _parseOrderModeSpec(group.order);
+      _groupSortMode = mode;
+      _groupSortAsc  = asc;
     }
     const _GROUP_SORT_OPTIONS = [
       ...(_defaultSortMode === 'hours' ? [{ mode: 'hours', label: 'Hours' }] : []),
@@ -5180,10 +5480,22 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       _casesLoaded = true;
       if (Array.isArray(group.cases)) {
         // Embedded format: build case items from the in-memory array.
+        const seenKeys = new Set();
         for (const caseRef of group.cases) {
+          seenKeys.add(caseRef.term + '/' + caseRef.number);
           groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
         }
-        n = group.cases.length;
+        // Reconcile with localStorage tags: a case that only qualifies for this
+        // group because of a user-added tag won't be in the server-generated
+        // file yet — add it here so it appears without a full rebuild.
+        const localMatches = await _localTagMatchesForGroup(collEntry, group);
+        for (const caseRef of localMatches) {
+          const key = caseRef.term + '/' + caseRef.number;
+          if (seenKeys.has(key)) continue;
+          seenKeys.add(key);
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+        }
+        n = seenKeys.size;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
       } else if (group.id) {
         // Split format: fetch the per-group JSON file.
@@ -5246,6 +5558,53 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       if (idx < 0) return;
       _pageStart = Math.max(0, Math.min(idx - HALF_PAGE, Math.max(0, _sortedItems.length - PAGE_SIZE)));
       _renderGroupPage();
+    };
+    // Inject a case that newly qualifies for this group because of a
+    // just-added local tag (see _injectLocalTagIntoLoadedGroups). If the
+    // group hasn't been expanded yet, stash it in the in-memory cases array
+    // so it's picked up normally the first time it is.
+    groupLi._addLocalCase = (caseRef) => {
+      const key = caseRef.term + '/' + caseRef.number;
+      if (!_casesLoaded) {
+        if (Array.isArray(group.cases) && !group.cases.some(c => (c.term + '/' + c.number) === key)) {
+          group.cases.push(caseRef);
+          n = group.cases.length;
+          if (!groupCount.hidden) groupCount.textContent = hoursLabel || (n + ' Cases');
+        }
+        return;
+      }
+      if (groupUl.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`)) return;
+      groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+      n++;
+      _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+      groupCount.textContent = groupCount.classList.contains('sort-active')
+        ? _groupSortModeLabel(_groupSortMode, _groupSortAsc)
+        : (hoursLabel || (n + ' Cases'));
+    };
+    // Mirror of _addLocalCase: drop a case that no longer qualifies for this
+    // group because a local tag it depended on was just removed (see
+    // _removeLocalTagFromLoadedGroups). Re-checks qualification first so a
+    // case that's genuinely in the server-generated file (or still qualifies
+    // via some other remaining tag) is never incorrectly removed.
+    groupLi._removeLocalCaseIfUnqualified = async (term, number) => {
+      const key = term + '/' + number;
+      if (!_casesLoaded) {
+        if (!Array.isArray(group.cases)) return;
+        const idx = group.cases.findIndex(c => (c.term + '/' + c.number) === key);
+        if (idx < 0 || await _caseQualifiesForGroup(collEntry, group, term, number)) return;
+        group.cases.splice(idx, 1);
+        n = group.cases.length;
+        if (!groupCount.hidden) groupCount.textContent = hoursLabel || (n + ' Cases');
+        return;
+      }
+      const item = groupUl.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
+      if (!item || await _caseQualifiesForGroup(collEntry, group, term, number)) return;
+      item.remove();
+      n = Math.max(0, n - 1);
+      _applyGroupSortMode(_groupSortMode, _groupSortAsc);
+      groupCount.textContent = groupCount.classList.contains('sort-active')
+        ? _groupSortModeLabel(_groupSortMode, _groupSortAsc)
+        : (hoursLabel || (n + ' Cases'));
     };
 
     _wireAccordionHeader(groupHeader, {
@@ -7990,7 +8349,13 @@ async function pickRandomCase() {
   const btn = document.getElementById('random-case-btn');
   if (btn) btn.disabled = true;
   try {
-    await _randomizeThenRestore('1950-10', null);
+    // Read start/stop from the button's own href (see _includes/topbar.html)
+    // rather than hardcoding a second copy here — otherwise the two drift
+    // apart, as they had (href said start=1955-10; this used to say 1950-10).
+    const hrefParams = btn ? new URL(btn.href, location.origin).searchParams : null;
+    const startTerm  = hrefParams?.get('start') || null;
+    const stopTerm   = hrefParams?.get('stop')  || null;
+    await _randomizeThenRestore(startTerm, stopTerm);
   } finally {
     if (btn) btn.disabled = false;
   }

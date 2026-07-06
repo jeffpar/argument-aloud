@@ -34,9 +34,11 @@
     "groups": [
       {
         "name": "*",
-        "tags": ["Noteworthy"]
+        "tags": ["Noteworthy"],
+        "allow_group_merging": true
       }
     ],
+    "order": "titles:ascending",
     "search": "cases:title"
   }
 ]

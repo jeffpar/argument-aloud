@@ -6036,8 +6036,67 @@ function _findFirstMatchingEventOrigIdx(events, eventMatchCond) {
     return null;
 }
 
+// Parse an "order" spec into an ordered list of { key, asc } tie-break rules.
+// Accepts a single "key:direction" pair or a comma-separated compound spec
+// (e.g. "argument:ascending,titles:ascending") for deterministic tie-breaking —
+// the same convention read client-side in explorer.js's
+// _populateCollectionGroups (which only consumes the first/primary rule; the
+// rest exist purely to make the generated file's own order idempotent).
+// Keys: "argument" (the argument date; legacy alias "argued"), "decision"
+// (the decision date; legacy alias "decided"), and "titles" (plus legacy
+// aliases "title"/"cases") which sorts alphabetically by title. The "argued"/
+// "decided" spelling matches the UI's user-facing sort-option labels
+// ("Argued"/"Decided"), but the underlying case fields are "argument" and
+// "decision", so that's the spelling collections.json/topics.json should use.
+// Returns null for an empty/"none" spec, so callers can fall back to their
+// own default order.
+function _parseOrderSpec(orderSpec) {
+    const spec = String(orderSpec || '').trim();
+    if (!spec || spec.toLowerCase() === 'none') return null;
+    const rules = spec.split(',').map(part => {
+        const [rawKey, rawDir] = part.split(':').map(s => (s || '').trim().toLowerCase());
+        let key = rawKey;
+        if (key === 'title' || key === 'cases') key = 'titles';
+        else if (key === 'argued')  key = 'argument';
+        else if (key === 'decided') key = 'decision';
+        return { key, asc: rawDir !== 'descending' };
+    }).filter(r => r.key);
+    return rules.length ? rules : null;
+}
+
+// Sort a list of case entries (as built by _setCaseEntry) in place, honoring
+// an optional "order" spec (see _parseOrderSpec). With no order spec, falls
+// back to the previous fixed chronological order (term, argument, decision,
+// title) so existing output is unaffected.
+function _sortCaseEntriesByOrder(cases, orderSpec) {
+    const rules = _parseOrderSpec(orderSpec);
+    if (!rules) {
+        cases.sort((a, b) =>
+            (a.term      || '').localeCompare(b.term      || '') ||
+            (a.argument  || '').localeCompare(b.argument  || '') ||
+            (a.decision  || '').localeCompare(b.decision  || '') ||
+            (a.title     || '').localeCompare(b.title     || ''));
+        return cases;
+    }
+    const keyOf = (c, key) => {
+        if (key === 'titles')   return _naturalSortKey(c.title || '');
+        if (key === 'argument') return c.argument || '';
+        if (key === 'decision') return c.decision || '';
+        return c.term || '';
+    };
+    cases.sort((a, b) => {
+        for (const { key, asc } of rules) {
+            const av = keyOf(a, key), bv = keyOf(b, key);
+            const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+            if (cmp !== 0) return asc ? cmp : -cmp;
+        }
+        return 0;
+    });
+    return cases;
+}
+
 // Scan allTerms for cases that satisfy requiredTags, filter, AND all conditions.
-function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null) {
+function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null) {
     const hasFileCount = conditions.some(cond =>
         cond.type === 'eventMatch' &&
         cond.subconditions.some(sub => sub.type === 'eventFileCount')
@@ -6096,11 +6155,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
             cases.push(entry);
         }
     }
-    cases.sort((a, b) =>
-        (a.term      || '').localeCompare(b.term      || '') ||
-        (a.argument  || '').localeCompare(b.argument  || '') ||
-        (a.decision  || '').localeCompare(b.decision  || '') ||
-        (a.title     || '').localeCompare(b.title     || ''));
+    _sortCaseEntriesByOrder(cases, orderSpec);
     return cases;
 }
 
@@ -6108,7 +6163,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
 
 // Scan allTerms for cases that match a set of required tags; return sorted
 // case entries.
-function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null) {
+function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, orderSpec = null) {
     const cases = [];
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -6124,11 +6179,7 @@ function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null) {
             cases.push(_setCaseEntry(c, term, extraByKey?.get(key)));
         }
     }
-    cases.sort((a, b) =>
-        (a.term      || '').localeCompare(b.term      || '') ||
-        (a.argument  || '').localeCompare(b.argument  || '') ||
-        (a.decision  || '').localeCompare(b.decision  || '') ||
-        (a.title     || '').localeCompare(b.title     || ''));
+    _sortCaseEntriesByOrder(cases, orderSpec);
     return cases;
 }
 
@@ -6176,23 +6227,24 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                 }
                 const sortedNames = [...fanOut.keys()].sort((a, b) =>
                     _naturalSortKey(a).localeCompare(_naturalSortKey(b)));
+                // Fan-out sub-groups have no per-group "order" of their own (their
+                // name is dynamically generated) — the "*" group's own order/the
+                // collection's order applies to all of them.
+                const fanoutOrder = g.order || collEntry.order || null;
                 for (const name of sortedNames) {
                     const cases = fanOut.get(name);
-                    cases.sort((a, b) =>
-                        (a.term      || '').localeCompare(b.term      || '') ||
-                        (a.argument  || '').localeCompare(b.argument  || '') ||
-                        (a.decision  || '').localeCompare(b.decision  || '') ||
-                        (a.title     || '').localeCompare(b.title     || ''));
+                    _sortCaseEntriesByOrder(cases, fanoutOrder);
                     output.push({ name, cases });
                 }
             } else {
                 const filter = g.decision ? { decision: g.decision } : {};
+                const groupOrder = g.order || collEntry.order || null;
                 let cases;
                 if (Array.isArray(g.conditions) && g.conditions.length) {
                     const parsed = g.conditions.map(_parseCaseCondition).filter(Boolean);
-                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey);
+                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder);
                 } else {
-                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey) : [];
+                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder) : [];
                 }
                 output.push({ name: g.name || g.title || '', cases });
             }
@@ -6200,7 +6252,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
         return output;
     }
     // Flat (single-group) form.
-    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey) }];
+    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey, collEntry.order || null) }];
 }
 
 function processCollectionSets(allTerms, dryRun) {
@@ -11480,18 +11532,20 @@ function runGenerateIssues(dryRun) {
             grpDef.conditions.every(cond => _evalIssueCondition(cond, c, term))
         );
 
-        const [orderKey, orderDir] = (grpDef.order || '').split(':');
-        const sortAsc = orderDir !== 'descending';
+        const orderRules = _parseOrderSpec(grpDef.order) || [{ key: 'term', asc: true }];
+        const orderKeyOf = ({ term, c }, key) => {
+            if (key === 'titles')   return _naturalSortKey(c.title || '');
+            if (key === 'argument') return c.argument || '';
+            if (key === 'decision') return c.decision || '';
+            return term || '';
+        };
         matching.sort((a, b) => {
-            if (orderKey === 'decided') {
-                const cmp = (a.c.decision || '').localeCompare(b.c.decision || '');
-                if (cmp !== 0) return sortAsc ? cmp : -cmp;
-                const arg = (a.c.argument || '').localeCompare(b.c.argument || '');
-                return sortAsc ? arg : -arg;
+            for (const { key, asc } of orderRules) {
+                const av = orderKeyOf(a, key), bv = orderKeyOf(b, key);
+                const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+                if (cmp !== 0) return asc ? cmp : -cmp;
             }
-            const av = orderKey === 'argued' ? (a.c.argument || '') : a.term;
-            const bv = orderKey === 'argued' ? (b.c.argument || '') : b.term;
-            return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+            return 0;
         });
 
         const cases = matching.map(({ term, c }) => {

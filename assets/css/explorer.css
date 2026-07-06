@@ -1124,12 +1124,22 @@ button.term-case-count.sort-active:hover {
   text-decoration-color: #4a9eff;
 }
 
+/* Favorite + Tags are grouped into one atomic flex item so a narrow layout
+   never wraps them apart from each other — the date spans wrap individually
+   instead, as needed, since they aren't part of this group. */
+#case-info-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
 #favorite-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: auto;
   line-height: 1;
   flex-shrink: 0;
   align-self: center;
@@ -1149,12 +1159,12 @@ button.term-case-count.sort-active:hover {
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: auto;
   font-size: 11px;
   color: #888;
   font-family: inherit;
   line-height: 1.2;
   flex-shrink: 0;
+  align-self: center;
 }
 
 #tags-btn:hover {
@@ -1163,9 +1173,16 @@ button.term-case-count.sort-active:hover {
   text-underline-offset: 2px;
 }
 
+.tags-menu {
+  min-width: 270px;
+}
+
 .tag-builtin {
   cursor: default;
   color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tag-builtin:hover {
@@ -1193,16 +1210,22 @@ button.term-case-count.sort-active:hover {
   min-width: 0;
 }
 
+.tag-copy-btn,
 .tag-delete-btn {
   background: none;
   border: none;
   cursor: pointer;
   color: #bbb;
   padding: 0 0 0 6px;
-  font-size: 15px;
   line-height: 1;
   flex-shrink: 0;
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag-copy-btn:hover {
+  color: #2672b4;
 }
 
 .tag-delete-btn:hover {
@@ -1211,8 +1234,13 @@ button.term-case-count.sort-active:hover {
 
 .tag-add-item {
   border-top: 1px solid #eee;
-  color: #2672b4;
-  font-style: italic;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.tag-add-item:hover {
+  background: none !important;
 }
 
 .tag-add-input {
@@ -1221,7 +1249,8 @@ button.term-case-count.sort-active:hover {
   border-radius: 3px;
   padding: 2px 4px;
   font-family: inherit;
-  width: 90px;
+  flex: 1;
+  min-width: 0;
   color: inherit;
   background: inherit;
 }
@@ -1273,6 +1302,20 @@ button.term-case-count.sort-active:hover {
   font-family: inherit;
 }
 .fav-header-btn:hover { color: #444; }
+.fav-group-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  color: #bbb;
+  line-height: 1;
+  flex-shrink: 0;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+.fav-group-delete-btn[hidden] { display: none; }
+.fav-group-delete-btn:hover { color: #d44; }
 .fav-active-dot {
   font-size: 7px;
   color: #d44;
@@ -1632,13 +1675,22 @@ button.term-case-count.sort-active:hover {
   padding: 0;
 }
 
-/* In no-audio mode the doc viewer should fill all remaining space. */
-#transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar {
-  flex: 1;
-}
-#transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
-  flex: 1;
-  height: auto !important;
+/* In no-audio mode the doc viewer should fill all remaining space. Desktop
+   only: #main-panel there is a fixed-height flex column, so flex:1 has real
+   room to grow into. On mobile #main-panel is auto-height (normal block
+   flow), so this "fill remaining space" job is instead done in JS
+   (showDocViewer's isMobile() branch, keyed off docViewerOpenHeight) —
+   height: auto !important here would otherwise override that inline
+   px height and let the panel overshoot the space actually available
+   below the sticky #player-section. */
+@media (min-width: 769px) {
+  #transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar {
+    flex: 1;
+  }
+  #transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
+    flex: 1;
+    height: auto !important;
+  }
 }
 
 /* When audio is present but there is no text transcript, collapse the
@@ -2061,6 +2113,8 @@ button.term-case-count.sort-active:hover {
   line-height: 1;
   padding: 0 2px;
   flex-shrink: 0;
+  position: relative;
+  top: -2px; /* the × glyph's ink sits low in its em-box at this size */
 }
 
 #doc-viewer-close:hover {
@@ -2278,10 +2332,20 @@ button.term-case-count.sort-active:hover {
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
   #audio-select { text-align: left; }
 
-  /* 3rd: argued / decided dates */
+  /* 3rd: argued / decided dates + favorite + tags */
   #case-info-row2    { order: 3; flex-basis: 100%; }
 
-  /* 4th: votes + tags row */
+  /* Decided always starts its own line rather than wrapping independently —
+     that left favorite+tags stranded alone on a mostly-blank line beneath
+     both dates. #case-decided-break is a zero-height dedicated flex item
+     (kept in sync with #case-decided's own [hidden] state in JS) that eats
+     the rest of its line via flex-basis: 100%, forcing everything after it
+     — Decided, citation, favorite+tags — onto one new line together. Giving
+     #case-decided itself flex-basis: 100% would be wrong: it would claim the
+     whole line for its own text, pushing favorite+tags to a third line. */
+  #case-decided-break:not([hidden]) { flex-basis: 100%; }
+
+  /* 4th: vote line */
   #case-info-row3    { order: 4; flex-basis: 100%; }
 
   /* 5th: questions */
@@ -2637,7 +2701,8 @@ button.term-case-count.sort-active:hover {
   .tag-builtin { color: #6c7280; }
   .tag-builtin.tag-linked { color: #5eaee0; }
   .tag-builtin.tag-linked:hover { background: #252a35 !important; }
-  .tag-delete-btn { color: #6c7280; }
+  .tag-copy-btn, .tag-delete-btn { color: #6c7280; }
+  .tag-copy-btn:hover { color: #5eaee0; }
   .tag-add-item { border-top-color: #3a3d4a; color: #7bc8f0; }
   .tag-add-input { border-color: #3a3d4a; background: #252830; color: #c8ccd8; }
   .tag-add-save-btn { border-color: #3a3d4a; color: #7bc8f0; }
@@ -2716,6 +2781,8 @@ html[data-theme="dark"] .term-sort-option.active  { color: #7bc8f0; }
 html[data-theme="dark"] .case-sort-label     { color: #6c7280; }
 html[data-theme="dark"] .fav-header-btn      { color: #6c7280; }
 html[data-theme="dark"] .fav-header-btn:hover { color: #c8cdd8; }
+html[data-theme="dark"] .fav-group-delete-btn { color: #6c7280; }
+html[data-theme="dark"] .fav-group-delete-btn:hover { color: #d44; }
 html[data-theme="dark"] .fav-group-rename-input { background: #1a1e2a; border-color: #3a3d4a; color: #c8ccd8; }
 html[data-theme="dark"] .month-header:hover  { background: #252a35; }
 html[data-theme="dark"] .month-name          { color: #6c7280; }
@@ -2761,7 +2828,8 @@ html[data-theme="dark"] #tags-btn:hover   { color: #5eaee0; }
 html[data-theme="dark"] .tag-builtin      { color: #6c7280; }
 html[data-theme="dark"] .tag-builtin.tag-linked      { color: #5eaee0; }
 html[data-theme="dark"] .tag-builtin.tag-linked:hover { background: #252a35 !important; }
-html[data-theme="dark"] .tag-delete-btn   { color: #6c7280; }
+html[data-theme="dark"] .tag-copy-btn, html[data-theme="dark"] .tag-delete-btn { color: #6c7280; }
+html[data-theme="dark"] .tag-copy-btn:hover { color: #5eaee0; }
 html[data-theme="dark"] .tag-delete-btn:hover { color: #d44; }
 html[data-theme="dark"] .tag-add-item     { border-top-color: #3a3d4a; color: #7bc8f0; }
 html[data-theme="dark"] .tag-add-input    { border-color: #3a3d4a; background: #252830; color: #c8ccd8; }
@@ -2926,6 +2994,8 @@ html[data-theme="light"] .term-sort-option.active  { color: #2672b4; }
 html[data-theme="light"] .case-sort-label     { color: #888; }
 html[data-theme="light"] .fav-header-btn      { color: #aaa; }
 html[data-theme="light"] .fav-header-btn:hover { color: #333; }
+html[data-theme="light"] .fav-group-delete-btn { color: #bbb; }
+html[data-theme="light"] .fav-group-delete-btn:hover { color: #d44; }
 html[data-theme="light"] .fav-group-rename-input { background: #fff; border-color: #aaa; color: #222; }
 html[data-theme="light"] .month-header:hover  { background: #eef3f8; }
 html[data-theme="light"] .month-name          { color: #888; }
@@ -2965,7 +3035,8 @@ html[data-theme="light"] #case-cite:hover  { color: #2672b4; }
 html[data-theme="light"] #tags-btn         { color: #888; }
 html[data-theme="light"] #tags-btn:hover   { color: #2672b4; }
 html[data-theme="light"] .tag-builtin      { color: #888; }
-html[data-theme="light"] .tag-delete-btn   { color: #bbb; }
+html[data-theme="light"] .tag-copy-btn, html[data-theme="light"] .tag-delete-btn { color: #bbb; }
+html[data-theme="light"] .tag-copy-btn:hover { color: #2672b4; }
 html[data-theme="light"] .tag-delete-btn:hover { color: #c33; }
 html[data-theme="light"] .tag-add-item     { border-top-color: #ddd; color: #2672b4; }
 html[data-theme="light"] .tag-add-input    { border-color: #ccc; background: #fff; color: #222; }
