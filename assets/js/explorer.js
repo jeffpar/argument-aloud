@@ -4763,6 +4763,26 @@ function _parseVocalSecs(s) {
   return parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseFloat(m[3]);
 }
 
+// A group whose "name" is itself a case (e.g. Top Cited Opinions) carries a
+// "link" ("/courts/ussc/?term=...&case=...") pointing at that case. Opening
+// the group shows the case itself in the main pane — same content a direct
+// term/case URL would show — without changing the collection/group URL; the
+// user can still click through to view the case in the context of its own
+// term from there.
+async function _loadCaseFromGroupLink(link) {
+  const params = new URL(link, location.origin).searchParams;
+  const linkTerm = params.get('term');
+  const linkCase = params.get('case');
+  if (!linkTerm || !linkCase) return;
+  const cases = await fetchTermCases(linkTerm);
+  const caseEntry = cases.find(c => c.number === linkCase ||
+    (c.number && c.number.split(',').map(n => n.trim()).includes(linkCase)) ||
+    (!c.number && c.id === linkCase));
+  if (!caseEntry) return;
+  const hasPlayableAudio = (caseEntry.events || []).some(a => a.audio_href);
+  await loadCase(linkTerm, caseEntry, 0, { forceNoAudio: !hasPlayableAudio });
+}
+
 function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = false) {
   // Base path for per-advocate JSON files (split format): collectionDir/folder/
   // Uses collEntry.folder if specified, otherwise falls back to collId.
@@ -5013,6 +5033,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     let _groupDocument = group.details?.web ?? null;
     groupLi._groupPage = _groupPage;
     groupLi._groupDocument = _groupDocument;
+    groupLi._groupLink = group.link ?? null;
     const _ensureGroupCases = async () => {
       if (_casesLoaded) return;
       _casesLoaded = true;
@@ -5118,6 +5139,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         if (_groupPage && _groupDocument) showAdvocateDocument(_groupDocument, _groupPage, group.name || '');
         else if (_groupPage) showPageViewer(_groupPage, { pushState: false });
         else if (_groupDocument) showAdvocateDocument(_groupDocument, null, group.name || '');
+        else if (group.link) await _loadCaseFromGroupLink(group.link);
         // The group itself has no page/document (e.g. a single-group collection
         // like Original Jurisdiction's "Archive") — fall back to the collection's
         // own page so the page-viewer isn't left blank. For Rarest Spoken Words,
@@ -8130,6 +8152,7 @@ async function restoreFromURL() {
         if (groupLi._groupPage && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupPage, '');
         else if (groupLi._groupPage) showPageViewer(groupLi._groupPage, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
+        else if (groupLi._groupLink) await _loadCaseFromGroupLink(groupLi._groupLink);
         else {
           // The group itself has no page/document (e.g. a single-group collection
           // like Original Jurisdiction's "Archive") — fall back to the collection's

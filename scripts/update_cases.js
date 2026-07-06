@@ -4905,23 +4905,6 @@ function _setCaseEntry(c, term, extra = null) {
     return entry;
 }
 
-function _loadExistingSet(filePath) {
-    if (!fs.existsSync(filePath)) return { existingCases: [], existingKeys: new Set() };
-    let data;
-    try { data = _readJson(filePath); } catch { return { existingCases: [], existingKeys: new Set() }; }
-    if (!Array.isArray(data) || !data.length) return { existingCases: [], existingKeys: new Set() };
-    const cases = Array.isArray(data[0]?.cases) ? data[0].cases : [];
-    const keys  = new Set();
-    for (const c of cases) {
-        // Identify entries by (term, first-docket-piece) — matches the
-        // case-folder convention used when discovering local entries.
-        const term = (c.term   || '').trim();
-        const num  = (c.number || '').split(',')[0].trim();
-        if (term && num) keys.add(`${term}\u0000${num}`);
-    }
-    return { existingCases: cases, existingKeys: keys };
-}
-
 // Scan every group in an existing tags/conditions collection file and return a
 // (term, first-docket-piece) -> {extra fields} map for any per-case properties
 // beyond what _setCaseEntry computes (e.g. a hand-curated "gallery" array).
@@ -4948,19 +4931,20 @@ function _loadExtraFieldsByKey(filePath) {
 }
 
 // Find LD-source argument events and build the transcripts collection.
-// Existing entries in transcripts.json are preserved verbatim; any new local
-// LD events are appended.
+// Rebuilt fully from cases.json on every run (like _casesByTags below), so
+// canonical fields (event/transcript/etc.) always reflect current case data;
+// any hand-added extra fields on existing entries are carried forward.
 function _buildTranscriptsCollection(allTerms) {
-    const { existingCases, existingKeys } = _loadExistingSet(_TRANSCRIPTS_PATH);
-    const added = [];
+    const extraByKey = _loadExtraFieldsByKey(_TRANSCRIPTS_PATH);
+    const cases = [];
     for (const term of allTerms) {
         if (!_termYearAtMost(term, _TRANSCRIPTS_MAX_YEAR)) continue;
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
-        let cases;
-        try { cases = _readJson(casesPath); } catch { continue; }
-        if (!Array.isArray(cases)) continue;
-        for (const c of cases) {
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+        for (const c of termCases) {
             if (!Array.isArray(c.events)) continue;
             const hasLd = c.events.some(e =>
                 e && typeof e === 'object'
@@ -4970,34 +4954,33 @@ function _buildTranscriptsCollection(allTerms) {
             if (!hasLd) continue;
             const num = (c.number || c.id || '').split(',')[0].trim();
             const key = `${term}\u0000${num}`;
-            if (existingKeys.has(key)) continue;
-            added.push(_setCaseEntry(c, term));
+            cases.push(_setCaseEntry(c, term, extraByKey.get(key)));
         }
     }
-    added.sort((a, b) =>
+    cases.sort((a, b) =>
         (a.term      || '').localeCompare(b.term      || '') ||
         (a.argument  || '').localeCompare(b.argument  || '') ||
         (a.decision  || '').localeCompare(b.decision  || '') ||
         (a.title     || '').localeCompare(b.title     || ''));
-    const cases = existingCases.concat(added);
     return [{ name: _setNameFromCases(_TRANSCRIPTS_SET_BASENAME, cases), cases }];
 }
 
 // Find cases that have a files.json with at least one brief entry; build
-// the briefs collection. Existing entries in briefs.json are preserved
-// verbatim; any new local entries are appended.
+// the briefs collection. Rebuilt fully from cases.json on every run (like
+// _casesByTags below), so canonical fields (event/transcript/etc.) always
+// reflect current case data; any hand-added extra fields are carried forward.
 function _buildBriefsCollection(allTerms) {
-    const { existingCases, existingKeys } = _loadExistingSet(_BRIEFS_PATH);
-    const added = [];
+    const extraByKey = _loadExtraFieldsByKey(_BRIEFS_PATH);
+    const cases = [];
     for (const term of allTerms) {
         if (!_termYearAtMost(term, _BRIEFS_MAX_YEAR)) continue;
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
-        let cases;
-        try { cases = _readJson(casesPath); } catch { continue; }
-        if (!Array.isArray(cases)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
         const termCasesDir = path.join(TERMS_DIR, term, 'cases');
-        for (const c of cases) {
+        for (const c of termCases) {
             const folder = (c.number || c.id || '').split(',')[0].trim();
             if (!folder) continue;
             const filesPath = path.join(termCasesDir, folder, 'files.json');
@@ -5009,15 +4992,13 @@ function _buildBriefsCollection(allTerms) {
                 && /^https?:\/\/briefs\d*\.lonedissent\.org\//i.test(String(f.href || '')));
             if (!hasBrief) continue;
             const key = `${term}\u0000${folder}`;
-            if (existingKeys.has(key)) continue;
-            added.push(_setCaseEntry(c, term));
+            cases.push(_setCaseEntry(c, term, extraByKey.get(key)));
         }
     }
-    added.sort((a, b) =>
+    cases.sort((a, b) =>
         (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
         (a.term  || '').localeCompare(b.term  || '') ||
         (a.title || '').localeCompare(b.title || ''));
-    const cases = existingCases.concat(added);
     return [{ name: _setNameFromCases(_BRIEFS_SET_BASENAME, cases), cases }];
 }
 
@@ -9024,6 +9005,8 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
        node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
+       node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
+       node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/top_cites.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
 
@@ -9050,6 +9033,9 @@ Examples:
   # Build opCite from the opinion's cited-case links
   node update_cases.js 1965-10 759 --cites
   node update_cases.js 1965-10 759 --cites --verbose --dry-run
+  node update_cases.js 1965-10 --cites                     # every case in that term with opinion HTML
+  node update_cases.js --cites --dry-run                   # every case in every term (preview only)
+  node update_cases.js --top-cites                         # rebuild the Top Cited Opinions collection
 
   node update_cases.js --scdb                              # rebuild cache + verify all terms
   node update_cases.js --scdb --nocache                    # ignore existing cache (don't read or write)
@@ -9367,17 +9353,25 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
         if (results.has(ref)) {
             results.get(ref).count++;
         } else {
+            // Use the cited case's own canonical title (from cases.json) rather than
+            // however this citing opinion happened to spell/style it in its text —
+            // keeps opCite titles consistent across every opinion that cites a case,
+            // and immune to that opinion's own OCR typos.
             const year = /^(\d{4})-/.exec(hit.decision || '')?.[1] || null;
-            const titled = year ? `${title} (${year})` : title;
-            results.set(ref, { title: titled, term: hit.term, id: hit.id, decision: hit.decision, count: 1 });
+            const canonicalTitle = firstTitle(hit.title) || title;
+            const titled = year ? `${canonicalTitle} (${year})` : canonicalTitle;
+            // matchTitle keeps the opinion's own first-seen text (whatever spelling/
+            // abbreviation it used) so later repeat/shorthand mentions *within this
+            // same opinion* still match consistently, even though the displayed
+            // title is now the canonical one from cases.json.
+            results.set(ref, { title: titled, matchTitle: title, term: hit.term, id: hit.id, decision: hit.decision, count: 1 });
             order.push(ref);
         }
     };
 
     const incrementByTitleMatch = (title) => {
         for (const entry of results.values()) {
-            const bareTitle = entry.title.replace(/\s*\(\d{4}\)$/, '');
-            if (bareTitle.toLowerCase() === title.toLowerCase()) { entry.count++; return true; }
+            if (entry.matchTitle.toLowerCase() === title.toLowerCase()) { entry.count++; return true; }
         }
         return false;
     };
@@ -9385,7 +9379,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
     const incrementByShorthand = (word) => {
         const wl = word.toLowerCase();
         for (const entry of results.values()) {
-            const parts = entry.title.split(/\s+v\.?\s+/i);
+            const parts = entry.matchTitle.split(/\s+v\.?\s+/i);
             if (parts.length < 2) continue;
             const firstOfFirst  = parts[0].trim().split(/\s+/)[0].toLowerCase().replace(/[.,]$/, '');
             const firstOfSecond = parts[1].trim().split(/\s+/)[0].toLowerCase().replace(/[.,]$/, '');
@@ -9454,7 +9448,10 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
         incrementByShorthand(word);
     }
 
-    return order.map(ref => results.get(ref));
+    return order.map(ref => {
+        const { title, term, id, decision, count } = results.get(ref);
+        return { title, term, id, decision, count };
+    });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -9616,6 +9613,25 @@ function _addReferenceEntries(term, c, refEntries) {
     }
 }
 
+// Resolve a case's opinion HTML path from its usCite, or null if the case has
+// no usable usCite or no cached opinion HTML file for it.
+function _resolveOpinionPath(c) {
+    const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+    if (!m) return null;
+    const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+    const volDir = 'us' + String(vol).padStart(3, '0');
+    const opinionPath = path.join(OPINIONS_HTML_DIR, volDir, `${volDir}-${String(page).padStart(4, '0')}.html`);
+    return fs.existsSync(opinionPath) ? opinionPath : null;
+}
+
+function _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose = false } = {}) {
+    const html = fs.readFileSync(opinionPath, 'utf8');
+    const selfRef = `${term}/${c.id}`;
+    return _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose })
+        .filter(entry => entry.count > 1)
+        .sort((a, b) => (b.decision || '').localeCompare(a.decision || ''));
+}
+
 function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     const casesPath = path.join(TERMS_DIR, term, 'cases.json');
     if (!fs.existsSync(casesPath)) {
@@ -9632,27 +9648,19 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     }
     const label = c.number || c.id || '?';
 
-    const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
-    if (!m) {
+    if (!/^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim())) {
         console.error(`ERROR: ${term}/${label} has no usable usCite ("${c.usCite || ''}")`);
         process.exit(1);
     }
-    const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
-    const volDir = 'us' + String(vol).padStart(3, '0');
-    const opinionPath = path.join(OPINIONS_HTML_DIR, volDir, `${volDir}-${String(page).padStart(4, '0')}.html`);
-    if (!fs.existsSync(opinionPath)) {
-        console.error(`ERROR: opinion HTML not found at ${path.relative(REPO_ROOT, opinionPath)}`);
+    const opinionPath = _resolveOpinionPath(c);
+    if (!opinionPath) {
+        console.error(`ERROR: opinion HTML not found for ${term}/${label}`);
         process.exit(1);
     }
 
-    const html = fs.readFileSync(opinionPath, 'utf8');
     const usCiteIdx = _buildUsCiteIndex();
     const reporterIdx = _buildReporterIndex();
-    const selfRef = `${term}/${c.id}`;
-
-    const opCite = _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose })
-        .filter(entry => entry.count > 1)
-        .sort((a, b) => (b.decision || '').localeCompare(a.decision || ''));
+    const opCite = _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose });
 
     console.log(`${term}/${label}: found ${opCite.length} cited opinion(s)`);
     for (const entry of opCite) {
@@ -9680,6 +9688,168 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     console.log(`Wrote opCite (${opCite.length} entries) to ${term}/${label}.`);
 
     _addReferenceEntries(term, c, refEntries);
+}
+
+// --cites over every case in a term (or every term) that has a resolvable
+// usCite and a cached opinion HTML file. Reuses the same per-case extraction
+// as the single-case path; the usCite index (built once, up front) is what
+// keeps opCite entries limited to citations that match one of our own cases.
+function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+    const usCiteIdx = _buildUsCiteIndex();
+    const reporterIdx = _buildReporterIndex();
+
+    let scanned = 0, changed = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        let termChanged = false;
+
+        for (const c of cases) {
+            const opinionPath = _resolveOpinionPath(c);
+            if (!opinionPath) continue;
+            scanned++;
+
+            const label = c.number || c.id || '?';
+            const opCite = _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose });
+
+            const before = JSON.stringify(c.opCite || null);
+            const after = JSON.stringify(opCite.length ? opCite : null);
+            if (before === after) continue;
+            changed++;
+
+            console.log(`${term}/${label}: ${(c.opCite || []).length} -> ${opCite.length} cited opinion(s)`);
+            const refEntries = _computeOpCiteRefs(term, c, opCite, { verbose });
+
+            if (dryRun) {
+                console.log(`[dry-run] Would ${opCite.length ? 'set' : 'clear'} opCite on ${term}/${label}`);
+                for (const r of refEntries) {
+                    console.log(`[dry-run] Would add reference "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
+                }
+                continue;
+            }
+
+            if (opCite.length) c.opCite = opCite;
+            else delete c.opCite;
+
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            termChanged = true;
+
+            _addReferenceEntries(term, c, refEntries);
+        }
+
+        if (termChanged) {
+            _writeJson(casesPath, cases);
+            console.log(`Wrote ${path.relative(REPO_ROOT, casesPath)}.`);
+        }
+    }
+
+    console.log(`Scanned ${scanned} case(s) with opinion HTML; updated opCite on ${changed} case(s).`);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// --top-cites: build courts/ussc/collections/top_cites.json — an ordinary
+// embedded-format collection (like rare_words.json/oral_dissents.json:
+// [{ name, link, cases: [...] }, ...]) of the most-cited opinions across
+// every term, ranked by how many *other* cases' opCite array references them
+// (not the per-citing-opinion mention count — see --cites above). Each
+// entry's "name" is looked up fresh from the cited case's own title/decision
+// (not copied from a citing opinion's opCite entry) so it's always
+// canonical, its "link" opens the cited opinion itself, and
+// its "cases" array — the citing opinions — is sorted by title ascending.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TOP_CITES_COUNT = 250;
+
+function runTopCites(dryRun) {
+    let allTerms = [];
+    try {
+        const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch {}
+
+    const caseByRef = new Map(); // "term/id" -> case
+    const citedBy   = new Map(); // "term/id" -> [ { title, term, number, argument, decision }, ... ]
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            caseByRef.set(`${term}/${c.id}`, c);
+            if (!Array.isArray(c.opCite) || !c.opCite.length) continue;
+
+            const decMatch = /^(\d{4})/.exec(c.decision || '');
+            const baseTitle = firstTitle(c.title) || '';
+            const citerEvents = Array.isArray(c.events) ? c.events : [];
+            const citerEntry = {
+                title: decMatch ? `${baseTitle} (${decMatch[1]})` : baseTitle,
+                term,
+                number: _primaryCaseNumber(c),
+                argument: c.argument || '',
+                decision: c.decision || '',
+            };
+            if (citerEvents.some(e => e.audio_href)) citerEntry.event      = true;
+            if (citerEvents.some(e => e.text_href))  citerEntry.transcript = true;
+            for (const entry of c.opCite) {
+                const ref = `${entry.term}/${entry.id}`;
+                if (!citedBy.has(ref)) citedBy.set(ref, []);
+                citedBy.get(ref).push(citerEntry);
+            }
+        }
+    }
+
+    const ranked = [...citedBy.entries()]
+        .map(([ref, citers]) => {
+            const cited = caseByRef.get(ref);
+            if (!cited) return null;
+            const decMatch = /^(\d{4})/.exec(cited.decision || '');
+            const baseTitle = firstTitle(cited.title) || '';
+            const name = decMatch ? `${baseTitle} (${decMatch[1]})` : baseTitle;
+            const refTerm = ref.slice(0, ref.indexOf('/'));
+            const link = `/courts/ussc/?term=${refTerm}&case=${_primaryCaseNumber(cited)}`;
+            return { name, link, cases: citers.slice().sort((a, b) => a.title.localeCompare(b.title)) };
+        })
+        .filter(Boolean)
+        .sort((a, b) => b.cases.length - a.cases.length || a.name.localeCompare(b.name))
+        .slice(0, TOP_CITES_COUNT);
+
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'top_cites.json');
+    const content = JSON.stringify(ranked, null, 2) + '\n';
+
+    if (dryRun) {
+        console.log(`[dry-run] Would write ${ranked.length} opinion(s) to courts/ussc/collections/top_cites.json`);
+        return;
+    }
+
+    let changed = true;
+    try { changed = fs.readFileSync(jsonPath, 'utf8') !== content; } catch { /* new file */ }
+    if (changed) fs.writeFileSync(jsonPath, content, 'utf8');
+    console.log(`Top cites: wrote ${ranked.length} opinion(s) → courts/ussc/collections/top_cites.json`);
 }
 
 
@@ -11551,11 +11721,30 @@ async function main() {
     }
 
     if (flags.has('--cites')) {
-        if (positional.length < 2) {
-            console.error('Usage: node update_cases.js TERM CASE --cites [--verbose] [--dry-run]');
-            process.exit(1);
+        if (positional.length >= 2) {
+            runOpCites(positional[0], positional[1], dryRun, { verbose });
+        } else {
+            runOpCitesBulk(positional[0] || null, dryRun, { verbose });
         }
-        runOpCites(positional[0], positional[1], dryRun, { verbose });
+        return;
+    }
+
+    if (flags.has('--top-cites')) {
+        runTopCites(dryRun);
+        return;
+    }
+
+    if (flags.has('--collections')) {
+        let allTerms = [];
+        try {
+            const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
+            allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+                if (page.term) return page.term;
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+                return m ? m[1] : null;
+            })).filter(Boolean);
+        } catch {}
+        processCollectionSets(allTerms, dryRun);
         return;
     }
 
