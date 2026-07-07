@@ -6287,16 +6287,25 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // whatever the collection entry originally recorded.
   const _resolvedDate = allAudio[resolvedOptionValue - 1]?.date || null;
   const _resolvedEventIdx = caseEntry.events.indexOf(allAudio[resolvedOptionValue - 1]) + 1; // 1-based, 0 if not found
-  _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
-    .forEach(el => {
+  // The requested event isn't always the one that ends up playing — e.g. a
+  // collection recorded a transcript-only event (no audio_href), so the
+  // dropdown-resolution above fell back to a different, playable one. When
+  // that happens none of a key's candidates will match _resolvedDate/
+  // _resolvedEventIdx exactly; activate every candidate for that key rather
+  // than none, so the sidebar row doesn't silently fail to highlight/expand.
+  _activeKeys.forEach(k => {
+    const candidates = [...document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)];
+    const exact = candidates.filter(el => {
       if (!numberOverride && el.dataset.audioDate !== undefined &&
           _resolvedDate !== null &&
-          el.dataset.audioDate !== _resolvedDate) return;
+          el.dataset.audioDate !== _resolvedDate) return false;
       if (!numberOverride && el.dataset.eventIdx !== undefined &&
           _resolvedEventIdx >= 1 &&
-          parseInt(el.dataset.eventIdx, 10) !== _resolvedEventIdx) return;
-      el.classList.add('active');
-    }));
+          parseInt(el.dataset.eventIdx, 10) !== _resolvedEventIdx) return false;
+      return true;
+    });
+    (exact.length ? exact : candidates).forEach(el => el.classList.add('active'));
+  });
   // When switching cases, collapse file lists for every non-active case.
   document.querySelectorAll('.case-item').forEach(el => {
     if (!el.classList.contains('active')) el.classList.remove('open');
@@ -8476,7 +8485,10 @@ async function _scrollSidebarToCollectionItem(collId, itemId) {
   const groupLi = collLi.querySelector(`.month-group[data-group-id="${CSS.escape(itemId)}"]`);
   if (!groupLi) return;
   collLi._centerOnGroup?.(groupLi);
-  requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+  // 'nearest' (not 'start') so this is a no-op when the item is already visible,
+  // and only a minimal scroll otherwise — avoids yanking the pane to align the
+  // item at the very top, which is jarring when it's the last item in the list.
+  requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
 }
 
 async function restoreFromURL() {
@@ -8520,7 +8532,7 @@ async function restoreFromURL() {
       sLi._ensureBuilt?.();
       const _sectionName = sLi.querySelector('.terms-label')?.textContent;
       if (_sectionName) document.title = _sectionName + ' | Argument Aloud';
-      requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
       // Unlike term=all (which has its own stats page), these sections have no
       // dedicated landing page — show the same default page as the bare URL so
       // the right pane isn't left blank.
@@ -8549,7 +8561,7 @@ async function restoreFromURL() {
             if (grpLi) targetLi = grpLi;
           }
           targetLi._openPage?.();
-          requestAnimationFrame(() => targetLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+          requestAnimationFrame(() => targetLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
         }
       }
       trackPageView(location.href);
@@ -8599,7 +8611,7 @@ async function restoreFromURL() {
       if (_hashEl) {
         collLi._centerOnGroup?.(_hashEl);
         requestAnimationFrame(() => _hashEl.scrollIntoView({ behavior: 'instant', block: 'start' }));
-      } else requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      } else requestAnimationFrame(() => collLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
     }
     const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.page || null;
@@ -8687,7 +8699,7 @@ async function restoreFromURL() {
           }
         }
         collLi._centerOnGroup?.(groupLi);
-        requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+        requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
       }
     }
     return;
@@ -9020,7 +9032,7 @@ async function restoreFromURL() {
     const _termsSectionLi = _sectionLiById.get('term');
     if (_termsSectionLi) {
       _termsSectionLi.classList.add('open');
-      requestAnimationFrame(() => _termsSectionLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      requestAnimationFrame(() => _termsSectionLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) document.title = _termsName + ' | Argument Aloud';
     }
@@ -9049,7 +9061,7 @@ async function restoreFromURL() {
       setTopbarTerm(termParam);
       document.title = termDisplayName(termParam) + ' | Argument Aloud';
       trackPageView(location.href);
-      requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
     }
   } else {
     // No URL params — show the default home page.
