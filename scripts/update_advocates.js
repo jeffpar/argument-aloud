@@ -2028,8 +2028,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     if (resolvedAudio.audio_href || resolvedAudio.transcript_href) {
                         caseEntry.event = resolvedOrigIdx + 1;
                     }
-                    const fileCount = c.files || 0;
-                    if (fileCount) caseEntry.files = fileCount;
+                    if (c.files) caseEntry.files = true;
                     // De-dup: two separate cases sharing the same audio_href
                     // represent a single consolidated argument; record it once
                     // per advocate. Intra-case duplicates (same audio_href used

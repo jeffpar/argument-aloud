@@ -3347,7 +3347,7 @@ function _lastArgDate(c) {
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
-  const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+  const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
 
   // Precompute URL ids for all cases in the term (not just visible) so the
   // uniqueness check is accurate and stable across sort modes.
@@ -3787,7 +3787,7 @@ function buildNav(title = 'Terms', id = '') {
             _sortMode = mode;
             _sortAsc  = asc;
             history.replaceState(null, '', buildUrlParams({ sort: _sortMode, o: _sortAsc ? 'a' : 'd' }, []));
-            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0) : null;
+            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files) : null;
             const count = visible ? visible.length : null;
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
             termCount.classList.add('sort-active');
@@ -3821,7 +3821,7 @@ function buildNav(title = 'Terms', id = '') {
         const cases = await fetchTermCases(term);
         _casesCache = cases;
         buildTermCasesSorted(term, cases, ul, _sortMode, _sortAsc);
-        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
@@ -3829,14 +3829,14 @@ function buildNav(title = 'Terms', id = '') {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
         _casesCache = cases;
-        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
         termCount.textContent = visible.length + '\u00a0Cases';
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
       termLi._showSortLabel = () => {
         if (!_casesCache) return;
-        const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+        const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         termCount.classList.add('sort-active');
       };
@@ -3845,7 +3845,7 @@ function buildNav(title = 'Terms', id = '') {
         _sortAsc  = asc;
         if (_casesCache) {
           buildTermCasesSorted(term, _casesCache, ul, _sortMode, _sortAsc);
-          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
           termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
           termCount.classList.add('sort-active');
         }
@@ -3859,7 +3859,7 @@ function buildNav(title = 'Terms', id = '') {
           termCount.classList.remove('sort-active');
           // Reset to plain count label when collapsed
           if (_casesCache) {
-            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
             termCount.textContent = visible.length + '\u00a0Cases';
           }
           updateEmptyStateForTerm(null);
@@ -3872,7 +3872,7 @@ function buildNav(title = 'Terms', id = '') {
           await ensureBuilt();
           termCount.classList.add('sort-active');
           if (_casesCache) {
-            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files > 0);
+            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
             termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
           }
           updateEmptyStateForTerm(term);

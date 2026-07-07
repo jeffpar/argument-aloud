@@ -444,8 +444,9 @@ export function syncFilesCount(casesPath) {
                 if (Array.isArray(files)) count = files.length;
             } catch {}
         }
-        if (c.files === count) continue;
-        c.files = count;
+        const hasFiles = count > 0;
+        if (c.files === hasFiles) continue;
+        c.files = hasFiles;
         modified = true;
     }
 
@@ -1131,7 +1132,7 @@ function removeRedundantTranscriptFiles(casesPath) {
         console.log(`  ${label}: removed ${n} redundant transcript `
                   + `entr${n === 1 ? 'y' : 'ies'} from files.json`
                   + (newFiles.length ? '' : ' (files.json deleted)'));
-        c.files = newFiles.length;
+        c.files = newFiles.length > 0;
         casesModified = true;
     }
     if (casesModified) _writeJson(casesPath, data);
@@ -2178,7 +2179,7 @@ function checkCasesSync(termDir, verbose = false) {
         const folder = _caseFolder(number);
         if (!diskFolders.has(folder)) {
             // A case folder is only required when there's something to put in
-            // it — either a `files` count (i.e. files.json entries) or an
+            // it — either `files: true` (i.e. a non-empty files.json) or an
             // event with a local text_href that resolves into THIS folder.
             // text_hrefs that point at another case folder (e.g. consolidated
             // cases share a transcript file) don't require a folder here.
@@ -7310,7 +7311,7 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     const [maj, minv] = _scdbMajorityCounts(scdbCase);
     const votes = _scdbVotesSubset(scdbCase);
 
-    const obj = { id: caseId, title, files: 0, votes };
+    const obj = { id: caseId, title, files: false, votes };
     if (docket && docket !== '0')     obj.number = _scdbNormalizeDocket(docket);
     if (argument && argument !== '0') obj.argument = argument;
     if (reargument && reargument !== '0') obj.reargument = reargument;
@@ -10616,7 +10617,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
         }
     }
     entry.decision_ussc = opinion.href;
-    entry.files        = 0;
+    entry.files        = false;
 
     const ordered = reorderCase(entry);
     if (dryRun) {
@@ -10993,7 +10994,7 @@ async function runAddCase(term, title, argv, dryRun) {
             }
         } catch {}
     }
-    entry.files = 0;
+    entry.files = false;
     if (events.length) entry.events = events;
     const orderedEntry = reorderCase(entry);
 
