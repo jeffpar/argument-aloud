@@ -23,6 +23,7 @@
  *   node scripts/update_opinions.js                       # convert every case in the corpus
  *   node scripts/update_opinions.js us002                 # convert one volume
  *   node scripts/update_opinions.js us002 us002-0001       # convert one case (bare "0001" / "13-1339" also OK)
+ *   node scripts/update_opinions.js --link-cases           # write decision_xml into every matching cases.json entry
  *   ... --force                                            # reconvert even if the .xml is already newer
  *   ... --dry-run                                          # report what would happen; no writes
  *   ... --verbose                                          # extra per-file logging
@@ -34,14 +35,59 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseHtml } from 'node-html-parser';
+import { reorderCase } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const HTML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
 const XML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'xml');
+const REPORTS_JSON = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
+const TERMS_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 
 const CANONICAL_RE = /rel="canonical"\s+href="https:\/\/supreme\.justia\.com\/cases\/federal\/us\/(\d+)\/([\w-]+)\/?"/;
 const OG_TITLE_RE = /property="og:title"\s+content="([^"]*)"/;
+
+// The nominative-reporter surname (data/ussc/reports.json's "alt_citation", e.g.
+// "13 Wallace" for volume 80) as actually abbreviated in Justia's citation text —
+// only the volumes before official U.S. Reports numbering began (1875) carry one.
+const REPORTER_ABBREV = {
+    Dallas: 'Dall', Cranch: 'Cranch', Wheaton: 'Wheat', Peters: 'Pet', Howard: 'How', Black: 'Black', Wallace: 'Wall',
+};
+
+let _reportsJson = null;
+function _loadReports() {
+    if (_reportsJson) return _reportsJson;
+    try { _reportsJson = JSON.parse(fs.readFileSync(REPORTS_JSON, 'utf8')); }
+    catch { _reportsJson = {}; }
+    return _reportsJson;
+}
+
+/**
+ * Build a regex that strips a case's own redundant nominative-reporter citation
+ * (e.g. "13 Wall. 1" in "Bethell v. Mathews, 80 U.S. 13 Wall. 1 1 (1871)") out of
+ * a citation-echo heading, given its U.S. Reports volume number. Old and new page
+ * numbers are always identical (same physical book, just two volume-naming
+ * conventions), so this is "<newVol> U.S. <oldVol> <reporter>[.] <page> "
+ * immediately before the (now-redundant) repeated page number, collapsed down to
+ * plain "<newVol> U.S. ". When the old volume number happens to look like a
+ * valid page (e.g. case's own page 1, old volume "1 Cranch"), Justia sometimes
+ * auto-links "<newVol> U.S. <oldVol>" as a self-citation — matched (via the
+ * optional <a>/</a> below) and discarded along with the rest, rather than left
+ * with a dangling unclosed tag; the replacement is always plain, unlinked text
+ * (see the .replace() call site), since a link to the case's own opening page is
+ * redundant with the synthesized <n id="p..."> anchor elsewhere in the heading
+ * anyway. Returns null when the volume predates official numbering but isn't in
+ * reports.json, or postdates it (no alt_citation at all).
+ */
+function _oldCitationRe(vol) {
+    const entry = _loadReports()[`v${String(vol).padStart(3, '0')}`];
+    const m = (entry?.alt_citation || '').match(/^(\d+)\s+(\w+)$/);
+    if (!m) return null;
+    const [, oldVol, reporter] = m;
+    const stem = REPORTER_ABBREV[reporter];
+    if (!stem) return null;
+    return new RegExp(`(?:<a[^>]*>)?(\\d+)\\s+U\\.S\\.\\s+${oldVol}(?:<\\/a>)?\\s+${stem}[a-z]*\\.?\\s+\\d+\\s+(?=\\d+\\s*\\()`);
+}
 
 // ── file discovery ──────────────────────────────────────────────────────────
 
@@ -119,70 +165,143 @@ function escAttr(s) {
 }
 
 function collapseWs(s) {
-    return s.replace(/[\s ]+/g, ' ').trim();
+    return s.replace(/[\s ]+/g, ' ').replace(/\s+,/g, ',').trim();
 }
 
-// ── inline content rendering (text nodes + em/i/strong/b/sup/sub/a) ────────
+// ── inline content rendering (text nodes + a; em/strong/span/etc. are stylistic) ──
 
-const TRANSPARENT_TAGS = new Set(['span', 'font', 'nobr', 'small', 'big']);
-const INLINE_TAGS = new Set(['em', 'i', 'strong', 'b', 'sup', 'sub', 'u']);
+// Footnote def/ref ids are just "fn{n}"/"nf{n}" — the mirrored pair reads as
+// "footnote N" / "note-for-N", and neither can be mistaken for a hex color by
+// an editor the way a bare "f{n}" (e.g. "f0f", "faa") could — opinion-scoped
+// to "fn{opIdx}-{n}"/"nf{opIdx}-{n}" only when ctx.multiOpinion (the case has
+// more than one <opinion>), since each opinion numbers its own footnotes from
+// 1 and would otherwise collide. Single-opinion cases (the large majority)
+// get the short form.
+function _footnoteDefId(ctx, n) { return ctx.multiOpinion ? `fn${ctx.opinionIndex}-${n}` : `fn${n}`; }
+function _footnoteRefId(ctx, n) { return ctx.multiOpinion ? `nf${ctx.opinionIndex}-${n}` : `nf${n}`; }
+
+// Justia uses class names like "headertext" and "heading-4"/"heading-5" to mark
+// caption/heading content (case name, docket number, argued/decided dates, party
+// captions, "Syllabus", etc.) — regardless of which tag (span/strong/em/...)
+// happens to carry it. That's structural, so it becomes <hN> rather than being
+// stripped like ordinary decorative <em>/<strong> formatting.
+function _hasHeadingClass(el) {
+    return /\bhead(?:ing|ertext)/i.test(el.getAttribute('class') || '');
+}
+
+const _YEAR_RE = /\b1[6-9]\d{2}\b|\b20\d{2}\b/;
+
+// A heading that's nothing but a repeat of the case's own citation (the h1
+// already carries it) — e.g. "2 U.S. 1 (Dall.)" or a bare "397 U.S. 1" — adds
+// no information, so it's dropped entirely rather than kept as another
+// heading. Checked against the citation as plain text (tags stripped) since
+// the citation is usually itself a self-citation <a>; only a citation alone,
+// optionally with one trailing/leading old-reporter parenthetical, qualifies —
+// the h1 (which always also carries the case title) never matches this.
+function _isRedundantCitationHeading(html, ctx) {
+    if (!ctx.citation) return false;
+    const plain = html.replace(/<[^>]+>/g, '');
+    if (!plain.includes(ctx.citation)) return false;
+    const stripped = plain.split(ctx.citation).join('').trim();
+    return stripped === '' || /^\([^()]*\)$/.test(stripped);
+}
+
+// h1: the one heading that names the case AND cites it (both the title and the
+// citation, not just one) — the "main" heading. h4: anything else mentioning a
+// year (argued/decided dates, court term). h2: everything else (the eyebrow
+// "U.S. Supreme Court" label, a bare repeated case name, "Syllabus", etc.) —
+// deliberately no h3, per the requested scheme.
+function _headingLevel(text, ctx) {
+    if (ctx.title && ctx.citation && text.includes(ctx.title) && text.includes(ctx.citation)) return 1;
+    if (_YEAR_RE.test(text)) return 4;
+    return 2;
+}
+
+/** Render a single node (text or element) — see renderInline() below for the full contract. */
+function renderInlineNode(child, ctx) {
+    if (child.nodeType === 3) return escText(child.text);
+    if (child.nodeType !== 1) return '';
+    const tag = (child.rawTagName || '').toLowerCase();
+    if (tag === 'br') return ' ';
+    if (tag === 'a') {
+        const inner = renderInline(child, ctx);
+        if (!inner) return ''; // Justia sometimes emits an empty <a href> right before the real one; drop it
+        const href = child.getAttribute('href');
+        const frag = href && href.startsWith('#') ? href.slice(1) : null;
+        // Footnotes always come in T/F id pairs, regardless of which of the two
+        // source layouts (a div.opinion-footnotes cluster, or loose "[<a
+        // href=#F1 id=T1>...] ... [<a href=#T1 id=F1>...]" bracket markers) this
+        // document uses: the in-text marker has href="#F{n}" (jumps down to the
+        // definition); the definition's own marker has href="#T{n}" (jumps back
+        // up to the in-text marker). Renamed here to be self-explanatory and
+        // symmetric: "nf{n}" for the in-text marker, "fn{n}" for the definition
+        // — each pointing at the other's new id (see _footnoteDefId/_footnoteRefId).
+        let fm;
+        if (frag && (fm = frag.match(/^F(\d+)$/))) {
+            const n = fm[1];
+            return `<a id="${_footnoteRefId(ctx, n)}" href="#${_footnoteDefId(ctx, n)}">${inner}</a>`;
+        }
+        if (frag && (fm = frag.match(/^T(\d+)$/))) {
+            const n = fm[1];
+            return `<a id="${_footnoteDefId(ctx, n)}" href="#${_footnoteRefId(ctx, n)}">${inner}</a>`;
+        }
+        if (href) {
+            const resolved = resolveHref(href, ctx);
+            return resolved ? `<a href="${escAttr(resolved)}">${inner}</a>` : inner;
+        }
+        return inner;
+    }
+    if (!ctx.insideHeading && _hasHeadingClass(child)) {
+        let headingText = renderInline(child, { ...ctx, insideHeading: true });
+        if (ctx.oldCitationRe) headingText = headingText.replace(ctx.oldCitationRe, (_, newVol) => `${newVol} U.S. `);
+        headingText = collapseWs(headingText); // trims e.g. a leading &nbsp; left over from a stripped lead-in
+        if (_isRedundantCitationHeading(headingText, ctx)) return '';
+        const level = _headingLevel(headingText, ctx);
+        return `<h${level}>${headingText}</h${level}>`;
+    }
+    // Everything else (em/i/strong/b/sup/sub/u/span/font/nobr/..., and any
+    // unknown inline-ish element like a stray <img>) is stripped to plain text.
+    return renderInline(child, ctx);
+}
 
 /**
  * Render a node's inline descendants to a string, resolving <a href> per
- * resolveHref() and rewriting in-text footnote markers to point at
- * this opinion's regenerated <footnote id> values (via footnoteMap).
+ * resolveHref() and renaming footnote markers per ctx.opinionIndex (see the
+ * F/T handling in renderInlineNode). All stylistic tags (em/i/strong/b/sup/
+ * sub/u/span/font/...) are stripped to plain text; an element carrying a
+ * heading-suggestive class becomes <hN>...</hN> instead (ctx.insideHeading
+ * avoids nesting <hN> when both an outer and inner element are heading-classed,
+ * e.g. <strong class="heading-5"><span class="headertext">).
  */
 function renderInline(node, ctx) {
     let out = '';
-    for (const child of node.childNodes) {
-        if (child.nodeType === 3) {
-            out += escText(child.text);
-            continue;
-        }
-        if (child.nodeType !== 1) continue;
-        const tag = (child.rawTagName || '').toLowerCase();
-        if (tag === 'br') { out += ' '; continue; }
-        if (tag === 'a') {
-            const inner = renderInline(child, ctx);
-            if (!inner) continue; // Justia sometimes emits an empty <a href> right before the real one; drop it
-            const href = child.getAttribute('href');
-            const frag = href && href.startsWith('#') ? href.slice(1) : null;
-            if (frag && ctx.footnoteMap.has(frag)) {
-                out += `<a href="#${escAttr(ctx.footnoteMap.get(frag))}">${inner}</a>`;
-            } else if (href) {
-                const resolved = resolveHref(href, ctx);
-                out += resolved ? `<a href="${escAttr(resolved)}">${inner}</a>` : inner;
-            } else {
-                out += inner;
-            }
-            continue;
-        }
-        if (INLINE_TAGS.has(tag)) {
-            out += `<${tag}>${renderInline(child, ctx)}</${tag}>`;
-            continue;
-        }
-        if (TRANSPARENT_TAGS.has(tag)) {
-            out += renderInline(child, ctx);
-            continue;
-        }
-        // Unknown inline-ish element (e.g. stray <img>): skip its own markup, keep any text.
-        out += renderInline(child, ctx);
-    }
+    for (const child of node.childNodes) out += renderInlineNode(child, ctx);
     return out;
 }
 
-/** Resolve a citation href to a relative path within xml/ when the target is in our corpus. */
+/**
+ * Resolve a citation href to a relative path within xml/ when the target is in our
+ * corpus, with a "#p<page>" fragment when the pinpointed page is known. Justia's own
+ * citation links already carry a pinpoint-page fragment when one applies (e.g.
+ * href="/cases/federal/us/397/1/#6", the case's canonical vol/page plus the specific
+ * page cited); when it doesn't (a plain citation to the whole case), the case's own
+ * canonical page is used instead, since every converted file's first opinion carries
+ * a synthesized <n id="p<page>"> anchor at that exact page (see convertOpinion) even
+ * when the source has no page-break marker there (page 1 never has one).
+ */
 function resolveHref(href, ctx) {
     // Citations to U.S. Reports cases appear both as absolute (supreme.justia.com or
     // law.justia.com) and as root-relative ("/cases/federal/us/VOL/PAGE/...") URLs.
-    const m = href.match(/^(?:https?:\/\/(?:supreme|law)\.justia\.com)?\/cases\/federal\/us\/(\d+)\/([\w-]+)\/?(?:#.*)?$/);
+    const m = href.match(/^(?:https?:\/\/(?:supreme|law)\.justia\.com)?\/cases\/federal\/us\/(\d+)\/([\w-]+)\/?(?:#(\w+))?$/);
     if (m) {
-        const target = ctx.citationIndex.get(`${m[1]}/${m[2]}`);
+        const [, vol, page, pinpoint] = m;
+        const target = ctx.citationIndex.get(`${vol}/${page}`);
         if (target) {
             const targetXml = path.join(XML_DIR, target.volDir, target.file.replace(/\.html$/, '.xml'));
             let rel = path.relative(path.dirname(ctx.outPath), targetXml);
             if (!rel.startsWith('.')) rel = './' + rel;
-            return rel;
+            const effectivePage = pinpoint || (/^\d+$/.test(page) ? page : null);
+            return effectivePage ? `${rel}#p${effectivePage}` : rel;
         }
         return href.startsWith('/') ? 'https://law.justia.com' + href : href; // known case we don't have locally
     }
@@ -206,27 +325,50 @@ function pageNumberOf(el) {
 }
 
 // ── footnotes ────────────────────────────────────────────────────────────
+//
+// Two source layouts carry footnotes, and both are handled here:
+//  - modern: every footnote collected in one <div class="opinion-footnotes">
+//    at the end of the pane, each as <div class="opinion-footnote"><span
+//    class="opinion-footnote-ref"><a href="#T{n}" id="F{n}">{n}</a></span>
+//    <span class="opinion-footnote-text">{body}</span></div> — handled by
+//    collectFootnotes() below, called once per pane before walkFlow runs.
+//  - older: no wrapping div at all — a footnote is just an isolated paragraph
+//    "[<a href="#T{n}" id="F{n}">Footnote {n}</a>]" (the definition's own
+//    marker, right where its body would print on the source page) followed by
+//    one or more ordinary paragraphs of body text, repeated for each
+//    footnote, usually clustered at the end of the pane. There's no separate
+//    block to pre-scan here — walkFlow recognizes the isolated marker
+// 	  paragraph (after renderInlineNode has already renamed it to
+//    <a id="f{opIdx}-{n}" href="#ref{opIdx}-{n}">) and redirects subsequent
+//    paragraphs into that footnote's body until the next marker or the pane
+//    ends (see the footnote collector in walkFlow / finishFootnote below).
+//
+// Either way, in-text markers and definition markers are just renamed
+// symmetrically wherever they occur (see the F/T handling in
+// renderInlineNode) — no pre-scan or id map is needed for that part.
 
-/** Build {defs, footnoteMap} for one opinion pane: XML strings + fragment-id -> new-id map. */
-function collectFootnotes(footnotesDiv, opinionIndex, ctx) {
-    const footnoteMap = new Map();
+/** Collect modern-format footnotes from one <div class="opinion-footnotes">, as XML strings. */
+function collectFootnotes(footnotesDiv, ctx) {
     const entries = footnotesDiv.querySelectorAll('.opinion-footnote');
-    const parsed = entries.map((entry, i) => {
+    return entries.map((entry, i) => {
         const refAnchor = entry.querySelector('.opinion-footnote-ref a');
         const textSpan = entry.querySelector('.opinion-footnote-text');
-        const n = (refAnchor && collapseWs(refAnchor.text)) || String(i + 1);
-        const defId = refAnchor ? refAnchor.getAttribute('id') : null;
-        const newId = `fn${opinionIndex}-${n}`;
-        if (defId) footnoteMap.set(defId, newId);
-        return { n, newId, textSpan };
-    });
-    // ctx.footnoteMap must be populated before rendering footnote/paragraph text (in-text refs point here).
-    for (const [k, v] of footnoteMap) ctx.footnoteMap.set(k, v);
-    const defs = parsed.map(({ n, newId, textSpan }) => {
+        const idMatch = (refAnchor?.getAttribute('id') || '').match(/^F(\d+)$/);
+        const n = idMatch ? idMatch[1] : String(i + 1);
+        const defAnchor = refAnchor ? renderInlineNode(refAnchor, ctx)
+            : `<a id="${_footnoteDefId(ctx, n)}">${escText(n)}</a>`;
         const body = textSpan ? collapseWs(renderInline(textSpan, ctx)) : '';
-        return `<footnote id="${escAttr(newId)}" n="${escAttr(n)}">${body}</footnote>`;
+        return `<f n="${escAttr(n)}">${defAnchor} ${body}</f>`;
     });
-    return defs;
+}
+
+/** Finish the old-style footnote currently being collected (see walkFlow), if any, pushing it to out. */
+function finishFootnote(ctx, out) {
+    const fc = ctx.footnoteCollector;
+    if (!fc) return;
+    ctx.footnoteCollector = null;
+    const body = fc.body.join('\n      ');
+    out.push(`<f n="${escAttr(fc.n)}">${fc.defAnchor}${body ? '\n      ' + body + '\n    ' : ''}</f>`);
 }
 
 // ── paragraph-flow walking ──────────────────────────────────────────────────
@@ -239,23 +381,90 @@ function hasEmptyPChild(el) {
     return el.childNodes.some(c => isEmptyP(c));
 }
 
-/** Walk a flow container's children, splitting on empty <p></p> markers, into <p>/<n>/<footnote> strings. */
+// A rendered paragraph never nests <hN> inside <p> — a heading-classed element
+// gets its own top-level <hN> sibling, splitting out any surrounding plain text
+// (rare — Justia normally isolates these already) into its own <p>(s). Genuine
+// single headings never contain a nested <hN> (renderInlineNode suppresses that
+// via ctx.insideHeading), so this only ever splits on real <hN> boundaries.
+const _HEADING_SPLIT_RE = /<h(\d)>[\s\S]*?<\/h\1>/g;
+// Underscore-only "paragraphs" are decorative dividers (around the case header)
+// or blank-fill lines (in reproduced forms) — pure noise either way, so drop them.
+const _SEPARATOR_PARA_RE = /^_+$/;
+function emitParagraph(push, text) {
+    if (!text || _SEPARATOR_PARA_RE.test(text.trim())) return;
+    _HEADING_SPLIT_RE.lastIndex = 0;
+    let last = 0, m, any = false;
+    while ((m = _HEADING_SPLIT_RE.exec(text))) {
+        any = true;
+        const before = text.slice(last, m.index).trim();
+        if (before) push(`<p>${before}</p>`);
+        push(m[0]);
+        last = _HEADING_SPLIT_RE.lastIndex;
+    }
+    if (!any) { push(`<p>${text}</p>`); return; }
+    const after = text.slice(last).trim();
+    if (after) push(`<p>${after}</p>`);
+}
+
+// Recognizes "[<a id="f{opIdx}-{n}" href="#ref{opIdx}-{n}">...</a>]" (brackets
+// optional, and the whole thing optionally <hN>...</hN>-wrapped — some documents
+// give the marker itself a heading-suggestive class) anywhere in a flushed
+// paragraph — the renamed form of an older-style footnote definition's own
+// marker (see the "── footnotes ──" section above) — once renderInlineNode has
+// already renamed it (and, if applicable, already <hN>-wrapped it). Not
+// anchored to the start: besides the marker alone in its own paragraph (the
+// common case) and the marker immediately followed by its body text in the
+// same paragraph (no brackets, a rarer variant), a heading with no trailing
+// <p></p> in the source (e.g. a "Footnotes" label right before the first
+// marker) can merge into the same flushed text ahead of the marker — any such
+// leading content is flushed on its own first. The optional <hN>/</hN> must be
+// matched as part of the marker (rather than left for emitParagraph's own
+// heading handling) so the before/after split below can never cut through a
+// still-open <hN> tag (the opening/closing level numbers aren't required to
+// match each other here — this is a strip-it-out search, not a validator).
+// Scoped to ctx.opinionIndex so it can't match a marker belonging to a
+// different opinion in the same case file.
+function _footnoteMarkerRe(ctx) {
+    const fPrefix = ctx.multiOpinion ? `fn${ctx.opinionIndex}-` : 'fn';
+    const refPrefix = ctx.multiOpinion ? `nf${ctx.opinionIndex}-` : 'nf';
+    return new RegExp(`(?:<h\\d>)?\\[?<a id="${fPrefix}(\\d+)" href="#${refPrefix}\\d+">([^<]*)<\\/a>\\]?(?:<\\/h\\d>)?\\s*`);
+}
+
+/** Walk a flow container's children, splitting on empty <p></p> markers, into <p>/<hN>/<n>/<f> strings. */
 function walkFlow(container, ctx, out) {
     let buffer = '';
     let skipToParaBreak = false;
     let pendingPageNumber = null; // {n} once known, else null while still scanning the citation echo for a trailing number
+    const footnoteMarkerRe = _footnoteMarkerRe(ctx);
+
+    // Redirects into the older-style footnote currently being collected (see
+    // finishFootnote), if any — shared via ctx so this also applies to content
+    // reached through a nested walkFlow() call (e.g. a footnote body containing
+    // an indented quote block).
+    const emit = (item) => (ctx.footnoteCollector ? ctx.footnoteCollector.body : out).push(item);
 
     const flush = () => {
         if (pendingPageNumber !== null) {
             const n = pendingPageNumber.n || (collapseWs(buffer).match(/(\d+)\s*$/) || [])[1];
-            if (n) out.push(`<n>${n}</n>`);
+            if (n) emit(`<n id="p${n}">${n}</n>`);
             pendingPageNumber = null;
             buffer = '';
             return;
         }
         const text = collapseWs(buffer);
         buffer = '';
-        if (text) out.push(`<p>${text}</p>`);
+        if (!text) return;
+        const m = text.match(footnoteMarkerRe);
+        if (m) {
+            const before = text.slice(0, m.index).trim();
+            if (before) emitParagraph(emit, before); // e.g. a "Footnotes" heading merged in ahead of the marker
+            finishFootnote(ctx, out); // close out whichever older-style footnote was being collected, if any
+            ctx.footnoteCollector = { n: m[1], defAnchor: `<a id="${_footnoteDefId(ctx, m[1])}" href="#${_footnoteRefId(ctx, m[1])}">${m[2]}</a>`, body: [] };
+            const rest = text.slice(m.index + m[0].length).trim();
+            if (rest) emitParagraph(emit, rest); // bracket-less variant: body text starts in the same paragraph
+            return;
+        }
+        emitParagraph(emit, text);
     };
 
     for (const node of container.childNodes) {
@@ -283,19 +492,18 @@ function walkFlow(container, ctx, out) {
             if (kids.length === 1 && isPageNumberAnchor(kids[0])) {
                 flush();
                 const n = pageNumberOf(kids[0]);
-                if (n) out.push(`<n>${n}</n>`);
+                if (n) emit(`<n id="p${n}">${n}</n>`);
                 continue;
             }
             // A genuinely content-wrapped <p> (defensive: not the usual idiom, but handle it).
             flush();
-            const text = collapseWs(renderInline(node, ctx));
-            if (text) out.push(`<p>${text}</p>`);
+            emitParagraph(emit, collapseWs(renderInline(node, ctx)));
             continue;
         }
         if (tag === 'div' && (node.getAttribute('class') || '').includes('opinion-footnotes')) {
             flush();
             skipToParaBreak = false;
-            continue; // footnotes are collected in a second pass; see convertOpinion()
+            continue; // modern-format footnotes are collected in a separate pass; see convertOpinion()
         }
         if (tag === 'div') {
             flush();
@@ -303,20 +511,18 @@ function walkFlow(container, ctx, out) {
             if (hasEmptyPChild(node)) {
                 walkFlow(node, ctx, out); // nested flow container
             } else {
-                const text = collapseWs(renderInline(node, ctx));
-                if (text) out.push(`<p>${text}</p>`); // one-off block (e.g. an indented quote)
+                emitParagraph(emit, collapseWs(renderInline(node, ctx))); // one-off block (e.g. an indented quote)
             }
             continue;
         }
         if (/^h[1-6]$/.test(tag)) {
             flush();
             skipToParaBreak = false;
-            const text = collapseWs(renderInline(node, ctx));
-            if (text) out.push(`<p>${text}</p>`);
+            emitParagraph(emit, collapseWs(renderInline(node, ctx)));
             continue;
         }
         // Inline content (em/a/span/strong/br/...): fold into the running paragraph buffer.
-        if (!skipToParaBreak) buffer += renderInline(node, ctx);
+        if (!skipToParaBreak) buffer += renderInlineNode(node, ctx);
     }
     flush();
 }
@@ -333,17 +539,24 @@ function paneLabel(root, paneId) {
 }
 
 function convertOpinion(pane, opinionIndex, root, ctx) {
+    ctx.opinionIndex = opinionIndex;
+    ctx.footnoteCollector = null;
     const label = paneLabel(root, pane.id) || { type: 'Opinion', author: null };
     const contentRoot = pane.childNodes.find(c => c.nodeType === 1 && c.rawTagName === 'div') || pane;
 
-    // Pass 1: register footnote defs (and their fragment-id -> new-id mapping) before rendering text.
+    // Modern-format footnotes are collected in one pass before the flow renders
+    // (older-style ones are found and collected inline; see walkFlow).
     const footnoteDivs = contentRoot.querySelectorAll('div.opinion-footnotes, .opinion-footnotes');
     const footnoteDefs = [];
-    footnoteDivs.forEach((div, i) => footnoteDefs.push(...collectFootnotes(div, opinionIndex, ctx)));
+    footnoteDivs.forEach(div => footnoteDefs.push(...collectFootnotes(div, ctx)));
 
-    // Pass 2: render the flow (in-text footnote refs now resolve via ctx.footnoteMap).
     const body = [];
+    // Page 1 of a case never has its own page-break marker in the source (there's
+    // nothing to break *from*), so a self-citation to it would otherwise have
+    // nowhere to point — synthesize the opening anchor here so it does.
+    if (ctx.openingPage) body.push(`<n id="p${ctx.openingPage}">${ctx.openingPage}</n>`);
     walkFlow(contentRoot, ctx, body);
+    finishFootnote(ctx, body); // close out a trailing older-style footnote, if the pane ended mid-collection
 
     const attrs = [`type="${escAttr(label.type)}"`];
     if (label.author) attrs.push(`author="${escAttr(label.author)}"`);
@@ -366,16 +579,26 @@ function convertCase(volDir, file, ctx) {
     const citation = canonMatch ? `${canonMatch[1]} U.S. ${canonMatch[2]}` : null;
     const ogTitleMatch = html.match(OG_TITLE_RE);
     const title = ogTitleMatch ? ogTitleMatch[1].replace(/,\s*\d+\s*U\.\s*S\.\s*.*$/, '').trim() : null;
+    // Only the first (and typically only) opinion actually starts on the case's own
+    // canonical page — later opinions (concurrence/dissent) start wherever they fall,
+    // which we don't know in advance, so no synthesized anchor for those.
+    const openingPage = canonMatch && /^\d+$/.test(canonMatch[2]) ? canonMatch[2] : null;
+    // Every opinion's own citation-echo heading repeats the case's nominative-reporter
+    // citation (e.g. "13 Wall."), not just the first opinion's, so this is shared.
+    const oldCitationRe = canonMatch ? _oldCitationRe(canonMatch[1]) : null;
 
-    const perOpCtx = (outPath) => ({ citationIndex: ctx.citationIndex, outPath, footnoteMap: new Map() });
+    const perOpCtx = (outPath, isFirst) => ({
+        citationIndex: ctx.citationIndex, outPath, openingPage: isFirst ? openingPage : null,
+        multiOpinion: panes.length > 1, oldCitationRe, title, citation,
+    });
     const outPath = path.join(XML_DIR, volDir, file.replace(/\.html$/, '.xml'));
 
-    const opinions = panes.map((pane, i) => convertOpinion(pane, i + 1, root, perOpCtx(outPath)));
+    const opinions = panes.map((pane, i) => convertOpinion(pane, i + 1, root, perOpCtx(outPath, i === 0)));
 
     const attrs = [`source="${escAttr(file)}"`];
     if (citation) attrs.push(`citation="${escAttr(citation)}"`);
     if (title) attrs.push(`title="${escAttr(title)}"`);
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<case ${attrs.join(' ')}>\n${opinions.join('\n')}\n</case>\n`;
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/assets/xsl/opinion.xsl"?>\n<case ${attrs.join(' ')}>\n${opinions.join('\n')}\n</case>\n`;
     return { xml, outPath };
 }
 
@@ -558,6 +781,62 @@ function runConvert({ volume, caseArg, force, dryRun, verbose }) {
     console.log(`\nDone. Converted ${converted}, skipped (up-to-date) ${skipped}, failed ${failed}.`);
 }
 
+// ── link cases.json to the generated xml ────────────────────────────────
+
+const XML_CITATION_RE = /<case\s[^>]*\bcitation="([^"]*)"/;
+
+/** Scan every generated xml file's citation="..." attribute -> its site-absolute path. */
+function buildXmlCitationIndex(verbose) {
+    const index = new Map();
+    let scanned = 0, noCitation = 0;
+    for (const volDir of listVolumeDirs()) {
+        const dir = path.join(XML_DIR, volDir);
+        if (!fs.existsSync(dir)) continue;
+        for (const file of fs.readdirSync(dir)) {
+            if (!file.endsWith('.xml')) continue;
+            scanned++;
+            const head = fs.readFileSync(path.join(dir, file), { encoding: 'utf8' }).slice(0, 512);
+            const m = head.match(XML_CITATION_RE);
+            if (!m || !m[1]) { noCitation++; continue; }
+            index.set(m[1], `/courts/ussc/opinions/xml/${volDir}/${file}`);
+        }
+    }
+    if (verbose) console.log(`  xml citation index: ${index.size} entries from ${scanned} files (${noCitation} without a citation)`);
+    return index;
+}
+
+function runLinkCases({ dryRun, verbose }) {
+    const xmlByCitation = buildXmlCitationIndex(verbose);
+
+    const termDirs = fs.readdirSync(TERMS_DIR, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name).sort();
+    let linked = 0, alreadyLinked = 0, termsChanged = 0;
+    for (const term of termDirs) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = JSON.parse(fs.readFileSync(casesPath, 'utf8')); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        let modified = false;
+        for (let i = 0; i < cases.length; i++) {
+            const c = cases[i];
+            const xmlPath = c.usCite ? xmlByCitation.get(c.usCite) : null;
+            if (!xmlPath) continue;
+            if (c.decision_xml === xmlPath) { alreadyLinked++; continue; }
+            cases[i] = reorderCase({ ...c, decision_xml: xmlPath });
+            linked++;
+            modified = true;
+            if (verbose) console.log(`  ${term}/${c.number || c.id}: decision_xml = ${xmlPath}`);
+        }
+        if (modified) {
+            termsChanged++;
+            if (!dryRun) fs.writeFileSync(casesPath, JSON.stringify(cases, null, 2) + '\n', 'utf8');
+        }
+    }
+
+    console.log(`\nDone. Linked ${linked} case(s) across ${termsChanged} term file(s) (${alreadyLinked} already up to date)${dryRun ? ' (dry run)' : ''}.`);
+}
+
 // ── CLI ──────────────────────────────────────────────────────────────────
 
 function main() {
@@ -572,6 +851,14 @@ function main() {
 
     if (flags.has('--survey')) {
         runSurvey();
+        return;
+    }
+
+    if (flags.has('--link-cases')) {
+        runLinkCases({
+            dryRun: flags.has('--dry-run') || flags.has('--dry_run'),
+            verbose: flags.has('--verbose'),
+        });
         return;
     }
 

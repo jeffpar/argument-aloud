@@ -24,7 +24,9 @@ exclude:
   - node_modules/
   - courts/ussc/cache/
   - courts/ussc/journals/
-  - courts/ussc/opinions/
+  - courts/ussc/opinions/html/
+  - courts/ussc/opinions/pdfs/
+  - courts/ussc/opinions/text/
   - courts/ussc/transcripts/pdfs/
   - courts/ussc/transcripts/text/
   - data/misc/
@@ -39,3 +41,4 @@ defaults:
     values:
       image: /assets/img/aa_exterior1.jpg
 indexes_base_url: http://localhost:4008
+opinions_base_url: http://localhost:4008

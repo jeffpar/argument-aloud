@@ -16,7 +16,7 @@ export const CASE_KEY_ORDER = [
     'docket_href', 'questions', 'questions_href',
     'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
     'usCite', 'opCite',
-    'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
+    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
     'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_errors',
@@ -49,7 +49,7 @@ function _reorder(obj, order) {
     return out;
 }
 
-const _DECISION_HREF_KEYS = ['decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports'];
+const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports'];
 
 // When usCite is absent, decision href keys belong right after decision_days (or decision).
 export function caseKeyOrder(obj) {

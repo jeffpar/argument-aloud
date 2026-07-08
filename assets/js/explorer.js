@@ -2309,7 +2309,8 @@ function _bestEventIndexForNumber(events, number) {
 
 // Build the text for the case‑title label above the transcript pane.
 // subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
-// Priority for parenthesised annotation: docket number → usCite → nothing.
+// Parenthesised annotation is the docket number(s), if any — usCite is shown
+// separately via #case-cite, so it's never repeated here.
 function caseTitleLabel(caseEntry, subCase) {
   const title  = subCase ? subCase.title  : caseTitle(caseEntry.title);
   const number = subCase ? subCase.number : caseEntry.number;
@@ -2318,8 +2319,6 @@ function caseTitleLabel(caseEntry, subCase) {
     const isMulti = /,/.test(number);
     const displayNumber = number.replace(/,\s*/g, ', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
     suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + displayNumber + ')';
-  } else if (!subCase && caseEntry.usCite) {
-    suffix = '\u00a0(' + caseEntry.usCite + ')';
   }
   return title + suffix;
 }
@@ -2535,9 +2534,32 @@ function _setCaseInfoRow2(caseEntry) {
   _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
-  // Kept in sync with #case-decided's own visibility — see the mobile
-  // #case-decided-break rule in explorer.css.
-  document.getElementById('case-decided-break').hidden = !caseEntry.decision;
+  // "(367 U.S. 203)" link that opens the decision's XML text (rendered via
+  // opinion.xsl) in the doc viewer, when this case has both.
+  const citeEl = document.getElementById('case-cite');
+  if (caseEntry.decision && caseEntry.decision_xml && caseEntry.usCite) {
+    const xmlHref = (window.OPINIONS_BASE_URL || '') + caseEntry.decision_xml;
+    citeEl.href = xmlHref;
+    citeEl.textContent = '(' + caseEntry.usCite + ')';
+    citeEl.hidden = false;
+    citeEl.onclick = (e) => {
+      e.preventDefault();
+      showDocViewer({
+        href: xmlHref,
+        title: 'Decision on ' + formatDecisionDate(caseEntry.decision) + ' (' + caseEntry.usCite + ')',
+        view: 'pane',
+      }, { force: true });
+    };
+  } else {
+    citeEl.hidden = true;
+    citeEl.onclick = null;
+  }
+  // Only needed (see the mobile #case-decided-break rule in explorer.css)
+  // when there's a preceding Argued/Reargued date for Decided to break away
+  // from — otherwise Decided is already first on the line and forcing its
+  // own row would just leave a blank line above it.
+  document.getElementById('case-decided-break').hidden =
+    !(caseEntry.decision && (caseEntry.argument || caseEntry.reargument));
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');

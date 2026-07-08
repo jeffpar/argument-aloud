@@ -1095,6 +1095,15 @@ button.term-case-count.sort-active:hover {
   color: #888;
 }
 
+/* Purely a mobile line-break aid (see the mobile #case-decided-break rule) —
+   on desktop it must stay out of the flex flow, otherwise being an empty
+   flex item still consumes its own two 12px column-gaps, doubling the gap
+   between the preceding date and Decided versus the gap between Argued and
+   Reargued. */
+#case-decided-break {
+  display: none;
+}
+
 #case-argued .date-link, #case-reargued .date-link, #case-decided .date-link {
   color: #2672b4;
   text-decoration: underline;
@@ -1353,13 +1362,12 @@ button.term-case-count.sort-active:hover {
 
 #case-cite {
   font-size: 12px;
-  color: #888;
+  color: #2672b4;
   text-decoration: none;
-  font-style: italic;
 }
 
 #case-cite:hover {
-  color: #2672b4;
+  color: #4a9eff;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -2345,12 +2353,15 @@ button.term-case-count.sort-active:hover {
   /* Decided always starts its own line rather than wrapping independently —
      that left favorite+tags stranded alone on a mostly-blank line beneath
      both dates. #case-decided-break is a zero-height dedicated flex item
-     (kept in sync with #case-decided's own [hidden] state in JS) that eats
-     the rest of its line via flex-basis: 100%, forcing everything after it
-     — Decided, citation, favorite+tags — onto one new line together. Giving
-     #case-decided itself flex-basis: 100% would be wrong: it would claim the
-     whole line for its own text, pushing favorite+tags to a third line. */
-  #case-decided-break:not([hidden]) { flex-basis: 100%; }
+     (shown by JS only when there's a preceding Argued/Reargued date to break
+     away from — see _setCaseInfoRow2) that eats the rest of its line via
+     flex-basis: 100%, forcing everything after it — Decided, citation,
+     favorite+tags — onto one new line together. Giving #case-decided itself
+     flex-basis: 100% would be wrong: it would claim the whole line for its
+     own text, pushing favorite+tags to a third line. Re-enabled as a flex
+     item here (display:none by default — see the base rule) only for this
+     line-break purpose, which is mobile-only. */
+  #case-decided-break:not([hidden]) { display: block; flex-basis: 100%; }
 
   /* 4th: vote line */
   #case-info-row3    { order: 4; flex-basis: 100%; }
@@ -2524,8 +2535,8 @@ button.term-case-count.sort-active:hover {
   #case-vote a       { color: #5eaee0; }
   #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 
-  #case-cite        { color: #6c7280; }
-  #case-cite:hover  { color: #5eaee0; }
+  #case-cite        { color: #5eaee0; }
+  #case-cite:hover  { color: #7bc8f0; }
 
   #case-questions   { color: #9da5b4; }
   .questions-more {
@@ -2828,8 +2839,8 @@ html[data-theme="dark"] #case-argued .date-link, html[data-theme="dark"] #case-r
 html[data-theme="dark"] #case-argued .date-link:hover, html[data-theme="dark"] #case-reargued .date-link:hover, html[data-theme="dark"] #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
 html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
-html[data-theme="dark"] #case-cite        { color: #6c7280; }
-html[data-theme="dark"] #case-cite:hover  { color: #5eaee0; }
+html[data-theme="dark"] #case-cite        { color: #5eaee0; }
+html[data-theme="dark"] #case-cite:hover  { color: #7bc8f0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }
 html[data-theme="dark"] #tags-btn:hover   { color: #5eaee0; }
 html[data-theme="dark"] .tag-builtin      { color: #6c7280; }
@@ -3037,8 +3048,6 @@ html[data-theme="light"] #audio-select:hover { color: #4a9eff; }
 html[data-theme="light"] #decision-date-label            { color: #555; }
 html[data-theme="light"] #decision-date-label[href]       { color: #2672b4; }
 html[data-theme="light"] #decision-date-label[href]:hover { color: #4a9eff; }
-html[data-theme="light"] #case-cite        { color: #888; }
-html[data-theme="light"] #case-cite:hover  { color: #2672b4; }
 html[data-theme="light"] #tags-btn         { color: #888; }
 html[data-theme="light"] #tags-btn:hover   { color: #2672b4; }
 html[data-theme="light"] .tag-builtin      { color: #888; }
