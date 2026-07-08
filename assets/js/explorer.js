@@ -1294,16 +1294,14 @@ function navigate(url) {
 // many replaceState calls elsewhere that only ever adjust the *current* entry.
 // Wrapping both lets us tag every entry with a running index (navIdx) without
 // touching each replaceState call site individually, so we can tell whether
-// there's really anywhere to go back/forward to — including detecting when
-// "back" would land on the site's home page ("/"), which the "Argument Aloud"
-// link already covers, so that case is treated as disabled too.
+// there's really anywhere to go back/forward to.
 (function () {
   const backBtn = document.getElementById('nav-back-btn');
   const forwardBtn = document.getElementById('nav-forward-btn');
   if (!backBtn || !forwardBtn) return;
 
   const MAX_KEY  = 'aa-nav-max-idx';
-  const HOME_KEY = 'aa-nav-back-target';  // 'home' | 'other', decided once per fresh entry
+  const HAS_BACK_KEY = 'aa-nav-has-back-target';  // '1' | '0', decided once per fresh entry
 
   const _origPushState    = history.pushState.bind(history);
   const _origReplaceState = history.replaceState.bind(history);
@@ -1313,28 +1311,21 @@ function navigate(url) {
   let maxNavIdx = parseInt(sessionStorage.getItem(MAX_KEY) || '0', 10);
   if (!Number.isFinite(maxNavIdx) || maxNavIdx < navIdx) maxNavIdx = navIdx;
 
-  // backTarget describes what's one step behind navIdx 0 — decided once, the
-  // first time this tab reaches this entry (not yet re-derivable afterward,
-  // since a reload's document.referrer no longer reflects it), then persisted.
-  // No referrer at all (direct URL entry, bookmark, new tab) means there's no
-  // meaningful page to go back to, same as 'none' — history.length isn't a
-  // reliable signal here (browsers can carry an extra internal entry, e.g.
-  // an initial about:blank, that isn't a real "back" destination).
-  let backTarget = sessionStorage.getItem(HOME_KEY);
-  if (backTarget == null) {
-    if (!document.referrer) {
-      backTarget = 'none';
-    } else {
-      let refPath = null;
-      try { refPath = new URL(document.referrer).pathname; } catch { /* ignore */ }
-      const sameOrigin = document.referrer.startsWith(location.origin);
-      backTarget = (sameOrigin && refPath === '/') ? 'home' : 'other';
-    }
-    try { sessionStorage.setItem(HOME_KEY, backTarget); } catch { /* ignore */ }
+  // hasBackTarget: is there really anywhere one step behind navIdx 0? —
+  // decided once, the first time this tab reaches this entry (not
+  // re-derivable afterward, since a reload's document.referrer no longer
+  // reflects it), then persisted. No referrer at all (direct URL entry,
+  // bookmark, new tab) means there's nothing to go back to — history.length
+  // isn't a reliable signal here (browsers can carry an extra internal entry,
+  // e.g. an initial about:blank, that isn't a real "back" destination).
+  let hasBackTarget = sessionStorage.getItem(HAS_BACK_KEY);
+  if (hasBackTarget == null) {
+    hasBackTarget = document.referrer ? '1' : '0';
+    try { sessionStorage.setItem(HAS_BACK_KEY, hasBackTarget); } catch { /* ignore */ }
   }
 
   function updateNavButtons() {
-    const canBack    = navIdx > 0 || backTarget === 'other';
+    const canBack    = navIdx > 0 || hasBackTarget === '1';
     const canForward = navIdx < maxNavIdx;
     backBtn.disabled    = !canBack;
     forwardBtn.disabled = !canForward;
