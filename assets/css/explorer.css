@@ -715,6 +715,12 @@ button.term-case-count.sort-active:hover {
 }
 
 .case-toggle {
+  /* Visual only — clicking the case title already expands/collapses its file
+     list as needed (see _buildCaseItemShell in explorer.js), so the triangle
+     itself is redundant chrome. display:none (rather than visibility:hidden)
+     matches the "no files" case already hidden this way, so every case title
+     lines up at the same left edge instead of just the ones without files. */
+  display: none;
   flex-shrink: 0;
   font-size: 9px;
   color: #999;
@@ -1086,7 +1092,10 @@ button.term-case-count.sort-active:hover {
 #case-info-row2 {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 12px;
+  /* Row-gap matches #case-info-row3's margin-top so that when Decided wraps
+     onto its own line under Argued, the gap there reads the same as the gap
+     between this row and the votes line below it. */
+  gap: 3px 12px;
   margin-top: 3px;
 }
 

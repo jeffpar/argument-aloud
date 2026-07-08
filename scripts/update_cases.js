@@ -1227,7 +1227,8 @@ function checkArgumentsHaveVotes(casesPath, term) {
         if (Array.isArray(c.votes) && c.votes.length) continue;
         if (!c.decision) continue;
         const label = c.number || c.id || '?';
-        console.log(`WARNING: ${term}/${label}: has decision but no votes (try --scdb)`);
+        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_reports || '?';
+        console.log(`WARNING: ${term}/${label}: has decision but no votes (see ${decisionUrl})`);
         count++;
     }
     return count;

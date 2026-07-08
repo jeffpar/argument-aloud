@@ -43,6 +43,8 @@ const HTML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
 const XML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'xml');
 const REPORTS_JSON = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 const TERMS_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+const CORRECTIONS_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'corrections', 'opinions.json');
+const REVIEW_PATH = path.join(REPO_ROOT, 'data', 'ussc', 'corrections', 'opinions-review.json');
 
 const CANONICAL_RE = /rel="canonical"\s+href="https:\/\/supreme\.justia\.com\/cases\/federal\/us\/(\d+)\/([\w-]+)\/?"/;
 const OG_TITLE_RE = /property="og:title"\s+content="([^"]*)"/;
@@ -60,6 +62,183 @@ function _loadReports() {
     try { _reportsJson = JSON.parse(fs.readFileSync(REPORTS_JSON, 'utf8')); }
     catch { _reportsJson = {}; }
     return _reportsJson;
+}
+
+// ── manual corrections ledger ───────────────────────────────────────────────
+// courts/ussc/opinions/corrections/opinions.json holds hand-verified fixes to
+// generated XML (OCR/transcription errors Justia's own source carries, not
+// bugs in this conversion) — keyed by output filename (e.g. "us002-0402.xml")
+// to an array of { line, old, new }, applied to freshly generated XML on every
+// run so they survive regeneration from the (uncorrected) source HTML.
+
+const ELLIPSIS_KEEP = 20;
+
+let _corrections = null;
+function _loadCorrections() {
+    if (_corrections) return _corrections;
+    try { _corrections = JSON.parse(fs.readFileSync(CORRECTIONS_PATH, 'utf8')); }
+    catch { _corrections = {}; }
+    return _corrections;
+}
+
+function _saveCorrections(data) {
+    fs.mkdirSync(path.dirname(CORRECTIONS_PATH), { recursive: true });
+    fs.writeFileSync(CORRECTIONS_PATH, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    _corrections = data;
+}
+
+/** Length of the common prefix of a and b. */
+function _commonPrefixLen(a, b) {
+    const max = Math.min(a.length, b.length);
+    let i = 0;
+    while (i < max && a[i] === b[i]) i++;
+    return i;
+}
+
+/** Length of the common suffix of a and b, not overlapping the first `prefixLen` chars of either. */
+function _commonSuffixLen(a, b, prefixLen) {
+    const max = Math.min(a.length, b.length) - prefixLen;
+    let i = 0;
+    while (i < max && a[a.length - 1 - i] === b[b.length - 1 - i]) i++;
+    return i;
+}
+
+/**
+ * Ledger-storage form of a (line, old, new) correction: where old/new share a
+ * long common prefix and/or suffix, everything but the last 20 chars of the
+ * shared prefix and the first 20 chars of the shared suffix is elided with
+ * "...", so the ledger reads as a compact diff instead of two near-duplicate
+ * lines. The elided text is never needed back — see _applyOneCorrection,
+ * which anchors on the (still fully-intact) differing middle plus its 20
+ * chars of retained context on each side.
+ */
+function _truncateForLedger(oldFull, newFull) {
+    const p = _commonPrefixLen(oldFull, newFull);
+    const q = _commonSuffixLen(oldFull, newFull, p);
+    const keepPrefixFrom = Math.max(0, p - ELLIPSIS_KEEP);
+    const oldKeepSuffixTo = oldFull.length - Math.max(0, q - ELLIPSIS_KEEP);
+    const newKeepSuffixTo = newFull.length - Math.max(0, q - ELLIPSIS_KEEP);
+    const ellipsize = (s, from, to) => (from > 0 ? '...' : '') + s.slice(from, to) + (to < s.length ? '...' : '');
+    return {
+        old: ellipsize(oldFull, keepPrefixFrom, oldKeepSuffixTo),
+        new: ellipsize(newFull, keepPrefixFrom, newKeepSuffixTo),
+    };
+}
+
+/** Undo _truncateForLedger's "..." markers to recover the literal anchor text. */
+function _stripEllipsis(s) {
+    return s.replace(/^\.\.\./, '').replace(/\.\.\.$/, '');
+}
+
+/** The existing correction entry for (filename, line), if any — lets a caller compose onto it instead of clobbering it. */
+function getCorrectionEntry(filename, line) {
+    const entries = _loadCorrections()[filename];
+    return entries ? entries.find(e => e.line === line) || null : null;
+}
+
+/** Apply a single stored correction entry to a freshly generated line, or return it unchanged if the entry's anchor no longer matches. */
+function applyLineCorrection(freshLine, entry) {
+    if (!entry) return freshLine;
+    const oldSnippet = _stripEllipsis(entry.old);
+    if (!freshLine.includes(oldSnippet)) return freshLine;
+    return freshLine.replace(oldSnippet, _stripEllipsis(entry.new));
+}
+
+/**
+ * Record a correction to `filename` (e.g. "us002-0402.xml") in the ledger.
+ * `oldFull` should always be the true pristine line (straight off convertCase,
+ * unaffected by any other correction) — that's what applyCorrections anchors
+ * on later. If a correction already exists for this line (e.g. a hand-made
+ * content fix landed on the same line a later encoding fix also touches),
+ * callers should compose their own `newFull` on top of it themselves — see
+ * getCorrectionEntry/applyLineCorrection — rather than pass a `newFull` that
+ * only reflects their own edit, which would silently discard the other one.
+ */
+function addCorrection(filename, line, oldFull, newFull) {
+    const data = _loadCorrections();
+    const entries = data[filename] || (data[filename] = []);
+    const truncated = _truncateForLedger(oldFull, newFull);
+    const existing = entries.find(e => e.line === line);
+    if (existing) Object.assign(existing, { line, ...truncated });
+    else entries.push({ line, ...truncated });
+    _saveCorrections(data);
+}
+
+/**
+ * Apply every recorded correction for `filename` to freshly generated `xml`
+ * text, anchoring each on its line number then a plain substring replace of
+ * the (ellipsis-stripped) old snippet with the new one. Logs and skips a
+ * correction whose anchor text no longer appears on that line — e.g. the
+ * source HTML changed since the correction was made — rather than silently
+ * leaving it unapplied or corrupting the line.
+ */
+function applyCorrections(filename, xml) {
+    const entries = _loadCorrections()[filename];
+    if (!entries || !entries.length) return xml;
+    const lines = xml.split('\n');
+    for (const { line, old, new: replacement } of entries) {
+        const idx = line - 1;
+        if (idx < 0 || idx >= lines.length) {
+            console.error(`  WARNING: ${filename}: correction for line ${line} but file only has ${lines.length} line(s)`);
+            continue;
+        }
+        const oldSnippet = _stripEllipsis(old);
+        if (!lines[idx].includes(oldSnippet)) {
+            console.error(`  WARNING: ${filename}: correction for line ${line} no longer matches — skipped`);
+            continue;
+        }
+        lines[idx] = lines[idx].replace(oldSnippet, _stripEllipsis(replacement));
+    }
+    return lines.join('\n');
+}
+
+// ── review ledger (undetermined candidates, not applied to XML) ────────────
+// data/ussc/corrections/opinions-review.json holds the flip side of the
+// corrections ledger above: occurrences a classifier (see scripts/
+// fix_encoding.js) flagged but couldn't confidently resolve on its own,
+// awaiting a human call. Same shape and same filename-keyed-array structure
+// as opinions.json, but each entry has no "new" (nothing to apply yet) — just
+// a window of context around the ambiguous spot, truncated the same way.
+
+let _review = null;
+function _loadReview() {
+    if (_review) return _review;
+    try { _review = JSON.parse(fs.readFileSync(REVIEW_PATH, 'utf8')); }
+    catch { _review = {}; }
+    return _review;
+}
+
+function _saveReview(data) {
+    fs.mkdirSync(path.dirname(REVIEW_PATH), { recursive: true });
+    fs.writeFileSync(REVIEW_PATH, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    _review = data;
+}
+
+/** Same 20-char-keep ellipsis convention as _truncateForLedger, but around a single point (markIdx) rather than a diff. */
+function _truncateContext(line, markIdx) {
+    const from = Math.max(0, markIdx - ELLIPSIS_KEEP);
+    const to = Math.min(line.length, markIdx + 1 + ELLIPSIS_KEEP);
+    return (from > 0 ? '...' : '') + line.slice(from, to) + (to < line.length ? '...' : '');
+}
+
+/**
+ * Record an undetermined candidate for `filename` (e.g. "us002-0402.xml") in
+ * the review ledger. Unlike addCorrection, this never dedups by line — a
+ * single line can carry several independent undetermined marks (e.g. a row
+ * of survey bearings), each worth its own entry — since the review ledger
+ * isn't hand-curated, it's meant to be rebuilt wholesale on each classifier
+ * run (see resetReview).
+ */
+function addReviewEntry(filename, line, fullLine, markIdx) {
+    const data = _loadReview();
+    const entries = data[filename] || (data[filename] = []);
+    entries.push({ line, old: _truncateContext(fullLine, markIdx), new: null });
+    _saveReview(data);
+}
+
+/** Wipe the review ledger — call once before a fresh classifier pass rebuilds it. */
+function resetReview() {
+    _saveReview({});
 }
 
 /**
@@ -751,7 +930,7 @@ function runConvert({ volume, caseArg, force, dryRun, verbose }) {
     const citationIndex = buildCitationIndex(verbose);
     const ctx = { citationIndex };
 
-    let converted = 0, skipped = 0, failed = 0;
+    let converted = 0, skipped = 0, failed = 0, unchanged = 0;
     for (const { volDir, file } of targets) {
         const srcPath = path.join(HTML_DIR, volDir, file);
         const outPath = path.join(XML_DIR, volDir, file.replace(/\.html$/, '.xml'));
@@ -770,6 +949,21 @@ function runConvert({ volume, caseArg, force, dryRun, verbose }) {
             failed++;
             continue;
         }
+
+        // The full XML is now assembled in memory — apply any hand-verified
+        // corrections (see courts/ussc/opinions/corrections/opinions.json)
+        // before it ever touches disk, so a from-scratch regeneration off the
+        // (uncorrected) source HTML doesn't lose them.
+        const outName = path.basename(result.outPath);
+        result.xml = applyCorrections(outName, result.xml);
+
+        const previous = fs.existsSync(result.outPath) ? fs.readFileSync(result.outPath, 'utf8') : null;
+        if (previous === result.xml) {
+            if (verbose) console.log(`  unchanged ${path.relative(REPO_ROOT, result.outPath)}`);
+            unchanged++;
+            continue;
+        }
+
         if (!dryRun) {
             fs.mkdirSync(path.dirname(result.outPath), { recursive: true });
             fs.writeFileSync(result.outPath, result.xml, 'utf8');
@@ -778,7 +972,7 @@ function runConvert({ volume, caseArg, force, dryRun, verbose }) {
         converted++;
     }
 
-    console.log(`\nDone. Converted ${converted}, skipped (up-to-date) ${skipped}, failed ${failed}.`);
+    console.log(`\nDone. Converted ${converted}, unchanged ${unchanged}, skipped (up-to-date) ${skipped}, failed ${failed}.`);
 }
 
 // ── link cases.json to the generated xml ────────────────────────────────
@@ -878,4 +1072,8 @@ function isMain() {
 
 if (isMain()) main();
 
-export { convertCase, buildCitationIndex, listAllCaseFiles, listCaseFiles };
+export {
+    convertCase, buildCitationIndex, listAllCaseFiles, listCaseFiles,
+    addCorrection, applyCorrections, getCorrectionEntry, applyLineCorrection,
+    addReviewEntry, resetReview,
+};

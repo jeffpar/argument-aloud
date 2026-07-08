@@ -2429,6 +2429,69 @@ function _buildPrimaryDecisionEntry(caseEntry) {
   return { value: first.value, href: first.href, title };
 }
 
+// Returns [{value, href, title, view?}] for every opinion-text source this
+// case has \u2014 LOC, USSC, Volume (decision_reports), and XML (decision_xml), in
+// that order, each included only when the corresponding prop exists \u2014 titled
+// "Decision on <full date> (XXX)". This is the shared source list behind both
+// the top-right document dropdown (_currentDecisionEntries) and the
+// #case-cite click menu (_buildCiteMenuEntries derives its own shorter
+// "Opinion (XXX)" button labels from it), so both list the same sources in
+// the same order and stay in sync automatically.
+function _buildOpinionEntries(caseEntry) {
+  if (!caseEntry?.decision) return [];
+  const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
+  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_reports: 'Volume' };
+  const entries = _buildDecisionEntries(caseEntry).map(e => ({ ...e, title: dateLabel + '\u00a0(' + SUFFIX[e.value] + ')' }));
+  if (caseEntry.decision_xml) {
+    entries.push({
+      value: 'decision_xml',
+      href: (window.OPINIONS_BASE_URL || '') + caseEntry.decision_xml,
+      title: dateLabel + '\u00a0(XML)',
+      view: 'pane',
+    });
+  }
+  return entries;
+}
+
+// Returns _buildOpinionEntries' list with each entry's `menuLabel` set to the
+// fixed, source-specific button text shown in the #case-cite click menu (see
+// _setCaseInfoRow2) \u2014 "Opinion (LOC)" etc., as opposed to that same list's
+// own `title`, which is what the doc viewer's title bar shows once opened.
+function _buildCiteMenuEntries(caseEntry) {
+  const MENU_LABELS = { decision_loc: 'Opinion (LOC)', decision_ussc: 'Opinion (USSC)', decision_reports: 'Opinion (Volume)', decision_xml: 'Opinion (XML)' };
+  return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
+}
+
+// Popup menu for #case-cite: lets the user pick which opinion-text source to
+// open in the doc viewer, when one or more of LOC/USSC/Volume/XML is
+// available. Reuses the same generic dropdown look as the term/collection
+// sort menus (see _buildSortMenu), just with plain (non-toggling) options.
+function _buildCiteMenu(anchorEl, entries) {
+  document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
+  const menu = document.createElement('ul');
+  menu.className = 'term-sort-menu cite-menu';
+  for (const entry of entries) {
+    const item = document.createElement('li');
+    item.className = 'term-sort-option';
+    item.textContent = entry.menuLabel;
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.remove();
+      showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+    });
+    menu.appendChild(item);
+  }
+  document.body.appendChild(menu);
+  const rect = anchorEl.getBoundingClientRect();
+  menu.style.top  = (rect.bottom + window.scrollY) + 'px';
+  menu.style.left = (rect.left   + window.scrollX) + 'px';
+  const close = (e) => {
+    if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
+  };
+  // Small delay so the mousedown that opened the menu doesn't immediately close it.
+  setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+}
+
 // Returns [{value, href, title}] for each unique transcript_href across events, date-sorted.
 function _buildTranscriptEntries(caseEntry) {
   const entries = [];
@@ -2525,21 +2588,18 @@ function _setCaseInfoRow2(caseEntry) {
   _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
-  // "(367 U.S. 203)" link that opens the decision's XML text (rendered via
-  // opinion.xsl) in the doc viewer, when this case has both.
+  // "(367 U.S. 203)" — click opens a small menu of every opinion-text source
+  // this case has (LOC/USSC/Volume/XML), each opening in the doc viewer.
   const citeEl = document.getElementById('case-cite');
-  if (caseEntry.decision && caseEntry.decision_xml && caseEntry.usCite) {
-    const xmlHref = (window.OPINIONS_BASE_URL || '') + caseEntry.decision_xml;
-    citeEl.href = xmlHref;
+  const citeEntries = _buildCiteMenuEntries(caseEntry);
+  if (citeEntries.length && caseEntry.usCite) {
+    citeEl.href = citeEntries[0].href; // plain fallback (e.g. middle-click/open-in-new-tab)
     citeEl.textContent = '(' + caseEntry.usCite + ')';
     citeEl.hidden = false;
     citeEl.onclick = (e) => {
       e.preventDefault();
-      showDocViewer({
-        href: xmlHref,
-        title: 'Decision on ' + formatDecisionDate(caseEntry.decision) + ' (' + caseEntry.usCite + ')',
-        view: 'pane',
-      }, { force: true });
+      e.stopPropagation();
+      _buildCiteMenu(citeEl, citeEntries);
     };
   } else {
     citeEl.hidden = true;
@@ -2790,9 +2850,12 @@ function makeScalesSvg() {
   return svg;
 }
 
-function makeScalesRingSvg(blue, filled = false, orange = false) {
+// green=true → green ring, used only as a fallback when there's no opinion-audio
+// signal at all (blue/orange/filled all unset) but the case has citations/references
+// worth flagging — the lowest-priority ring color, deferring to the others above it.
+function makeScalesRingSvg(blue, filled = false, orange = false, green = false) {
   const size = 22, cx = 11, cy = 11, r = 9;
-  const color = orange ? '#E07820' : (blue ? '#3778A6' : '#9461C8');
+  const color = orange ? '#E07820' : green ? '#2E8B57' : (blue ? '#3778A6' : '#9461C8');
 
   const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
   svg.setAttribute('class', 'case-decided-icon case-scales-ring');
@@ -3289,7 +3352,7 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
 function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   let icon;
   if (ring) {
-    icon = makeScalesRingSvg(ring.blue, ring.filled, ring.orange);
+    icon = makeScalesRingSvg(ring.blue, ring.filled, ring.orange, ring.green);
   } else {
     icon = makeScalesSvg();
   }
@@ -3298,6 +3361,8 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     let tooltipText;
     if (!ring) {
       tooltipText = 'Opinion issued';
+    } else if (ring.green) {
+      tooltipText = 'Opinion issued; citations or references available';
     } else if (ring.filled && !ring.hasOpinionAudio) {
       tooltipText = 'Video from On The Docket';
     } else if (ring.filled) {
@@ -3403,12 +3468,13 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'opinion');
     const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'opinion');
     const hasOpinion    = hasDecisionHref(caseEntry);
+    const hasFiles      = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
       title:    caseTitle(caseEntry.title),
       tooltip:  decisionTooltip(term, caseEntry, caseEntry.decision),
-      hasFiles: !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|'),
+      hasFiles,
       href:     buildUrlParams(
         { term, case: urlId },
         ['collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
@@ -3436,9 +3502,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         ring: hasAudio ? oyezCircleData(caseEntry) : null,
         deficit: oyezDeficitClass(caseEntry),
       });
-      if (hasOpinion || caseEntry.events?.length) {
+      if (hasOpinion || caseEntry.events?.length || hasFiles) {
+        // Green ring is the lowest-priority signal — only drawn when there's
+        // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
         _attachScalesIcon(ci, header, {
-          ring: opinionCircleData(caseEntry),
+          ring: opinionCircleData(caseEntry) || (hasFiles ? { green: true } : null),
           onClick: hasOpinion ? (e) => {
             e.stopPropagation();
             const _firstDecision = _buildPrimaryDecisionEntry(caseEntry);
@@ -3498,9 +3566,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             groups.other = [...(groups.amicus || []), ...(groups.other || [])];
             delete groups.amicus;
           }
-          const transcriptFiles = groups.transcript || [];
+          // Transcript and decision/opinion entries are never rendered here —
+          // they're one click away in the right pane's document dropdown/case
+          // citation menu, so a sidebar sub-item for each is just duplication.
           delete groups.transcript;
-          const opinionFiles = groups.opinion || [];
           delete groups.opinion;
           const referenceFiles = groups.reference || [];
           delete groups.reference;
@@ -3513,16 +3582,13 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const groupEntries = entries.filter(e => e.kind === 'group');
           const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
           if (groupEntries.length === 1 && !referenceFiles.length && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
-          // Citations, Consolidations, and References are the last groups (in
-          // that order — References always comes last), but transcript/decision
-          // entries (flat, ungrouped) still follow them at the very bottom.
+          // Citations, Consolidations, and References are the last groups
+          // (in that order — References always comes last).
           const citationsEntry = _buildCitationsEntry(caseEntry);
           if (citationsEntry) entries.push(citationsEntry);
           const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, term);
           if (otherTitlesEntry) entries.push(otherTitlesEntry);
           if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.reference, files: referenceFiles });
-          if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
-          if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
           return { entries };
         },
       });
@@ -4931,8 +4997,14 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
     }
   } : null;
-  if (caseRef.event || caseRef.decision) {
-    _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick });
+  if (caseRef.event || caseRef.decision || caseRef.files) {
+    // Green ring (lowest priority — see makeScalesRingSvg) as a best-effort
+    // guess from the lightweight caseRef alone; the deferred upgrade below
+    // corrects it once the full caseEntry (with opCite) is fetched.
+    _scalesIconNode = _attachScalesIcon(ci, header, {
+      onClick: _scalesOnClick,
+      ring: caseRef.files ? { green: true } : null,
+    });
   }
 
   // Deferred icon upgrade — called the first time this item becomes visible.
@@ -4960,10 +5032,13 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         }
       }).catch(() => { /* ignore */ });
     }
-    if (caseRef.decision || caseRef.event) {
+    if (caseRef.decision || caseRef.event || caseRef.files) {
       _fetchCaseEntry().then(caseEntry => {
         if (!caseEntry) return;
-        const ring = opinionCircleData(caseEntry);
+        const hasFiles = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
+        // Green ring is the lowest-priority signal — only drawn when there's
+        // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
+        const ring = opinionCircleData(caseEntry) || (hasFiles ? { green: true } : null);
         if (!ring) return;
         if (_scalesIconNode?.parentNode === header) header.removeChild(_scalesIconNode);
         _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick, ring });
@@ -5022,12 +5097,15 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           return activeCats[0];
         }
 
-        const opinionFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion');
-        const transcriptFiles = rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript');
+        // Transcript and decision/opinion entries are never rendered here —
+        // they're one click away in the right pane's document dropdown/case
+        // citation menu, so a sidebar sub-item for each is just duplication.
         const groups = {};
+        let totalFiles = 0;
         rawFiles.forEach(f => {
           const fType = (f.type || '').toLowerCase();
           if (fType === 'opinion' || fType === 'transcript') return;
+          totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -5043,7 +5121,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           }
         });
 
-        const totalFiles = rawFiles.length;
         const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
         // Suppress the group subheading when there is only one non-empty
         // category — listing files directly avoids forcing the user to expand
@@ -5061,8 +5138,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           });
         });
         // Citations, Consolidations, and References are the last groups (in
-        // that order — References always comes last), but transcript/decision
-        // entries (flat, ungrouped) still follow them at the very bottom.
+        // that order — References always comes last).
         const citationsEntry = _buildCitationsEntry(caseEntry);
         if (citationsEntry) entries.push(citationsEntry);
         const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, caseRef.term);
@@ -5070,8 +5146,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         if (groups.References?.length) {
           entries.push({ kind: 'group', label: 'References', files: groups.References });
         }
-        if (transcriptFiles.length) entries.push({ kind: 'flat', files: transcriptFiles });
-        if (opinionFiles.length) entries.push({ kind: 'flat', files: opinionFiles });
 
         // Also hide the toggle when the only available files are transcript entries —
         // transcript-only cases are not considered "browsable" via the toggle.
@@ -5938,7 +6012,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
 
   // If there are extra documents to choose from, surface a dropdown rather
   // than the standalone decision label.
-  _currentDecisionEntries   = _buildDecisionEntries(caseEntry);
+  _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
@@ -6026,7 +6100,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   if (_primaryDE) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-    showDocViewer({ href: _primaryDE.href, title: _primaryDE.title }, { autoScroll: true });
+    showDocViewer({ href: _primaryDE.href, title: _primaryDE.title, view: _primaryDE.view }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
   }
 
@@ -6060,7 +6134,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
   _setCaseInfoRow2(caseEntry);
-  _currentDecisionEntries   = _buildDecisionEntries(caseEntry);
+  _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezHref    = caseEntry.oyez_href || null;
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
@@ -6811,7 +6885,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   }
   if (e.target.value.startsWith('decision_')) {
     const de = _currentDecisionEntries.find(d => d.value === e.target.value);
-    if (de) showDocViewer({ href: de.href, title: de.title }, { force: true });
+    if (de) showDocViewer({ href: de.href, title: de.title, view: de.view }, { force: true });
     return;
   }
   if (e.target.value.startsWith('transcript:')) {

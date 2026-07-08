@@ -1,10 +1,5 @@
 #!/bin/bash
 set -e
-#node scripts/update_cases.js
-#node scripts/update_opinions.js
-rsync -vcrt --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
-rsync -vcrt --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloft/courts/ussc/opinions/xml/
-rsync -vcrt --delete --exclude=".*" assets/xsl/ ../argument-aloft/assets/xsl/
 if [ -n "$1" ]; then
   MSG="$1"
   sync_to_website() {
@@ -24,4 +19,10 @@ if [ -n "$1" ]; then
   sync_to_website "argument-aloud"
   sync_to_website "argument-aloft"
   sync_to_website "argument-apart"
+else
+  node scripts/update_cases.js
+  node scripts/update_opinions.js
+  rsync -vcrt --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
+  rsync -vcrt --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloft/courts/ussc/opinions/xml/
+  rsync -vcrt --delete --exclude=".*" assets/xsl/ ../argument-aloft/assets/xsl/
 fi
