@@ -10,6 +10,7 @@
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
  *   node update_cases.js --issues                     # regenerate auto-computed groups in issues.json
+ *   node update_cases.js --feeds                      # rebuild podcast feeds under courts/ussc/feeds/
  *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_href to cases.json
  *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_href
  *   node update_cases.js [TERM] --docket --old        # write old-format URLs (no probe); defaults to terms ≤ 2015-10
@@ -356,6 +357,11 @@ function _writeJson(p, data) {
 function _jsonChanged(p, data) {
     const newStr = JSON.stringify(data, null, 2) + '\n';
     try { return fs.readFileSync(p, 'utf8') !== newStr; } catch { return true; }
+}
+
+// Returns true if writing raw text `str` to `p` would change the file.
+function _textChanged(p, str) {
+    try { return fs.readFileSync(p, 'utf8') !== str; } catch { return true; }
 }
 
 function _writeFileSync(p, data) {
@@ -9067,6 +9073,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/top_cites.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
+       node update_cases.js --feeds [--verbose]                # rebuild courts/ussc/feeds/ (podcast RSS)
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -9133,7 +9140,11 @@ Examples:
 
   # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
   node update_cases.js --import ~/Downloads/ussc-favorites.json
-  node update_cases.js --import ~/Downloads/ussc-favorites.json --dry-run`;
+  node update_cases.js --import ~/Downloads/ussc-favorites.json --dry-run
+
+  # Podcast feeds: one RSS feed per term, plus a combined "podcast.xml" (seasons = terms)
+  node update_cases.js --feeds
+  node update_cases.js --feeds --dry-run`;
 
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -11592,6 +11603,270 @@ function runGenerateIssues(dryRun) {
     }
 }
 
+// =====================================================================
+// Podcast feeds: courts/ussc/feeds/ (--feeds)
+// =====================================================================
+//
+// Builds one podcast RSS feed per term (every audio_href-bearing event across
+// every case, chronologically) plus a master feed combining every term as an
+// iTunes "season" — so a single URL lets a podcast app discover the entire
+// archive. Fully derived from cases.json: audio byte size (`size`) and
+// duration (`length`, "HH:MM:SS.FF") are already recorded on each event by
+// import_ussc.js/import_oyez.js, so no network access is needed to build
+// valid <enclosure> tags.
+
+const FEEDS_DIR        = path.join(REPO_ROOT, 'courts', 'ussc', 'feeds');
+const FEEDS_TERMS_DIR  = path.join(FEEDS_DIR, 'terms');
+const FEEDS_INDEX_JSON = path.join(FEEDS_DIR, 'index.json');
+const PODCAST_XML_PATH = path.join(FEEDS_DIR, 'podcast.xml');
+
+const FEED_SITE_URL    = 'https://argumentaloud.org';
+const FEED_TITLE       = 'Argument Aloud';
+const FEED_DESCRIPTION = 'Oral arguments and opinion announcements before the U.S. Supreme Court, in chronological order.';
+const FEED_LANGUAGE    = 'en-us';
+const FEED_AUTHOR      = 'Argument Aloud';
+const FEED_EMAIL       = 'jeff@pcjs.org';
+// 1909x1909 square crop of assets/img/aa_exterior1.jpg (min 1400x1400 for
+// Apple Podcasts/Spotify).
+const FEED_IMAGE_URL   = FEED_SITE_URL + '/assets/img/podcast-cover.jpg';
+// TODO: verify against Apple's current podcast category list before
+// submitting for directory listing — this doesn't affect the ability to
+// subscribe directly by URL in any podcast app.
+const FEED_CATEGORY    = { main: 'News', sub: 'Government' };
+const FEED_XSL_HREF    = '/assets/xsl/podcast.xsl';
+
+const EVENT_TYPE_LABELS = { argument: 'Oral Argument', reargument: 'Reargument', opinion: 'Opinion Announcement' };
+
+// Source priority used only when the same (type, date, title) audio is
+// available from more than one source and neither copy was ever flagged
+// `redundant` by import_ussc.js/import_oyez.js (rare — a few dozen cases
+// where both an ussc and an oyez copy of the same argument survived) —
+// oyez's re-encoded copies are cleanest and usually carry aligned advocate
+// metadata, so they win.
+const _FEED_SOURCE_PRIORITY = { oyez: 0, ussc: 1, nara: 2 };
+
+// "HH:MM:SS.FF" -> seconds (float); the ".FF" frame count is treated as a
+// decimal fraction of a second, matching parseTime() in explorer.js.
+function _parseDurationSecs(s) {
+    if (!s) return null;
+    const [h, m, sec] = String(s).split(':');
+    const secs = parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
+    return Number.isFinite(secs) ? secs : null;
+}
+
+// seconds -> "H:MM:SS", the format itunes:duration expects.
+function _formatDurationHMS(secs) {
+    if (secs == null || !Number.isFinite(secs)) return null;
+    const total = Math.round(secs);
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function _xmlEscape(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]
+    ));
+}
+
+// RFC 2822 pubDate. Event dates carry no time-of-day (see EVENT_KEY_ORDER's
+// unused time/timezone fields), so anchor at noon UTC to avoid the date
+// shifting a day in either direction for any reader's local timezone.
+function _rssPubDate(isoDate) {
+    if (!isoDate) return null;
+    const d = new Date(`${isoDate}T12:00:00Z`);
+    return Number.isNaN(d.getTime()) ? null : d.toUTCString();
+}
+
+// Build every podcast episode for one term's cases.json, oldest first.
+function _buildTermEpisodes(term, termCases) {
+    const groups = new Map(); // "type|date|title" -> {event, caseEntry}
+    for (const c of termCases) {
+        for (const ev of (c.events || [])) {
+            if (!ev.audio_href || ev.redundant) continue;
+            const key = `${ev.type || 'argument'}|${ev.date || ''}|${ev.title || ''}`;
+            const existing = groups.get(key);
+            if (!existing || (_FEED_SOURCE_PRIORITY[ev.source] ?? 9) < (_FEED_SOURCE_PRIORITY[existing.event.source] ?? 9)) {
+                groups.set(key, { event: ev, caseEntry: c });
+            }
+        }
+    }
+    const episodes = [...groups.values()].map(({ event, caseEntry }) => {
+        const num         = _primaryCaseNumber(caseEntry);
+        const evIdx       = caseEntry.events.indexOf(event) + 1;
+        const durationSecs = _parseDurationSecs(event.length);
+        const typeLabel   = EVENT_TYPE_LABELS[event.type] || 'Oral Argument';
+        const titlePart   = firstTitle(caseEntry.title) || '';
+        const descParts   = [`${event.title || typeLabel}.`, `No. ${num}, ${titlePart}${/[.!?]$/.test(titlePart) ? '' : '.'}`];
+        // A few advocate titles store compound roles comma-joined (e.g.
+        // "MS.,GENERAL" for a Solicitor General) — render as space-separated.
+        const advocateNames = (event.advocates || []).map(a =>
+            `${a.title ? a.title.replace(/,/g, ' ') + ' ' : ''}${a.name}`.trim());
+        if (advocateNames.length) descParts.push('Arguing: ' + advocateNames.join(', ') + '.');
+        return {
+            guid:        event.audio_href,
+            title:       `${firstTitle(caseEntry.title)} — ${event.title || typeLabel}`,
+            date:        event.date || caseEntry.decision || caseEntry.argument || '',
+            type:        event.type || 'argument',
+            case:        num,
+            caseId:      caseEntry.id || num,
+            link:        `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${num}&event=${evIdx}`,
+            audio_href:  event.audio_href,
+            size:        event.size ?? null,
+            duration:    _formatDurationHMS(durationSecs),
+            durationSecs,
+            source:      event.source || null,
+            advocates:   event.advocates || undefined,
+            description: descParts.join(' '),
+        };
+    });
+    episodes.sort((a, b) => (a.date  || '').localeCompare(b.date  || '')
+                          || (a.type  || '').localeCompare(b.type  || '')
+                          || (a.title || '').localeCompare(b.title || ''));
+    return episodes;
+}
+
+function _rssItemXml(ep, { season, episodeNum } = {}) {
+    const lines = ['    <item>'];
+    lines.push(`      <title>${_xmlEscape(ep.title)}</title>`);
+    lines.push(`      <link>${_xmlEscape(ep.link)}</link>`);
+    lines.push(`      <guid isPermaLink="false">${_xmlEscape(ep.guid)}</guid>`);
+    const pubDate = _rssPubDate(ep.date);
+    if (pubDate) lines.push(`      <pubDate>${pubDate}</pubDate>`);
+    lines.push(`      <description>${_xmlEscape(ep.description)}</description>`);
+    lines.push(`      <enclosure url="${_xmlEscape(ep.audio_href)}" length="${ep.size ?? 0}" type="audio/mpeg"/>`);
+    if (ep.duration) lines.push(`      <itunes:duration>${_xmlEscape(ep.duration)}</itunes:duration>`);
+    lines.push('      <itunes:explicit>false</itunes:explicit>');
+    if (season     != null) lines.push(`      <itunes:season>${season}</itunes:season>`);
+    if (episodeNum != null) lines.push(`      <itunes:episode>${episodeNum}</itunes:episode>`);
+    lines.push('      <itunes:episodeType>full</itunes:episodeType>');
+    lines.push('    </item>');
+    return lines.join('\n');
+}
+
+function _rssChannelHeader(title, description, link, selfUrl) {
+    return [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        `<?xml-stylesheet type="text/xsl" href="${FEED_XSL_HREF}"?>`,
+        '<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">',
+        '  <script src="/assets/js/xslt-polyfill.min.js" xmlns="http://www.w3.org/1999/xhtml"></script>',
+        '  <channel>',
+        `    <title>${_xmlEscape(title)}</title>`,
+        `    <link>${_xmlEscape(link)}</link>`,
+        `    <atom:link href="${_xmlEscape(selfUrl)}" rel="self" type="application/rss+xml"/>`,
+        `    <description>${_xmlEscape(description)}</description>`,
+        `    <language>${FEED_LANGUAGE}</language>`,
+        `    <itunes:author>${_xmlEscape(FEED_AUTHOR)}</itunes:author>`,
+        `    <itunes:summary>${_xmlEscape(description)}</itunes:summary>`,
+        '    <itunes:owner>',
+        `      <itunes:name>${_xmlEscape(FEED_AUTHOR)}</itunes:name>`,
+        `      <itunes:email>${_xmlEscape(FEED_EMAIL)}</itunes:email>`,
+        '    </itunes:owner>',
+        `    <itunes:image href="${_xmlEscape(FEED_IMAGE_URL)}"/>`,
+        `    <image><url>${_xmlEscape(FEED_IMAGE_URL)}</url><title>${_xmlEscape(title)}</title><link>${_xmlEscape(link)}</link></image>`,
+        `    <itunes:category text="${_xmlEscape(FEED_CATEGORY.main)}"><itunes:category text="${_xmlEscape(FEED_CATEGORY.sub)}"/></itunes:category>`,
+        '    <itunes:explicit>false</itunes:explicit>',
+        '    <itunes:type>episodic</itunes:type>',
+    ].join('\n');
+}
+
+// `items` is an array of already-rendered <item> XML blocks (see _rssItemXml),
+// in the order they should appear in the file (newest-first, by convention).
+function _rssFeedXml(channel, items) {
+    return _rssChannelHeader(channel.title, channel.description, channel.link, channel.selfUrl)
+        + '\n' + items.join('\n') + '\n  </channel>\n</rss>\n';
+}
+
+function runGenerateFeeds(dryRun) {
+    let termMeta = new Map(); // term id -> terms.json group entry ({name, ...})
+    try {
+        const tj = _readJson(TERMS_JSON);
+        for (const decade of tj) for (const g of (decade.groups || [])) if (g.id) termMeta.set(g.id, g);
+    } catch {}
+
+    const allTerms = fs.readdirSync(TERMS_DIR)
+        .filter(n => /^\d{4}-\d{2}$/.test(n))
+        .sort(); // chronological (YYYY-MM sorts correctly as a string)
+
+    const perTermEpisodes = []; // [{term, episodes}], oldest term first
+    let jsonWrites = 0, xmlWrites = 0;
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+
+        const episodes = _buildTermEpisodes(term, termCases);
+        if (!episodes.length) continue;
+        perTermEpisodes.push({ term, episodes });
+
+        const termName = termMeta.get(term)?.name || term;
+        const termJsonPath = path.join(FEEDS_TERMS_DIR, `${term}.json`);
+        const termJsonOut  = { term, name: termName, generated: new Date().toISOString(), episodes };
+        if (_jsonChanged(termJsonPath, termJsonOut)) {
+            jsonWrites++;
+            if (!dryRun) { _mkdirSync(FEEDS_TERMS_DIR, { recursive: true }); _writeJson(termJsonPath, termJsonOut); }
+            else if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, termJsonPath)}`);
+        }
+
+        const termXmlPath = path.join(FEEDS_TERMS_DIR, `${term}.xml`);
+        const termItems = episodes.slice().reverse().map(ep => _rssItemXml(ep)); // newest-first, per RSS convention
+        const termXml = _rssFeedXml({
+            title:       `${FEED_TITLE} — ${termName}`,
+            description: FEED_DESCRIPTION,
+            link:        `${FEED_SITE_URL}/courts/ussc/?term=${term}`,
+            selfUrl:     `${FEED_SITE_URL}/courts/ussc/feeds/terms/${term}.xml`,
+        }, termItems);
+        if (_textChanged(termXmlPath, termXml)) {
+            xmlWrites++;
+            if (!dryRun) { _mkdirSync(FEEDS_TERMS_DIR, { recursive: true }); _writeFileSync(termXmlPath, termXml); }
+            else if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, termXmlPath)}`);
+        }
+    }
+
+    // Master feed: every term becomes an iTunes "season" (1 = earliest term
+    // with any audio) and each episode is numbered chronologically within its
+    // season, so one subscribe URL surfaces the whole archive in order.
+    const seasonNumOf = new Map(perTermEpisodes.map(({ term }, i) => [term, i + 1]));
+    const masterItems = perTermEpisodes
+        .flatMap(({ term, episodes }) => episodes.map((ep, i) =>
+            _rssItemXml(ep, { season: seasonNumOf.get(term), episodeNum: i + 1 })))
+        .reverse(); // newest-first, per RSS convention
+    const masterXml = _rssFeedXml({
+        title:       FEED_TITLE,
+        description: FEED_DESCRIPTION,
+        link:        `${FEED_SITE_URL}/courts/ussc/`,
+        selfUrl:     `${FEED_SITE_URL}/courts/ussc/feeds/podcast.xml`,
+    }, masterItems);
+    if (_textChanged(PODCAST_XML_PATH, masterXml)) {
+        xmlWrites++;
+        if (!dryRun) { _mkdirSync(FEEDS_DIR, { recursive: true }); _writeFileSync(PODCAST_XML_PATH, masterXml); }
+        else if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, PODCAST_XML_PATH)}`);
+    }
+
+    // Manifest of every per-term feed, for a directory/browse page.
+    const index = perTermEpisodes.map(({ term, episodes }) => ({
+        term,
+        name:      termMeta.get(term)?.name || term,
+        season:    seasonNumOf.get(term),
+        count:     episodes.length,
+        firstDate: episodes[0]?.date || null,
+        lastDate:  episodes[episodes.length - 1]?.date || null,
+        json:      `/courts/ussc/feeds/terms/${term}.json`,
+        xml:       `/courts/ussc/feeds/terms/${term}.xml`,
+    }));
+    if (_jsonChanged(FEEDS_INDEX_JSON, index)) {
+        if (!dryRun) { _mkdirSync(FEEDS_DIR, { recursive: true }); _writeJson(FEEDS_INDEX_JSON, index); }
+        else if (_VERBOSE) console.log(`  [dry-run] would write ${path.relative(REPO_ROOT, FEEDS_INDEX_JSON)}`);
+    }
+
+    const totalEpisodes = perTermEpisodes.reduce((s, t) => s + t.episodes.length, 0);
+    const verb = dryRun ? 'Would write' : 'Wrote';
+    console.log(`Feeds: ${verb} ${jsonWrites} term JSON file(s), ${xmlWrites} XML feed(s) `
+        + `(${perTermEpisodes.length} term(s), ${totalEpisodes} episode(s) total) → courts/ussc/feeds/`);
+}
 
 async function main() {
     const argv = process.argv.slice(2);
@@ -11755,6 +12030,11 @@ async function main() {
 
     if (flags.has('--issues')) {
         runGenerateIssues(dryRun);
+        return;
+    }
+
+    if (flags.has('--feeds')) {
+        runGenerateFeeds(dryRun);
         return;
     }
 

@@ -777,7 +777,7 @@ function convertCase(volDir, file, ctx) {
     const attrs = [`source="${escAttr(file)}"`];
     if (citation) attrs.push(`citation="${escAttr(citation)}"`);
     if (title) attrs.push(`title="${escAttr(title)}"`);
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/assets/xsl/opinion.xsl"?>\n<case ${attrs.join(' ')}>\n${opinions.join('\n')}\n</case>\n`;
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/assets/xsl/opinion.xsl"?>\n<case ${attrs.join(' ')}>\n  <script src="/assets/js/xslt-polyfill.min.js" xmlns="http://www.w3.org/1999/xhtml"></script>\n${opinions.join('\n')}\n</case>\n`;
     return { xml, outPath };
 }
 

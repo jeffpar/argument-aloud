@@ -206,6 +206,10 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   Questions or suggestions? <a href="mailto:admin@argumentaloud.org">Contact us</a>
   &nbsp;&middot;&nbsp;
   <a href="https://github.com/jeffpar/argument-aloud">GitHub</a>
+  &nbsp;&middot;&nbsp;
+  <a href="/courts/ussc/feeds/podcast.xml">Subscribe (RSS)</a>
+  &nbsp;&middot;&nbsp;
+  <a href="podcast://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
 </p>
 
 <script>
