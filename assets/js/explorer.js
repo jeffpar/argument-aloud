@@ -2440,7 +2440,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
   const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
-  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_reports: 'Volume' };
+  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_reports: 'VOL' };
   const entries = _buildDecisionEntries(caseEntry).map(e => ({ ...e, title: dateLabel + '\u00a0(' + SUFFIX[e.value] + ')' }));
   if (caseEntry.decision_xml) {
     entries.push({
@@ -2458,8 +2458,28 @@ function _buildOpinionEntries(caseEntry) {
 // _setCaseInfoRow2) \u2014 "Opinion (LOC)" etc., as opposed to that same list's
 // own `title`, which is what the doc viewer's title bar shows once opened.
 function _buildCiteMenuEntries(caseEntry) {
-  const MENU_LABELS = { decision_loc: 'Opinion (LOC)', decision_ussc: 'Opinion (USSC)', decision_reports: 'Opinion (Volume)', decision_xml: 'Opinion (XML)' };
+  const MENU_LABELS = { decision_loc: 'Opinion (LOC)', decision_ussc: 'Opinion (USSC)', decision_reports: 'Opinion (VOL)', decision_xml: 'Opinion (XML)' };
   return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
+}
+
+// Bidirectional mapping between the audio-select dropdown's decision_* option
+// values and the short values used for the URL 'file' param, so a selected
+// decision source round-trips through the URL (?file=loc|ussc|vol|xml) and
+// can be restored on load.
+const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_reports: 'vol', decision_xml: 'xml' };
+const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_reports', xml: 'decision_xml' };
+
+// If `param` (a URL 'file' value) names a decision source present in the
+// current case's _currentDecisionEntries, show it in the doc viewer and sync
+// the audio-select dropdown to match. Returns whether it was handled.
+function _showDecisionFromParam(param) {
+  const key = DECISION_PARAM_KEYS[param];
+  const de  = key && _currentDecisionEntries.find(d => d.value === key);
+  if (!de) return false;
+  showDocViewer({ href: de.href, title: de.title, view: de.view }, { autoScroll: true });
+  const audioSelect = document.getElementById('audio-select');
+  if (audioSelect && !audioSelect.hidden) audioSelect.value = key;
+  return true;
 }
 
 // Popup menu for #case-cite: lets the user pick which opinion-text source to
@@ -3661,7 +3681,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
-      if (fileRestore != null && !caseEntry.events?.length) {
+      if (fileRestore != null && !caseEntry.events?.length && !_showDecisionFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
       }
@@ -5260,7 +5280,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
     const fileRestore = e.fileRestore ?? null;
-    if (fileRestore != null && !hasPlayableAudio) {
+    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -6904,6 +6924,11 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   if (e.target.value.startsWith('decision_')) {
     const de = _currentDecisionEntries.find(d => d.value === e.target.value);
     if (de) showDocViewer({ href: de.href, title: de.title, view: de.view }, { force: true });
+    const url = new URL(location.href);
+    const fileVal = DECISION_FILE_PARAMS[e.target.value];
+    if (fileVal) url.searchParams.set('file', fileVal); else url.searchParams.delete('file');
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
     return;
   }
   if (e.target.value.startsWith('transcript:')) {
@@ -8939,7 +8964,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
@@ -9064,7 +9089,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
