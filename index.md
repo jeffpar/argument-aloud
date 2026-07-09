@@ -211,7 +211,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   &nbsp;&middot;&nbsp;
   <a href="/courts/ussc/feeds/podcast.xml">Subscribe (RSS)</a>
   &nbsp;&middot;&nbsp;
-  <a href="itpc://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
+  <a href="podcast://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
   <span class="hp-footer-sub">Questions or suggestions? <a href="mailto:admin@argumentaloud.org">Contact us</a></span>
 </p>
 
