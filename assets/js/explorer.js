@@ -55,7 +55,7 @@ function _clearPdfIframePool() {
   for (const el of _pdfIframePool.values()) el.remove();
   _pdfIframePool.clear();
 }
-let _currentOyezHref    = null; // oyez URL for the active case (used by audio dropdown sentinel)
+let _currentOyezEntries = []; // Oyez case-description entries for the active case [{value,href,title}]
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
@@ -2506,6 +2506,24 @@ function _buildTranscriptEntries(caseEntry) {
                    title: 'Transcript\u00a0of\u00a0' + (a.title || '') });
   }
   return entries;
+}
+
+// Returns [{value, href, title}] for the Oyez case-description link(s).
+// oyez_href is normally a single URL string, but for a case consolidated
+// from multiple Oyez case pages it's an array of URL strings instead.
+function _buildOyezEntries(caseEntry) {
+  const raw = caseEntry?.oyez_href;
+  if (!raw) return [];
+  const urls = Array.isArray(raw) ? raw : [raw];
+  const label = 'Description from The Oyez Project';
+  return urls.map((href, i) => {
+    let title = label;
+    if (urls.length > 1) {
+      const m = /\/cases\/\d{4}\/([^/?#]+)/.exec(href);
+      if (m) title = label + ' (No. ' + decodeURIComponent(m[1]) + ')';
+    }
+    return { value: 'oyez:' + i, href, title };
+  });
 }
 
 // Reference-type files.json entries (the same ones grouped under "References"
@@ -6014,7 +6032,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // than the standalone decision label.
   _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
-  _currentOyezHref    = caseEntry.oyez_href || null;
+  _currentOyezEntries = _buildOyezEntries(caseEntry);
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
@@ -6136,7 +6154,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _setCaseInfoRow2(caseEntry);
   _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
-  _currentOyezHref    = caseEntry.oyez_href || null;
+  _currentOyezEntries = _buildOyezEntries(caseEntry);
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   docViewerOpenHeight = null;
 
@@ -6322,13 +6340,13 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     sentinelOpt.textContent = de.title;
     audioSelect.appendChild(sentinelOpt);
   });
-  // Append sentinel option linking to the Oyez case page, if available.
-  if (caseEntry.oyez_href) {
+  // Append sentinel option(s) linking to the Oyez case page(s), if available.
+  _currentOyezEntries.forEach(oe => {
     const oyezOpt = document.createElement('option');
-    oyezOpt.value = 'oyez-page';
-    oyezOpt.textContent = 'Description from The Oyez Project';
+    oyezOpt.value = oe.value;
+    oyezOpt.textContent = oe.title;
     audioSelect.appendChild(oyezOpt);
-  }
+  });
   // Append sentinel options linking to On The Docket videos, if available.
   _currentVideoEntries.forEach((v, i) => {
     const opt = document.createElement('option');
@@ -6343,7 +6361,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...audioSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'oyez-page' && v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('video:') && !v.startsWith('file:'))
+    .filter(v => v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -6893,10 +6911,9 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     if (te) showDocViewer({ href: te.href, title: te.title }, { force: true });
     return;
   }
-  if (e.target.value === 'oyez-page') {
-    if (_currentOyezHref) {
-      showDocViewer({ href: _currentOyezHref, title: 'Description from The Oyez Project', view: 'pane' }, { force: true });
-    }
+  if (e.target.value.startsWith('oyez:')) {
+    const oe = _currentOyezEntries.find(o => o.value === e.target.value);
+    if (oe) showDocViewer({ href: oe.href, title: oe.title, view: 'pane' }, { force: true });
     return;
   }
   if (e.target.value.startsWith('video:')) {

@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/William_J._Brennan_Jr.
 years_served: 33.8
 days_served: "12,331"
 opinions: 452
-lone_dissents: 19
+lone_dissents: 20
 vocal_secs: 253431
 ---
 <div style="display:flex; gap:1em;">

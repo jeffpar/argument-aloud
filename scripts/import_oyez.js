@@ -53,6 +53,14 @@ function relRepo(p) {
     return r.startsWith('..') ? p : r;
 }
 
+// A case's oyez_href is a single URL string, or (for cases consolidated from
+// multiple Oyez case pages) an array of URL strings. Normalize either form
+// to an array for iteration.
+function oyezHrefList(oyezHref) {
+    if (!oyezHref) return [];
+    return Array.isArray(oyezHref) ? oyezHref : [oyezHref];
+}
+
 // ── Async-aware writeStdout helper for trailing newlines ───────────────────
 function writeOut(s) { process.stdout.write(s); }
 
@@ -689,15 +697,13 @@ async function main() {
         // case, treat it as not found so the laterTermNumbers redirect
         // path can run instead.
         if (localCase && localCase.oyez_href) {
-            const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(localCase.oyez_href);
-            if (m) {
-                const localOyezYear   = m[1];
-                const localOyezDocket = normalizeCaseNum(decodeURIComponent(m[2]));
-                const oyezDocket      = normalizeCaseNum(oyezCase.docket_number || number);
-                if (localOyezYear !== yearStr || localOyezDocket !== oyezDocket) {
-                    localCase = null;
-                }
-            }
+            const oyezDocket = normalizeCaseNum(oyezCase.docket_number || number);
+            const anyMatches = oyezHrefList(localCase.oyez_href).some(url => {
+                const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(url);
+                if (!m) return true;
+                return m[1] === yearStr && normalizeCaseNum(decodeURIComponent(m[2])) === oyezDocket;
+            });
+            if (!anyMatches) localCase = null;
         }
         const localNumber = localCase ? (localCase.number || '') : '';
         const isConsolidated = localNumber.includes(',');
@@ -802,12 +808,12 @@ async function main() {
                     if (!nums.includes(number)) return false;
                     // Same /cases/YYYY/DOCKET guard as above.
                     if (c.oyez_href) {
-                        const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(c.oyez_href);
-                        if (m) {
-                            const lY = m[1];
-                            const lD = normalizeCaseNum(decodeURIComponent(m[2]));
-                            if (lY !== yearStr || lD !== oyezDocket) return false;
-                        }
+                        const anyMatches = oyezHrefList(c.oyez_href).some(url => {
+                            const m = /\/cases\/(\d{4})\/([^/?#]+)/.exec(url);
+                            if (!m) return true;
+                            return m[1] === yearStr && normalizeCaseNum(decodeURIComponent(m[2])) === oyezDocket;
+                        });
+                        if (!anyMatches) return false;
                     }
                     return true;
                 }) || null;

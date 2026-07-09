@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/William_O._Douglas
 years_served: 36.6
 days_served: "13,359"
 opinions: 537
-lone_dissents: 227
+lone_dissents: 228
 vocal_secs: 39256
 ---
 <div style="display:flex; gap:1em;">

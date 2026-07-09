@@ -5,7 +5,7 @@
  *
  * Usage:
  *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
- *   node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
+ *   node update_cases.js TERM CASE --votes win|loss [VOTE_STRING [AUTHOR]] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
@@ -36,6 +36,9 @@
  *
  *   # Vote update: 6-3 decision with Kagan writing dissent
  *   node update_cases.js 2025-10 24-109 --votes loss 6-3 alito --dissent kagan --minority sotomayor kagan jackson
+ *
+ *   # Vote update: per curiam (unsigned), unanimous — no VOTE_STRING/AUTHOR needed
+ *   node update_cases.js 1926-10 297 --votes win
  *
  *   # Partial update: just mark Gorsuch as recused
  *   node update_cases.js 2024-10 23-975 --recused gorsuch
@@ -1227,8 +1230,9 @@ function checkArgumentsHaveVotes(casesPath, term) {
         if (Array.isArray(c.votes) && c.votes.length) continue;
         if (!c.decision) continue;
         const label = c.number || c.id || '?';
-        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_reports || '?';
-        console.log(`WARNING: ${term}/${label}: has decision but no votes (see ${decisionUrl})`);
+        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_reports || '';
+        const suffix = decisionUrl ? ` (see ${decisionUrl})` : '';
+        console.log(`WARNING: ${term}/${label}: has decision but no votes${suffix}`);
         count++;
     }
     return count;
@@ -9047,7 +9051,7 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
        node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
-       node update_cases.js TERM CASE --votes win|loss VOTE_STRING [AUTHOR] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
+       node update_cases.js TERM CASE --votes win|loss [VOTE_STRING [AUTHOR]] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
        node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose] [--debug]
@@ -9081,6 +9085,7 @@ Examples:
   node update_cases.js 2025-10 24-109 --votes win 9-0 roberts
   node update_cases.js 2025-10 24-109 --votes loss 6-3 alito --dissent kagan --minority sotomayor kagan jackson
   node update_cases.js 1922-10 96 --votes loss 9-0 --result "dismissed for want of jurisdiction"
+  node update_cases.js 1926-10 297 --votes win                              # per curiam, unanimous
   node update_cases.js 2024-10 23-975 --recused gorsuch
   node update_cases.js 2024-10 2024-001 --minority sotomayor kagan jackson
 
@@ -10722,10 +10727,13 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
     function resolveName(name, context) {
         let canonical = _scdbCanonName(name);
         if (_scdbJusticesTenures[canonical] && _scdbIsServingOn(canonical, decisionDate)) return canonical;
-        // Fall back to last-name match among serving justices.
+        // Fall back to last-name match among serving justices. Strip
+        // generational suffixes (Jr., Sr., II, III, IV) and commas so e.g.
+        // "harlan" matches canonical "JOHN HARLAN, II".
         const target = name.trim().toUpperCase();
+        const _SUFFIX_RE = /^(JR\.?|SR\.?|I{1,3}|IV)$/;
         const matches = servingJustices.filter(c => {
-            const parts = c.split(/\s+/);
+            const parts = c.replace(/,/g, '').split(/\s+/).filter(p => !_SUFFIX_RE.test(p));
             return parts[parts.length - 1] === target;
         });
         if (matches.length === 0) {
@@ -10791,31 +10799,39 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
     } else {
         // ── Full update: replace all vote data ─────────────────────────────
         let afterVotes = getValues('--votes');
-        if (afterVotes.length < 2) {
-            console.error('ERROR: --votes requires: win|loss VOTE_STRING [AUTHOR]');
+        if (afterVotes.length < 1) {
+            console.error('ERROR: --votes requires: win|loss [VOTE_STRING [AUTHOR]]');
             process.exit(1);
         }
         // Accept both "win|loss N-N" and "N-N win|loss" orderings.
-        if (/^\d+-\d+$/.test(afterVotes[0]) && (afterVotes[1] === 'win' || afterVotes[1] === 'loss')) {
+        if (afterVotes.length >= 2 && /^\d+-\d+$/.test(afterVotes[0]) && (afterVotes[1] === 'win' || afterVotes[1] === 'loss')) {
             afterVotes = [afterVotes[1], afterVotes[0], ...afterVotes.slice(2)];
         }
-        const [outcome, voteString, authorRaw] = afterVotes;
+        const [outcome, voteStringRaw, authorRaw] = afterVotes;
         if (outcome !== 'win' && outcome !== 'loss') {
             console.error(`ERROR: Outcome must be "win" or "loss", got "${outcome}"`);
             process.exit(1);
         }
-
-        const votes = _parseVoteString(voteString);
-        const result = resultOverride ??
-            (outcome === 'win'
-                ? 'petitioning party received a favorable disposition'
-                : 'no favorable disposition for petitioning party apparent');
 
         const authorCanonical   = authorRaw ? resolveName(authorRaw, 'Author') : null;
         const minorityCanonical = minority.map(n => resolveName(n, 'Minority justice'));
         const recusedCanonical  = recused.map(n => resolveName(n, 'Recused justice'));
         const dissentCanonical  = dissent.map(n => resolveName(n, 'Dissent author'));
         const allMinority       = [...new Set([...minorityCanonical, ...dissentCanonical])];
+
+        // No VOTE_STRING supplied: treat as a per curiam (unsigned) opinion —
+        // every serving justice not recused or in the minority is recorded
+        // as a majority vote.
+        const perCuriam  = voteStringRaw === undefined;
+        const voteString = perCuriam
+            ? `${servingJustices.length - recusedCanonical.length - allMinority.length}-${allMinority.length}`
+            : voteStringRaw;
+
+        const votes = _parseVoteString(voteString);
+        const result = resultOverride ??
+            (outcome === 'win'
+                ? 'petitioning party received a favorable disposition'
+                : 'no favorable disposition for petitioning party apparent');
 
         if (votes.minority > 0 && allMinority.length !== votes.minority) {
             console.error(`ERROR: Vote string indicates ${votes.minority} minority vote(s), but ${allMinority.length} justice(s) provided`);

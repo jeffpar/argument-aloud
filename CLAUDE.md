@@ -39,6 +39,8 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
 
 `volume` and `page` are **not written** to new cases — they are derived from `usCite` at read time. Existing cases that still carry them are cleaned up by `update_cases.js`.
 
+`oyez_href` is normally a single URL string, but for a case consolidated from multiple Oyez case pages (e.g. `1971-176`) it's an array of URL strings instead — both forms are handled by `explorer.js` and `import_oyez.js`.
+
 ```json
 {
   "id": "2024-123",

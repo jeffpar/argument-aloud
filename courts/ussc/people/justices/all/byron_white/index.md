@@ -5,7 +5,7 @@ justice_id: byron_white
 wikipedia_url: https://en.wikipedia.org/wiki/Byron_White
 years_served: 31.2
 days_served: "11,397"
-opinions: 476
+opinions: 474
 lone_dissents: 33
 vocal_secs: 550224
 ---
