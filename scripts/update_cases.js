@@ -11624,7 +11624,7 @@ const FEED_SITE_URL    = 'https://argumentaloud.org';
 const FEED_TITLE       = 'Argument Aloud';
 const FEED_DESCRIPTION = 'Oral arguments and opinion announcements before the U.S. Supreme Court, in chronological order.';
 const FEED_LANGUAGE    = 'en-us';
-const FEED_AUTHOR      = 'Argument Aloud';
+const FEED_AUTHOR      = 'argumentaloud.org';
 const FEED_EMAIL       = 'jeff@pcjs.org';
 // 1909x1909 square crop of assets/img/aa_exterior1.jpg (min 1400x1400 for
 // Apple Podcasts/Spotify).

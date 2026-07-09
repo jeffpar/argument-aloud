@@ -89,6 +89,10 @@ layout: home
   color: rgba(51, 51, 51, 0.45);
   padding-bottom: 16px;
 }
+.hp-footer-sub {
+  display: block;
+  margin-top: 8px;
+}
 @media (prefers-color-scheme: dark) {
   .hp-card           { background: #1e2130; border-color: #2d2f38; }
   .hp-card:hover     { border-color: #454a5a; box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
@@ -203,13 +207,12 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
 </div>
 
 <p class="hp-footer">
-  Questions or suggestions? <a href="mailto:admin@argumentaloud.org">Contact us</a>
-  &nbsp;&middot;&nbsp;
   <a href="https://github.com/jeffpar/argument-aloud">GitHub</a>
   &nbsp;&middot;&nbsp;
   <a href="/courts/ussc/feeds/podcast.xml">Subscribe (RSS)</a>
   &nbsp;&middot;&nbsp;
-  <a href="podcast://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
+  <a href="itpc://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
+  <span class="hp-footer-sub">Questions or suggestions? <a href="mailto:admin@argumentaloud.org">Contact us</a></span>
 </p>
 
 <script>
