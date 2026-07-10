@@ -4953,7 +4953,7 @@ function _ordinal(n) {
   return n + suffix;
 }
 
-function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false, groupName = null) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false, groupName = null, collEntry = null) {
   const caseKey = caseRef.term + '/' + caseRef.number;
   // caseRef.find, when present, names the word/phrase to highlight on arrival
   // (see rare_words.json). It's omitted from the JSON when it's just the
@@ -5206,6 +5206,33 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   titleSpan.addEventListener('click', async (e) => {
     const fromRestore = !!e.fromRestore;
     const numberOverride = e.numberOverride ?? null;
+    // Gallery-style collections (e.g. Original Jurisdiction) show their cases
+    // as a single hand-built page rather than the normal case viewer — clicking
+    // a case here just scrolls that page to the matching "<term>--<number>" id
+    // instead of loading the case. See courts/ussc/collections/orig/index.md.
+    if (collEntry?.scrollToPage && collEntry.page) {
+      markCaseItemActive(ci);
+      if (!fromRestore) {
+        const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
+        const deleteOther = groupId != null ? ['group'] : ['id'];
+        const url = buildUrlParams(
+          { [isTopic ? 'topic' : 'collection']: collId, ...groupOrId, term: caseRef.term, case: caseRef.number },
+          [...deleteOther, 'highlight', 'event', 'file', 'turn', 'citation'],
+        );
+        document.title = caseTitle(caseRef.title) + ' | Argument Aloud';
+        navigate(url);
+      }
+      const anchorId = caseRef.term + '--' + caseRef.number.split(',')[0].trim();
+      // Directory-style permalinks (e.g. /collections/orig) 301-redirect to add
+      // a trailing slash. Without it here, every click would force the iframe
+      // through a full server round-trip + reload instead of a same-document
+      // fragment jump — a visible flash back to the top before landing on the
+      // right anchor. Ensuring the slash up front keeps this a lightweight
+      // in-page navigation, matching _sameFrameLocation's own normalization.
+      const pageUrl = collEntry.page.replace(/\/?$/, '/');
+      showPageViewer(pageUrl + '#' + anchorId, { pushState: false });
+      return;
+    }
     if (!fromRestore && ci.classList.contains('active')) {
       // Already the selected case — clicking the title just toggles its file list open/closed.
       if (ci.classList.toggle('open')) {
@@ -5608,7 +5635,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         const seenKeys = new Set();
         for (const caseRef of group.cases) {
           seenKeys.add(caseRef.term + '/' + caseRef.number);
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
         }
         // Reconcile with localStorage tags: a case that only qualifies for this
         // group because of a user-added tag won't be in the server-generated
@@ -5618,7 +5645,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
           const key = caseRef.term + '/' + caseRef.number;
           if (seenKeys.has(key)) continue;
           seenKeys.add(key);
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
         }
         n = seenKeys.size;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -5654,7 +5681,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
               _cases = sorted.map((c, i) => ({ ...c, appearance: i + 1 }));
             }
             for (const caseRef of _cases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
             }
             n = _cases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -5699,7 +5726,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         return;
       }
       if (groupUl.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`)) return;
-      groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name));
+      groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
       n++;
       _applyGroupSortMode(_groupSortMode, _groupSortAsc);
       groupCount.textContent = groupCount.classList.contains('sort-active')

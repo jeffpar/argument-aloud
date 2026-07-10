@@ -13,13 +13,11 @@ As the U.S. Supreme Court's [website](https://www.supremecourt.gov/casedocuments
 
 > The collection here is a digitized version of the physical collection in the Supreme Court's Library and may not contain all records and briefs that were filed in a given case. This collection will be updated in the future with cases that were filed and resolved prior to 1961.
 
-Not all Original Jurisdiction cases listed on the Court's website will be found here, because they also included cases that were dismissed without being argued or decided.  While such filings can be of historical interest, they are beyond the scope of this site.
-
-More importantly, unlike the Court's website, any files associated with these cases are *always* listed with the case, regardless of which collection(s) they may also appear.  So, even when browsing a term like [October Term 1944](/courts/ussc/?term=1944-10), an Original Jurisdiction case such as [Nebraska v. Wyoming (No. 6 Orig)](/courts/ussc/?term=1944-10&case=6-Orig) will always list any related files.
+Note that, unlike the Court's website, any files associated with these cases are always listed *with* the case, regardless of any other collection(s) in which they may also appear.  So, even when browsing a term like [October Term 1944](/courts/ussc/?term=1944-10), an Original Jurisdiction case such as [Nebraska v. Wyoming (No. 6 Orig)](/courts/ussc/?term=1944-10&case=6-Orig) will always list any related files.
 
 As an aside, here's a handy table from the Court's [website](https://www.supremecourt.gov/filingandrules/rules_guidance.aspx) that explains the cover colors you'll see below:
 
-[![Booklet Format Chart](/courts/ussc/collections/orig/BookletFormatSpecificChart2026.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
+[![Booklet Format Chart](/courts/ussc/collections/orig/booklets.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
 
 <style>
 .og-heading {
@@ -203,6 +201,18 @@ html[data-theme="dark"] #og-preview-caption {
     }
   }
 
+  // The gallery is built asynchronously below (after the orig.json fetch
+  // resolves), so the browser's native "scroll to #hash on load" happens too
+  // early — the target .og-case section doesn't exist in the DOM yet. Redo it
+  // manually once the gallery is populated, and again on hashchange (parent
+  // frame re-navigating this same iframe to a different case's anchor).
+  function scrollToHashTarget() {
+    if (!location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+  window.addEventListener('hashchange', scrollToHashTarget);
+
   fetch('/courts/ussc/collections/orig.json')
     .then(function (r) { return r.json(); })
     .then(function (groups) {
@@ -215,6 +225,7 @@ html[data-theme="dark"] #og-preview-caption {
           var id = caseId(c);
           var section = document.createElement('div');
           section.className = 'og-case';
+          section.id = c.term + '--' + id;
 
           var heading = document.createElement('a');
           heading.className = 'og-case-title';
@@ -265,6 +276,8 @@ html[data-theme="dark"] #og-preview-caption {
           container.appendChild(section);
         });
       });
+
+      scrollToHashTarget();
     });
 })();
 </script>

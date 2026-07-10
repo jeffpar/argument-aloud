@@ -11,11 +11,21 @@
  *   Scans every terms/<term>/cases/<case>/files.json and downloads the href
  *   of each entry to courts/ussc/cache/terms/<term>/<case>/<filename>.
  *
+ * --thumbs mode (Original Jurisdiction Archive cover thumbnails):
+ *   For every case tagged "Original Jurisdiction Archive", renders page 1 of
+ *   each files.json PDF (via pdftoppm) as a JPEG scaled to 400px tall, saved
+ *   as courts/ussc/collections/orig/<term>/<case>/<file>.jpg — <file> is the
+ *   entry's "file" id, matching the existing hand-curated thumbnails in that
+ *   collection. Self-sufficient: downloads/caches the source PDF on demand
+ *   (same as --files) if it isn't already cached, so this is the only step
+ *   needed after fetching a case's document list via `import_ussc.js --orig`.
+ *
  * All assets are stored under courts/ussc/cache/terms/<term>/<case-number>/<filename>.
  * At the end, reports which URLs are no longer reachable.
  *
  * Usage:
  *   node scripts/download.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
+ *   node scripts/download.js [TERM [CASE]] --thumbs [--dry-run] [--refetch] [--verbose]
  *   node scripts/download.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
  *
  * Options:
@@ -23,6 +33,7 @@
  *   CASE       Docket number to limit to a single case
  *   VOLUME     Volume number or "usXXX" name to limit --justia to one volume
  *   --files    Download assets from files.json entries instead of cases.json
+ *   --thumbs   Generate Original Jurisdiction Archive cover thumbnails (requires pdftoppm)
  *   --justia   Download opinion HTML from supreme.justia.com using the index
  *              files in courts/ussc/opinions/html/usXXX.html.  Each opinion is
  *              saved as courts/ussc/opinions/html/usXXX/usXXX-NNNN.html where
@@ -42,12 +53,16 @@ import fs                from 'node:fs';
 import path              from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { pipeline }      from 'node:stream/promises';
+import { execFile }      from 'node:child_process';
+import { promisify }     from 'node:util';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT      = path.resolve(__dirname, '..');
 const TERMS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const CACHE_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
 const OPINIONS_HTML  = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
+const ORIG_COLLECTION_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'orig');
+const _execFile = promisify(execFile);
 const PW_PROFILE_DIR = path.join(REPO_ROOT, '.playwright-profile');
 const JUSTIA_BASE    = 'https://supreme.justia.com';
 
@@ -401,6 +416,121 @@ async function processTermFilesMode(term, caseFilter, opts) {
     }
 }
 
+// ── Original Jurisdiction Archive thumbnails ───────────────────────────────────
+//
+// For every case tagged "Original Jurisdiction Archive", render page 1 of each
+// cached files.json PDF as a JPEG (height 400px, width proportional — matching
+// the existing hand-curated thumbnails under courts/ussc/collections/orig/),
+// stored at courts/ussc/collections/orig/<term>/<caseId>/<file>.jpg, where
+// <file> is the entry's "file" id from files.json (not derived from the URL).
+
+async function _generateThumbnail(pdfPath, outputJpgPath) {
+    const prefix = outputJpgPath.slice(0, -4); // strip ".jpg"
+    const dir    = path.dirname(prefix);
+    const base   = path.basename(prefix);
+    ensureDir(dir);
+    try {
+        await _execFile('pdftoppm', [
+            '-jpeg', '-f', '1', '-l', '1',
+            '-scale-to-y', '400', '-scale-to-x', '-1',
+            pdfPath, prefix,
+        ], { timeout: 60000 });
+        // pdftoppm names the output <prefix>-N.jpg (padding width depends on -l).
+        const created = fs.readdirSync(dir).find(f => f.startsWith(base + '-') && f.endsWith('.jpg'));
+        if (created) {
+            const tmp = path.join(dir, created);
+            if (tmp !== outputJpgPath) fs.renameSync(tmp, outputJpgPath);
+            return true;
+        }
+    } catch (e) {
+        console.log(`  Warning: pdftoppm failed for ${path.basename(pdfPath)}: ${e.message || e}`);
+    }
+    return false;
+}
+
+async function processThumbsForCase(term, caseId, opts) {
+    const filesJsonPath = path.join(TERMS_DIR, term, 'cases', caseId, 'files.json');
+    if (!exists(filesJsonPath)) return;
+
+    let entries;
+    try { entries = readJson(filesJsonPath); } catch { return; }
+
+    const cacheDir = path.join(CACHE_DIR, term, caseId);
+
+    for (let i = 0; i < entries.length; i += CONCURRENCY) {
+        const batch = entries.slice(i, i + CONCURRENCY);
+        await Promise.all(batch.map(e => processThumbEntry(e, term, caseId, cacheDir, opts)));
+    }
+}
+
+async function processThumbEntry(e, term, caseId, cacheDir, opts) {
+    if (!e.href || e.file == null) return;
+
+    const outJpg = path.join(ORIG_COLLECTION_DIR, term, caseId, `${e.file}.jpg`);
+    if (!opts.force && exists(outJpg)) {
+        if (opts.verbose) console.log(`  skip  ${relRepo(outJpg)}`);
+        results.skipped++;
+        return;
+    }
+
+    // Ensure the PDF is cached locally, downloading it on demand if not
+    // (mirrors --files mode, so --thumbs doesn't require a separate pass).
+    const cleanUrl = stripFragment(e.href);
+    const pdfPath  = path.join(cacheDir, filenameFromUrl(cleanUrl));
+    if (!exists(pdfPath)) {
+        if (!opts.force && isSkipped(cacheDir, cleanUrl)) {
+            results.skipped++;
+            await sleep(DELAY_MS);
+            return;
+        }
+        const outcome = await downloadAsset(cleanUrl, pdfPath, opts);
+        if (typeof outcome === 'object' && outcome.status === 'failed') {
+            results.failed++;
+            results.missing.push({ term, caseKey: caseId, url: cleanUrl, reason: outcome.reason });
+            console.log(`  FAIL  ${cleanUrl}  (${outcome.reason})`);
+            if (outcome.permanent && !opts.dryRun) markSkipped(cacheDir, cleanUrl);
+            await sleep(DELAY_MS);
+            return;
+        }
+        await sleep(DELAY_MS);
+    }
+
+    if (opts.dryRun) {
+        console.log(`  ${relRepo(pdfPath)}\n    → ${relRepo(outJpg)}  [dry-run]`);
+        results.downloaded++;
+        return;
+    }
+
+    console.log(`  ${relRepo(pdfPath)}\n    → ${relRepo(outJpg)}`);
+    const ok = await _generateThumbnail(pdfPath, outJpg);
+    if (ok) results.downloaded++; else results.failed++;
+}
+
+async function processTermThumbsMode(term, caseFilter, opts) {
+    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+    if (!exists(casesPath)) return;
+
+    let cases;
+    try { cases = readJson(casesPath); } catch { return; }
+
+    const targets = [];
+    for (const c of cases) {
+        if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) continue;
+        const nums   = (c.number || '').split(',').map(s => s.trim());
+        const caseId = nums.find(n => /^\d+-Orig$/i.test(n));
+        if (!caseId) continue;
+        if (caseFilter && caseId !== caseFilter) continue;
+        targets.push(caseId);
+    }
+    if (!targets.length) return;
+
+    console.log(`\n── ${term} (${targets.length} Original Jurisdiction Archive case(s)) ──`);
+    for (const caseId of targets.sort()) {
+        if (opts.verbose) console.log(`\n[${term}/${caseId}]`);
+        await processThumbsForCase(term, caseId, opts);
+    }
+}
+
 // ── Justia volume-index mode ──────────────────────────────────────────────────
 
 /**
@@ -746,6 +876,7 @@ async function main() {
     const args   = argv.filter(a => !a.startsWith('--'));
 
     const filesMode  = flags.has('--files');
+    const thumbsMode = flags.has('--thumbs');
     const justiaMode = flags.has('--justia');
     const dryRun     = flags.has('--dry-run');
     const force      = flags.has('--refetch');
@@ -843,12 +974,15 @@ async function main() {
     }
 
     if (dryRun) console.log('[dry-run mode — no files will be written]');
-    if (filesMode) console.log('[files mode — downloading files.json assets]');
+    if (filesMode)  console.log('[files mode — downloading files.json assets]');
+    if (thumbsMode) console.log('[thumbs mode — generating Original Jurisdiction Archive thumbnails]');
 
     const startTime = Date.now();
 
     for (const term of terms) {
-        await (filesMode ? processTermFilesMode(term, caseArg, opts) : processTerm(term, caseArg, opts));
+        if (thumbsMode)     await processTermThumbsMode(term, caseArg, opts);
+        else if (filesMode) await processTermFilesMode(term, caseArg, opts);
+        else                await processTerm(term, caseArg, opts);
     }
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

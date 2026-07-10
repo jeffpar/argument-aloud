@@ -42,6 +42,47 @@ There is still more work to do in terms of producing a complete and accurate lis
 
   - Happily, the U.S. Supreme Court continues to "up its game" and now provides online copies of all [U.S. Reports Volumes](https://www.supremecourt.gov/opinions/USReports.aspx), so that may prove to be a better, more reliable source going forward.  We will need to add a process for converting all `opinion_href` links to the correct page within those PDFs.  Unfortunately, some of the (earlier) volumes have unusual page numbering (eg, in [Volume 6](https://www.supremecourt.gov/pdfs/USReports/USREPORTS-6_PDFA.pdf), page numbers such as 12 and 15 are skipped).
 
+  - Complete the Original Jurisdiction Archive. The [Court](https://www.supremecourt.gov/casedocuments/original_jurisdiction_cases.aspx) lists 147 numbered original-jurisdiction cases (Nos. 1–147, Orig., spanning 1922–2016). The remaining cases are listed below.
+
+| No. | Case | Year | Docs on SCOTUS page |
+|---|---|---|---|
+| 104 | New Jersey v. Nevada | 1985 | 5 |
+| 107 | Michigan v. Meese | 1986 | 3 |
+| 110 | Matter of Republic of Suriname ex Rel. Boerenveen | 1987 | 3 |
+| 116 | Alabama v. W.R. Grace & Co. | 1990 | 12 |
+| 119 | Connecticut v. New Hampshire | 1991 | 19 |
+| 123 | Corrinet v. Boutros Ghali | 1995 | 2 |
+| 124 | Collins v. Alabama | 1996 | 1 |
+| 125 | Republic of Paraguay v. Gilmore | 1998 | 7 |
+| 131 | SE Interstate Low-Level Radioactive Waste v. North Carolina | 2000 | 5 |
+| 135 | Texas v. Leavitt | 2006 | 6 |
+| 136 | Brzak v. United Nations | 2006 | 1 |
+| 139 | Mississippi v. City of Memphis, Tenn., Memphis Light, Gas & Water Div. | 2009 | 5 |
+| 140 | Louisiana v. Bryson | 2011 | 7 |
+| 144 | Nebraska v. Colorado | 2014 | 7 |
+| 146 | Arkansas v. Delaware | 2016 | 34 |
+
+  The workflow to integrate new Original Jurisdiction Archive cases:
+
+```
+node scripts/import_ussc.js --orig
+node scripts/download.js TERM CASE --thumbs
+node scripts/update_cases.js --collections
+```
+
+  - There are some cases with no citation (and media files to display) and are thus currently "hidden" from view.  We need to track down citations for the following.
+
+| Term | Number | Title | Decision |
+|---|---|---|---|
+| 1864-12 | 5-Orig | ex parte Milwaukie and Minnesota Railroad Company | 1865-02-20 |
+| 1869-12 | 281 | Hartford Fire Insurance Company v. Issac Van Duzer | 1870-04-25 |
+| 1872-12 | (none) | Barnes v. The Railroads | 1873-04-28 |
+| 1878-10 | 239 | The First National Bank of The City of New York v. Abner C. Shoemaker | 1878-12-16 |
+| 1879-10 | 174 | Edwin C. Litchfield v. County of Hamilton | 1880-03-08 |
+| 1879-10 | (none) | Railroad Co. v. Alabama | 1880-05-10 |
+| 1882-10 | 1151 | The Union Trust Company of New York v. Edward Fitzgerald | 1883-03-12 |
+| 1883-10 | 138 | Cook v. Sandusky Tool Company | 1884-01-21 |
+
 ## Command-Line Examples
 
 Adding missing cases:
@@ -51,6 +92,8 @@ Adding missing cases:
 `node scripts/update_cases.js 1952-10 --add "Ward v. United States" --number 390 --argument 1953-01-13 --decision 1953-02-02 --cite 344 U.S. 924 --votes 9-0 win --petitioner John M. Coe --petitioner Ralph E. Powe --respondent John R. Benney`
 
 Adding votes to an existing case:
+
+`node scripts/update_cases.js 2014-10 13-10400 --votes loss` (eg, a per curiam opinion)
 
 `node scripts/update_cases.js 2025-10 25-112 --votes win 6-3 kagan --dissent alito barrett --minority thomas`
 

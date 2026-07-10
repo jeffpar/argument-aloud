@@ -2737,11 +2737,49 @@ async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase
     }
 }
 
+// Batch mode for --orig with no TERM/CASE: scan every term's cases.json for
+// entries already tagged "Original Jurisdiction Archive" (via the tagging
+// step in importOriginalJurisdictionFiles above, or added by hand) whose
+// documents haven't been fetched yet (files === false), and fetch each one.
+async function importAllMissingOriginalJurisdictionFiles() {
+    const termsRoot = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
+    const termDirs = fs.readdirSync(termsRoot).filter(d => /^\d{4}-\d{2}$/.test(d)).sort();
+
+    let processed = 0;
+    for (const term of termDirs) {
+        const casesPath = path.join(termsRoot, term, 'cases.json');
+        if (!exists(casesPath)) continue;
+
+        let cases;
+        try { cases = readJson(casesPath); } catch { continue; }
+
+        for (const c of cases) {
+            if (c.files) continue;   // documents already fetched
+            if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) continue;
+
+            const nums = (c.number || '').split(',').map(s => s.trim());
+            const caseFilter = nums.find(n => ORIG_RE.test(n));
+            if (!caseFilter) continue;
+
+            console.log(`\n${term} / ${caseFilter} (${c.title}) ...`);
+            await importOriginalJurisdictionFiles(casesPath, caseFilter);
+            processed++;
+        }
+
+        syncFilesCount(casesPath);
+    }
+
+    console.log(processed
+        ? `\nProcessed ${processed} case(s).`
+        : '\nNothing to process — every tagged case already has documents.');
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
     console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig [SOURCE] --prefix "TEXT"');
+    console.log('  node scripts/import_ussc.js --orig   (no TERM/CASE: fetch documents for every "Original Jurisdiction Archive"-tagged case that is still missing them)');
 }
 
 async function main() {
@@ -2781,6 +2819,16 @@ async function main() {
     CHECK_URLS  = flags.has('--checkurls');
     PROMPT      = flags.has('--prompt');
     setVcVerbose(VERBOSE);
+
+    // `--orig` with no TERM/CASE args: batch-scan every term for cases already
+    // tagged "Original Jurisdiction Archive" that are still missing documents
+    // (e.g. bare entries just added via `update_cases.js --add`), and fetch
+    // each one's document list in turn.
+    if (origOnly && args.length === 0) {
+        await importAllMissingOriginalJurisdictionFiles();
+        if (_rl) _rl.close();
+        return;
+    }
 
     if (args.length < 1 || args.length > 2) {
         _printUsage();

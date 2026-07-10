@@ -4891,13 +4891,35 @@ function _decisionYearOf(c) {
 }
 
 // Canonical fields _setCaseEntry itself computes — anything else found on an
-// existing collection entry (e.g. a hand-curated "gallery" array) is extra,
-// hand-added data that must be carried forward rather than dropped on rebuild.
+// existing collection entry is extra, hand-added data that must be carried
+// forward rather than dropped on rebuild.
 // 'turn' isn't set by _setCaseEntry itself, but _casesByConditions computes it
 // dynamically for fileCount/eventMatch conditions, so it's canonical too —
 // otherwise a stale value could leak in as "extra" from a prior run's group.
+// 'gallery' (the orig.json Case Gallery thumbnail list) is likewise computed
+// below, not hand-curated — see _buildOrigGallery.
 const _CASE_ENTRY_FIELDS = new Set(
-    ['title', 'term', 'number', 'argument', 'reargument', 'decision', 'files', 'event', 'transcript', 'turn']);
+    ['title', 'term', 'number', 'argument', 'reargument', 'decision', 'files', 'event', 'transcript', 'turn', 'gallery']);
+
+// For a case tagged "Original Jurisdiction Archive", build the orig.json
+// "gallery" array ("<file id>|<href>|<title>" per files.json entry) driving
+// the thumbnail grid on courts/ussc/collections/orig/index.md. Recomputed
+// fresh on every rebuild from files.json — matching thumbnails are generated
+// separately via `download.js --thumbs` (courts/ussc/collections/orig/<term>/<case>/<file>.jpg).
+function _buildOrigGallery(c, term) {
+    if (!c.files) return null;
+    if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) return null;
+    const caseId = (c.number || '').split(',').map(s => s.trim()).find(n => /^\d+-Orig$/i.test(n));
+    if (!caseId) return null;
+    const filesPath = path.join(TERMS_DIR, term, 'cases', caseId, 'files.json');
+    let entries;
+    try { entries = _readJson(filesPath); } catch { return null; }
+    if (!Array.isArray(entries)) return null;
+    const gallery = entries
+        .filter(f => f.href && f.file != null)
+        .map(f => `${f.file}|${f.href}|${f.title || ''}`);
+    return gallery.length ? gallery : null;
+}
 
 function _setCaseEntry(c, term, extra = null) {
     const year = _decisionYearOf(c);
@@ -4914,6 +4936,9 @@ function _setCaseEntry(c, term, extra = null) {
     if (events.some(e => e.audio_href))  entry.event      = true;
     if (events.some(e => e.text_href))   entry.transcript = true;
     if (extra) Object.assign(entry, extra);
+    const gallery = _buildOrigGallery(c, term);
+    if (gallery) entry.gallery = gallery;
+    else delete entry.gallery;
     return entry;
 }
 

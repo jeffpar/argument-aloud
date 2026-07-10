@@ -5,7 +5,7 @@ justice_id: samuel_nelson
 wikipedia_url: https://en.wikipedia.org/wiki/Samuel_Nelson
 years_served: 27.8
 days_served: "10,137"
-opinions: 318
+opinions: 317
 lone_dissents: 9
 ---
 <div style="display:flex; gap:1em;">
