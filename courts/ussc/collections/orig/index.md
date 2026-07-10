@@ -13,13 +13,13 @@ As the U.S. Supreme Court's [website](https://www.supremecourt.gov/casedocuments
 
 > The collection here is a digitized version of the physical collection in the Supreme Court's Library and may not contain all records and briefs that were filed in a given case. This collection will be updated in the future with cases that were filed and resolved prior to 1961.
 
-And here's a table from the Court's [website](https://www.supremecourt.gov/filingandrules/rules_guidance.aspx) that explains the cover colors:
-
-[![Booklet Format Chart](/courts/ussc/collections/orig/BookletFormatSpecificChart2026.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
-
 Not all Original Jurisdiction cases listed on the Court's website will be found here, because they also included cases that were dismissed without being argued or decided.  While such filings can be of historical interest, they are beyond the scope of this site.
 
 More importantly, unlike the Court's website, any files associated with these cases are *always* listed with the case, regardless of which collection(s) they may also appear.  So, even when browsing a term like [October Term 1944](/courts/ussc/?term=1944-10), an Original Jurisdiction case such as [Nebraska v. Wyoming (No. 6 Orig)](/courts/ussc/?term=1944-10&case=6-Orig) will always list any related files.
+
+As an aside, here's a handy table from the Court's [website](https://www.supremecourt.gov/filingandrules/rules_guidance.aspx) that explains the cover colors you'll see below:
+
+[![Booklet Format Chart](/courts/ussc/collections/orig/BookletFormatSpecificChart2026.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
 
 <style>
 .og-heading {
