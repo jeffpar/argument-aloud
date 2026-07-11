@@ -8,7 +8,7 @@ if [ -n "$1" ]; then
     echo "Committing ${repo_name} main branch..."
     pushd ../$repo_name > /dev/null
     git add -A || exit 1
-    git commit -m "$MSG" || exit 1
+    git commit -m "$MSG" || echo "  (nothing to commit)"
     git push || exit 1
     echo
     echo "Updating ${repo_name} website branch..."
