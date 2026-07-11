@@ -5349,12 +5349,48 @@ async function _detectPageNumbers(pdfPath) {
     return pageNumbers;
 }
 
+// Find every "Reporter's Note ... purposely numbered N" marker in a volume.
+// Modern notes read "The next page is purposely numbered N" (the target page
+// follows the note); older ones (e.g. rules-amendments inserts) read "This
+// page is purposely numbered N" (the note page itself IS page N). This is far
+// more reliable than probing fixed candidate pages, since the printed page
+// number on "orders" pages is often set in the footer rather than the header,
+// and the discontinuity doesn't always land on a round hundred.
+async function _detectNoteBreakpoints(pdfPath) {
+    let stdout;
+    try {
+        ({ stdout } = await _execFile('pdftotext', [pdfPath, '-'], { timeout: 60000, maxBuffer: 1024 * 1024 * 64 }));
+    } catch {
+        return [];
+    }
+    const pages = (stdout || '').split('\f');
+    const NOTE_RE = /(This page|The next page) is purposely numbered\s+(\d{2,4})/gi;
+    const found = [];
+    for (let i = 0; i < pages.length; i++) {
+        NOTE_RE.lastIndex = 0;
+        const m = NOTE_RE.exec(pages[i]);
+        if (!m) continue;
+        const isNextPage = /next/i.test(m[1]);
+        found.push({ start: parseInt(m[2], 10), pdfPage: isNextPage ? i + 2 : i + 1 });
+    }
+    return found;
+}
+
 // Run Phase 3 (secondary breakpoint detection) given the initial PDF offset.
 // Returns { breakpoints, phase3bSearched } where breakpoints is an array of
 // {start, pdfPage} objects and phase3bSearched is true when Phase 3b ran.
 async function _detectPhase3(pdfPath, offset) {
     const breakpoints = [{ start: 1, pdfPage: offset + 1 }];
     let currentOffset = offset;
+
+    // Phase 3a-note: an explicit Reporter's Note beats any heuristic — use it
+    // whenever present and skip the fixed-candidate/binary-search fallbacks
+    // entirely (volumes can have more than one such note, e.g. a later
+    // in-chambers-opinions section after the orders section).
+    const noteBps = await _detectNoteBreakpoints(pdfPath);
+    if (noteBps.length) {
+        return { breakpoints: [...breakpoints, ...noteBps], phase3bSearched: false };
+    }
 
     // Phase 3a: try fixed candidates near the known discontinuity range.
     for (const C of [801, 901]) {

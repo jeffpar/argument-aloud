@@ -4,11 +4,13 @@ if [ -n "$1" ]; then
   MSG="$1"
   sync_to_website() {
     local repo_name="$1"
+    echo
     echo "Committing ${repo_name} main branch..."
     pushd ../$repo_name > /dev/null
     git add -A || exit 1
     git commit -m "$MSG" || exit 1
     git push || exit 1
+    echo
     echo "Updating ${repo_name} website branch..."
     git checkout website || exit 1
     git merge main --no-edit || exit 1
@@ -22,7 +24,7 @@ if [ -n "$1" ]; then
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js
-  rsync -vcrt --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
-  rsync -vcrt --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloft/courts/ussc/opinions/xml/
-  rsync -vcrt --delete --exclude=".*" assets/xsl/ ../argument-aloft/assets/xsl/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloft/courts/ussc/opinions/xml/
+  rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloft/assets/xsl/
 fi
