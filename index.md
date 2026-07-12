@@ -40,6 +40,7 @@ layout: home
   margin: 0 auto 40px;
 }
 .hp-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 18px 18px 16px;
@@ -50,6 +51,15 @@ layout: home
   color: inherit;
   cursor: pointer;
   transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+}
+/* Makes the whole card a real, crawlable/copyable link (browsers show its href
+   on hover, and "copy link"/open-in-new-tab work), while the <a> tags inside
+   .hp-card-desc still resolve to their own href — those sit above this
+   full-card overlay via z-index, everything else falls through to it. */
+.hp-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 .hp-card:hover {
   box-shadow: 0 4px 18px rgba(0,0,0,0.09);
@@ -77,6 +87,8 @@ layout: home
   margin: 0;
 }
 .hp-card-desc a {
+  position: relative;
+  z-index: 1;
   color: #2672b4;
   text-decoration: none;
 }
@@ -132,73 +144,85 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
 
 <div class="hp-grid">
 
-  <div class="hp-card" data-href="/courts/ussc/?term=all">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?term=all" aria-label="Cases"></a>
     <div class="hp-icon">⚖️</div>
     <div class="hp-card-title">Cases</div>
     <p class="hp-card-desc">Browse cases from the earliest argued case in <a href="/courts/ussc/?term=1791-08&case=1791-001">1791</a> to the <a href="/courts/ussc/?term=2025-10">Present</a>. Where available, cases include all supporting materials, and of course, the Court's final decision.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?collection=gallery">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?collection=gallery" aria-label="Justices"></a>
     <div class="hp-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:1.6rem;height:1.6rem" fill="#c8955c"><rect height="20" transform="matrix(0.7075 -0.7067 0.7067 0.7075 -5.6854 13.7194)" width="4" x="11.73" y="3.73"/><rect height="8" transform="matrix(0.707 -0.7072 0.7072 0.707 0.3157 11.246)" width="4" x="11.73" y="1.24"/><rect height="8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.1722 7.7256)" width="4" x="3.24" y="9.73"/></svg></div>
     <div class="hp-card-title">Justices</div>
     <p class="hp-card-desc">Visit a gallery of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">Years of Service</a> or <a href="/courts/ussc/?collection=gallery&sort=vocal&o=d">Hours Spoken</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">Opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">Lone Dissents</a> the justices have written.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?collection=top100_advocates">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?collection=top100_advocates" aria-label="Advocates"></a>
     <div class="hp-icon">🎙️</div>
     <div class="hp-card-title">Advocates</div>
     <p class="hp-card-desc">Survey the <a href="/courts/ussc/?collection=top100_advocates">Top 100 Advocates</a>, or all the <a href="/courts/ussc/?collection=women_advocates">Women</a> or <a href="/courts/ussc/?collection=justice_advocates">Justices</a> who have argued cases. Some have even received <a href="/courts/ussc/?collection=top100_advocates&id=edwin_s_kneedler&highlight=1">Special Recognition</a> for their service.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-109">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?term=2025-10&case=24-109" aria-label="Transcripts"></a>
     <div class="hp-icon">✏️</div>
     <div class="hp-card-title">Transcripts</div>
     <p class="hp-card-desc">Read through arguments while you listen. Correct speakers or text directly in the browser, then download your corrections for submission (see <strong>Transcripts</strong> in the menu above).</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?collection=all">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?collection=all" aria-label="Collections"></a>
     <div class="hp-icon">📚</div>
     <div class="hp-card-title">Collections</div>
     <p class="hp-card-desc">Sift through historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a>, <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>, and <a href="/courts/ussc/?collection=orig&group=1">Original Jurisdiction Cases</a>, or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?topic=all">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?topic=all" aria-label="Topics"></a>
     <div class="hp-icon">🗂️</div>
     <div class="hp-card-title">Topics</div>
     <p class="hp-card-desc">Explore cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a>, or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?term=all&find=%3F">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?term=all&find=%3F" aria-label="Searches"></a>
     <div class="hp-icon">🔍</div>
     <div class="hp-card-title">Searches</div>
     <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, <a href="/courts/ussc/?term=all&find=%23Orig">Docket</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=all&find=%22broccoli%22+scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?term=2025-10&case=24-1260&turn=369" aria-label="Links"></a>
     <div class="hp-icon">🔗</div>
     <div class="hp-card-title">Links</div>
 	<p class="hp-card-desc">Click <a href="/courts/ussc/?term=1965-10&case=759">Miranda</a> to see links to cited cases in the transcript. <strong>Tags</strong> show related cases, <strong>Speakers</strong> show other arguments, and <strong>Dates</strong> are windows onto other events.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc?collection=all">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc?collection=all" aria-label="Tags"></a>
     <div class="hp-icon">🔖</div>
     <div class="hp-card-title">Tags</div>
     <p class="hp-card-desc">Mark cases as <strong>Favorites</strong> or apply your own <strong>Tags</strong>. Export your selections at any time for safekeeping or to share. Nothing is stored remotely, everything is saved in your browser.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc?source=all">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc?source=all" aria-label="Sources"></a>
     <div class="hp-icon">🏛️</div>
     <div class="hp-card-title">Sources</div>
     <p class="hp-card-desc">Only trusted sources of data are used, starting with the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/nara">National Archives</a>, the <a href="/courts/ussc/?source=oyez">Oyez Project</a>, and other scholarly work.</p>
   </div>
 
-  <div class="hp-card" data-href="https://github.com/jeffpar/argument-aloud">
+  <div class="hp-card">
+    <a class="hp-card-link" href="https://github.com/jeffpar/argument-aloud" aria-label="Repositories"></a>
     <div class="hp-icon">🐙</div>
     <div class="hp-card-title">Repositories</div>
     <p class="hp-card-desc">This site is built from open-source repositories stored on GitHub.  Anyone is welcome to collaborate, but if you're feeling reclusive, fork it and do your own thing.</p>
   </div>
 
-  <div class="hp-card" data-href="/courts/ussc/?action=randomize&start=1955-10">
+  <div class="hp-card">
+    <a class="hp-card-link" href="/courts/ussc/?action=randomize&start=1955-10" aria-label="Surprise!"></a>
     <div class="hp-icon">🎲</div>
     <div class="hp-card-title">Surprise!</div>
     <p class="hp-card-desc">Let the dice decide &mdash; jump to a randomly selected case from anywhere in the Court&rsquo;s history. A great way to stumble across something you would never have searched for.</p>
@@ -214,11 +238,3 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
   <a href="podcast://argumentaloud.org/courts/ussc/feeds/podcast.xml">Apple Podcasts</a>
   <span class="hp-footer-sub">Questions or suggestions? <a href="mailto:admin@argumentaloud.org">Contact us</a></span>
 </p>
-
-<script>
-document.querySelectorAll('.hp-card[data-href]').forEach(card => {
-  card.addEventListener('click', e => {
-    if (!e.target.closest('a')) window.location.href = card.dataset.href;
-  });
-});
-</script>
