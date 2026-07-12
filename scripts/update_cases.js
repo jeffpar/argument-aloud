@@ -12055,7 +12055,12 @@ async function main() {
         let allTerms = [];
         try {
             const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-            allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
+            // terms.json stores decades/terms newest-first (for display); reverse to
+            // chronological (oldest-first) order to match the full-run allTerms below —
+            // collection builds use insertion order as a tie-break when cases share a
+            // sort key (e.g. two undated-argument cases), so this must stay consistent
+            // regardless of which code path computed allTerms.
+            allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
                 if (page.term) return page.term;
                 const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
                 return m ? m[1] : null;
