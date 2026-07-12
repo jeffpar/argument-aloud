@@ -1605,6 +1605,7 @@ function syncJusticePages({ verbose = false } = {}) {
 
     ensureDir(JUSTICES_ALL_DIR);
     let created = 0, updated = 0;
+    const galleryEntries = [];
 
     for (const [canonicalName, entry] of Object.entries(justicesData)) {
         const id        = makeAdvocateId(canonicalName);
@@ -1646,6 +1647,27 @@ function syncJusticePages({ verbose = false } = {}) {
         }, 0);
         const daysStr  = yrs > 0 ? Math.round(daysMs / _MS_PER_DAY).toLocaleString('en-US') : '';
         const wikiUrl  = wikiMap.get(id) || '';
+
+        // Gallery entry (skip placeholder entries like "Unknown Justice" that
+        // carry no known tenure start date).
+        const galleryDateStart = tenures[0]?.dateStart || '';
+        if (galleryDateStart) {
+            const galleryEntry = {
+                id,
+                name: properCase(canonicalName),
+                dateStart: galleryDateStart,
+                dateStop: isActive ? '' : (tenures.at(-1)?.dateStop || ''),
+                yearsServed: Math.round(yrs * 10000) / 10000,
+                hasOp: opCount > 0,
+            };
+            if (loneCount) galleryEntry.loneDissents = loneCount;
+            if (vocalSecs) galleryEntry.vocalSecs = vocalSecs;
+            galleryEntry.page = `/courts/ussc/people/justices/all/${id}`;
+            galleryEntry.cases = [];
+            if (wikiUrl) galleryEntry.wikipedia = wikiUrl;
+            galleryEntry.title = isChief ? 'Chief Justice' : 'Justice';
+            galleryEntries.push(galleryEntry);
+        }
 
         const body = _justiceBody(servedBase);
 
@@ -1718,6 +1740,17 @@ function syncJusticePages({ verbose = false } = {}) {
     } else {
         console.log('Justice pages: all up to date');
     }
+
+    // Rebuild the Justice Gallery index (courts/ussc/collections/gallery/index.md
+    // fetches this directly) so it stays in sync with opinions/lone-dissent/vocal
+    // stats instead of drifting stale.
+    galleryEntries.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+    const galleryFile = path.join(justicesBase, 'gallery.json');
+    const galleryChanged = !exists(galleryFile) || readText(galleryFile) !== JSON.stringify(galleryEntries, null, 2) + '\n';
+    writeJson(galleryFile, galleryEntries);
+    console.log(galleryChanged
+        ? `Justice gallery: updated (${galleryEntries.length} entries)`
+        : 'Justice gallery: all up to date');
 }
 
 // ── Bulk advocate sync (exported for use by update_cases.js) ─────────────────
