@@ -9039,6 +9039,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
        node update_cases.js --feeds [--verbose]                # rebuild courts/ussc/feeds/ (podcast RSS)
+       node update_cases.js --sitemap [--dry-run]              # rebuild courts/ussc/sitemap.xml
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -9109,7 +9110,11 @@ Examples:
 
   # Podcast feeds: one RSS feed per term, plus a combined "podcast.xml" (seasons = terms)
   node update_cases.js --feeds
-  node update_cases.js --feeds --dry-run`;
+  node update_cases.js --feeds --dry-run
+
+  # Sitemap: one <url> per case/term/collection/topic, for search-engine discovery
+  node update_cases.js --sitemap
+  node update_cases.js --sitemap --dry-run`;
 
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -11833,6 +11838,101 @@ function runGenerateFeeds(dryRun) {
         + `(${perTermEpisodes.length} term(s), ${totalEpisodes} episode(s) total) → courts/ussc/feeds/`);
 }
 
+// =====================================================================
+// Sitemap: courts/ussc/sitemap.xml (--sitemap)
+// =====================================================================
+//
+// Every case/term/collection "page" on this site is really one static HTML
+// shell (courts/ussc/index.html) whose content is resolved entirely
+// client-side from URL query params, so search engines have no way to
+// discover the ~29,000 individual case URLs short of an explicit sitemap.
+// Lists one <url> per case (?term=X&case=Y, using the case's own unique
+// "id" so consolidated/shared docket numbers can't collide), per term
+// (?term=X), and per collection/topic (?collection=X / ?topic=X), plus the
+// site root and the SPA entry point. Fully derived from cases.json/
+// collections.json/topics.json — no network access needed.
+
+const SITEMAP_PATH = path.join(REPO_ROOT, 'courts', 'ussc', 'sitemap.xml');
+// The sitemap protocol caps a single file at 50,000 URLs/50MB — warn well
+// before that so a future growth spurt doesn't silently produce a truncated
+// or rejected sitemap.
+const SITEMAP_URL_WARN_THRESHOLD = 45000;
+
+function _sitemapUrlXml({ loc, lastmod }) {
+    return `  <url>\n    <loc>${_xmlEscape(loc)}</loc>${lastmod ? `\n    <lastmod>${_xmlEscape(lastmod)}</lastmod>` : ''}\n  </url>`;
+}
+
+// Walk a collections.json/topics.json-shaped registry and return every leaf
+// entry's derived collection id (its "file"/"collection" URL's basename,
+// minus ".json" — the same value _findCollectionEntry() in explorer.js
+// matches ?collection=/?topic= against) plus its display name.
+function _collectSitemapCollectionIds(entries) {
+    const out = [];
+    for (const entry of (entries || [])) {
+        if (Array.isArray(entry.collections)) {
+            out.push(..._collectSitemapCollectionIds(entry.collections));
+        } else {
+            const fileUrl = entry.file || entry.collection;
+            if (fileUrl) out.push(fileUrl.split('/').pop().replace(/\.json$/, ''));
+        }
+    }
+    return out;
+}
+
+function runGenerateSitemap(dryRun) {
+    const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+
+    const urls = [{ loc: `${FEED_SITE_URL}/` }, { loc: `${FEED_SITE_URL}/courts/ussc/` }];
+    let caseCount = 0;
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}` });
+        for (const c of termCases) {
+            // Prefer the case's own unique "id" (avoids collisions when a docket
+            // number is shared across consolidated cases); only the rare case
+            // lacking an "id" falls back to its (term-scoped) docket number.
+            const caseId = c.id || _primaryCaseNumber(c);
+            if (!caseId) continue;
+            const lastmod = c.decision || _firstDate(c.argument) || null;
+            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${encodeURIComponent(caseId)}`, lastmod });
+            caseCount++;
+        }
+    }
+
+    let collDefs = [];
+    try { collDefs = _readJson(_COLLECTIONS_REGISTRY); } catch {}
+    for (const id of _collectSitemapCollectionIds(collDefs)) {
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?collection=${encodeURIComponent(id)}` });
+    }
+    let topicDefs = [];
+    try { topicDefs = _readJson(path.join(REPO_ROOT, 'courts', 'ussc', 'topics.json')); } catch {}
+    for (const id of _collectSitemapCollectionIds(topicDefs)) {
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}` });
+    }
+
+    if (urls.length > SITEMAP_URL_WARN_THRESHOLD) {
+        console.warn(`WARNING: sitemap has ${urls.length} URLs, approaching the sitemap protocol's `
+            + `50,000-URL-per-file cap — split into a sitemap index before this grows further.`);
+    }
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n`
+        + `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
+        + urls.map(_sitemapUrlXml).join('\n')
+        + `\n</urlset>\n`;
+
+    const verb = dryRun ? 'Would write' : 'Wrote';
+    if (_textChanged(SITEMAP_PATH, xml)) {
+        if (!dryRun) _writeFileSync(SITEMAP_PATH, xml);
+        console.log(`Sitemap: ${verb} ${urls.length} URL(s) (${caseCount} case(s), ${allTerms.length} term(s)) → courts/ussc/sitemap.xml`);
+    } else if (_VERBOSE) {
+        console.log(`Sitemap: unchanged (${urls.length} URL(s)) → courts/ussc/sitemap.xml`);
+    }
+}
+
 async function main() {
     const argv = process.argv.slice(2);
     if (argv.includes('--help') || argv.includes('-h')) {
@@ -12000,6 +12100,11 @@ async function main() {
 
     if (flags.has('--feeds')) {
         runGenerateFeeds(dryRun);
+        return;
+    }
+
+    if (flags.has('--sitemap')) {
+        runGenerateSitemap(dryRun);
         return;
     }
 

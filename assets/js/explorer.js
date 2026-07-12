@@ -1273,6 +1273,48 @@ const audioCurrentTime = document.getElementById('audio-current-time');
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
+// Update document.title plus the <meta name="description"> and <link rel="canonical">
+// tags to match the view currently on screen. This SPA serves every case/term/
+// collection view from one static HTML shell (same server-rendered title/description/
+// canonical for every URL), so without this, search engines see thousands of distinct
+// URLs all pointing back to the same boilerplate canonical — which is exactly the kind
+// of duplicate-content signal that keeps deep links out of the index. Call this instead
+// of assigning document.title directly wherever a view finishes rendering.
+function setPageMeta(title, description) {
+  document.title = title;
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (!metaDesc) {
+    metaDesc = document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    document.head.appendChild(metaDesc);
+  }
+  metaDesc.setAttribute('content', description
+    || title.replace(/ \| Argument Aloud$/, '') + ' — U.S. Supreme Court oral argument audio and transcripts, from Argument Aloud.');
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', location.origin + location.pathname + location.search);
+}
+
+// First sentence (up to the first ".\n") of a case's "questions presented" text,
+// collapsed to one line — used both for the on-page summary and as a meta description.
+function questionsSummary(raw) {
+  const breakPos = raw.search(/\.\n/);
+  const firstPart = breakPos !== -1 ? raw.slice(0, breakPos + 1) : raw;
+  return firstPart.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// A case's "questions presented" make a far more useful/unique meta description than
+// the generic fallback in setPageMeta() — falls back to null (generic) when absent.
+function caseMetaDescription(caseEntry) {
+  if (!caseEntry?.questions) return null;
+  const summary = questionsSummary(caseEntry.questions);
+  return summary.length > 300 ? summary.slice(0, 297) + '…' : summary;
+}
+
 // Track page views in Google Analytics for SPA navigation
 function trackPageView(url) {
   if (typeof gtag === 'function') {
@@ -3662,7 +3704,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         const urlDeletes = ['collection', 'group', 'id', 'highlight', 'file', 'citation'];
         if (audioIdx >= 1) urlParams.event = audioIdx; else urlDeletes.push('event');
         if (initialTurn != null) urlParams.turn = initialTurn; else urlDeletes.push('turn');
-        document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
+        setPageMeta(caseTitle(caseEntry.title) + ' | Argument Aloud');
         navigate(buildUrlParams(urlParams, urlDeletes));
       } else if (!numberOverride) {
         // Normalise the URL to use the canonical urlId (the URL may have arrived
@@ -3794,7 +3836,7 @@ function buildNav(title = 'Terms', id = '') {
     isSelected: () => new URLSearchParams(location.search).get('term') === 'all',
     silentTriangleOpen: true,
     onOpen: () => {
-      document.title = title + ' | Argument Aloud';
+      setPageMeta(title + ' | Argument Aloud');
       navigate(buildUrlParams({ term: 'all' }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date', 'sort', 'o']));
       restoreFromURL();
     },
@@ -4001,7 +4043,7 @@ function buildNav(title = 'Terms', id = '') {
             { term, ...(_nonDefaultSort ? { sort: _sortMode, o: _sortAsc ? 'a' : 'd' } : {}) },
             ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', ...(_nonDefaultSort ? [] : ['sort', 'o'])],
           );
-          document.title = termDisplayName(term) + ' | Argument Aloud';
+          setPageMeta(termDisplayName(term) + ' | Argument Aloud');
           navigate(url);
         },
       });
@@ -4074,7 +4116,7 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
     isSelected: () => !!id && new URLSearchParams(location.search).get(id) === 'all',
     onOpen: () => {
       sectionLi._ensureBuilt();
-      document.title = title + ' | Argument Aloud';
+      setPageMeta(title + ' | Argument Aloud');
       _navigateToSectionAll(id);
     },
   });
@@ -4135,7 +4177,7 @@ function buildStaticNavSection(termListEl, entry) {
     li: sectionLi,
     isSelected: () => !!entry.id && new URLSearchParams(location.search).get(entry.id) === 'all',
     onOpen: () => {
-      if (entry.name) document.title = entry.name + ' | Argument Aloud';
+      if (entry.name) setPageMeta(entry.name + ' | Argument Aloud');
       _navigateToSectionAll(entry.id);
     },
   });
@@ -4182,7 +4224,7 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
   const pageTitle = [page.name, ...ancestorNames, 'Argument Aloud'].filter(Boolean).join(' | ');
 
   function openPage() {
-    document.title = pageTitle;
+    setPageMeta(pageTitle);
     if (linkUrl) showAdvocateDocument(linkUrl, pagePath, page.name || '');
     else if (pagePath) showPageViewer(pagePath);
   }
@@ -4271,10 +4313,10 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
         openPage(); // openPage() also updates document.title
       } else if (tog.contains(e.target)) {
         li.classList.toggle('open');
-        if (li.classList.contains('open')) document.title = pageTitle;
+        if (li.classList.contains('open')) setPageMeta(pageTitle);
       } else if (!li.classList.contains('open')) {
         li.classList.add('open');
-        document.title = pageTitle;
+        setPageMeta(pageTitle);
       } else if (isSelected()) {
         li.classList.remove('open');
       }
@@ -4495,7 +4537,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     collLabel.textContent = collEntry.name;
     collHeader.appendChild(collLabel);
     collHeader.addEventListener('click', () => {
-      document.title = collEntry.name + ' | Argument Aloud';
+      setPageMeta(collEntry.name + ' | Argument Aloud');
       const url = buildUrlParams(
         { link: collEntry.page },
         ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o'],
@@ -4688,7 +4730,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
       await _ensureCollectionBuilt();
       if (collEntry.page) showPageViewer(collEntry.page, { pushState: false });
       const url = buildUrlParams({ [_navParamKey]: collId }, ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'link', 'sort', 'o']);
-      document.title = (collEntry.name || collId) + ' | Argument Aloud';
+      setPageMeta((collEntry.name || collId) + ' | Argument Aloud');
       navigate(url);
     },
   });
@@ -4907,7 +4949,7 @@ async function loadHighlight(highlight) {
   titleText.textContent = highlight.title;
   span.appendChild(titleText);
 
-  document.title = highlight.title + ' | Argument Aloud';
+  setPageMeta(highlight.title + ' | Argument Aloud');
   setTopbarTerm('');
 
   playerSection.hidden = true;
@@ -5219,7 +5261,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           { [isTopic ? 'topic' : 'collection']: collId, ...groupOrId, term: caseRef.term, case: caseRef.number },
           [...deleteOther, 'highlight', 'event', 'file', 'turn', 'citation'],
         );
-        document.title = caseTitle(caseRef.title) + ' | Argument Aloud';
+        setPageMeta(caseTitle(caseRef.title) + ' | Argument Aloud');
         navigate(url);
       }
       const anchorId = caseRef.term + '--' + caseRef.number.split(',')[0].trim();
@@ -5293,7 +5335,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'citation', ...(initialTurn ? [] : ['turn'])],
       );
-      document.title = caseTitle(caseEntry.title) + ' | Argument Aloud';
+      setPageMeta(caseTitle(caseEntry.title) + ' | Argument Aloud');
       navigate(url);
     }
     await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn, numberOverride });
@@ -5786,7 +5828,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         );
         history.replaceState(null, '', url);
         await _ensureGroupCases();
-        document.title = formatSpeakerFull(group.name || '') + ' | Argument Aloud';
+        setPageMeta(formatSpeakerFull(group.name || '') + ' | Argument Aloud');
         trackPageView(location.href);
         if (_groupPage && _groupDocument) showAdvocateDocument(_groupDocument, _groupPage, group.name || '');
         else if (_groupPage) showPageViewer(_groupPage, { pushState: false });
@@ -6061,7 +6103,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // Show case title (hide audio select since there is no audio).
   setCaseTitleLabel(term, caseEntry, null, numberOverride);
   const _opSub = _subCaseForNumber(caseEntry, numberOverride);
-  document.title = (_opSub ? _opSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud';
+  setPageMeta((_opSub ? _opSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud', caseMetaDescription(caseEntry));
   const audioSelect = document.getElementById('audio-select');
   const decisionLabel = document.getElementById('decision-date-label');
 
@@ -6477,15 +6519,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const _selOptText = audioSelect.options[audioSelect.selectedIndex]?.textContent || '';
   setCaseTitleLabel(term, caseEntry, _selOptText, numberOverride);
   const _selSub = _subCaseForNumber(caseEntry, numberOverride) || _subCaseForOption(caseEntry, _selOptText);
-  document.title = (_selSub ? _selSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud';
+  setPageMeta((_selSub ? _selSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud', caseMetaDescription(caseEntry));
 
   const qEl = document.getElementById('case-questions');
   if (caseEntry.questions) {
     const raw = caseEntry.questions;
     const breakPos = raw.search(/\.\n/);
     const hasMore = breakPos !== -1;
-    const firstPart = hasMore ? raw.slice(0, breakPos + 1) : raw;
-    const firstSentence = firstPart.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+    const firstSentence = questionsSummary(raw);
 
     qEl.title = raw;
     qEl.hidden = false;
@@ -7044,7 +7085,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     const _chgOptText = e.target.options[e.target.selectedIndex]?.textContent || '';
     setCaseTitleLabel(_currentTerm, _currentCaseEntry, _chgOptText);
     const _chgSub = _subCaseForOption(_currentCaseEntry, _chgOptText);
-    document.title = (_chgSub ? _chgSub.title : caseTitle(_currentCaseEntry?.title || '')) + ' | Argument Aloud';
+    setPageMeta((_chgSub ? _chgSub.title : caseTitle(_currentCaseEntry?.title || '')) + ' | Argument Aloud', caseMetaDescription(_currentCaseEntry));
     _updateFavoriteBtn();
     if (isMobile()) {
       playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -8687,7 +8728,7 @@ async function restoreFromURL() {
       sLi.classList.add('open');
       sLi._ensureBuilt?.();
       const _sectionName = sLi.querySelector('.terms-label')?.textContent;
-      if (_sectionName) document.title = _sectionName + ' | Argument Aloud';
+      if (_sectionName) setPageMeta(_sectionName + ' | Argument Aloud');
       requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
       // Unlike term=all (which has its own stats page), these sections have no
       // dedicated landing page — show the same default page as the bare URL so
@@ -8782,7 +8823,7 @@ async function restoreFromURL() {
       if (_extra.length) _linkWithSort += '?' + _extra.join('&');
       showPageViewer(_linkWithSort, { pushState: false });
     }
-    if (collEntry?.name) document.title = collEntry.name + ' | Argument Aloud';
+    if (collEntry?.name) setPageMeta(collEntry.name + ' | Argument Aloud');
     trackPageView(location.href);
     return;
   }
@@ -8834,7 +8875,7 @@ async function restoreFromURL() {
         groupLi._activateCount?.();
         if (_parsedSort) groupLi._applySortParam?.(_parsedSort.mode, _parsedSort.asc);
         const _groupNameText = groupLi.querySelector('.month-name')?.textContent;
-        if (_groupNameText) document.title = formatSpeakerFull(_groupNameText) + ' | Argument Aloud';
+        if (_groupNameText) setPageMeta(formatSpeakerFull(_groupNameText) + ' | Argument Aloud');
         trackPageView(location.href);
         if (groupLi._groupPage && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupPage, '');
         else if (groupLi._groupPage) showPageViewer(groupLi._groupPage, { pushState: false });
@@ -9175,7 +9216,7 @@ async function restoreFromURL() {
       }
       requestAnimationFrame(() => navItem.scrollIntoView({ behavior: 'instant', block: 'center' }));
       const _navItemName = navItem.querySelector('.term-label, .terms-label')?.textContent;
-      if (_navItemName) document.title = _navItemName + ' | Argument Aloud';
+      if (_navItemName) setPageMeta(_navItemName + ' | Argument Aloud');
     }
     const _sortV = params.get('sort');
     const _sV    = params.get('s');
@@ -9190,7 +9231,7 @@ async function restoreFromURL() {
       _termsSectionLi.classList.add('open');
       requestAnimationFrame(() => _termsSectionLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
-      if (_termsName) document.title = _termsName + ' | Argument Aloud';
+      if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
     showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
   } else if (termParam) {
@@ -9215,7 +9256,7 @@ async function restoreFromURL() {
       }
       updateEmptyStateForTerm(termParam, dateParam);
       setTopbarTerm(termParam);
-      document.title = termDisplayName(termParam) + ' | Argument Aloud';
+      setPageMeta(termDisplayName(termParam) + ' | Argument Aloud');
       trackPageView(location.href);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
     }
