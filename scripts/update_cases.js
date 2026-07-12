@@ -4837,41 +4837,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
 const _COLLECTIONS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
 const _COLLECTIONS_REGISTRY = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
 const _INDEX_JSON            = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
-const _TRANSCRIPTS_PATH      = path.join(_COLLECTIONS_DIR, 'transcripts.json');
-const _BRIEFS_PATH           = path.join(_COLLECTIONS_DIR, 'briefs.json');
 const _ISSUES_PATH           = path.join(_COLLECTIONS_DIR, 'issues.json');
-
-const _TRANSCRIPTS_SET_BASENAME = 'Transcripts';
-const _BRIEFS_SET_BASENAME      = 'Briefs';
-
-// Upper-bound term year for each curated set (no lower bound: the earliest
-// term containing matching files defines the start of the range).
-const _TRANSCRIPTS_MAX_YEAR = 1967;
-const _BRIEFS_MAX_YEAR      = 1999;
-
-function _termYearAtMost(term, maxYear) {
-    const y = parseInt(String(term).split('-')[0], 10);
-    return Number.isFinite(y) && y <= maxYear;
-}
-
-// Derive a "Name (minYear-maxYear)" set name from the cases that ended up in
-// a collection, using each case's decision-year prefix from the title (the
-// browser-facing entries are already formatted like "Title (YYYY)").
-function _setNameFromCases(baseName, cases) {
-    const years = [];
-    for (const c of cases) {
-        const m = /\((\d{4})\)\s*$/.exec(c?.title || '');
-        if (m) years.push(parseInt(m[1], 10));
-        else {
-            const dy = (c?.decision || '').slice(0, 4);
-            if (/^\d{4}$/.test(dy)) years.push(parseInt(dy, 10));
-        }
-    }
-    if (!years.length) return baseName;
-    const lo = Math.min(...years);
-    const hi = Math.max(...years);
-    return lo === hi ? `${baseName} (${lo})` : `${baseName} (${lo}-${hi})`;
-}
 
 function _firstDate(s) {
     if (!s) return '';
@@ -4965,78 +4931,6 @@ function _loadExtraFieldsByKey(filePath) {
         }
     }
     return map;
-}
-
-// Find LD-source argument events and build the transcripts collection.
-// Rebuilt fully from cases.json on every run (like _casesByTags below), so
-// canonical fields (event/transcript/etc.) always reflect current case data;
-// any hand-added extra fields on existing entries are carried forward.
-function _buildTranscriptsCollection(allTerms) {
-    const extraByKey = _loadExtraFieldsByKey(_TRANSCRIPTS_PATH);
-    const cases = [];
-    for (const term of allTerms) {
-        if (!_termYearAtMost(term, _TRANSCRIPTS_MAX_YEAR)) continue;
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
-        if (!fs.existsSync(casesPath)) continue;
-        let termCases;
-        try { termCases = _readJson(casesPath); } catch { continue; }
-        if (!Array.isArray(termCases)) continue;
-        for (const c of termCases) {
-            if (!Array.isArray(c.events)) continue;
-            const hasLd = c.events.some(e =>
-                e && typeof e === 'object'
-                && (e.type === 'argument' || e.type === 'reargument')
-                && (e.source === 'ld'
-                    || /^https?:\/\/(?:[\w-]+\.)*lonedissent\.org\//i.test(String(e.transcript_href || ''))));
-            if (!hasLd) continue;
-            const num = (c.number || c.id || '').split(',')[0].trim();
-            const key = `${term}\u0000${num}`;
-            cases.push(_setCaseEntry(c, term, extraByKey.get(key)));
-        }
-    }
-    cases.sort((a, b) =>
-        (a.term      || '').localeCompare(b.term      || '') ||
-        (a.argument  || '').localeCompare(b.argument  || '') ||
-        (a.decision  || '').localeCompare(b.decision  || '') ||
-        (a.title     || '').localeCompare(b.title     || ''));
-    return [{ name: _setNameFromCases(_TRANSCRIPTS_SET_BASENAME, cases), cases }];
-}
-
-// Find cases that have a files.json with at least one brief entry; build
-// the briefs collection. Rebuilt fully from cases.json on every run (like
-// _casesByTags below), so canonical fields (event/transcript/etc.) always
-// reflect current case data; any hand-added extra fields are carried forward.
-function _buildBriefsCollection(allTerms) {
-    const extraByKey = _loadExtraFieldsByKey(_BRIEFS_PATH);
-    const cases = [];
-    for (const term of allTerms) {
-        if (!_termYearAtMost(term, _BRIEFS_MAX_YEAR)) continue;
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
-        if (!fs.existsSync(casesPath)) continue;
-        let termCases;
-        try { termCases = _readJson(casesPath); } catch { continue; }
-        if (!Array.isArray(termCases)) continue;
-        const termCasesDir = path.join(TERMS_DIR, term, 'cases');
-        for (const c of termCases) {
-            const folder = (c.number || c.id || '').split(',')[0].trim();
-            if (!folder) continue;
-            const filesPath = path.join(termCasesDir, folder, 'files.json');
-            if (!fs.existsSync(filesPath)) continue;
-            let files;
-            try { files = _readJson(filesPath); } catch { continue; }
-            if (!Array.isArray(files) || !files.length) continue;
-            const hasBrief = files.some(f => f && typeof f === 'object'
-                && /^https?:\/\/briefs\d*\.lonedissent\.org\//i.test(String(f.href || '')));
-            if (!hasBrief) continue;
-            const key = `${term}\u0000${folder}`;
-            cases.push(_setCaseEntry(c, term, extraByKey.get(key)));
-        }
-    }
-    cases.sort((a, b) =>
-        (a.decision || a.argument || '').localeCompare(b.decision || b.argument || '') ||
-        (a.term  || '').localeCompare(b.term  || '') ||
-        (a.title || '').localeCompare(b.title || ''));
-    return [{ name: _setNameFromCases(_BRIEFS_SET_BASENAME, cases), cases }];
 }
 
 // ---- noteworthy (deck CSV) helpers ---------------------------------
@@ -6266,6 +6160,23 @@ function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, or
 // group's required "tags" list. This lets collections.json express "one group
 // per topic tag, for every case tagged Noteworthy" without enumerating every
 // topic in advance.
+//
+// A group/collection "name" may also contain "$first_decision_year" and/or
+// "$last_decision_year" placeholders, replaced with the min/max decision year
+// across that group's cases — e.g. "Briefs ($first_decision_year-$last_decision_year)"
+// stays accurate as cases are added without hand-editing collections.json.
+function _expandGroupName(name, cases) {
+    if (typeof name !== 'string' || !/\$(first|last)_decision_year/.test(name)) return name;
+    const years = cases
+        .map(c => (c?.decision || '').slice(0, 4))
+        .filter(y => /^\d{4}$/.test(y))
+        .map(Number);
+    if (!years.length) return name;
+    const first = Math.min(...years);
+    const last = Math.max(...years);
+    return name.replace(/\$first_decision_year/g, first).replace(/\$last_decision_year/g, last);
+}
+
 function _buildTagsCollection(allTerms, collEntry, filePath = null) {
     // Carry forward any hand-added per-case fields (e.g. "gallery") from the
     // collection's existing output, since every branch below rebuilds case
@@ -6277,7 +6188,10 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
             const requiredTags = Array.isArray(g.tags) && g.tags.length ? g.tags : [];
             if ((g.name ?? g.title) === '*') {
                 // Fan-out: one group per unique non-required tag on matching cases.
+                // "excludeTags" additionally omits tags that aren't real topic
+                // categories (e.g. media-availability tags like "Historical Briefs").
                 const filter = g.decision ? { decision: g.decision } : {};
+                const excludeTags = Array.isArray(g.excludeTags) ? g.excludeTags : [];
                 const fanOut = new Map(); // tag name -> [entry, ...]
                 for (const term of allTerms) {
                     const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -6292,7 +6206,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                         const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
                         const entry = _setCaseEntry(c, term, extraByKey?.get(key));
                         for (const tag of c.tags) {
-                            if (requiredTags.includes(tag)) continue;
+                            if (requiredTags.includes(tag) || excludeTags.includes(tag)) continue;
                             if (!fanOut.has(tag)) fanOut.set(tag, []);
                             fanOut.get(tag).push(entry);
                         }
@@ -6319,19 +6233,19 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                 } else {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder) : [];
                 }
-                output.push({ name: g.name || g.title || '', cases });
+                const name = g.name || g.title || '';
+                output.push({ name: _expandGroupName(name, cases), cases });
             }
         }
         return output;
     }
     // Flat (single-group) form.
-    return [{ name: collEntry.name ?? collEntry.title ?? '', cases: _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey, collEntry.order || null) }];
+    const name = collEntry.name ?? collEntry.title ?? '';
+    const cases = _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey, collEntry.order || null);
+    return [{ name: _expandGroupName(name, cases), cases }];
 }
 
 function processCollectionSets(allTerms, dryRun) {
-    const transcripts = _buildTranscriptsCollection(allTerms);
-    const briefs      = _buildBriefsCollection(allTerms);
-
     // Tags/conditions-based collections: walk index.json to discover all
     // collection-definition files (collections.json, topics.json, etc.), then
     // find all leaf entries with 'tags' or 'groups' and build each one.
@@ -6354,23 +6268,13 @@ function processCollectionSets(allTerms, dryRun) {
         }
     }
 
-    const tCount = transcripts[0].cases.length;
-    const bCount = briefs[0].cases.length;
-
-    const tChanged = _jsonChanged(_TRANSCRIPTS_PATH, transcripts);
-    const bChanged = _jsonChanged(_BRIEFS_PATH, briefs);
-
     const verb = dryRun ? 'Would write' : 'Wrote';
     if (!dryRun) {
         _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
-        if (tChanged) _writeJson(_TRANSCRIPTS_PATH, transcripts);
-        if (bChanged) _writeJson(_BRIEFS_PATH,      briefs);
         for (const { filePath, output } of taggedCollections) {
             if (_jsonChanged(filePath, output)) _writeJson(filePath, output);
         }
     }
-    if (_VERBOSE || tChanged) console.log(`Transcripts: ${verb} ${tCount} case(s) → courts/ussc/collections/transcripts.json`);
-    if (_VERBOSE || bChanged) console.log(`Briefs:      ${verb} ${bCount} case(s) → courts/ussc/collections/briefs.json`);
     for (const { collEntry, filePath, output } of taggedCollections) {
         const changed = _jsonChanged(filePath, output);
         const count = output.reduce((s, g) => s + (g.cases?.length ?? 0), 0);

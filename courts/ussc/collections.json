@@ -23,7 +23,7 @@
         "page": "/courts/ussc/collections/opinions",
         "order": "decision:ascending",
         "search": "name",
-        "pageLabel": "justices"
+        "scrollLabel": "justices"
       },
       {
         "name": "Lone Dissents",
@@ -32,7 +32,7 @@
         "page": "/courts/ussc/collections/lone",
         "order": "decision:ascending",
         "search": "name",
-        "pageLabel": "justices"
+        "scrollLabel": "justices"
       },
       {
         "name": "Oral Dissents",
@@ -47,7 +47,7 @@
         "page": "/courts/ussc/collections/vocal",
         "order": "hours:descending",
         "search": "name",
-        "pageLabel": "justices"
+        "scrollLabel": "justices"
       }
     ]
   },
@@ -61,7 +61,7 @@
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates",
+        "scrollLabel": "advocates",
         "hidden": false
       },
       {
@@ -71,7 +71,7 @@
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates"
+        "scrollLabel": "advocates"
       },
       {
         "name": "Top 21st Century Advocates",
@@ -81,7 +81,7 @@
         "minTerm": "2000-10",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates"
+        "scrollLabel": "advocates"
       },
       {
         "name": "Justice Advocates",
@@ -89,7 +89,7 @@
         "page": "/courts/ussc/people/advocates/justice",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates"
+        "scrollLabel": "advocates"
       },
       {
         "name": "Women Advocates",
@@ -98,7 +98,7 @@
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates"
+        "scrollLabel": "advocates"
       },
       {
         "name": "Transgender Advocates",
@@ -106,66 +106,145 @@
         "folder": "/courts/ussc/people/advocates/all",
         "order": "argument:descending",
         "search": "name",
-        "pageLabel": "advocates"
+        "scrollLabel": "advocates"
       }
     ]
   },
   {
-    "name": "Historical Briefs",
-    "file": "/courts/ussc/collections/briefs.json",
-    "search": "cases:title",
-    "order": "argument:ascending"
-  },
-  {
-    "name": "Historical Transcripts",
-    "file": "/courts/ussc/collections/transcripts.json",
-    "search": "cases:title",
-    "order": "argument:ascending"
-  },
-  {
-    "name": "Media Files",
-    "file": "/courts/ussc/collections/media.json",
-    "page": "/courts/ussc/collections/media",
-    "groups": [
-      {
-        "name": "Audio Files",
-        "conditions": [
-          "COUNT(file.type == 'mp3') > 0"
-        ],
-        "order": "decision:ascending"
-      },
-      {
-        "name": "Video Files",
-        "conditions": [
-          "COUNT(file.type == 'mp4') > 0"
-        ],
-        "order": "decision:ascending"
-      }
-    ],
-    "search": "cases:title"
-  },
-  {
-    "name": "Opinions",
+    "name": "Historical",
     "collections": [
       {
-        "name": "Top Cited Opinions",
+        "name": "Briefs",
+        "file": "/courts/ussc/collections/briefs.json",
+        "search": "cases:title",
+        "order": "argument:ascending",
+        "groups": [
+          {
+            "name": "Briefs ($first_decision_year-$last_decision_year)",
+            "tags": ["Historical Briefs"]
+          }
+        ]
+      },
+      {
+        "name": "Media Files",
+        "file": "/courts/ussc/collections/media.json",
+        "page": "/courts/ussc/collections/media",
+        "groups": [
+          {
+            "name": "Audio Files",
+            "conditions": [
+              "COUNT(file.type == 'mp3') > 0"
+            ],
+            "order": "decision:ascending"
+          },
+          {
+            "name": "Video Files",
+            "conditions": [
+              "COUNT(file.type == 'mp4') > 0"
+            ],
+            "order": "decision:ascending"
+          }
+        ],
+        "search": "cases:title"
+      },
+      {
+        "name": "Original Jurisdiction",
+        "file": "/courts/ussc/collections/orig.json",
+        "page": "/courts/ussc/collections/orig",
+        "scrollToPage": true,
+        "groups": [
+          {
+            "name": "Archive",
+            "tags": ["Original Jurisdiction Archive"]
+          }
+        ],
+        "search": "cases:title"
+      },
+      {
+        "name": "Top Cites",
         "file": "/courts/ussc/collections/top_cites.json",
         "search": "name",
-        "pageLabel": "opinions"
+        "scrollLabel": "opinions"
+      },
+      {
+        "name": "Transcripts",
+        "file": "/courts/ussc/collections/transcripts.json",
+        "search": "cases:title",
+        "order": "argument:ascending",
+        "groups": [
+          {
+            "name": "Transcripts ($first_decision_year-$last_decision_year)",
+            "tags": ["Historical Transcripts"]
+          }
+        ]
       }
     ]
   },
   {
-    "name": "Original Jurisdiction",
-    "file": "/courts/ussc/collections/orig.json",
-    "page": "/courts/ussc/collections/orig",
-    "scrollToPage": true,
+    "name": "Greatest Hits",
+    "file": "/courts/ussc/collections/scgh.json",
+    "page": "/courts/ussc/collections/scgh",
     "groups": [
       {
-        "name": "Archive",
-        "tags": ["Original Jurisdiction Archive"]
+        "name": "Commerce",
+        "tags": ["SCGH:Commerce"]
+      },
+      {
+        "name": "Federalism",
+        "tags": ["SCGH:Federalism"]
+      },
+      {
+        "name": "Freedom of Religion",
+        "tags": ["SCGH:Freedom of Religion"]
+      },
+      {
+        "name": "Freedom of Speech",
+        "tags": ["SCGH:Freedom of Speech"]
+      },
+      {
+        "name": "Freedom of the Press",
+        "tags": ["SCGH:Freedom of the Press"]
+      },
+      {
+        "name": "Gender Discrimination",
+        "tags": ["SCGH:Gender Discrimination"]
+      },
+      {
+        "name": "Political Participation",
+        "tags": ["SCGH:Political Participation"]
+      },
+      {
+        "name": "Privacy and Personal Autonomy",
+        "tags": ["SCGH:Privacy and Personal Autonomy"]
+      },
+      {
+        "name": "Privileges and Immunities",
+        "tags": ["SCGH:Privileges and Immunities"]
+      },
+      {
+        "name": "Racial Discrimination",
+        "tags": ["SCGH:Racial Discrimination"]
+      },
+      {
+        "name": "Rights of the Accused",
+        "tags": ["SCGH:Rights of the Accused"]
+      },
+      {
+        "name": "Search and Seizure",
+        "tags": ["SCGH:Search and Seizure"]
+      },
+      {
+        "name": "Separation of Powers",
+        "tags": ["SCGH:Separation of Powers"]
       }
     ]
+  },
+  {
+    "name": "Rarest Words",
+    "file": "/courts/ussc/collections/rare_words.json",
+    "page": "/courts/ussc/collections/rare",
+    "search": "name",
+    "scrollLabel": "words"
   },
   {
     "name": "Outstanding Issues",
@@ -228,71 +307,5 @@
       }
     ],
     "search": "cases:title"
-  },
-  {
-    "name": "Greatest Hits",
-    "file": "/courts/ussc/collections/scgh.json",
-    "page": "/courts/ussc/collections/scgh",
-    "groups": [
-      {
-        "name": "Commerce",
-        "tags": ["SCGH:Commerce"]
-      },
-      {
-        "name": "Federalism",
-        "tags": ["SCGH:Federalism"]
-      },
-      {
-        "name": "Freedom of Religion",
-        "tags": ["SCGH:Freedom of Religion"]
-      },
-      {
-        "name": "Freedom of Speech",
-        "tags": ["SCGH:Freedom of Speech"]
-      },
-      {
-        "name": "Freedom of the Press",
-        "tags": ["SCGH:Freedom of the Press"]
-      },
-      {
-        "name": "Gender Discrimination",
-        "tags": ["SCGH:Gender Discrimination"]
-      },
-      {
-        "name": "Political Participation",
-        "tags": ["SCGH:Political Participation"]
-      },
-      {
-        "name": "Privacy and Personal Autonomy",
-        "tags": ["SCGH:Privacy and Personal Autonomy"]
-      },
-      {
-        "name": "Privileges and Immunities",
-        "tags": ["SCGH:Privileges and Immunities"]
-      },
-      {
-        "name": "Racial Discrimination",
-        "tags": ["SCGH:Racial Discrimination"]
-      },
-      {
-        "name": "Rights of the Accused",
-        "tags": ["SCGH:Rights of the Accused"]
-      },
-      {
-        "name": "Search and Seizure",
-        "tags": ["SCGH:Search and Seizure"]
-      },
-      {
-        "name": "Separation of Powers",
-        "tags": ["SCGH:Separation of Powers"]
-      }
-    ]
-  },
-  {
-    "name": "Rarest Spoken Words",
-    "file": "/courts/ussc/collections/rare_words.json",
-    "page": "/courts/ussc/collections/rare",
-    "search": "name",
-    "pageLabel": "words"
   }
 ]

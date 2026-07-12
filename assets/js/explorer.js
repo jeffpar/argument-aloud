@@ -4613,7 +4613,7 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   // chunk:N uses N as the page size. Omitted or non-number defaults to 20.
   const COLL_PAGE_SIZE = (() => { const c = collEntry.chunk; return (typeof c === 'number') ? (c === 0 ? Infinity : c) : 20; })();
   const COLL_HALF_PAGE = COLL_PAGE_SIZE >> 1;
-  const _collItemLabel = collEntry.pageLabel || 'items';
+  const _collItemLabel = collEntry.scrollLabel || 'items';
   let _collPageStart = 0;
   let _collAllGroups = [];
   let _collSearchActive = false;
