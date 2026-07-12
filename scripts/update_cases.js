@@ -11882,7 +11882,14 @@ function _collectSitemapCollectionIds(entries) {
 function runGenerateSitemap(dryRun) {
     const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
 
-    const urls = [{ loc: `${FEED_SITE_URL}/` }, { loc: `${FEED_SITE_URL}/courts/ussc/` }];
+    // Case "decision"/"argument" dates are frequently partial (many pre-20th-century
+    // cases only record "YYYY-MM", no day) or otherwise inconsistent, which trips up
+    // Google's sitemap date validator ("An invalid date was found"). lastmod is just a
+    // freshness hint, not load-bearing metadata, so stamp every entry with today's
+    // (build) date instead of trying to derive/validate a per-case date.
+    const buildDate = new Date().toISOString().slice(0, 10);
+
+    const urls = [{ loc: `${FEED_SITE_URL}/`, lastmod: buildDate }, { loc: `${FEED_SITE_URL}/courts/ussc/`, lastmod: buildDate }];
     let caseCount = 0;
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -11890,15 +11897,14 @@ function runGenerateSitemap(dryRun) {
         let termCases;
         try { termCases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(termCases)) continue;
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}` });
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}`, lastmod: buildDate });
         for (const c of termCases) {
             // Prefer the case's own unique "id" (avoids collisions when a docket
             // number is shared across consolidated cases); only the rare case
             // lacking an "id" falls back to its (term-scoped) docket number.
             const caseId = c.id || _primaryCaseNumber(c);
             if (!caseId) continue;
-            const lastmod = c.decision || _firstDate(c.argument) || null;
-            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${encodeURIComponent(caseId)}`, lastmod });
+            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${encodeURIComponent(caseId)}`, lastmod: buildDate });
             caseCount++;
         }
     }
@@ -11906,12 +11912,12 @@ function runGenerateSitemap(dryRun) {
     let collDefs = [];
     try { collDefs = _readJson(_COLLECTIONS_REGISTRY); } catch {}
     for (const id of _collectSitemapCollectionIds(collDefs)) {
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?collection=${encodeURIComponent(id)}` });
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?collection=${encodeURIComponent(id)}`, lastmod: buildDate });
     }
     let topicDefs = [];
     try { topicDefs = _readJson(path.join(REPO_ROOT, 'courts', 'ussc', 'topics.json')); } catch {}
     for (const id of _collectSitemapCollectionIds(topicDefs)) {
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}` });
+        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}`, lastmod: buildDate });
     }
 
     if (urls.length > SITEMAP_URL_WARN_THRESHOLD) {
