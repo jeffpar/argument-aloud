@@ -1,0 +1,17 @@
+<!-- Begin explorer SEO tags (jekyll-seo-tag equivalent, minus canonical/og:url) -->
+<title>{{ page.title }} | {{ site.title }}</title>
+<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:locale" content="{{ page.lang | default: site.lang | default: 'en_US' | replace: '-', '_' }}" />
+<meta name="description" content="{{ page.description | default: site.description }}" />
+<meta property="og:description" content="{{ page.description | default: site.description }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:image" content="{{ page.image | absolute_url }}" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="{{ page.image | absolute_url }}" />
+<meta property="twitter:title" content="{{ page.title }}" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":{{ page.description | default: site.description | jsonify }},"headline":{{ page.title | jsonify }},"image":{{ page.image | absolute_url | jsonify }}}
+</script>
+<!-- End explorer SEO tags -->

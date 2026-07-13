@@ -4,7 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   {%- include head/icons.html %}
 
+{%- if page.layout == "explorer" %}
+  {%- include head/explorer-seo.html %}
+{%- else %}
 {% seo %}
+{%- endif %}
   <meta name="keywords" content="U.S. Supreme Court media: oral arguments, transcripts, briefs, opinions, audio, advocate records, justice records, SCOTUS media, United States Supreme Court">
   <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
   {%- if include.style == "argument" %}

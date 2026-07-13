@@ -1275,11 +1275,12 @@ const audioCurrentTime = document.getElementById('audio-current-time');
 
 // Update document.title plus the <meta name="description"> and <link rel="canonical">
 // tags to match the view currently on screen. This SPA serves every case/term/
-// collection view from one static HTML shell (same server-rendered title/description/
-// canonical for every URL), so without this, search engines see thousands of distinct
-// URLs all pointing back to the same boilerplate canonical — which is exactly the kind
-// of duplicate-content signal that keeps deep links out of the index. Call this instead
-// of assigning document.title directly wherever a view finishes rendering.
+// collection view from one static HTML shell, and Jekyll can't see the query string
+// at build time, so the server-rendered HTML deliberately omits a canonical tag
+// (see _includes/head/explorer-seo.html) rather than emit one that's only ever
+// correct for a single URL. This is what supplies the real one, per view, for
+// crawlers that execute JS. Call this instead of assigning document.title directly
+// wherever a view finishes rendering.
 function setPageMeta(title, description) {
   document.title = title;
   let metaDesc = document.querySelector('meta[name="description"]');
