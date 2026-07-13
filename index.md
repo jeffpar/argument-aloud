@@ -138,7 +138,7 @@ html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }
 
 <div class="hp-hero">
   <h1>Argument Aloud</h1>
-  <p class="hp-tagline">A media hub that collects and connects U.S. Supreme Court arguments with all available files (briefs, transcripts, recordings, opinions).</p>
+  <p class="hp-tagline">{{ site.description }}</p>
   <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. Republican National Committee (No.&nbsp;24-1260)</a></p>
 </div>
 

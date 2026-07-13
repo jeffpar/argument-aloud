@@ -64,6 +64,36 @@ html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
   .term-calendar { grid-template-columns: repeat(2, 1fr); gap: 1rem 1rem; }
 }
 
+/* Extra breathing room above the calendar/case-listing sections — double the
+   ~1rem gap .stats-grid's own margin-bottom otherwise provides. */
+#term-calendar-heading { margin-top: 2rem; }
+#case-listing-heading  { margin-top: 2rem; }
+
+/* ── Case listing table ─────────────────────────────────────────────────── */
+.table-scroll { overflow-x: auto; }
+#case-listing-table { width: 100%; margin-top: 0.5rem; font-size: 0.85rem; }
+#case-listing-table th { cursor: pointer; user-select: none; white-space: nowrap; }
+#case-listing-table th:hover { color: #2672b4; }
+#case-listing-table th[aria-sort="ascending"]::after  { content: " \25B2"; font-size: 0.7em; }
+#case-listing-table th[aria-sort="descending"]::after { content: " \25BC"; font-size: 0.7em; }
+#case-listing-table td a { color: #2672b4; text-decoration: none; }
+#case-listing-table td a:hover { text-decoration: underline; color: #4a9eff; }
+@media (prefers-color-scheme: dark) {
+  #case-listing-table th:hover { color: #5eaee0; }
+  #case-listing-table td a { color: #5eaee0; }
+}
+html[data-theme="dark"]  #case-listing-table th:hover { color: #5eaee0; }
+html[data-theme="light"] #case-listing-table th:hover { color: #2672b4; }
+html[data-theme="dark"]  #case-listing-table td a { color: #5eaee0; }
+html[data-theme="light"] #case-listing-table td a { color: #2672b4; }
+/* Reserve enough room for a full "Mon DD, YYYY" date / "XXX U.S. NNNN"
+   citation so they never wrap mid-value. */
+#case-listing-table th, #case-listing-table td { padding-left: 0; }
+#case-listing-table td.col-date, #case-listing-table td.col-opinion { white-space: nowrap; }
+@media (max-width: 600px) {
+  #case-listing-table .col-opinion { display: none; }
+}
+
 @media (max-width: 600px) {
   body { padding-top: 6px; }
   .stats-title-row { margin-top: 0.2rem; }
@@ -170,8 +200,24 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     </div>
   </div>
   <p class="stats-note" id="stats-note"></p>
-  <h2 id="term-calendar-heading" hidden>U.S. Supreme Court Calendar</h2>
+  <h2 id="term-calendar-heading" hidden>Court Calendar</h2>
   <div id="term-calendar" hidden></div>
+
+  <h2 id="case-listing-heading" hidden>Court Case Listing</h2>
+  <div class="table-scroll">
+    <table id="case-listing-table" hidden>
+      <thead>
+        <tr>
+          <th data-sort-key="title" aria-sort="ascending" tabindex="0" role="button">Title</th>
+          <th class="col-date" data-sort-key="argued" tabindex="0" role="button">Argued</th>
+          <th class="col-date" data-sort-key="decided" tabindex="0" role="button">Decided</th>
+          <th data-sort-key="vote" tabindex="0" role="button">Vote</th>
+          <th class="col-opinion" data-sort-key="opinion" tabindex="0" role="button">Opinion</th>
+        </tr>
+      </thead>
+      <tbody id="case-listing-tbody"></tbody>
+    </table>
+  </div>
   <div id="history-view" hidden></div>
 </div>
 
@@ -211,6 +257,204 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
   }
   function caseUrlId(c) {
     return c.id || (c.number || '').split(',')[0].trim() || '';
+  }
+
+  var MONTHS_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function dayOf(iso) {
+    var p = iso.split('-');
+    return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])).getUTCDate();
+  }
+
+  // "2000-11-28" -> "Nov 28, 2000" (no weekday — used by the case listing
+  // table; fmtDate() above is a separate weekday-prefixed, full-month-name
+  // format used elsewhere for the single selected-date heading).
+  function fmtMonthDayYear(iso) {
+    var p = iso.split('-');
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    if (isNaN(d)) return iso;
+    return MONTHS_ABBR[+p[1] - 1] + ' ' + d.getUTCDate() + ', ' + p[0];
+  }
+
+  function dateTokens(fieldVal) {
+    if (!fieldVal) return [];
+    return fieldVal.split(',').map(function (d) { return d.trim(); }).filter(Boolean);
+  }
+
+  // Same-origin postMessage-to-parent-when-framed / direct-navigate-when-
+  // standalone pattern already used by the term-nav and date-section links
+  // in this file.
+  function wireSearchLink(a, search) {
+    a.href = search;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'ussc-navigate', search: search }, location.origin);
+      } else {
+        location.href = search;
+      }
+    });
+  }
+
+  // Same postMessage pattern already used by the journal/report cover
+  // buttons in this file to open a document in the SPA's doc viewer.
+  function wireDocLink(a, href, title) {
+    a.href = href;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title }, location.origin);
+      } else {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      }
+    });
+  }
+
+  // Renders one or more ISO dates into a table cell, linked to the earliest
+  // date shown: a single date is "Mon D, Year"; multiple dates within the
+  // same month collapse to a "Mon D1-D2, Year" range rather than listing
+  // each one out; dates spanning more than one month (e.g. an argument and
+  // a reargument months apart) are too much to enumerate — show a single
+  // "…" instead.
+  function renderDateCell(td, term, isoDates) {
+    if (!isoDates.length) { td.textContent = '—'; return; }
+    var sorted = isoDates.slice().sort();
+    var months = new Set(sorted.map(function (d) { return d.slice(0, 7); }));
+    var a = document.createElement('a');
+    if (months.size > 1) {
+      a.textContent = '…';
+    } else if (sorted.length > 1) {
+      var p = sorted[0].split('-');
+      a.textContent = MONTHS_ABBR[+p[1] - 1] + ' ' + dayOf(sorted[0]) + '-' + dayOf(sorted[sorted.length - 1]) + ', ' + p[0];
+    } else {
+      a.textContent = fmtMonthDayYear(sorted[0]);
+    }
+    wireSearchLink(a, '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(sorted[0]));
+    td.appendChild(a);
+  }
+
+  // "531 U.S. 57" -> a number that sorts citations chronologically (by
+  // volume, then page) rather than alphabetically.
+  function opinionSortKey(usCite) {
+    var m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite || '');
+    return m ? parseInt(m[1], 10) * 100000 + parseInt(m[2], 10) : null;
+  }
+
+  // Undecided/missing values (null) always sort last, regardless of
+  // direction — checked before the asc/desc flip so reversing the sort
+  // never brings them back to the front.
+  function compareRows(a, b, key, asc) {
+    var av = a.sortValues[key], bv = b.sortValues[key];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    var cmp = av < bv ? -1 : av > bv ? 1 : 0;
+    return asc ? cmp : -cmp;
+  }
+
+  function buildCaseListingRow(term, row) {
+    var tr = document.createElement('tr');
+
+    var tdTitle = document.createElement('td');
+    var aTitle = document.createElement('a');
+    aTitle.textContent = row.title;
+    wireSearchLink(aTitle, '?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(row.caseId));
+    tdTitle.appendChild(aTitle);
+    tr.appendChild(tdTitle);
+
+    var tdArgued = document.createElement('td');
+    tdArgued.className = 'col-date';
+    renderDateCell(tdArgued, term, row.argIso);
+    tr.appendChild(tdArgued);
+
+    var tdDecided = document.createElement('td');
+    tdDecided.className = 'col-date';
+    renderDateCell(tdDecided, term, row.decIso);
+    tr.appendChild(tdDecided);
+
+    var tdVote = document.createElement('td');
+    tdVote.textContent = row.voteText || '—';
+    tr.appendChild(tdVote);
+
+    var tdOpinion = document.createElement('td');
+    tdOpinion.className = 'col-opinion';
+    if (row.opinionText && row.decisionHref) {
+      var aOp = document.createElement('a');
+      aOp.textContent = row.opinionText;
+      wireDocLink(aOp, row.decisionHref, row.decisionTitle);
+      tdOpinion.appendChild(aOp);
+    } else {
+      tdOpinion.textContent = row.opinionText || '—';
+    }
+    tr.appendChild(tdOpinion);
+
+    return tr;
+  }
+
+  function renderCaseListing(term, cases) {
+    var rows = cases.map(function (c) {
+      // A case reargued in a later term than it was first argued in still
+      // carries both dates on the same case record — comparing by
+      // year-month (both "argument"/"reargument" and "term" share the same
+      // "YYYY-MM" prefix) drops any date that belongs to an earlier term, so
+      // e.g. a reargument in this term takes over from an original argument
+      // that predates it.
+      var argIso = Array.from(new Set(dateTokens(c.argument).concat(dateTokens(c.reargument))))
+        .filter(function (d) { return d.slice(0, 7) >= term; });
+      var decIso = dateTokens(c.decision);
+      var voteM = c.voteMajority, voteN = c.voteMinority;
+      var opinionText = c.usCite || '';
+      var decDates = decIso.slice().sort();
+      return {
+        title: caseDisplayTitle(c),
+        caseId: caseUrlId(c),
+        argIso: argIso,
+        decIso: decIso,
+        voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
+        opinionText: opinionText,
+        decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_reports || '') : '',
+        decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
+          + (opinionText ? ' (' + opinionText + ')' : ''),
+        sortValues: {
+          title: caseDisplayTitle(c).toLowerCase(),
+          argued: argIso.slice().sort()[0] || null,
+          decided: decDates[0] || null,
+          vote: (voteM != null) ? voteM : null,
+          opinion: opinionSortKey(opinionText),
+        },
+      };
+    });
+    if (!rows.length) return;
+
+    var heading = document.getElementById('case-listing-heading');
+    var table   = document.getElementById('case-listing-table');
+    var tbody   = document.getElementById('case-listing-tbody');
+    heading.hidden = false;
+    table.hidden = false;
+
+    var state = { key: 'title', asc: true };
+    function render() {
+      var sorted = rows.slice().sort(function (a, b) { return compareRows(a, b, state.key, state.asc); });
+      tbody.innerHTML = '';
+      sorted.forEach(function (row) { tbody.appendChild(buildCaseListingRow(term, row)); });
+      table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
+        var active = th.dataset.sortKey === state.key;
+        th.setAttribute('aria-sort', active ? (state.asc ? 'ascending' : 'descending') : 'none');
+      });
+    }
+    table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
+      function activate() {
+        var key = th.dataset.sortKey;
+        if (state.key === key) state.asc = !state.asc;
+        else { state.key = key; state.asc = true; }
+        render();
+      }
+      th.addEventListener('click', activate);
+      th.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+    render();
   }
 
   function renderHistoryChart(container, data) {
@@ -590,6 +834,8 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
         var calHdr = document.getElementById('term-calendar-heading');
         if (calHdr) calHdr.hidden = false;
       }
+
+      renderCaseListing(term, cases);
 
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
