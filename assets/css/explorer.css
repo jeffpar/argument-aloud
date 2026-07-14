@@ -2105,6 +2105,27 @@ button.term-case-count.sort-active:hover {
   font-style: normal;
 }
 
+#doc-viewer-back,
+#doc-viewer-forward {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #999;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+#doc-viewer-forward {
+  margin-right: 4px;
+}
+#doc-viewer-back:hover,
+#doc-viewer-forward:hover {
+  color: #3a6ea5;
+}
+
 #doc-viewer-url {
   font-weight: 400;
   font-size: 11px;
@@ -2679,6 +2700,10 @@ button.term-case-count.sort-active:hover {
   }
   #doc-viewer-ref          { color: #6c7280; }
   #doc-viewer-ref strong   { color: #9da5b4; }
+  #doc-viewer-back,
+  #doc-viewer-forward     { color: #6c7280; }
+  #doc-viewer-back:hover,
+  #doc-viewer-forward:hover { color: #5eaee0; }
   #doc-viewer-url          { color: #6c7280; }
   #doc-viewer-url:hover    { color: #5eaee0; }
   #doc-viewer-url img,
@@ -2940,6 +2965,10 @@ html[data-theme="dark"] .resize-handle--h.dragging { background: #4a7090; }
 html[data-theme="dark"] #doc-viewer-header { background: #21242c; border-bottom-color: #2d2f38; color: #9da5b4; }
 html[data-theme="dark"] #doc-viewer-ref          { color: #6c7280; }
 html[data-theme="dark"] #doc-viewer-ref strong   { color: #9da5b4; }
+html[data-theme="dark"] #doc-viewer-back,
+html[data-theme="dark"] #doc-viewer-forward      { color: #6c7280; }
+html[data-theme="dark"] #doc-viewer-back:hover,
+html[data-theme="dark"] #doc-viewer-forward:hover { color: #5eaee0; }
 html[data-theme="dark"] #doc-viewer-url          { color: #6c7280; }
 html[data-theme="dark"] #doc-viewer-url:hover    { color: #5eaee0; }
 html[data-theme="dark"] #doc-viewer-url img,
@@ -3134,6 +3163,10 @@ html[data-theme="light"] .resize-handle--h.dragging { background: #8ab4d4; }
 html[data-theme="light"] #doc-viewer-header { background: #eef3f7; border-bottom-color: #d0dce6; color: #555; }
 html[data-theme="light"] #doc-viewer-ref          { color: #777; }
 html[data-theme="light"] #doc-viewer-ref strong   { color: #555; }
+html[data-theme="light"] #doc-viewer-back,
+html[data-theme="light"] #doc-viewer-forward      { color: inherit; }
+html[data-theme="light"] #doc-viewer-back:hover,
+html[data-theme="light"] #doc-viewer-forward:hover { color: #2672b4; }
 html[data-theme="light"] #doc-viewer-url          { color: #888; }
 html[data-theme="light"] #doc-viewer-url:hover    { color: #3a6ea5; }
 html[data-theme="light"] #doc-viewer-url img,

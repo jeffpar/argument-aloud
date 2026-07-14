@@ -2097,6 +2097,11 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 
   const videoEl = document.getElementById('doc-viewer-video');
   const audioEl = document.getElementById('doc-viewer-audio');
+  // Back/forward only make sense for the pooled iframe (PDF or pane HTML) —
+  // not the <video>/<audio> elements or the "open externally" card.
+  const showNavButtons = inPane && !isMp4 && !isMp3;
+  document.getElementById('doc-viewer-back').hidden = !showNavButtons;
+  document.getElementById('doc-viewer-forward').hidden = !showNavButtons;
   // Set below when displaying a PDF — the actual visible iframe comes from
   // _pdfIframePool (dynamically created, inserted after the static, always-
   // hidden #doc-viewer-pdf placeholder), not that placeholder element itself.
@@ -2121,7 +2126,15 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
       const iframe = _getOrCreatePdfIframe(src);
       // Show only this iframe; others stay hidden but alive — no reload needed on return.
       for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
-      if (isNew) iframe.src = src;
+      // Non-PDF "pane" documents (e.g. an external HTML transcript) can be
+      // navigated away from by the visitor clicking a link inside them —
+      // since that content is cross-origin, we have no way to detect or
+      // reset that short of reassigning src, so always reload these fresh
+      // rather than reusing a pooled iframe that may show a different page
+      // by now. True PDFs keep the "no reload needed on return" behavior,
+      // since reloading them would lose the reader's scroll position for
+      // no benefit (a PDF viewer doesn't navigate away like this).
+      if (isNew || !isPdf) iframe.src = src;
       activePdfIframe = iframe;
     }
   } else {
@@ -6131,7 +6144,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
   _currentFiles = _opRawFiles;
-  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length || _currentTranscriptEntries.length) {
+  // Take the dropdown+doc-viewer path whenever there's anything at all to
+  // show — including a lone decision entry. The plain external-link fallback
+  // below is reserved for a decided case with no document source at all
+  // (decisionText set but every decision_* href missing); a visitor who
+  // wants a new tab already has the doc viewer's own "open in new tab" button.
+  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
     decisionLabel.hidden = true;
     audioSelect.innerHTML = '';
     journalOpts.forEach(j => {
@@ -6989,6 +7007,18 @@ audio.addEventListener('timeupdate', () => {
   checkLinksForActiveTurn(idx);
 });
 
+// Clears the 'file'/'citation' URL params for dropdown selections that have
+// no short-code encoding of their own to restore on reload (docket, transcript,
+// Oyez, video, journal entries) — otherwise a stale 'file=N' from a previously
+// selected decision/file entry keeps pointing at a document that's no longer
+// the one shown.
+function _clearDocViewerUrlParams() {
+  const url = new URL(location.href);
+  url.searchParams.delete('file');
+  url.searchParams.delete('citation');
+  history.replaceState(null, '', url);
+}
+
 // ── Audio entry dropdown ──────────────────────────────────────────────────
 document.getElementById('audio-select').addEventListener('change', async (e) => {
   // Always reset to case-level notes first; audio entry selection below will
@@ -6998,6 +7028,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     if (_currentCaseEntry?.docket_href) {
       showDocViewer({ href: _currentCaseEntry.docket_href, title: 'Docket Search', view: 'pane' }, { force: true });
     }
+    _clearDocViewerUrlParams();
     return;
   }
   if (e.target.value.startsWith('decision_')) {
@@ -7013,17 +7044,20 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   if (e.target.value.startsWith('transcript:')) {
     const te = _currentTranscriptEntries.find(t => t.value === e.target.value);
     if (te) showDocViewer({ href: te.href, title: te.title, view: te.view }, { force: true });
+    _clearDocViewerUrlParams();
     return;
   }
   if (e.target.value.startsWith('oyez:')) {
     const oe = _currentOyezEntries.find(o => o.value === e.target.value);
     if (oe) showDocViewer({ href: oe.href, title: oe.title, view: 'pane' }, { force: true });
+    _clearDocViewerUrlParams();
     return;
   }
   if (e.target.value.startsWith('video:')) {
     const idx = parseInt(e.target.value.slice(6), 10);
     const v = _currentVideoEntries[idx];
     if (v) showDocViewer({ href: toEmbedUrl(v.href), title: v.title, view: 'pane' }, { force: true });
+    _clearDocViewerUrlParams();
     return;
   }
   if (typeof e.target.value === 'string' && e.target.value.startsWith('journal:')) {
@@ -7031,6 +7065,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
     if (entry) {
       showDocViewer({ href: entry.href, title: entry.title }, { force: true });
     }
+    _clearDocViewerUrlParams();
     return;
   }
   if (e.target.value.startsWith('file:')) {
@@ -7284,6 +7319,27 @@ document.getElementById('doc-viewer-close').addEventListener('click', (e) => {
 document.getElementById('doc-viewer-minimize').addEventListener('click', (e) => {
   e.stopPropagation();
   collapseDocViewer();
+});
+
+// Back/forward navigate the currently visible pooled iframe's own history.
+// This works even for cross-origin documents (e.g. an external HTML
+// transcript) — history.back()/forward() are among the few members a page
+// may call on a cross-origin window — so a visitor who clicked a link
+// inside an embedded document can return to what was originally opened
+// without losing their place in the doc viewer.
+function _activeDocViewerIframe() {
+  for (const el of _pdfIframePool.values()) {
+    if (el.style.display === 'block') return el;
+  }
+  return null;
+}
+document.getElementById('doc-viewer-back').addEventListener('click', (e) => {
+  e.stopPropagation();
+  try { _activeDocViewerIframe()?.contentWindow?.history.back(); } catch { /* cross-origin, ignore */ }
+});
+document.getElementById('doc-viewer-forward').addEventListener('click', (e) => {
+  e.stopPropagation();
+  try { _activeDocViewerIframe()?.contentWindow?.history.forward(); } catch { /* cross-origin, ignore */ }
 });
 
 document.getElementById('doc-viewer-expand').addEventListener('click', (e) => {
