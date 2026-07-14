@@ -3295,10 +3295,11 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
   _applyTranscriptViews(rawFiles, caseEntry);
   _injectVirtualTranscripts(rawFiles, caseEntry, opts.argumentDates ?? null);
 
-  // When a decision href is present, drop any opinion entry from files.json (prefer the decision href).
-  // When none is present, normalise files.json opinion titles to "Decision on <date>".
-  const _primaryDecision = _buildPrimaryDecisionEntry(caseEntry);
-  if (_primaryDecision) {
+  // When decision source(s) are present, drop any opinion entry from files.json
+  // (use the full set of decision sources instead). When none is present,
+  // normalise files.json opinion titles to "Decision on <date>".
+  const _opinionEntries = _buildOpinionEntries(caseEntry);
+  if (_opinionEntries.length) {
     const idx = rawFiles.findIndex(f => (f.type || '').toLowerCase() === 'opinion');
     if (idx !== -1) rawFiles.splice(idx, 1);
   } else {
@@ -3311,11 +3312,12 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     });
   }
 
-  // Append a single "Decision on <Date> (<usCite>)" entry, choosing decision_loc,
-  // else decision_ussc, else decision_reports \u2014 whichever is available first.
-  if (_primaryDecision) {
-    rawFiles.push({ type: 'opinion', title: _primaryDecision.title, href: _primaryDecision.href });
-  }
+  // Append one "Decision on <Date> (LOC/USSC/VOL/XML)" entry per available
+  // decision source \u2014 the same set the top-right document dropdown offers
+  // (see _buildOpinionEntries) \u2014 rather than just the single primary one.
+  _opinionEntries.forEach(oe => {
+    rawFiles.push({ type: 'opinion', title: oe.title, href: oe.href, ...(oe.view ? { view: oe.view } : {}) });
+  });
 
   const { entries, hideToggle = false } = opts.computeEntries(rawFiles);
   const makeFileItem = (f) => _makeCaseFileItem(f, caseEntry);
@@ -3665,20 +3667,17 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             groups.other = [...(groups.amicus || []), ...(groups.other || [])];
             delete groups.amicus;
           }
-          // Surface each transcript ("Oral Argument on ...") and decision
-          // ("Decision on ...") under Other too, rather than dropping them —
-          // appended after any misc/amicus items already merged in above,
-          // arguments first (chronological), decisions last.
-          if (groups.transcript?.length || groups.opinion?.length) {
-            const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
-            groups.other = [
-              ...(groups.other || []),
-              ...(groups.transcript || []).slice().sort(byDate),
-              ...(groups.opinion || []).slice().sort(byDate),
-            ];
-            delete groups.transcript;
-            delete groups.opinion;
-          }
+          // Each transcript ("Oral Argument on ...") and decision ("Decision
+          // on ...") gets surfaced under its own "Records" group — arguments
+          // first (chronological), decisions last — appended as the very
+          // last group, after Citations/Consolidations/References (see below).
+          const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+          const recordsFiles = [
+            ...(groups.transcript || []).slice().sort(byDate),
+            ...(groups.opinion || []).slice().sort(byDate),
+          ];
+          delete groups.transcript;
+          delete groups.opinion;
           const referenceFiles = groups.reference || [];
           delete groups.reference;
           const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'reference');
@@ -3690,13 +3689,14 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const groupEntries = entries.filter(e => e.kind === 'group');
           const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
           if (groupEntries.length === 1 && !referenceFiles.length && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
-          // Citations, Consolidations, and References are the last groups
-          // (in that order — References always comes last).
+          // Citations, Consolidations, and References come next (in that
+          // order), then Records is always the very last group of all.
           const citationsEntry = _buildCitationsEntry(caseEntry);
           if (citationsEntry) entries.push(citationsEntry);
           const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, term);
           if (otherTitlesEntry) entries.push(otherTitlesEntry);
           if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.reference, files: referenceFiles });
+          if (recordsFiles.length) entries.push({ kind: 'group', label: 'Records', files: recordsFiles });
           return { entries };
         },
       });
@@ -5175,7 +5175,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
-        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','transcript','brief','briefs']);
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','brief','briefs']);
         function resolveCategory(f) {
           // Prefer the explicit group property when it carries a known semantic key.
           let sem = (f.group || '').toLowerCase();
@@ -5186,10 +5186,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
             if (!_COLL_SEM_KEYS.has(sem)) sem = 'other';
           }
-          // Preference order per semantic type → category label. Transcripts
-          // ("Oral Argument on ...") and opinions ("Decision on ...", mapped
-          // to "other" above since 'opinion' isn't a recognized semantic key)
-          // both land under Other, alongside any misc/amicus items.
           const prefs = {
             petitioner: ['Petitioner', 'Briefs', 'Other'],
             respondent: ['Respondent', 'Briefs', 'Other'],
@@ -5198,7 +5194,6 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
             briefs:     ['Briefs', 'Other'],
-            transcript: ['Other'],
             other:      ['Other'],
           };
           const candidates = prefs[sem] || ['Other'];
@@ -5208,37 +5203,37 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           return activeCats[0];
         }
 
+        // Each transcript ("Oral Argument on ...") and decision ("Decision
+        // on ...") gets pulled out into its own "Records" group instead of
+        // being categorized below — arguments first (chronological),
+        // decisions last — appended as the very last group of all, after
+        // Citations/Consolidations/References.
+        const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+        const recordsFiles = [
+          ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript').sort(byDate),
+          ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion'),
+        ];
+
         const groups = {};
         let totalFiles = 0;
         rawFiles.forEach(f => {
+          const fType = (f.type || '').toLowerCase();
+          if (fType === 'transcript' || fType === 'opinion') return;
           totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
         });
 
-        // Sort within each group (Other gets its own ordering below).
+        // Sort within each group.
         activeCats.forEach(label => {
-          if (!groups[label] || label === 'Other') return;
+          if (!groups[label]) return;
           if (label === 'References') {
             groups[label].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
           } else {
-            groups[label].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+            groups[label].sort(byDate);
           }
         });
-        // Other mixes misc/amicus files with transcripts ("Oral Argument on
-        // ...") and decisions ("Decision on ...") — keep misc items sorted
-        // by date first, then transcripts chronologically, then decisions
-        // last (decisions carry no `date` field, so a plain date-sort would
-        // otherwise push them first, not last).
-        if (groups.Other?.length) {
-          const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
-          const isType = t => f => (f.type || '').toLowerCase() === t;
-          const misc = groups.Other.filter(f => !isType('transcript')(f) && !isType('opinion')(f)).sort(byDate);
-          const transcripts = groups.Other.filter(isType('transcript')).sort(byDate);
-          const opinions = groups.Other.filter(isType('opinion'));
-          groups.Other = [...misc, ...transcripts, ...opinions];
-        }
 
         const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
         // Suppress the group subheading when there is only one non-empty
@@ -5256,8 +5251,8 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             files: groups[typeKey],
           });
         });
-        // Citations, Consolidations, and References are the last groups (in
-        // that order — References always comes last).
+        // Citations, Consolidations, and References come next (in that
+        // order), then Records is always the very last group of all.
         const citationsEntry = _buildCitationsEntry(caseEntry);
         if (citationsEntry) entries.push(citationsEntry);
         const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, caseRef.term);
@@ -5265,6 +5260,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         if (groups.References?.length) {
           entries.push({ kind: 'group', label: 'References', files: groups.References });
         }
+        if (recordsFiles.length) entries.push({ kind: 'group', label: 'Records', files: recordsFiles });
 
         return { entries };
       },
