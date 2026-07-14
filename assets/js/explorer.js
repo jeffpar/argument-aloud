@@ -3071,12 +3071,16 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
 // Consolidations and References (the very last groups).
 function _buildCitationsEntry(caseEntry) {
   if (!caseEntry.opCite?.length) return null;
-  const files = caseEntry.opCite.map((entry, i) => ({
-    title: entry.title,
-    citationTerm: entry.term,
-    citationId: entry.id,
-    citationIdx: i + 1, // 1-based index into opCite, mirrored in the 'citation' URL param
-  }));
+  const files = caseEntry.opCite
+    .map((entry, i) => ({
+      title: entry.title,
+      citationTerm: entry.term,
+      citationId: entry.id,
+      citationIdx: i + 1, // 1-based index into opCite, mirrored in the 'citation' URL param
+    }))
+    // Sorted by title, same convention as References, rather than opCite's
+    // own order (most-recently-decided citation first).
+    .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
   return { kind: 'group', label: 'Citations', files };
 }
 
