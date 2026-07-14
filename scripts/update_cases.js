@@ -9067,6 +9067,8 @@ Examples:
   node update_cases.js 1965-10 759 --cites --verbose --dry-run
   node update_cases.js 1965-10 --cites                     # every case in that term with opinion HTML
   node update_cases.js --cites --dry-run                   # every case in every term (preview only)
+  node update_cases.js --cites --prune --dry-run           # remove reference entries the current rules
+                                                             #   would no longer generate (preview only)
   node update_cases.js --top-cites                         # rebuild the Top Cited Opinions collection
 
   node update_cases.js --scdb                              # rebuild cache + verify all terms
@@ -9519,6 +9521,25 @@ const _US_STATE_NAMES = [
 const _OPCITE_REF_STOP_PHRASES = ['United States', ..._US_STATE_NAMES.filter(n => /\s/.test(n))];
 const _OPCITE_REF_STOPWORDS = new Set(['A', 'An', 'The', ..._US_STATE_NAMES.filter(n => !/\s/.test(n))]);
 
+// Common English words that make poor "refs" even though they're capitalized
+// in the source title — they're capitalized only because a title-cased case
+// name happens to start a word with them (e.g. "Organization" in "Smith v.
+// Organization of Foster Families...", or "In" in "In re Primus"), not
+// because they're a distinctive party name/surname like "Griswold" or
+// "Shelton". Checked case-insensitively against the candidate word. Not
+// exhaustive — extend as more false-positive matches turn up.
+const _OPCITE_REF_COMMON_WORDS = new Set([
+    'in', 're', 'for', 'of', 'and', 'or', 'the', 'to', 'on', 'at', 'by', 'is',
+    'as', 'it', 'be', 'his', 'her', 'its', 'our', 'their', 'from', 'with',
+    'organization', 'organizations', 'association', 'associations',
+    'society', 'union', 'unions', 'board', 'boards', 'county', 'counties',
+    'city', 'cities', 'state', 'states', 'national', 'federal', 'department',
+    'commission', 'committee', 'company', 'companies', 'corporation', 'corp',
+    'inc', 'reform', 'equality', 'foster', 'family', 'families',
+    'international', 'district', 'general', 'services', 'service',
+    'authority', 'agency', 'bureau', 'office', 'council', 'group', 'system',
+]);
+
 // Split a "Party v. Party (YEAR)" opCite title into its two party names.
 function _titleParties(title) {
     const bare = title.replace(/\s*\(\d{4}\)$/, '').trim();
@@ -9526,8 +9547,9 @@ function _titleParties(title) {
 }
 
 // Extract candidate capitalized words/phrases from an opCite title's party
-// names, skipping "United States", U.S. state names, and leading articles
-// ("A", "An", "The") — all too common as case parties to be useful "refs".
+// names, skipping "United States", U.S. state names, leading articles ("A",
+// "An", "The"), words under 3 letters, and common English words — all too
+// common (as case parties, or as ordinary vocabulary) to make useful "refs".
 function _extractRefCandidates(title) {
     const candidates = new Set();
     for (const party of _titleParties(title)) {
@@ -9543,7 +9565,11 @@ function _extractRefCandidates(title) {
         };
         for (const w of words) {
             const bare = w.replace(/[.,;:]+$/, '');
-            if (bare && /^[A-Z]/.test(bare) && !_OPCITE_REF_STOPWORDS.has(bare)) run.push(bare);
+            const qualifies = bare.length >= 3
+                && /^[A-Z]/.test(bare)
+                && !_OPCITE_REF_STOPWORDS.has(bare)
+                && !_OPCITE_REF_COMMON_WORDS.has(bare.toLowerCase());
+            if (qualifies) run.push(bare);
             else flush();
         }
         flush();
@@ -9802,6 +9828,106 @@ function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
     }
 
     console.log(`Scanned ${scanned} case(s) with opinion HTML; updated opCite on ${changed} case(s).`);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// --cites --prune: one-time cleanup for reference entries that were added by
+// an earlier, looser version of _extractRefCandidates (before it excluded
+// sub-3-letter and common-English-word candidates — see
+// _OPCITE_REF_COMMON_WORDS). --cites itself won't touch these on a normal
+// re-run: _addReferenceEntries() only ever *adds* entries and skips any
+// title it's already seen, and runOpCitesBulk() only recomputes refs for a
+// case when its opCite list itself changed. This instead recomputes refs
+// fresh for every case with existing "reference" file entries, regardless of
+// whether opCite changed, and reconciles each one against the fresh result:
+//   - a title the current rules no longer match at all (no surviving
+//     candidate word) is removed entirely;
+//   - a title that still matches, but whose stored refs list mixes a
+//     legitimate word with now-filtered noise (e.g. "In re Oliver (1948)"
+//     stored as refs: ["Oliver", "In", "Inaudible", "Indeed", ...]) has its
+//     refs list replaced with the freshly computed one;
+//   - a title with no existing entry that the fresh rules now match (e.g. an
+//     opinion previously dropped for a generic-word-only match like
+//     "National Association ...", which may still be legitimately discussed
+//     by name via a different, better candidate from the same title, like
+//     "Advancement") gets added — so a citation doesn't just disappear as a
+//     side effect of cleaning up its old, badly-worded entry.
+// ─────────────────────────────────────────────────────────────────────────────
+function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) {
+    let allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    if (termFilter) allTerms = allTerms.filter(t => t === termFilter);
+
+    let scannedFiles = 0, removed = 0, updated = 0, added = 0, affectedFiles = 0;
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            if (!c.opCite?.length) continue;
+            const label = c.number || c.id || '?';
+            if (caseFilter && label !== caseFilter && c.id !== caseFilter) continue;
+
+            const folderName = _caseFolder(c.number || c.id || '');
+            const filesPath = path.join(TERMS_DIR, term, 'cases', folderName, 'files.json');
+            if (!fs.existsSync(filesPath)) continue;
+            let files;
+            try { files = _readJson(filesPath); } catch { continue; }
+            if (!Array.isArray(files)) continue;
+            const refFiles = files.filter(f => f?.type === 'reference');
+            if (!refFiles.length) continue;
+            scannedFiles++;
+
+            const fresh = _computeOpCiteRefs(term, c, c.opCite, { verbose });
+            const freshByTitle = new Map(fresh.map(r => [r.title, r]));
+            const existingTitles = new Set(refFiles.map(f => f.title));
+
+            let fileChanged = false;
+            const staleFileIds = new Set();
+            for (const f of refFiles) {
+                const freshEntry = freshByTitle.get(f.title);
+                const oldRefsStr = JSON.stringify(f.refs);
+                if (!freshEntry) {
+                    staleFileIds.add(f.file);
+                    removed++;
+                    fileChanged = true;
+                    console.log(`${dryRun ? '[dry-run] Would remove' : '[prune] Removing'} "${f.title}" `
+                        + `(refs: ${Array.isArray(f.refs) ? f.refs.join(', ') : f.refs}) from ${path.relative(REPO_ROOT, filesPath)}`);
+                } else if (JSON.stringify(freshEntry.refs) !== oldRefsStr) {
+                    updated++;
+                    fileChanged = true;
+                    console.log(`${dryRun ? '[dry-run] Would update' : '[prune] Updating'} "${f.title}" refs: `
+                        + `${oldRefsStr} -> ${JSON.stringify(freshEntry.refs)} in ${path.relative(REPO_ROOT, filesPath)}`);
+                    if (!dryRun) f.refs = freshEntry.refs;
+                }
+            }
+            const toAdd = fresh.filter(r => !existingTitles.has(r.title));
+            for (const r of toAdd) {
+                added++;
+                fileChanged = true;
+                console.log(`${dryRun ? '[dry-run] Would add' : '[prune] Adding'} "${r.title}" `
+                    + `(refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs}) to ${path.relative(REPO_ROOT, filesPath)}`);
+            }
+            if (!fileChanged) continue;
+            affectedFiles++;
+
+            if (!dryRun) {
+                let kept = files.filter(f => !(f?.type === 'reference' && staleFileIds.has(f.file)));
+                let maxId = kept.reduce((mx, f) => Math.max(mx, f.file || 0), 0);
+                for (const r of toAdd) {
+                    kept.push({ file: ++maxId, type: 'reference', title: r.title, href: r.href, refs: r.refs });
+                }
+                _writeJson(filesPath, kept);
+            }
+        }
+    }
+
+    const verb = dryRun ? 'Would remove/update/add' : 'Removed/updated/added';
+    console.log(`Scanned ${scannedFiles} files.json with reference entries. `
+        + `${verb} ${removed}/${updated}/${added} entry(ies) across ${affectedFiles} file(s).`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -12145,6 +12271,11 @@ async function main() {
             process.exit(1);
         }
         runTagAdd(positional[0], positional[1], flagValues.tag, dryRun);
+        return;
+    }
+
+    if (flags.has('--cites') && flags.has('--prune')) {
+        runPruneRefs(positional[0] || null, positional[1] || null, dryRun, { verbose });
         return;
     }
 

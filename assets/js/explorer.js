@@ -3055,7 +3055,7 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
     if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
       rawFiles.push({
         type:  'transcript',
-        title: 'Transcript of ' + (a.title || ''),
+        title: 'Transcript from ' + formatDecisionDate(a.date || ''),
         date:  a.date || '',
         href:  a.transcript_href,
         ...(a.view ? { view: a.view } : {}),
@@ -3189,7 +3189,7 @@ function _makeCaseFileItem(f, caseEntry) {
     });
     return fi;
   }
-  if ((f.title || '').startsWith('Transcript of ')) {
+  if ((f.type || '').toLowerCase() === 'transcript') {
     fi.classList.add('file-item-transcript');
   }
   if (f.file != null) fi.dataset.fileId = f.file;
@@ -3661,11 +3661,20 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             groups.other = [...(groups.amicus || []), ...(groups.other || [])];
             delete groups.amicus;
           }
-          // Transcript and decision/opinion entries are never rendered here —
-          // they're one click away in the right pane's document dropdown/case
-          // citation menu, so a sidebar sub-item for each is just duplication.
-          delete groups.transcript;
-          delete groups.opinion;
+          // Surface each transcript ("Oral Argument on ...") and decision
+          // ("Decision on ...") under Other too, rather than dropping them —
+          // appended after any misc/amicus items already merged in above,
+          // arguments first (chronological), decisions last.
+          if (groups.transcript?.length || groups.opinion?.length) {
+            const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+            groups.other = [
+              ...(groups.other || []),
+              ...(groups.transcript || []).slice().sort(byDate),
+              ...(groups.opinion || []).slice().sort(byDate),
+            ];
+            delete groups.transcript;
+            delete groups.opinion;
+          }
           const referenceFiles = groups.reference || [];
           delete groups.reference;
           const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'reference');
@@ -5157,7 +5166,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       argumentDates,
       computeEntries: (rawFiles) => {
         // Allowed category labels and their render order.
-        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Transcripts', 'References', 'Media', 'Other'];
+        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'References', 'Media', 'Other'];
         const activeCats = ALL_CATS;
         const activeCatSet = new Set(activeCats);
 
@@ -5173,7 +5182,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
             if (!_COLL_SEM_KEYS.has(sem)) sem = 'other';
           }
-          // Preference order per semantic type → category label.
+          // Preference order per semantic type → category label. Transcripts
+          // ("Oral Argument on ...") and opinions ("Decision on ...", mapped
+          // to "other" above since 'opinion' isn't a recognized semantic key)
+          // both land under Other, alongside any misc/amicus items.
           const prefs = {
             petitioner: ['Petitioner', 'Briefs', 'Other'],
             respondent: ['Respondent', 'Briefs', 'Other'],
@@ -5182,7 +5194,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
             briefs:     ['Briefs', 'Other'],
-            transcript: ['Transcripts', 'Other'],
+            transcript: ['Other'],
             other:      ['Other'],
           };
           const candidates = prefs[sem] || ['Other'];
@@ -5192,29 +5204,37 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           return activeCats[0];
         }
 
-        // Transcript and decision/opinion entries are never rendered here —
-        // they're one click away in the right pane's document dropdown/case
-        // citation menu, so a sidebar sub-item for each is just duplication.
         const groups = {};
         let totalFiles = 0;
         rawFiles.forEach(f => {
-          const fType = (f.type || '').toLowerCase();
-          if (fType === 'opinion' || fType === 'transcript') return;
           totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
         });
 
-        // Sort within each group.
+        // Sort within each group (Other gets its own ordering below).
         activeCats.forEach(label => {
-          if (!groups[label]) return;
+          if (!groups[label] || label === 'Other') return;
           if (label === 'References') {
             groups[label].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
           } else {
             groups[label].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
           }
         });
+        // Other mixes misc/amicus files with transcripts ("Oral Argument on
+        // ...") and decisions ("Decision on ...") — keep misc items sorted
+        // by date first, then transcripts chronologically, then decisions
+        // last (decisions carry no `date` field, so a plain date-sort would
+        // otherwise push them first, not last).
+        if (groups.Other?.length) {
+          const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+          const isType = t => f => (f.type || '').toLowerCase() === t;
+          const misc = groups.Other.filter(f => !isType('transcript')(f) && !isType('opinion')(f)).sort(byDate);
+          const transcripts = groups.Other.filter(isType('transcript')).sort(byDate);
+          const opinions = groups.Other.filter(isType('opinion'));
+          groups.Other = [...misc, ...transcripts, ...opinions];
+        }
 
         const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
         // Suppress the group subheading when there is only one non-empty
@@ -5242,10 +5262,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           entries.push({ kind: 'group', label: 'References', files: groups.References });
         }
 
-        // Also hide the toggle when the only available files are transcript entries —
-        // transcript-only cases are not considered "browsable" via the toggle.
-        const hasNonTranscriptFiles = rawFiles.some(f => (f.type || '').toLowerCase() !== 'transcript') || !!citationsEntry || !!otherTitlesEntry;
-        return { entries, hideToggle: !hasNonTranscriptFiles };
+        return { entries };
       },
     });
 
