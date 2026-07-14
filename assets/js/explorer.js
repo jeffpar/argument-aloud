@@ -2566,7 +2566,8 @@ function _buildTranscriptEntries(caseEntry) {
     if (!a.transcript_href || seen.has(a.transcript_href)) continue;
     seen.add(a.transcript_href);
     entries.push({ value: 'transcript:' + entries.length, href: a.transcript_href,
-                   title: 'Transcript\u00a0of\u00a0' + (a.title || '') });
+                   title: 'Transcript\u00a0of\u00a0' + (a.title || ''),
+                   ...(a.view ? { view: a.view } : {}) });
   }
   return entries;
 }
@@ -6055,10 +6056,13 @@ function _buildJournalRefOptions(caseEntry, term) {
   return { map, opts };
 }
 
-// Display a case in opinion-only mode: no transcript pane, no audio dropdown,
-// the opinion PDF (if any) opens full-height in the document viewer. Used for
-// historical cases without playable audio, and when a collection click forces
-// no-audio display (forceNoAudio: true).
+// Display a case in opinion-only mode: no transcript pane (i.e. no synced,
+// turn-by-turn transcript), no audio dropdown. Whatever opens full-height in
+// the document viewer follows the same preference as a case with real audio
+// defaulting to its argument: the first oral-argument transcript source, if
+// any, falling back to the opinion. Used for historical cases without
+// playable audio, and when a collection click forces no-audio display
+// (forceNoAudio: true).
 async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
@@ -6127,7 +6131,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
   _currentFiles = _opRawFiles;
-  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length) {
+  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length || _currentTranscriptEntries.length) {
     decisionLabel.hidden = true;
     audioSelect.innerHTML = '';
     journalOpts.forEach(j => {
@@ -6164,8 +6168,11 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       audioSelect.appendChild(opt);
     });
     _buildReferenceOptions(_opRawFiles).forEach(opt => audioSelect.appendChild(opt));
-    // Default to the first decision entry when present, since it opens in the document viewer.
-    if (_currentDecisionEntries.length) audioSelect.value = _currentDecisionEntries[0].value;
+    // Default to the first oral-argument transcript when present (matches a
+    // case with real audio defaulting to its argument), else the first
+    // decision entry — both open in the document viewer.
+    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0];
+    if (_defaultEntry) audioSelect.value = _defaultEntry.value;
     audioSelect.hidden = false;
   } else {
     audioSelect.hidden = true;
@@ -6202,13 +6209,16 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
 
   playerSection.hidden = false;
 
-  // Open the first decision href full-height in the document viewer. Use a local
-  // override so this large height doesn't persist for the next audio case.
-  const _primaryDE = _currentDecisionEntries[0];
-  if (_primaryDE) {
+  // Open the first oral-argument transcript href full-height in the document
+  // viewer — matching how a case with real audio defaults to showing its
+  // argument — falling back to the decision when there's no transcript
+  // source. Use a local override so this large height doesn't persist for
+  // the next audio case.
+  const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0];
+  if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-    showDocViewer({ href: _primaryDE.href, title: _primaryDE.title, view: _primaryDE.view }, { autoScroll: true });
+    showDocViewer({ href: _primaryEntry.href, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
   }
 
@@ -7002,7 +7012,7 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   }
   if (e.target.value.startsWith('transcript:')) {
     const te = _currentTranscriptEntries.find(t => t.value === e.target.value);
-    if (te) showDocViewer({ href: te.href, title: te.title }, { force: true });
+    if (te) showDocViewer({ href: te.href, title: te.title, view: te.view }, { force: true });
     return;
   }
   if (e.target.value.startsWith('oyez:')) {
