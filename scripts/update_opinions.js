@@ -172,22 +172,53 @@ function addCorrection(filename, line, oldFull, newFull) {
  * source HTML changed since the correction was made — rather than silently
  * leaving it unapplied or corrupting the line.
  */
+// Tolerates a constant (or near-constant) line-number drift since the
+// correction was recorded — e.g. a template line added/removed elsewhere in
+// the file (a one-time corpus-wide +1 shift came from the XSLT polyfill
+// <script> line added in 3ab36c9fe) shifts every correction's recorded line
+// number by the same amount, even though the anchor text itself is
+// untouched. Search a window around the recorded line before giving up.
+const CORRECTION_DRIFT_WINDOW = 20;
+
+// True if `line` contains `oldSnippet` — tolerating a change in leading
+// whitespace (e.g. a paragraph that used to be wrongly nested a level deeper
+// inside a swallowed footnote, and is now correctly at the top level — see
+// the footnote-swallow fixes in walkFlow — legitimately shifts its own
+// indentation) by also trying both trimmed of their own leading whitespace.
+// Returns the snippet that actually matched (for the caller to replace with
+// the correspondingly-trimmed new text), or null if neither matches.
+function _correctionAnchor(line, oldSnippet) {
+    if (line.includes(oldSnippet)) return oldSnippet;
+    const trimmed = oldSnippet.replace(/^\s+/, '');
+    if (trimmed !== oldSnippet && line.includes(trimmed)) return trimmed;
+    return null;
+}
+
 function applyCorrections(filename, xml) {
     const entries = _loadCorrections()[filename];
     if (!entries || !entries.length) return xml;
     const lines = xml.split('\n');
     for (const { line, old, new: replacement } of entries) {
-        const idx = line - 1;
-        if (idx < 0 || idx >= lines.length) {
-            console.error(`  WARNING: ${filename}: correction for line ${line} but file only has ${lines.length} line(s)`);
-            continue;
-        }
         const oldSnippet = _stripEllipsis(old);
-        if (!lines[idx].includes(oldSnippet)) {
+        const newSnippet = _stripEllipsis(replacement);
+        const exactIdx = line - 1;
+        let idx = -1, anchor = null;
+        if (exactIdx >= 0 && exactIdx < lines.length) anchor = _correctionAnchor(lines[exactIdx], oldSnippet);
+        if (anchor) idx = exactIdx;
+        if (idx === -1) {
+            const start = Math.max(0, exactIdx - CORRECTION_DRIFT_WINDOW);
+            const end = Math.min(lines.length, exactIdx + CORRECTION_DRIFT_WINDOW + 1);
+            for (let i = start; i < end; i++) {
+                anchor = _correctionAnchor(lines[i], oldSnippet);
+                if (anchor) { idx = i; break; }
+            }
+        }
+        if (idx === -1) {
             console.error(`  WARNING: ${filename}: correction for line ${line} no longer matches — skipped`);
             continue;
         }
-        lines[idx] = lines[idx].replace(oldSnippet, _stripEllipsis(replacement));
+        const newAnchor = anchor === oldSnippet ? newSnippet : newSnippet.replace(/^\s+/, '');
+        lines[idx] = lines[idx].replace(anchor, newAnchor);
     }
     return lines.join('\n');
 }
@@ -396,9 +427,47 @@ function _headingLevel(text, ctx) {
     return 2;
 }
 
+// Leftover corruption from some prior, unrelated fix already baked into the
+// cached source HTML — a whole family of "{id}|>" fragments (e.g. "ast|>",
+// "fn15|>", "app|>", "appa|>", "tab1|>", or a bare number like "5|>"), each
+// presumably a mangled remnant of some reference-id anchor (a footnote, an
+// appendix section, a table, a repeating-symbol footnote marker...) that a
+// prior, unrelated fix broke. Found byte-for-byte identical across
+// thousands of cached pages, always adjacent to normal surrounding text
+// (often, but not always, trailed by a plain "*" or "note N" naming what it
+// was probably meant to link to) — stripping it leaves that surrounding
+// text intact and readable; reconstructing the original link isn't
+// generally possible from this alone, so this only removes the noise.
+// Deliberately anchored to a specific, non-numeric prefix (never a bare
+// \w+) — a run of digits can legitimately sit directly against the garbage
+// with no separator (e.g. "524fn5|>5" is really the citation page "524"
+// fused onto a mangled "fn5" reference), and a greedy \w+ would swallow
+// those legitimate digits along with the garbage. Anchoring on the known
+// letter-prefixes instead means a match can only start where one of them
+// literally begins, so it can never eat backwards into a preceding number.
+const KNOWN_GARBAGE_RE = /\b(?:ast|app[a-z0-9]*|tab\d*|fn\d+)\|>/g;
+function _stripKnownGarbage(text) {
+    return text.replace(KNOWN_GARBAGE_RE, '');
+}
+
+// True for a Justia "related-case" link that echoes this same case's own
+// citation — of the form https://supreme.justia.com/cases/federal/us/
+// {vol}/{page}/, matching ctx.citation's own volume/page — as opposed to a
+// genuine cross-reference to a *different* case (e.g. the lower-court
+// opinion below), which reuses the exact same class name and must be left
+// alone. A pure self-citation echo like this adds nothing a reader doesn't
+// already have from the h1/other headings, so it's dropped entirely.
+function _isSelfCitationLink(el, href, ctx) {
+    if (!href || !ctx.citation) return false;
+    if (!/\brelated-case\b/.test(el.getAttribute('class') || '')) return false;
+    const cm = ctx.citation.match(/^(\d+) U\.S\. (\d+)$/);
+    if (!cm) return false;
+    return new RegExp(`^https?://supreme\\.justia\\.com/cases/federal/us/${cm[1]}/${cm[2]}/?$`).test(href);
+}
+
 /** Render a single node (text or element) — see renderInline() below for the full contract. */
 function renderInlineNode(child, ctx) {
-    if (child.nodeType === 3) return escText(child.text);
+    if (child.nodeType === 3) return escText(_stripKnownGarbage(child.text));
     if (child.nodeType !== 1) return '';
     const tag = (child.rawTagName || '').toLowerCase();
     if (tag === 'br') return ' ';
@@ -406,6 +475,7 @@ function renderInlineNode(child, ctx) {
         const inner = renderInline(child, ctx);
         if (!inner) return ''; // Justia sometimes emits an empty <a href> right before the real one; drop it
         const href = child.getAttribute('href');
+        if (_isSelfCitationLink(child, href, ctx)) return '';
         const frag = href && href.startsWith('#') ? href.slice(1) : null;
         // Footnotes always come in T/F id pairs, regardless of which of the two
         // source layouts (a div.opinion-footnotes cluster, or loose "[<a
@@ -422,6 +492,22 @@ function renderInlineNode(child, ctx) {
         }
         if (frag && (fm = frag.match(/^T(\d+)$/))) {
             const n = fm[1];
+            return `<a id="${_footnoteDefId(ctx, n)}" href="#${_footnoteRefId(ctx, n)}">${inner}</a>`;
+        }
+        // Some (usually very old) documents mark a lone, page-scoped footnote
+        // with a repeating symbol ("*", "†", etc.) instead of a number —
+        // every use of the symbol in the source shares the exact same
+        // href="#F*"/"#T*" fragment, so unlike the numbered case there's no
+        // shared index already in the markup to key off. Synthesize one from
+        // a counter, on the assumption that refs and defs each appear in the
+        // same relative order as one another even without an explicit shared
+        // number — the same assumption the numbered case gets for free.
+        if (frag && (fm = frag.match(/^F(\D.*)$/))) {
+            const n = fm[1] + (ctx._starRefN = (ctx._starRefN || 0) + 1);
+            return `<a id="${_footnoteRefId(ctx, n)}" href="#${_footnoteDefId(ctx, n)}">${inner}</a>`;
+        }
+        if (frag && (fm = frag.match(/^T(\D.*)$/))) {
+            const n = fm[1] + (ctx._starDefN = (ctx._starDefN || 0) + 1);
             return `<a id="${_footnoteDefId(ctx, n)}" href="#${_footnoteRefId(ctx, n)}">${inner}</a>`;
         }
         if (href) {
@@ -606,8 +692,42 @@ function emitParagraph(push, text) {
 function _footnoteMarkerRe(ctx) {
     const fPrefix = ctx.multiOpinion ? `fn${ctx.opinionIndex}-` : 'fn';
     const refPrefix = ctx.multiOpinion ? `nf${ctx.opinionIndex}-` : 'nf';
-    return new RegExp(`(?:<h\\d>)?\\[?<a id="${fPrefix}(\\d+)" href="#${refPrefix}\\d+">([^<]*)<\\/a>\\]?(?:<\\/h\\d>)?\\s*`);
+    // The id's value is usually plain digits, but a symbol-marked footnote
+    // (see the F*/T* handling in renderInlineNode) synthesizes one like
+    // "*1" instead — [^"]+ matches either.
+    return new RegExp(`(?:<h\\d>)?\\[?<a id="${fPrefix}([^"]+)" href="#${refPrefix}[^"]+">([^<]*)<\\/a>\\]?(?:<\\/h\\d>)?\\s*`);
 }
+
+// Matches a standalone "JUSTICE X, [with whom ... join(s),] concurring/
+// dissenting[...]." byline paragraph — the start of a new opinion within the
+// same pane. Some (usually older) cases bundle a per curiam opinion and one
+// or more separate opinions into a single Justia pane with no distinguishing
+// container in the source between them (plain flowing paragraphs both
+// before and after), so this text pattern is the only available signal.
+// Used only to end an old-style footnote collection early (see flush()
+// below) — without it, a trailing footnote with no subsequent marker of its
+// own would otherwise keep swallowing paragraphs all the way to the end of
+// the pane, silently absorbing an entire second opinion into its body.
+const OPINION_BYLINE_RE = /^(?:MR\.\s+|MS\.\s+)?(?:JUSTICE\s+\S|THE\s+CHIEF\s+JUSTICE\b|CHIEF\s+JUSTICE\s+\S)[^.]*,\s*(?:concurring|dissenting)\b[^.]*\.$/i;
+
+// Matches a "SURNAME[ and SURNAME], Justice(s)[,.] ..." prefix — the older
+// (pre-1800s, "seriatim") convention of introducing each Justice's separate
+// opinion by surname rather than the modern "JUSTICE X, ... dissenting."
+// sentence, and (unlike that one) not necessarily its own whole paragraph:
+// the opinion's own text often continues right after in the same paragraph
+// (e.g. "SMITH, Justice. This is strongly pressed..."). Same purpose as
+// OPINION_BYLINE_RE above — ending an old-style footnote collection early —
+// just matched as a prefix instead of the whole paragraph.
+const OPINION_SERIATIM_RE = /^[A-Z][A-Z']{1,20}(?:\s+(?:and|&amp;)\s+[A-Z][A-Z']{1,20})*,\s+Justices?[.,]?\s+\S/;
+
+// Matches a bare "MR. JUSTICE X." / "THE CHIEF JUSTICE." byline with no
+// "concurring"/"dissenting" clause at all — just the name and a period, as
+// its own whole paragraph. Common both in old seriatim opinions ("MR. CHIEF
+// JUSTICE MARSHALL.") and modern ones (e.g. a footnote in Youngstown, 343
+// U.S. 579, swallowed "MR. JUSTICE FRANKFURTER." and his entire concurrence
+// because it lacks the ", concurring" clause OPINION_BYLINE_RE looks for).
+// Same purpose as the two above.
+const OPINION_BARE_BYLINE_RE = /^(?:MR\.\s+|MS\.\s+)?(?:JUSTICE\s+[A-Z][A-Za-z']*|THE\s+CHIEF\s+JUSTICE|CHIEF\s+JUSTICE\s+[A-Z][A-Za-z']*)\.$/;
 
 /** Walk a flow container's children, splitting on empty <p></p> markers, into <p>/<hN>/<n>/<f> strings. */
 function walkFlow(container, ctx, out) {
@@ -643,12 +763,15 @@ function walkFlow(container, ctx, out) {
             if (rest) emitParagraph(emit, rest); // bracket-less variant: body text starts in the same paragraph
             return;
         }
+        if (ctx.footnoteCollector && (OPINION_BYLINE_RE.test(text) || OPINION_SERIATIM_RE.test(text) || OPINION_BARE_BYLINE_RE.test(text))) {
+            finishFootnote(ctx, out); // a new opinion's byline ends any footnote still being collected
+        }
         emitParagraph(emit, text);
     };
 
     for (const node of container.childNodes) {
         if (node.nodeType === 3) {
-            if (!skipToParaBreak) buffer += escText(node.text);
+            if (!skipToParaBreak) buffer += escText(_stripKnownGarbage(node.text));
             continue;
         }
         if (node.nodeType !== 1) continue;

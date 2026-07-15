@@ -7338,25 +7338,45 @@ document.getElementById('doc-viewer-minimize').addEventListener('click', (e) => 
   collapseDocViewer();
 });
 
-// Back/forward navigate the currently visible pooled iframe's own history.
-// This works even for cross-origin documents (e.g. an external HTML
-// transcript) — history.back()/forward() are among the few members a page
-// may call on a cross-origin window — so a visitor who clicked a link
-// inside an embedded document can return to what was originally opened
-// without losing their place in the doc viewer.
-function _activeDocViewerIframe() {
-  for (const el of _pdfIframePool.values()) {
-    if (el.style.display === 'block') return el;
+// Back/forward navigate the currently visible pooled iframe's own history,
+// so a visitor who clicked a link inside an embedded document (e.g. an
+// external HTML transcript, or one of our own opinion.xsl-rendered pages)
+// can return to what was originally opened without losing their place in
+// the doc viewer.
+function _activeDocViewerEntry() {
+  for (const [src, el] of _pdfIframePool) {
+    if (el.style.display === 'block') return { src, el };
   }
   return null;
 }
+function _navigateDocViewer(dir) {
+  const entry = _activeDocViewerEntry();
+  if (!entry) return;
+  const { src, el } = entry;
+  let ownOrigin = null;
+  try { ownOrigin = window.OPINIONS_BASE_URL ? new URL(window.OPINIONS_BASE_URL).origin : null; } catch {}
+  let sameAsOwn = false;
+  try { sameAsOwn = ownOrigin && new URL(src, location.href).origin === ownOrigin; } catch {}
+  if (sameAsOwn) {
+    // We control this content (see the postMessage listener added to
+    // assets/xsl/opinion.xsl) — ask it to navigate its own (always-
+    // unrestricted) history rather than calling history.back()/forward() on
+    // a cross-origin contentWindow ourselves, which browsers don't
+    // reliably honor even though it's spec'd as cross-origin-accessible.
+    try { el.contentWindow?.postMessage({ type: 'ussc-doc-nav', dir }, ownOrigin); } catch {}
+    return;
+  }
+  // Third-party content with no cooperating script (e.g. an external HTML
+  // transcript) — best effort only.
+  try { el.contentWindow?.history[dir](); } catch { /* cross-origin, ignore */ }
+}
 document.getElementById('doc-viewer-back').addEventListener('click', (e) => {
   e.stopPropagation();
-  try { _activeDocViewerIframe()?.contentWindow?.history.back(); } catch { /* cross-origin, ignore */ }
+  _navigateDocViewer('back');
 });
 document.getElementById('doc-viewer-forward').addEventListener('click', (e) => {
   e.stopPropagation();
-  try { _activeDocViewerIframe()?.contentWindow?.history.forward(); } catch { /* cross-origin, ignore */ }
+  _navigateDocViewer('forward');
 });
 
 document.getElementById('doc-viewer-expand').addEventListener('click', (e) => {
