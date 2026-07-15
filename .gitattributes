@@ -1,0 +1,7 @@
+# data/ussc/women.csv is kept CRLF-terminated on purpose (spreadsheet
+# compatibility) — without this, git considers it a mismatch against its
+# LF-normalization default and reprints a "CRLF will be replaced by LF"
+# warning on every operation that touches the file (e.g. via publish.sh).
+# `eol=crlf` tells git that CRLF *is* the correct/expected line ending here,
+# so the file is normalized to (and consistently kept as) CRLF instead.
+data/ussc/women.csv text eol=crlf
