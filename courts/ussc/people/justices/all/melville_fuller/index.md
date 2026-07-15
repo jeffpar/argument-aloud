@@ -5,7 +5,7 @@ justice_id: melville_fuller
 wikipedia_url: https://en.wikipedia.org/wiki/Melville_Fuller
 years_served: 21.7
 days_served: "7,939"
-opinions: 853
+opinions: 852
 lone_dissents: 13
 ---
 <div style="display:flex; gap:1em;">

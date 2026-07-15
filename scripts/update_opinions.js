@@ -840,6 +840,28 @@ function paneLabel(root, paneId) {
     return { type: (m ? m[1] : raw).trim(), author };
 }
 
+// Justia sometimes splits a month-crossing multi-day argument date across
+// two separate heading elements — "Argued January 31" (no year at all,
+// which trips up _headingLevel into picking h2 instead of h4) immediately
+// followed by "February 1, 1952" — rather than the single combined heading
+// it uses for a same-month span ("Argued April 25-26, 1887"). Merges the
+// pair into that same single-heading form ("Argued January 31-February 1,
+// 1952"), re-run through _headingLevel so it picks the right level now that
+// the merged text has a year, same as if it had never been split.
+const _SPLIT_ARGUED_START_RE = /^<h\d>((?:Argued|Reargued) [A-Za-z]+ \d{1,2})<\/h\d>$/;
+const _SPLIT_ARGUED_END_RE = /^<h\d>([A-Za-z]+ \d{1,2}, \d{4})<\/h\d>$/;
+function _mergeSplitArguedHeadings(body, ctx) {
+    for (let i = 0; i < body.length - 1; i++) {
+        const startMatch = _SPLIT_ARGUED_START_RE.exec(body[i]);
+        if (!startMatch) continue;
+        const endMatch = _SPLIT_ARGUED_END_RE.exec(body[i + 1]);
+        if (!endMatch) continue;
+        const merged = `${startMatch[1]}-${endMatch[1]}`;
+        const level = _headingLevel(merged, ctx);
+        body.splice(i, 2, `<h${level}>${merged}</h${level}>`);
+    }
+}
+
 function convertOpinion(pane, opinionIndex, root, ctx) {
     ctx.opinionIndex = opinionIndex;
     ctx.footnoteCollector = null;
@@ -859,6 +881,7 @@ function convertOpinion(pane, opinionIndex, root, ctx) {
     if (ctx.openingPage) body.push(`<n id="p${ctx.openingPage}">${ctx.openingPage}</n>`);
     walkFlow(contentRoot, ctx, body);
     finishFootnote(ctx, body); // close out a trailing older-style footnote, if the pane ended mid-collection
+    _mergeSplitArguedHeadings(body, ctx);
 
     const attrs = [`type="${escAttr(label.type)}"`];
     if (label.author) attrs.push(`author="${escAttr(label.author)}"`);

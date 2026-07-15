@@ -9027,6 +9027,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
        node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose] [--debug]
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs dates.csv
+       node update_cases.js [TERM [CASE]] --backfill-argued [--verbose] [--dry-run]  # backfill argument/reargument dates found in opinion XML
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
@@ -9089,6 +9090,11 @@ Examples:
   node update_cases.js 1793-02 --dates                     # check one term vs dates.csv
   node update_cases.js 1793-02 1793-001 --dates            # check one case vs dates.csv
   node update_cases.js --dates --verbose                   # also list cases absent from CSV
+
+  node update_cases.js --backfill-argued --dry-run         # preview argument/reargument date backfill, all terms
+  node update_cases.js 1951-10 --backfill-argued           # backfill one term
+  node update_cases.js 1951-10 1951-072 --backfill-argued  # backfill one case
+  node update_cases.js --backfill-argued --verbose         # also log suspect-year dates skipped (likely OCR/typo)
 
   node update_cases.js --split                             # find opinion events needing a split
   node update_cases.js 2024-10 --split                     # check one term
@@ -9688,6 +9694,164 @@ function _resolveOpinionPath(c) {
     const volDir = 'us' + String(vol).padStart(3, '0');
     const opinionPath = path.join(OPINIONS_HTML_DIR, volDir, `${volDir}-${String(page).padStart(4, '0')}.html`);
     return fs.existsSync(opinionPath) ? opinionPath : null;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// --backfill-argued: some cached opinion XML files carry "Argued"/"Reargued"
+// headings whose date(s) never made it into cases.json (surveyed corpus-wide
+// by tests/report_missing_argument_dates.js). Backfill those genuinely-missing
+// dates into argument/reargument, regenerate the *_days labels to match, and
+// tag each modified case so the source of the addition stays visible.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const OPINIONS_XML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'xml');
+const BACKFILL_ARGUED_TAG   = 'Backfilled Argument Dates';
+const BACKFILL_ARGUED_RE    = /<h[24]>Argued ([^<]+)<\/h[24]>/;
+const BACKFILL_REARGUED_RE  = /<h[24]>Reargued ([^<]+)<\/h[24]>/;
+
+function _monthNum(name) {
+    const i = _MONTHS.indexOf(name);
+    return i === -1 ? null : i + 1;
+}
+
+// Parse the text following "Argued "/"Reargued " in an opinion XML heading
+// into the set of ISO dates it represents: "January 31, 1952" (single day),
+// "April 25-26, 1887" (same-month range, inclusive), or "January
+// 31-February 1, 1952" (month-crossing, exactly the two named days).
+function _parseArguedHeadingDates(text) {
+    const dates = new Set();
+    const pad2 = n => String(n).padStart(2, '0');
+    let m = text.match(/^([A-Za-z]+) (\d{1,2})-([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+    if (m) {
+        const [, mo1, d1, mo2, d2, yr] = m;
+        const n1 = _monthNum(mo1), n2 = _monthNum(mo2);
+        if (n1 && n2) {
+            dates.add(`${yr}-${pad2(n1)}-${pad2(+d1)}`);
+            dates.add(`${yr}-${pad2(n2)}-${pad2(+d2)}`);
+        }
+        return dates;
+    }
+    m = text.match(/^([A-Za-z]+) (\d{1,2})-(\d{1,2}), (\d{4})$/);
+    if (m) {
+        const [, mo, d1, d2, yr] = m;
+        const n = _monthNum(mo);
+        if (n) for (let d = +d1; d <= +d2; d++) dates.add(`${yr}-${pad2(n)}-${pad2(d)}`);
+        return dates;
+    }
+    m = text.match(/^([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+    if (m) {
+        const [, mo, d, yr] = m;
+        const n = _monthNum(mo);
+        if (n) dates.add(`${yr}-${pad2(n)}-${pad2(+d)}`);
+    }
+    return dates;
+}
+
+// Resolve a case's opinion XML path (used to read its "Argued"/"Reargued"
+// heading), preferring an explicit decision_xml href, else deriving one from
+// usCite the same way _resolveOpinionPath does for the HTML equivalent.
+function _resolveOpinionXmlPath(c) {
+    if (c.decision_xml) {
+        const p = path.join(REPO_ROOT, String(c.decision_xml).replace(/^\//, ''));
+        if (fs.existsSync(p)) return p;
+    }
+    const m = /^(\d+)\s*U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+    if (!m) return null;
+    const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+    const volDir = 'us' + String(vol).padStart(3, '0');
+    const p = path.join(OPINIONS_XML_DIR, volDir, `${volDir}-${String(page).padStart(4, '0')}.xml`);
+    return fs.existsSync(p) ? p : null;
+}
+
+function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } = {}) {
+    const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+
+    let checked = 0, noXml = 0, casesModified = 0, datesAdded = 0, suspectSkipped = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const filtered = caseFilter
+            ? cases.filter(c => c && (
+                c.id === caseFilter ||
+                (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)
+              ))
+            : cases;
+
+        let termModified = false;
+
+        for (const c of filtered) {
+            if (!c) continue;
+            const xmlPath = _resolveOpinionXmlPath(c);
+            if (!xmlPath) { noXml++; continue; }
+            let xml;
+            try { xml = fs.readFileSync(xmlPath, 'utf8'); } catch { continue; }
+            checked++;
+
+            const knownArg   = new Set(_parseDateField(c.argument || ''));
+            const knownRearg = new Set(_parseDateField(c.reargument || ''));
+            // A date already recorded under EITHER field never needs
+            // backfilling into the other — e.g. a date already tracked as a
+            // reargument day shouldn't also be injected into argument just
+            // because the opinion's "Argued" heading happens to repeat it.
+            const knownEither = new Set([...knownArg, ...knownRearg]);
+            const knownYears = new Set([...knownEither].map(d => d.slice(0, 4)));
+
+            const am = BACKFILL_ARGUED_RE.exec(xml);
+            const rm = BACKFILL_REARGUED_RE.exec(xml);
+
+            const missing = [];
+            if (am) for (const d of _parseArguedHeadingDates(am[1])) if (!knownEither.has(d)) missing.push({ field: 'argument', date: d });
+            if (rm) for (const d of _parseArguedHeadingDates(rm[1])) if (!knownEither.has(d)) missing.push({ field: 'reargument', date: d });
+            if (!missing.length) continue;
+
+            const label = `${term}/${c.id || c.number || '?'} (${firstTitle(c.title) || '?'})`;
+            const toApply = [];
+            for (const m of missing) {
+                // A missing date whose year doesn't match any date cases.json
+                // already has recorded for this case is much more likely an
+                // OCR/typo error in the opinion heading itself (e.g. "1889"
+                // misread for "1869") than a genuinely uncaptured extra
+                // argument day — leave those for manual review instead.
+                const suspectYear = knownYears.size > 0 && !knownYears.has(m.date.slice(0, 4));
+                if (suspectYear) {
+                    suspectSkipped++;
+                    if (verbose) console.log(`  ${label}: SKIP ${m.field} ${m.date} (year matches no known date — likely OCR/typo, not backfilled)`);
+                    continue;
+                }
+                toApply.push(m);
+            }
+            if (!toApply.length) continue;
+
+            for (const m of toApply) (m.field === 'argument' ? knownArg : knownRearg).add(m.date);
+            console.log(`  ${label}: +${toApply.map(m => `${m.field}=${m.date}`).join(', ')}`);
+            datesAdded += toApply.length;
+
+            if (!dryRun) {
+                if (knownArg.size)   c.argument   = _joinDates(_sortStr(knownArg));
+                if (knownRearg.size) c.reargument = _joinDates(_sortStr(knownRearg));
+                fixDayLabels(term, [c], false);
+                const existingTags = Array.isArray(c.tags) ? c.tags : [];
+                if (!existingTags.includes(BACKFILL_ARGUED_TAG)) c.tags = [...existingTags, BACKFILL_ARGUED_TAG];
+                const reordered = reorderCase(c);
+                for (const k of Object.keys(c)) delete c[k];
+                Object.assign(c, reordered);
+            }
+            termModified = true;
+            casesModified++;
+        }
+
+        if (termModified && !dryRun) _writeJson(casesPath, cases);
+    }
+
+    console.log(`\nBackfill: ${checked} case(s) checked with resolvable opinion XML (${noXml} had none).`);
+    console.log(`${dryRun ? 'Would modify' : 'Modified'} ${casesModified} case(s), adding ${datesAdded} date(s) total.`);
+    if (suspectSkipped) console.log(`Skipped ${suspectSkipped} suspect-year date(s) (likely OCR/typo, not backfilled — rerun with --verbose to see which).`);
 }
 
 function _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose = false } = {}) {
@@ -12194,6 +12358,11 @@ async function main() {
 
     if (flags.has('--dates')) {
         await runDatesCheck(positional[0] || null, positional[1] || null, !dryRun);
+        return;
+    }
+
+    if (flags.has('--backfill-argued')) {
+        runBackfillArgued(positional[0] || null, positional[1] || null, dryRun, { verbose });
         return;
     }
 

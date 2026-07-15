@@ -36,6 +36,20 @@ Extracting advocate data from printed/scanned journals and transcripts is non-tr
 
 There is still more work to do in terms of producing a complete and accurate list of [Top Advocates](https://argumentaloud.org/courts/ussc/?collection=top100_advocates).  Of course, if the Court shared its advocate data with the public, that would be even better.
 
+#### Regarding Dates of Decisions
+
+As we mention [here](https://argumentaloud.org/courts/ussc/?source=ussc&group=9), the Court published what we generally consider the "definitive" list of all (early) "Dates of Supreme Court Decisions (and Arguments)."  Unfortunately, it turns out they may have missed a few.
+
+For example, in U.S. Reports [Volume 154](https://www.supremecourt.gov/pdfs/USReports/USREPORTS-154_PDFA.pdf#page=553), there is a section titled "SOME CASES NOT HITHERTO REPORTED IN FULL" which includes this preamble:
+
+> The Centennial Appendix, at the end of Volume 131, contained two tables of omitted cases. In the first table the cases were reported in full. The second contained only a list of cases, term by term [see pages ccxx to ccxxxi], in which opinions were given which were supposed to decide the case on the facts; or on the authority of some case referred to; or in which the decision was made partly on the facts and partly on such authority; or in which judgment was entered either on the stipulation of the parties, or for incompleteness of the record, or for non-compliance with the rules of court. It was assumed that it was not worth while to occupy the space necessary to report these cases in full. The fact that two or three of them have been referred to in opinions of the court, since rendered, shows that this assumption was not well founded, and calls upon the reporter now to print them in full.
+
+So, for example, the case "1863-12/1863-084 (267): Milwaukee & Minnesota R. Co. v. Soutter", which was originally listed as No. 268 and argued on Monday, February 1, 1864, was reported in Volume 131 as No. 267, argued on February 1-9, 1864, and decided on Tuesday, February 23, 1864.  However, this later report fails to mention that 68 U.S. 405 lists the case as being decided with "Bronson v. La Cross & Milwaukee R. Co.", which *does* appear in the "Dates of Decisions."  We assume that both cases were not only decided together but also argued together, on February 1-5 and 8-9; those 7 dates also seem more plausible than 9 straight days.
+
+While reviewing all argument dates, we have unfortunately noticed some mistakes in U.S. Reports.  For example, 355 U.S. 184 reports that Green v. United States (No. 46) was reargued on October 15, 1957; however, the 1957 Journal indicates that, while No. 46 was *scheduled* for that day, they apparently ran out of time, because argument did not commence until the following day, on October 16, 1957.
+
+Similarly, 445 U.S. 480 reports that Vitek v. Jones (No. 78-1155) was argued on December 3, 1979, but all other evidence (journal, audio recording, transcript) indicates it was actually argued on December 5, 1979.  And 449 U.S. 200 reports that United States v. Will was argued on October 13, 1980, but the correct date is October 14, 1980; the Court was not even in session on October 13.
+
 ## TODO
 
   - The [Library of Congress](https://www.loc.gov) currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for **Sullivan v. Florida (560 U.S. 181)**; you can only find it at the bottom of the document for [United States v. Comstock (560 U.S. 126)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep560/usrep560126/usrep560126.pdf#page=56). There are numerous other instances where opinions that should exist on loc.gov cannot be found, so at some point, a comprehensive audit should be performed.
