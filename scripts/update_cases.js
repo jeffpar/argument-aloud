@@ -9849,6 +9849,28 @@ function _resolveOpinionXmlPath(c) {
     return fs.existsSync(p) ? p : null;
 }
 
+// Best-effort: open a URL in Microsoft Edge during --interactive prompting,
+// so the reviewer can glance at the source without a manual cmd+click.
+// Never fatal — a missing browser/OS mismatch just means it doesn't pop open.
+function _openInEdge(url) {
+    if (!url) return;
+    try {
+        if (process.platform === 'darwin') {
+            // -g asks the launched app not to activate, but Chromium browsers
+            // (Edge/Chrome) activate themselves anyway once they handle the
+            // open-URL event, ignoring that request. Give it a beat to do so,
+            // then reclaim focus for the terminal explicitly.
+            spawnSync('open', ['-g', '-a', 'Microsoft Edge', url], { stdio: 'ignore' });
+            spawnSync('sleep', ['0.4']);
+            spawnSync('osascript', ['-e', 'tell application "Visual Studio Code" to activate'], { stdio: 'ignore' });
+        } else if (process.platform === 'win32') {
+            spawnSync('cmd', ['/c', 'start', 'msedge', url], { stdio: 'ignore' });
+        } else {
+            spawnSync('xdg-open', [url], { stdio: 'ignore' });
+        }
+    } catch { /* best-effort only */ }
+}
+
 async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false, newFormatOnly = false, interactive = false } = {}) {
     const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
     const termsToProcess = termFilter ? [termFilter] : allTerms;
@@ -9971,11 +9993,12 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                 if (touchedFields.has('reargument')) console.log(`  reargument=${originalReargument || '(none)'} correction=${newReargument}`);
                 if (c.decision_loc)     console.log(`  ${c.decision_loc}`);
                 if (c.decision_reports) console.log(`  ${c.decision_reports}`);
-                const answer = await _ask('  Add, reject (N), or type replacement date(s): ');
+                _openInEdge(c.decision_loc);
+                const answer = await _ask('  Add (Y/n), or type replacement date(s): ');
                 console.log();
                 if (DATE_LIST_RE.test(answer)) {
                     overrideValue = answer;
-                } else if (answer.toLowerCase() !== 'y') {
+                } else if (answer !== '' && answer.toLowerCase() !== 'y') {
                     userSkipped++;
                     if (!dryRun) {
                         c.backfill = false;

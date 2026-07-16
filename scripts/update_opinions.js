@@ -366,6 +366,28 @@ function readCanonical(fullPath) {
 
 // ── XML helpers ──────────────────────────────────────────────────────────
 
+// Undo HTML entity-encoding in text pulled straight out of raw HTML via
+// regex (bypassing node-html-parser, which would normally decode this for
+// us) — e.g. OG_TITLE_RE's captured `content="..."` value. Without this,
+// escText()/escAttr() re-escape the already-encoded "&amp;" into "&amp;amp;".
+function decodeHtmlEntities(s) {
+    if (typeof s !== 'string' || s.indexOf('&') < 0) return s;
+    return s.replace(/&(amp|lt|gt|quot|apos|#x[0-9a-fA-F]+|#\d+);/g, (m, ent) => {
+        if (ent === 'amp')  return '&';
+        if (ent === 'lt')   return '<';
+        if (ent === 'gt')   return '>';
+        if (ent === 'quot') return '"';
+        if (ent === 'apos') return "'";
+        if (ent[0] === '#') {
+            const cp = ent[1] === 'x' || ent[1] === 'X'
+                ? parseInt(ent.slice(2), 16)
+                : parseInt(ent.slice(1), 10);
+            return Number.isFinite(cp) ? String.fromCodePoint(cp) : m;
+        }
+        return m;
+    });
+}
+
 function escText(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -903,7 +925,7 @@ function convertCase(volDir, file, ctx) {
     const canonMatch = html.match(CANONICAL_RE);
     const citation = canonMatch ? `${canonMatch[1]} U.S. ${canonMatch[2]}` : null;
     const ogTitleMatch = html.match(OG_TITLE_RE);
-    const title = ogTitleMatch ? ogTitleMatch[1].replace(/,\s*\d+\s*U\.\s*S\.\s*.*$/, '').trim() : null;
+    const title = ogTitleMatch ? decodeHtmlEntities(ogTitleMatch[1].replace(/,\s*\d+\s*U\.\s*S\.\s*.*$/, '').trim()) : null;
     // Only the first (and typically only) opinion actually starts on the case's own
     // canonical page — later opinions (concurrence/dissent) start wherever they fall,
     // which we don't know in advance, so no synthesized anchor for those.
