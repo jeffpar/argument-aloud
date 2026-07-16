@@ -4776,6 +4776,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
 
     const groupsByName = new Map(coll.map(g => [g.name, g]));
     let totalAdded = 0;
+    const addedForNames = []; // only justices who actually got a new case this run
 
     for (const [canonical, byCase] of discovered) {
         let group = groupsByName.get(canonical);
@@ -4786,6 +4787,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
         }
         if (!Array.isArray(group.cases)) group.cases = [];
 
+        let addedForThisJustice = 0;
         for (const cd of byCase.values()) {
         // Check if already in group.cases (normalize to first docket number).
             const normNum = n => String(n || '').split(',')[0].trim();
@@ -4808,7 +4810,9 @@ function processJusticeAdvocates(allTerms, dryRun) {
 
             group.cases.push(entry);
             totalAdded++;
+            addedForThisJustice++;
         }
+        if (addedForThisJustice) addedForNames.push(canonical);
 
         // Keep cases sorted chronologically.
         group.cases.sort((a, b) => {
@@ -4836,7 +4840,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
         _mkdirSync(path.dirname(JUSTICE_ADVOCATES_FILE), { recursive: true });
         _writeJson(JUSTICE_ADVOCATES_FILE, coll);
     }
-    console.log(`Justice advocates: ${verb} ${totalAdded} case(s) for ${[...discovered.keys()].join(', ')}.`);
+    console.log(`Justice advocates: ${verb} ${totalAdded} case(s) for ${addedForNames.join(', ')}.`);
 }
 
 // =====================================================================

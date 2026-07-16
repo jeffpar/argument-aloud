@@ -8,8 +8,8 @@ days_served: "6,966"
 opinions: 235
 lone_dissents: 16
 vocal_secs: 11684
-case_count: 6
-first_argument: February 8, 1937
+case_count: 7
+first_argument: January 9, 1935
 last_argument: February 11, 1937
 ---
 <div style="display:flex; gap:1em;">
