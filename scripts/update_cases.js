@@ -9093,7 +9093,8 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
        node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose] [--debug]
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs dates.csv
-       node update_cases.js [TERM [CASE]] --backfill-argued [--verbose] [--dry-run]  # backfill argument/reargument dates found in opinion XML
+       node update_cases.js [TERM [CASE]] --backfill-argued [--verbose] [--dry-run] [--new-format-only] [--interactive]
+                                                                          # backfill argument/reargument dates found in opinion XML
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
@@ -9161,6 +9162,8 @@ Examples:
   node update_cases.js 1951-10 --backfill-argued           # backfill one term
   node update_cases.js 1951-10 1951-072 --backfill-argued  # backfill one case
   node update_cases.js --backfill-argued --verbose         # also log suspect-year dates skipped (likely OCR/typo)
+  node update_cases.js --backfill-argued --new-format-only # only the "Month D, D, D, YYYY" comma-list heading shape
+  node update_cases.js --backfill-argued --interactive     # confirm each case (y/N) before writing dates + scdb_corrections
 
   node update_cases.js --split                             # find opinion events needing a split
   node update_cases.js 2024-10 --split                     # check one term
@@ -9771,7 +9774,6 @@ function _resolveOpinionPath(c) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const OPINIONS_XML_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'xml');
-const BACKFILL_ARGUED_TAG   = 'Backfilled Argument Dates';
 const BACKFILL_ARGUED_RE    = /<h[24]>Argued ([^<]+)<\/h[24]>/;
 const BACKFILL_REARGUED_RE  = /<h[24]>Reargued ([^<]+)<\/h[24]>/;
 
@@ -9780,10 +9782,21 @@ function _monthNum(name) {
     return i === -1 ? null : i + 1;
 }
 
+// The newest-recognized heading shape: "January 8, 9, 10, 1935" (a
+// comma-separated day list within one month). Exposed separately so callers
+// can restrict a run to only headings of this shape (e.g. --new-format-only),
+// leaving the three longer-established shapes alone.
+const COMMA_LIST_ARGUED_RE = /^([A-Za-z]+) ((?:\d{1,2}, )+\d{1,2}), (\d{4})$/;
+
+// An --interactive answer of one or more comma-separated ISO dates (instead
+// of y/N) replaces the offered field's value outright — see overrideValue.
+const DATE_LIST_RE = /^\d{4}-\d{2}-\d{2}(,\d{4}-\d{2}-\d{2})*$/;
+
 // Parse the text following "Argued "/"Reargued " in an opinion XML heading
 // into the set of ISO dates it represents: "January 31, 1952" (single day),
-// "April 25-26, 1887" (same-month range, inclusive), or "January
-// 31-February 1, 1952" (month-crossing, exactly the two named days).
+// "April 25-26, 1887" (same-month range, inclusive), "January
+// 31-February 1, 1952" (month-crossing, exactly the two named days), or
+// "January 8, 9, 10, 1935" (comma-separated day list within one month).
 function _parseArguedHeadingDates(text) {
     const dates = new Set();
     const pad2 = n => String(n).padStart(2, '0');
@@ -9809,6 +9822,13 @@ function _parseArguedHeadingDates(text) {
         const [, mo, d, yr] = m;
         const n = _monthNum(mo);
         if (n) dates.add(`${yr}-${pad2(n)}-${pad2(+d)}`);
+        return dates;
+    }
+    m = text.match(COMMA_LIST_ARGUED_RE);
+    if (m) {
+        const [, mo, dayList, yr] = m;
+        const n = _monthNum(mo);
+        if (n) for (const d of dayList.split(',').map(s => s.trim())) dates.add(`${yr}-${pad2(n)}-${pad2(+d)}`);
     }
     return dates;
 }
@@ -9829,11 +9849,27 @@ function _resolveOpinionXmlPath(c) {
     return fs.existsSync(p) ? p : null;
 }
 
-function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } = {}) {
+async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false, newFormatOnly = false, interactive = false } = {}) {
     const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
     const termsToProcess = termFilter ? [termFilter] : allTerms;
 
-    let checked = 0, noXml = 0, casesModified = 0, datesAdded = 0, suspectSkipped = 0;
+    // A backfilled field that ends up with more than one date is an
+    // automatic scdb_corrections candidate — SCDB never stores more than one
+    // date per field, so a multi-date value can never equal it, regardless of
+    // what SCDB's specific value is. The cached scdb.json is only needed to
+    // display that value in corrections.json, not to decide the mismatch.
+    let scdb = {};
+    try { scdb = _readJson(_SCDB_CACHE_PATH); } catch { /* no cache — skip auto-corrections */ }
+    let correctionsMap = {};
+    try { correctionsMap = _readJson(_SCDB_CORRECTIONS_PATH); } catch { /* none yet */ }
+    const correctionsAccum = {};
+    let autoCorrected = 0;
+
+    let rl = null;
+    const _ask = (q) => new Promise(resolve => rl.question(q, a => resolve(a.trim())));
+    if (interactive) rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+    let checked = 0, noXml = 0, casesModified = 0, datesAdded = 0, suspectSkipped = 0, userSkipped = 0, previouslyRejected = 0;
 
     for (const term of termsToProcess) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -9853,6 +9889,8 @@ function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } =
 
         for (const c of filtered) {
             if (!c) continue;
+            // A case previously declined interactively is never offered again.
+            if (c.backfill === false) { previouslyRejected++; continue; }
             const xmlPath = _resolveOpinionXmlPath(c);
             if (!xmlPath) { noXml++; continue; }
             let xml;
@@ -9868,8 +9906,15 @@ function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } =
             const knownEither = new Set([...knownArg, ...knownRearg]);
             const knownYears = new Set([...knownEither].map(d => d.slice(0, 4)));
 
-            const am = BACKFILL_ARGUED_RE.exec(xml);
-            const rm = BACKFILL_REARGUED_RE.exec(xml);
+            let am = BACKFILL_ARGUED_RE.exec(xml);
+            let rm = BACKFILL_REARGUED_RE.exec(xml);
+            // Restrict to only the newest heading shape — leaves cases
+            // already surfaced (and possibly already reviewed/rejected) by
+            // the three longer-established shapes untouched this run.
+            if (newFormatOnly) {
+                if (am && !COMMA_LIST_ARGUED_RE.test(am[1])) am = null;
+                if (rm && !COMMA_LIST_ARGUED_RE.test(rm[1])) rm = null;
+            }
 
             const missing = [];
             if (am) for (const d of _parseArguedHeadingDates(am[1])) if (!knownEither.has(d)) missing.push({ field: 'argument', date: d });
@@ -9894,19 +9939,94 @@ function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } =
             }
             if (!toApply.length) continue;
 
+            // Capture "had nothing at all" before toApply mutates these sets —
+            // a field backfilled from empty is just as automatic a correction
+            // candidate as a multi-date one (see comment above): it's new,
+            // XML-sourced data cases.json never had before and never had a
+            // chance to reconcile against SCDB, regardless of whether the
+            // single date happens to match. Any false positive (an exact
+            // match) self-heals next time --scdb --update runs, which prunes
+            // scdb_corrections flags that no longer represent a real mismatch.
+            const argWasEmpty   = knownArg.size === 0;
+            const reargWasEmpty = knownRearg.size === 0;
+            const originalArgument   = c.argument   || '';
+            const originalReargument = c.reargument || '';
+
             for (const m of toApply) (m.field === 'argument' ? knownArg : knownRearg).add(m.date);
-            console.log(`  ${label}: +${toApply.map(m => `${m.field}=${m.date}`).join(', ')}`);
+            const newArgument   = knownArg.size   ? _joinDates(_sortStr(knownArg))   : '';
+            const newReargument = knownRearg.size ? _joinDates(_sortStr(knownRearg)) : '';
+            const touchedFields = new Set(toApply.map(m => m.field));
+
+            // An interactive answer matching this shape replaces whichever
+            // field(s) were offered with exactly what was typed, instead of
+            // the auto-computed correction — an implied "yes" for cases where
+            // the suggestion is right in spirit but wrong in detail (e.g. it
+            // would merge new dates alongside an existing date that's simply
+            // incorrect and needs replacing, not keeping).
+            let overrideValue = null;
+
+            if (interactive) {
+                console.log(`${term}  ${c.number || '(no number)'}  ${firstTitle(c.title) || c.title || '(untitled)'}`);
+                if (touchedFields.has('argument'))   console.log(`  argument=${originalArgument || '(none)'} correction=${newArgument}`);
+                if (touchedFields.has('reargument')) console.log(`  reargument=${originalReargument || '(none)'} correction=${newReargument}`);
+                if (c.decision_loc)     console.log(`  ${c.decision_loc}`);
+                if (c.decision_reports) console.log(`  ${c.decision_reports}`);
+                const answer = await _ask('  Add, reject (N), or type replacement date(s): ');
+                console.log();
+                if (DATE_LIST_RE.test(answer)) {
+                    overrideValue = answer;
+                } else if (answer.toLowerCase() !== 'y') {
+                    userSkipped++;
+                    if (!dryRun) {
+                        c.backfill = false;
+                        const reordered = reorderCase(c);
+                        for (const k of Object.keys(c)) delete c[k];
+                        Object.assign(c, reordered);
+                        termModified = true;
+                    }
+                    continue;
+                }
+            } else {
+                console.log(`  ${label}: +${toApply.map(m => `${m.field}=${m.date}`).join(', ')}`);
+            }
+
             datesAdded += toApply.length;
 
+            const finalArgument   = (overrideValue !== null && touchedFields.has('argument'))   ? overrideValue : newArgument;
+            const finalReargument = (overrideValue !== null && touchedFields.has('reargument')) ? overrideValue : newReargument;
+            const autoFlags = [...touchedFields].filter(field => {
+                const finalValue = field === 'argument' ? finalArgument : finalReargument;
+                const size = finalValue ? finalValue.split(',').filter(Boolean).length : 0;
+                const wasEmpty = field === 'argument' ? argWasEmpty : reargWasEmpty;
+                return size > 1 || wasEmpty;
+            });
+
             if (!dryRun) {
-                if (knownArg.size)   c.argument   = _joinDates(_sortStr(knownArg));
-                if (knownRearg.size) c.reargument = _joinDates(_sortStr(knownRearg));
+                if (finalArgument)   c.argument   = finalArgument;
+                if (finalReargument) c.reargument = finalReargument;
+                if (overrideValue !== null) c.backfill = false;
                 fixDayLabels(term, [c], false);
-                const existingTags = Array.isArray(c.tags) ? c.tags : [];
-                if (!existingTags.includes(BACKFILL_ARGUED_TAG)) c.tags = [...existingTags, BACKFILL_ARGUED_TAG];
+
+                if (autoFlags.length) {
+                    const cur = String(c.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean);
+                    for (const f of autoFlags) if (!cur.includes(f)) cur.push(f);
+                    c.scdb_corrections = cur.join(',');
+
+                    const row = c.id ? scdb[c.id] : null;
+                    if (row) {
+                        const entry = correctionsAccum[c.id] || {};
+                        if (autoFlags.includes('argument'))   entry.dateArgument = `${row.dateArgument || ''} -> ${c.argument}`;
+                        if (autoFlags.includes('reargument')) entry.dateRearg    = `${row.dateRearg || ''} -> ${c.reargument}`;
+                        correctionsAccum[c.id] = entry;
+                    }
+                    autoCorrected++;
+                }
+
                 const reordered = reorderCase(c);
                 for (const k of Object.keys(c)) delete c[k];
                 Object.assign(c, reordered);
+            } else if (autoFlags.length) {
+                autoCorrected++;
             }
             termModified = true;
             casesModified++;
@@ -9915,8 +10035,22 @@ function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = false } =
         if (termModified && !dryRun) _writeJson(casesPath, cases);
     }
 
+    if (rl) rl.close();
+
+    if (Object.keys(correctionsAccum).length) {
+        for (const [k, v] of Object.entries(correctionsAccum)) {
+            correctionsMap[k] = { ...(correctionsMap[k] || {}), ...v };
+        }
+        const sorted = {};
+        for (const k of Object.keys(correctionsMap).sort()) sorted[k] = correctionsMap[k];
+        _writeJson(_SCDB_CORRECTIONS_PATH, sorted);
+    }
+
     console.log(`\nBackfill: ${checked} case(s) checked with resolvable opinion XML (${noXml} had none).`);
+    if (previouslyRejected) console.log(`Skipped ${previouslyRejected} case(s) previously declined ("backfill": false).`);
     console.log(`${dryRun ? 'Would modify' : 'Modified'} ${casesModified} case(s), adding ${datesAdded} date(s) total.`);
+    if (userSkipped) console.log(`${dryRun ? 'Would skip' : 'Skipped'} ${userSkipped} case(s) declined interactively${dryRun ? '' : ' (marked "backfill": false)'}.`);
+    if (autoCorrected) console.log(`${dryRun ? 'Would auto-flag' : 'Auto-flagged'} scdb_corrections on ${autoCorrected} case(s) (backfilled field ended up multi-date, or had none before).`);
     if (suspectSkipped) console.log(`Skipped ${suspectSkipped} suspect-year date(s) (likely OCR/typo, not backfilled — rerun with --verbose to see which).`);
 }
 
@@ -12428,7 +12562,11 @@ async function main() {
     }
 
     if (flags.has('--backfill-argued')) {
-        runBackfillArgued(positional[0] || null, positional[1] || null, dryRun, { verbose });
+        await runBackfillArgued(positional[0] || null, positional[1] || null, dryRun, {
+            verbose,
+            newFormatOnly: flags.has('--new-format-only'),
+            interactive: flags.has('--interactive'),
+        });
         return;
     }
 

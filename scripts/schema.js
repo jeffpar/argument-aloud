@@ -12,7 +12,7 @@
  */
 
 export const CASE_KEY_ORDER = [
-    'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
+    'id', 'title', 'tags', 'number', 'files', 'backfill', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'docket_href', 'questions', 'questions_href',
     'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
     'usCite', 'opCite',
