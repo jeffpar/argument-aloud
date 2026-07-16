@@ -19,7 +19,7 @@ export const CASE_KEY_ORDER = [
     'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
     'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
-    'events', 'history_href', 'scdb_errors',
+    'events', 'history_href', 'scdb_corrections',
     'note',
 ];
 

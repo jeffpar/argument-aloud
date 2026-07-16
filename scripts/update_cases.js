@@ -3323,7 +3323,7 @@ const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
 const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
 const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
-const _SCDB_ERRORS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'scdb_errors.json');
+const _SCDB_CORRECTIONS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'corrections.json');
 
 const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
 const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
@@ -3507,6 +3507,15 @@ function _scdbContainsDate(ourValue, scdbDate) {
     const target = _scdbNormalizeDate(scdbDate);
     if (!target) return true;
     return _scdbDateList(ourValue).includes(target);
+}
+// Strict equality: SCDB never stores more than one date per field, so a
+// comma-separated multi-day value on our side can never truly equal it. Used
+// to decide when a scdb_corrections flag no longer represents a real
+// mismatch (and can be pruned), as opposed to _scdbContainsDate's more
+// permissive "is SCDB's date one of ours" check used when first adding one.
+function _scdbStrictDateMatches(ourValue, scdbValue) {
+    const ourStr = Array.isArray(ourValue) ? ourValue.join(', ') : (ourValue || '');
+    return _scdbNormalizeDate(String(ourStr).trim()) === _scdbNormalizeDate(scdbValue || '');
 }
 
 function _scdbNormalizeCite(s) { return (s || '').split(/\s+/).filter(Boolean).join(' '); }
@@ -7022,29 +7031,49 @@ function _scdbApplyOpinionUpdate(c, row) {
 }
 
 // Minimal corrective updates (used when --update is set). Trusts our data for
-// date fields (records disagreement in scdb_errors) and trusts SCDB for missing
+// date fields (records disagreement in scdb_corrections) and trusts SCDB for missing
 // votes and vote counts.
 function _scdbApplyXUpdate(c, row, mm) {
     let changed = false;
 
     const ignored = new Set(
-        String(c.scdb_errors || '')
+        String(c.scdb_corrections || '')
             .split(',')
             .map(s => s.trim())
             .filter(Boolean)
     );
 
     const addToErrors = (field) => {
-        const cur = String(c.scdb_errors || '').split(',').map(s => s.trim()).filter(Boolean);
+        const cur = String(c.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean);
         if (cur.includes(field)) return;
         cur.push(field);
-        c.scdb_errors = cur.join(',');
+        c.scdb_corrections = cur.join(',');
+        changed = true;
+    };
+    const removeFromErrors = (field) => {
+        const cur = String(c.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean);
+        const idx = cur.indexOf(field);
+        if (idx === -1) return;
+        cur.splice(idx, 1);
+        if (cur.length) c.scdb_corrections = cur.join(',');
+        else delete c.scdb_corrections;
         changed = true;
     };
 
     if (mm.decision)   addToErrors('decision');
     if (mm.argument)   addToErrors('argument');
     if (mm.reargument) addToErrors('reargument');
+
+    // Prune flags that no longer represent a genuine mismatch, using strict
+    // equality (unlike the lenient _scdbContainsDate check above used only to
+    // decide whether to *add* a flag in the first place — that asymmetry is
+    // intentional: it avoids newly flagging the large population of
+    // multi-day-argument cases that were never part of this cleanup, while
+    // still letting any already-flagged case (however it got flagged) clear
+    // once it's a true, exact match).
+    if (ignored.has('argument')   && _scdbStrictDateMatches(c.argument, row.dateArgument)) removeFromErrors('argument');
+    if (ignored.has('reargument') && _scdbStrictDateMatches(c.reargument, row.dateRearg || row.datreRearg)) removeFromErrors('reargument');
+    if (ignored.has('decision')   && _scdbStrictDateMatches(c.decision, row.dateDecision)) removeFromErrors('decision');
 
     const votesToApply = mm.scdbVotes || mm.missingVotes;
     if (votesToApply && votesToApply.length && !ignored.has('votes')) {
@@ -7401,18 +7430,24 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     let total = 0, skipped = 0, updates = 0;
     const errors = [];
 
-    // Load scdb_errors.json if it exists (provides skip set); otherwise build it.
-    let scdbErrorsMap = {};
-    const buildErrors = !fs.existsSync(_SCDB_ERRORS_PATH);
-    if (!buildErrors) {
+    // Load corrections.json (skip set + prior entries to extend). Every
+    // --scdb run refreshes date-correction entries for cases that currently
+    // carry a scdb_corrections value; existing keys (esp. "skip"/"note") are
+    // preserved and merged onto, never wholesale replaced or dropped.
+    let correctionsMap = {};
+    if (fs.existsSync(_SCDB_CORRECTIONS_PATH)) {
         try {
-            scdbErrorsMap = JSON.parse(fs.readFileSync(_SCDB_ERRORS_PATH, 'utf8'));
+            correctionsMap = JSON.parse(fs.readFileSync(_SCDB_CORRECTIONS_PATH, 'utf8'));
         } catch (e) {
-            console.log(`WARNING: could not read ${path.relative(REPO_ROOT, _SCDB_ERRORS_PATH)}: ${e.message}`);
+            console.log(`WARNING: could not read ${path.relative(REPO_ROOT, _SCDB_CORRECTIONS_PATH)}: ${e.message}`);
         }
     }
-    const scdbSkipSet = new Set(Object.keys(scdbErrorsMap).filter(k => scdbErrorsMap[k].skip));
-    const errorsAccum = {};
+    const scdbSkipSet = new Set(Object.keys(correctionsMap).filter(k => correctionsMap[k].skip));
+    const correctionsAccum = {};
+    // Every caseId actually processed this run gets its date-correction fields
+    // fully recomputed (and pruned if no longer a real mismatch); caseIds
+    // outside the current term/case filter are left untouched in correctionsMap.
+    const visitedCids = new Set();
 
     const ldTitles   = backfill ? _scdbLoadLdTitles()       : {};
     const ldDatesAll = backfill ? _scdbLoadLdDatesByCaseId() : {};
@@ -7577,7 +7612,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     }
                 }
                 if (!cand) {
-                    const errs = String(c.scdb_errors || '').split(',').map(s => s.trim());
+                    const errs = String(c.scdb_corrections || '').split(',').map(s => s.trim());
                     if (!c.disposition && !errs.includes('missing')) {
                         const label = firstTitle(c.title) || '(untitled)';
                         const arg = Array.isArray(c.argument) ? c.argument[0] : c.argument;
@@ -7615,10 +7650,11 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
 
             const row = scdb[cid];
             if (!row) { errors.push(`${prefix}: caseId not found in SCDB`); continue; }
+            visitedCids.add(cid);
 
             const caseErrors = [];
             const ignored = new Set(
-                String(c.scdb_errors || '')
+                String(c.scdb_corrections || '')
                     .split(',')
                     .map(s => s.trim())
                     .filter(Boolean)
@@ -7671,21 +7707,29 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 pushErr('decision', `${prefix}: decision mismatch: ours=${JSON.stringify(ourDec)} scdb=${JSON.stringify(scdbDec)}`);
             }
 
-            if (buildErrors && c.scdb_errors) {
-                const errorFields = new Set(String(c.scdb_errors).split(',').map(s => s.trim()).filter(Boolean));
+            // Recompute this case's correction entry from scratch every run,
+            // using strict equality — SCDB never stores more than one date per
+            // field, so a comma-separated multi-day value on our side can
+            // never truly equal it. A field is only included when it's a
+            // genuine, current mismatch; correctionsAccum[cid] is always set
+            // (possibly {}) so the merge step below can prune stale entries.
+            {
+                const errorFields = c.scdb_corrections
+                    ? new Set(String(c.scdb_corrections).split(',').map(s => s.trim()).filter(Boolean))
+                    : new Set();
                 const entry = {};
-                if (errorFields.has('argument') && scdbArg) {
+                if (errorFields.has('argument')) {
                     const ourArg = Array.isArray(c.argument) ? c.argument.join(', ') : (c.argument || '');
-                    entry.dateArgument = `${scdbArg} -> ${ourArg}`;
+                    if (_scdbNormalizeDate(ourArg.trim()) !== scdbArg) entry.dateArgument = `${scdbArg} -> ${ourArg}`;
                 }
-                if (errorFields.has('reargument') && scdbRe) {
+                if (errorFields.has('reargument')) {
                     const ourRe = Array.isArray(c.reargument) ? c.reargument.join(', ') : (c.reargument || '');
-                    entry.dateRearg = `${scdbRe} -> ${ourRe}`;
+                    if (_scdbNormalizeDate(ourRe.trim()) !== scdbRe) entry.dateRearg = `${scdbRe} -> ${ourRe}`;
                 }
-                if (errorFields.has('decision') && scdbDec && ourDec) {
+                if (errorFields.has('decision') && ourDec !== scdbDec) {
                     entry.dateDecision = `${scdbDec} -> ${ourDec}`;
                 }
-                if (Object.keys(entry).length) errorsAccum[cid] = entry;
+                correctionsAccum[cid] = entry;
             }
 
             if (_scdbHasImportedOpinion(c) || noVoteData) {
@@ -7824,7 +7868,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     if (backfillDatesMap && backfillDatesMap.has(k)) {
                         const csv = backfillDatesMap.get(k);
                         const errFields = [];
-                        const errEntry = errorsAccum[k] ? { ...errorsAccum[k] } : {};
+                        const errEntry = correctionsAccum[k] ? { ...correctionsAccum[k] } : {};
 
                         const csvDec = _scdbNormalizeDate(csv.dateDecision || '');
                         if (csvDec && built.decision && csvDec !== built.decision) {
@@ -7845,10 +7889,10 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                         }
 
                         if (errFields.length) {
-                            const existingErrs = String(built.scdb_errors || '').split(',').map(s => s.trim()).filter(Boolean);
+                            const existingErrs = String(built.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean);
                             const combined = [...new Set([...existingErrs, ...errFields])].join(',');
-                            built = reorderCase(Object.assign({}, built, { scdb_errors: combined }));
-                            errorsAccum[k] = errEntry;
+                            built = reorderCase(Object.assign({}, built, { scdb_corrections: combined }));
+                            correctionsAccum[k] = errEntry;
                         }
                     }
                     const dateStr = [built.argument, built.reargument].filter(Boolean).join(' / rearg: ');
@@ -7871,15 +7915,33 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
     console.log(`Checked ${total} cases with SCDB ids (${skipped} cases skipped — no id).`);
     if (update) console.log(`Applied SCDB opinion metadata updates to ${updates} case(s).`);
 
-    if (Object.keys(errorsAccum).length) {
-        Object.assign(scdbErrorsMap, errorsAccum);
+    if (visitedCids.size) {
+        // For every caseId actually processed this run: keep skip/note as-is
+        // (never touched), replace any date-correction fields with the freshly
+        // computed set (dropping ones that no longer represent a real
+        // mismatch), and drop the entry entirely if nothing is left. CaseIds
+        // outside this run's term/case filter are left completely untouched.
+        for (const cid of visitedCids) {
+            const existing = correctionsMap[cid];
+            const fresh = correctionsAccum[cid] || {};
+            if (existing && existing.skip) {
+                correctionsMap[cid] = { skip: true, note: existing.note, ...fresh };
+            } else if (Object.keys(fresh).length) {
+                correctionsMap[cid] = fresh;
+            } else if (existing) {
+                delete correctionsMap[cid];
+            }
+        }
         const sorted = {};
-        for (const k of Object.keys(scdbErrorsMap).sort()) sorted[k] = scdbErrorsMap[k];
-        const dir = path.dirname(_SCDB_ERRORS_PATH);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(_SCDB_ERRORS_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
-        const verb = buildErrors ? 'Wrote' : 'Updated';
-        console.log(`${verb} ${Object.keys(sorted).length} entries in ${path.relative(REPO_ROOT, _SCDB_ERRORS_PATH)}.`);
+        for (const k of Object.keys(correctionsMap).sort()) sorted[k] = correctionsMap[k];
+        if (update) {
+            const dir = path.dirname(_SCDB_CORRECTIONS_PATH);
+            if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(_SCDB_CORRECTIONS_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+            console.log(`Updated ${Object.keys(sorted).length} entries in ${path.relative(REPO_ROOT, _SCDB_CORRECTIONS_PATH)}.`);
+        } else {
+            console.log(`[dry-run] Would update ${Object.keys(sorted).length} entries in ${path.relative(REPO_ROOT, _SCDB_CORRECTIONS_PATH)}.`);
+        }
     }
 
     if (errors.length) {
@@ -9077,7 +9139,7 @@ Examples:
   node update_cases.js 1926-10 --scdb                      # verify one term vs SCDB
   node update_cases.js 1926-10 1926-011 --scdb --verbose   # verify one case; show extra detail
   node update_cases.js 2024-10 --scdb                      # apply SCDB-derived fixes to cases.json
-                                                           #   (records date disagreements in scdb_errors;
+                                                           #   (records date disagreements in scdb_corrections;
                                                            #    fills in missing votes / vote counts)
   node update_cases.js 2024-10 --scdb --dry-run            # report SCDB differences, no writes
   node update_cases.js 2024-10 --scdb --debug              # also dump full ours/scdb JSON on mismatch
