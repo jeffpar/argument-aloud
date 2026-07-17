@@ -4,8 +4,8 @@
     "title": "Lawson v. United States Mining Co.",
     "number": "2",
     "files": false,
-    "argument": "1906-10-11",
-    "argument_days": "Thursday, October 11, 1906",
+    "argument": "1906-10-11,1906-10-12",
+    "argument_days": "Thursday, October 11, 1906; Friday, October 12, 1906",
     "decision": "1907-10-21",
     "decision_days": "Monday, October 21, 1907",
     "usCite": "207 U.S. 1",
@@ -77,7 +77,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-004",
@@ -161,12 +162,88 @@
     ]
   },
   {
+    "id": "1907-002",
+    "title": "Raymond v. Chicago Union Traction Co.",
+    "number": "115",
+    "files": false,
+    "backfill": false,
+    "argument": "1907-04-08,1907-04-09",
+    "argument_days": "Monday, April 8, 1907; Tuesday, April 9, 1907",
+    "decision": "1907-10-21",
+    "decision_days": "Monday, October 21, 1907",
+    "usCite": "207 U.S. 20",
+    "opCite": [
+      {
+        "title": "Barney v. City of New York (1904)",
+        "term": "1903-10",
+        "id": "1903-165",
+        "decision": "1904-03-21",
+        "count": 2
+      },
+      {
+        "title": "Chicago, B. & Q. R. Co. v. Chicago (1897)",
+        "term": "1896-10",
+        "id": "1896-134",
+        "decision": "1897-03-01",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us207/us207-0020.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep207/usrep207020/usrep207020.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-207_PDFA.pdf#page=56",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 2,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "minority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1907-043",
     "title": "The Employers' Liability Cases",
     "number": "216",
     "files": false,
-    "argument": "1907-04-10",
-    "argument_days": "Wednesday, April 10, 1907",
+    "argument": "1907-04-10,1907-04-11,1907-04-12",
+    "argument_days": "Wednesday, April 10, 1907; Thursday, April 11, 1907; Friday, April 12, 1907",
     "decision": "1908-01-06",
     "decision_days": "Monday, January 6, 1908",
     "usCite": "207 U.S. 463",
@@ -347,7 +424,8 @@
         "vote": "minority",
         "action": "wrote an opinion: dissent"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-161",
@@ -403,80 +481,6 @@
       {
         "name": "WILLIAM MOODY",
         "vote": "none"
-      }
-    ]
-  },
-  {
-    "id": "1907-002",
-    "title": "Raymond v. Chicago Union Traction Co.",
-    "number": "115",
-    "files": false,
-    "argument": "1907-08-07",
-    "argument_days": "Wednesday, August 7, 1907",
-    "decision": "1907-10-21",
-    "decision_days": "Monday, October 21, 1907",
-    "usCite": "207 U.S. 20",
-    "opCite": [
-      {
-        "title": "Barney v. City of New York (1904)",
-        "term": "1903-10",
-        "id": "1903-165",
-        "decision": "1904-03-21",
-        "count": 2
-      },
-      {
-        "title": "Chicago, B. & Q. R. Co. v. Chicago (1897)",
-        "term": "1896-10",
-        "id": "1896-134",
-        "decision": "1897-03-01",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us207/us207-0020.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep207/usrep207020/usrep207020.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-207_PDFA.pdf#page=56",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 2,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "minority"
       }
     ]
   },
@@ -600,8 +604,8 @@
     "title": "Interstate Consolidated R. Co. v. Massachusetts",
     "number": "13",
     "files": false,
-    "argument": "1907-10-15",
-    "argument_days": "Tuesday, October 15, 1907",
+    "argument": "1907-10-15,1907-10-16",
+    "argument_days": "Tuesday, October 15, 1907; Wednesday, October 16, 1907",
     "decision": "1907-11-04",
     "decision_days": "Monday, November 4, 1907",
     "usCite": "207 U.S. 79",
@@ -667,7 +671,8 @@
         "name": "WILLIAM MOODY",
         "vote": "none"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-007",
@@ -789,8 +794,8 @@
     "title": "Illinois ex rel. McNichols v. Pease",
     "number": "19",
     "files": false,
-    "argument": "1907-10-16",
-    "argument_days": "Wednesday, October 16, 1907",
+    "argument": "1907-10-16,1907-10-17",
+    "argument_days": "Wednesday, October 16, 1907; Thursday, October 17, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 100",
@@ -848,7 +853,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-010",
@@ -923,8 +929,8 @@
     "title": "Chambers v. Baltimore & Ohio R. Co.",
     "number": "22",
     "files": false,
-    "argument": "1907-10-17",
-    "argument_days": "Thursday, October 17, 1907",
+    "argument": "1907-10-17,1907-10-18",
+    "argument_days": "Thursday, October 17, 1907; Friday, October 18, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 142",
@@ -998,7 +1004,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-034",
@@ -1062,8 +1069,8 @@
     "title": "Penn Refining Co. v. Western New York & Pennsylvania R. Co.",
     "number": "27",
     "files": false,
-    "argument": "1907-10-18",
-    "argument_days": "Friday, October 18, 1907",
+    "argument": "1907-10-18,1907-10-21",
+    "argument_days": "Friday, October 18, 1907; Monday, October 21, 1907",
     "decision": "1908-01-27",
     "decision_days": "Monday, January 27, 1908",
     "usCite": "208 U.S. 208",
@@ -1113,15 +1120,16 @@
         "vote": "minority",
         "action": "wrote an opinion: dissent"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-014",
     "title": "Central of Georgia R. Co. v. Wright",
     "number": "85",
     "files": false,
-    "argument": "1907-10-22",
-    "argument_days": "Tuesday, October 22, 1907",
+    "argument": "1907-10-21,1907-10-22,1907-10-23",
+    "argument_days": "Monday, October 21, 1907; Tuesday, October 22, 1907; Wednesday, October 23, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 127",
@@ -1186,7 +1194,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-026",
@@ -1546,8 +1555,8 @@
     "title": "Taylor v. United States",
     "number": "238",
     "files": false,
-    "argument": "1907-10-24",
-    "argument_days": "Thursday, October 24, 1907",
+    "argument": "1907-10-24,1907-10-25",
+    "argument_days": "Thursday, October 24, 1907; Friday, October 25, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 120",
@@ -1596,15 +1605,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-016",
     "title": "Hunter v. Pittsburgh",
     "number": "264",
     "files": false,
-    "argument": "1907-10-25",
-    "argument_days": "Friday, October 25, 1907",
+    "argument": "1907-10-25,1907-10-28",
+    "argument_days": "Friday, October 25, 1907; Monday, October 28, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 161",
@@ -1683,7 +1693,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-019",
@@ -1711,63 +1722,6 @@
         "vote": "majority",
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1907-017",
-    "title": "Webster Coal & Coke Co. v. Cassatt",
-    "number": "283",
-    "files": false,
-    "argument": "1907-10-28",
-    "argument_days": "Monday, October 28, 1907",
-    "decision": "1907-12-02",
-    "decision_days": "Monday, December 2, 1907",
-    "usCite": "207 U.S. 181",
-    "decision_xml": "/courts/ussc/opinions/xml/us207/us207-0181.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep207/usrep207181/usrep207181.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-207_PDFA.pdf#page=217",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
       },
       {
         "name": "DAVID BREWER",
@@ -1857,12 +1811,71 @@
     ]
   },
   {
+    "id": "1907-017",
+    "title": "Webster Coal & Coke Co. v. Cassatt",
+    "number": "283",
+    "files": false,
+    "backfill": false,
+    "argument": "1907-10-28,1907-10-29",
+    "argument_days": "Monday, October 28, 1907; Tuesday, October 29, 1907",
+    "decision": "1907-12-02",
+    "decision_days": "Monday, December 2, 1907",
+    "usCite": "207 U.S. 181",
+    "decision_xml": "/courts/ussc/opinions/xml/us207/us207-0181.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep207/usrep207181/usrep207181.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-207_PDFA.pdf#page=217",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1907-062",
     "title": "Adair v. United States",
     "number": "293",
     "files": false,
-    "argument": "1907-10-29",
-    "argument_days": "Tuesday, October 29, 1907",
+    "argument": "1907-10-29,1907-10-30",
+    "argument_days": "Tuesday, October 29, 1907; Wednesday, October 30, 1907",
     "decision": "1908-01-27",
     "decision_days": "Monday, January 27, 1908",
     "usCite": "208 U.S. 161",
@@ -1957,7 +1970,8 @@
         "name": "WILLIAM MOODY",
         "vote": "none"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-029",
@@ -2117,8 +2131,8 @@
     "title": "Kent v. Porto Rico",
     "number": "31",
     "files": false,
-    "argument": "1907-10-30",
-    "argument_days": "Wednesday, October 30, 1907",
+    "argument": "1907-10-30,1907-10-31",
+    "argument_days": "Wednesday, October 30, 1907; Thursday, October 31, 1907",
     "decision": "1907-11-18",
     "decision_days": "Monday, November 18, 1907",
     "usCite": "207 U.S. 113",
@@ -2183,7 +2197,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-020",
@@ -2506,8 +2521,8 @@
     "title": "New York ex rel. Edward & John Burke, Ltd. v. Wells",
     "number": "39",
     "files": false,
-    "argument": "1907-11-05",
-    "argument_days": "Tuesday, November 5, 1907",
+    "argument": "1907-11-05,1907-11-06",
+    "argument_days": "Tuesday, November 5, 1907; Wednesday, November 6, 1907",
     "decision": "1908-01-06",
     "decision_days": "Monday, January 6, 1908",
     "usCite": "208 U.S. 14",
@@ -2572,7 +2587,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-052",
@@ -2669,8 +2685,8 @@
     "title": "Heath & Milligan Mfg. Co. v. Worst",
     "number": "41",
     "files": false,
-    "argument": "1907-11-07",
-    "argument_days": "Thursday, November 7, 1907",
+    "argument": "1907-11-07,1907-11-08",
+    "argument_days": "Thursday, November 7, 1907; Friday, November 8, 1907",
     "decision": "1907-12-09",
     "decision_days": "Monday, December 9, 1907",
     "usCite": "207 U.S. 338",
@@ -2719,7 +2735,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-030",
@@ -2783,8 +2800,8 @@
     "title": "United States v. R. P. Andrews & Co.",
     "number": "44",
     "files": false,
-    "argument": "1907-11-08",
-    "argument_days": "Friday, November 8, 1907",
+    "argument": "1907-11-08,1907-11-11",
+    "argument_days": "Friday, November 8, 1907; Monday, November 11, 1907",
     "decision": "1907-12-02",
     "decision_days": "Monday, December 2, 1907",
     "usCite": "207 U.S. 229",
@@ -2842,7 +2859,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-031",
@@ -2981,8 +2999,8 @@
     "title": "Rankin v. City Nat. Bank of Kansas City",
     "number": "51",
     "files": false,
-    "argument": "1907-11-12",
-    "argument_days": "Tuesday, November 12, 1907",
+    "argument": "1907-11-12,1907-11-13",
+    "argument_days": "Tuesday, November 12, 1907; Wednesday, November 13, 1907",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 541",
@@ -3031,15 +3049,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-027",
     "title": "Arkansas Southern R. Co. v. German Nat. Bank",
     "number": "56",
     "files": false,
-    "argument": "1907-11-14",
-    "argument_days": "Thursday, November 14, 1907",
+    "argument": "1907-11-14,1907-11-15",
+    "argument_days": "Thursday, November 14, 1907; Friday, November 15, 1907",
     "decision": "1907-12-02",
     "decision_days": "Monday, December 2, 1907",
     "usCite": "207 U.S. 270",
@@ -3088,7 +3107,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-021",
@@ -3253,8 +3273,8 @@
     ],
     "number": "10-Orig",
     "files": false,
-    "argument": "1907-12-02",
-    "argument_days": "Monday, December 2, 1907",
+    "argument": "1907-12-02,1907-12-03",
+    "argument_days": "Monday, December 2, 1907; Tuesday, December 3, 1907",
     "decision": "1908-03-23",
     "decision_days": "Monday, March 23, 1908",
     "usCite": "209 U.S. 123",
@@ -3425,15 +3445,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-044",
     "title": "Consolidated Rendering Co. v. Vermont",
     "number": "364",
     "files": false,
-    "argument": "1907-12-03",
-    "argument_days": "Tuesday, December 3, 1907",
+    "argument": "1907-12-03,1907-12-04",
+    "argument_days": "Tuesday, December 3, 1907; Wednesday, December 4, 1907",
     "decision": "1908-01-06",
     "decision_days": "Monday, January 6, 1908",
     "usCite": "207 U.S. 541",
@@ -3498,15 +3519,74 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1907-053",
+    "title": "Winslow v. Baltimore & Ohio R. Co.",
+    "number": "59",
+    "files": false,
+    "argument": "1907-12-03,1907-12-09,1907-12-10",
+    "argument_days": "Tuesday, December 3, 1907; Monday, December 9, 1907; Tuesday, December 10, 1907",
+    "decision": "1908-01-06",
+    "decision_days": "Monday, January 6, 1908",
+    "usCite": "208 U.S. 59",
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0059.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208059/usrep208059.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=89",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-177",
     "title": "Loewe v. Lawlor",
     "number": "389",
     "files": false,
-    "argument": "1907-12-04",
-    "argument_days": "Wednesday, December 4, 1907",
+    "argument": "1907-12-04,1907-12-05",
+    "argument_days": "Wednesday, December 4, 1907; Thursday, December 5, 1907",
     "decision": "1908-02-03",
     "decision_days": "Monday, February 3, 1908",
     "usCite": "208 U.S. 274",
@@ -3578,15 +3658,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-042",
     "title": "Williamson v. United States",
     "number": "96",
     "files": false,
-    "argument": "1907-12-05",
-    "argument_days": "Thursday, December 5, 1907",
+    "argument": "1907-12-05,1907-12-06",
+    "argument_days": "Thursday, December 5, 1907; Friday, December 6, 1907",
     "decision": "1908-01-06",
     "decision_days": "Monday, January 6, 1908",
     "usCite": "207 U.S. 425",
@@ -3658,7 +3739,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-040",
@@ -3784,63 +3866,6 @@
     ]
   },
   {
-    "id": "1907-053",
-    "title": "Winslow v. Baltimore & Ohio R. Co.",
-    "number": "59",
-    "files": false,
-    "argument": "1907-12-09",
-    "argument_days": "Monday, December 9, 1907",
-    "decision": "1908-01-06",
-    "decision_days": "Monday, January 6, 1908",
-    "usCite": "208 U.S. 59",
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0059.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208059/usrep208059.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=89",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      }
-    ]
-  },
-  {
     "id": "1907-045",
     "title": "Anheuser-Busch Brewing Assn. v. United States",
     "number": "60",
@@ -3899,72 +3924,6 @@
       {
         "name": "WILLIAM DAY",
         "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1907-100",
-    "title": "Disconto Gesellschaft v. Umbreit",
-    "number": "63",
-    "files": false,
-    "argument": "1907-12-10",
-    "argument_days": "Tuesday, December 10, 1907",
-    "decision": "1908-02-24",
-    "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 570",
-    "opCite": [
-      {
-        "title": "Security Trust Co. v. Dodd, Mead & Co. (1899)",
-        "term": "1898-10",
-        "id": "1898-117",
-        "decision": "1899-04-11",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0570.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208570/usrep208570.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=600",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
       },
       {
         "name": "WILLIAM MOODY",
@@ -4044,6 +4003,73 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1907-100",
+    "title": "Disconto Gesellschaft v. Umbreit",
+    "number": "63",
+    "files": false,
+    "argument": "1907-12-10,1907-12-11",
+    "argument_days": "Tuesday, December 10, 1907; Wednesday, December 11, 1907",
+    "decision": "1908-02-24",
+    "decision_days": "Monday, February 24, 1908",
+    "usCite": "208 U.S. 570",
+    "opCite": [
+      {
+        "title": "Security Trust Co. v. Dodd, Mead & Co. (1899)",
+        "term": "1898-10",
+        "id": "1898-117",
+        "decision": "1899-04-11",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0570.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208570/usrep208570.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=600",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-050",
@@ -4240,63 +4266,6 @@
     ]
   },
   {
-    "id": "1907-082",
-    "title": "Henningsen v. United States Fidelity & Guaranty Co. of Baltimore",
-    "number": "78",
-    "files": false,
-    "argument": "1907-12-16",
-    "argument_days": "Monday, December 16, 1907",
-    "decision": "1908-02-24",
-    "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 404",
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0404.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208404/usrep208404.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=434",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1907-047",
     "title": "Carrington v. United States",
     "number": "223",
@@ -4352,6 +4321,64 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1907-082",
+    "title": "Henningsen v. United States Fidelity & Guaranty Co. of Baltimore",
+    "number": "78",
+    "files": false,
+    "argument": "1907-12-16,1907-12-17",
+    "argument_days": "Monday, December 16, 1907; Tuesday, December 17, 1907",
+    "decision": "1908-02-24",
+    "decision_days": "Monday, February 24, 1908",
+    "usCite": "208 U.S. 404",
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0404.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208404/usrep208404.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=434",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-086",
@@ -4481,8 +4508,8 @@
     "title": "Cleveland Terminal & Valley R. Co. v. Cleveland S. S. Co.",
     "number": "84",
     "files": false,
-    "argument": "1907-12-17",
-    "argument_days": "Tuesday, December 17, 1907",
+    "argument": "1907-12-17,1907-12-18",
+    "argument_days": "Tuesday, December 17, 1907; Wednesday, December 18, 1907",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 316",
@@ -4547,15 +4574,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-163",
     "title": "Hunter v. Wood",
     "number": "474",
     "files": false,
-    "argument": "1907-12-18",
-    "argument_days": "Wednesday, December 18, 1907",
+    "argument": "1907-12-18,1907-12-19",
+    "argument_days": "Wednesday, December 18, 1907; Thursday, December 19, 1907",
     "decision": "1908-03-23",
     "decision_days": "Monday, March 23, 1908",
     "usCite": "209 U.S. 205",
@@ -4605,7 +4633,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-041",
@@ -4669,8 +4698,8 @@
     "title": "Northern Pacific R. Co. v. Minnesota ex rel. Duluth",
     "number": "92",
     "files": false,
-    "argument": "1907-12-20",
-    "argument_days": "Friday, December 20, 1907",
+    "argument": "1907-12-20,1907-12-23",
+    "argument_days": "Friday, December 20, 1907; Monday, December 23, 1907",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 583",
@@ -4735,15 +4764,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-060",
     "title": "Ex parte Simon",
     "number": "13-Orig",
     "files": false,
-    "argument": "1908-01-06",
-    "argument_days": "Monday, January 6, 1908",
+    "argument": "1908-01-06,1908-01-07",
+    "argument_days": "Monday, January 6, 1908; Tuesday, January 7, 1908",
     "decision": "1908-01-20",
     "decision_days": "Monday, January 20, 1908",
     "usCite": "208 U.S. 144",
@@ -4792,64 +4822,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1907-076",
-    "title": "United States v. Larkin",
-    "number": "356",
-    "files": false,
-    "argument": "1908-01-07",
-    "argument_days": "Tuesday, January 7, 1908",
-    "decision": "1908-02-24",
-    "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 333",
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0333.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208333/usrep208333.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=363",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-087",
@@ -4907,6 +4881,123 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1907-099",
+    "title": "United States v. Sisseton and Wahpeton Bands of Sioux Indians",
+    "number": "338",
+    "files": false,
+    "backfill": false,
+    "argument": "1908-01-07,1908-01-08",
+    "argument_days": "Tuesday, January 7, 1908; Wednesday, January 8, 1908",
+    "decision": "1908-02-24",
+    "decision_days": "Monday, February 24, 1908",
+    "usCite": "208 U.S. 561",
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0561.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208561/usrep208561.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=591",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "minority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1907-076",
+    "title": "United States v. Larkin",
+    "number": "356",
+    "files": false,
+    "argument": "1908-01-07,1908-01-08",
+    "argument_days": "Tuesday, January 7, 1908; Wednesday, January 8, 1908",
+    "decision": "1908-02-24",
+    "decision_days": "Monday, February 24, 1908",
+    "usCite": "208 U.S. 333",
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0333.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208333/usrep208333.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=363",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-080",
@@ -5027,8 +5118,8 @@
     "title": "Bennett v. Bennett",
     "number": "98",
     "files": false,
-    "argument": "1908-01-09",
-    "argument_days": "Thursday, January 9, 1908",
+    "argument": "1908-01-09,1908-01-10",
+    "argument_days": "Thursday, January 9, 1908; Friday, January 10, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 505",
@@ -5086,87 +5177,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1907-102",
-    "title": "Hairston v. Danville & Western R. Co.",
-    "number": "6",
-    "files": false,
-    "argument": "1908-01-10",
-    "argument_days": "Friday, January 10, 1908",
-    "decision": "1908-02-24",
-    "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 598",
-    "opCite": [
-      {
-        "title": "Strickley v. Highland Boy Gold Mining Co. (1906)",
-        "term": "1905-10",
-        "id": "1905-088",
-        "decision": "1906-02-19",
-        "count": 2
-      },
-      {
-        "title": "Clark v. Nash (1905)",
-        "term": "1904-10",
-        "id": "1904-072",
-        "decision": "1905-05-15",
-        "count": 2
-      },
-      {
-        "title": "Fallbrook Irrigation Dist. v. Bradley (1896)",
-        "term": "1896-10",
-        "id": "1896-013",
-        "decision": "1896-11-16",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0598.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208598/usrep208598.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=628",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-067",
@@ -5283,12 +5295,93 @@
     ]
   },
   {
+    "id": "1907-102",
+    "title": "Hairston v. Danville & Western R. Co.",
+    "number": "6",
+    "files": false,
+    "argument": "1908-01-10,1908-01-13",
+    "argument_days": "Friday, January 10, 1908; Monday, January 13, 1908",
+    "decision": "1908-02-24",
+    "decision_days": "Monday, February 24, 1908",
+    "usCite": "208 U.S. 598",
+    "opCite": [
+      {
+        "title": "Strickley v. Highland Boy Gold Mining Co. (1906)",
+        "term": "1905-10",
+        "id": "1905-088",
+        "decision": "1906-02-19",
+        "count": 2
+      },
+      {
+        "title": "Clark v. Nash (1905)",
+        "term": "1904-10",
+        "id": "1904-072",
+        "decision": "1905-05-15",
+        "count": 2
+      },
+      {
+        "title": "Fallbrook Irrigation Dist. v. Bradley (1896)",
+        "term": "1896-10",
+        "id": "1896-013",
+        "decision": "1896-11-16",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0598.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208598/usrep208598.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=628",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1907-093",
     "title": "Crary v. Dye",
     "number": "103",
     "files": false,
-    "argument": "1908-01-13",
-    "argument_days": "Monday, January 13, 1908",
+    "argument": "1908-01-13,1908-01-14",
+    "argument_days": "Monday, January 13, 1908; Tuesday, January 14, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 515",
@@ -5346,15 +5439,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-071",
     "title": "Donnell v. Herring-Hall-Marvin Safe Co.",
     "number": "106",
     "files": false,
-    "argument": "1908-01-14",
-    "argument_days": "Tuesday, January 14, 1908",
+    "argument": "1908-01-14,1908-01-15",
+    "argument_days": "Tuesday, January 14, 1908; Wednesday, January 15, 1908",
     "decision": "1908-02-03",
     "decision_days": "Monday, February 3, 1908",
     "usCite": "208 U.S. 267",
@@ -5403,7 +5497,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-083",
@@ -5481,8 +5576,8 @@
     "title": "Atlantic Trust Co. v. Chapman",
     "number": "109",
     "files": false,
-    "argument": "1908-01-15",
-    "argument_days": "Wednesday, January 15, 1908",
+    "argument": "1908-01-15,1908-01-16",
+    "argument_days": "Wednesday, January 15, 1908; Thursday, January 16, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 360",
@@ -5540,15 +5635,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-174",
     "title": "White-Smith Music Publishing Co. v. Apollo Co.",
     "number": "110",
     "files": false,
-    "argument": "1908-01-16",
-    "argument_days": "Thursday, January 16, 1908",
+    "argument": "1908-01-16,1908-01-17",
+    "argument_days": "Thursday, January 16, 1908; Friday, January 17, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "209 U.S. 1",
@@ -5598,7 +5694,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-089",
@@ -5719,8 +5816,8 @@
     "title": "Richardson v. Shaw",
     "number": "122",
     "files": false,
-    "argument": "1908-01-17",
-    "argument_days": "Friday, January 17, 1908",
+    "argument": "1908-01-17,1908-01-20",
+    "argument_days": "Friday, January 17, 1908; Monday, January 20, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 365",
@@ -5769,15 +5866,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-154",
     "title": "Thomas v. Taggart",
     "number": "197",
     "files": false,
-    "argument": "1908-01-17",
-    "argument_days": "Friday, January 17, 1908",
+    "argument": "1908-01-17,1908-01-20",
+    "argument_days": "Friday, January 17, 1908; Monday, January 20, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 385",
@@ -5826,7 +5924,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-171",
@@ -6252,78 +6351,12 @@
     ]
   },
   {
-    "id": "1907-085",
-    "title": "Notley v. Brown",
-    "number": "68",
-    "files": false,
-    "argument": "1908-01-24",
-    "argument_days": "Friday, January 24, 1908",
-    "decision": "1908-02-24",
-    "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 429",
-    "opCite": [
-      {
-        "title": "Harrison v. Magoon (1907)",
-        "term": "1906-10",
-        "id": "1906-108",
-        "decision": "1907-04-22",
-        "count": 6
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0429.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208429/usrep208429.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=459",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1907-094",
     "title": "Starr v. Campbell",
     "number": "132",
     "files": false,
-    "argument": "1908-01-24",
-    "argument_days": "Friday, January 24, 1908",
+    "argument": "1908-01-23,1908-01-24",
+    "argument_days": "Thursday, January 23, 1908; Friday, January 24, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
     "usCite": "208 U.S. 527",
@@ -6381,24 +6414,34 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
-    "id": "1907-099",
-    "title": "United States v. Sisseton and Wahpeton Bands of Sioux Indians",
-    "number": "338",
+    "id": "1907-085",
+    "title": "Notley v. Brown",
+    "number": "68",
     "files": false,
-    "argument": "1908-01-27",
-    "argument_days": "Monday, January 27, 1908",
+    "argument": "1908-01-24",
+    "argument_days": "Friday, January 24, 1908",
     "decision": "1908-02-24",
     "decision_days": "Monday, February 24, 1908",
-    "usCite": "208 U.S. 561",
-    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0561.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208561/usrep208561.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=591",
+    "usCite": "208 U.S. 429",
+    "opCite": [
+      {
+        "title": "Harrison v. Magoon (1907)",
+        "term": "1906-10",
+        "id": "1906-108",
+        "decision": "1907-04-22",
+        "count": 6
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us208/us208-0429.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep208/usrep208429/usrep208429.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-208_PDFA.pdf#page=459",
     "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 1,
+    "voteMajority": 9,
+    "voteMinority": 0,
     "votes": [
       {
         "name": "MELVILLE FULLER",
@@ -6414,7 +6457,9 @@
       },
       {
         "name": "EDWARD WHITE",
-        "vote": "majority"
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
       },
       {
         "name": "RUFUS PECKHAM",
@@ -6422,13 +6467,11 @@
       },
       {
         "name": "JOSEPH MCKENNA",
-        "vote": "minority"
+        "vote": "majority"
       },
       {
         "name": "OLIVER HOLMES",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
+        "vote": "majority"
       },
       {
         "name": "WILLIAM DAY",
@@ -6805,8 +6848,8 @@
     "title": "Quick Bear v. Leupp",
     "number": "569",
     "files": false,
-    "argument": "1908-02-26",
-    "argument_days": "Wednesday, February 26, 1908",
+    "argument": "1908-02-26,1908-02-27",
+    "argument_days": "Wednesday, February 26, 1908; Thursday, February 27, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 50",
@@ -6855,15 +6898,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-145",
     "title": "Garzot v. De Rubio",
     "number": "141",
     "files": false,
-    "argument": "1908-02-27",
-    "argument_days": "Thursday, February 27, 1908",
+    "argument": "1908-02-27,1908-02-28",
+    "argument_days": "Thursday, February 27, 1908; Friday, February 28, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 283",
@@ -6912,7 +6956,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-152",
@@ -7051,8 +7096,8 @@
     "title": "Shawnee Compress Co. v. Anderson",
     "number": "140",
     "files": false,
-    "argument": "1908-03-02",
-    "argument_days": "Monday, March 2, 1908",
+    "argument": "1908-03-02,1908-03-03",
+    "argument_days": "Monday, March 2, 1908; Tuesday, March 3, 1908",
     "decision": "1908-04-13",
     "decision_days": "Monday, April 13, 1908",
     "usCite": "209 U.S. 423",
@@ -7101,7 +7146,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-124",
@@ -7174,8 +7220,8 @@
     "title": "Smith v. Rainey",
     "number": "144",
     "files": false,
-    "argument": "1908-03-03",
-    "argument_days": "Tuesday, March 3, 1908",
+    "argument": "1908-03-03,1908-03-04",
+    "argument_days": "Tuesday, March 3, 1908; Wednesday, March 4, 1908",
     "decision": "1908-03-16",
     "decision_days": "Monday, March 16, 1908",
     "usCite": "209 U.S. 53",
@@ -7224,64 +7270,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1907-165",
-    "title": "Dotson v. Milliken",
-    "number": "48",
-    "files": false,
-    "argument": "1908-03-04",
-    "argument_days": "Wednesday, March 4, 1908",
-    "decision": "1908-03-23",
-    "decision_days": "Monday, March 23, 1908",
-    "usCite": "209 U.S. 237",
-    "decision_xml": "/courts/ussc/opinions/xml/us209/us209-0237.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep209/usrep209237/usrep209237.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-209_PDFA.pdf#page=267",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM MOODY",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-155",
@@ -7350,6 +7340,64 @@
     ]
   },
   {
+    "id": "1907-165",
+    "title": "Dotson v. Milliken",
+    "number": "48",
+    "files": false,
+    "argument": "1908-03-04,1908-03-05",
+    "argument_days": "Wednesday, March 4, 1908; Thursday, March 5, 1908",
+    "decision": "1908-03-23",
+    "decision_days": "Monday, March 23, 1908",
+    "usCite": "209 U.S. 237",
+    "decision_xml": "/courts/ussc/opinions/xml/us209/us209-0237.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep209/usrep209237/usrep209237.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-209_PDFA.pdf#page=267",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM MOODY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1907-146",
     "title": "United States Fidelity & Guaranty Co. v. United States ex rel. Struthers Wells Co.",
     "number": "154",
@@ -7411,8 +7459,8 @@
     "title": "McCabe & Steen Constr. Co. v. Wilson",
     "number": "155",
     "files": false,
-    "argument": "1908-03-05",
-    "argument_days": "Thursday, March 5, 1908",
+    "argument": "1908-03-05,1908-03-06",
+    "argument_days": "Thursday, March 5, 1908; Friday, March 6, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 275",
@@ -7461,15 +7509,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-131",
     "title": "Londoner v. City and County of Denver",
     "number": "157",
     "files": false,
-    "argument": "1908-03-06",
-    "argument_days": "Friday, March 6, 1908",
+    "argument": "1908-03-06,1908-03-09",
+    "argument_days": "Friday, March 6, 1908; Monday, March 9, 1908",
     "decision": "1908-06-01",
     "decision_days": "Monday, June 1, 1908",
     "usCite": "210 U.S. 373",
@@ -7518,7 +7567,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-141",
@@ -7944,8 +7994,8 @@
     "title": "Bobbs-Merrill Co. v. Straus",
     "number": "176",
     "files": false,
-    "argument": "1908-03-12",
-    "argument_days": "Thursday, March 12, 1908",
+    "argument": "1908-03-12,1908-03-13",
+    "argument_days": "Thursday, March 12, 1908; Friday, March 13, 1908",
     "decision": "1908-06-01",
     "decision_days": "Monday, June 1, 1908",
     "usCite": "210 U.S. 339",
@@ -8010,7 +8060,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-157",
@@ -8083,8 +8134,8 @@
     "title": "Empire State Cattle Co. v. Atchison, T. & S. F. R. Co.",
     "number": "178",
     "files": false,
-    "argument": "1908-03-13",
-    "argument_days": "Friday, March 13, 1908",
+    "argument": "1908-03-13,1908-03-16",
+    "argument_days": "Friday, March 13, 1908; Monday, March 16, 1908",
     "decision": "1908-05-04",
     "decision_days": "Monday, May 4, 1908",
     "usCite": "210 U.S. 1",
@@ -8142,7 +8193,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-138",
@@ -8206,8 +8258,8 @@
     "title": "Allemannia Fire Ins. Co. of Pittsburgh v. Firemen's Ins. Co. of Baltimore ex rel. Wolfe",
     "number": "180",
     "files": false,
-    "argument": "1908-03-17",
-    "argument_days": "Tuesday, March 17, 1908",
+    "argument": "1908-03-17,1908-03-18",
+    "argument_days": "Tuesday, March 17, 1908; Wednesday, March 18, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 326",
@@ -8256,7 +8308,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-140",
@@ -8320,8 +8373,8 @@
     "title": "Hudson County Water Co. v. McCarter",
     "number": "184",
     "files": false,
-    "argument": "1908-03-18",
-    "argument_days": "Wednesday, March 18, 1908",
+    "argument": "1908-03-18,1908-03-19",
+    "argument_days": "Wednesday, March 18, 1908; Thursday, March 19, 1908",
     "decision": "1908-04-06",
     "decision_days": "Monday, April 6, 1908",
     "usCite": "209 U.S. 349",
@@ -8393,7 +8446,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-143",
@@ -8457,8 +8511,8 @@
     "title": "St. Louis v. United Railways Co.",
     "number": "193",
     "files": false,
-    "argument": "1908-03-20",
-    "argument_days": "Friday, March 20, 1908",
+    "argument": "1908-03-20,1908-03-23",
+    "argument_days": "Friday, March 20, 1908; Monday, March 23, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 266",
@@ -8523,7 +8577,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-136",
@@ -8929,8 +8984,8 @@
     "title": "Central R. Co. of N. J. v. Jersey City",
     "number": "203",
     "files": false,
-    "argument": "1908-04-15",
-    "argument_days": "Wednesday, April 15, 1908",
+    "argument": "1908-04-15,1908-04-16",
+    "argument_days": "Wednesday, April 15, 1908; Thursday, April 16, 1908",
     "decision": "1908-04-27",
     "decision_days": "Monday, April 27, 1908",
     "usCite": "209 U.S. 473",
@@ -8979,7 +9034,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-128",
@@ -9043,8 +9099,8 @@
     "title": "Old Dominion Copper Mining & Smelting Co. v. Lewisohn",
     "number": "206",
     "files": false,
-    "argument": "1908-04-16",
-    "argument_days": "Thursday, April 16, 1908",
+    "argument": "1908-04-16,1908-04-20",
+    "argument_days": "Thursday, April 16, 1908; Monday, April 20, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 206",
@@ -9093,15 +9149,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-132",
     "title": "Pierce v. Creecy",
     "number": "357",
     "files": false,
-    "argument": "1908-04-20",
-    "argument_days": "Monday, April 20, 1908",
+    "argument": "1908-04-20,1908-04-21",
+    "argument_days": "Monday, April 20, 1908; Tuesday, April 21, 1908",
     "decision": "1908-06-01",
     "decision_days": "Monday, June 1, 1908",
     "usCite": "210 U.S. 387",
@@ -9150,15 +9207,16 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-119",
     "title": "Galveston, H. & S. A. R. Co. v. Texas",
     "number": "207",
     "files": false,
-    "argument": "1908-04-21",
-    "argument_days": "Tuesday, April 21, 1908",
+    "argument": "1908-04-21,1908-04-22",
+    "argument_days": "Tuesday, April 21, 1908; Wednesday, April 22, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 217",
@@ -9266,15 +9324,16 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-115",
     "title": "Sanderson v. United States",
     "number": "208",
     "files": false,
-    "argument": "1908-04-22",
-    "argument_days": "Wednesday, April 22, 1908",
+    "argument": "1908-04-22,1908-04-23",
+    "argument_days": "Wednesday, April 22, 1908; Thursday, April 23, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 168",
@@ -9323,7 +9382,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-129",
@@ -9476,8 +9536,8 @@
     "title": "Fauntleroy v. Lum",
     "number": "215",
     "files": false,
-    "argument": "1908-04-27",
-    "argument_days": "Monday, April 27, 1908",
+    "argument": "1908-04-27,1908-04-28",
+    "argument_days": "Monday, April 27, 1908; Tuesday, April 28, 1908",
     "decision": "1908-05-18",
     "decision_days": "Monday, May 18, 1908",
     "usCite": "210 U.S. 230",
@@ -9571,7 +9631,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-117",
@@ -9635,8 +9696,8 @@
     "title": "Delmar Jockey Club v. Missouri",
     "number": "219",
     "files": false,
-    "argument": "1908-04-29",
-    "argument_days": "Wednesday, April 29, 1908",
+    "argument": "1908-04-29,1908-04-30",
+    "argument_days": "Wednesday, April 29, 1908; Thursday, April 30, 1908",
     "decision": "1908-06-01",
     "decision_days": "Monday, June 1, 1908",
     "usCite": "210 U.S. 324",
@@ -9694,7 +9755,8 @@
         "name": "WILLIAM MOODY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1907-110",

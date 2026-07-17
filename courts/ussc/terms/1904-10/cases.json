@@ -602,8 +602,8 @@
     "title": "New v. Oklahoma",
     "number": "226",
     "files": false,
-    "argument": "1904-10-14",
-    "argument_days": "Friday, October 14, 1904",
+    "argument": "1904-10-14,1904-10-17",
+    "argument_days": "Friday, October 14, 1904; Monday, October 17, 1904",
     "decision": "1904-11-28",
     "decision_days": "Monday, November 28, 1904",
     "usCite": "195 U.S. 252",
@@ -652,7 +652,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-045",
@@ -3553,12 +3554,70 @@
     ]
   },
   {
+    "id": "1904-154",
+    "title": "Adams Express Co. v. Iowa",
+    "number": "82",
+    "files": false,
+    "argument": "1904-12-02",
+    "argument_days": "Friday, December 2, 1904",
+    "decision": "1905-01-03",
+    "decision_days": "Tuesday, January 3, 1905",
+    "usCite": "196 U.S. 147",
+    "decision_xml": "/courts/ussc/opinions/xml/us196/us196-0147.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep196/usrep196147/usrep196147.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-196_PDFA.pdf#page=179",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "minority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
     "id": "1904-152",
     "title": "Chicago, I. & L. R. Co. v. McGuire",
     "number": "69",
     "files": false,
-    "argument": "1904-12-02",
-    "argument_days": "Friday, December 2, 1904",
+    "backfill": false,
+    "argument": "1904-12-02,1904-12-05",
+    "argument_days": "Friday, December 2, 1904; Monday, December 5, 1904",
     "decision": "1905-01-03",
     "decision_days": "Tuesday, January 3, 1905",
     "usCite": "196 U.S. 128",
@@ -3616,64 +3675,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1904-154",
-    "title": "Adams Express Co. v. Iowa",
-    "number": "82",
-    "files": false,
-    "argument": "1904-12-02",
-    "argument_days": "Friday, December 2, 1904",
-    "decision": "1905-01-03",
-    "decision_days": "Tuesday, January 3, 1905",
-    "usCite": "196 U.S. 147",
-    "decision_xml": "/courts/ussc/opinions/xml/us196/us196-0147.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep196/usrep196147/usrep196147.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-196_PDFA.pdf#page=179",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "minority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-007",
@@ -4174,6 +4177,7 @@
     "title": "Corry v. Mayor and Council of Baltimore",
     "number": "86",
     "files": false,
+    "backfill": false,
     "argument": "1904-12-08",
     "argument_days": "Thursday, December 8, 1904",
     "decision": "1905-02-20",
@@ -4313,8 +4317,8 @@
     "title": "Cook v. Marshall County",
     "number": "98",
     "files": false,
-    "argument": "1904-12-09",
-    "argument_days": "Friday, December 9, 1904",
+    "argument": "1904-12-09,1904-12-12",
+    "argument_days": "Friday, December 9, 1904; Monday, December 12, 1904",
     "decision": "1905-01-16",
     "decision_days": "Monday, January 16, 1905",
     "usCite": "196 U.S. 261",
@@ -4401,15 +4405,16 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-168",
     "title": "Hodge v. Muscatine County",
     "number": "150",
     "files": false,
-    "argument": "1904-12-09",
-    "argument_days": "Friday, December 9, 1904",
+    "argument": "1904-12-09,1904-12-12",
+    "argument_days": "Friday, December 9, 1904; Monday, December 12, 1904",
     "decision": "1905-01-16",
     "decision_days": "Monday, January 16, 1905",
     "usCite": "196 U.S. 276",
@@ -4458,7 +4463,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-129",
@@ -5043,79 +5049,6 @@
     ]
   },
   {
-    "id": "1904-176",
-    "title": "Swift & Co. v. United States",
-    "number": "103",
-    "files": false,
-    "argument": "1905-01-06",
-    "argument_days": "Friday, January 6, 1905",
-    "decision": "1905-01-30",
-    "decision_days": "Monday, January 30, 1905",
-    "usCite": "196 U.S. 375",
-    "opCite": [
-      {
-        "title": "Montague & Co. v. Lowry (1904)",
-        "term": "1903-10",
-        "id": "1903-201",
-        "decision": "1904-02-23",
-        "count": 2
-      },
-      {
-        "title": "United States v. E. C. Knight Co. (1895)",
-        "term": "1894-10",
-        "id": "1894-074",
-        "decision": "1895-01-21",
-        "count": 4
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us196/us196-0375.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep196/usrep196375/usrep196375.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-196_PDFA.pdf#page=407",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1904-113",
     "title": "Keppel v. Tiffin Savings Bank",
     "number": "116",
@@ -5188,6 +5121,80 @@
         "action": "wrote an opinion: dissent"
       }
     ]
+  },
+  {
+    "id": "1904-176",
+    "title": "Swift & Co. v. United States",
+    "number": "103",
+    "files": false,
+    "argument": "1905-01-06,1905-01-07",
+    "argument_days": "Friday, January 6, 1905; Saturday, January 7, 1905",
+    "decision": "1905-01-30",
+    "decision_days": "Monday, January 30, 1905",
+    "usCite": "196 U.S. 375",
+    "opCite": [
+      {
+        "title": "Montague & Co. v. Lowry (1904)",
+        "term": "1903-10",
+        "id": "1903-201",
+        "decision": "1904-02-23",
+        "count": 2
+      },
+      {
+        "title": "United States v. E. C. Knight Co. (1895)",
+        "term": "1894-10",
+        "id": "1894-074",
+        "decision": "1895-01-21",
+        "count": 4
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us196/us196-0375.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep196/usrep196375/usrep196375.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-196_PDFA.pdf#page=407",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-102",
@@ -5275,8 +5282,9 @@
     "title": "Creede & Cripple Creek Mining & Milling Co. v. Uinta Tunnel Mining & Transp. Co.",
     "number": "18",
     "files": false,
-    "argument": "1904-04-15",
-    "argument_days": "Friday, April 15, 1904",
+    "backfill": false,
+    "argument": "1904-04-15,1904-04-18",
+    "argument_days": "Friday, April 15, 1904; Monday, April 18, 1904",
     "reargument": "1905-01-10,1905-01-11",
     "reargument_days": "Tuesday, January 10, 1905; Wednesday, January 11, 1905",
     "decision": "1905-01-30",
@@ -5344,7 +5352,7 @@
         "vote": "majority"
       }
     ],
-    "scdb_corrections": "reargument"
+    "scdb_corrections": "reargument,argument"
   },
   {
     "id": "1904-182",
@@ -5713,8 +5721,8 @@
     "title": "The Germanic",
     "number": "128",
     "files": false,
-    "argument": "1905-01-13",
-    "argument_days": "Friday, January 13, 1905",
+    "argument": "1905-01-13,1905-01-16",
+    "argument_days": "Friday, January 13, 1905; Monday, January 16, 1905",
     "decision": "1905-02-20",
     "decision_days": "Monday, February 20, 1905",
     "usCite": "196 U.S. 589",
@@ -5772,7 +5780,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-091",
@@ -6180,8 +6189,8 @@
     "title": "Gregg v. Metropolitan Trust Co.",
     "number": "141",
     "files": false,
-    "argument": "1905-01-20",
-    "argument_days": "Friday, January 20, 1905",
+    "argument": "1905-01-20,1905-01-23",
+    "argument_days": "Friday, January 20, 1905; Monday, January 23, 1905",
     "decision": "1905-03-06",
     "decision_days": "Monday, March 6, 1905",
     "usCite": "197 U.S. 183",
@@ -6289,7 +6298,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-139",
@@ -6420,8 +6430,8 @@
     "title": "Kehrer v. Stewart",
     "number": "152",
     "files": false,
-    "argument": "1905-01-24",
-    "argument_days": "Tuesday, January 24, 1905",
+    "argument": "1905-01-24,1905-01-25",
+    "argument_days": "Tuesday, January 24, 1905; Wednesday, January 25, 1905",
     "decision": "1905-02-27",
     "decision_days": "Monday, February 27, 1905",
     "usCite": "197 U.S. 60",
@@ -6479,7 +6489,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-128",
@@ -6614,63 +6625,6 @@
     "scdb_corrections": "argument"
   },
   {
-    "id": "1904-224",
-    "title": "United States v. Whitridge",
-    "number": "413",
-    "files": false,
-    "argument": "1905-01-27",
-    "argument_days": "Friday, January 27, 1905",
-    "decision": "1905-02-27",
-    "decision_days": "Monday, February 27, 1905",
-    "usCite": "197 U.S. 135",
-    "decision_xml": "/courts/ussc/opinions/xml/us197/us197-0135.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep197/usrep197135/usrep197135.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-197_PDFA.pdf#page=163",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1904-180",
     "title": "Caledonian Coal Co. v. Baker",
     "number": "419",
@@ -6735,6 +6689,64 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1904-224",
+    "title": "United States v. Whitridge",
+    "number": "413",
+    "files": false,
+    "argument": "1905-01-27,1905-01-30",
+    "argument_days": "Friday, January 27, 1905; Monday, January 30, 1905",
+    "decision": "1905-02-27",
+    "decision_days": "Monday, February 27, 1905",
+    "usCite": "197 U.S. 135",
+    "decision_xml": "/courts/ussc/opinions/xml/us197/us197-0135.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep197/usrep197135/usrep197135.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-197_PDFA.pdf#page=163",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-094",
@@ -6819,12 +6831,67 @@
     "scdb_corrections": "argument"
   },
   {
+    "id": "1904-198",
+    "title": "Dimond v. Shine",
+    "number": "410",
+    "files": false,
+    "argument": "1905-02-21",
+    "argument_days": "Tuesday, February 21, 1905",
+    "decision": "1905-05-29",
+    "decision_days": "Monday, May 29, 1905",
+    "usCite": "199 U.S. 88",
+    "decision_xml": "/courts/ussc/opinions/xml/us199/us199-0088.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep199/usrep199088/usrep199088.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-199_PDFA.pdf#page=126",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "EDWARD WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "RUFUS PECKHAM",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH MCKENNA",
+        "vote": "majority"
+      },
+      {
+        "name": "OLIVER HOLMES",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DAY",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
     "id": "1904-064",
     "title": "Hyde v. Shine",
     "number": "406",
     "files": false,
-    "argument": "1905-02-21",
-    "argument_days": "Tuesday, February 21, 1905",
+    "argument": "1905-02-21,1905-02-23",
+    "argument_days": "Tuesday, February 21, 1905; Thursday, February 23, 1905",
     "decision": "1905-05-29",
     "decision_days": "Monday, May 29, 1905",
     "usCite": "199 U.S. 62",
@@ -6897,62 +6964,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1904-198",
-    "title": "Dimond v. Shine",
-    "number": "410",
-    "files": false,
-    "argument": "1905-02-21",
-    "argument_days": "Tuesday, February 21, 1905",
-    "decision": "1905-05-29",
-    "decision_days": "Monday, May 29, 1905",
-    "usCite": "199 U.S. 88",
-    "decision_xml": "/courts/ussc/opinions/xml/us199/us199-0088.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep199/usrep199088/usrep199088.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-199_PDFA.pdf#page=126",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "EDWARD WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "RUFUS PECKHAM",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH MCKENNA",
-        "vote": "majority"
-      },
-      {
-        "name": "OLIVER HOLMES",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DAY",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-096",
@@ -7102,6 +7115,7 @@
     "title": "Beavers v. Haubert",
     "number": "354",
     "files": false,
+    "backfill": false,
     "argument": "1905-02-23",
     "argument_days": "Thursday, February 23, 1905",
     "decision": "1905-04-17",
@@ -7388,8 +7402,8 @@
     "title": "Harriman v. Northern Securities Co.",
     "number": "512",
     "files": false,
-    "argument": "1905-03-01",
-    "argument_days": "Wednesday, March 1, 1905",
+    "argument": "1905-03-01,1905-03-02",
+    "argument_days": "Wednesday, March 1, 1905; Thursday, March 2, 1905",
     "decision": "1905-03-06",
     "decision_days": "Monday, March 6, 1905",
     "usCite": "197 U.S. 244",
@@ -7461,7 +7475,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-117",
@@ -8114,8 +8129,8 @@
     "title": "Stillman v. Combe",
     "number": "174",
     "files": false,
-    "argument": "1905-03-10",
-    "argument_days": "Friday, March 10, 1905",
+    "argument": "1905-03-10,1905-03-13",
+    "argument_days": "Friday, March 10, 1905; Monday, March 13, 1905",
     "decision": "1905-04-03",
     "decision_days": "Monday, April 3, 1905",
     "usCite": "197 U.S. 436",
@@ -8164,7 +8179,8 @@
         "name": "WILLIAM DAY",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-079",
@@ -9396,8 +9412,8 @@
     "title": "Great Western Mining & Mfg. Co. v. Harris",
     "number": "217",
     "files": false,
-    "argument": "1905-04-14",
-    "argument_days": "Friday, April 14, 1905",
+    "argument": "1905-04-14,1905-04-17",
+    "argument_days": "Friday, April 14, 1905; Monday, April 17, 1905",
     "decision": "1905-05-29",
     "decision_days": "Monday, May 29, 1905",
     "usCite": "198 U.S. 561",
@@ -9455,7 +9471,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1904-062",

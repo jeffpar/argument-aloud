@@ -3518,6 +3518,86 @@ function _scdbStrictDateMatches(ourValue, scdbValue) {
     return _scdbNormalizeDate(String(ourStr).trim()) === _scdbNormalizeDate(scdbValue || '');
 }
 
+// Refresh data/scdb/corrections.json from whatever scdb_corrections values
+// currently exist on cases.json, independent of --scdb's much broader
+// corrective pass (votes/result/decision syncing etc.) — so the plain
+// default (no-flag) run keeps corrections.json in sync too, without any of
+// that other behavior. Scoped to termsToProcess exactly like --scdb's own
+// TERM filter: cases outside scope are left completely untouched, never
+// pruned, so a single-term/case invocation can't wipe unrelated entries.
+function refreshCorrectionsFromCases(termsToProcess, dryRun) {
+    let scdb = {};
+    try { scdb = _readJson(_SCDB_CACHE_PATH); } catch { return; }
+    let correctionsMap = {};
+    try { correctionsMap = _readJson(_SCDB_CORRECTIONS_PATH); } catch { /* none yet */ }
+    const scdbSkipSet = new Set(Object.keys(correctionsMap).filter(k => correctionsMap[k].skip));
+
+    const visitedCids = new Set();
+    const correctionsAccum = {};
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        for (const c of cases) {
+            if (!c || !c.id || scdbSkipSet.has(c.id)) continue;
+            const row = scdb[c.id];
+            if (!row) continue;
+            visitedCids.add(c.id);
+
+            const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
+            const scdbRe  = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
+            const scdbDec = _scdbNormalizeDate(row.dateDecision || '');
+            const ourDec  = _scdbNormalizeDate(c.decision || '');
+
+            const errorFields = c.scdb_corrections
+                ? new Set(String(c.scdb_corrections).split(',').map(s => s.trim()).filter(Boolean))
+                : new Set();
+            const entry = {};
+            if (errorFields.has('argument')) {
+                const ourArg = Array.isArray(c.argument) ? c.argument.join(', ') : (c.argument || '');
+                if (_scdbNormalizeDate(ourArg.trim()) !== scdbArg) entry.dateArgument = `${scdbArg} -> ${ourArg}`;
+            }
+            if (errorFields.has('reargument')) {
+                const ourRe = Array.isArray(c.reargument) ? c.reargument.join(', ') : (c.reargument || '');
+                if (_scdbNormalizeDate(ourRe.trim()) !== scdbRe) entry.dateRearg = `${scdbRe} -> ${ourRe}`;
+            }
+            if (errorFields.has('decision') && ourDec !== scdbDec) {
+                entry.dateDecision = `${scdbDec} -> ${ourDec}`;
+            }
+            correctionsAccum[c.id] = entry;
+        }
+    }
+
+    if (!visitedCids.size) return;
+
+    for (const cid of visitedCids) {
+        const existing = correctionsMap[cid];
+        const fresh = correctionsAccum[cid] || {};
+        if (existing && existing.skip) {
+            correctionsMap[cid] = { skip: true, note: existing.note, ...fresh };
+        } else if (Object.keys(fresh).length) {
+            correctionsMap[cid] = fresh;
+        } else if (existing) {
+            delete correctionsMap[cid];
+        }
+    }
+
+    const sorted = {};
+    for (const k of Object.keys(correctionsMap).sort()) sorted[k] = correctionsMap[k];
+    if (dryRun) {
+        console.log(`corrections.json: [dry-run] would refresh (${Object.keys(sorted).length} entries).`);
+        return;
+    }
+    const dir = path.dirname(_SCDB_CORRECTIONS_PATH);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    _writeJson(_SCDB_CORRECTIONS_PATH, sorted);
+    console.log(`corrections.json: refreshed (${Object.keys(sorted).length} entries).`);
+}
+
 function _scdbNormalizeCite(s) { return (s || '').split(/\s+/).filter(Boolean).join(' '); }
 
 // Convert SCDB docket formats to our conventions:
@@ -9994,11 +10074,20 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                 if (c.decision_loc)     console.log(`  ${c.decision_loc}`);
                 if (c.decision_reports) console.log(`  ${c.decision_reports}`);
                 _openInEdge(c.decision_loc);
-                const answer = await _ask('  Add (Y/n), or type replacement date(s): ');
+                let answer;
+                for (;;) {
+                    answer = await _ask('  Add (Y/n), or type replacement date(s): ');
+                    // Blank/y+ (any number of y's, e.g. a stray double-press) = add;
+                    // n = reject; a comma-separated date list = override. Anything
+                    // else is almost certainly a typo, not an intentional reject —
+                    // re-prompt instead of silently treating it as one.
+                    if (answer === '' || /^y+$/i.test(answer) || /^n$/i.test(answer) || DATE_LIST_RE.test(answer)) break;
+                    console.log(`  Please enter blank or y (add), n (reject), or comma-separated date(s) (YYYY-MM-DD,...).`);
+                }
                 console.log();
                 if (DATE_LIST_RE.test(answer)) {
                     overrideValue = answer;
-                } else if (answer !== '' && answer.toLowerCase() !== 'y') {
+                } else if (/^n$/i.test(answer)) {
                     userSkipped++;
                     if (!dryRun) {
                         c.backfill = false;
@@ -12833,6 +12922,13 @@ async function main() {
         totals.missingVotes        += (r.missingVotes || 0);
         totals.usscRedundant       += (r.usscRedundant || 0);
     }
+
+    // Keep corrections.json in sync with whatever scdb_corrections values are
+    // currently on cases.json — independent of --scdb's much heavier
+    // corrective pass, so a plain default run (however it got interrupted,
+    // e.g. --backfill-argued --interactive stopped partway through) always
+    // catches it back up. Scoped to termsToProcess, same as --scdb's filter.
+    refreshCorrectionsFromCases(termsToProcess, dryRun);
 
     // Cross-scope media-href dedup check (always runs across full scope).
     const mediaDupes = checkDuplicateMediaHrefs(termsToProcess);

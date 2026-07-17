@@ -556,8 +556,9 @@
     "title": "Morley v. Lake Shore & Michigan Southern R. Co.",
     "number": "1",
     "files": false,
-    "argument": "1888-10-23",
-    "argument_days": "Tuesday, October 23, 1888",
+    "backfill": false,
+    "argument": "1892-10-17",
+    "argument_days": "Monday, October 17, 1892",
     "reargument": "1892-10-14",
     "reargument_days": "Friday, October 14, 1892",
     "decision": "1892-11-14",
@@ -625,7 +626,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-005",
@@ -691,8 +693,8 @@
     "title": "San Pedro & Cañon del Agua Co. v. United States",
     "number": "7",
     "files": false,
-    "argument": "1892-10-17",
-    "argument_days": "Monday, October 17, 1892",
+    "argument": "1892-10-17,1892-10-24",
+    "argument_days": "Monday, October 17, 1892; Monday, October 24, 1892",
     "decision": "1892-11-14",
     "decision_days": "Monday, November 14, 1892",
     "usCite": "146 U.S. 120",
@@ -757,7 +759,8 @@
         "name": "GEORGE SHIRAS",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-053",
@@ -981,8 +984,8 @@
     "title": "United States v. Perry",
     "number": "794",
     "files": false,
-    "argument": "1892-10-26",
-    "argument_days": "Wednesday, October 26, 1892",
+    "argument": "1892-10-26,1892-10-28",
+    "argument_days": "Wednesday, October 26, 1892; Friday, October 28, 1892",
     "decision": "1892-11-07",
     "decision_days": "Monday, November 7, 1892",
     "usCite": "146 U.S. 71",
@@ -1031,64 +1034,8 @@
         "name": "GEORGE SHIRAS",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1892-030",
-    "title": "Benson v. United States",
-    "number": "1007",
-    "files": false,
-    "argument": "1892-10-28",
-    "argument_days": "Friday, October 28, 1892",
-    "decision": "1892-12-05",
-    "decision_days": "Monday, December 5, 1892",
-    "usCite": "146 U.S. 325",
-    "decision_xml": "/courts/ussc/opinions/xml/us146/us146-0325.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep146/usrep146325/usrep146325.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-146_PDFA.pdf#page=351",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "GEORGE SHIRAS",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-037",
@@ -1163,6 +1110,64 @@
         "opinion": true
       }
     ]
+  },
+  {
+    "id": "1892-030",
+    "title": "Benson v. United States",
+    "number": "1007",
+    "files": false,
+    "argument": "1892-10-28,1892-10-31",
+    "argument_days": "Friday, October 28, 1892; Monday, October 31, 1892",
+    "decision": "1892-12-05",
+    "decision_days": "Monday, December 5, 1892",
+    "usCite": "146 U.S. 325",
+    "decision_xml": "/courts/ussc/opinions/xml/us146/us146-0325.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep146/usrep146325/usrep146325.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-146_PDFA.pdf#page=351",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "GEORGE SHIRAS",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-017",
@@ -2009,8 +2014,8 @@
     "title": "Derby v. Thompson",
     "number": "40",
     "files": false,
-    "argument": "1892-11-11",
-    "argument_days": "Friday, November 11, 1892",
+    "argument": "1892-11-11,1892-11-14",
+    "argument_days": "Friday, November 11, 1892; Monday, November 14, 1892",
     "decision": "1892-12-12",
     "decision_days": "Monday, December 12, 1892",
     "usCite": "146 U.S. 476",
@@ -2059,7 +2064,8 @@
         "name": "GEORGE SHIRAS",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-055",
@@ -2643,8 +2649,8 @@
     "title": "Scott v. Armstrong",
     "number": "53",
     "files": false,
-    "argument": "1892-11-18",
-    "argument_days": "Friday, November 18, 1892",
+    "argument": "1892-11-18,1892-11-21",
+    "argument_days": "Friday, November 18, 1892; Monday, November 21, 1892",
     "decision": "1892-12-12",
     "decision_days": "Monday, December 12, 1892",
     "usCite": "146 U.S. 499",
@@ -2693,7 +2699,8 @@
         "name": "GEORGE SHIRAS",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-028",
@@ -3251,8 +3258,8 @@
     "title": "Knox County v. Ninth Nat. Bank",
     "number": "78",
     "files": false,
-    "argument": "1892-12-02",
-    "argument_days": "Friday, December 2, 1892",
+    "argument": "1892-12-02,1892-12-05",
+    "argument_days": "Friday, December 2, 1892; Monday, December 5, 1892",
     "decision": "1893-01-03",
     "decision_days": "Tuesday, January 3, 1893",
     "usCite": "147 U.S. 91",
@@ -3301,7 +3308,8 @@
         "name": "GEORGE SHIRAS",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-123",
@@ -4071,6 +4079,7 @@
     "title": "Osborne v. Missouri Pacific R. Co.",
     "number": "95",
     "files": false,
+    "backfill": false,
     "argument": "1892-12-16,1892-12-19",
     "argument_days": "Friday, December 16, 1892; Monday, December 19, 1892",
     "decision": "1893-01-16",
@@ -5291,59 +5300,6 @@
     ]
   },
   {
-    "id": "1892-096",
-    "title": "Arnold v. United States",
-    "number": "825",
-    "files": false,
-    "argument": "1893-01-13",
-    "argument_days": "Friday, January 13, 1893",
-    "decision": "1893-02-06",
-    "decision_days": "Monday, February 6, 1893",
-    "usCite": "147 U.S. 494",
-    "decision_xml": "/courts/ussc/opinions/xml/us147/us147-0494.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep147/usrep147494/usrep147494.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-147_PDFA.pdf#page=524",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "none"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      },
-      {
-        "name": "GEORGE SHIRAS",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1892-134",
     "title": "Indiana v. United States",
     "number": "1162",
@@ -5399,6 +5355,60 @@
         "vote": "none"
       }
     ]
+  },
+  {
+    "id": "1892-096",
+    "title": "Arnold v. United States",
+    "number": "825",
+    "files": false,
+    "argument": "1893-01-13,1893-01-16",
+    "argument_days": "Friday, January 13, 1893; Monday, January 16, 1893",
+    "decision": "1893-02-06",
+    "decision_days": "Monday, February 6, 1893",
+    "usCite": "147 U.S. 494",
+    "decision_xml": "/courts/ussc/opinions/xml/us147/us147-0494.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep147/usrep147494/usrep147494.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-147_PDFA.pdf#page=524",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "none"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      },
+      {
+        "name": "GEORGE SHIRAS",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-106",
@@ -6922,6 +6932,7 @@
     "title": "Lascelles v. Georgia",
     "number": "1262",
     "files": false,
+    "backfill": false,
     "argument": "1893-03-16",
     "argument_days": "Thursday, March 16, 1893",
     "decision": "1893-04-03",
@@ -8541,8 +8552,8 @@
     "title": "In re Frederich",
     "number": "1305",
     "files": false,
-    "argument": "1893-04-07",
-    "argument_days": "Friday, April 7, 1893",
+    "argument": "1893-04-07,1893-04-10",
+    "argument_days": "Friday, April 7, 1893; Monday, April 10, 1893",
     "decision": "1893-04-24",
     "decision_days": "Monday, April 24, 1893",
     "usCite": "149 U.S. 70",
@@ -8607,7 +8618,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-245",
@@ -9061,8 +9073,8 @@
     "title": "Union Pacific R. Co. v. Goodridge",
     "number": "211",
     "files": false,
-    "argument": "1893-04-14",
-    "argument_days": "Friday, April 14, 1893",
+    "argument": "1893-04-14,1893-04-17",
+    "argument_days": "Friday, April 14, 1893; Monday, April 17, 1893",
     "decision": "1893-05-15",
     "decision_days": "Monday, May 15, 1893",
     "usCite": "149 U.S. 680",
@@ -9111,7 +9123,8 @@
         "name": "HOWELL JACKSON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-199",
@@ -9848,8 +9861,9 @@
     "title": "McComb v. Frink",
     "number": "215",
     "files": false,
-    "argument": "1893-04-25",
-    "argument_days": "Tuesday, April 25, 1893",
+    "backfill": false,
+    "argument": "1893-04-25,1893-04-26",
+    "argument_days": "Tuesday, April 25, 1893; Wednesday, April 26, 1893",
     "decision": "1893-05-15",
     "decision_days": "Monday, May 15, 1893",
     "usCite": "149 U.S. 629",
@@ -9898,7 +9912,8 @@
         "name": "HOWELL JACKSON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1892-253",
@@ -10270,8 +10285,8 @@
     "title": "Baltimore & Ohio R. Co. v. Baugh",
     "number": "89",
     "files": false,
-    "argument": "1893-12-09",
-    "argument_days": "Saturday, December 9, 1893",
+    "argument": "1893-12-09,1893-12-12",
+    "argument_days": "Saturday, December 9, 1893; Tuesday, December 12, 1893",
     "decision": "1893-05-01",
     "decision_days": "Monday, May 1, 1893",
     "usCite": "149 U.S. 368",
@@ -10370,7 +10385,7 @@
         "vote": "majority"
       }
     ],
-    "scdb_corrections": "decision"
+    "scdb_corrections": "decision,argument"
   },
   {
     "id": "1892-003",
@@ -15909,6 +15924,7 @@
     "title": "Minneapolis & St. Louis R. Co. v. Nelson",
     "number": "241",
     "files": false,
+    "backfill": false,
     "decision": "1893-05-10",
     "decision_days": "Wednesday, May 10, 1893",
     "usCite": "149 U.S. 368",
