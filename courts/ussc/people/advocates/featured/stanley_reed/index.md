@@ -1,6 +1,8 @@
 ---
 title: Stanley Reed
 layout: pane
+case_count: 20
+last_argument: December 17, 1937
 ---
 
 # {{ page.title }}

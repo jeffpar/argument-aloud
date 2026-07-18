@@ -11806,6 +11806,143 @@ async function runAddCase(term, title, argv, dryRun) {
 }
 
 
+// ── --advocate: add one or more advocates to a case's journal-sourced event
+// for a given argument/reargument day, creating the events array and/or the
+// day's event object as needed. Meant for backfilling advocate/journal-page
+// detail onto cases whose argument/reargument date(s) are already recorded
+// at the case level but whose per-day event detail was never captured.
+function runAddAdvocate(term, caseArg, argv, dryRun) {
+    // Scan argv directly (not the generic single-value flagValues) so a
+    // repeated --advocate flag captures every occurrence, matching the
+    // pattern runAddCase() already uses for its own repeatable role flags.
+    const getValues = (flag) => {
+        const out = [];
+        for (let i = 0; i < argv.length; i++) {
+            if (argv[i] !== flag) continue;
+            const tokens = [];
+            let j = i + 1;
+            while (j < argv.length && !argv[j].startsWith('--')) tokens.push(argv[j++]);
+            out.push(tokens.join(' '));
+        }
+        return out;
+    };
+    const getValue = (flag) => getValues(flag)[0] || null;
+
+    const date = getValue('--date');
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        console.error('ERROR: --advocate requires --date YYYY-MM-DD');
+        process.exit(1);
+    }
+    const page = (getValue('--page') || '').trim();
+    if (!page) {
+        console.error('ERROR: --advocate requires --page (the journal page number)');
+        process.exit(1);
+    }
+    const advocateRaws = getValues('--advocate');
+    if (!advocateRaws.length) {
+        console.error('ERROR: at least one --advocate "NAME|TITLE|ROLE" is required');
+        process.exit(1);
+    }
+    const advocatesToAdd = advocateRaws.map(raw => {
+        const parts = raw.split('|');
+        if (parts.length !== 3) {
+            console.error(`ERROR: --advocate value must be "NAME|TITLE|ROLE", got ${JSON.stringify(raw)}`);
+            process.exit(1);
+        }
+        const [nameRaw, titleRaw, roleRaw] = parts.map(s => s.trim());
+        if (!nameRaw || !roleRaw) {
+            console.error(`ERROR: --advocate value must include a name and a role: ${JSON.stringify(raw)}`);
+            process.exit(1);
+        }
+        const adv = { name: nameRaw.toUpperCase() };
+        if (titleRaw) adv.title = titleRaw.toUpperCase();
+        adv.role = roleRaw;
+        return reorderAdvocate(adv);
+    });
+
+    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+    let cases;
+    try { cases = _readJson(casesPath); } catch {
+        console.error(`ERROR: could not read ${path.relative(REPO_ROOT, casesPath)}`);
+        process.exit(1);
+    }
+    if (!Array.isArray(cases)) {
+        console.error(`ERROR: ${path.relative(REPO_ROOT, casesPath)} is not an array`);
+        process.exit(1);
+    }
+    const c = cases.find(x => x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg)));
+    if (!c) {
+        console.error(`ERROR: ${term}: case "${caseArg}" not found`);
+        process.exit(1);
+    }
+    const label = c.number || c.id || '?';
+
+    // The case's argument/reargument date field(s) are the source of truth
+    // for whether this case was actually argued on --date — refuse to
+    // fabricate an event for a date the case itself doesn't already record.
+    const knownArgDates   = new Set(_parseDateField(c.argument   || ''));
+    const knownReargDates = new Set(_parseDateField(c.reargument || ''));
+    if (!knownArgDates.has(date) && !knownReargDates.has(date)) {
+        console.error(`ERROR: ${term}/${label}: ${date} is not among this case's argument/reargument date(s) `
+            + `(argument=${JSON.stringify(c.argument || '')}, reargument=${JSON.stringify(c.reargument || '')})`);
+        process.exit(1);
+    }
+
+    if (!Array.isArray(c.events)) c.events = [];
+
+    let event = c.events.find(e => e && e.date === date);
+    let createdEvent = false;
+    if (!event) {
+        const type = knownReargDates.has(date) ? 'reargument' : 'argument';
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+        const dateLabel = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
+        event = reorderEvent({
+            source: 'journal',
+            type,
+            date,
+            title: type === 'reargument' ? `Oral Reargument on ${dateLabel}` : `Oral Argument on ${dateLabel}`,
+            journal_ref: page,
+            advocates: [],
+        });
+        // Insert in chronological order rather than blindly appending, so a
+        // backfilled early day doesn't land after later days already present.
+        const insertAt = c.events.findIndex(e => e && e.date && e.date > date);
+        if (insertAt === -1) c.events.push(event);
+        else c.events.splice(insertAt, 0, event);
+        createdEvent = true;
+    } else if (!Array.isArray(event.advocates)) {
+        event.advocates = [];
+    }
+
+    const existingNames = new Set(event.advocates.map(a => String(a?.name || '').toUpperCase()));
+    const added = [];
+    for (const adv of advocatesToAdd) {
+        if (existingNames.has(adv.name)) continue;
+        event.advocates.push(adv);
+        existingNames.add(adv.name);
+        added.push(adv.name);
+    }
+
+    if (!added.length) {
+        console.log(`${term}/${label}: all specified advocate(s) already present on ${date}; nothing to do.`);
+        return;
+    }
+
+    console.log(`  ${term}/${label}: ${createdEvent ? '+event, ' : ''}+advocate(s) [${added.join(', ')}] on ${date}`);
+    if (dryRun) {
+        console.log(`[dry-run] Would update ${path.relative(REPO_ROOT, casesPath)}`);
+        return;
+    }
+
+    const reordered = reorderCase(c);
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, reordered);
+
+    _writeJson(casesPath, cases);
+    console.log(`Added advocate(s) [${added.join(', ')}] to ${term}/${label} (${date}).`);
+}
+
+
 // ── --justia: scan downloaded Justia HTML opinions for cases missing in cases.json ──
 
 function _decodeHtmlEntities(str) {
@@ -12902,6 +13039,15 @@ async function main() {
             process.exit(1);
         }
         runTagAdd(positional[0], positional[1], flagValues.tag, dryRun);
+        return;
+    }
+
+    if (flags.has('--advocate')) {
+        if (positional.length < 2) {
+            console.error('Usage: node update_cases.js TERM CASE --date YYYY-MM-DD --page N --advocate "NAME|TITLE|ROLE" [--advocate ...]');
+            process.exit(1);
+        }
+        runAddAdvocate(positional[0], positional[1], argv, dryRun);
         return;
     }
 

@@ -8,7 +8,7 @@ days_served: "6,966"
 opinions: 235
 lone_dissents: 16
 vocal_secs: 11684
-case_count: 20
+case_count: 23
 first_argument: January 9, 1935
 last_argument: December 17, 1937
 ---
