@@ -6,7 +6,7 @@ wikipedia_url: https://en.wikipedia.org/wiki/John_Catron
 years_served: 28.1
 days_served: "10,257"
 opinions: 156
-lone_dissents: 14
+lone_dissents: 13
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">

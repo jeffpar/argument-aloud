@@ -7798,9 +7798,22 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             // genuine, current mismatch; correctionsAccum[cid] is always set
             // (possibly {}) so the merge step below can prune stale entries.
             {
+                // Union of any field already flagged from a prior run and any
+                // field mm.* just detected as a fresh mismatch this run —
+                // using c.scdb_corrections alone would miss a brand-new
+                // mismatch here, since _scdbApplyXUpdate() (which is what
+                // actually sets scdb_corrections on the case) hasn't run yet
+                // at this point in the loop, and doesn't run at all under
+                // --dry-run. Without the union, a newly-introduced mismatch
+                // would need two full --scdb runs before its detail ever
+                // reached corrections.json: one to flag the case, another to
+                // notice it was flagged.
                 const errorFields = c.scdb_corrections
                     ? new Set(String(c.scdb_corrections).split(',').map(s => s.trim()).filter(Boolean))
                     : new Set();
+                if (mm.argument)   errorFields.add('argument');
+                if (mm.reargument) errorFields.add('reargument');
+                if (mm.decision)   errorFields.add('decision');
                 const entry = {};
                 if (errorFields.has('argument')) {
                     const ourArg = Array.isArray(c.argument) ? c.argument.join(', ') : (c.argument || '');

@@ -5,7 +5,7 @@ justice_id: stephen_field
 wikipedia_url: https://en.wikipedia.org/wiki/Stephen_Field
 years_served: 34.5
 days_served: "12,615"
-opinions: 555
+opinions: 556
 lone_dissents: 57
 ---
 <div style="display:flex; gap:1em;">

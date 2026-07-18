@@ -5,7 +5,7 @@ justice_id: samuel_blatchford
 wikipedia_url: https://en.wikipedia.org/wiki/Samuel_Blatchford
 years_served: 11.3
 days_served: "4,114"
-opinions: 430
+opinions: 431
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">

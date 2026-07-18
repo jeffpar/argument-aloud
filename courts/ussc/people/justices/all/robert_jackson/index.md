@@ -1,6 +1,9 @@
 ---
 title: Justice Robert Jackson
 layout: pane
+case_count: 1
+first_argument: November 9, 1936
+last_argument: November 9, 1936
 justice_id: robert_jackson
 wikipedia_url: https://en.wikipedia.org/wiki/Robert_H._Jackson
 years_served: 13.2

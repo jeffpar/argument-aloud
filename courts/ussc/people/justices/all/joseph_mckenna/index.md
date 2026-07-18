@@ -5,7 +5,7 @@ justice_id: joseph_mckenna
 wikipedia_url: https://en.wikipedia.org/wiki/Joseph_McKenna
 years_served: 26.9
 days_served: "9,841"
-opinions: 651
+opinions: 652
 lone_dissents: 49
 ---
 <div style="display:flex; gap:1em;">

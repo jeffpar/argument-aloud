@@ -16,6 +16,8 @@ Named associate solicitor with the U.S. Dept. of Labor for the Division of Fair 
 
 Born in New York to Russian Jewish parents who had just immigrated to the United States, Margolin lost her mother when she was a small child and was sent to a Jewish Children's Home in New Orleans. She graduated from Newcomb College and received a law degree from Tulane University, and then a doctorate in law from Yale. She began her career in the midst of the Depression, working first for the Tennessee Valley Authority, and then from 1939 to 1972 for the Labor Department.
 
+She was admitted to the U.S. Supreme Court Bar on Thursday, December 19, 1935 (see the 1935 Supreme Court Journal, p.109).
+
 [From *[Feminists Who Changed America, 1963-1975](https://archive.org/details/feministswhochan00love/page/298/mode/2up)* by Barbara J. Love]
 
 As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} {% if page.case_count == 1 %}case{% else %}cases{% endif %}, the last argument occurring on {{ page.last_argument }}.

@@ -5,7 +5,7 @@ justice_id: stanley_matthews
 wikipedia_url: https://en.wikipedia.org/wiki/Stanley_Matthews_(judge)
 years_served: 7.8
 days_served: "2,867"
-opinions: 236
+opinions: 237
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">
