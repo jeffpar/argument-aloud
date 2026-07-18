@@ -284,8 +284,8 @@
     "files": false,
     "argument": "1945-11-16",
     "argument_days": "Friday, November 16, 1945",
-    "reargument": "1946-10-14",
-    "reargument_days": "Monday, October 14, 1946",
+    "reargument": "1946-10-14,1946-10-15",
+    "reargument_days": "Monday, October 14, 1946; Tuesday, October 15, 1946",
     "decision": "1946-11-25",
     "decision_days": "Monday, November 25, 1946",
     "usCite": "329 U.S. 90",
@@ -373,7 +373,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1946-062",
@@ -972,8 +973,8 @@
     "title": "Oklahoma v. Civil Serv. Comm'n",
     "number": "84",
     "files": false,
-    "argument": "1946-10-17",
-    "argument_days": "Thursday, October 17, 1946",
+    "argument": "1946-10-17,1946-10-18",
+    "argument_days": "Thursday, October 17, 1946; Friday, October 18, 1946",
     "decision": "1947-02-10",
     "decision_days": "Monday, February 10, 1947",
     "usCite": "330 U.S. 127",
@@ -1060,83 +1061,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-003",
-    "title": "Champlin Refining Co. v. United States",
-    "number": "21",
-    "files": false,
-    "argument": "1945-11-08",
-    "argument_days": "Thursday, November 8, 1945",
-    "reargument": "1946-10-18",
-    "reargument_days": "Friday, October 18, 1946",
-    "decision": "1946-11-18",
-    "decision_days": "Monday, November 18, 1946",
-    "usCite": "329 U.S. 29",
-    "opCite": [
-      {
-        "title": "Valvoline Oil Co. v. United States (1939)",
-        "term": "1939-10",
-        "id": "1939-003",
-        "decision": "1939-11-13",
-        "count": 6
-      },
-      {
-        "title": "Pipe Line Cases (1914)",
-        "term": "1913-10",
-        "id": "1913-066",
-        "decision": "1914-06-22",
-        "count": 3
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0029.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329029/usrep329029.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=123",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 5,
-    "voteMinority": 4,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "minority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "minority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-016",
@@ -1213,14 +1139,91 @@
     ]
   },
   {
+    "id": "1946-003",
+    "title": "Champlin Refining Co. v. United States",
+    "number": "21",
+    "files": false,
+    "argument": "1945-11-08,1945-11-09",
+    "argument_days": "Thursday, November 8, 1945; Friday, November 9, 1945",
+    "reargument": "1946-10-18,1946-10-21",
+    "reargument_days": "Friday, October 18, 1946; Monday, October 21, 1946",
+    "decision": "1946-11-18",
+    "decision_days": "Monday, November 18, 1946",
+    "usCite": "329 U.S. 29",
+    "opCite": [
+      {
+        "title": "Valvoline Oil Co. v. United States (1939)",
+        "term": "1939-10",
+        "id": "1939-003",
+        "decision": "1939-11-13",
+        "count": 6
+      },
+      {
+        "title": "Pipe Line Cases (1914)",
+        "term": "1913-10",
+        "id": "1913-066",
+        "decision": "1914-06-22",
+        "count": 3
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0029.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329029/usrep329029.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=123",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 5,
+    "voteMinority": 4,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "minority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "minority"
+      }
+    ],
+    "scdb_corrections": "argument,reargument"
+  },
+  {
     "id": "1946-078",
     "title": "Levinson v. Spector Motor Service",
     "number": "22",
     "files": false,
     "argument": "1945-12-11",
     "argument_days": "Tuesday, December 11, 1945",
-    "reargument": "1946-10-21",
-    "reargument_days": "Monday, October 21, 1946",
+    "reargument": "1946-10-21,1946-10-22",
+    "reargument_days": "Monday, October 21, 1946; Tuesday, October 22, 1946",
     "decision": "1947-03-31",
     "decision_days": "Monday, March 31, 1947",
     "usCite": "330 U.S. 649",
@@ -1293,7 +1296,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1946-079",
@@ -1468,8 +1472,8 @@
     "title": "Gibson v. United States",
     "number": "23,86",
     "files": false,
-    "argument": "1946-01-02",
-    "argument_days": "Wednesday, January 2, 1946",
+    "argument": "1946-01-02,1946-01-03",
+    "argument_days": "Wednesday, January 2, 1946; Thursday, January 3, 1946",
     "reargument": "1946-10-23",
     "reargument_days": "Wednesday, October 23, 1946",
     "decision": "1946-12-23",
@@ -1544,7 +1548,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-001",
@@ -1553,8 +1558,8 @@
     "files": false,
     "argument": "1946-01-09",
     "argument_days": "Wednesday, January 9, 1946",
-    "reargument": "1946-10-23",
-    "reargument_days": "Wednesday, October 23, 1946",
+    "reargument": "1946-10-23,1946-10-24",
+    "reargument_days": "Wednesday, October 23, 1946; Thursday, October 24, 1946",
     "decision": "1946-11-18",
     "decision_days": "Monday, November 18, 1946",
     "usCite": "329 U.S. 1",
@@ -1648,82 +1653,8 @@
         "name": "HAROLD BURTON",
         "vote": "minority"
       }
-    ]
-  },
-  {
-    "id": "1946-008",
-    "title": "Alma Motor Co. v. Timken-Detroit Axle Co.",
-    "number": "11",
-    "files": false,
-    "argument": "1946-04-25",
-    "argument_days": "Thursday, April 25, 1946",
-    "reargument": "1946-10-24",
-    "reargument_days": "Thursday, October 24, 1946",
-    "decision": "1946-12-09",
-    "decision_days": "Monday, December 9, 1946",
-    "usCite": "329 U.S. 129",
-    "opCite": [
-      {
-        "title": "Bell v. Hood (1946)",
-        "term": "1945-10",
-        "id": "1945-042",
-        "decision": "1946-04-01",
-        "count": 4
-      },
-      {
-        "title": "Smithers v. Smith (1907)",
-        "term": "1906-10",
-        "id": "1906-099",
-        "decision": "1907-02-25",
-        "count": 4
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0129.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329129/usrep329129.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=223",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1946-006",
@@ -1833,6 +1764,82 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1946-008",
+    "title": "Alma Motor Co. v. Timken-Detroit Axle Co.",
+    "number": "11",
+    "files": false,
+    "argument": "1945-04-25,1945-04-26",
+    "argument_days": "Wednesday, April 25, 1945; Thursday, April 26, 1945",
+    "reargument": "1946-10-24,1946-10-25",
+    "reargument_days": "Thursday, October 24, 1946; Friday, October 25, 1946",
+    "decision": "1946-12-09",
+    "decision_days": "Monday, December 9, 1946",
+    "usCite": "329 U.S. 129",
+    "opCite": [
+      {
+        "title": "Bell v. Hood (1946)",
+        "term": "1945-10",
+        "id": "1945-042",
+        "decision": "1946-04-01",
+        "count": 4
+      },
+      {
+        "title": "Smithers v. Smith (1907)",
+        "term": "1906-10",
+        "id": "1906-099",
+        "decision": "1907-02-25",
+        "count": 4
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0129.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329129/usrep329129.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=223",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1946-004",
@@ -2551,8 +2558,8 @@
     "title": "United States v. Sheridan",
     "number": "53",
     "files": false,
-    "argument": "1946-11-12",
-    "argument_days": "Tuesday, November 12, 1946",
+    "argument": "1946-11-12,1946-11-13",
+    "argument_days": "Tuesday, November 12, 1946; Wednesday, November 13, 1946",
     "decision": "1946-12-23",
     "decision_days": "Monday, December 23, 1946",
     "usCite": "329 U.S. 379",
@@ -2617,7 +2624,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-009",
@@ -2945,8 +2953,8 @@
     "title": "Edward Katzinger Co. v. Chicago Metallic Mfg. Co.",
     "number": "70,71",
     "files": false,
-    "argument": "1946-11-14",
-    "argument_days": "Thursday, November 14, 1946",
+    "argument": "1946-11-14,1946-11-15",
+    "argument_days": "Thursday, November 14, 1946; Friday, November 15, 1946",
     "decision": "1947-01-06",
     "decision_days": "Monday, January 6, 1947",
     "usCite": "329 U.S. 394",
@@ -3033,7 +3041,8 @@
         "name": "HAROLD BURTON",
         "vote": "minority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-011",
@@ -3129,8 +3138,8 @@
     "title": "Rothensies v. Electric Storage Battery Co.",
     "number": "48",
     "files": false,
-    "argument": "1946-11-15",
-    "argument_days": "Friday, November 15, 1946",
+    "argument": "1946-11-15,1946-11-18",
+    "argument_days": "Friday, November 15, 1946; Monday, November 18, 1946",
     "decision": "1946-12-16",
     "decision_days": "Monday, December 16, 1946",
     "usCite": "329 U.S. 296",
@@ -3196,119 +3205,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-055",
-    "title": "Angel v. Bullington",
-    "number": "31",
-    "files": false,
-    "argument": "1946-03-05",
-    "argument_days": "Tuesday, March 5, 1946",
-    "reargument": "1946-11-18",
-    "reargument_days": "Monday, November 18, 1946",
-    "decision": "1947-02-17",
-    "decision_days": "Monday, February 17, 1947",
-    "usCite": "330 U.S. 183",
-    "opCite": [
-      {
-        "title": "Guaranty Trust Co. v. York (1945)",
-        "term": "1944-10",
-        "id": "1944-101",
-        "decision": "1945-06-18",
-        "count": 9
-      },
-      {
-        "title": "Klaxon Co. v. Stentor Elec. Mfg. Co. (1941)",
-        "term": "1940-10",
-        "id": "1940-130",
-        "decision": "1941-06-02",
-        "count": 2
-      },
-      {
-        "title": "Erie R. Co. v. Tompkins (1938)",
-        "term": "1937-10",
-        "id": "1937-170",
-        "decision": "1938-04-25",
-        "count": 13
-      },
-      {
-        "title": "Kenney v. Supreme Lodge of World, Loyal Order of Moose (1920)",
-        "term": "1919-10",
-        "id": "1919-092",
-        "decision": "1920-04-19",
-        "count": 2
-      },
-      {
-        "title": "David Lupton's Sons Co. v. Automobile Club of America (1912)",
-        "term": "1911-10",
-        "id": "1911-085",
-        "decision": "1912-06-07",
-        "count": 3
-      },
-      {
-        "title": "Scott v. Neely (1891)",
-        "term": "1890-10",
-        "id": "1890-231",
-        "decision": "1891-04-27",
-        "count": 2
-      },
-      {
-        "title": "Bucher v. Cheshire R. Co. (1888)",
-        "term": "1887-10",
-        "id": "1887-189",
-        "decision": "1888-03-19",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0183.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330183/usrep330183.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=249",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 6,
-    "voteMinority": 3,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-033",
@@ -3447,6 +3345,119 @@
         "action": "wrote an opinion: dissent"
       }
     ]
+  },
+  {
+    "id": "1946-055",
+    "title": "Angel v. Bullington",
+    "number": "31",
+    "files": false,
+    "argument": "1946-03-05",
+    "argument_days": "Tuesday, March 5, 1946",
+    "reargument": "1946-11-18,1946-11-19",
+    "reargument_days": "Monday, November 18, 1946; Tuesday, November 19, 1946",
+    "decision": "1947-02-17",
+    "decision_days": "Monday, February 17, 1947",
+    "usCite": "330 U.S. 183",
+    "opCite": [
+      {
+        "title": "Guaranty Trust Co. v. York (1945)",
+        "term": "1944-10",
+        "id": "1944-101",
+        "decision": "1945-06-18",
+        "count": 9
+      },
+      {
+        "title": "Klaxon Co. v. Stentor Elec. Mfg. Co. (1941)",
+        "term": "1940-10",
+        "id": "1940-130",
+        "decision": "1941-06-02",
+        "count": 2
+      },
+      {
+        "title": "Erie R. Co. v. Tompkins (1938)",
+        "term": "1937-10",
+        "id": "1937-170",
+        "decision": "1938-04-25",
+        "count": 13
+      },
+      {
+        "title": "Kenney v. Supreme Lodge of World, Loyal Order of Moose (1920)",
+        "term": "1919-10",
+        "id": "1919-092",
+        "decision": "1920-04-19",
+        "count": 2
+      },
+      {
+        "title": "David Lupton's Sons Co. v. Automobile Club of America (1912)",
+        "term": "1911-10",
+        "id": "1911-085",
+        "decision": "1912-06-07",
+        "count": 3
+      },
+      {
+        "title": "Scott v. Neely (1891)",
+        "term": "1890-10",
+        "id": "1890-231",
+        "decision": "1891-04-27",
+        "count": 2
+      },
+      {
+        "title": "Bucher v. Cheshire R. Co. (1888)",
+        "term": "1887-10",
+        "id": "1887-189",
+        "decision": "1888-03-19",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0183.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330183/usrep330183.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=249",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 6,
+    "voteMinority": 3,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1946-024",
@@ -3599,8 +3610,8 @@
     "title": "Fiswick v. United States",
     "number": "51",
     "files": false,
-    "argument": "1946-11-19",
-    "argument_days": "Tuesday, November 19, 1946",
+    "argument": "1946-11-19,1946-11-20",
+    "argument_days": "Tuesday, November 19, 1946; Wednesday, November 20, 1946",
     "decision": "1946-12-09",
     "decision_days": "Monday, December 9, 1946",
     "usCite": "329 U.S. 211",
@@ -3686,7 +3697,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-049",
@@ -3899,8 +3911,8 @@
     "title": "United States v. Ruzicka",
     "number": "54",
     "files": false,
-    "argument": "1946-11-20",
-    "argument_days": "Wednesday, November 20, 1946",
+    "argument": "1946-11-20,1946-11-21",
+    "argument_days": "Wednesday, November 20, 1946; Thursday, November 21, 1946",
     "decision": "1946-12-16",
     "decision_days": "Monday, December 16, 1946",
     "usCite": "329 U.S. 287",
@@ -3958,82 +3970,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-077",
-    "title": "Haupt v. United States",
-    "number": "49",
-    "files": false,
-    "argument": "1946-11-21",
-    "argument_days": "Thursday, November 21, 1946",
-    "decision": "1947-03-31",
-    "decision_days": "Monday, March 31, 1947",
-    "usCite": "330 U.S. 631",
-    "opCite": [
-      {
-        "title": "Cramer v. United States (1945)",
-        "term": "1944-10",
-        "id": "1944-040",
-        "decision": "1945-04-23",
-        "count": 12
-      },
-      {
-        "title": "Ex parte Quirin (1942)",
-        "term": "1942-07",
-        "id": "1942-017",
-        "decision": "1942-07-31",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0631.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330631/usrep330631.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=697",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-021",
@@ -4238,6 +4176,82 @@
     ]
   },
   {
+    "id": "1946-077",
+    "title": "Haupt v. United States",
+    "number": "49",
+    "files": false,
+    "argument": "1946-11-21,1946-11-22",
+    "argument_days": "Thursday, November 21, 1946; Friday, November 22, 1946",
+    "decision": "1947-03-31",
+    "decision_days": "Monday, March 31, 1947",
+    "usCite": "330 U.S. 631",
+    "opCite": [
+      {
+        "title": "Cramer v. United States (1945)",
+        "term": "1944-10",
+        "id": "1944-040",
+        "decision": "1945-04-23",
+        "count": 12
+      },
+      {
+        "title": "Ex parte Quirin (1942)",
+        "term": "1942-07",
+        "id": "1942-017",
+        "decision": "1942-07-31",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0631.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330631/usrep330631.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=697",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1946-015",
     "title": "FCC v. Woko, Inc.",
     "number": "65",
@@ -4413,8 +4427,8 @@
     "title": "Morris v. Jones",
     "number": "62",
     "files": false,
-    "argument": "1946-12-09",
-    "argument_days": "Monday, December 9, 1946",
+    "argument": "1946-12-09,1946-12-10",
+    "argument_days": "Monday, December 9, 1946; Tuesday, December 10, 1946",
     "decision": "1947-01-20",
     "decision_days": "Monday, January 20, 1947",
     "usCite": "329 U.S. 545",
@@ -4529,6 +4543,74 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1946-031",
+    "title": "Board of Governors, Frs v. Agnew",
+    "number": "66",
+    "files": false,
+    "argument": "1946-12-10",
+    "argument_days": "Tuesday, December 10, 1946",
+    "decision": "1947-01-06",
+    "decision_days": "Monday, January 6, 1947",
+    "usCite": "329 U.S. 441",
+    "opCite": [
+      {
+        "title": "Stark v. Wickard (1944)",
+        "term": "1943-10",
+        "id": "1943-091",
+        "decision": "1944-02-28",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0441.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329441/usrep329441.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=535",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: regular concurrence"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -4536,8 +4618,8 @@
     "title": "Railway Conductors v. Swan",
     "number": "63,64",
     "files": false,
-    "argument": "1946-12-10",
-    "argument_days": "Tuesday, December 10, 1946",
+    "argument": "1946-12-10,1946-12-11",
+    "argument_days": "Tuesday, December 10, 1946; Wednesday, December 11, 1946",
     "decision": "1947-01-13",
     "decision_days": "Monday, January 13, 1947",
     "usCite": "329 U.S. 520",
@@ -4610,74 +4692,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-031",
-    "title": "Board of Governors, Frs v. Agnew",
-    "number": "66",
-    "files": false,
-    "argument": "1946-12-10",
-    "argument_days": "Tuesday, December 10, 1946",
-    "decision": "1947-01-06",
-    "decision_days": "Monday, January 6, 1947",
-    "usCite": "329 U.S. 441",
-    "opCite": [
-      {
-        "title": "Stark v. Wickard (1944)",
-        "term": "1943-10",
-        "id": "1943-091",
-        "decision": "1944-02-28",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0441.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329441/usrep329441.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=535",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: regular concurrence"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-085",
@@ -4765,8 +4781,8 @@
     "title": "American Stevedores, Inc. v. Porello",
     "number": "69,514",
     "files": false,
-    "argument": "1946-12-11",
-    "argument_days": "Wednesday, December 11, 1946",
+    "argument": "1946-12-11,1946-12-12",
+    "argument_days": "Wednesday, December 11, 1946; Thursday, December 12, 1946",
     "decision": "1947-03-10",
     "decision_days": "Monday, March 10, 1947",
     "usCite": "330 U.S. 446",
@@ -4825,6 +4841,74 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1946-028",
+    "title": "International Harvester Co. v. Evatt",
+    "number": "75",
+    "files": false,
+    "argument": "1946-12-12",
+    "argument_days": "Thursday, December 12, 1946",
+    "decision": "1947-01-06",
+    "decision_days": "Monday, January 6, 1947",
+    "usCite": "329 U.S. 416",
+    "opCite": [
+      {
+        "title": "Hump Hairpin Mfg. Co. v. Emmerson (1922)",
+        "term": "1921-10",
+        "id": "1921-082",
+        "decision": "1922-03-27",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0416.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329416/usrep329416.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=510",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: regular concurrence"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -4832,8 +4916,8 @@
     "title": "Harris v. United States",
     "number": "34",
     "files": false,
-    "argument": "1946-12-12",
-    "argument_days": "Thursday, December 12, 1946",
+    "argument": "1946-12-12,1946-12-13",
+    "argument_days": "Thursday, December 12, 1946; Friday, December 13, 1946",
     "decision": "1947-05-05",
     "decision_days": "Monday, May 5, 1947",
     "usCite": "331 U.S. 145",
@@ -4978,74 +5062,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-028",
-    "title": "International Harvester Co. v. Evatt",
-    "number": "75",
-    "files": false,
-    "argument": "1946-12-12",
-    "argument_days": "Thursday, December 12, 1946",
-    "decision": "1947-01-06",
-    "decision_days": "Monday, January 6, 1947",
-    "usCite": "329 U.S. 416",
-    "opCite": [
-      {
-        "title": "Hump Hairpin Mfg. Co. v. Emmerson (1922)",
-        "term": "1921-10",
-        "id": "1921-082",
-        "decision": "1922-03-27",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0416.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329416/usrep329416.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=510",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: regular concurrence"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-123",
@@ -5109,8 +5127,8 @@
     "title": "SEC v. Chenery Corp.",
     "number": "81,82",
     "files": false,
-    "argument": "1946-12-13",
-    "argument_days": "Friday, December 13, 1946",
+    "argument": "1946-12-13,1946-12-16",
+    "argument_days": "Friday, December 13, 1946; Monday, December 16, 1946",
     "decision": "1947-06-23",
     "decision_days": "Monday, June 23, 1947",
     "usCite": "332 U.S. 194",
@@ -5169,7 +5187,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-089",
@@ -5603,8 +5622,8 @@
     "title": "Gulf Oil Corp. v. Gilbert",
     "number": "93",
     "files": false,
-    "argument": "1946-12-18",
-    "argument_days": "Wednesday, December 18, 1946",
+    "argument": "1946-12-18,1946-12-19",
+    "argument_days": "Wednesday, December 18, 1946; Thursday, December 19, 1946",
     "decision": "1947-03-10",
     "decision_days": "Monday, March 10, 1947",
     "usCite": "330 U.S. 501",
@@ -5742,7 +5761,8 @@
         "vote": "minority",
         "action": "co-authored an opinion: dissent"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-088",
@@ -5833,80 +5853,6 @@
     ]
   },
   {
-    "id": "1946-034",
-    "title": "Anderson v. Yungkau",
-    "number": "87",
-    "files": false,
-    "argument": "1946-12-19",
-    "argument_days": "Thursday, December 19, 1946",
-    "decision": "1947-01-13",
-    "decision_days": "Monday, January 13, 1947",
-    "usCite": "329 U.S. 482",
-    "opCite": [
-      {
-        "title": "Anderson v. Abbott (1944)",
-        "term": "1943-10",
-        "id": "1943-043",
-        "decision": "1944-03-06",
-        "count": 5
-      },
-      {
-        "title": "McClaine v. Rankin (1905)",
-        "term": "1904-10",
-        "id": "1904-132",
-        "decision": "1905-03-06",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0482.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329482/usrep329482.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=576",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 5,
-    "voteMinority": 2,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "none"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "none"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "minority"
-      }
-    ]
-  },
-  {
     "id": "1946-069",
     "title": "Koster v. (American) Lumbermens Mut. Casualty Co.",
     "number": "206",
@@ -5980,6 +5926,81 @@
         "vote": "minority"
       }
     ]
+  },
+  {
+    "id": "1946-034",
+    "title": "Anderson v. Yungkau",
+    "number": "87",
+    "files": false,
+    "argument": "1946-12-19,1946-12-20",
+    "argument_days": "Thursday, December 19, 1946; Friday, December 20, 1946",
+    "decision": "1947-01-13",
+    "decision_days": "Monday, January 13, 1947",
+    "usCite": "329 U.S. 482",
+    "opCite": [
+      {
+        "title": "Anderson v. Abbott (1944)",
+        "term": "1943-10",
+        "id": "1943-043",
+        "decision": "1944-03-06",
+        "count": 5
+      },
+      {
+        "title": "McClaine v. Rankin (1905)",
+        "term": "1904-10",
+        "id": "1904-132",
+        "decision": "1905-03-06",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0482.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329482/usrep329482.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=576",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 5,
+    "voteMinority": 2,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "none"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "none"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "minority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-040",
@@ -6156,72 +6177,6 @@
     ]
   },
   {
-    "id": "1946-042",
-    "title": "Krug v. Santa Fe Pacific R. Co.",
-    "number": "97,98",
-    "files": false,
-    "argument": "1947-01-06",
-    "argument_days": "Monday, January 6, 1947",
-    "decision": "1947-02-03",
-    "decision_days": "Monday, February 3, 1947",
-    "usCite": "329 U.S. 591",
-    "opCite": [
-      {
-        "title": "United States v. Northern Pacific R. Co. (1940)",
-        "term": "1940-10",
-        "id": "1940-003",
-        "decision": "1940-12-16",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0591.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329591/usrep329591.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=685",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1946-048",
     "title": "De Meerleer v. Michigan",
     "number": "140",
@@ -6353,6 +6308,73 @@
     ]
   },
   {
+    "id": "1946-042",
+    "title": "Krug v. Santa Fe Pacific R. Co.",
+    "number": "97,98",
+    "files": false,
+    "argument": "1947-01-06,1947-01-07",
+    "argument_days": "Monday, January 6, 1947; Tuesday, January 7, 1947",
+    "decision": "1947-02-03",
+    "decision_days": "Monday, February 3, 1947",
+    "usCite": "329 U.S. 591",
+    "opCite": [
+      {
+        "title": "United States v. Northern Pacific R. Co. (1940)",
+        "term": "1940-10",
+        "id": "1940-003",
+        "decision": "1940-12-16",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0591.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329591/usrep329591.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=685",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1946-053",
     "title": "Bozza v. United States",
     "number": "190",
@@ -6419,12 +6441,69 @@
     ]
   },
   {
+    "id": "1946-038",
+    "title": "Patterson v. Lamb",
+    "number": "229",
+    "files": false,
+    "argument": "1947-01-07",
+    "argument_days": "Tuesday, January 7, 1947",
+    "decision": "1947-01-20",
+    "decision_days": "Monday, January 20, 1947",
+    "usCite": "329 U.S. 539",
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0539.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329539/usrep329539.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=633",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
     "id": "1946-045",
     "title": "Transparent-Wrap Machine Corp. v. Stokes & Smith Co.",
     "number": "208",
     "files": false,
-    "argument": "1947-01-07",
-    "argument_days": "Tuesday, January 7, 1947",
+    "argument": "1947-01-07,1947-01-08",
+    "argument_days": "Tuesday, January 7, 1947; Wednesday, January 8, 1947",
     "decision": "1947-02-03",
     "decision_days": "Monday, February 3, 1947",
     "usCite": "329 U.S. 637",
@@ -6500,64 +6579,8 @@
         "vote": "minority",
         "action": "co-authored an opinion: dissent"
       }
-    ]
-  },
-  {
-    "id": "1946-038",
-    "title": "Patterson v. Lamb",
-    "number": "229",
-    "files": false,
-    "argument": "1947-01-07",
-    "argument_days": "Tuesday, January 7, 1947",
-    "decision": "1947-01-20",
-    "decision_days": "Monday, January 20, 1947",
-    "usCite": "329 U.S. 539",
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0539.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329539/usrep329539.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=633",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-047",
@@ -7184,80 +7207,6 @@
     ]
   },
   {
-    "id": "1946-054",
-    "title": "Confederated Bands of Ute Indians v. United States",
-    "number": "141",
-    "files": false,
-    "argument": "1947-01-14",
-    "argument_days": "Tuesday, January 14, 1947",
-    "decision": "1947-02-17",
-    "decision_days": "Monday, February 17, 1947",
-    "usCite": "330 U.S. 169",
-    "opCite": [
-      {
-        "title": "Choctaw Nation v. United States (1943)",
-        "term": "1942-10",
-        "id": "1942-161",
-        "decision": "1943-03-08",
-        "count": 2
-      },
-      {
-        "title": "Sioux Tribe v. United States (1942)",
-        "term": "1941-10",
-        "id": "1941-068",
-        "decision": "1942-05-11",
-        "count": 5
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0169.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330169/usrep330169.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=235",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 6,
-    "voteMinority": 3,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "minority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1946-060",
     "title": "United States v. Mine Workers",
     "tags": [
@@ -7591,6 +7540,81 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1946-054",
+    "title": "Confederated Bands of Ute Indians v. United States",
+    "number": "141",
+    "files": false,
+    "argument": "1947-01-14,1947-01-15",
+    "argument_days": "Tuesday, January 14, 1947; Wednesday, January 15, 1947",
+    "decision": "1947-02-17",
+    "decision_days": "Monday, February 17, 1947",
+    "usCite": "330 U.S. 169",
+    "opCite": [
+      {
+        "title": "Choctaw Nation v. United States (1943)",
+        "term": "1942-10",
+        "id": "1942-161",
+        "decision": "1943-03-08",
+        "count": 2
+      },
+      {
+        "title": "Sioux Tribe v. United States (1942)",
+        "term": "1941-10",
+        "id": "1941-068",
+        "decision": "1942-05-11",
+        "count": 5
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0169.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330169/usrep330169.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=235",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 6,
+    "voteMinority": 3,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "minority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-124",
@@ -7996,79 +8020,6 @@
     "scdb_corrections": "argument"
   },
   {
-    "id": "1946-046",
-    "title": "Ellis v. Union Pacific R. Co.",
-    "number": "320",
-    "files": false,
-    "argument": "1947-01-16",
-    "argument_days": "Thursday, January 16, 1947",
-    "decision": "1947-02-03",
-    "decision_days": "Monday, February 3, 1947",
-    "usCite": "329 U.S. 649",
-    "opCite": [
-      {
-        "title": "Lavender v. Kurn (1946)",
-        "term": "1945-10",
-        "id": "1945-082",
-        "decision": "1946-03-25",
-        "count": 5
-      },
-      {
-        "title": "Bailey v. Central Vermont R. Co. (1943)",
-        "term": "1942-10",
-        "id": "1942-148",
-        "decision": "1943-05-24",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0649.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329649/usrep329649.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=743",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1946-074",
     "title": "Penfield Co. of Cal. v. SEC",
     "number": "453",
@@ -8184,6 +8135,80 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1946-046",
+    "title": "Ellis v. Union Pacific R. Co.",
+    "number": "320",
+    "files": false,
+    "argument": "1947-01-16,1947-01-17",
+    "argument_days": "Thursday, January 16, 1947; Friday, January 17, 1947",
+    "decision": "1947-02-03",
+    "decision_days": "Monday, February 3, 1947",
+    "usCite": "329 U.S. 649",
+    "opCite": [
+      {
+        "title": "Lavender v. Kurn (1946)",
+        "term": "1945-10",
+        "id": "1945-082",
+        "decision": "1946-03-25",
+        "count": 5
+      },
+      {
+        "title": "Bailey v. Central Vermont R. Co. (1943)",
+        "term": "1942-10",
+        "id": "1942-148",
+        "decision": "1943-05-24",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us329/us329-0649.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep329/usrep329649/usrep329649.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-329_PDFA.pdf#page=743",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-076",
@@ -8450,80 +8475,6 @@
     "scdb_corrections": "argument"
   },
   {
-    "id": "1946-072",
-    "title": "Kotch v. Board of River Port Pilot Comm'rs for Port of New Orleans",
-    "number": "291",
-    "files": false,
-    "argument": "1947-02-05",
-    "argument_days": "Wednesday, February 5, 1947",
-    "decision": "1947-03-31",
-    "decision_days": "Monday, March 31, 1947",
-    "usCite": "330 U.S. 552",
-    "opCite": [
-      {
-        "title": "Olsen v. Smith (1904)",
-        "term": "1904-10",
-        "id": "1904-030",
-        "decision": "1904-11-28",
-        "count": 4
-      },
-      {
-        "title": "Yick Wo v. Hopkins (1886)",
-        "term": "1885-10",
-        "id": "1885-269",
-        "decision": "1886-05-10",
-        "count": 3
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0552.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330552/usrep330552.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=618",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 5,
-    "voteMinority": 4,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "minority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "minority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1946-075",
     "title": "New York ex rel. Halvey v. Halvey",
     "number": "384",
@@ -8674,44 +8625,37 @@
     ]
   },
   {
-    "id": "1946-113",
-    "title": "Gospel Army v. Los Angeles",
-    "number": "103",
+    "id": "1946-072",
+    "title": "Kotch v. Board of River Port Pilot Comm'rs for Port of New Orleans",
+    "number": "291",
     "files": false,
-    "argument": "1947-02-06",
-    "argument_days": "Thursday, February 6, 1947",
-    "decision": "1947-06-09",
-    "decision_days": "Monday, June 9, 1947",
-    "usCite": "331 U.S. 543",
+    "argument": "1947-02-05,1947-02-06",
+    "argument_days": "Wednesday, February 5, 1947; Thursday, February 6, 1947",
+    "decision": "1947-03-31",
+    "decision_days": "Monday, March 31, 1947",
+    "usCite": "330 U.S. 552",
     "opCite": [
       {
-        "title": "Rescue Army v. Municipal Court of Los Angeles (1947)",
-        "term": "1946-10",
-        "id": "1946-114",
-        "decision": "1947-06-09",
-        "count": 2
+        "title": "Olsen v. Smith (1904)",
+        "term": "1904-10",
+        "id": "1904-030",
+        "decision": "1904-11-28",
+        "count": 4
       },
       {
-        "title": "Richfield Oil Corp. v. State Bd. of Equalization (1946)",
-        "term": "1946-10",
-        "id": "1946-006",
-        "decision": "1946-11-25",
+        "title": "Yick Wo v. Hopkins (1886)",
+        "term": "1885-10",
+        "id": "1885-269",
+        "decision": "1886-05-10",
         "count": 3
-      },
-      {
-        "title": "Department of Banking of Neb. v. Pink (1942)",
-        "term": "1942-10",
-        "id": "1942-010",
-        "decision": "1942-12-21",
-        "count": 2
       }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0543.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331543/usrep331543.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=613",
+    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0552.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330552/usrep330552.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=618",
     "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
+    "voteMajority": 5,
+    "voteMinority": 4,
     "votes": [
       {
         "name": "FRED VINSON",
@@ -8719,11 +8663,13 @@
       },
       {
         "name": "HUGO BLACK",
-        "vote": "majority"
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
       },
       {
         "name": "STANLEY REED",
-        "vote": "majority"
+        "vote": "minority"
       },
       {
         "name": "FELIX FRANKFURTER",
@@ -8731,11 +8677,11 @@
       },
       {
         "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
+        "vote": "minority"
       },
       {
         "name": "FRANCIS MURPHY",
-        "vote": "majority"
+        "vote": "minority"
       },
       {
         "name": "ROBERT JACKSON",
@@ -8743,15 +8689,15 @@
       },
       {
         "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
       },
       {
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-108",
@@ -8894,12 +8840,93 @@
     ]
   },
   {
+    "id": "1946-113",
+    "title": "Gospel Army v. Los Angeles",
+    "number": "103",
+    "files": false,
+    "argument": "1947-02-06,1947-02-07",
+    "argument_days": "Thursday, February 6, 1947; Friday, February 7, 1947",
+    "decision": "1947-06-09",
+    "decision_days": "Monday, June 9, 1947",
+    "usCite": "331 U.S. 543",
+    "opCite": [
+      {
+        "title": "Rescue Army v. Municipal Court of Los Angeles (1947)",
+        "term": "1946-10",
+        "id": "1946-114",
+        "decision": "1947-06-09",
+        "count": 2
+      },
+      {
+        "title": "Richfield Oil Corp. v. State Bd. of Equalization (1946)",
+        "term": "1946-10",
+        "id": "1946-006",
+        "decision": "1946-11-25",
+        "count": 3
+      },
+      {
+        "title": "Department of Banking of Neb. v. Pink (1942)",
+        "term": "1942-10",
+        "id": "1942-010",
+        "decision": "1942-12-21",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0543.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331543/usrep331543.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=613",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1946-114",
     "title": "Rescue Army v. Municipal Court of Los Angeles",
     "number": "574",
     "files": false,
-    "argument": "1947-02-06",
-    "argument_days": "Thursday, February 6, 1947",
+    "argument": "1947-02-06,1947-02-07",
+    "argument_days": "Thursday, February 6, 1947; Friday, February 7, 1947",
     "decision": "1947-06-09",
     "decision_days": "Monday, June 9, 1947",
     "usCite": "331 U.S. 549",
@@ -9028,6 +9055,65 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1946-087",
+    "title": "United States Nat. Bank v. Chase Nat. Bank",
+    "number": "371",
+    "files": false,
+    "argument": "1947-02-07",
+    "argument_days": "Friday, February 7, 1947",
+    "decision": "1947-04-14",
+    "decision_days": "Monday, April 14, 1947",
+    "usCite": "331 U.S. 28",
+    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0028.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331028/usrep331028.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=98",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -9035,8 +9121,8 @@
     "title": "Walling v. Halliburton Oil Well Cementing Co.",
     "number": "74",
     "files": false,
-    "argument": "1947-02-07",
-    "argument_days": "Friday, February 7, 1947",
+    "argument": "1947-02-07,1947-02-10",
+    "argument_days": "Friday, February 7, 1947; Monday, February 10, 1947",
     "decision": "1947-04-14",
     "decision_days": "Monday, April 14, 1947",
     "usCite": "331 U.S. 17",
@@ -9124,73 +9210,16 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-087",
-    "title": "United States Nat. Bank v. Chase Nat. Bank",
-    "number": "371",
-    "files": false,
-    "argument": "1947-02-07",
-    "argument_days": "Friday, February 7, 1947",
-    "decision": "1947-04-14",
-    "decision_days": "Monday, April 14, 1947",
-    "usCite": "331 U.S. 28",
-    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0028.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331028/usrep331028.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=98",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-071",
     "title": "Walling v. General Industries Co.",
     "number": "564",
     "files": false,
-    "argument": "1947-02-10",
-    "argument_days": "Monday, February 10, 1947",
+    "argument": "1947-02-10,1947-02-11",
+    "argument_days": "Monday, February 10, 1947; Tuesday, February 11, 1947",
     "decision": "1947-03-31",
     "decision_days": "Monday, March 31, 1947",
     "usCite": "330 U.S. 545",
@@ -9240,6 +9269,87 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1946-096",
+    "title": "149 Madison Ave. Corp. v. Asselta",
+    "number": "497",
+    "files": false,
+    "argument": "1947-02-11",
+    "argument_days": "Tuesday, February 11, 1947",
+    "decision": "1947-05-05",
+    "decision_days": "Monday, May 5, 1947",
+    "usCite": "331 U.S. 199",
+    "opCite": [
+      {
+        "title": "Walling v. Halliburton Oil Well Cementing Co. (1947)",
+        "term": "1946-10",
+        "id": "1946-086",
+        "decision": "1947-04-14",
+        "count": 3
+      },
+      {
+        "title": "Walling v. Helmerich & Payne, Inc. (1944)",
+        "term": "1944-10",
+        "id": "1944-017",
+        "decision": "1944-11-06",
+        "count": 2
+      },
+      {
+        "title": "Walling v. A. H. Belo Corp. (1942)",
+        "term": "1941-10",
+        "id": "1941-061",
+        "decision": "1942-06-08",
+        "count": 4
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0199.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331199/usrep331199.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=269",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -9247,8 +9357,8 @@
     "title": "Land v. Dollar",
     "number": "207",
     "files": false,
-    "argument": "1947-02-11",
-    "argument_days": "Tuesday, February 11, 1947",
+    "argument": "1947-02-11,1947-02-12",
+    "argument_days": "Tuesday, February 11, 1947; Wednesday, February 12, 1947",
     "decision": "1947-04-07",
     "decision_days": "Monday, April 7, 1947",
     "usCite": "330 U.S. 731",
@@ -9398,169 +9508,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1946-096",
-    "title": "149 Madison Ave. Corp. v. Asselta",
-    "number": "497",
-    "files": false,
-    "argument": "1947-02-11",
-    "argument_days": "Tuesday, February 11, 1947",
-    "decision": "1947-05-05",
-    "decision_days": "Monday, May 5, 1947",
-    "usCite": "331 U.S. 199",
-    "opCite": [
-      {
-        "title": "Walling v. Halliburton Oil Well Cementing Co. (1947)",
-        "term": "1946-10",
-        "id": "1946-086",
-        "decision": "1947-04-14",
-        "count": 3
-      },
-      {
-        "title": "Walling v. Helmerich & Payne, Inc. (1944)",
-        "term": "1944-10",
-        "id": "1944-017",
-        "decision": "1944-11-06",
-        "count": 2
-      },
-      {
-        "title": "Walling v. A. H. Belo Corp. (1942)",
-        "term": "1941-10",
-        "id": "1941-061",
-        "decision": "1942-06-08",
-        "count": 4
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0199.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331199/usrep331199.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=269",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1946-073",
-    "title": "ICC v. Mechling",
-    "number": "72",
-    "files": false,
-    "argument": "1947-02-12",
-    "argument_days": "Wednesday, February 12, 1947",
-    "decision": "1947-03-31",
-    "decision_days": "Monday, March 31, 1947",
-    "usCite": "330 U.S. 567",
-    "opCite": [
-      {
-        "title": "ICC v. Inland Waterways Corp. (1943)",
-        "term": "1942-10",
-        "id": "1942-036",
-        "decision": "1943-06-14",
-        "count": 4
-      },
-      {
-        "title": "United States v. Chicago, M., St. P. & P. R. Co. (1935)",
-        "term": "1934-10",
-        "id": "1934-093",
-        "decision": "1935-03-04",
-        "count": 2
-      },
-      {
-        "title": "Atchison, T. & S. F. R. Co. v. United States (1929)",
-        "term": "1928-10",
-        "id": "1928-071",
-        "decision": "1929-06-03",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0567.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330567/usrep330567.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=633",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 2,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-100",
@@ -9665,6 +9614,89 @@
     ]
   },
   {
+    "id": "1946-073",
+    "title": "ICC v. Mechling",
+    "number": "72",
+    "files": false,
+    "argument": "1947-02-12,1947-02-13",
+    "argument_days": "Wednesday, February 12, 1947; Thursday, February 13, 1947",
+    "decision": "1947-03-31",
+    "decision_days": "Monday, March 31, 1947",
+    "usCite": "330 U.S. 567",
+    "opCite": [
+      {
+        "title": "ICC v. Inland Waterways Corp. (1943)",
+        "term": "1942-10",
+        "id": "1942-036",
+        "decision": "1943-06-14",
+        "count": 4
+      },
+      {
+        "title": "United States v. Chicago, M., St. P. & P. R. Co. (1935)",
+        "term": "1934-10",
+        "id": "1934-093",
+        "decision": "1935-03-04",
+        "count": 2
+      },
+      {
+        "title": "Atchison, T. & S. F. R. Co. v. United States (1929)",
+        "term": "1928-10",
+        "id": "1928-071",
+        "decision": "1929-06-03",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us330/us330-0567.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep330/usrep330567/usrep330567.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-330_PDFA.pdf#page=633",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 2,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1946-065",
     "title": "Aetna Casualty & Surety Co. v. Flowers",
     "number": "432",
@@ -9742,8 +9774,8 @@
     "title": "Rice v. Santa Fe Elevator Corp.",
     "number": "470,472",
     "files": false,
-    "argument": "1947-02-13",
-    "argument_days": "Thursday, February 13, 1947",
+    "argument": "1947-02-13,1947-02-14",
+    "argument_days": "Thursday, February 13, 1947; Friday, February 14, 1947",
     "decision": "1947-05-05",
     "decision_days": "Monday, May 5, 1947",
     "usCite": "331 U.S. 218",
@@ -9837,7 +9869,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-061",
@@ -9995,8 +10028,8 @@
     "title": "New York v. United States",
     "number": "343,345,344",
     "files": false,
-    "argument": "1947-03-03",
-    "argument_days": "Monday, March 3, 1947",
+    "argument": "1947-03-03,1947-03-04,1947-03-05",
+    "argument_days": "Monday, March 3, 1947; Tuesday, March 4, 1947; Wednesday, March 5, 1947",
     "decision": "1947-05-12",
     "decision_days": "Monday, May 12, 1947",
     "usCite": "331 U.S. 284",
@@ -10161,7 +10194,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-080",
@@ -10310,82 +10344,6 @@
             "title": "MS."
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "1946-103",
-    "title": "NLRB v. E. C. Atkins & Co.",
-    "number": "419",
-    "files": false,
-    "argument": "1947-03-07",
-    "argument_days": "Friday, March 7, 1947",
-    "decision": "1947-05-19",
-    "decision_days": "Monday, May 19, 1947",
-    "usCite": "331 U.S. 398",
-    "opCite": [
-      {
-        "title": "NLRB v. Hearst Publications, Inc. (1944)",
-        "term": "1943-10",
-        "id": "1943-041",
-        "decision": "1944-04-24",
-        "count": 4
-      },
-      {
-        "title": "J. I. Case Co. v. NLRB (1944)",
-        "term": "1943-10",
-        "id": "1943-093",
-        "decision": "1944-02-28",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0398.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331398/usrep331398.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=468",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 6,
-    "voteMinority": 3,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "minority",
-        "action": "co-authored an opinion: dissent"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "minority",
-        "action": "co-authored an opinion: dissent"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority",
-        "action": "co-authored an opinion: dissent"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
       }
     ]
   },
@@ -10541,6 +10499,83 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1946-103",
+    "title": "NLRB v. E. C. Atkins & Co.",
+    "number": "419",
+    "files": false,
+    "argument": "1947-03-07,1947-03-10",
+    "argument_days": "Friday, March 7, 1947; Monday, March 10, 1947",
+    "decision": "1947-05-19",
+    "decision_days": "Monday, May 19, 1947",
+    "usCite": "331 U.S. 398",
+    "opCite": [
+      {
+        "title": "NLRB v. Hearst Publications, Inc. (1944)",
+        "term": "1943-10",
+        "id": "1943-041",
+        "decision": "1944-04-24",
+        "count": 4
+      },
+      {
+        "title": "J. I. Case Co. v. NLRB (1944)",
+        "term": "1943-10",
+        "id": "1943-093",
+        "decision": "1944-02-28",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0398.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331398/usrep331398.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=468",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 6,
+    "voteMinority": 3,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "minority",
+        "action": "co-authored an opinion: dissent"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "minority",
+        "action": "co-authored an opinion: dissent"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority",
+        "action": "co-authored an opinion: dissent"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-119",
@@ -11561,8 +11596,8 @@
     "title": "Champion Spark Plug Co. v. Sanders",
     "number": "680",
     "files": false,
-    "argument": "1947-04-02",
-    "argument_days": "Wednesday, April 2, 1947",
+    "argument": "1947-04-02,1947-04-03",
+    "argument_days": "Wednesday, April 2, 1947; Thursday, April 3, 1947",
     "decision": "1947-04-28",
     "decision_days": "Monday, April 28, 1947",
     "usCite": "331 U.S. 125",
@@ -11641,7 +11676,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-138",
@@ -11869,79 +11905,6 @@
     ]
   },
   {
-    "id": "1946-094",
-    "title": "Ayrshire Collieries Corp. v. United States",
-    "number": "467",
-    "files": false,
-    "argument": "1947-04-07",
-    "argument_days": "Monday, April 7, 1947",
-    "decision": "1947-04-28",
-    "decision_days": "Monday, April 28, 1947",
-    "usCite": "331 U.S. 132",
-    "opCite": [
-      {
-        "title": "United States v. Griffin (1938)",
-        "term": "1937-10",
-        "id": "1937-113",
-        "decision": "1938-02-28",
-        "count": 2
-      },
-      {
-        "title": "Cumberland Telephone & Telegraph Co. v. Louisiana Pub. Serv. Comm'n (1922)",
-        "term": "1922-10",
-        "id": "1922-032",
-        "decision": "1922-11-20",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0132.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331132/usrep331132.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=202",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "FRED VINSON",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority"
-      },
-      {
-        "name": "HAROLD BURTON",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1946-091",
     "title": "Fleming v. Rhodes",
     "number": "682",
@@ -12014,6 +11977,80 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1946-094",
+    "title": "Ayrshire Collieries Corp. v. United States",
+    "number": "467",
+    "files": false,
+    "argument": "1947-04-07,1947-04-08",
+    "argument_days": "Monday, April 7, 1947; Tuesday, April 8, 1947",
+    "decision": "1947-04-28",
+    "decision_days": "Monday, April 28, 1947",
+    "usCite": "331 U.S. 132",
+    "opCite": [
+      {
+        "title": "United States v. Griffin (1938)",
+        "term": "1937-10",
+        "id": "1937-113",
+        "decision": "1938-02-28",
+        "count": 2
+      },
+      {
+        "title": "Cumberland Telephone & Telegraph Co. v. Louisiana Pub. Serv. Comm'n (1922)",
+        "term": "1922-10",
+        "id": "1922-032",
+        "decision": "1922-11-20",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us331/us331-0132.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep331/usrep331132/usrep331132.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-331_PDFA.pdf#page=202",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "FRED VINSON",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-090",
@@ -12254,8 +12291,8 @@
     "title": "Rutherford Food Corp. v. McComb",
     "number": "562",
     "files": false,
-    "argument": "1947-04-09",
-    "argument_days": "Wednesday, April 9, 1947",
+    "argument": "1947-04-09,1947-04-10",
+    "argument_days": "Wednesday, April 9, 1947; Thursday, April 10, 1947",
     "decision": "1947-06-16",
     "decision_days": "Monday, June 16, 1947",
     "usCite": "331 U.S. 722",
@@ -12328,7 +12365,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-097",
@@ -12392,8 +12430,8 @@
     "title": "Williams v. Austrian",
     "number": "850",
     "files": false,
-    "argument": "1947-04-10",
-    "argument_days": "Thursday, April 10, 1947",
+    "argument": "1947-04-10,1947-04-11",
+    "argument_days": "Thursday, April 10, 1947; Friday, April 11, 1947",
     "decision": "1947-06-16",
     "decision_days": "Monday, June 16, 1947",
     "usCite": "331 U.S. 642",
@@ -12515,7 +12553,8 @@
         "name": "HAROLD BURTON",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1946-110",

@@ -1657,9 +1657,9 @@ function syncJusticePages({ verbose = false } = {}) {
                 name: properCase(canonicalName),
                 dateStart: galleryDateStart,
                 dateStop: isActive ? '' : (tenures.at(-1)?.dateStop || ''),
-                yearsServed: Math.round(yrs * 10000) / 10000,
                 hasOp: opCount > 0,
             };
+            if (!isActive) galleryEntry.yearsServed = Math.round(yrs * 10000) / 10000;
             if (loneCount) galleryEntry.loneDissents = loneCount;
             if (vocalSecs) galleryEntry.vocalSecs = vocalSecs;
             galleryEntry.page = `/courts/ussc/people/justices/all/${id}`;

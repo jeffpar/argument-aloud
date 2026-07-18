@@ -4,10 +4,10 @@
     "title": "Hartford-Empire Co. v. United States",
     "number": "2",
     "files": false,
-    "argument": "1943-11-15",
-    "argument_days": "Monday, November 15, 1943",
-    "reargument": "1944-10-09",
-    "reargument_days": "Monday, October 9, 1944",
+    "argument": "1943-11-15,1943-11-16,1943-11-17,1943-11-18",
+    "argument_days": "Monday, November 15, 1943; Tuesday, November 16, 1943; Wednesday, November 17, 1943; Thursday, November 18, 1943",
+    "reargument": "1944-10-09,1944-10-10",
+    "reargument_days": "Monday, October 9, 1944; Tuesday, October 10, 1944",
     "decision": "1945-01-08",
     "decision_days": "Monday, January 8, 1945",
     "usCite": "323 U.S. 386",
@@ -144,7 +144,8 @@
         "vote": "minority",
         "action": "wrote an opinion: dissent"
       }
-    ]
+    ],
+    "scdb_corrections": "reargument"
   },
   {
     "id": "1944-128",
@@ -346,8 +347,8 @@
     ],
     "number": "22",
     "files": true,
-    "argument": "1944-10-11",
-    "argument_days": "Wednesday, October 11, 1944",
+    "argument": "1944-10-11,1944-10-12",
+    "argument_days": "Wednesday, October 11, 1944; Thursday, October 12, 1944",
     "decision": "1944-12-18",
     "decision_days": "Monday, December 18, 1944",
     "usCite": "323 U.S. 214",
@@ -416,75 +417,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-037",
-    "title": "Esenwein v. Commonwealth ex rel. Esenwein",
-    "number": "20",
-    "files": false,
-    "argument": "1944-10-12",
-    "argument_days": "Thursday, October 12, 1944",
-    "decision": "1945-05-21",
-    "decision_days": "Monday, May 21, 1945",
-    "usCite": "325 U.S. 279",
-    "opCite": [
-      {
-        "title": "Williams v. North Carolina (1942)",
-        "term": "1942-10",
-        "id": "1942-028",
-        "decision": "1942-12-21",
-        "count": 3
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0279.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325279/usrep325279.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=345",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-001",
@@ -567,6 +501,75 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1944-037",
+    "title": "Esenwein v. Commonwealth ex rel. Esenwein",
+    "number": "20",
+    "files": false,
+    "argument": "1944-10-12,1944-10-13",
+    "argument_days": "Thursday, October 12, 1944; Friday, October 13, 1944",
+    "decision": "1945-05-21",
+    "decision_days": "Monday, May 21, 1945",
+    "usCite": "325 U.S. 279",
+    "opCite": [
+      {
+        "title": "Williams v. North Carolina (1942)",
+        "term": "1942-10",
+        "id": "1942-028",
+        "decision": "1942-12-21",
+        "count": 3
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0279.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325279/usrep325279.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=345",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-015",
@@ -859,93 +862,6 @@
     ]
   },
   {
-    "id": "1944-022",
-    "title": "Carolene Products Co. v. United States",
-    "number": "21",
-    "files": false,
-    "argument": "1944-10-16",
-    "argument_days": "Monday, October 16, 1944",
-    "decision": "1944-11-06",
-    "decision_days": "Monday, November 6, 1944",
-    "usCite": "323 U.S. 18",
-    "opCite": [
-      {
-        "title": "United States v. Carolene Products Co. (1938)",
-        "term": "1937-10",
-        "id": "1937-045",
-        "decision": "1938-04-25",
-        "count": 6
-      },
-      {
-        "title": "Hebe Co. v. Shaw (1919)",
-        "term": "1918-10",
-        "id": "1918-220",
-        "decision": "1919-01-07",
-        "count": 2
-      },
-      {
-        "title": "Purity Extract & Tonic Co. v. Lynch (1912)",
-        "term": "1912-10",
-        "id": "1912-020",
-        "decision": "1912-12-02",
-        "count": 2
-      },
-      {
-        "title": "Powell v. Pennsylvania (1888)",
-        "term": "1887-10",
-        "id": "1887-202",
-        "decision": "1888-04-09",
-        "count": 3
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0018.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323018/usrep323018.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=120",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1944-005",
     "title": "Smith v. Davis",
     "number": "23",
@@ -1099,30 +1015,51 @@
     ]
   },
   {
-    "id": "1944-123",
-    "title": "Herb v. Pitcairn",
-    "number": "24",
+    "id": "1944-022",
+    "title": "Carolene Products Co. v. United States",
+    "number": "21",
     "files": false,
-    "argument": "1944-10-17",
-    "argument_days": "Tuesday, October 17, 1944",
-    "decision": "1945-02-05",
-    "decision_days": "Monday, February 5, 1945",
-    "usCite": "324 U.S. 117",
+    "argument": "1944-10-16,1944-10-17",
+    "argument_days": "Monday, October 16, 1944; Tuesday, October 17, 1944",
+    "decision": "1944-11-06",
+    "decision_days": "Monday, November 6, 1944",
+    "usCite": "323 U.S. 18",
     "opCite": [
       {
-        "title": "Lynch v. New York ex rel. Pierson (1934)",
-        "term": "1934-10",
-        "id": "1934-020",
-        "decision": "1934-11-05",
+        "title": "United States v. Carolene Products Co. (1938)",
+        "term": "1937-10",
+        "id": "1937-045",
+        "decision": "1938-04-25",
+        "count": 6
+      },
+      {
+        "title": "Hebe Co. v. Shaw (1919)",
+        "term": "1918-10",
+        "id": "1918-220",
+        "decision": "1919-01-07",
         "count": 2
+      },
+      {
+        "title": "Purity Extract & Tonic Co. v. Lynch (1912)",
+        "term": "1912-10",
+        "id": "1912-020",
+        "decision": "1912-12-02",
+        "count": 2
+      },
+      {
+        "title": "Powell v. Pennsylvania (1888)",
+        "term": "1887-10",
+        "id": "1887-202",
+        "decision": "1888-04-09",
+        "count": 3
       }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0117.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324117/usrep324117.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=185",
-    "result": "favorable disposition for petitioning party unclear",
-    "voteMajority": 5,
-    "voteMinority": 4,
+    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0018.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323018/usrep323018.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=120",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
     "votes": [
       {
         "name": "HARLAN STONE",
@@ -1134,12 +1071,13 @@
       },
       {
         "name": "HUGO BLACK",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
+        "vote": "majority"
       },
       {
         "name": "STANLEY REED",
-        "vote": "majority"
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
       },
       {
         "name": "FELIX FRANKFURTER",
@@ -1147,24 +1085,22 @@
       },
       {
         "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
+        "vote": "majority"
       },
       {
         "name": "FRANCIS MURPHY",
-        "vote": "minority"
+        "vote": "majority"
       },
       {
         "name": "ROBERT JACKSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
+        "vote": "majority"
       },
       {
         "name": "WILEY RUTLEDGE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
+        "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-017",
@@ -1306,6 +1242,75 @@
     ]
   },
   {
+    "id": "1944-123",
+    "title": "Herb v. Pitcairn",
+    "number": "24",
+    "files": false,
+    "argument": "1944-10-17,1944-10-18",
+    "argument_days": "Tuesday, October 17, 1944; Wednesday, October 18, 1944",
+    "decision": "1945-02-05",
+    "decision_days": "Monday, February 5, 1945",
+    "usCite": "324 U.S. 117",
+    "opCite": [
+      {
+        "title": "Lynch v. New York ex rel. Pierson (1934)",
+        "term": "1934-10",
+        "id": "1934-020",
+        "decision": "1934-11-05",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0117.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324117/usrep324117.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=185",
+    "result": "favorable disposition for petitioning party unclear",
+    "voteMajority": 5,
+    "voteMinority": 4,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "minority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1944-072",
     "title": "Muschany v. United States",
     "number": "31",
@@ -1398,8 +1403,8 @@
     "title": "Commissioner v. Harmon",
     "number": "33",
     "files": false,
-    "argument": "1944-10-18",
-    "argument_days": "Wednesday, October 18, 1944",
+    "argument": "1944-10-18,1944-10-19",
+    "argument_days": "Wednesday, October 18, 1944; Thursday, October 19, 1944",
     "decision": "1944-11-20",
     "decision_days": "Monday, November 20, 1944",
     "usCite": "323 U.S. 44",
@@ -1493,15 +1498,16 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-011",
     "title": "Claridge Apartments Co. v. Commissioner",
     "number": "28",
     "files": false,
-    "argument": "1944-10-19",
-    "argument_days": "Thursday, October 19, 1944",
+    "argument": "1944-10-19,1944-10-20",
+    "argument_days": "Thursday, October 19, 1944; Friday, October 20, 1944",
     "decision": "1944-12-04",
     "decision_days": "Monday, December 4, 1944",
     "usCite": "323 U.S. 141",
@@ -1566,7 +1572,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-016",
@@ -2035,8 +2042,8 @@
     "title": "United States v. Crescent Amusement Co.",
     "number": "17",
     "files": false,
-    "argument": "1944-11-06",
-    "argument_days": "Monday, November 6, 1944",
+    "argument": "1944-11-06,1944-11-07",
+    "argument_days": "Monday, November 6, 1944; Tuesday, November 7, 1944",
     "decision": "1944-12-11",
     "decision_days": "Monday, December 11, 1944",
     "usCite": "323 U.S. 173",
@@ -2115,7 +2122,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-004",
@@ -2179,8 +2187,8 @@
     "title": "Hooven & Allison Co. v. Evatt",
     "number": "38",
     "files": false,
-    "argument": "1944-11-07",
-    "argument_days": "Tuesday, November 7, 1944",
+    "argument": "1944-11-07,1944-11-08",
+    "argument_days": "Tuesday, November 7, 1944; Wednesday, November 8, 1944",
     "decision": "1945-04-09",
     "decision_days": "Monday, April 9, 1945",
     "usCite": "324 U.S. 652",
@@ -2381,7 +2389,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "minority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-007",
@@ -2477,8 +2486,8 @@
     "title": "Western Union Telegraph Co. v. Lenroot",
     "number": "49",
     "files": false,
-    "argument": "1944-11-08",
-    "argument_days": "Wednesday, November 8, 1944",
+    "argument": "1944-11-08,1944-11-09",
+    "argument_days": "Wednesday, November 8, 1944; Thursday, November 9, 1944",
     "decision": "1945-01-08",
     "decision_days": "Monday, January 8, 1945",
     "usCite": "323 U.S. 490",
@@ -2551,67 +2560,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "minority"
       }
-    ]
-  },
-  {
-    "id": "1944-028",
-    "title": "Keegan v. United States",
-    "number": "39",
-    "files": false,
-    "argument": "1944-11-09",
-    "argument_days": "Thursday, November 9, 1944",
-    "decision": "1945-06-11",
-    "decision_days": "Monday, June 11, 1945",
-    "usCite": "325 U.S. 478",
-    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0478.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325478/usrep325478.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=544",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 5,
-    "voteMinority": 4,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: regular concurrence"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "minority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: regular concurrence"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-025",
@@ -2763,8 +2713,8 @@
     "title": "Singer v. United States",
     "number": "30",
     "files": false,
-    "argument": "1944-11-10",
-    "argument_days": "Friday, November 10, 1944",
+    "argument": "1944-11-09,1944-11-10",
+    "argument_days": "Thursday, November 9, 1944; Friday, November 10, 1944",
     "decision": "1945-01-02",
     "decision_days": "Tuesday, January 2, 1945",
     "usCite": "323 U.S. 338",
@@ -2830,6 +2780,149 @@
         "name": "WILEY RUTLEDGE",
         "vote": "minority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1944-028",
+    "title": "Keegan v. United States",
+    "number": "39",
+    "files": false,
+    "argument": "1944-11-09,1944-11-10",
+    "argument_days": "Thursday, November 9, 1944; Friday, November 10, 1944",
+    "decision": "1945-06-11",
+    "decision_days": "Monday, June 11, 1945",
+    "usCite": "325 U.S. 478",
+    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0478.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325478/usrep325478.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=544",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 5,
+    "voteMinority": 4,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: regular concurrence"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "minority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: regular concurrence"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1944-147",
+    "title": "United States v. Waddill, Holland & Flinn, Inc.",
+    "number": "65",
+    "files": false,
+    "argument": "1944-11-10",
+    "argument_days": "Friday, November 10, 1944",
+    "decision": "1945-01-02",
+    "decision_days": "Tuesday, January 2, 1945",
+    "usCite": "323 U.S. 353",
+    "opCite": [
+      {
+        "title": "United States v. Texas (1941)",
+        "term": "1941-10",
+        "id": "1941-018",
+        "decision": "1941-12-22",
+        "count": 3
+      },
+      {
+        "title": "New York v. Maclay (1933)",
+        "term": "1932-10",
+        "id": "1932-165",
+        "decision": "1933-02-06",
+        "count": 2
+      },
+      {
+        "title": "County of Spokane v. United States (1929)",
+        "term": "1928-10",
+        "id": "1928-079",
+        "decision": "1929-04-08",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0353.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323353/usrep323353.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=455",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -2837,8 +2930,8 @@
     "title": "Northwestern Bands of Shoshone Indians v. United States",
     "number": "63",
     "files": false,
-    "argument": "1944-11-10",
-    "argument_days": "Friday, November 10, 1944",
+    "argument": "1944-11-10,1944-11-13",
+    "argument_days": "Friday, November 10, 1944; Monday, November 13, 1944",
     "decision": "1945-03-12",
     "decision_days": "Monday, March 12, 1945",
     "usCite": "324 U.S. 335",
@@ -2934,88 +3027,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-147",
-    "title": "United States v. Waddill, Holland & Flinn, Inc.",
-    "number": "65",
-    "files": false,
-    "argument": "1944-11-10",
-    "argument_days": "Friday, November 10, 1944",
-    "decision": "1945-01-02",
-    "decision_days": "Tuesday, January 2, 1945",
-    "usCite": "323 U.S. 353",
-    "opCite": [
-      {
-        "title": "United States v. Texas (1941)",
-        "term": "1941-10",
-        "id": "1941-018",
-        "decision": "1941-12-22",
-        "count": 3
-      },
-      {
-        "title": "New York v. Maclay (1933)",
-        "term": "1932-10",
-        "id": "1932-165",
-        "decision": "1933-02-06",
-        "count": 2
-      },
-      {
-        "title": "County of Spokane v. United States (1929)",
-        "term": "1928-10",
-        "id": "1928-079",
-        "decision": "1929-04-08",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0353.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323353/usrep323353.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=455",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-002",
@@ -3080,8 +3093,8 @@
     "title": "Steele v. Louisville & Nashville R. Co.",
     "number": "45",
     "files": false,
-    "argument": "1944-11-14",
-    "argument_days": "Tuesday, November 14, 1944",
+    "argument": "1944-11-14,1944-11-15",
+    "argument_days": "Tuesday, November 14, 1944; Wednesday, November 15, 1944",
     "decision": "1944-12-18",
     "decision_days": "Monday, December 18, 1944",
     "usCite": "323 U.S. 192",
@@ -3175,80 +3188,15 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-009",
-    "title": "Wallace Corp. v. NLRB",
-    "number": "66",
-    "files": false,
-    "argument": "1944-11-15",
-    "argument_days": "Wednesday, November 15, 1944",
-    "decision": "1944-12-18",
-    "decision_days": "Monday, December 18, 1944",
-    "usCite": "323 U.S. 248",
-    "opCite": [
-      {
-        "title": "NLRB v. Electric Vacuum Cleaner Co. (1942)",
-        "term": "1941-10",
-        "id": "1941-072",
-        "decision": "1942-03-30",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0248.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323248/usrep323248.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=350",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-110",
     "title": "Elgin, J. & E. R. Co. v. Burley",
     "number": "160",
     "files": false,
+    "backfill": false,
     "argument": "1944-11-15",
     "argument_days": "Wednesday, November 15, 1944",
     "decision": "1945-06-11",
@@ -3420,6 +3368,74 @@
     ]
   },
   {
+    "id": "1944-009",
+    "title": "Wallace Corp. v. NLRB",
+    "number": "66",
+    "files": false,
+    "argument": "1944-11-15,1944-11-16",
+    "argument_days": "Wednesday, November 15, 1944; Thursday, November 16, 1944",
+    "decision": "1944-12-18",
+    "decision_days": "Monday, December 18, 1944",
+    "usCite": "323 U.S. 248",
+    "opCite": [
+      {
+        "title": "NLRB v. Electric Vacuum Cleaner Co. (1942)",
+        "term": "1941-10",
+        "id": "1941-072",
+        "decision": "1942-03-30",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0248.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323248/usrep323248.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=350",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1944-020",
     "title": "Commissioner v. Scottish American Investment Co.",
     "number": "52",
@@ -3569,8 +3585,8 @@
     "title": "United States v. General Motors Corp.",
     "number": "76",
     "files": false,
-    "argument": "1944-11-16",
-    "argument_days": "Thursday, November 16, 1944",
+    "argument": "1944-11-16,1944-11-17",
+    "argument_days": "Thursday, November 16, 1944; Friday, November 17, 1944",
     "decision": "1945-01-08",
     "decision_days": "Monday, January 8, 1945",
     "usCite": "323 U.S. 373",
@@ -3629,7 +3645,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-012",
@@ -3897,8 +3914,8 @@
     "title": "Malinski v. New York",
     "number": "367",
     "files": false,
-    "argument": "1944-12-04",
-    "argument_days": "Monday, December 4, 1944",
+    "argument": "1944-12-04,1944-12-05",
+    "argument_days": "Monday, December 4, 1944; Tuesday, December 5, 1944",
     "decision": "1945-03-26",
     "decision_days": "Monday, March 26, 1945",
     "usCite": "324 U.S. 401",
@@ -4037,6 +4054,75 @@
         "vote": "majority",
         "action": "wrote an opinion: regular concurrence"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1944-121",
+    "title": "Gemsco, Inc. v. Walling",
+    "number": "368",
+    "files": false,
+    "argument": "1944-12-05",
+    "argument_days": "Tuesday, December 5, 1944",
+    "decision": "1945-02-26",
+    "decision_days": "Monday, February 26, 1945",
+    "usCite": "324 U.S. 244",
+    "opCite": [
+      {
+        "title": "Opp Cotton Mills, Inc. v. Administrator of Wage and Hour Div., Dept. of Labor (1941)",
+        "term": "1940-10",
+        "id": "1940-093",
+        "decision": "1941-02-03",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0244.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324244/usrep324244.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=312",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 2,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "minority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      }
     ]
   },
   {
@@ -4049,8 +4135,8 @@
     ],
     "number": "57",
     "files": true,
-    "argument": "1944-12-05",
-    "argument_days": "Tuesday, December 5, 1944",
+    "argument": "1944-12-05,1944-12-06",
+    "argument_days": "Tuesday, December 5, 1944; Wednesday, December 6, 1944",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "326 U.S. 1",
@@ -4252,75 +4338,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-121",
-    "title": "Gemsco, Inc. v. Walling",
-    "number": "368",
-    "files": false,
-    "argument": "1944-12-05",
-    "argument_days": "Tuesday, December 5, 1944",
-    "decision": "1945-02-26",
-    "decision_days": "Monday, February 26, 1945",
-    "usCite": "324 U.S. 244",
-    "opCite": [
-      {
-        "title": "Opp Cotton Mills, Inc. v. Administrator of Wage and Hour Div., Dept. of Labor (1941)",
-        "term": "1940-10",
-        "id": "1940-093",
-        "decision": "1941-02-03",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0244.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324244/usrep324244.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=312",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 2,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "minority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-062",
@@ -4801,8 +4820,8 @@
     "title": "Prudence Realization Corp. v. Ferris",
     "number": "137",
     "files": false,
-    "argument": "1944-12-08",
-    "argument_days": "Friday, December 8, 1944",
+    "argument": "1944-12-08,1944-12-11",
+    "argument_days": "Friday, December 8, 1944; Monday, December 11, 1944",
     "decision": "1945-01-29",
     "decision_days": "Monday, January 29, 1945",
     "usCite": "323 U.S. 650",
@@ -4861,7 +4880,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-148",
@@ -4923,8 +4943,8 @@
     "title": "Fondren v. Commissioner",
     "number": "88",
     "files": false,
-    "argument": "1944-12-11",
-    "argument_days": "Monday, December 11, 1944",
+    "argument": "1944-12-11,1944-12-12",
+    "argument_days": "Monday, December 11, 1944; Tuesday, December 12, 1944",
     "decision": "1945-01-29",
     "decision_days": "Monday, January 29, 1945",
     "usCite": "324 U.S. 18",
@@ -4989,7 +5009,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-060",
@@ -5480,12 +5501,69 @@
     ]
   },
   {
+    "id": "1944-145",
+    "title": "F. W. Fitch Co. v. United States",
+    "number": "181",
+    "files": false,
+    "argument": "1944-12-13",
+    "argument_days": "Wednesday, December 13, 1944",
+    "decision": "1945-01-15",
+    "decision_days": "Monday, January 15, 1945",
+    "usCite": "323 U.S. 582",
+    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0582.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323582/usrep323582.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=684",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
     "id": "1944-057",
     "title": "National Metropolitan Bank v. United States",
     "number": "161",
     "files": false,
-    "argument": "1944-12-13",
-    "argument_days": "Wednesday, December 13, 1944",
+    "argument": "1944-12-13,1944-12-14",
+    "argument_days": "Wednesday, December 13, 1944; Thursday, December 14, 1944",
     "decision": "1945-01-08",
     "decision_days": "Monday, January 8, 1945",
     "usCite": "323 U.S. 454",
@@ -5550,64 +5628,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-145",
-    "title": "F. W. Fitch Co. v. United States",
-    "number": "181",
-    "files": false,
-    "argument": "1944-12-13",
-    "argument_days": "Wednesday, December 13, 1944",
-    "decision": "1945-01-15",
-    "decision_days": "Monday, January 15, 1945",
-    "usCite": "323 U.S. 582",
-    "decision_xml": "/courts/ussc/opinions/xml/us323/us323-0582.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep323/usrep323582/usrep323582.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-323_PDFA.pdf#page=684",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-129",
@@ -6301,8 +6323,8 @@
     "title": "Blair v. Baltimore & Ohio R. Co.",
     "number": "265",
     "files": false,
-    "argument": "1945-01-02",
-    "argument_days": "Tuesday, January 2, 1945",
+    "argument": "1945-01-02,1945-01-03",
+    "argument_days": "Tuesday, January 2, 1945; Wednesday, January 3, 1945",
     "decision": "1945-01-29",
     "decision_days": "Monday, January 29, 1945",
     "usCite": "323 U.S. 600",
@@ -6367,7 +6389,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-083",
@@ -6462,8 +6485,8 @@
     "title": "Guaranty Trust Co. v. York",
     "number": "264",
     "files": false,
-    "argument": "1945-01-03",
-    "argument_days": "Wednesday, January 3, 1945",
+    "argument": "1945-01-03,1945-01-04",
+    "argument_days": "Wednesday, January 3, 1945; Thursday, January 4, 1945",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "326 U.S. 99",
@@ -6578,74 +6601,8 @@
         "vote": "minority",
         "action": "wrote an opinion: dissent"
       }
-    ]
-  },
-  {
-    "id": "1944-141",
-    "title": "Fidelity-Philadelphia Trust Co. v. Rothensies",
-    "number": "263",
-    "files": false,
-    "argument": "1945-01-04",
-    "argument_days": "Thursday, January 4, 1945",
-    "decision": "1945-02-05",
-    "decision_days": "Monday, February 5, 1945",
-    "usCite": "324 U.S. 108",
-    "opCite": [
-      {
-        "title": "Helvering v. Hallock (1940)",
-        "term": "1939-10",
-        "id": "1939-097",
-        "decision": "1940-01-29",
-        "count": 5
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0108.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324108/usrep324108.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=176",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-144",
@@ -6712,6 +6669,74 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1944-141",
+    "title": "Fidelity-Philadelphia Trust Co. v. Rothensies",
+    "number": "263",
+    "files": false,
+    "argument": "1945-01-04,1945-01-05",
+    "argument_days": "Thursday, January 4, 1945; Friday, January 5, 1945",
+    "decision": "1945-02-05",
+    "decision_days": "Monday, February 5, 1945",
+    "usCite": "324 U.S. 108",
+    "opCite": [
+      {
+        "title": "Helvering v. Hallock (1940)",
+        "term": "1939-10",
+        "id": "1939-097",
+        "decision": "1940-01-29",
+        "count": 5
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0108.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324108/usrep324108.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=176",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-077",
@@ -6945,8 +6970,8 @@
     "title": "United States v. Pennsylvania R. Co.",
     "number": "47",
     "files": false,
-    "argument": "1945-01-08",
-    "argument_days": "Monday, January 8, 1945",
+    "argument": "1945-01-08,1945-01-09",
+    "argument_days": "Monday, January 8, 1945; Tuesday, January 9, 1945",
     "decision": "1945-01-29",
     "decision_days": "Monday, January 29, 1945",
     "usCite": "323 U.S. 612",
@@ -7011,7 +7036,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-139",
@@ -7087,63 +7113,6 @@
     ]
   },
   {
-    "id": "1944-124",
-    "title": "Herget v. Central Nat. Bank & Trust Co.",
-    "number": "322",
-    "files": false,
-    "argument": "1945-01-09",
-    "argument_days": "Tuesday, January 9, 1945",
-    "decision": "1945-01-29",
-    "decision_days": "Monday, January 29, 1945",
-    "usCite": "324 U.S. 4",
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0004.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324004/usrep324004.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=72",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
     "id": "1944-138",
     "title": "Commissioner v. Wemyss",
     "number": "629",
@@ -7215,6 +7184,64 @@
         ]
       }
     ]
+  },
+  {
+    "id": "1944-124",
+    "title": "Herget v. Central Nat. Bank & Trust Co.",
+    "number": "322",
+    "files": false,
+    "argument": "1945-01-09,1945-01-10",
+    "argument_days": "Tuesday, January 9, 1945; Wednesday, January 10, 1945",
+    "decision": "1945-01-29",
+    "decision_days": "Monday, January 29, 1945",
+    "usCite": "324 U.S. 4",
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0004.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324004/usrep324004.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=72",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-117",
@@ -7306,8 +7333,8 @@
     "title": "Weiler v. United States",
     "number": "340",
     "files": false,
-    "argument": "1945-01-10",
-    "argument_days": "Wednesday, January 10, 1945",
+    "argument": "1945-01-10,1945-01-11",
+    "argument_days": "Wednesday, January 10, 1945; Thursday, January 11, 1945",
     "decision": "1945-01-29",
     "decision_days": "Monday, January 29, 1945",
     "usCite": "323 U.S. 606",
@@ -7372,7 +7399,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-161",
@@ -7436,8 +7464,8 @@
     "title": "Republic of Mexico v. Hoffman",
     "number": "455",
     "files": false,
-    "argument": "1945-01-11",
-    "argument_days": "Thursday, January 11, 1945",
+    "argument": "1945-01-11,1945-01-12",
+    "argument_days": "Thursday, January 11, 1945; Friday, January 12, 1945",
     "decision": "1945-02-05",
     "decision_days": "Monday, February 5, 1945",
     "usCite": "324 U.S. 30",
@@ -7531,7 +7559,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-051",
@@ -7764,8 +7793,8 @@
     "title": "Colorado Interstate Gas Co. v. FPC",
     "number": "379",
     "files": false,
-    "argument": "1945-01-29",
-    "argument_days": "Monday, January 29, 1945",
+    "argument": "1945-01-29,1945-01-30",
+    "argument_days": "Monday, January 29, 1945; Tuesday, January 30, 1945",
     "decision": "1945-04-02",
     "decision_days": "Monday, April 2, 1945",
     "usCite": "324 U.S. 581",
@@ -7902,65 +7931,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-153",
-    "title": "Commissioner v. Smith",
-    "number": "371",
-    "files": false,
-    "argument": "1945-01-30",
-    "argument_days": "Tuesday, January 30, 1945",
-    "decision": "1945-02-26",
-    "decision_days": "Monday, February 26, 1945",
-    "usCite": "324 U.S. 177",
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0177.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324177/usrep324177.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=245",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-044",
@@ -8027,6 +7999,65 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1944-153",
+    "title": "Commissioner v. Smith",
+    "number": "371",
+    "files": false,
+    "argument": "1945-01-30,1945-01-31",
+    "argument_days": "Tuesday, January 30, 1945; Wednesday, January 31, 1945",
+    "decision": "1945-02-26",
+    "decision_days": "Monday, February 26, 1945",
+    "usCite": "324 U.S. 177",
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0177.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324177/usrep324177.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=245",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-113",
@@ -8322,8 +8353,8 @@
     "title": "Catlin v. United States",
     "number": "419",
     "files": false,
-    "argument": "1945-02-01",
-    "argument_days": "Thursday, February 1, 1945",
+    "argument": "1945-02-01,1945-02-02",
+    "argument_days": "Thursday, February 1, 1945; Friday, February 2, 1945",
     "decision": "1945-02-26",
     "decision_days": "Monday, February 26, 1945",
     "usCite": "324 U.S. 229",
@@ -8381,13 +8412,15 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-135",
     "title": "Commissioner v. Wheeler",
     "number": "354",
     "files": false,
+    "backfill": false,
     "argument": "1945-02-02",
     "argument_days": "Friday, February 2, 1945",
     "decision": "1945-03-26",
@@ -8434,115 +8467,6 @@
         "vote": "majority",
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1944-065",
-    "title": "Brooklyn Savings Bank v. O'Neil",
-    "number": "445",
-    "files": false,
-    "argument": "1945-02-02",
-    "argument_days": "Friday, February 2, 1945",
-    "decision": "1945-04-09",
-    "decision_days": "Monday, April 9, 1945",
-    "usCite": "324 U.S. 697",
-    "opCite": [
-      {
-        "title": "Tennessee Coal, Iron & R. Co. v. Muscoda Local No. 123 (1944)",
-        "term": "1943-10",
-        "id": "1943-089",
-        "decision": "1944-03-27",
-        "count": 2
-      },
-      {
-        "title": "Midstate Horticultural Co. v. Pennsylvania R. Co. (1943)",
-        "term": "1943-10",
-        "id": "1943-009",
-        "decision": "1943-11-22",
-        "count": 2
-      },
-      {
-        "title": "Garrett v. Moore-McCormack Co. (1942)",
-        "term": "1942-10",
-        "id": "1942-008",
-        "decision": "1942-12-14",
-        "count": 3
-      },
-      {
-        "title": "Overnight Motor Transp. Co. v. Missel (1942)",
-        "term": "1941-10",
-        "id": "1941-060",
-        "decision": "1942-06-08",
-        "count": 2
-      },
-      {
-        "title": "Duncan v. Thompson (1942)",
-        "term": "1941-10",
-        "id": "1941-159",
-        "decision": "1942-01-12",
-        "count": 2
-      },
-      {
-        "title": "Smith v. McCullough (1926)",
-        "term": "1925-10",
-        "id": "1925-090",
-        "decision": "1926-03-22",
-        "count": 2
-      },
-      {
-        "title": "Fort Smith & Western R. Co. v. Mills (1920)",
-        "term": "1919-10",
-        "id": "1919-049",
-        "decision": "1920-06-01",
-        "count": 3
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0697.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324697/usrep324697.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=765",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 6,
-    "voteMinority": 3,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "minority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "minority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
       },
       {
         "name": "WILEY RUTLEDGE",
@@ -8712,6 +8636,117 @@
     ]
   },
   {
+    "id": "1944-065",
+    "title": "Brooklyn Savings Bank v. O'Neil",
+    "number": "445",
+    "files": false,
+    "backfill": false,
+    "argument": "1945-02-05,1945-02-06",
+    "argument_days": "Monday, February 5, 1945; Tuesday, February 6, 1945",
+    "decision": "1945-04-09",
+    "decision_days": "Monday, April 9, 1945",
+    "usCite": "324 U.S. 697",
+    "opCite": [
+      {
+        "title": "Tennessee Coal, Iron & R. Co. v. Muscoda Local No. 123 (1944)",
+        "term": "1943-10",
+        "id": "1943-089",
+        "decision": "1944-03-27",
+        "count": 2
+      },
+      {
+        "title": "Midstate Horticultural Co. v. Pennsylvania R. Co. (1943)",
+        "term": "1943-10",
+        "id": "1943-009",
+        "decision": "1943-11-22",
+        "count": 2
+      },
+      {
+        "title": "Garrett v. Moore-McCormack Co. (1942)",
+        "term": "1942-10",
+        "id": "1942-008",
+        "decision": "1942-12-14",
+        "count": 3
+      },
+      {
+        "title": "Overnight Motor Transp. Co. v. Missel (1942)",
+        "term": "1941-10",
+        "id": "1941-060",
+        "decision": "1942-06-08",
+        "count": 2
+      },
+      {
+        "title": "Duncan v. Thompson (1942)",
+        "term": "1941-10",
+        "id": "1941-159",
+        "decision": "1942-01-12",
+        "count": 2
+      },
+      {
+        "title": "Smith v. McCullough (1926)",
+        "term": "1925-10",
+        "id": "1925-090",
+        "decision": "1926-03-22",
+        "count": 2
+      },
+      {
+        "title": "Fort Smith & Western R. Co. v. Mills (1920)",
+        "term": "1919-10",
+        "id": "1919-049",
+        "decision": "1920-06-01",
+        "count": 3
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0697.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324697/usrep324697.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=765",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 6,
+    "voteMinority": 3,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "minority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "minority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1944-159",
     "title": "Dow Chemical Co. v. Halliburton Oil Well Cementing Co.",
     "number": "50",
@@ -8782,8 +8817,8 @@
     "title": "Garber v. Crews",
     "number": "518",
     "files": false,
-    "argument": "1945-02-06",
-    "argument_days": "Tuesday, February 6, 1945",
+    "argument": "1945-02-06,1945-02-07",
+    "argument_days": "Tuesday, February 6, 1945; Wednesday, February 7, 1945",
     "decision": "1945-02-26",
     "decision_days": "Monday, February 26, 1945",
     "usCite": "324 U.S. 200",
@@ -8832,7 +8867,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-049",
@@ -8969,8 +9005,8 @@
     "title": "Drummond v. United States",
     "number": "520",
     "files": false,
-    "argument": "1945-02-07",
-    "argument_days": "Wednesday, February 7, 1945",
+    "argument": "1945-02-07,1945-02-08",
+    "argument_days": "Wednesday, February 7, 1945; Thursday, February 8, 1945",
     "decision": "1945-03-05",
     "decision_days": "Monday, March 5, 1945",
     "usCite": "324 U.S. 316",
@@ -9019,88 +9055,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-082",
-    "title": "United States v. Willow River Power Co.",
-    "number": "312",
-    "files": false,
-    "argument": "1945-02-08",
-    "argument_days": "Thursday, February 8, 1945",
-    "decision": "1945-03-26",
-    "decision_days": "Monday, March 26, 1945",
-    "usCite": "324 U.S. 499",
-    "opCite": [
-      {
-        "title": "United States v. Chicago, M., St. P. & P. R. Co. (1941)",
-        "term": "1940-10",
-        "id": "1940-059",
-        "decision": "1941-03-31",
-        "count": 3
-      },
-      {
-        "title": "United States v. Cress (1917)",
-        "term": "1916-10",
-        "id": "1916-145",
-        "decision": "1917-03-12",
-        "count": 15
-      },
-      {
-        "title": "United States v. Chandler-Dunbar Water Power Co. (1913)",
-        "term": "1912-10",
-        "id": "1912-214",
-        "decision": "1913-05-26",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0499.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324499/usrep324499.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=567",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-047",
@@ -9240,6 +9196,88 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1944-082",
+    "title": "United States v. Willow River Power Co.",
+    "number": "312",
+    "files": false,
+    "argument": "1945-02-08,1945-02-09",
+    "argument_days": "Thursday, February 8, 1945; Friday, February 9, 1945",
+    "decision": "1945-03-26",
+    "decision_days": "Monday, March 26, 1945",
+    "usCite": "324 U.S. 499",
+    "opCite": [
+      {
+        "title": "United States v. Chicago, M., St. P. & P. R. Co. (1941)",
+        "term": "1940-10",
+        "id": "1940-059",
+        "decision": "1941-03-31",
+        "count": 3
+      },
+      {
+        "title": "United States v. Cress (1917)",
+        "term": "1916-10",
+        "id": "1916-145",
+        "decision": "1917-03-12",
+        "count": 15
+      },
+      {
+        "title": "United States v. Chandler-Dunbar Water Power Co. (1913)",
+        "term": "1912-10",
+        "id": "1912-214",
+        "decision": "1913-05-26",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0499.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324499/usrep324499.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=567",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-075",
@@ -9519,8 +9557,8 @@
     "title": "Lumber & Sawmill Workers v. Millis",
     "number": "613",
     "files": false,
-    "argument": "1945-02-26",
-    "argument_days": "Monday, February 26, 1945",
+    "argument": "1945-02-26,1945-02-27",
+    "argument_days": "Monday, February 26, 1945; Tuesday, February 27, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 697",
@@ -9578,7 +9616,8 @@
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-038",
@@ -9974,95 +10013,6 @@
     ]
   },
   {
-    "id": "1944-136",
-    "title": "Special Equipment Co. v. Coe",
-    "number": "469",
-    "files": false,
-    "argument": "1945-03-02",
-    "argument_days": "Friday, March 2, 1945",
-    "decision": "1945-03-26",
-    "decision_days": "Monday, March 26, 1945",
-    "usCite": "324 U.S. 370",
-    "opCite": [
-      {
-        "title": "Hartford-Empire Co. v. United States (1945)",
-        "term": "1944-10",
-        "id": "1944-131",
-        "decision": "1945-01-08",
-        "count": 3
-      },
-      {
-        "title": "Mercoid Corp. v. Mid-Continent Investment Co. (1944)",
-        "term": "1943-10",
-        "id": "1943-112",
-        "decision": "1944-01-03",
-        "count": 3
-      },
-      {
-        "title": "Ethyl Gasoline Corp. v. United States (1940)",
-        "term": "1939-10",
-        "id": "1939-120",
-        "decision": "1940-03-25",
-        "count": 5
-      },
-      {
-        "title": "Continental Paper Bag Co. v. Eastern Paper Bag Co. (1908)",
-        "term": "1907-10",
-        "id": "1907-133",
-        "decision": "1908-06-01",
-        "count": 2
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0370.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324370/usrep324370.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=438",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 5,
-    "voteMinority": 4,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "minority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "minority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      }
-    ]
-  },
-  {
     "id": "1944-103",
     "title": "Hunt v. Crumboch",
     "number": "570",
@@ -10217,6 +10167,169 @@
     ]
   },
   {
+    "id": "1944-136",
+    "title": "Special Equipment Co. v. Coe",
+    "number": "469",
+    "files": false,
+    "argument": "1945-03-02,1945-03-05",
+    "argument_days": "Friday, March 2, 1945; Monday, March 5, 1945",
+    "decision": "1945-03-26",
+    "decision_days": "Monday, March 26, 1945",
+    "usCite": "324 U.S. 370",
+    "opCite": [
+      {
+        "title": "Hartford-Empire Co. v. United States (1945)",
+        "term": "1944-10",
+        "id": "1944-131",
+        "decision": "1945-01-08",
+        "count": 3
+      },
+      {
+        "title": "Mercoid Corp. v. Mid-Continent Investment Co. (1944)",
+        "term": "1943-10",
+        "id": "1943-112",
+        "decision": "1944-01-03",
+        "count": 3
+      },
+      {
+        "title": "Ethyl Gasoline Corp. v. United States (1940)",
+        "term": "1939-10",
+        "id": "1939-120",
+        "decision": "1940-03-25",
+        "count": 5
+      },
+      {
+        "title": "Continental Paper Bag Co. v. Eastern Paper Bag Co. (1908)",
+        "term": "1907-10",
+        "id": "1907-133",
+        "decision": "1908-06-01",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us324/us324-0370.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep324/usrep324370/usrep324370.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-324_PDFA.pdf#page=438",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 5,
+    "voteMinority": 4,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "minority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "minority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1944-150",
+    "title": "Hoover Co. v. Coe",
+    "number": "486",
+    "files": false,
+    "argument": "1945-03-05",
+    "argument_days": "Monday, March 5, 1945",
+    "decision": "1945-04-30",
+    "decision_days": "Monday, April 30, 1945",
+    "usCite": "325 U.S. 79",
+    "opCite": [
+      {
+        "title": "Hill v. Wooster (1890)",
+        "term": "1889-10",
+        "id": "1889-087",
+        "decision": "1890-01-13",
+        "count": 3
+      },
+      {
+        "title": "Butterworth v. United States ex rel. Hoe (1884)",
+        "term": "1884-10",
+        "id": "1884-010",
+        "decision": "1884-11-03",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0079.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325079/usrep325079.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=145",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
     "id": "1944-079",
     "title": "Nebraska v. Wyoming",
     "tags": [
@@ -10224,8 +10337,8 @@
     ],
     "number": "6-Orig",
     "files": true,
-    "argument": "1945-03-05",
-    "argument_days": "Monday, March 5, 1945",
+    "argument": "1945-03-05,1945-03-06,1945-03-07",
+    "argument_days": "Monday, March 5, 1945; Tuesday, March 6, 1945; Wednesday, March 7, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 589",
@@ -10333,88 +10446,16 @@
         "name": "WILEY RUTLEDGE",
         "vote": "minority"
       }
-    ]
-  },
-  {
-    "id": "1944-150",
-    "title": "Hoover Co. v. Coe",
-    "number": "486",
-    "files": false,
-    "argument": "1945-03-05",
-    "argument_days": "Monday, March 5, 1945",
-    "decision": "1945-04-30",
-    "decision_days": "Monday, April 30, 1945",
-    "usCite": "325 U.S. 79",
-    "opCite": [
-      {
-        "title": "Hill v. Wooster (1890)",
-        "term": "1889-10",
-        "id": "1889-087",
-        "decision": "1890-01-13",
-        "count": 3
-      },
-      {
-        "title": "Butterworth v. United States ex rel. Hoe (1884)",
-        "term": "1884-10",
-        "id": "1884-010",
-        "decision": "1884-11-03",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0079.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325079/usrep325079.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=145",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-156",
     "title": "Angelus Milling Co. v. Commissioner",
     "number": "610",
     "files": false,
-    "argument": "1945-03-07",
-    "argument_days": "Wednesday, March 7, 1945",
+    "argument": "1945-03-07,1945-03-08",
+    "argument_days": "Wednesday, March 7, 1945; Thursday, March 8, 1945",
     "decision": "1945-05-21",
     "decision_days": "Monday, May 21, 1945",
     "usCite": "325 U.S. 293",
@@ -10486,15 +10527,16 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-102",
     "title": "Allen Bradley Co. v. Electrical Workers",
     "number": "702",
     "files": false,
-    "argument": "1945-03-08",
-    "argument_days": "Thursday, March 8, 1945",
+    "argument": "1945-03-08,1945-03-09",
+    "argument_days": "Thursday, March 8, 1945; Friday, March 9, 1945",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "325 U.S. 797",
@@ -10582,64 +10624,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-157",
-    "title": "Ambassador, Inc. v. United States",
-    "number": "446",
-    "files": false,
-    "argument": "1945-03-09",
-    "argument_days": "Friday, March 9, 1945",
-    "decision": "1945-05-21",
-    "decision_days": "Monday, May 21, 1945",
-    "usCite": "325 U.S. 317",
-    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0317.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325317/usrep325317.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=383",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "none"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority"
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "none"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-115",
@@ -10744,6 +10730,64 @@
     ]
   },
   {
+    "id": "1944-157",
+    "title": "Ambassador, Inc. v. United States",
+    "number": "446",
+    "files": false,
+    "argument": "1945-03-09,1945-03-12",
+    "argument_days": "Friday, March 9, 1945; Monday, March 12, 1945",
+    "decision": "1945-05-21",
+    "decision_days": "Monday, May 21, 1945",
+    "usCite": "325 U.S. 317",
+    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0317.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325317/usrep325317.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=383",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "none"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "none"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1944-162",
     "title": "Southern Pacific Co. v. Arizona ex rel. Sullivan",
     "tags": [
@@ -10752,8 +10796,8 @@
     ],
     "number": "56",
     "files": false,
-    "argument": "1945-03-26",
-    "argument_days": "Monday, March 26, 1945",
+    "argument": "1945-03-26,1945-03-27",
+    "argument_days": "Monday, March 26, 1945; Tuesday, March 27, 1945",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "325 U.S. 761",
@@ -10974,7 +11018,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-096",
@@ -11112,8 +11157,8 @@
     "title": "American Trucking Assns., Inc. v. United States",
     "number": "558",
     "files": false,
-    "argument": "1945-03-28",
-    "argument_days": "Wednesday, March 28, 1945",
+    "argument": "1945-03-28,1945-03-29",
+    "argument_days": "Wednesday, March 28, 1945; Thursday, March 29, 1945",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "326 U.S. 77",
@@ -11174,7 +11219,8 @@
         "vote": "majority",
         "action": "co-authored an opinion: special concurrence"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-041",
@@ -11392,8 +11438,8 @@
     "title": "Bridges v. Wixon",
     "number": "788",
     "files": false,
-    "argument": "1945-04-02",
-    "argument_days": "Monday, April 2, 1945",
+    "argument": "1945-04-02,1945-04-03",
+    "argument_days": "Monday, April 2, 1945; Tuesday, April 3, 1945",
     "decision": "1945-06-18",
     "decision_days": "Monday, June 18, 1945",
     "usCite": "326 U.S. 135",
@@ -11523,6 +11569,65 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1944-100",
+    "title": "Railway Mail Assn. v. Corsi",
+    "number": "691",
+    "files": false,
+    "argument": "1945-04-03",
+    "argument_days": "Tuesday, April 3, 1945",
+    "decision": "1945-06-18",
+    "decision_days": "Monday, June 18, 1945",
+    "usCite": "326 U.S. 88",
+    "decision_xml": "/courts/ussc/opinions/xml/us326/us326-0088.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep326/usrep326088/usrep326088.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-326_PDFA.pdf#page=184",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority",
+        "action": "wrote an opinion: special concurrence"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "majority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "majority"
+      }
     ]
   },
   {
@@ -11530,8 +11635,8 @@
     "title": "Alabama State Federation of Labor v. McAdory",
     "number": "588",
     "files": false,
-    "argument": "1945-04-03",
-    "argument_days": "Tuesday, April 3, 1945",
+    "argument": "1945-04-03,1945-04-04",
+    "argument_days": "Tuesday, April 3, 1945; Wednesday, April 4, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 450",
@@ -11624,73 +11729,16 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-100",
-    "title": "Railway Mail Assn. v. Corsi",
-    "number": "691",
-    "files": false,
-    "argument": "1945-04-03",
-    "argument_days": "Tuesday, April 3, 1945",
-    "decision": "1945-06-18",
-    "decision_days": "Monday, June 18, 1945",
-    "usCite": "326 U.S. 88",
-    "decision_xml": "/courts/ussc/opinions/xml/us326/us326-0088.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep326/usrep326088/usrep326088.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-326_PDFA.pdf#page=184",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority",
-        "action": "wrote an opinion: special concurrence"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "majority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "majority"
-      }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-105",
     "title": "CIO v. McAdory",
     "number": "855",
     "files": false,
-    "argument": "1945-04-03",
-    "argument_days": "Tuesday, April 3, 1945",
+    "argument": "1945-04-03,1945-04-04",
+    "argument_days": "Tuesday, April 3, 1945; Wednesday, April 4, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 472",
@@ -11739,15 +11787,16 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-106",
     "title": "Hill v. Florida ex rel. Watson",
     "number": "811",
     "files": false,
-    "argument": "1945-04-04",
-    "argument_days": "Wednesday, April 4, 1945",
+    "argument": "1945-04-04,1945-04-05",
+    "argument_days": "Wednesday, April 4, 1945; Thursday, April 5, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 538",
@@ -11870,7 +11919,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-155",
@@ -11934,8 +11984,8 @@
     "title": "Copperweld Steel Co. v. Industrial Comm'n of Ohio",
     "number": "684",
     "files": false,
-    "argument": "1945-04-05",
-    "argument_days": "Thursday, April 5, 1945",
+    "argument": "1945-04-05,1945-04-06",
+    "argument_days": "Thursday, April 5, 1945; Friday, April 6, 1945",
     "decision": "1945-04-23",
     "decision_days": "Monday, April 23, 1945",
     "usCite": "324 U.S. 780",
@@ -11984,7 +12034,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-108",
@@ -12198,8 +12249,8 @@
     "title": "North Carolina v. United States",
     "number": "560",
     "files": false,
-    "argument": "1945-04-23",
-    "argument_days": "Monday, April 23, 1945",
+    "argument": "1945-04-23,1945-04-24",
+    "argument_days": "Monday, April 23, 1945; Tuesday, April 24, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 507",
@@ -12307,7 +12358,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-094",
@@ -12441,8 +12493,8 @@
     "title": "Lincoln Nat. Life Ins. Co. v. Read",
     "number": "833",
     "files": false,
-    "argument": "1945-04-24",
-    "argument_days": "Tuesday, April 24, 1945",
+    "argument": "1945-04-24,1945-04-25",
+    "argument_days": "Tuesday, April 24, 1945; Wednesday, April 25, 1945",
     "decision": "1945-06-11",
     "decision_days": "Monday, June 11, 1945",
     "usCite": "325 U.S. 673",
@@ -12514,7 +12566,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-033",
@@ -12676,8 +12729,8 @@
     "title": "Bowles v. Seminole Rock & Sand Co.",
     "number": "914",
     "files": false,
-    "argument": "1945-04-26",
-    "argument_days": "Thursday, April 26, 1945",
+    "argument": "1945-04-26,1945-04-27",
+    "argument_days": "Thursday, April 26, 1945; Friday, April 27, 1945",
     "decision": "1945-06-04",
     "decision_days": "Monday, June 4, 1945",
     "usCite": "325 U.S. 410",
@@ -12727,109 +12780,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
-  },
-  {
-    "id": "1944-029",
-    "title": "In re Summers",
-    "number": "205",
-    "files": false,
-    "argument": "1945-04-27",
-    "argument_days": "Friday, April 27, 1945",
-    "decision": "1945-06-11",
-    "decision_days": "Monday, June 11, 1945",
-    "usCite": "325 U.S. 561",
-    "opCite": [
-      {
-        "title": "West Virginia Bd. of Ed. v. Barnette (1943)",
-        "term": "1942-10",
-        "id": "1942-131",
-        "decision": "1943-06-14",
-        "count": 2
-      },
-      {
-        "title": "Hamilton v. Regents of Univ. of Cal. (1934)",
-        "term": "1934-10",
-        "id": "1934-027",
-        "decision": "1934-12-03",
-        "count": 2
-      },
-      {
-        "title": "Nashville, C. & St. L. R. Co. v. Wallace (1933)",
-        "term": "1932-10",
-        "id": "1932-112",
-        "decision": "1933-02-06",
-        "count": 2
-      },
-      {
-        "title": "United States v. Macintosh (1931)",
-        "term": "1930-10",
-        "id": "1930-079",
-        "decision": "1931-05-25",
-        "count": 5
-      },
-      {
-        "title": "United States v. Schwimmer (1929)",
-        "term": "1928-10",
-        "id": "1928-115",
-        "decision": "1929-05-27",
-        "count": 4
-      },
-      {
-        "title": "Ex parte Garland (1867)",
-        "term": "1866-12",
-        "id": "1866-029",
-        "decision": "1867-01-14",
-        "count": 2
-      }
     ],
-    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0561.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325561/usrep325561.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=627",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 5,
-    "voteMinority": 4,
-    "votes": [
-      {
-        "name": "HARLAN STONE",
-        "vote": "majority"
-      },
-      {
-        "name": "OWEN ROBERTS",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "STANLEY REED",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "FELIX FRANKFURTER",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "minority"
-      },
-      {
-        "name": "FRANCIS MURPHY",
-        "vote": "minority"
-      },
-      {
-        "name": "ROBERT JACKSON",
-        "vote": "majority"
-      },
-      {
-        "name": "WILEY RUTLEDGE",
-        "vote": "minority"
-      }
-    ]
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-032",
@@ -12989,6 +12941,109 @@
         "vote": "majority"
       }
     ]
+  },
+  {
+    "id": "1944-029",
+    "title": "In re Summers",
+    "number": "205",
+    "files": false,
+    "argument": "1945-04-27,1945-04-30",
+    "argument_days": "Friday, April 27, 1945; Monday, April 30, 1945",
+    "decision": "1945-06-11",
+    "decision_days": "Monday, June 11, 1945",
+    "usCite": "325 U.S. 561",
+    "opCite": [
+      {
+        "title": "West Virginia Bd. of Ed. v. Barnette (1943)",
+        "term": "1942-10",
+        "id": "1942-131",
+        "decision": "1943-06-14",
+        "count": 2
+      },
+      {
+        "title": "Hamilton v. Regents of Univ. of Cal. (1934)",
+        "term": "1934-10",
+        "id": "1934-027",
+        "decision": "1934-12-03",
+        "count": 2
+      },
+      {
+        "title": "Nashville, C. & St. L. R. Co. v. Wallace (1933)",
+        "term": "1932-10",
+        "id": "1932-112",
+        "decision": "1933-02-06",
+        "count": 2
+      },
+      {
+        "title": "United States v. Macintosh (1931)",
+        "term": "1930-10",
+        "id": "1930-079",
+        "decision": "1931-05-25",
+        "count": 5
+      },
+      {
+        "title": "United States v. Schwimmer (1929)",
+        "term": "1928-10",
+        "id": "1928-115",
+        "decision": "1929-05-27",
+        "count": 4
+      },
+      {
+        "title": "Ex parte Garland (1867)",
+        "term": "1866-12",
+        "id": "1866-029",
+        "decision": "1867-01-14",
+        "count": 2
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us325/us325-0561.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep325/usrep325561/usrep325561.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-325_PDFA.pdf#page=627",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 5,
+    "voteMinority": 4,
+    "votes": [
+      {
+        "name": "HARLAN STONE",
+        "vote": "majority"
+      },
+      {
+        "name": "OWEN ROBERTS",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "STANLEY REED",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "minority"
+      },
+      {
+        "name": "FRANCIS MURPHY",
+        "vote": "minority"
+      },
+      {
+        "name": "ROBERT JACKSON",
+        "vote": "majority"
+      },
+      {
+        "name": "WILEY RUTLEDGE",
+        "vote": "minority"
+      }
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-095",
@@ -13339,8 +13394,8 @@
     "title": "United States Alkali Export Assn., Inc. v. United States",
     "number": "1016",
     "files": false,
-    "argument": "1945-05-01",
-    "argument_days": "Tuesday, May 1, 1945",
+    "argument": "1945-05-01,1945-05-02",
+    "argument_days": "Tuesday, May 1, 1945; Wednesday, May 2, 1945",
     "decision": "1945-05-21",
     "decision_days": "Monday, May 21, 1945",
     "usCite": "325 U.S. 196",
@@ -13420,7 +13475,8 @@
         "name": "WILEY RUTLEDGE",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1944-154",

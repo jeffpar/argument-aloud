@@ -50,6 +50,10 @@ While reviewing all argument dates, we have unfortunately noticed some mistakes 
 
 Similarly, 445 U.S. 480 reports that Vitek v. Jones (No. 78-1155) was argued on December 3, 1979, but all other evidence (journal, audio recording, transcript) indicates it was actually argued on December 5, 1979.  And 449 U.S. 200 reports that United States v. Will was argued on October 13, 1980, but the correct date is October 14, 1980; the Court was not even in session on October 13.
 
+## Curiosities
+
+  - I'm curious about the backstory in a case from the 1943 term, Franks Bros. Co. v. NLRB (No. 521), because argument commenced on March 2, 1944 but wasn't completed until March 27, 1944.
+
 ## TODO
 
   - The [Library of Congress](https://www.loc.gov) currently has copies of opinions from U.S. Reports as far forward as [Volume 578](https://www.loc.gov/search/?fa=partof:u.s.+reports:+volume+578). Unfortunately, they suffer from some sloppiness; for example, there is no entry for **Sullivan v. Florida (560 U.S. 181)**; you can only find it at the bottom of the document for [United States v. Comstock (560 U.S. 126)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep560/usrep560126/usrep560126.pdf#page=56). There are numerous other instances where opinions that should exist on loc.gov cannot be found, so at some point, a comprehensive audit should be performed.
