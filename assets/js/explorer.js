@@ -8792,7 +8792,13 @@ async function _scrollSidebarToCollectionItem(collId, itemId) {
   requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
 }
 
-async function restoreFromURL() {
+// fromPopstate: true only when this call is handling a genuine browser
+// Back/Forward event (see the popstate listener below) — threaded through to
+// the term=all stats URL so that page can distinguish "the user pressed
+// Back" from "the user clicked into All Terms fresh," since the page-viewer
+// iframe is always (re)loaded via location.replace() (see _frameNavigate)
+// and so never itself sees a 'back_forward' Navigation Timing entry either way.
+async function restoreFromURL(fromPopstate = false) {
   const params = new URLSearchParams(location.search);
 
   // ── action=randomize ─────────────────────────────────────────────────────
@@ -9337,7 +9343,7 @@ async function restoreFromURL() {
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
-    showPageViewer('/courts/ussc/pages/stats/?term=all', { pushState: false });
+    showPageViewer('/courts/ussc/pages/stats/?term=all' + (fromPopstate ? '&_navback=1' : ''), { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
@@ -9370,7 +9376,7 @@ async function restoreFromURL() {
   }
 }
 
-window.addEventListener('popstate', () => restoreFromURL());
+window.addEventListener('popstate', () => restoreFromURL(true));
 
 // Handle navigation messages posted from pages running inside the page-viewer
 // iframe (e.g., the stats page linking to a specific case).

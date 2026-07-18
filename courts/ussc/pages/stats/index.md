@@ -69,6 +69,19 @@ html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
 #term-calendar-heading { margin-top: 2rem; }
 #case-listing-heading  { margin-top: 2rem; }
 
+/* ── All-terms progressive Court Calendar (term=all) ────────────────────── */
+#all-terms-calendar-heading { margin-top: 2rem; }
+.all-cal-term { margin: 1.5rem 0; min-height: 1.5rem; }
+.all-cal-term-heading {
+  font-size: 0.82rem; font-weight: 700; margin: 0 0 0.6rem;
+  padding-bottom: 0.3rem; border-bottom: 1px solid #e0e0e0;
+}
+@media (prefers-color-scheme: dark) { .all-cal-term-heading { border-color: #2d2f38; } }
+html[data-theme="dark"]  .all-cal-term-heading { border-color: #2d2f38; }
+html[data-theme="light"] .all-cal-term-heading { border-color: #e0e0e0; }
+.all-cal-term-heading a { color: inherit; text-decoration: none; }
+.all-cal-term-heading a:hover { color: #4a9eff; text-decoration: underline; }
+
 /* ── Case listing table ─────────────────────────────────────────────────── */
 .table-scroll { overflow-x: auto; }
 #case-listing-table { width: 100%; margin-top: 0.5rem; font-size: 0.85rem; }
@@ -174,27 +187,27 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
       <span class="stat-value" id="stat-advocates">—</span>
       <span class="stat-label">Advocates</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-with-audio">—</span>
       <span class="stat-label">Cases with audio</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-with-transcript">—</span>
       <span class="stat-label">Fully aligned</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-argued-hours">—</span>
       <span class="stat-label">Argument audio</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-avg-length">—</span>
       <span class="stat-label">Average argument</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-opinion-hours">—</span>
       <span class="stat-label">Opinion audio</span>
     </div>
-    <div class="stat-card">
+    <div class="stat-card audio-stat">
       <span class="stat-value" id="stat-avg-opinion">—</span>
       <span class="stat-label">Average opinion</span>
     </div>
@@ -219,6 +232,9 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     </table>
   </div>
   <div id="history-view" hidden></div>
+
+  <h2 id="all-terms-calendar-heading" hidden>Court Calendar</h2>
+  <div id="all-terms-calendars"></div>
 </div>
 
 <script>
@@ -550,7 +566,11 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     container.appendChild(leg);
   }
 
-  function renderTermCalendar(container, termId, argDays, decDays, selectedDate) {
+  // monthCount defaults to a full 12-month term; the all-terms progressive
+  // calendar passes a smaller value for a term crowded by the next one
+  // (e.g. a short special term), so its grid stops the month before the
+  // next term's calendar begins instead of overlapping it.
+  function renderTermCalendar(container, termId, argDays, decDays, selectedDate, monthCount) {
     function pad2(n) { return n < 10 ? '0' + n : '' + n; }
     var MONTHS = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
@@ -560,7 +580,7 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
     var startMonth = parseInt(parts[1], 10) - 1; // 0-based
     var calEl = document.createElement('div');
     calEl.className = 'term-calendar';
-    for (var mi = 0; mi < 12; mi++) {
+    for (var mi = 0; mi < (monthCount || 12); mi++) {
       var mo = (startMonth + mi) % 12;
       var yr = startYear + Math.floor((startMonth + mi) / 12);
       var mEl = document.createElement('div');
@@ -653,6 +673,170 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
         var termCount = 0;
         data.forEach(function(d) { termCount += (d.groups || []).length; });
         document.getElementById('stats-note').textContent = 'Totals across all ' + termCount + ' terms';
+
+        // ── Progressive per-term Court Calendar, oldest → newest ───────────
+        // One fetch + render per term, deferred until that term's slot is
+        // about to scroll into view, so opening term=all doesn't fire ~240
+        // cases.json requests up front.
+        var allCalTerms = [];
+        data.forEach(function(decade) {
+          if (decade.hidden) return;
+          (decade.groups || []).forEach(function(g) {
+            var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
+            if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]) });
+          });
+        });
+        // terms.json stores decades/terms newest-first; the calendar list
+        // reads oldest-to-newest top-to-bottom, like the chart.
+        allCalTerms.reverse();
+
+        if (allCalTerms.length) {
+          document.getElementById('all-terms-calendar-heading').hidden = false;
+          var calSection = document.getElementById('all-terms-calendars');
+          var slots = {};
+
+          // Clicking a calendar day navigates away to that term's own page
+          // (a full reload of this iframe document), so returning via the
+          // browser Back button re-loads this page from scratch — a fresh
+          // JS context with no memory of what was already fetched/rendered
+          // or how far the page had been scrolled. sessionStorage survives
+          // that reload (unlike a plain JS variable) and is shared across
+          // same-origin frames in this tab, so it's used here to: (1) cache
+          // each rendered term's date lists (tiny — just ISO date strings,
+          // not full case data) so a Back navigation can redraw everything
+          // already seen without re-fetching any cases.json, and (2) record
+          // scroll position so Back can jump straight back to it.
+          var SS_CACHE_KEY = 'aa-stats-all-cal-cache';
+          var SS_SCROLL_KEY = 'aa-stats-all-scrollY';
+          var calCache;
+          try { calCache = JSON.parse(sessionStorage.getItem(SS_CACHE_KEY) || '{}'); } catch (e) { calCache = {}; }
+          function cacheTermDates(termId, argArr, decArr) {
+            calCache[termId] = { arg: argArr, dec: decArr };
+            try { sessionStorage.setItem(SS_CACHE_KEY, JSON.stringify(calCache)); } catch (e) { /* storage full/unavailable — caching just won't help this run */ }
+          }
+
+          allCalTerms.forEach(function(t, i) {
+            // Cap this term's grid at the number of months before the next
+            // term starts, so a short special term's calendar doesn't run
+            // into (and duplicate) months the next term's grid also covers.
+            var monthCount = 12;
+            if (i < allCalTerms.length - 1) {
+              var a = t.id.split('-'), b = allCalTerms[i + 1].id.split('-');
+              var diff = (parseInt(b[0], 10) - parseInt(a[0], 10)) * 12 + (parseInt(b[1], 10) - parseInt(a[1], 10));
+              monthCount = Math.max(1, Math.min(12, diff));
+            }
+            var slot = document.createElement('div');
+            slot.className = 'all-cal-term';
+            slot.dataset.term = t.id;
+            var h = document.createElement('h3');
+            h.className = 'all-cal-term-heading';
+            var hLink = document.createElement('a');
+            hLink.textContent = t.name;
+            wireSearchLink(hLink, '?term=' + encodeURIComponent(t.id));
+            h.appendChild(hLink);
+            slot.appendChild(h);
+            var body = document.createElement('div');
+            slot.appendChild(body);
+            calSection.appendChild(slot);
+            slots[t.id] = { slot: slot, body: body, monthCount: monthCount, loaded: false };
+          });
+
+          // Paints one term's calendar from its (already-known) date lists —
+          // called either straight from calCache or after a fresh fetch.
+          // Assumes the caller has already claimed slots[termId].loaded.
+          function paintTermCalendar(termId, argArr, decArr) {
+            var s = slots[termId];
+            var argDaySet = new Set(argArr);
+            var decDaySet = new Set(decArr);
+            if (argDaySet.size || decDaySet.size) {
+              renderTermCalendar(s.body, termId, argDaySet, decDaySet, null, s.monthCount);
+            } else {
+              s.slot.hidden = true;
+            }
+          }
+
+          function loadTermCalendar(termId) {
+            var s = slots[termId];
+            if (!s || s.loaded) return;
+            s.loaded = true; // claim it before any async work so re-intersection can't double-fire
+            if (calCache[termId]) { paintTermCalendar(termId, calCache[termId].arg, calCache[termId].dec); return; }
+            fetch('/courts/ussc/terms/' + termId + '/cases.json')
+              .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+              .then(function(cases) {
+                var argDaySet = new Set();
+                var decDaySet = new Set();
+                cases.forEach(function(c) {
+                  ['argument', 'reargument'].forEach(function(field) {
+                    if (c[field]) c[field].split(',').forEach(function(d) { var t = d.trim(); if (t) argDaySet.add(t); });
+                  });
+                  if (c.decision) c.decision.split(',').forEach(function(d) { var t = d.trim(); if (t) decDaySet.add(t); });
+                });
+                var argArr = Array.from(argDaySet), decArr = Array.from(decDaySet);
+                cacheTermDates(termId, argArr, decArr);
+                paintTermCalendar(termId, argArr, decArr);
+              })
+              .catch(function() { s.body.textContent = 'Could not load.'; });
+          }
+
+          // Synchronously redraw every term already cached from an earlier
+          // visit in this session, before wiring the observer below, so a
+          // Back navigation reaches roughly its previous page height (and
+          // therefore an accurate scroll target) with zero network requests.
+          allCalTerms.forEach(function(t) {
+            if (calCache[t.id]) loadTermCalendar(t.id);
+          });
+
+          if ('IntersectionObserver' in window) {
+            var calObserver = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                loadTermCalendar(entry.target.dataset.term);
+                calObserver.unobserve(entry.target);
+              });
+            }, { rootMargin: '1000px 0px 1000px 0px' });
+            allCalTerms.forEach(function(t) {
+              if (!slots[t.id].loaded) calObserver.observe(slots[t.id].slot);
+            });
+          } else {
+            // No IntersectionObserver support — fall back to loading everything.
+            allCalTerms.forEach(function(t) { loadTermCalendar(t.id); });
+          }
+
+          // Restore scroll position, but only on an actual Back/Forward
+          // navigation — a fresh, intentional visit to term=all should
+          // always start at the top rather than jump to wherever a much
+          // earlier session happened to leave off. This page always loads
+          // inside the page-viewer iframe via location.replace() (see
+          // _frameNavigate in explorer.js), which the browser's own
+          // Navigation Timing API reports as a plain 'navigate' regardless
+          // of whether Back was pressed — so the parent instead threads an
+          // explicit "?_navback=1" marker onto the iframe's target URL only
+          // when its popstate handler is the one driving the reload.
+          var cameFromBackForward = params.get('_navback') === '1';
+          if (cameFromBackForward) {
+            var savedScroll = parseInt(sessionStorage.getItem(SS_SCROLL_KEY), 10);
+            if (savedScroll > 0) {
+              // Double rAF: give the synchronous cache-replay above (and the
+              // browser) one full layout/paint pass before jumping, so the
+              // page is actually tall enough for the target offset to exist.
+              requestAnimationFrame(function() {
+                requestAnimationFrame(function() { window.scrollTo(0, savedScroll); });
+              });
+            }
+          }
+          var scrollSaveQueued = false;
+          window.addEventListener('scroll', function() {
+            if (scrollSaveQueued) return;
+            scrollSaveQueued = true;
+            requestAnimationFrame(function() {
+              scrollSaveQueued = false;
+              try { sessionStorage.setItem(SS_SCROLL_KEY, String(window.scrollY)); } catch (e) {}
+            });
+          }, { passive: true });
+          window.addEventListener('pagehide', function() {
+            try { sessionStorage.setItem(SS_SCROLL_KEY, String(window.scrollY)); } catch (e) {}
+          });
+        }
       })
       .catch(function() {
         document.getElementById('stats-note').textContent = 'Could not load data.';
@@ -661,6 +845,12 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
   }
   document.getElementById('stat-term-title').textContent = termTitle(term);
   if (date) { var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false; }
+
+  // Oral argument audio only exists starting with October Term 1955 — omit
+  // these stat cards entirely for earlier terms rather than showing six
+  // straight "—" placeholders every time.
+  var hasAudioEra = term >= '1955-10';
+  document.querySelectorAll('.audio-stat').forEach(function (el) { el.hidden = !hasAudioEra; });
 
   // Load journal cover if available for this term.
   fetch('/courts/ussc/terms.json')
@@ -904,7 +1094,9 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
       if (eventCount > 0) {
         document.getElementById('stat-argued-hours').textContent = fmtHours(totalSec);
         document.getElementById('stat-avg-length').textContent   = fmtMins(totalSec / eventCount);
-      } else {
+      } else if (hasAudioEra) {
+        // Pre-1955 terms have no note here — their audio-stat cards are
+        // already hidden entirely, so there's nothing to explain.
         document.getElementById('stats-note').textContent = 'Audio length data not yet available for this term.';
       }
     })
