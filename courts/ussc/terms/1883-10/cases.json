@@ -3104,8 +3104,8 @@
     "title": "Estey v. Burdett",
     "number": "85",
     "files": false,
-    "argument": "1883-11-21",
-    "argument_days": "Wednesday, November 21, 1883",
+    "argument": "1883-11-21,1883-11-22,1883-11-23",
+    "argument_days": "Wednesday, November 21, 1883; Thursday, November 22, 1883; Friday, November 23, 1883",
     "decision": "1884-01-07",
     "decision_days": "Monday, January 7, 1884",
     "usCite": "109 U.S. 633",
@@ -3153,7 +3153,8 @@
         "vote": "majority",
         "opinion": true
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-074",
@@ -3348,8 +3349,8 @@
     "title": "Dimpfell v. Ohio & Mississippi R. Co.",
     "number": "135",
     "files": false,
-    "argument": "1883-12-03",
-    "argument_days": "Monday, December 3, 1883",
+    "argument": "1883-11-28,1883-12-03",
+    "argument_days": "Wednesday, November 28, 1883; Monday, December 3, 1883",
     "decision": "1884-01-21",
     "decision_days": "Monday, January 21, 1884",
     "usCite": "110 U.S. 209",
@@ -3398,7 +3399,8 @@
         "name": "SAMUEL BLATCHFORD",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-106",
@@ -4837,8 +4839,8 @@
     "title": "Quebec Bank of Toronto v. Hellman",
     "number": "179",
     "files": false,
-    "argument": "1884-01-04",
-    "argument_days": "Friday, January 4, 1884",
+    "argument": "1884-01-04,1884-01-07,1884-01-08",
+    "argument_days": "Friday, January 4, 1884; Monday, January 7, 1884; Tuesday, January 8, 1884",
     "decision": "1884-01-21",
     "decision_days": "Monday, January 21, 1884",
     "usCite": "110 U.S. 178",
@@ -4887,7 +4889,8 @@
         "name": "SAMUEL BLATCHFORD",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-112",
@@ -6987,8 +6990,9 @@
     "title": "Ames v. Kansas ex rel. Johnston",
     "number": "1240",
     "files": false,
-    "argument": "1884-03-07",
-    "argument_days": "Friday, March 7, 1884",
+    "backfill": false,
+    "argument": "1884-03-07,1884-03-10,1884-03-11",
+    "argument_days": "Friday, March 7, 1884; Monday, March 10, 1884; Tuesday, March 11, 1884",
     "decision": "1884-04-21",
     "decision_days": "Monday, April 21, 1884",
     "usCite": "111 U.S. 449",
@@ -7060,7 +7064,8 @@
         "name": "SAMUEL BLATCHFORD",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-202",
@@ -7467,8 +7472,8 @@
     "title": "Hitz v. National Metropolitan Bank",
     "number": "254",
     "files": false,
-    "argument": "1884-03-14",
-    "argument_days": "Friday, March 14, 1884",
+    "argument": "1884-03-14,1884-03-17",
+    "argument_days": "Friday, March 14, 1884; Monday, March 17, 1884",
     "decision": "1884-05-05",
     "decision_days": "Monday, May 5, 1884",
     "usCite": "111 U.S. 722",
@@ -7517,7 +7522,8 @@
         "name": "SAMUEL BLATCHFORD",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-207",
@@ -8437,6 +8443,64 @@
     ]
   },
   {
+    "id": "1883-222",
+    "title": "Irvine v. Dunham",
+    "number": "243",
+    "files": false,
+    "argument": "1884-03-31,1884-04-01",
+    "argument_days": "Monday, March 31, 1884; Tuesday, April 1, 1884",
+    "decision": "1884-04-14",
+    "decision_days": "Monday, April 14, 1884",
+    "usCite": "111 U.S. 327",
+    "decision_xml": "/courts/ussc/opinions/xml/us111/us111-0327.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep111/usrep111327/usrep111327.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-111_PDFA.pdf#page=359",
+    "result": "no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MORRISON WAITE",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL MILLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM WOODS",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STANLEY MATTHEWS",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
     "id": "1883-248",
     "title": "Spindle v. Shreve",
     "files": false,
@@ -8490,63 +8554,6 @@
         "vote": "majority",
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1883-222",
-    "title": "Irvine v. Dunham",
-    "number": "243",
-    "files": false,
-    "argument": "1884-04-01",
-    "argument_days": "Tuesday, April 1, 1884",
-    "decision": "1884-04-14",
-    "decision_days": "Monday, April 14, 1884",
-    "usCite": "111 U.S. 327",
-    "decision_xml": "/courts/ussc/opinions/xml/us111/us111-0327.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep111/usrep111327/usrep111327.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-111_PDFA.pdf#page=359",
-    "result": "no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MORRISON WAITE",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL MILLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM WOODS",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STANLEY MATTHEWS",
-        "vote": "majority"
       },
       {
         "name": "HORACE GRAY",
@@ -9664,8 +9671,8 @@
     "title": "Colt v. Colt",
     "number": "343",
     "files": false,
-    "argument": "1884-04-18",
-    "argument_days": "Friday, April 18, 1884",
+    "argument": "1884-04-18,1884-04-21,1884-04-22",
+    "argument_days": "Friday, April 18, 1884; Monday, April 21, 1884; Tuesday, April 22, 1884",
     "decision": "1884-05-05",
     "decision_days": "Monday, May 5, 1884",
     "usCite": "111 U.S. 566",
@@ -9714,7 +9721,8 @@
         "name": "SAMUEL BLATCHFORD",
         "vote": "majority"
       }
-    ]
+    ],
+    "scdb_corrections": "argument"
   },
   {
     "id": "1883-254",

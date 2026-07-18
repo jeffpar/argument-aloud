@@ -9244,6 +9244,10 @@ Examples:
   node update_cases.js --backfill-argued --verbose         # also log suspect-year dates skipped (likely OCR/typo)
   node update_cases.js --backfill-argued --new-format-only # only the "Month D, D, D, YYYY" comma-list heading shape
   node update_cases.js --backfill-argued --interactive     # confirm each case (y/N) before writing dates + scdb_corrections
+  node update_cases.js --backfill-argued --interactive --verbose
+                                                             # ...also prompt for a manual date on any Argued/Reargued
+                                                             #    heading found but not parseable, when that field is
+                                                             #    otherwise still empty (verbose alone only logs these)
 
   node update_cases.js --split                             # find opinion events needing a split
   node update_cases.js 2024-10 --split                     # check one term
@@ -9875,8 +9879,12 @@ const DATE_LIST_RE = /^\d{4}-\d{2}-\d{2}(,\d{4}-\d{2}-\d{2})*$/;
 // Parse the text following "Argued "/"Reargued " in an opinion XML heading
 // into the set of ISO dates it represents: "January 31, 1952" (single day),
 // "April 25-26, 1887" (same-month range, inclusive), "January
-// 31-February 1, 1952" (month-crossing, exactly the two named days), or
-// "January 8, 9, 10, 1935" (comma-separated day list within one month).
+// 31-February 1, 1952" (month-crossing, exactly the two named days),
+// "January 8, 9, 10, 1935" (comma-separated day list within one month), or
+// falling back to _parseGeneralArguedHeadingDates() below for anything
+// spanning multiple months and/or years via "and"/comma-joined lists, e.g.
+// "April 30 and May 1, 1939" or "October 10, November 28, 1922, and
+// February 23, 1923".
 function _parseArguedHeadingDates(text) {
     const dates = new Set();
     const pad2 = n => String(n).padStart(2, '0');
@@ -9909,6 +9917,59 @@ function _parseArguedHeadingDates(text) {
         const [, mo, dayList, yr] = m;
         const n = _monthNum(mo);
         if (n) for (const d of dayList.split(',').map(s => s.trim())) dates.add(`${yr}-${pad2(n)}-${pad2(+d)}`);
+        return dates;
+    }
+    return _parseGeneralArguedHeadingDates(text);
+}
+
+// Fallback for headings the four shapes above don't cover: a comma/"and"
+// separated list of "Month Day[-Day]" fragments that can span multiple
+// months and even multiple years within one heading, e.g. "April 30 and
+// May 3, 1948", "April 29, 30, 1946 and October 15, 16, 1946", or "October
+// 10, November 28, 1922, and February 23, 1923" (argued across two calendar
+// years, reargued in a third). A month name carries forward to subsequent
+// day-only fragments until a new one appears; a year applies retroactively
+// to every fragment since the previous year (or the start of the heading).
+// Any fragment that doesn't cleanly parse voids the whole heading rather
+// than emit a partial/guessed result — it falls through to --verbose
+// logging as an unparsed heading instead.
+function _parseGeneralArguedHeadingDates(text) {
+    const empty = new Set();
+    const dates = new Set();
+    const pad2 = n => String(n).padStart(2, '0');
+
+    const YEAR_RE = /\d{4}/g;
+    const chunks = [];
+    let last = 0, ym;
+    while ((ym = YEAR_RE.exec(text))) {
+        chunks.push({ text: text.slice(last, ym.index), year: ym[0] });
+        last = YEAR_RE.lastIndex;
+    }
+    // No 4-digit year anywhere, or leftover text after the final year
+    // (should be empty/punctuation only) — bail rather than guess.
+    if (!chunks.length || text.slice(last).replace(/[.\s]/g, '') !== '') return empty;
+
+    let currentMonth = null;
+    for (const chunk of chunks) {
+        // Strip the connective tissue joining this chunk to the previous one
+        // ("", "and ", ", and ") and any trailing comma before the year.
+        const body = chunk.text.replace(/^[,\s]*(?:and\s+)?/i, '').replace(/[,\s]+$/, '');
+        if (!body) return empty;
+        for (const rawFragment of body.split(/\s*,\s*and\s+|\s+and\s+|\s*,\s*/i)) {
+            const fragment = rawFragment.trim();
+            const fm = /^(?:([A-Za-z]+)\s+)?(\d{1,2})(?:-(\d{1,2}))?$/.exec(fragment);
+            if (!fm) return empty; // any unparseable fragment voids the whole heading
+            const [, monthName, d1, d2] = fm;
+            if (monthName) {
+                const n = _monthNum(monthName);
+                if (!n) return empty;
+                currentMonth = n;
+            }
+            if (currentMonth == null) return empty;
+            const start = +d1, end = d2 ? +d2 : +d1;
+            if (end < start) return empty;
+            for (let d = start; d <= end; d++) dates.add(`${chunk.year}-${pad2(currentMonth)}-${pad2(d)}`);
+        }
     }
     return dates;
 }
@@ -9971,7 +10032,7 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
     const _ask = (q) => new Promise(resolve => rl.question(q, a => resolve(a.trim())));
     if (interactive) rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-    let checked = 0, noXml = 0, casesModified = 0, datesAdded = 0, suspectSkipped = 0, userSkipped = 0, previouslyRejected = 0;
+    let checked = 0, noXml = 0, casesModified = 0, datesAdded = 0, suspectSkipped = 0, userSkipped = 0, previouslyRejected = 0, manualEntered = 0;
 
     for (const term of termsToProcess) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -10018,12 +10079,44 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                 if (rm && !COMMA_LIST_ARGUED_RE.test(rm[1])) rm = null;
             }
 
-            const missing = [];
-            if (am) for (const d of _parseArguedHeadingDates(am[1])) if (!knownEither.has(d)) missing.push({ field: 'argument', date: d });
-            if (rm) for (const d of _parseArguedHeadingDates(rm[1])) if (!knownEither.has(d)) missing.push({ field: 'reargument', date: d });
-            if (!missing.length) continue;
-
             const label = `${term}/${c.id || c.number || '?'} (${firstTitle(c.title) || '?'})`;
+
+            const missing = [];
+            const amDates = am ? _parseArguedHeadingDates(am[1]) : null;
+            const rmDates = rm ? _parseArguedHeadingDates(rm[1]) : null;
+            if (amDates) for (const d of amDates) if (!knownEither.has(d)) missing.push({ field: 'argument', date: d });
+            if (rmDates) for (const d of rmDates) if (!knownEither.has(d)) missing.push({ field: 'reargument', date: d });
+            // A heading the regex found but none of the recognized date
+            // shapes could parse contributes nothing above and would
+            // otherwise vanish silently — always logged under --verbose. A
+            // field that's still completely empty is also the highest-value
+            // case for a human to resolve (it's otherwise never captured at
+            // all), so --interactive --verbose together offer it for manual
+            // date entry; a field that already has some known date is far
+            // more likely just a differently-formatted repeat of what's
+            // already recorded, so those are left to the log line only.
+            const unparsedFields = [];
+            if (am && amDates.size === 0) {
+                const willPrompt = interactive && verbose && knownArg.size === 0;
+                if (verbose && !willPrompt) console.log(`  ${label}: UNPARSED Argued heading "${am[1]}"`);
+                if (willPrompt) unparsedFields.push({ field: 'argument', heading: am[1] });
+            }
+            if (rm && rmDates.size === 0) {
+                const willPrompt = interactive && verbose && knownRearg.size === 0;
+                if (verbose && !willPrompt) console.log(`  ${label}: UNPARSED Reargued heading "${rm[1]}"`);
+                if (willPrompt) unparsedFields.push({ field: 'reargument', heading: rm[1] });
+            }
+            if (!missing.length && !unparsedFields.length) continue;
+
+            // A heading whose own parse already spans more than one calendar
+            // year (e.g. "October 10, November 28, 1922, and February 23,
+            // 1923") is inherently trustworthy about that spread — every date
+            // came from one coherent, explicitly-year-anchored parse, not a
+            // guess — so the single-year suspect-year heuristic below doesn't
+            // apply to dates it contributed.
+            const amYears = amDates ? new Set([...amDates].map(d => d.slice(0, 4))) : new Set();
+            const rmYears = rmDates ? new Set([...rmDates].map(d => d.slice(0, 4))) : new Set();
+
             const toApply = [];
             for (const m of missing) {
                 // A missing date whose year doesn't match any date cases.json
@@ -10031,7 +10124,8 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                 // OCR/typo error in the opinion heading itself (e.g. "1889"
                 // misread for "1869") than a genuinely uncaptured extra
                 // argument day — leave those for manual review instead.
-                const suspectYear = knownYears.size > 0 && !knownYears.has(m.date.slice(0, 4));
+                const fromMultiYearHeading = (m.field === 'argument' ? amYears : rmYears).size > 1;
+                const suspectYear = !fromMultiYearHeading && knownYears.size > 0 && !knownYears.has(m.date.slice(0, 4));
                 if (suspectYear) {
                     suspectSkipped++;
                     if (verbose) console.log(`  ${label}: SKIP ${m.field} ${m.date} (year matches no known date — likely OCR/typo, not backfilled)`);
@@ -10039,7 +10133,7 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                 }
                 toApply.push(m);
             }
-            if (!toApply.length) continue;
+            if (!toApply.length && !unparsedFields.length) continue;
 
             // Capture "had nothing at all" before toApply mutates these sets —
             // a field backfilled from empty is just as automatic a correction
@@ -10066,28 +10160,32 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
             // would merge new dates alongside an existing date that's simply
             // incorrect and needs replacing, not keeping).
             let overrideValue = null;
+            // Dates typed in response to an unparsed-heading prompt, keyed by
+            // field — always a fresh value (that field was empty going in),
+            // never merged with anything.
+            const manualValue = {};
 
             if (interactive) {
                 console.log(`${term}  ${c.number || '(no number)'}  ${firstTitle(c.title) || c.title || '(untitled)'}`);
                 if (touchedFields.has('argument'))   console.log(`  argument=${originalArgument || '(none)'} correction=${newArgument}`);
                 if (touchedFields.has('reargument')) console.log(`  reargument=${originalReargument || '(none)'} correction=${newReargument}`);
+                for (const { field, heading } of unparsedFields) console.log(`  ${field}=(none)  unparsed heading: "${heading}"`);
                 if (c.decision_loc)     console.log(`  ${c.decision_loc}`);
                 if (c.decision_reports) console.log(`  ${c.decision_reports}`);
                 _openInEdge(c.decision_loc);
-                let answer;
-                for (;;) {
-                    answer = await _ask('  Add (Y/n), or type replacement date(s): ');
-                    // Blank/y+ (any number of y's, e.g. a stray double-press) = add;
-                    // n = reject; a comma-separated date list = override. Anything
-                    // else is almost certainly a typo, not an intentional reject —
-                    // re-prompt instead of silently treating it as one.
-                    if (answer === '' || /^y+$/i.test(answer) || /^n$/i.test(answer) || DATE_LIST_RE.test(answer)) break;
-                    console.log(`  Please enter blank or y (add), n (reject), or comma-separated date(s) (YYYY-MM-DD,...).`);
+
+                let declined = false;
+                for (const { field, heading } of unparsedFields) {
+                    let answer;
+                    for (;;) {
+                        answer = await _ask(`  ${field}: type date(s) for "${heading}", blank to skip, or n to decline permanently: `);
+                        if (answer === '' || /^n$/i.test(answer) || DATE_LIST_RE.test(answer)) break;
+                        console.log(`  Please enter blank (skip), n (decline), or comma-separated date(s) (YYYY-MM-DD,...).`);
+                    }
+                    if (/^n$/i.test(answer)) { declined = true; break; }
+                    if (DATE_LIST_RE.test(answer)) { manualValue[field] = answer; manualEntered++; }
                 }
-                console.log();
-                if (DATE_LIST_RE.test(answer)) {
-                    overrideValue = answer;
-                } else if (/^n$/i.test(answer)) {
+                if (declined) {
                     userSkipped++;
                     if (!dryRun) {
                         c.backfill = false;
@@ -10098,14 +10196,48 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
                     }
                     continue;
                 }
+
+                if (toApply.length) {
+                    let answer;
+                    for (;;) {
+                        answer = await _ask('  Add (Y/n), or type replacement date(s): ');
+                        // Blank/y+ (any number of y's, e.g. a stray double-press) = add;
+                        // n = reject; a comma-separated date list = override. Anything
+                        // else is almost certainly a typo, not an intentional reject —
+                        // re-prompt instead of silently treating it as one.
+                        if (answer === '' || /^y+$/i.test(answer) || /^n$/i.test(answer) || DATE_LIST_RE.test(answer)) break;
+                        console.log(`  Please enter blank or y (add), n (reject), or comma-separated date(s) (YYYY-MM-DD,...).`);
+                    }
+                    console.log();
+                    if (DATE_LIST_RE.test(answer)) {
+                        overrideValue = answer;
+                    } else if (/^n$/i.test(answer)) {
+                        userSkipped++;
+                        if (!dryRun) {
+                            c.backfill = false;
+                            const reordered = reorderCase(c);
+                            for (const k of Object.keys(c)) delete c[k];
+                            Object.assign(c, reordered);
+                            termModified = true;
+                        }
+                        continue;
+                    }
+                } else {
+                    console.log();
+                }
+
+                if (!toApply.length && !Object.keys(manualValue).length) continue; // every unparsed prompt was skipped
             } else {
-                console.log(`  ${label}: +${toApply.map(m => `${m.field}=${m.date}`).join(', ')}`);
+                if (toApply.length) console.log(`  ${label}: +${toApply.map(m => `${m.field}=${m.date}`).join(', ')}`);
             }
 
-            datesAdded += toApply.length;
+            for (const f of Object.keys(manualValue)) touchedFields.add(f);
+            datesAdded += toApply.length + Object.values(manualValue).reduce((n, v) => n + v.split(',').filter(Boolean).length, 0);
 
-            const finalArgument   = (overrideValue !== null && touchedFields.has('argument'))   ? overrideValue : newArgument;
-            const finalReargument = (overrideValue !== null && touchedFields.has('reargument')) ? overrideValue : newReargument;
+            const finalArgument   = manualValue.argument   !== undefined ? manualValue.argument
+                : (overrideValue !== null && touchedFields.has('argument'))   ? overrideValue : newArgument;
+            const finalReargument = manualValue.reargument !== undefined ? manualValue.reargument
+                : (overrideValue !== null && touchedFields.has('reargument')) ? overrideValue : newReargument;
             const autoFlags = [...touchedFields].filter(field => {
                 const finalValue = field === 'argument' ? finalArgument : finalReargument;
                 const size = finalValue ? finalValue.split(',').filter(Boolean).length : 0;
@@ -10164,6 +10296,7 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
     if (userSkipped) console.log(`${dryRun ? 'Would skip' : 'Skipped'} ${userSkipped} case(s) declined interactively${dryRun ? '' : ' (marked "backfill": false)'}.`);
     if (autoCorrected) console.log(`${dryRun ? 'Would auto-flag' : 'Auto-flagged'} scdb_corrections on ${autoCorrected} case(s) (backfilled field ended up multi-date, or had none before).`);
     if (suspectSkipped) console.log(`Skipped ${suspectSkipped} suspect-year date(s) (likely OCR/typo, not backfilled — rerun with --verbose to see which).`);
+    if (manualEntered) console.log(`Manually entered ${manualEntered} field(s) via --interactive --verbose prompts for otherwise-unparsed headings.`);
 }
 
 function _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose = false } = {}) {

@@ -962,6 +962,7 @@
     "title": "Smith v. Evening News Association",
     "number": "13",
     "files": true,
+    "backfill": false,
     "oyez_href": "https://www.oyez.org/cases/1962/13",
     "argument": "1962-10-10",
     "argument_days": "Wednesday, October 10, 1962",
@@ -2752,92 +2753,6 @@
     ]
   },
   {
-    "id": "1962-116",
-    "title": "Avent v. North Carolina",
-    "tags": [
-      "Segregation"
-    ],
-    "number": "11",
-    "files": false,
-    "oyez_href": "https://www.oyez.org/cases/1962/11",
-    "argument": "1962-11-05",
-    "argument_days": "Monday, November 5, 1962",
-    "decision": "1963-05-20",
-    "decision_days": "Monday, May 20, 1963",
-    "usCite": "373 U.S. 375",
-    "decision_xml": "/courts/ussc/opinions/xml/us373/us373-0375.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep373/usrep373375/usrep373375.pdf",
-    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-373_PDFA.pdf#page=435",
-    "result": "petitioning party received a favorable disposition",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "EARL WARREN",
-        "vote": "majority"
-      },
-      {
-        "name": "HUGO BLACK",
-        "vote": "majority"
-      },
-      {
-        "name": "WILLIAM DOUGLAS",
-        "vote": "majority"
-      },
-      {
-        "name": "TOM CLARK",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN, II",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      },
-      {
-        "name": "WILLIAM BRENNAN",
-        "vote": "majority"
-      },
-      {
-        "name": "POTTER STEWART",
-        "vote": "majority"
-      },
-      {
-        "name": "BYRON WHITE",
-        "vote": "majority"
-      },
-      {
-        "name": "ARTHUR GOLDBERG",
-        "vote": "majority"
-      }
-    ],
-    "events": [
-      {
-        "source": "oyez",
-        "type": "argument",
-        "date": "1962-11-05",
-        "title": "Oral Argument on November 5, 1962",
-        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/11/19621105a_11.delivery.mp3",
-        "length": "01:39:54.42",
-        "size": 24081115,
-        "bitrate": "32kbps",
-        "text_href": "11/1962-11-05-oyez.json",
-        "advocates": [
-          {
-            "name": "JACK GREENBERG",
-            "title": "MR.",
-            "role": "petitioner"
-          },
-          {
-            "name": "RALPH E. MOODY",
-            "title": "MR.",
-            "role": "respondent"
-          }
-        ],
-        "aligned": true
-      }
-    ]
-  },
-  {
     "id": "1962-107",
     "title": "Lombard v. Louisiana",
     "tags": [
@@ -2968,6 +2883,93 @@
           {
             "name": "JACK P. F. GREMILLION",
             "title": "MR.,GENERAL",
+            "role": "respondent"
+          }
+        ],
+        "aligned": true
+      }
+    ],
+    "scdb_corrections": "argument"
+  },
+  {
+    "id": "1962-116",
+    "title": "Avent v. North Carolina",
+    "tags": [
+      "Segregation"
+    ],
+    "number": "11",
+    "files": false,
+    "oyez_href": "https://www.oyez.org/cases/1962/11",
+    "argument": "1962-11-05,1962-11-07",
+    "argument_days": "Monday, November 5, 1962; Wednesday, November 7, 1962",
+    "decision": "1963-05-20",
+    "decision_days": "Monday, May 20, 1963",
+    "usCite": "373 U.S. 375",
+    "decision_xml": "/courts/ussc/opinions/xml/us373/us373-0375.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep373/usrep373375/usrep373375.pdf",
+    "decision_reports": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-373_PDFA.pdf#page=435",
+    "result": "petitioning party received a favorable disposition",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "EARL WARREN",
+        "vote": "majority"
+      },
+      {
+        "name": "HUGO BLACK",
+        "vote": "majority"
+      },
+      {
+        "name": "WILLIAM DOUGLAS",
+        "vote": "majority"
+      },
+      {
+        "name": "TOM CLARK",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN, II",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      },
+      {
+        "name": "WILLIAM BRENNAN",
+        "vote": "majority"
+      },
+      {
+        "name": "POTTER STEWART",
+        "vote": "majority"
+      },
+      {
+        "name": "BYRON WHITE",
+        "vote": "majority"
+      },
+      {
+        "name": "ARTHUR GOLDBERG",
+        "vote": "majority"
+      }
+    ],
+    "events": [
+      {
+        "source": "oyez",
+        "type": "argument",
+        "date": "1962-11-05",
+        "title": "Oral Argument on November 5, 1962",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/11/19621105a_11.delivery.mp3",
+        "length": "01:39:54.42",
+        "size": 24081115,
+        "bitrate": "32kbps",
+        "text_href": "11/1962-11-05-oyez.json",
+        "advocates": [
+          {
+            "name": "JACK GREENBERG",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "RALPH E. MOODY",
+            "title": "MR.",
             "role": "respondent"
           }
         ],
