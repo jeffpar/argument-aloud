@@ -1,0 +1,9 @@
+<div class="card-grid">
+  {%- for card in include.cards %}
+  <a class="card" href="{{ card.href }}">
+    {%- if card.badge %}<span class="card-badge">{{ card.badge }}</span>{% endif %}
+    <h3 class="card-title">{{ card.title }}</h3>
+    <p class="card-desc">{{ card.desc }}</p>
+  </a>
+  {%- endfor %}
+</div>

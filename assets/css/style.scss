@@ -2,3 +2,190 @@
 ---
 
 @import "{{ site.theme }}";
+
+/* ── Card grid (home page, collections landing page, etc.) ──────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  position: relative;
+  display: block;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f5f6fa;
+  border: 1px solid #e0e0e0;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.card:hover {
+  background: #eef1f8;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.card-title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: inherit;
+  border: none;
+}
+.card-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+.card-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #d97070;
+}
+@media (prefers-color-scheme: dark) {
+  .card { background: #21242c; border-color: #2d2f38; }
+  .card:hover { background: #262a34; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+}
+html[data-theme="dark"]  .card { background: #21242c; border-color: #2d2f38; }
+html[data-theme="dark"]  .card:hover { background: #262a34; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+html[data-theme="light"] .card { background: #f5f6fa; border-color: #e0e0e0; }
+html[data-theme="light"] .card:hover { background: #eef1f8; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+
+/* ── Site homepage hero cards (index.md) ─────────────────────────────────── */
+.hp-hero {
+  text-align: center;
+  padding: 0 0 32px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.hp-hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  border: none;
+}
+.hp-tagline {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  opacity: 0.72;
+  margin: 0 0 12px;
+}
+.hp-example {
+  font-size: 0.8rem;
+  color: rgba(51, 51, 51, 0.55);
+  margin: 0;
+}
+.hp-example a,
+.hp-footer a {
+  color: #2672b4;
+}
+.hp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  max-width: 1140px;
+  margin: 0 auto 40px;
+}
+.hp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 16px;
+  border-radius: 10px;
+  border: 1px solid #e0e4ea;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+}
+/* Makes the whole card a real, crawlable/copyable link (browsers show its href
+   on hover, and "copy link"/open-in-new-tab work), while the <a> tags inside
+   .hp-card-desc still resolve to their own href — those sit above this
+   full-card overlay via z-index, everything else falls through to it. */
+.hp-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hp-card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  transform: translateY(-2px);
+  border-color: #b8c4d8;
+  text-decoration: none;
+  color: inherit;
+}
+.hp-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.hp-card-title {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: #2672b4;
+  margin-bottom: 6px;
+}
+.hp-card-desc {
+  font-size: 0.77rem;
+  line-height: 1.55;
+  color: #6c6c6c;
+  flex: 1;
+  margin: 0;
+}
+.hp-card-desc a {
+  position: relative;
+  z-index: 1;
+  color: #2672b4;
+  text-decoration: none;
+}
+.hp-card-desc a:hover {
+  text-decoration: underline;
+}
+.hp-footer {
+  text-align: center;
+  font-size: 0.77rem;
+  color: rgba(51, 51, 51, 0.45);
+  padding-bottom: 16px;
+}
+.hp-footer-sub {
+  display: block;
+  margin-top: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  .hp-card           { background: #1e2130; border-color: #2d2f38; }
+  .hp-card:hover     { border-color: #454a5a; box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+  .hp-card-title     { color: #5eaee0; }
+  .hp-card-desc      { color: #9da0a8; }
+  .hp-card-desc a    { color: #5eaee0; }
+  .hp-example        { color: rgba(208, 211, 220, 0.55); }
+  .hp-example a,
+  .hp-footer a       { color: #5eaee0; }
+  .hp-footer         { color: rgba(208, 211, 220, 0.45); }
+}
+html[data-theme="dark"]  .hp-card           { background: #1e2130; border-color: #2d2f38; }
+html[data-theme="dark"]  .hp-card:hover     { border-color: #454a5a; box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+html[data-theme="dark"]  .hp-card-title     { color: #5eaee0; }
+html[data-theme="dark"]  .hp-card-desc      { color: #9da0a8; }
+html[data-theme="dark"]  .hp-card-desc a    { color: #5eaee0; }
+html[data-theme="dark"]  .hp-example        { color: rgba(208, 211, 220, 0.55); }
+html[data-theme="dark"]  .hp-example a,
+html[data-theme="dark"]  .hp-footer a       { color: #5eaee0; }
+html[data-theme="dark"]  .hp-footer         { color: rgba(208, 211, 220, 0.45); }
+html[data-theme="light"] .hp-card           { background: #fff; border-color: #e0e4ea; }
+html[data-theme="light"] .hp-card:hover     { border-color: #b8c4d8; }
+html[data-theme="light"] .hp-card-title     { color: #2672b4; }
+html[data-theme="light"] .hp-card-desc      { color: #6c6c6c; }
+html[data-theme="light"] .hp-card-desc a    { color: #2672b4; }
+html[data-theme="light"] .hp-example        { color: rgba(51, 51, 51, 0.55); }
+html[data-theme="light"] .hp-example a,
+html[data-theme="light"] .hp-footer a       { color: #2672b4; }
+html[data-theme="light"] .hp-footer         { color: rgba(51, 51, 51, 0.45); }

@@ -63,6 +63,8 @@ let _currentFiles       = [];        // files.json entries for the active case (
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
 const _sectionLiById      = new Map(); // entry.id → top-level section <li>
+const _sectionPageById = new Map(); // entry.id → entry.page (index.json), for <id>=all fallback
+let _defaultPage = null; // page URL of the index.json node marked "default": true — the SPA's default landing page
 
 // ── Transcript edit mode state ──────────────────────────────────────────────
 let _editMode = false;
@@ -1534,7 +1536,7 @@ function speakerClass(speaker) {
 // Pass date (YYYY-MM-DD) to show the cases-for-a-day view above the stats.
 function updateEmptyStateForTerm(term, date = null) {
   if (!term) return; // term collapsed — leave current view
-  const statsUrl = '/courts/ussc/pages/stats/?term=' + encodeURIComponent(term)
+  const statsUrl = '/courts/ussc/terms/?term=' + encodeURIComponent(term)
     + (date ? '&date=' + encodeURIComponent(date) : '');
   showPageViewer(statsUrl, { pushState: false });
 }
@@ -4146,6 +4148,7 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
       sectionLi._ensureBuilt();
       setPageMeta(title + ' | Argument Aloud');
       _navigateToSectionAll(id);
+      restoreFromURL();
     },
   });
 
@@ -4157,11 +4160,31 @@ function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic 
 
 // ── Nav from index.json ───────────────────────────────────────────────────────
 
+// index.json's "page" values document the source file backing each page (e.g.
+// ".../index.md"), but the browser requests the URL Jekyll serves it at (the
+// containing folder), not the source filename — strip that suffix here, once,
+// rather than at every call site that reads .page. Entries without an
+// index.md backing it (e.g. a blog post's date-prefixed filename) have no
+// such suffix to strip and pass through unchanged. Same pass also locates
+// whichever node is marked "default": true and records its (now-stripped)
+// page as _defaultPage, so the SPA's default landing page is configured in
+// index.json rather than hardcoded.
+function _normalizePageNodes(nodes) {
+  for (const node of nodes || []) {
+    if (typeof node.page === 'string' && node.page.endsWith('/index.md')) {
+      node.page = node.page.slice(0, -'/index.md'.length);
+    }
+    if (node.default && node.page) _defaultPage = node.page;
+    if (Array.isArray(node.groups)) _normalizePageNodes(node.groups);
+  }
+}
+
 function buildNavFromIndex(navData) {
   const termListEl = document.getElementById('term-list');
   termListEl.innerHTML = '';
   for (const entry of navData) {
     if (entry.hidden) continue;
+    if (entry.id && entry.page) _sectionPageById.set(entry.id, entry.page);
     if (entry.file) {
       if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms', entry.id || '');
       else if (entry.file.endsWith('collections.json')) {
@@ -4207,6 +4230,7 @@ function buildStaticNavSection(termListEl, entry) {
     onOpen: () => {
       if (entry.name) setPageMeta(entry.name + ' | Argument Aloud');
       _navigateToSectionAll(entry.id);
+      restoreFromURL();
     },
   });
 
@@ -4428,24 +4452,6 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
   }
 
   showDocViewer({ href: documentUrl, title: groupName || '', view: 'pane' }, { autoScroll: false });
-}
-
-// Reset the view to its initial state: collapse all terms/collections, clear
-// the main panel, show the home page, and reset the URL to the base path.
-function resetToHome() {
-  // Collapse all open terms, decades, and collections in the nav tree.
-  document.querySelectorAll('#term-list .open').forEach(el => el.classList.remove('open'));
-  // Clear all active case selections.
-  document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
-  // Clear the topbar term label.
-  setTopbarTerm('');
-  // Show the home page in the page viewer (right pane).
-  showPageViewer('/courts/ussc/pages/home', { pushState: false });
-  // Reset the URL to the base path without any query parameters.
-  navigate(location.pathname);
-  // Close mobile nav if open.
-  if (isMobile()) setMobileNavVisible(false);
 }
 
 // Navigate the page-viewer iframe using location.replace() so that the iframe
@@ -8681,6 +8687,7 @@ async function init() {
   } catch (e) {
     console.warn('[nav] index.json fetch failed:', e);
   }
+  _normalizePageNodes(navData);
   await Promise.all(navData.map(async entry => {
     if (!entry.file) return;
     try {
@@ -8840,10 +8847,12 @@ async function restoreFromURL(fromPopstate = false) {
       const _sectionName = sLi.querySelector('.terms-label')?.textContent;
       if (_sectionName) setPageMeta(_sectionName + ' | Argument Aloud');
       requestAnimationFrame(() => sLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
-      // Unlike term=all (which has its own stats page), these sections have no
-      // dedicated landing page — show the same default page as the bare URL so
-      // the right pane isn't left blank.
-      showPageViewer('/courts/ussc/pages/home', { pushState: false });
+      // Unlike term=all (which has its own stats page), most of these sections have
+      // no dedicated landing page of their own — index.json's entry.page names one
+      // where it exists (e.g. collection=all → the collections card page); anything
+      // else falls back to the same default page shown for the bare URL (the
+      // index.json node marked "default": true).
+      showPageViewer(_sectionPageById.get(sectionId) || _defaultPage, { pushState: false });
       trackPageView(location.href);
       return;
     }
@@ -9343,7 +9352,7 @@ async function restoreFromURL(fromPopstate = false) {
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
-    showPageViewer('/courts/ussc/pages/stats/?term=all' + (fromPopstate ? '&_navback=1' : ''), { pushState: false });
+    showPageViewer('/courts/ussc/terms/?term=all' + (fromPopstate ? '&_navback=1' : ''), { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
@@ -9371,8 +9380,8 @@ async function restoreFromURL(fromPopstate = false) {
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
     }
   } else {
-    // No URL params — show the default home page.
-    showPageViewer('/courts/ussc/pages/home', { pushState: false });
+    // No URL params — show the page marked "default": true in index.json.
+    showPageViewer(_defaultPage, { pushState: false });
   }
 }
 

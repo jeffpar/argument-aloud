@@ -1,22 +1,37 @@
 [
   {
+    "id": "blog",
+    "name": "Blog",
+    "page": "/courts/ussc/blog/index.md",
+    "groups": [
+      {
+        "name": "Welcome to Argument Aloud (July 2026)",
+        "page": "/courts/ussc/blog/2026/welcome-to-argument-aloud",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "collection",
+    "name": "Collections",
+    "file": "/courts/ussc/collections.json",
+    "page": "/courts/ussc/collections/index.md"
+  },
+  {
+    "id": "topic",
+    "name": "Topics",
+    "file": "/courts/ussc/topics.json",
+    "page": "/courts/ussc/topics/index.md"
+  },
+  {
     "id": "term",
     "name": "Terms",
     "file": "/courts/ussc/terms.json"
   },
   {
-    "id": "collection",
-    "name": "Collections",
-    "file": "/courts/ussc/collections.json"
-  },
-  {
-    "id": "topic",
-    "name": "Topics",
-    "file": "/courts/ussc/topics.json"
-  },
-  {
     "id": "source",
     "name": "Sources",
+    "page": "/courts/ussc/sources/index.md",
     "groups": [
       {
         "id": "ussc",
@@ -46,7 +61,7 @@
           {
             "id": "docket",
             "name": "Docket Search",
-            "page": "/courts/ussc/sources/docket",
+            "page": "/courts/ussc/sources/docket/index.md",
             "link": "https://www.supremecourt.gov/docket/docket.aspx"
           },
           {
@@ -67,7 +82,7 @@
           {
             "id": "reports",
             "name": "U.S. Reports",
-            "page": "/courts/ussc/sources/reports",
+            "page": "/courts/ussc/sources/reports/index.md",
             "link": "https://www.supremecourt.gov/opinions/USReports.aspx"
           }
         ]
@@ -78,28 +93,28 @@
         "groups": [
           {
             "name": "U.S. Constitution",
-            "page": "/nara/constitution",
+            "page": "/nara/constitution/index.md",
             "hidden": true
           },
           {
             "name": "U.S. Supreme Court Archives",
-            "page": "/nara",
+            "page": "/nara/index.md",
             "groups": [
               {
                 "name": "Auditing and Oddities",
-                "page": "/nara/audit"
+                "page": "/nara/audit/index.md"
               },
               {
                 "name": "Black Series, October 1955 - December 1972",
-                "page": "/nara/audio/black"
+                "page": "/nara/audio/black/index.md"
               },
               {
                 "name": "Red Series, December 1972 - June 27, 2005",
-                "page": "/nara/audio/red"
+                "page": "/nara/audio/red/index.md"
               },
               {
                 "name": "Gold Series, October 3, 2005 - June 27, 2025",
-                "page": "/nara/audio/gold"
+                "page": "/nara/audio/gold/index.md"
               }
             ]
           }

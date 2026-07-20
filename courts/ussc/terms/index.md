@@ -11,7 +11,7 @@ layout: pane
 @media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
 html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
 html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
-.term-stats h1 { font-size: 1.4rem; font-weight: 700; margin: 0; border: none; padding: 0; }
+.term-stats h1 { font-size: 28px; font-weight: 700; margin: 0; border: none; padding: 0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
 #covers-row { float: right; display: flex; gap: 8px; align-items: flex-start; margin-left: 1rem; }
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
@@ -121,6 +121,7 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 
 /* Date-specific case list */
 .date-section { display: flow-root; margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0; }
+.date-section[hidden] { display: none; }
 @media (prefers-color-scheme: dark) { .date-section { border-color: #2d2f38; } }
 html[data-theme="dark"]  .date-section { border-color: #2d2f38; }
 html[data-theme="light"] .date-section { border-color: #e0e0e0; }
@@ -633,6 +634,11 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
   var date = params.get('date');
   if (!term) return;
   if (term === 'all') {
+    // Journal covers and the argued/reargued/decided date lists below only ever
+    // apply to a single term or a specific date — neither ever populates in the
+    // all-terms view, so its otherwise-empty border-bottom separator is just
+    // dead space here.
+    document.getElementById('date-section').hidden = true;
     document.getElementById('stat-term-title').textContent = 'All Terms';
     fetch('/courts/ussc/terms.json')
       .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
