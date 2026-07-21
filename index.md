@@ -85,7 +85,7 @@ layout: home
     <a class="hp-card-link" href="/courts/ussc/?link=/courts/ussc/blog/2026/welcome-to-argument-aloud" aria-label="Blog"></a>
     <div class="hp-icon">🐙</div>
     <div class="hp-card-title">Blog</div>
-    <p class="hp-card-desc">Ramblings from the Argument Aloud crew, discussing the challenges of gathering error-free data and oddities we have found along the way.</p>
+    <p class="hp-card-desc">Musings from Argument Aloud, discussing the challenges of gathering error-free data and oddities we have found along the way.</p>
   </div>
 
   <div class="hp-card">

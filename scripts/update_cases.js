@@ -1766,7 +1766,13 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         const vol    = parseInt(m[1], 10);
         const report = byVolume.get(vol);
         if (!report?.href) continue;
-        const url = report.href;
+        const roman = !/^\d+$/.test(m[2]);
+        const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
+        let url = report.href;
+        if (isFinite(page) && report.page_numbers) {
+            const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page, roman);
+            if (pdfPage != null) url += `#page=${pdfPage}`;
+        }
         if (c.decision_reports === url) continue;
         c.decision_reports = url;
         const reordered = reorderCase(c);

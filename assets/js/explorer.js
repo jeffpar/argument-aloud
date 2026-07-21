@@ -2417,28 +2417,53 @@ function hasDecisionHref(c) {
   return !!(c && (c.decision_loc || c.decision_ussc || c.decision_reports));
 }
 
-// Parse a page_numbers string ("1:19,33:34") into [{start, pdfPage}] breakpoints.
+// Convert a roman numeral string (e.g. "cxxv") to an integer, or NaN if the
+// string contains non-roman characters. Front-matter/appendix pages in some
+// early US Reports volumes are numbered with lowercase roman numerals.
+function _parseRomanNumeral(s) {
+  const vals = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
+  let total = 0, prev = 0;
+  for (const ch of s.toLowerCase().split('').reverse()) {
+    const v = vals[ch];
+    if (!v) return NaN;
+    if (v < prev) total -= v; else total += v;
+    prev = v;
+  }
+  return total > 0 ? total : NaN;
+}
+
+// Parse a page_numbers string ("1:19,33:34,vi:490") into [{start, pdfPage, roman?, startStr?}]
+// breakpoints. Roman-numeral starts (e.g. "vi:490") are tagged with roman:true and startStr.
 function _parsePnBps(pn) {
   if (!pn) return [];
   return pn.split(',').map(seg => {
     const colon = seg.indexOf(':');
     if (colon < 0) return null;
-    const start   = parseInt(seg.slice(0, colon).trim(), 10);
-    const pdfPage = parseInt(seg.slice(colon + 1).trim(), 10);
-    return (isFinite(start) && isFinite(pdfPage)) ? { start, pdfPage } : null;
-  }).filter(Boolean).sort((a, b) => a.start - b.start);
+    const startStr = seg.slice(0, colon).trim();
+    const pdfPage  = parseInt(seg.slice(colon + 1).trim(), 10);
+    if (!isFinite(pdfPage)) return null;
+    const start = parseInt(startStr, 10);
+    if (isFinite(start)) return { start, pdfPage };
+    const romanVal = _parseRomanNumeral(startStr);
+    return isFinite(romanVal) ? { start: romanVal, pdfPage, roman: true, startStr } : null;
+  }).filter(Boolean).sort((a, b) => {
+    if (!!a.roman !== !!b.roman) return a.roman ? 1 : -1;
+    return a.start - b.start;
+  });
 }
 
 // Compute the PDF page for a given US Reports logical page using the term's
 // reports[] page_numbers mapping.  Returns null if no mapping is available.
 function _reportPdfPage(usCite, termEntry) {
-  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite.trim());
+  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite.trim());
   if (!m) return null;
-  const vol  = parseInt(m[1], 10);
-  const page = parseInt(m[2], 10);
+  const vol   = parseInt(m[1], 10);
+  const roman = !/^\d+$/.test(m[2]);
+  const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
+  if (!isFinite(page)) return null;
   const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
   if (!report?.page_numbers) return null;
-  const bps = _parsePnBps(report.page_numbers);
+  const bps = _parsePnBps(report.page_numbers).filter(bp => !!bp.roman === roman);
   let match = null;
   for (const bp of bps) { if (bp.start <= page) match = bp; }
   if (!match) return null;
