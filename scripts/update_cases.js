@@ -5880,11 +5880,15 @@ function _collectTaggedLeafEntries(entries) {
 //   property op value            e.g.  argument >= '1955-10-01'
 //   property == undefined        e.g.  id == undefined  (property absent or null)
 //   property != undefined        e.g.  id != undefined  (property present)
+//   property contains 'v'        e.g.  scdb_corrections contains 'argument'
+//   !property contains 'v'       e.g.  !scdb_corrections contains 'argument'
 //   COUNT(event.prop) op value   e.g.  COUNT(event.audio_href) == 0
 //   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_href && !event.aligned
 //   COUNT(file.prop == 'v') op n e.g.  COUNT(file.type == 'mp3') > 0
 const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
 const _COND_UNDEF_RE       = /^(\w+)\s*(==|!=)\s*undefined$/;
+const _COND_PROP_CONTAINS_RE     = /^(\w+)\s+contains\s+'([^']*)'$/;
+const _COND_PROP_NOT_CONTAINS_RE = /^!(\w+)\s+contains\s+'([^']*)'$/;
 const _COND_COUNT_RE       = /^COUNT\(event\.(\w+)\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 const _COND_FILE_COUNT_RE  = /^COUNT\(file\.(\w+)\s*(==|!=)\s*'([^']*)'\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 const _COND_EV_PROP_RE     = /^event\.(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
@@ -5951,6 +5955,10 @@ function _parseCaseCondition(str) {
         const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
         return { type: 'property', prop: m[1], op: m[2], value };
     }
+    m = _COND_PROP_NOT_CONTAINS_RE.exec(s);
+    if (m) return { type: 'propContains', prop: m[1], value: m[2], negate: true };
+    m = _COND_PROP_CONTAINS_RE.exec(s);
+    if (m) return { type: 'propContains', prop: m[1], value: m[2], negate: false };
     if (s.includes('event.')) {
         const parts = s.split(/\s*&&\s*/);
         const subconditions = parts.map(_parseEventSubcondition);
@@ -6009,6 +6017,9 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
             const arr = Array.isArray(c[cond.array]) ? c[cond.array] : [];
             const count = arr.filter(item => !!item[cond.subprop]).length;
             if (!_applyCompOp(count, cond.op, cond.value)) return false;
+        } else if (cond.type === 'propContains') {
+            const has = String(c[cond.prop] ?? '').includes(cond.value);
+            if (has === cond.negate) return false;
         } else if (cond.type === 'eventMatch') {
             const events = Array.isArray(c.events) ? c.events : [];
             const matched = events.some(ev => cond.subconditions.every(sub => {
@@ -6162,19 +6173,30 @@ function _sortCaseEntriesByOrder(cases, orderSpec) {
 }
 
 // Scan allTerms for cases that satisfy requiredTags, filter, AND all conditions.
+// `conditions` is normally a flat array of parsed condition objects (AND
+// semantics, as produced by _parseCaseCondition). It may also be an array of
+// such arrays — one per OR branch — in which case a case matches if it
+// satisfies ANY branch (each branch's own conditions still AND'ed together).
+// This lets a group merge what would otherwise be several separate
+// condition-based groups (e.g. "argument date wrong OR reargument date wrong").
 function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null) {
-    const hasFileCount = conditions.some(cond =>
+    const isOrBranches = Array.isArray(conditions[0]);
+    const flatConditions = isOrBranches ? conditions.flat() : conditions;
+    const matchesConditions = (c, termDir) => isOrBranches
+        ? conditions.some(set => _matchesCaseConditions(c, set, termDir))
+        : _matchesCaseConditions(c, conditions, termDir);
+    const hasFileCount = flatConditions.some(cond =>
         cond.type === 'eventMatch' &&
         cond.subconditions.some(sub => sub.type === 'eventFileCount')
     );
     // eventMatch without fileCount (e.g. "Cases with Unaligned Audio"):
     // find the first chronological event that satisfies the match.
     const eventMatchCond = !hasFileCount
-        ? conditions.find(cond => cond.type === 'eventMatch')
+        ? flatConditions.find(cond => cond.type === 'eventMatch')
         : null;
     // count == 0 condition (e.g. "Cases Missing Audio"):
     // find the first chronological event (since none have the counted property).
-    const countZeroCond = conditions.find(cond =>
+    const countZeroCond = flatConditions.find(cond =>
         cond.type === 'count' && cond.op === '==' && cond.value === 0
     );
     const cases = [];
@@ -6191,11 +6213,11 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
                 if (!requiredTags.every(t => c.tags.includes(t))) continue;
             }
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-            if (!_matchesCaseConditions(c, conditions, termDir)) continue;
+            if (!matchesConditions(c, termDir)) continue;
             const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
             const entry = _setCaseEntry(c, term, extraByKey?.get(key));
             if (hasFileCount) {
-                const info = _findFirstEventAndTurn(c, conditions, termDir);
+                const info = _findFirstEventAndTurn(c, flatConditions, termDir);
                 if (info) {
                     entry.event = info.event;
                     entry.turn  = info.turn;
@@ -6327,7 +6349,12 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                 const groupOrder = g.order || collEntry.order || null;
                 let cases;
                 if (Array.isArray(g.conditions) && g.conditions.length) {
-                    const parsed = g.conditions.map(_parseCaseCondition).filter(Boolean);
+                    // A condition entry that is itself an array is an OR branch of
+                    // AND'ed conditions (see _casesByConditions) rather than a single
+                    // condition string.
+                    const parsed = Array.isArray(g.conditions[0])
+                        ? g.conditions.map(set => set.map(_parseCaseCondition).filter(Boolean))
+                        : g.conditions.map(_parseCaseCondition).filter(Boolean);
                     cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder);
                 } else {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder) : [];
@@ -7120,6 +7147,45 @@ function _scdbApplyOpinionUpdate(c, row) {
     return true;
 }
 
+// Build a human-readable scdb_message string describing each category
+// currently flagged in scdb_corrections, using the raw SCDB row values.
+// A category that isn't (or is no longer) present in scdb_corrections
+// contributes no message. Multiple messages are joined with '; '.
+function _scdbBuildMessage(c, row) {
+    const categories = new Set(
+        String(c.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean)
+    );
+    const messages = [];
+
+    if (categories.has('argument')) {
+        const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
+        if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
+            messages.push(`SCDB argument date (${scdbArg}) incorrect`);
+        }
+        if (String(c.argument || '').includes(',')) {
+            messages.push('SCDB argument dates incomplete');
+        }
+    }
+    if (categories.has('reargument')) {
+        const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
+        if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe)) {
+            messages.push(`SCDB reargument date (${scdbRe}) incorrect`);
+        }
+        if (String(c.reargument || '').includes(',')) {
+            messages.push('SCDB reargument dates incomplete');
+        }
+    }
+    if (categories.has('decision')) {
+        const scdbDec = _scdbNormalizeDate(row.dateDecision || '');
+        const ourDec  = _scdbNormalizeDate(c.decision || '');
+        if (scdbDec && ourDec && scdbDec !== ourDec) {
+            messages.push(`SCDB decision date (${scdbDec}) incorrect`);
+        }
+    }
+
+    return messages.join('; ');
+}
+
 // Minimal corrective updates (used when --update is set). Trusts our data for
 // date fields (records disagreement in scdb_corrections) and trusts SCDB for missing
 // votes and vote counts.
@@ -7164,6 +7230,14 @@ function _scdbApplyXUpdate(c, row, mm) {
     if (ignored.has('argument')   && _scdbStrictDateMatches(c.argument, row.dateArgument)) removeFromErrors('argument');
     if (ignored.has('reargument') && _scdbStrictDateMatches(c.reargument, row.dateRearg || row.datreRearg)) removeFromErrors('reargument');
     if (ignored.has('decision')   && _scdbStrictDateMatches(c.decision, row.dateDecision)) removeFromErrors('decision');
+
+    const newMessage = _scdbBuildMessage(c, row);
+    if (newMessage) {
+        if (c.scdb_message !== newMessage) { c.scdb_message = newMessage; changed = true; }
+    } else if (c.scdb_message !== undefined) {
+        delete c.scdb_message;
+        changed = true;
+    }
 
     const votesToApply = mm.scdbVotes || mm.missingVotes;
     if (votesToApply && votesToApply.length && !ignored.has('votes')) {

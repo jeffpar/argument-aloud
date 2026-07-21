@@ -2737,6 +2737,7 @@ function _setCaseInfoRow2(caseEntry) {
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
   _setCaseInfoRow3(caseEntry);
+  _setCaseInfoRow4(caseEntry);
 }
 
 function _voteName(allCapsName) {
@@ -2787,6 +2788,18 @@ function _setCaseInfoRow3(caseEntry) {
     }
   });
   span.appendChild(document.createTextNode(') in favor of ' + party));
+  row.hidden = false;
+}
+
+function _setCaseInfoRow4(caseEntry) {
+  const row = document.getElementById('case-info-row4');
+  const span = document.getElementById('case-scdb-message');
+  if (!caseEntry.scdb_message) {
+    span.textContent = '';
+    row.hidden = true;
+    return;
+  }
+  span.textContent = caseEntry.scdb_message;
   row.hidden = false;
 }
 
@@ -3532,14 +3545,18 @@ function _sortModeLabel(mode, count, asc = true) {
   return '';
 }
 
-// Format a YYYY-MM-DD string as "MMM DD".
+// Format a YYYY-MM-DD (or partial YYYY-MM / YYYY) string as "MMM DD".
 function _fmtMonthDay(dateStr, withYear = false) {
   if (!dateStr) return '';
   const parts = String(dateStr).split('-');
+  const y = parts[0];
+  if (!parts[1]) return withYear ? y : '';
   const mo = parseInt(parts[1], 10) - 1;
+  const monthAbbr = _SORT_MONTH_ABBR[mo] || '';
+  if (!parts[2]) return withYear ? monthAbbr + '\u00a0' + y : monthAbbr;
   const dd = parseInt(parts[2], 10);
-  const base = (_SORT_MONTH_ABBR[mo] || '') + '\u00a0' + dd;
-  return withYear ? base + ', ' + parts[0] : base;
+  const base = monthAbbr + '\u00a0' + dd;
+  return withYear ? base + ', ' + y : base;
 }
 
 // Returns the most recent argument date across both argument and reargument fields.
@@ -4999,6 +5016,7 @@ async function loadHighlight(highlight) {
   document.getElementById('case-questions').title = '';
   document.getElementById('case-info-row2').hidden = true;
   document.getElementById('case-info-row3').hidden = true;
+  document.getElementById('case-info-row4').hidden = true;
 
   // Set title (plain text — no term link needed)
   const span = document.getElementById('case-title-label');
@@ -9021,7 +9039,8 @@ async function restoreFromURL(fromPopstate = false) {
         const _groupNameText = groupLi.querySelector('.month-name')?.textContent;
         if (_groupNameText) setPageMeta(formatSpeakerFull(_groupNameText) + ' | Argument Aloud');
         trackPageView(location.href);
-        if (groupLi._groupPage && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupPage, '');
+        if (linkParam) showPageViewer(linkParam, { pushState: false });
+        else if (groupLi._groupPage && groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, groupLi._groupPage, '');
         else if (groupLi._groupPage) showPageViewer(groupLi._groupPage, { pushState: false });
         else if (groupLi._groupDocument) showAdvocateDocument(groupLi._groupDocument, null, '');
         else if (groupLi._groupLink) await _loadCaseFromGroupLink(groupLi._groupLink);

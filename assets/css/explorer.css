@@ -1149,6 +1149,17 @@ button.term-case-count.sort-active:hover {
   text-decoration-color: #4a9eff;
 }
 
+#case-info-row4 {
+  display: flex;
+  margin-top: 3px;
+}
+
+#case-scdb-message {
+  font-size: 12px;
+  font-weight: bold;
+  color: #c0392b;
+}
+
 /* Favorite + Tags are grouped into one atomic flex item so a narrow layout
    never wraps them apart from each other — the date spans wrap individually
    instead, as needed, since they aren't part of this group. */
@@ -2395,8 +2406,11 @@ button.term-case-count.sort-active:hover {
   /* 4th: vote line */
   #case-info-row3    { order: 4; flex-basis: 100%; }
 
-  /* 5th: questions */
-  #case-questions    { order: 5; flex-basis: 100%; }
+  /* 5th: SCDB discrepancy message */
+  #case-info-row4    { order: 5; flex-basis: 100%; }
+
+  /* 6th: questions */
+  #case-questions    { order: 6; flex-basis: 100%; }
 
   #mobile-back-btn {
     display: block;
@@ -2563,6 +2577,8 @@ button.term-case-count.sort-active:hover {
 
   #case-vote a       { color: #5eaee0; }
   #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+
+  #case-scdb-message { color: #ff6b6b; }
 
   #case-cite        { color: #5eaee0; }
   #case-cite:hover  { color: #7bc8f0; }
@@ -2872,6 +2888,7 @@ html[data-theme="dark"] #case-argued .date-link, html[data-theme="dark"] #case-r
 html[data-theme="dark"] #case-argued .date-link:hover, html[data-theme="dark"] #case-reargued .date-link:hover, html[data-theme="dark"] #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
 html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+html[data-theme="dark"] #case-scdb-message { color: #ff6b6b; }
 html[data-theme="dark"] #case-cite        { color: #5eaee0; }
 html[data-theme="dark"] #case-cite:hover  { color: #7bc8f0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }
