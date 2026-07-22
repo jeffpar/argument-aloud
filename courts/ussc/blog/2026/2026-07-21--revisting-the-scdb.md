@@ -9,23 +9,35 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which we used to help build this hub. It is simultaneously both a great resource and an occasional source of frustration, as we shall see.
+This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both a invaluable resource and an occasional source of frustration, as discussed below.
+
+Note that as of this post, this site is using version "2025 Release 01" of the Modern Database (released September 1, 2025). which covers terms 1946 through 2024, and version "SCDB Legacy 07" of the Legacy Database (released October 1, 2021), which covers terms 1791 through 1945.
+
+Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
+
+> Harold J. Spaeth, Lee Epstein, Michael J. Nelson, Andrew D. Martin, Jeffrey A. Segal, Theodore J. Ruger, and Sara C. Benesh. 2024. Supreme Court Database, Versions 2025 Release 01 and Legacy 07.  https://scdb.psu.edu
+
+It's also worth noting that, in 2024, the database's home [moved](https://www.psu.edu/news/liberal-arts/story/us-supreme-court-database-now-housed-penn-state-department-political-science) to [Penn State College of Liberal Arts](https://scdb.la.psu.edu).  While the new site looks great, it does lack some of the features of the previous [Washington University Law](http://scdb.wustl.edu/index.php) site, like the [Analysis](http://scdb.wustl.edu/analysis.php) page, and in the two years since the move, nothing much has changed -- except of course the 2025 database release.
+
+It's also strange that the previous site still appears to make no mention of the database's move, and it continues to update its releases to match those at Penn State.
+
+What's also unclear is the future of the `supremecourtdatabase.org` domain, which was WashU's preferred database citation site.  More than 30 years after the introduction of the "world-wide web," we must still suffer the detritus of broken links.
 
 ## Dates of Argument, Reargument, and Decision
 
-Under Collections, there's a group named [Outstanding Issues](/courts/ussc/?collection=issues&link=/courts/ussc/blog/2026/revisiting-the-scdb/), and in there, you'll find a number of other interesting groups, but the one we're going to focus on first is named [Cases with Incorrect SCDB Dates](/courts/ussc/?collection=issues&group=8&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
+On this site, under Collections, you'll find a group named [Outstanding Issues](/courts/ussc/?collection=issues&link=/courts/ussc/blog/2026/revisiting-the-scdb/), and in there, you'll find a number of other interesting groups, but the one we're going to focus on first is named [Cases with Incorrect SCDB Dates](/courts/ussc/?collection=issues&group=8&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research (see "DATES OF SUPREME COURT DECISIONS AND ARGUMENTS", described [here](/courts/ussc/?source=ussc&group=9)), any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
-SCDB claims that it too is relying on that data; regarding *dateDecision*, it says:
+SCDB claims that it, too, is relying on that data; regarding *dateDecision*, it says:
 
 > This variable contains the year, month, and day that the Court announced its decision in the case. For volumes 2-107 of the U.S. Reports (1791-1882), we relied on Dates of Supreme Court Decisions and Arguments, prepared by Anne Ashmore of the Library of the Supreme Court, because many early reporters do not list the date of decision.
 
-And yet, inexplicably, SCDB set *dateDecision* to March 15, 1822 instead of 1821. So either this was a typo or someone decided they found a better source, but nowhere is there any notation, neither in the case record nor anywhere else on the website, of what this better source might have been.
+And yet, inexplicably, SCDB set *dateDecision* to March 15, 1822 instead of 1821. So either this was a typo or someone concluded they had found a better source, but nowhere is there any notation, either in the case record or anywhere else on the website, of what this better source might have been.
 
-If you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) on our website, you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822", which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
+If you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) on our website, you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822," which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
 
 > This cause was argued and determined at the last term, but omitted to be reported.
 
@@ -324,7 +336,9 @@ Another interpretation is that SCDB, relying on some other (unspecified) primary
 
 And we have *no idea* which is the correct answer.  It's also quite likely that, at this moment, no one working on SCDB knows the correct answer, either.
 
-Some years ago, one of the SCDB principals, Andrew Martin, told me that detailed differentials, change logs, etc, don't matter, because end-users "can perform the differentials just as well as we can."  That is absolutely true, and also absolutely beside the point, because it isn't just the "differentials" we care about, but also *where* the new data came from.  Without any explanation to accompany the growing number of corrections that are being made over time, the database becomes increasingly impossible to validate, because the sources of the underlying data, as well as any changes made to that data and the reasons for those changes, are kept private -- if they are kept at all.
+Some years ago, one of the SCDB principals, Andrew Martin, told me that detailed differentials, change logs, etc, don't matter, because end-users "can perform the differentials just as well as we can."  That is absolutely true, and also absolutely beside the point, because it isn't just the "differentials" we care about, but also *where* the new data came from.  Without that, we run the risk of future researchers continually tripping over previously discredited bits of data (e.g., dates in U.S. Reports that turned out to be typos).
+
+Without any explanation to accompany the growing number of corrections that are being made over time, the database becomes increasingly impossible to validate, because the sources of the underlying data, as well as any changes made to that data and the reasons for those changes, are kept private -- if they are kept at all.
 
 ## Epilogue
 
@@ -340,7 +354,7 @@ Or, SCDB can quietly extract whatever it wants here, without telling me or anyon
 
 ### Citing to the SCDB
 
-Since we use the SCDB, we shall cite it.  In fact, we shall go one step better, and *recite* their [instructions](http://supremecourtdatabase.org/documentation.php?var=cite) on how one should cite it:
+Since we use the SCDB, we shall cite it.  In fact, we shall go one step better, and *recite* their [instructions](http://scdb.wustl.edu/documentation.php?var=cite) on how one should cite it:
 
 > To cite to the Supreme Court Database, please employ either of the following:
 
@@ -351,10 +365,7 @@ Since we use the SCDB, we shall cite it.  In fact, we shall go one step better, 
     Harold J. Spaeth, Lee Epstein, et al. 2018 Supreme Court Database,
     Version 2018 Release 2. URL: http://Supremecourtdatabase.org 
 
-> Please be sure to include the specific Version Number; e.g., 'Version 2018 Release 02' in your citation
-as this will indicate the particular version of the database being employed at the time of your reference.
-This matter is of great importance as the database will be updated with newly announced decisions,
-corrections, and the addition of new data for existing cases.
+> Please be sure to include the specific Version Number; e.g., 'Version 2018 Release 02' in your citation as this will indicate the particular version of the database being employed at the time of your reference. This matter is of great importance as the database will be updated with newly announced decisions, corrections, and the addition of new data for existing cases.
 
 Note that indicating which release you are using is a matter "*of great importance*".
     

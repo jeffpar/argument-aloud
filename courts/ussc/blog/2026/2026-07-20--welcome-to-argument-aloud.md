@@ -19,11 +19,11 @@ We also want to improve how all the pieces of information associated with a case
 
 That example barely scratches the surface of what is possible, but hopefully it gives you some sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
-The entire site is currently comprised of three open-source repositories, which are published together to provide a unified browsing experience that requires no database or search engine on the backend.
+The entire site is currently comprised of three open-source repositories, which are published together to provide a unified browsing experience that requires no backend database or search engine.
 
   - [U.S. Supreme Court Arguments](https://github.com/jeffpar/argument-aloud)
-  - [U.S. Supreme Court Data](https://github.com/jeffpar/argument-apart)
-  - [U.S. Supreme Court Opinions](https://github.com/jeffpar/argument-aloft)
+  - [U.S. Supreme Court Indexes](https://github.com/jeffpar/argument-aloud-index)
+  - [U.S. Supreme Court Opinions](https://github.com/jeffpar/argument-aloud-xml)
 
 Thoughts, suggestions, or other inquiries can be sent to [admin@argumentaloud.org](mailto:admin@argumentaloud.org).
 

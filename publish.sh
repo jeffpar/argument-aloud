@@ -19,12 +19,12 @@ if [ -n "$1" ]; then
     popd
   }
   sync_to_website "argument-aloud"
-  sync_to_website "argument-aloft"
-  sync_to_website "argument-apart"
+  sync_to_website "argument-aloud-xml"
+  sync_to_website "argument-aloud-index"
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-apart/courts/ussc/indexes/
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloft/courts/ussc/opinions/xml/
-  rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloft/assets/xsl/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
+  rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 fi
