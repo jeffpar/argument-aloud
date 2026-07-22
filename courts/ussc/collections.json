@@ -309,15 +309,15 @@
         "name": "Cases with Incorrect SCDB Dates",
         "conditions": [
           [
-            "scdb_corrections contains 'argument'",
+            "scdb_check contains 'argument'",
             "!argument contains ','"
           ],
           [
-            "scdb_corrections contains 'reargument'",
+            "scdb_check contains 'reargument'",
             "!reargument contains ','"
           ],
           [
-            "scdb_corrections contains 'decision'"
+            "scdb_check contains 'decision'"
           ]
         ],
         "order": "decision:ascending,titles:ascending"
@@ -325,10 +325,10 @@
       {
         "name": "Cases with Other Incorrect SCDB Data",
         "conditions": [
-          "scdb_corrections != undefined",
-          "!scdb_corrections contains 'argument'",
-          "!scdb_corrections contains 'reargument'",
-          "!scdb_corrections contains 'decision'"
+          "scdb_check != undefined",
+          "!scdb_check contains 'argument'",
+          "!scdb_check contains 'reargument'",
+          "!scdb_check contains 'decision'"
         ],
         "order": "decision:ascending,titles:ascending"
       }

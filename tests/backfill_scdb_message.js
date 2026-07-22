@@ -1,5 +1,5 @@
 // One-off backfill: populate scdb_message on every case that already has
-// scdb_corrections set, using the cached SCDB table (scdb/cache/scdb.json).
+// scdb_check set, using the cached SCDB table (scdb/cache/scdb.json).
 // Mirrors _scdbBuildMessage()/_scdbApplyXUpdate()'s message logic in
 // scripts/update_cases.js exactly, but touches ONLY the scdb_message field —
 // it does not re-run vote/usCite/etc. reconciliation.
@@ -37,7 +37,7 @@ function _scdbContainsDate(ourValue, scdbDate) {
 
 function _scdbBuildMessage(c, row) {
     const categories = new Set(
-        String(c.scdb_corrections || '').split(',').map(s => s.trim()).filter(Boolean)
+        String(c.scdb_check || '').split(',').map(s => s.trim()).filter(Boolean)
     );
     const messages = [];
 
@@ -83,7 +83,7 @@ for (const term of fs.readdirSync(TERMS_DIR)) {
 
     let fileChanged = false;
     for (const c of cases) {
-        if (!c.scdb_corrections) continue;
+        if (!c.scdb_check) continue;
         const row = scdb[c.id];
         if (!row) { noRow++; continue; }
 
@@ -111,4 +111,4 @@ for (const term of fs.readdirSync(TERMS_DIR)) {
 }
 
 console.log(`Updated ${casesChanged} case(s) across ${filesChanged} file(s).`);
-if (noRow) console.log(`${noRow} case(s) with scdb_corrections had no matching SCDB cache row (skipped).`);
+if (noRow) console.log(`${noRow} case(s) with scdb_check had no matching SCDB cache row (skipped).`);
