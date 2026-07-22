@@ -3567,6 +3567,18 @@ function _lastArgDate(c) {
   return dates.length ? dates.reduce((a, b) => a > b ? a : b) : '';
 }
 
+// Returns the earliest argument date across both argument and reargument
+// fields — e.g. for an advocate/justice's own case entry (update_advocates.js
+// scopes argument/reargument to just the dates *that person* appeared in),
+// this is the first day they argued, which is what a per-case list row
+// should display rather than _lastArgDate's most-recent-day sort key.
+function _firstArgDate(c) {
+  const dates = [];
+  if (c.argument)   String(c.argument).split(',').forEach(d => { if (d.trim()) dates.push(d.trim()); });
+  if (c.reargument) String(c.reargument).split(',').forEach(d => { if (d.trim()) dates.push(d.trim()); });
+  return dates.length ? dates.reduce((a, b) => a < b ? a : b) : '';
+}
+
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
@@ -5106,7 +5118,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     ),
   });
 
-  ci.dataset.argued  = _lastArgDate(caseRef);
+  ci.dataset.argued  = _firstArgDate(caseRef);
   ci.dataset.decided = caseRef.decision || '';
   if (caseRef.vocal) ci.dataset.vocal = caseRef.vocal;
   const _sortLabel = document.createElement('span');

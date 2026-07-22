@@ -1,8 +1,8 @@
 ---
 title: Robert Jackson
 layout: pane
-case_count: 30
-last_argument: May 1, 1939
+case_count: 37
+last_argument: April 10, 1941
 ---
 
 # {{ page.title }}

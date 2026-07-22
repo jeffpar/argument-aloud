@@ -2,13 +2,13 @@
 title: Justice Stanley Reed
 layout: pane
 justice_id: stanley_reed
-wikipedia_url: https://en.wikipedia.org/wiki/Stanley_Reed
+wikipedia_url: https://en.wikipedia.org/wiki/Stanley_Forman_Reed
 years_served: 19.1
 days_served: "6,966"
 opinions: 235
 lone_dissents: 16
 vocal_secs: 11684
-case_count: 23
+case_count: 21
 first_argument: January 9, 1935
 last_argument: December 17, 1937
 ---
