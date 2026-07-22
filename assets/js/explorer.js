@@ -8751,6 +8751,14 @@ async function init() {
         COLLECTIONS = data;
       } else if (entry.file.endsWith('topics.json')) {
         TOPICS = data;
+      } else if (entry.file.endsWith('blog/posts.json')) {
+        // Jekyll-generated from each post's own front matter (see
+        // courts/ussc/blog/posts.json) — no hand-maintained list to keep in
+        // sync. Swap in as a plain static groups section (buildStaticNavSection)
+        // by clearing .file, same shape the old hardcoded array used.
+        entry.groups = data;
+        delete entry.file;
+        _normalizePageNodes(entry.groups);
       }
     } catch (e) {
       console.warn('[nav] failed to load', entry.file, e);

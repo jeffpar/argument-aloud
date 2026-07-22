@@ -23,7 +23,7 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 # Blog
 
 {%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" | reverse %}
-{%- assign blog_posts = blog_posts | slice: 0, 20 %}
+{%- assign blog_posts = blog_posts | slice: 0, 20 | reverse %}
 
 <div class="blog-list">
 {%- for post in blog_posts %}

@@ -3,6 +3,7 @@ layout: pane
 title: "Welcome to Argument Aloud"
 date: 2026-07-20
 permalink: /courts/ussc/blog/2026/welcome-to-argument-aloud/
+default: true
 ---
 
 # Welcome to Argument Aloud

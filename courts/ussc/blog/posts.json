@@ -1,0 +1,12 @@
+---
+---
+[
+{%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" -%}
+{%- for post in blog_posts -%}
+  {%- assign blog_url_len = post.url.size | minus: 1 -%}
+  {%- assign blog_page = post.url | slice: 0, blog_url_len -%}
+  {%- assign blog_month_year = post.date | date: "%B %Y" -%}
+  {%- assign blog_name = post.title | append: " (" | append: blog_month_year | append: ")" -%}
+  {"name": {{ blog_name | jsonify }}, "page": {{ blog_page | jsonify }}{% if post.default %}, "default": true{% endif %}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]

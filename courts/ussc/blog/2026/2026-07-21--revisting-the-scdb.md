@@ -11,17 +11,11 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both a invaluable resource and an occasional source of frustration, as discussed below.
 
-Note that as of this post, this site is using version "2025 Release 01" of the Modern Database (released September 1, 2025). which covers terms 1946 through 2024, and version "SCDB Legacy 07" of the Legacy Database (released October 1, 2021), which covers terms 1791 through 1945.
-
-Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
+Note that as of this post, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database.  Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
 
 > Harold J. Spaeth, Lee Epstein, Michael J. Nelson, Andrew D. Martin, Jeffrey A. Segal, Theodore J. Ruger, and Sara C. Benesh. 2024. Supreme Court Database, Versions 2025 Release 01 and Legacy 07.  https://scdb.psu.edu
 
-It's also worth noting that, in 2024, the database's home [moved](https://www.psu.edu/news/liberal-arts/story/us-supreme-court-database-now-housed-penn-state-department-political-science) to [Penn State College of Liberal Arts](https://scdb.la.psu.edu).  While the new site looks great, it does lack some of the features of the previous [Washington University Law](http://scdb.wustl.edu/index.php) site, like the [Analysis](http://scdb.wustl.edu/analysis.php) page, and in the two years since the move, nothing much has changed -- except of course the 2025 database release.
-
-It's also strange that the previous site still appears to make no mention of the database's move, and it continues to update its releases to match those at Penn State.
-
-What's also unclear is the future of the `supremecourtdatabase.org` domain, which was WashU's preferred database citation site.  More than 30 years after the introduction of the "world-wide web," we must still suffer the detritus of broken links.
+It's also worth noting that, in 2024, the database's home [moved](https://www.psu.edu/news/liberal-arts/story/us-supreme-court-database-now-housed-penn-state-department-political-science) to [Penn State College of Liberal Arts](https://scdb.la.psu.edu).  While the new site looks great, it does lack some of the features of the previous [Washington University Law](http://scdb.wustl.edu/index.php) site, like the [Analysis](http://scdb.wustl.edu/analysis.php) page, and in the two years since the move, nothing much has changed -- except of course the 2025 database release.  It's also strange that the previous site continues to update its releases to match those at Penn State, while making no mention of the database's move, nor any indication of what might happen to the  **supremecourtdatabase.org** domain.
 
 ## Dates of Argument, Reargument, and Decision
 
@@ -29,7 +23,9 @@ On this site, under Collections, you'll find a group named [Outstanding Issues](
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.
+
+For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
 SCDB claims that it, too, is relying on that data; regarding *dateDecision*, it says:
 
@@ -41,7 +37,7 @@ If you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&t
 
 > This cause was argued and determined at the last term, but omitted to be reported.
 
-And so it goes.  And so it has been going, long before I last grumbled about these issues back in 2019....
+And so it goes.
 
 ---
 
