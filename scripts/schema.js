@@ -20,7 +20,7 @@ export const CASE_KEY_ORDER = [
     'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_check', 'scdb_message',
-    'note',
+    'note', 'audit_message',
 ];
 
 export const EVENT_KEY_ORDER = [

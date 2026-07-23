@@ -1675,6 +1675,26 @@ async function _fetchNumberIndex() {
   return _numberIndexPromise;
 }
 
+let _citationIndex = null;
+let _citationIndexPromise = null;
+
+async function _fetchCitationIndex() {
+  if (_citationIndex) return _citationIndex;
+  if (_citationIndexPromise) return _citationIndexPromise;
+  _citationIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/citations.json')
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}))
+    .then(d => { _citationIndex = d; return d; });
+  return _citationIndexPromise;
+}
+
+// Lowercase, strip periods, collapse whitespace — matches _normalizeUsCite in
+// scripts/update_cases.js so "387 U.S. 397" and "387 US 397" both resolve to
+// the same citations.json key ("387 us 397").
+function _normalizeUsCite(s) {
+  return String(s || '').toLowerCase().replace(/\./g, '').replace(/\s+/g, ' ').trim();
+}
+
 let _justiceNidData = null;
 let _justiceNidPromise = null;
 
@@ -2792,14 +2812,19 @@ function _setCaseInfoRow3(caseEntry) {
 }
 
 function _setCaseInfoRow4(caseEntry) {
-  const row = document.getElementById('case-info-row4');
-  const span = document.getElementById('case-scdb-message');
-  if (!caseEntry.scdb_message) {
-    span.textContent = '';
+  const row       = document.getElementById('case-info-row4');
+  const scdbSpan  = document.getElementById('case-scdb-message');
+  const auditSpan = document.getElementById('case-audit-message');
+  const sep       = document.getElementById('case-message-sep');
+  const scdbMsg  = caseEntry.scdb_message  || '';
+  const auditMsg = caseEntry.audit_message || '';
+  scdbSpan.textContent  = scdbMsg;
+  auditSpan.textContent = auditMsg;
+  sep.hidden = !(scdbMsg && auditMsg);
+  if (!scdbMsg && !auditMsg) {
     row.hidden = true;
     return;
   }
-  span.textContent = caseEntry.scdb_message;
   row.hidden = false;
 }
 
@@ -8279,27 +8304,11 @@ let _navSearchActivate = null;
       }
     }
 
-    // Number mode: query starts with '#' followed by a docket number.
-    // Examples: "#24-1260", "#22-Orig", "#22 orig", "#100".
-    // Normalisation mirrors processNumberIndex in update_cases.js: lowercase and
-    // replace a hyphen immediately before "orig"/"misc" with a space.
-    const numberMode = !keywordMode && q.startsWith('#');
-    if (numberMode) {
-      const numIndex = await _fetchNumberIndex();
-      const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
-      // Purely numeric queries (e.g. "#2") must match a whole docket number
-      // exactly -- otherwise "#2" would substring-match "22-1260", "1972-161",
-      // etc. Non-numeric patterns like "orig"/"misc" still substring-match so
-      // "#orig" finds any Orig case number.
-      const numericQuery = normQ !== '' && !/[a-z]/i.test(normQ);
-      let refs = [];
-      if (normQ) {
-        const seen = new Set();
-        for (const [key, val] of Object.entries(numIndex)) {
-          const isMatch = numericQuery ? key === normQ : key.includes(normQ);
-          if (isMatch) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
-        }
-      }
+    // Renders a flat list of "term/id-or-number" (or shortened "id") ref
+    // strings — shared by number mode and citation mode below, both of which
+    // resolve straight to a flat ref list rather than the token-intersection
+    // logic used for title/keyword search.
+    async function renderRefResults(refs) {
       const activeTerm = new URLSearchParams(location.search).get('term');
       const termFilter = (activeTerm && activeTerm !== 'all') ? activeTerm : null;
       const byTerm = new Map();
@@ -8373,6 +8382,52 @@ let _navSearchActivate = null;
         }
       }
       resultsEl.hidden = false;
+    }
+
+    // Number mode: query starts with '#' followed by a docket number.
+    // Examples: "#24-1260", "#22-Orig", "#22 orig", "#100".
+    // Normalisation mirrors processNumberIndex in update_cases.js: lowercase and
+    // replace a hyphen immediately before "orig"/"misc" with a space.
+    const numberMode = !keywordMode && q.startsWith('#');
+    if (numberMode) {
+      const numIndex = await _fetchNumberIndex();
+      const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
+      // Purely numeric queries (e.g. "#2") must match a whole docket number
+      // exactly -- otherwise "#2" would substring-match "22-1260", "1972-161",
+      // etc. Non-numeric patterns like "orig"/"misc" still substring-match so
+      // "#orig" finds any Orig case number.
+      const numericQuery = normQ !== '' && !/[a-z]/i.test(normQ);
+      let refs = [];
+      if (normQ) {
+        const seen = new Set();
+        for (const [key, val] of Object.entries(numIndex)) {
+          const isMatch = numericQuery ? key === normQ : key.includes(normQ);
+          if (isMatch) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
+        }
+      }
+      await renderRefResults(refs);
+      return;
+    }
+
+    // Citation mode: query looks like a U.S. Reports citation, e.g.
+    // "387 U.S. 397" or the more succinct "387 US 397". Triggers as soon as
+    // the leading volume number is followed by "U.S."/"US" and at least one
+    // digit or roman-numeral page character, so results appear while the
+    // citation is still being typed (rather than waiting for it to be
+    // complete) — until then, the query keeps matching against the title
+    // index below, which is harmless since it won't find anything either.
+    const citationMode = !keywordMode && /^\d+\s*u\.?s\.?\s+[0-9ivxlcdm]/i.test(q);
+    if (citationMode) {
+      const citeIndex = await _fetchCitationIndex();
+      const normQ = _normalizeUsCite(q);
+      let refs = [];
+      if (normQ) {
+        const seen = new Set();
+        for (const [key, val] of Object.entries(citeIndex)) {
+          if (key.startsWith(normQ)) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
+        }
+      }
+      await renderRefResults(refs);
       return;
     }
 

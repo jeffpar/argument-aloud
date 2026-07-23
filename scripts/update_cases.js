@@ -6558,6 +6558,66 @@ function processNumberIndex(allTerms, dryRun) {
     }
 }
 
+// Lowercase, strip periods, collapse whitespace — so "384 U.S. 436" and the
+// more succinct "384 US 436" both resolve to the same index key ("384 us
+// 436"). Mirrors the normalization the Terms search box applies to a partial
+// citation query (assets/js/explorer.js) so index keys and queries agree.
+function _normalizeUsCite(s) {
+    return String(s || '').toLowerCase().replace(/\./g, '').replace(/\s+/g, ' ').trim();
+}
+
+// Builds courts/ussc/indexes/cases/citations.json.
+// Maps each case's normalized `usCite` to a sorted array of ref strings, using
+// the same shortened-ref convention as processTitleIndex/processNumberIndex.
+// A citation is occasionally shared by more than one case, hence the array
+// value. File is written compact (no indentation).
+
+function processCitationIndex(allTerms, dryRun) {
+    const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'citations.json');
+
+    // normalized usCite → Set of ref strings
+    const citeRefs = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const termYYYY = term.slice(0, 4);
+        const isOctoberTerm = term.endsWith('-10');
+
+        for (const c of cases) {
+            const key = _normalizeUsCite(c.usCite);
+            if (!key || (!c.id && !c.number)) continue;
+            const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
+            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+            if (!citeRefs.has(key)) citeRefs.set(key, new Set());
+            citeRefs.get(key).add(ref);
+        }
+    }
+
+    // Sort by frequency descending, then alphabetically.
+    const sorted = Object.fromEntries(
+        [...citeRefs.entries()]
+            .sort(([a, ra], [b, rb]) => rb.size - ra.size || a.localeCompare(b))
+            .map(([key, refs]) => [key, [...refs].sort()])
+    );
+
+    const content = JSON.stringify(sorted);
+    if (dryRun) {
+        if (_VERBOSE) console.log(`  [dry-run] would write courts/ussc/indexes/cases/citations.json`);
+    } else {
+        let changed = true;
+        try { changed = fs.readFileSync(OUT_FILE, 'utf8') !== content; } catch { /* new file */ }
+        if (changed) {
+            fs.writeFileSync(OUT_FILE, content, 'utf8');
+            console.log(`Citation index: wrote courts/ussc/indexes/cases/citations.json`);
+        }
+    }
+}
+
 // Words excluded from the keyword (transcript) index.
 // The 3-char minimum enforced during tokenisation already drops single-letter
 // words and two-letter words (a, an, as, at, be, by, do, go, he, if, in, is,
@@ -11886,6 +11946,7 @@ async function runAddCase(term, title, argv, dryRun) {
     } catch {}
     processTitleIndex(allTerms, false);
     processNumberIndex(allTerms, false);
+    processCitationIndex(allTerms, false);
 
     // Sync case counts in terms.json.
     syncTermsJson();
@@ -13251,7 +13312,7 @@ async function main() {
         return;
     }
 
-    if (flags.has('--keyword-index') || flags.has('--title-index') || flags.has('--number-index')) {
+    if (flags.has('--keyword-index') || flags.has('--title-index') || flags.has('--number-index') || flags.has('--citation-index')) {
         let allTerms = [];
         try {
             const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
@@ -13261,9 +13322,10 @@ async function main() {
                 return m ? m[1] : null;
             })).filter(Boolean);
         } catch {}
-        if (flags.has('--title-index'))   processTitleIndex(allTerms, false);
-        if (flags.has('--number-index'))  processNumberIndex(allTerms, false);
-        if (flags.has('--keyword-index')) processKeywordIndex(allTerms, false);
+        if (flags.has('--title-index'))    processTitleIndex(allTerms, false);
+        if (flags.has('--number-index'))   processNumberIndex(allTerms, false);
+        if (flags.has('--citation-index')) processCitationIndex(allTerms, false);
+        if (flags.has('--keyword-index'))  processKeywordIndex(allTerms, false);
         return;
     }
 
@@ -13364,6 +13426,7 @@ async function main() {
         processCollectionSets(allTerms, false);
         processTitleIndex(allTerms, false);
         processNumberIndex(allTerms, false);
+        processCitationIndex(allTerms, false);
         processKeywordIndex(allTerms, false);
         await runDissentCheck(null);
         // Advocate index rebuild (final phase).

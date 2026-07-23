@@ -9,7 +9,7 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both a invaluable resource and an occasional source of frustration, as discussed below.
+This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as discussed below.
 
 Note that as of this post, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database.  Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
 
@@ -23,21 +23,21 @@ On this site, under Collections, you'll find a group named [Outstanding Issues](
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
-For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
-
-SCDB claims that it, too, is relying on that data; regarding *dateDecision*, it says:
+SCDB claims that it, too, is relying on the Court's research; regarding *dateDecision*, it says:
 
 > This variable contains the year, month, and day that the Court announced its decision in the case. For volumes 2-107 of the U.S. Reports (1791-1882), we relied on Dates of Supreme Court Decisions and Arguments, prepared by Anne Ashmore of the Library of the Supreme Court, because many early reporters do not list the date of decision.
 
-And yet, inexplicably, SCDB set *dateDecision* to March 15, 1822 instead of 1821. So either this was a typo or someone concluded they had found a better source, but nowhere is there any notation, either in the case record or anywhere else on the website, of what this better source might have been.
+And yet, SCDB set *dateDecision* to March 15, 1822 instead of 1821. Since this type of deviation occurs repeatedly, it seems less likely a simple "typo" and more likely that someone concluded they had a better source of information.  But nowhere is there any notation, either in the case record or anywhere else on the website, of what this better source might have been.
 
-If you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) on our website, you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822," which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
+Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a), you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822," which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
 
 > This cause was argued and determined at the last term, but omitted to be reported.
 
 And so it goes.
+
+NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear that the data on *this* site is certainly not error-free either.  My concern is less about errors and more about transparency and having a process for reporting errors, recording corrections, and citing the correct sources -- something that even this project does not do consistently.  But, if you look at a case like [Green v. United States](/courts/ussc/?term=1957-10&case=46), where our data intentionally differs from U.S. Reports, at least there is an explanation.  And with such a prestigious team maintaining The U.S. Supreme Court Database, it feels like they can and should be aiming higher.
 
 ---
 
@@ -45,9 +45,9 @@ And so it goes.
 
 *Originally posted on February 18, 2019 on [lonedissent.org](https://lonedissent.org/blog/2019/02/18/) and reproduced below with some minor changes and link updates*
 
-The [Supreme Court Database](http://scdb.wustl.edu/index.php), aka SCDB[*](#citing-to-the-scdb), is a enormously valuable resource.  Other [sites](https://www.courtlistener.com/coverage/) have even referred to it as "the gold standard for high-quality legal information." It owes much of its reputation to Harold Spaeth, a political science professor who created "[The Original U.S. Supreme Court Judicial Database (nickname: ALLCOURT)](http://artsandsciences.sc.edu/poli/juri/sct.htm)" decades ago, and worked with the SCDB folks to help produce the modern version. Sadly, Harold passed away in 2017.
+The [Supreme Court Database](http://scdb.wustl.edu/index.php), aka SCDB[*](#citing-to-the-scdb), is an enormously valuable resource.  Other [sites](https://www.courtlistener.com/coverage/) have even referred to it as "the gold standard for high-quality legal information." It owes much of its reputation to Harold Spaeth, a political science professor who created "[The Original U.S. Supreme Court Judicial Database (nickname: ALLCOURT)](http://artsandsciences.sc.edu/poli/juri/sct.htm)" decades ago, and worked with the SCDB folks to help produce the modern version. Sadly, Harold passed away in 2017.
 
-So, regarding the SCDB: does it really meet the gold standard?  I would certainly concede bronze or silver status perhaps, but not gold.  And this is not because I think there's another, better, or more deserving database out there.  I simply feel that the **Gold Standard** should be reserved for a database that is not only without peer, but is also well-designed, well-maintained, rigorously audited, and open-source, embracing transparency and community participation, and continuing to evolve to solve old problems and new challenges.  At the moment, SCDB has lots of room for improvement.
+So, regarding the SCDB: does it really meet the gold standard?  I would certainly concede bronze or silver status perhaps, but not gold.  And this is not because I think there's another, better, or more deserving database out there.  I simply feel that **Gold Standard** should be reserved for a database that is not only without peer, but is also well-designed, well-maintained, rigorously audited, and open-source, embracing transparency and community participation, and continuing to evolve to solve old problems and new challenges.  At the moment, SCDB has lots of room for improvement.
 
 ## Let Me Count The Ways
 
