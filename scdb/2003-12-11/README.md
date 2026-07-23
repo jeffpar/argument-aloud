@@ -9,7 +9,7 @@
   - [SAS File](allcourt/sctsas.zip) (formatted as a SAS transport file)
   - [ASCII File](allcourt/sctasc.zip) (formatted as a fixed ASCII dat file)
   - [Documentation](allcourt/sctcode.pdf) (in pdf format; updated November 25, 2003)
-  - [Documentation](allcourt/sctcode.doc) (in Word format; updated September 25, 2003) NEW
+  - Documentation (in Word format; updated September 25, 2003) NEW
   - "[Becoming an Intelligent User of the Spaeth Databases.](allcourt/benesh_handout.pdf)" Presented by Sara C. Benesh at the 2002 Southwestern Political Science Association Meeting
 
 ## Vinson-Warren Court Database (1946-1968 Terms) Updated: September 25, 2002
