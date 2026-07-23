@@ -1,6 +1,6 @@
 ---
-layout: pane
 title: "Revisiting The Supreme Court Database"
+layout: pane
 date: 2026-07-21
 permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 ---

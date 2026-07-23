@@ -1,3 +1,8 @@
+---
+title: Spaeth Databases circa 2003
+layout: pane
+---
+
 # [U.S. Supreme Court Databases](https://web.archive.org/web/20040211013007/http://polisci.msu.edu/pljp/sctdata1.html)
 
 *Part of [The Program for Law and Judicial Politics](img/img0.gif), sponsored by Michigan State University Department of Political Science*

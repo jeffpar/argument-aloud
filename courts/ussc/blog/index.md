@@ -1,6 +1,6 @@
 ---
-layout: pane
 title: "Blog"
+layout: pane
 ---
 
 <style>

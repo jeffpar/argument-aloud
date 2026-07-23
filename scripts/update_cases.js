@@ -3204,9 +3204,10 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 // ═════════════════════════════════
 //
 // For each SCDB download named in config.json under "scdb" (modern/legacy),
-// reads the corresponding CSV in scdb/, converts MM/DD/YYYY date values to
-// YYYY-MM-DD, removes unused columns, and writes <key>.csv (e.g. modern.csv /
-// legacy.csv). The original SCDB_*.csv file is deleted on success.
+// reads the corresponding raw CSV from scdb/, converts MM/DD/YYYY date values
+// to YYYY-MM-DD, removes unused columns, and writes <key>.csv (e.g.
+// modern.csv / legacy.csv) into scdb/current/. The original SCDB_*.csv file
+// is deleted on success.
 
 const _SCDB_DROP_COLS = new Set([
     'sctCite', 'ledCite', 'lexisCite', 'docketId', 'caseIssuesId', 'voteId',
@@ -3302,11 +3303,12 @@ function processScdbDownloads(verbose) {
     }
     const scdb = cfg?.scdb || {};
     const dataDir = path.join(REPO_ROOT, 'scdb');
+    if (!fs.existsSync(_SCDB_CURRENT_DIR)) fs.mkdirSync(_SCDB_CURRENT_DIR, { recursive: true });
     let any = false;
     for (const [key, basename] of Object.entries(scdb)) {
         if (!basename) continue;
         const srcPath = path.join(dataDir, basename);
-        const outPath = path.join(dataDir, `${key}.csv`);
+        const outPath = path.join(_SCDB_CURRENT_DIR, `${key}.csv`);
         if (!fs.existsSync(srcPath)) continue;
         any = true;
         console.log(`SCDB: processing ${basename}`);
@@ -3320,13 +3322,17 @@ function processScdbDownloads(verbose) {
 // ════════════════════════════
 
 const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
+// The processed/current SCDB export (modern.csv, legacy.csv, naturalCourts.csv,
+// vars.json) lives in scdb/current/, separate from the raw SCDB_*.csv downloads
+// (still dropped directly in scdb/) and the scdb/cache/ derived cache.
+const _SCDB_CURRENT_DIR = path.join(_SCDB_DATA_DIR, 'current');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'ussc', 'citations.csv');
 const _LD_DATES_PATH    = path.join(REPO_ROOT, 'data', 'ussc', 'dates.csv');
-const _SCDB_VARS_PATH   = path.join(_SCDB_DATA_DIR, 'vars.json');
+const _SCDB_VARS_PATH   = path.join(_SCDB_CURRENT_DIR, 'vars.json');
 const _SCDB_JUSTICES    = path.join(REPO_ROOT, 'data', 'ussc', 'justices.json');
-const _SCDB_MODERN_CSV  = path.join(_SCDB_DATA_DIR, 'modern.csv');
-const _SCDB_LEGACY_CSV  = path.join(_SCDB_DATA_DIR, 'legacy.csv');
+const _SCDB_MODERN_CSV  = path.join(_SCDB_CURRENT_DIR, 'modern.csv');
+const _SCDB_LEGACY_CSV  = path.join(_SCDB_CURRENT_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
 const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
 const _SCDB_CORRECTIONS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'corrections.json');
@@ -12827,6 +12833,46 @@ function _sitemapUrlXml({ loc, lastmod }) {
     return `  <url>\n    <loc>${_xmlEscape(loc)}</loc>${lastmod ? `\n    <lastmod>${_xmlEscape(lastmod)}</lastmod>` : ''}\n  </url>`;
 }
 
+// Blog posts (courts/ussc/blog/**/*.md) are plain Jekyll pages, not a
+// collection/case derived from JSON, so the sitemap has to discover them by
+// scanning front matter directly — the same source `blog/posts.json` uses
+// (via Liquid's site.pages) to build the in-site "more posts" list.
+const BLOG_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'blog');
+
+// Minimal front-matter reader: front matter here is always flat `key: value`
+// scalars (see blog/*.md), so a full YAML parser would be overkill.
+function _readFrontMatter(filePath) {
+    const text = fs.readFileSync(filePath, 'utf8');
+    const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/.exec(text);
+    if (!m) return {};
+    const out = {};
+    for (const line of m[1].split('\n')) {
+        const kv = /^(\w+):\s*(.*)$/.exec(line);
+        if (kv) out[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, '');
+    }
+    return out;
+}
+
+// Recursively collect every blog post's sitemap entry, plus the blog index
+// page itself. New posts need no registration anywhere else — dropping a
+// dated .md file with a `permalink` under courts/ussc/blog/ is enough for it
+// to show up here the next time --sitemap runs.
+function _collectSitemapBlogUrls(buildDate) {
+    const urls = [{ loc: `${FEED_SITE_URL}/courts/ussc/blog/`, lastmod: buildDate }];
+    const walk = (dir) => {
+        for (const name of fs.readdirSync(dir, { withFileTypes: true })) {
+            const full = path.join(dir, name.name);
+            if (name.isDirectory()) { walk(full); continue; }
+            if (!name.isFile() || !name.name.endsWith('.md') || name.name === 'index.md') continue;
+            const fm = _readFrontMatter(full);
+            if (!fm.date || !fm.permalink) continue;
+            urls.push({ loc: FEED_SITE_URL + fm.permalink, lastmod: fm.date });
+        }
+    };
+    if (fs.existsSync(BLOG_DIR)) walk(BLOG_DIR);
+    return urls;
+}
+
 // Walk a collections.json/topics.json-shaped registry and return every leaf
 // entry's derived collection id (its "file"/"collection" URL's basename,
 // minus ".json" — the same value _findCollectionEntry() in explorer.js
@@ -12884,6 +12930,8 @@ function runGenerateSitemap(dryRun) {
     for (const id of _collectSitemapCollectionIds(topicDefs)) {
         urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}`, lastmod: buildDate });
     }
+
+    urls.push(..._collectSitemapBlogUrls(buildDate));
 
     if (urls.length > SITEMAP_URL_WARN_THRESHOLD) {
         console.warn(`WARNING: sitemap has ${urls.length} URLs, approaching the sitemap protocol's `

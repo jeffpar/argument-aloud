@@ -1,3 +1,8 @@
+---
+title: Spaeth Databases circa 2004
+layout: pane
+---
+
 # [U.S. Supreme Court Databases](https://web.archive.org/web/20040916152628/http://www.as.uky.edu/polisci/ulmerproject/sctdata.htm)
 
 *Sponsored by the [S. Sidney Ulmer Project](https://web.archive.org/web/20040815134155/http://www.as.uky.edu/polisci/ulmerproject/UlmerProject/index.htm)*

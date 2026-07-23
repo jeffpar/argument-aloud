@@ -4,8 +4,11 @@
     {
       "label": "argument-aloud (4010)",
       "type": "shell",
-      "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4010",
+      "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4010 --config _developer.yml",
       "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
       "problemMatcher": []
     },
     {
@@ -33,16 +36,6 @@
         "runOn": "folderOpen"
       },
       "problemMatcher": []
-    },
-    {
-      "label": "argument-aloud (devserver)",
-      "type": "shell",
-      "command": "bundle exec jekyll serve --host 0.0.0.0 --port 4010 --config _developer.yml",
-      "isBackground": true,
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
-      "problemMatcher": []
-    },
+    }
   ]
 }
