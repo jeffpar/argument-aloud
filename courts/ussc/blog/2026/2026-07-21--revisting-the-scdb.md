@@ -9,13 +9,13 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as discussed below.
+This post revisits the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as discussed below.
 
-Note that as of this post, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database.  Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
+Currently, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database.  Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
 
 > Harold J. Spaeth, Lee Epstein, Michael J. Nelson, Andrew D. Martin, Jeffrey A. Segal, Theodore J. Ruger, and Sara C. Benesh. 2024. Supreme Court Database, Versions 2025 Release 01 and Legacy 07.  https://scdb.psu.edu
 
-It's also worth noting that, in 2024, the database's home [moved](https://www.psu.edu/news/liberal-arts/story/us-supreme-court-database-now-housed-penn-state-department-political-science) to [Penn State College of Liberal Arts](https://scdb.la.psu.edu).  While the new site looks great, it does lack some of the features of the previous [Washington University Law](http://scdb.wustl.edu/index.php) site, like the [Analysis](http://scdb.wustl.edu/analysis.php) page, and in the two years since the move, nothing much has changed -- except of course the 2025 database release.  It's also strange that the previous site continues to update its releases to match those at Penn State, while making no mention of the database's move, nor any indication of what might happen to the  **supremecourtdatabase.org** domain.
+It's also worth noting that, in 2024, the database's home [moved](https://www.psu.edu/news/liberal-arts/story/us-supreme-court-database-now-housed-penn-state-department-political-science) to [Penn State College of Liberal Arts](https://scdb.la.psu.edu).  While the new site looks great, it does lack some of the features of the previous [Washington University Law](http://scdb.wustl.edu/index.php) site, like the [Analysis](http://scdb.wustl.edu/analysis.php) page, and in the two years since the move, nothing much has changed -- except of course the 2025 database release.  It's also strange that the previous site continues to update its releases to match those at Penn State, while making no mention of the database's move, nor any indication of what might happen to the **supremecourtdatabase.org** domain.
 
 ## Dates of Argument, Reargument, and Decision
 

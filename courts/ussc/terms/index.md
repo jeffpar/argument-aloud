@@ -704,16 +704,15 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
           // Clicking a calendar day navigates away to that term's own page
           // (a full reload of this iframe document), so returning via the
           // browser Back button re-loads this page from scratch — a fresh
-          // JS context with no memory of what was already fetched/rendered
-          // or how far the page had been scrolled. sessionStorage survives
-          // that reload (unlike a plain JS variable) and is shared across
-          // same-origin frames in this tab, so it's used here to: (1) cache
-          // each rendered term's date lists (tiny — just ISO date strings,
-          // not full case data) so a Back navigation can redraw everything
-          // already seen without re-fetching any cases.json, and (2) record
-          // scroll position so Back can jump straight back to it.
+          // JS context with no memory of what was already fetched/rendered.
+          // sessionStorage survives that reload (unlike a plain JS variable)
+          // and is shared across same-origin frames in this tab, so it's used
+          // here to cache each rendered term's date lists (tiny — just ISO
+          // date strings, not full case data) so a Back navigation can redraw
+          // everything already seen without re-fetching any cases.json.
+          // (Scroll-position restore on Back is handled generically by the
+          // page-viewer iframe in explorer.js — no per-page code needed.)
           var SS_CACHE_KEY = 'aa-stats-all-cal-cache';
-          var SS_SCROLL_KEY = 'aa-stats-all-scrollY';
           var calCache;
           try { calCache = JSON.parse(sessionStorage.getItem(SS_CACHE_KEY) || '{}'); } catch (e) { calCache = {}; }
           function cacheTermDates(termId, argArr, decArr) {
@@ -807,41 +806,6 @@ html[data-theme="light"] .date-case-list a { color: #2672b4; }
             // No IntersectionObserver support — fall back to loading everything.
             allCalTerms.forEach(function(t) { loadTermCalendar(t.id); });
           }
-
-          // Restore scroll position, but only on an actual Back/Forward
-          // navigation — a fresh, intentional visit to term=all should
-          // always start at the top rather than jump to wherever a much
-          // earlier session happened to leave off. This page always loads
-          // inside the page-viewer iframe via location.replace() (see
-          // _frameNavigate in explorer.js), which the browser's own
-          // Navigation Timing API reports as a plain 'navigate' regardless
-          // of whether Back was pressed — so the parent instead threads an
-          // explicit "?_navback=1" marker onto the iframe's target URL only
-          // when its popstate handler is the one driving the reload.
-          var cameFromBackForward = params.get('_navback') === '1';
-          if (cameFromBackForward) {
-            var savedScroll = parseInt(sessionStorage.getItem(SS_SCROLL_KEY), 10);
-            if (savedScroll > 0) {
-              // Double rAF: give the synchronous cache-replay above (and the
-              // browser) one full layout/paint pass before jumping, so the
-              // page is actually tall enough for the target offset to exist.
-              requestAnimationFrame(function() {
-                requestAnimationFrame(function() { window.scrollTo(0, savedScroll); });
-              });
-            }
-          }
-          var scrollSaveQueued = false;
-          window.addEventListener('scroll', function() {
-            if (scrollSaveQueued) return;
-            scrollSaveQueued = true;
-            requestAnimationFrame(function() {
-              scrollSaveQueued = false;
-              try { sessionStorage.setItem(SS_SCROLL_KEY, String(window.scrollY)); } catch (e) {}
-            });
-          }, { passive: true });
-          window.addEventListener('pagehide', function() {
-            try { sessionStorage.setItem(SS_SCROLL_KEY, String(window.scrollY)); } catch (e) {}
-          });
         }
       })
       .catch(function() {

@@ -57,7 +57,7 @@ layout: home
     <a class="hp-card-link" href="/courts/ussc/?term=all&find=%3F" aria-label="Searches"></a>
     <div class="hp-icon">🔍</div>
     <div class="hp-card-title">Searches</div>
-    <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, <a href="/courts/ussc/?term=all&find=%23Orig">Docket</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=all&find=%22broccoli%22+scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
+    <p class="hp-card-desc">Search cases by <a href="/courts/ussc/?term=all&find=%2323-1197">Number</a>, <a href="/courts/ussc/?term=all&find=Miranda">Title</a>, <a href="/courts/ussc/?term=all&find=%23Orig">Docket</a>, <a href="/courts/ussc/?term=all&find=347+US+483">Citation</a>, or <a href='/courts/ussc/?term=all&find="elbow+grease"'>Text</a>. Better yet, find that reference to "<a href='/courts/ussc/?term=all&find=%22broccoli%22+scalia'>Broccoli</a>" by <a href="/courts/ussc/?collection=gallery&id=antonin_scalia">Justice Scalia</a> you've heard so much about.</p>
   </div>
 
   <div class="hp-card">

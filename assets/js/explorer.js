@@ -4547,12 +4547,96 @@ function _sameFrameLocation(a, b) {
   return a.replace(/\/$/, '') === b.replace(/\/$/, '');
 }
 
+// ── Page-viewer iframe scroll restoration ───────────────────────────────────
+// Every "pane" page rendered in the page-viewer iframe (courts/ussc/collections/*,
+// blog posts, people profiles, etc.) is a fresh document load each time it's
+// shown — there is no bfcache-style restore of an iframe's own scroll position,
+// so navigating away and back (e.g. a benches-list row → a single bench → the
+// Back button) always lands back at the top. This is a single generic fix for
+// that, replacing the need for any page to carry its own sessionStorage hack
+// (as courts/ussc/terms/index.md used to for its stats view).
+// Keyed by the iframe's own URL (pathname+search): a URL with nothing saved
+// yet (first visit this session) simply starts at the top as normal;
+// returning to a URL already visited (by any means — Back, a "back to list"
+// link, re-clicking the same nav item) restores wherever it was left.
+//
+// On a Back/Forward traversal that requires a full reload of the outer app
+// (e.g. after a target="_top" link), the browser replays the iframe's own
+// joint-session-history entry directly while parsing the fresh top-level
+// document — often before our own script has even attached its 'load'
+// listener to the (also brand new) iframe element, so that particular load
+// is otherwise missed entirely. _restorePageFrameScroll is therefore also
+// called eagerly, once, right after the listener is attached (see init()),
+// covering the case where the iframe is already done loading by then.
+const _PAGE_SCROLL_KEY_PREFIX = 'aa-page-scroll:';
+
+function _pageScrollKey(href) {
+  try {
+    const u = new URL(href, location.href);
+    return _PAGE_SCROLL_KEY_PREFIX + u.pathname + u.search;
+  } catch { return null; }
+}
+
+function _savePageFrameScroll() {
+  if (!pageViewer || pageViewer.hidden) return;
+  const pf = document.getElementById('page-viewer-frame');
+  try {
+    const cw = pf?.contentWindow;
+    if (!cw || cw.location.href === 'about:blank') return;
+    const key = _pageScrollKey(cw.location.href);
+    if (!key) return;
+    const y = cw.scrollY || cw.document.documentElement.scrollTop || 0;
+    if (y > 0) sessionStorage.setItem(key, String(y));
+    else sessionStorage.removeItem(key);
+  } catch { /* cross-origin or storage unavailable — ignore */ }
+}
+
+const _restoredPageFrameUrls = new Set(); // avoid re-running the retry loop for a URL already handled
+
+function _restorePageFrameScroll(pf) {
+  const cw = pf.contentWindow;
+  if (!cw) return;
+  let key, targetY;
+  try {
+    if (!cw.location.href || cw.location.href === 'about:blank') return;
+    key = _pageScrollKey(cw.location.href);
+    if (!key || _restoredPageFrameUrls.has(key)) return;
+    targetY = parseInt(key && sessionStorage.getItem(key), 10) || 0;
+  } catch { return; }
+  if (targetY <= 0) return;
+  _restoredPageFrameUrls.add(key);
+  // Some pages (e.g. the term=all stats page, which lazily fetches and
+  // renders each term's calendar as it scrolls into view) keep growing
+  // taller for a bit after the iframe reports itself loaded, so the target
+  // offset may not exist yet. Retry for up to ~1s, scrolling as far as
+  // currently possible each time, until the document is tall enough.
+  let attempts = 0;
+  const tryScroll = () => {
+    try {
+      const doc = cw.document;
+      const maxY = Math.max(0, (doc.documentElement.scrollHeight || 0) - cw.innerHeight);
+      cw.scrollTo(0, Math.min(targetY, maxY));
+      if (maxY >= targetY || ++attempts >= 10) return;
+      setTimeout(tryScroll, 100);
+    } catch { /* cross-origin or torn down — stop retrying */ }
+  };
+  tryScroll();
+}
+
+// Covers literal top-level navigations (e.g. a target="_top" link inside the
+// iframe) — the whole app document is about to be torn down, so this is the
+// only chance to persist the outgoing page's scroll position.
+window.addEventListener('pagehide', _savePageFrameScroll);
+
 function _frameNavigate(pf, url) {
   const targetHref = new URL(url, location.href).href;
   try {
     const cur = pf.contentWindow?.location.href;
     if (cur && cur !== 'about:blank') {
-      if (!_sameFrameLocation(cur, targetHref)) pf.contentWindow.location.replace(targetHref);
+      if (!_sameFrameLocation(cur, targetHref)) {
+        _savePageFrameScroll(); // covers SPA-only navigation away (no full page reload)
+        pf.contentWindow.location.replace(targetHref);
+      }
       return;
     }
   } catch (e) {}
@@ -8872,7 +8956,17 @@ async function init() {
     pageFrame.addEventListener('load', function () {
       try { _attachRandomizeHoverListeners(this.contentDocument); } catch (_) {}
       _applyThemeToFrame(this);
+      _restorePageFrameScroll(this);
     });
+    // The browser can replay a framed page's own joint-session-history entry
+    // while parsing a freshly (re)loaded top-level document (e.g. after a
+    // target="_top" link's Back navigation) — often before the listener
+    // above even gets attached, so that particular 'load' event is otherwise
+    // missed entirely. Catch that case here (see "Page-viewer iframe scroll
+    // restoration" above _frameNavigate for the full explanation).
+    try {
+      if (pageFrame.contentDocument?.readyState === 'complete') _restorePageFrameScroll(pageFrame);
+    } catch (_) {}
     // Safety net: stop spinning whenever the mouse leaves the iframe entirely.
     pageFrame.addEventListener('mouseleave', () => {
       document.getElementById('random-case-btn')?.classList.remove('spinning');
@@ -8917,13 +9011,7 @@ async function _scrollSidebarToCollectionItem(collId, itemId) {
   requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
 }
 
-// fromPopstate: true only when this call is handling a genuine browser
-// Back/Forward event (see the popstate listener below) — threaded through to
-// the term=all stats URL so that page can distinguish "the user pressed
-// Back" from "the user clicked into All Terms fresh," since the page-viewer
-// iframe is always (re)loaded via location.replace() (see _frameNavigate)
-// and so never itself sees a 'back_forward' Navigation Timing entry either way.
-async function restoreFromURL(fromPopstate = false) {
+async function restoreFromURL() {
   const params = new URLSearchParams(location.search);
 
   // ── action=randomize ─────────────────────────────────────────────────────
@@ -9471,7 +9559,7 @@ async function restoreFromURL(fromPopstate = false) {
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
-    showPageViewer('/courts/ussc/terms/?term=all' + (fromPopstate ? '&_navback=1' : ''), { pushState: false });
+    showPageViewer('/courts/ussc/terms/?term=all', { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
@@ -9504,7 +9592,7 @@ async function restoreFromURL(fromPopstate = false) {
   }
 }
 
-window.addEventListener('popstate', () => restoreFromURL(true));
+window.addEventListener('popstate', () => restoreFromURL());
 
 // Handle navigation messages posted from pages running inside the page-viewer
 // iframe (e.g., the stats page linking to a specific case).
