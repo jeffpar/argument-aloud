@@ -43,7 +43,7 @@ But we're working on it.  If you look at a case like [Green v. United States (19
 
 > U.S. Reports indicates argument occurred on October 15, 1957, but the Journal indicates otherwise
 
-For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases With Corrections](/courts/ussc/?collection=issues&group=8&sort=decided&o=a).
+For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases With Corrections](/courts/ussc/?collection=issues&group=9&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
 
 ---
 
