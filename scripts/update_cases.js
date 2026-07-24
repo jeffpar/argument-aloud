@@ -9334,6 +9334,8 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --dates                              # verify dates vs dates.csv
        node update_cases.js [TERM [CASE]] --backfill-argued [--verbose] [--dry-run] [--new-format-only] [--interactive]
                                                                           # backfill argument/reargument dates found in opinion XML
+       node update_cases.js [TERM [CASE]] --verify [--verbose] [--dry-run]
+                                                                          # backfill missing events[]; explain/resolve "backfill": false cases (see below)
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
        node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
@@ -9407,6 +9409,33 @@ Examples:
                                                              # ...also prompt for a manual date on any Argued/Reargued
                                                              #    heading found but not parseable, when that field is
                                                              #    otherwise still empty (verbose alone only logs these)
+
+  node update_cases.js --verify --dry-run                  # preview events backfill + audit_message, all terms
+  node update_cases.js 1892-10 --verify                    # run for one term
+  node update_cases.js 1892-10 1 --verify --verbose        # run for one case; also log per-date Journal results
+                                                             # 1) For every case in scope with a recorded
+                                                             #    argument/reargument date but no events[] entry for
+                                                             #    it, adds a bare one (source "scdb" pre-1955, else
+                                                             #    "ussc"; never touches a date that already has some
+                                                             #    event, regardless of its source).
+                                                             # 2) For every case still marked "backfill": false (a
+                                                             #    prior --backfill-argued run offered a U.S.-Reports-
+                                                             #    derived date that was declined), re-derives the
+                                                             #    discrepancy — scoped to this case's own heading, even
+                                                             #    when its opinion XML bundles more than one case on
+                                                             #    the same page — and writes an audit_message
+                                                             #    explaining it, then attempts to confirm our recorded
+                                                             #    date(s) against the bound Journal
+                                                             #    (courts/ussc/journals/text/YYYY.txt — only covers
+                                                             #    1889-10 onward); a confirmed date's event gets a
+                                                             #    journal_ref (its source is left untouched).
+                                                             #    "backfill": false is removed whenever the situation
+                                                             #    is determined either way: a genuine discrepancy
+                                                             #    (audit_message added) or no discrepancy at all (false
+                                                             #    alarm — no message needed). It's left in place only
+                                                             #    when nothing can be determined: no resolvable opinion
+                                                             #    XML, or an opinion XML whose heading can't be
+                                                             #    positively matched to this case.
 
   node update_cases.js --split                             # find opinion events needing a split
   node update_cases.js 2024-10 --split                     # check one term
@@ -10456,6 +10485,478 @@ async function runBackfillArgued(termFilter, caseFilter, dryRun, { verbose = fal
     if (autoCorrected) console.log(`${dryRun ? 'Would auto-flag' : 'Auto-flagged'} scdb_check on ${autoCorrected} case(s) (backfilled field ended up multi-date, or had none before).`);
     if (suspectSkipped) console.log(`Skipped ${suspectSkipped} suspect-year date(s) (likely OCR/typo, not backfilled — rerun with --verbose to see which).`);
     if (manualEntered) console.log(`Manually entered ${manualEntered} field(s) via --interactive --verbose prompts for otherwise-unparsed headings.`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// --backfill-argued --verify: for cases where --backfill-argued's offered
+// U.S.-Reports-derived date was previously declined ("backfill": false — see
+// above), explain *why* by writing an audit_message that states what U.S.
+// Reports says vs. what we have recorded, and attempt to independently
+// confirm our own recorded date(s) against the bound Journal of the Supreme
+// Court (courts/ussc/journals/text/YYYY.txt), whose per-day entries are what
+// the original decline was implicitly trusting. When every one of a case's
+// recorded argument/reargument dates is confirmed, the "backfill": false flag
+// is removed — audit_message alone is sufficient documentation from then on.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const JOURNALS_TEXT_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
+
+const _MONTH_NUM_UPPER = Object.fromEntries(_MONTHS.map((m, i) => [m.toUpperCase(), i + 1]));
+
+// Format a list of ISO dates for prose, grouping same month/year runs the way
+// the front end's formatArgDates() does (assets/js/explorer.js) but written
+// out in full ("October 14 and 17, 1892").
+function _formatDateListForMessage(isoDates) {
+    const dates = _sortStr([...new Set(isoDates)]);
+    if (!dates.length) return '';
+    const groups = [];
+    for (const iso of dates) {
+        const [y, m, d] = iso.split('-').map(Number);
+        const last = groups[groups.length - 1];
+        if (last && last.y === y && last.m === m) last.days.push(d);
+        else groups.push({ y, m, days: [d] });
+    }
+    const joinList = (items) => items.length <= 1 ? (items[0] || '')
+        : items.length === 2 ? `${items[0]} and ${items[1]}`
+        : `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+    const parts = groups.map(({ y, m, days }) => `${_MONTHS[m - 1]} ${joinList(days)}, ${y}`);
+    return joinList(parts);
+}
+
+// Build the audit_message explaining a U.S.-Reports-vs-recorded discrepancy.
+// `missing` holds the U.S.-Reports-only dates per field. Deliberately doesn't
+// repeat our own recorded date(s) — those are already visible elsewhere on
+// the case (argument/argument_days, etc.) — this just states what U.S.
+// Reports claims and that the Journal disagrees.
+function _buildVerifyAuditMessage(missing) {
+    const parts = [];
+    for (const field of ['argument', 'reargument']) {
+        const usDates = missing[field];
+        if (!usDates.length) continue;
+        const label = field === 'argument' ? (usDates.length > 1 ? 'arguments' : 'argument') : 'reargument';
+        const usStr = _formatDateListForMessage(usDates);
+        parts.push(`U.S. Reports indicates ${label} occurred on ${usStr}, but the Journal indicates otherwise.`);
+    }
+    return parts.join(' ');
+}
+
+// The Journal's bound-volume text files are keyed by October Term start year,
+// not raw calendar year — a January-June date belongs to the volume filed
+// under the *previous* calendar year (e.g. "1893-03-14" is in 1892.txt, which
+// runs October 1892 - May 1893), while a July-December date belongs to the
+// file matching its own calendar year.
+function _journalFilePathsForDate(iso) {
+    const [y, m] = iso.split('-').map(Number);
+    const fileYear = m <= 6 ? y - 1 : y;
+    return [
+        path.join(JOURNALS_TEXT_DIR, `${fileYear}.txt`),
+        path.join(JOURNALS_TEXT_DIR, `${fileYear}-partial.txt`),
+    ];
+}
+
+const _JOURNAL_HEADING_LINE_RE = /^(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY),\s+(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+(\d{1,2}),\s+(\d{4})\.?\s*$/;
+
+const _journalHeadingsCache = new Map();
+
+// Parse every "<Weekday>, <Month> <Day>, <Year>." page heading in a Journal
+// text file into { index, lineIndex, isoDate } triples (each such heading
+// starts exactly one calendar day's entries and runs until the next one).
+// `lineIndex` (this heading's 0-based line number) lets _findJournalPage()
+// scan neighboring lines for a bare page number. Cached per file path since a
+// term's cases share the same file(s).
+function _loadJournalHeadings(filePath) {
+    if (_journalHeadingsCache.has(filePath)) return _journalHeadingsCache.get(filePath);
+    let text = '';
+    try { text = fs.readFileSync(filePath, 'utf8'); } catch { /* file doesn't exist for this year */ }
+    const lines = text.split('\n');
+    const headings = [];
+    let charOffset = 0;
+    for (let li = 0; li < lines.length; li++) {
+        const m = _JOURNAL_HEADING_LINE_RE.exec(lines[li]);
+        if (m) {
+            const [, month, day, year] = m;
+            const n = _MONTH_NUM_UPPER[month];
+            if (n) headings.push({ index: charOffset, lineIndex: li, isoDate: `${year}-${String(n).padStart(2, '0')}-${String(+day).padStart(2, '0')}` });
+        }
+        charOffset += lines[li].length + 1;
+    }
+    const result = { text, lines, headings };
+    _journalHeadingsCache.set(filePath, result);
+    return result;
+}
+
+// Best-effort: find the bound-volume page number printed next to a day's
+// heading, for journal_ref. Two layouts are seen across the corpus's OCR'd
+// text:
+//   - the number immediately follows the heading line, nothing in between,
+//     e.g. "...\nMONDAY, DECEMBER 19, 1892.\n66\nPresent: ...";
+//   - the number immediately precedes the "SUPREME COURT OF THE UNITED
+//     STATES." boilerplate line that itself immediately precedes the
+//     heading, e.g. "...\n98\nSUPREME COURT OF THE UNITED STATES.\nWEDNESDAY,
+//     JANUARY 17, 1906.\nPresent: ...".
+// Only trusts a lone short (1-4 digit) line in either spot, and in the second
+// layout only when there's exactly one such candidate immediately before the
+// boilerplate line — an OCR run of several stray digit-only lines in a row
+// (seen in some volumes) is exactly the ambiguous case this refuses to guess
+// at, returning null rather than a possibly-wrong page number.
+function _findJournalPage(lines, headingLineIndex) {
+    const isPageLine = (s) => /^\d{1,4}$/.test(s);
+
+    let i = headingLineIndex + 1;
+    while (i < lines.length && lines[i].trim() === '') i++;
+    if (i < lines.length && isPageLine(lines[i].trim())) return lines[i].trim();
+
+    let j = headingLineIndex - 1;
+    while (j >= 0 && lines[j].trim() === '') j--;
+    if (j >= 0 && /^SUPREME COURT OF THE UNITED STATES\.?$/i.test(lines[j].trim())) {
+        j--;
+        while (j >= 0 && lines[j].trim() === '') j--;
+        if (j >= 0 && isPageLine(lines[j].trim())) {
+            let k = j - 1;
+            while (k >= 0 && lines[k].trim() === '') k--;
+            if (!(k >= 0 && isPageLine(lines[k].trim()))) return lines[j].trim();
+        }
+    }
+    return null;
+}
+
+// Normalise a docket number the way Journal "No. ..." references are
+// formatted: Unicode hyphens/dashes → ASCII "-", trimmed.
+function _normDocket(s) {
+    return String(s).replace(/[‐‑–—­]/g, '-').trim();
+}
+
+// Split a single day's Journal section into argument-entry clusters, similar
+// to parseJournalForAdvocate() in verify_advocates.js: a cluster is one or
+// more "No. <docket>." lines chained by a trailing "; and" or ", and"
+// (consolidated cases sharing one attribution, e.g. "No. 04-104 ... ; and
+// No. 04-105 ... Argued by ..." or "No. 215 ... , and\nNo. 216 ... Argument
+// commenced by ..."), bounded by an independent new "No." line or an
+// "Adjourned" line. Returns [{ dockets: string[], block: string }, ...].
+function _findJournalDayClusters(sectionText) {
+    const clusters = [];
+    let clusterLines = [];
+    let prevNonBlank = '';
+
+    const flush = () => {
+        if (!clusterLines.length) return;
+        const block = clusterLines.join('\n');
+        const dockets = [];
+        const noRe = /\bNo\.\s+([\w.\-,‐‑–—­]+?)(?=[.,;]|\s{2,}|\n|$)/g;
+        let mm;
+        while ((mm = noRe.exec(block))) {
+            const d = _normDocket(mm[1]).replace(/,$/, '').trim();
+            if (d && !dockets.includes(d)) dockets.push(d);
+        }
+        if (dockets.length) clusters.push({ dockets, block });
+        clusterLines = [];
+    };
+
+    for (const rawLine of sectionText.split('\n')) {
+        const trimmed = rawLine.trim();
+        if (/^Adjourned\b/i.test(trimmed)) { flush(); prevNonBlank = trimmed; continue; }
+        if (!trimmed) { if (clusterLines.length) clusterLines.push(rawLine); continue; }
+        const isNoLine = /^No\.\s+/i.test(trimmed);
+        const isContinuation = /[,;]\s*and\s*$/i.test(prevNonBlank);
+        if (isNoLine && !isContinuation && clusterLines.length) flush();
+        if (clusterLines.length > 0 || isNoLine) clusterLines.push(rawLine);
+        prevNonBlank = trimmed;
+    }
+    flush();
+    return clusters;
+}
+
+// Attempt to confirm one recorded date against the Journal: locate that
+// date's page-heading section in the appropriate year file, then look for an
+// argument-entry cluster naming one of `dockets` that also mentions
+// "Argument"/"Reargument"/"Argued"/"Reargued" somewhere in the same cluster.
+// When confirmed, also attempts (best-effort) to resolve the bound-volume
+// page number, for journal_ref.
+function _verifyDateInJournal(iso, dockets) {
+    for (const filePath of _journalFilePathsForDate(iso)) {
+        const { text, lines, headings } = _loadJournalHeadings(filePath);
+        if (!headings.length) continue;
+        const idx = headings.findIndex(h => h.isoDate === iso);
+        if (idx === -1) continue;
+        const start = headings[idx].index;
+        const end = idx + 1 < headings.length ? headings[idx + 1].index : text.length;
+        const section = text.slice(start, end);
+        const clusters = _findJournalDayClusters(section);
+        const wanted = new Set(dockets.map(_normDocket));
+        const hit = clusters.find(({ dockets: cd, block }) =>
+            cd.some(d => wanted.has(d)) && /\b(?:Argument|Reargument|Argued|Reargued)\b/.test(block));
+        if (!hit) return { verified: false, file: path.basename(filePath), reason: 'heading found, but no matching docket/argument entry that day' };
+        return { verified: true, file: path.basename(filePath), page: _findJournalPage(lines, headings[idx].lineIndex) };
+    }
+    return { verified: false, reason: 'no Journal file/heading covers this date' };
+}
+
+// Some U.S. Reports pages bundle more than one case's opinion into a single
+// XML file (typically a short per curiam-style disposition tacked onto the
+// end of an unrelated case that happens to share the page range) — e.g.
+// us154-0573.xml contains both "Kenosha v. Lamson" (No. 143, structured as
+// <h2>/<h4> heading tags) and, further down, "Long v. Patton" (No. 196,
+// whose entire heading block — including its own "Argued ..." line — is
+// written as plain <p> tags instead). Blindly taking the *first*
+// Argued/Reargued heading in such a file attributes the lead case's date to
+// every case whose decision_xml happens to resolve to that same file, which
+// is wrong. This marker regex finds every "No./Nos. <docket(s)>"
+// case-boundary in the file (in either heading style) so the search can be
+// scoped to the one segment that's actually ours.
+const _CASE_MARKER_RE = /<(h2|p)>Nos?\.\s*([\w.,\-‐‑–—­ ]+?)\.?<\/\1>/g;
+
+function _splitMarkerDockets(raw) {
+    return raw.split(/,|\band\b/i).map(s => _normDocket(s.trim())).filter(Boolean);
+}
+
+function _normTitleForMatch(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+// Locate the slice of `xml` that belongs to one of `dockets`. Returns:
+//   - { text: <segment>, ambiguous: false }  — a docket marker in the file
+//     matched one of ours (the common case: single-case files have exactly
+//     one marker, their own).
+//   - { text: xml, ambiguous: false }        — the file has *no* docket
+//     marker at all, but its own <case title="..."> attribute matches this
+//     case's title closely enough to trust its one heading.
+//   - { text: null, ambiguous: true }        — couldn't confirm this file
+//     (or any segment of it) is actually about this case; too risky to guess
+//     — e.g. us154-0581.xml is entirely "Van Slyke v. Wisconsin" (Nos. 281,
+//     282) despite being decision_xml for an unrelated "Cousin v. Generes"
+//     (No. 286), whose own page-581 entry was apparently never captured by
+//     the scrape. Blindly trusting *any* single heading found in a file,
+//     without positively matching it to this case, is exactly what produced
+//     that false discrepancy.
+function _findCaseSegment(xml, dockets, title) {
+    const wanted = new Set(dockets.map(_normDocket));
+    const markers = [];
+    let m;
+    _CASE_MARKER_RE.lastIndex = 0;
+    while ((m = _CASE_MARKER_RE.exec(xml))) {
+        markers.push({ index: m.index, dockets: _splitMarkerDockets(m[2]) });
+    }
+
+    if (markers.length) {
+        const idx = markers.findIndex(mk => mk.dockets.some(d => wanted.has(d)));
+        if (idx === -1) return { text: null, ambiguous: true };
+        const start = markers[idx].index;
+        const end = idx + 1 < markers.length ? markers[idx + 1].index : xml.length;
+        return { text: xml.slice(start, end), ambiguous: false };
+    }
+
+    const titleMatch = /<case\s[^>]*\btitle="([^"]+)"/.exec(xml);
+    if (titleMatch && title && _normTitleForMatch(titleMatch[1]) === _normTitleForMatch(firstTitle(title))) {
+        return { text: xml, ambiguous: false };
+    }
+    return { text: null, ambiguous: true };
+}
+
+const _VERIFY_ARGUED_RE   = /<(?:h4|p)>Argued ([^<]+)<\/(?:h4|p)>/;
+const _VERIFY_REARGUED_RE = /<(?:h4|p)>Reargued ([^<]+)<\/(?:h4|p)>/;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// --verify also backfills missing events[] entries: any case in scope with a
+// recorded argument/reargument date but no events[] entry at all for that
+// date gets a bare metadata-only one added (no audio_href — these dates come
+// from the case's own argument/reargument fields, not an actual recording).
+// A date that already has *some* event, regardless of that event's source,
+// is left alone — this only fills genuine gaps.
+// ═══════════════════════════════════════════════════════════════════════════
+
+function _eventTitle(type, iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if (!m) return type === 'reargument' ? 'Oral Reargument' : 'Oral Argument';
+    const dateLabel = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
+    return type === 'reargument' ? `Oral Reargument on ${dateLabel}` : `Oral Argument on ${dateLabel}`;
+}
+
+// Pre-1955 term events default to "scdb" (this hub's own pre-1955 argument
+// dates were originally sourced from SCDB); everything else defaults to the
+// generic "ussc".
+function _defaultEventSource(term, c) {
+    const termYear = parseInt(term.slice(0, 4), 10);
+    return (termYear < 1955 && c.id) ? 'scdb' : 'ussc';
+}
+
+// Add a bare argument/reargument event for any recorded date this case
+// doesn't already have *some* event for. Returns the number of events added.
+function _backfillCaseEvents(c, term) {
+    const knownArg   = _parseDateField(c.argument   || '');
+    const knownRearg = _parseDateField(c.reargument || '');
+    if (!knownArg.length && !knownRearg.length) return 0;
+    if (!Array.isArray(c.events)) c.events = [];
+
+    let added = 0;
+    const addMissing = (dates, type) => {
+        for (const d of dates) {
+            if (c.events.some(e => e && e.date === d)) continue;
+            const ev = reorderEvent({
+                source: _defaultEventSource(term, c),
+                type,
+                date: d,
+                title: _eventTitle(type, d),
+            });
+            const insertAt = c.events.findIndex(e => e && e.date && e.date > d);
+            if (insertAt === -1) c.events.push(ev); else c.events.splice(insertAt, 0, ev);
+            added++;
+        }
+    };
+    addMissing(knownArg, 'argument');
+    addMissing(knownRearg, 'reargument');
+    return added;
+}
+
+// --verify does three things per run, over the given term(s)/case:
+//   1. Backfills a bare events[] entry for any case with a recorded
+//      argument/reargument date lacking one (see _backfillCaseEvents) —
+//      applies to every case in scope, not just "backfill": false ones.
+//   2. For cases still marked "backfill": false, re-derives the original
+//      U.S.-Reports-vs-recorded discrepancy — scoped to this case's own
+//      heading, even when its opinion XML bundles more than one case on the
+//      same page (see _findCaseSegment) — and writes an audit_message
+//      explaining it.
+//   3. Attempts to confirm this case's own recorded date(s) against the
+//      Journal, both to inform whether the message can call the discrepancy
+//      "confirmed" and — when a date is independently verified there — to
+//      stamp that date's event with a journal_ref (its `source` is left
+//      exactly as-is, whether that's a real oyez/ussc/nara event or a bare
+//      placeholder from step 1).
+// "backfill": false is removed whenever --verify determines the situation
+// either way: a genuine discrepancy (audit_message added) or no discrepancy
+// at all (false alarm — no message needed). It's left in place only when
+// nothing can be determined: no resolvable opinion XML, or an opinion XML
+// whose heading can't be positively matched to this case.
+async function runVerifyBackfill(termFilter, caseFilter, dryRun, { verbose = false } = {}) {
+    const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    const termsToProcess = termFilter ? [termFilter] : allTerms;
+
+    let eventsBackfilledCases = 0, eventsBackfilledTotal = 0;
+    let checked = 0, alreadyMessagedCleared = 0, noXml = 0, ambiguousBundle = 0,
+        noDiscrepancyCleared = 0, messagesAdded = 0, journalVerified = 0, journalUnverified = 0, journalRefsAdded = 0;
+
+    for (const term of termsToProcess) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const filtered = caseFilter
+            ? cases.filter(c => c && (
+                c.id === caseFilter ||
+                (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)
+              ))
+            : cases;
+
+        let termModified = false;
+
+        const clearBackfill = (c) => {
+            delete c.backfill;
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            termModified = true;
+        };
+
+        // Pass 1: backfill missing events[] entries for every case in scope
+        // with a recorded argument/reargument date, regardless of backfill.
+        for (const c of filtered) {
+            if (!c) continue;
+            const added = _backfillCaseEvents(c, term);
+            if (added) {
+                eventsBackfilledCases++;
+                eventsBackfilledTotal += added;
+                termModified = true;
+                if (verbose) console.log(`  ${term}/${c.id || c.number || '?'} (${firstTitle(c.title) || '?'}): +${added} event(s)`);
+            }
+        }
+
+        // Pass 2: cases still marked "backfill": false.
+        for (const c of filtered) {
+            if (!c || c.backfill !== false) continue;
+            checked++;
+            const label = `${term}/${c.id || c.number || '?'} (${firstTitle(c.title) || '?'})`;
+
+            if (c.audit_message) {
+                alreadyMessagedCleared++;
+                if (!dryRun) clearBackfill(c);
+                console.log(`  ${label}: ${dryRun ? 'would clear' : 'cleared'} "backfill": false (audit_message already present)`);
+                continue;
+            }
+
+            const xmlPath = _resolveOpinionXmlPath(c);
+            if (!xmlPath) { noXml++; if (verbose) console.log(`  ${label}: SKIP (no resolvable opinion XML) — "backfill": false retained`); continue; }
+            let xml;
+            try { xml = fs.readFileSync(xmlPath, 'utf8'); } catch { continue; }
+
+            const dockets = _splitNumbers(c.number);
+            const seg = _findCaseSegment(xml, dockets, c.title);
+            if (seg.ambiguous) {
+                ambiguousBundle++;
+                if (verbose) console.log(`  ${label}: SKIP (opinion XML heading couldn't be positively matched to this case) — "backfill": false retained`);
+                continue;
+            }
+
+            const knownArg   = new Set(_parseDateField(c.argument || ''));
+            const knownRearg = new Set(_parseDateField(c.reargument || ''));
+            const knownEither = new Set([...knownArg, ...knownRearg]);
+
+            const am = _VERIFY_ARGUED_RE.exec(seg.text);
+            const rm = _VERIFY_REARGUED_RE.exec(seg.text);
+            const amDates = am ? _parseArguedHeadingDates(am[1]) : new Set();
+            const rmDates = rm ? _parseArguedHeadingDates(rm[1]) : new Set();
+
+            const missing = { argument: [], reargument: [] };
+            for (const d of amDates) if (!knownEither.has(d)) missing.argument.push(d);
+            for (const d of rmDates) if (!knownEither.has(d)) missing.reargument.push(d);
+
+            if (!missing.argument.length && !missing.reargument.length) {
+                noDiscrepancyCleared++;
+                if (!dryRun) clearBackfill(c);
+                console.log(`  ${label}: ${dryRun ? 'would clear' : 'cleared'} "backfill": false (no actual U.S. Reports discrepancy once scoped to this case)`);
+                continue;
+            }
+
+            const ourDates = _sortStr([...knownEither]);
+            let allVerified = ourDates.length > 0;
+            const confirmedPages = [];
+            for (const d of ourDates) {
+                const r = _verifyDateInJournal(d, dockets);
+                if (verbose) console.log(`  ${label}: ${d} ${r.verified ? 'CONFIRMED' : 'not confirmed'}${r.file ? ` (${r.file})` : ''}${r.reason ? ` — ${r.reason}` : ''}${r.page ? ` [p.${r.page}]` : ''}`);
+                if (!r.verified) { allVerified = false; continue; }
+                if (r.page) confirmedPages.push({ date: d, page: r.page });
+            }
+
+            const message = _buildVerifyAuditMessage(missing);
+
+            if (!dryRun) {
+                c.audit_message = message;
+                for (const { date, page } of confirmedPages) {
+                    const ev = (c.events || []).find(e => e && e.date === date);
+                    if (ev && !('journal_ref' in ev)) { ev.journal_ref = page; journalRefsAdded++; }
+                }
+                clearBackfill(c);
+            } else {
+                journalRefsAdded += confirmedPages.length;
+            }
+            messagesAdded++;
+            if (allVerified) journalVerified++; else journalUnverified++;
+            console.log(`  ${label}: ${dryRun ? 'would set' : 'set'} audit_message, ${dryRun ? 'would clear' : 'cleared'} "backfill": false${allVerified ? '' : ' (Journal did not confirm every recorded date)'}`);
+        }
+
+        if (termModified && !dryRun) _writeJson(casesPath, cases);
+    }
+
+    console.log(`\nEvents: ${dryRun ? 'would add' : 'added'} ${eventsBackfilledTotal} event(s) across ${eventsBackfilledCases} case(s) missing one for a recorded argument/reargument date.`);
+    console.log(`\nVerify: ${checked} case(s) with "backfill": false checked.`);
+    if (alreadyMessagedCleared) console.log(`${dryRun ? 'Would clear' : 'Cleared'} "backfill": false on ${alreadyMessagedCleared} case(s) that already had an audit_message.`);
+    if (noXml) console.log(`Left ${noXml} case(s) untouched — no resolvable opinion XML.`);
+    if (ambiguousBundle) console.log(`Left ${ambiguousBundle} case(s) untouched — couldn't confirm the opinion XML's heading is actually for this case.`);
+    if (noDiscrepancyCleared) console.log(`${dryRun ? 'Would clear' : 'Cleared'} "backfill": false on ${noDiscrepancyCleared} case(s) with no actual U.S. Reports discrepancy (false alarm, once correctly scoped).`);
+    console.log(`${dryRun ? 'Would add' : 'Added'} audit_message to ${messagesAdded} case(s) (and ${dryRun ? 'would clear' : 'cleared'} "backfill": false on all of them).`);
+    if (messagesAdded) console.log(`  Of those, the Journal confirmed every recorded date for ${journalVerified}; ${journalUnverified} still had at least one unconfirmed date.`);
+    if (journalRefsAdded) console.log(`${dryRun ? 'Would add' : 'Added'} journal_ref to ${journalRefsAdded} confirmed event(s).`);
 }
 
 function _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose = false } = {}) {
@@ -13142,6 +13643,11 @@ async function main() {
 
     if (flags.has('--dates')) {
         await runDatesCheck(positional[0] || null, positional[1] || null, !dryRun);
+        return;
+    }
+
+    if (flags.has('--verify')) {
+        await runVerifyBackfill(positional[0] || null, positional[1] || null, dryRun, { verbose });
         return;
     }
 

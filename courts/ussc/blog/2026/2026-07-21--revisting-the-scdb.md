@@ -9,7 +9,7 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This post revisits the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as discussed below.
+This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as we'll see below.
 
 Currently, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database.  Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
 
@@ -37,7 +37,7 @@ Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?colle
 
 And so it goes.
 
-NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear that the data on *this* site is certainly not error-free either.  My concern is less about errors and more about transparency and having a process for reporting errors, recording corrections, and citing the correct sources -- something that even this project does not do consistently.  But, if you look at a case like [Green v. United States](/courts/ussc/?term=1957-10&case=46), where our data intentionally differs from U.S. Reports, at least there is an explanation.  And with such a prestigious team maintaining The U.S. Supreme Court Database, it feels like they can and should be aiming higher.
+NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear that the data on *this* site is certainly not error-free either.  My concern is less about errors and more about transparency and having a process for reporting errors, recording corrections, and citing the correct sources -- something that even this project does not do consistently.  But, if you look at a case like [Green v. United States (1957)](/courts/ussc/?term=1957-10&case=46), you can see an example of what we should all be aiming for: an explanation of why our data differs from one or more of our primary sources.
 
 ---
 
