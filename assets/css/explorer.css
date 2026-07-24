@@ -689,6 +689,11 @@ button.term-case-count.sort-active:hover {
   background: rgba(0, 0, 0, 0.06);
 }
 
+.page-sentinel-or {
+  font-size: 11px;
+  color: #888;
+}
+
 /* ── Case row ──────────────────────────────────────────── */
 .case-item {
   border-radius: 5px;
@@ -2858,6 +2863,7 @@ html[data-theme="dark"] .month-header:hover  { background: #252a35; }
 html[data-theme="dark"] .month-name          { color: #6c7280; }
 html[data-theme="dark"] .page-sentinel-btn   { color: #6c7280; }
 html[data-theme="dark"] .page-sentinel-btn:hover { color: #c8cdd8; background: rgba(255,255,255,0.06); }
+html[data-theme="dark"] .page-sentinel-or    { color: #6c7280; }
 
 html[data-theme="dark"] .case-header:hover   { background: #252a35; }
 html[data-theme="dark"] .case-title-nav      { color: #5eaee0; }
@@ -3077,6 +3083,7 @@ html[data-theme="light"] .month-header:hover  { background: #eef3f8; }
 html[data-theme="light"] .month-name          { color: #888; }
 html[data-theme="light"] .page-sentinel-btn   { color: #888; }
 html[data-theme="light"] .page-sentinel-btn:hover { color: #333; background: rgba(0,0,0,0.06); }
+html[data-theme="light"] .page-sentinel-or    { color: #888; }
 
 html[data-theme="light"] .case-header:hover   { background: #e4eef8; }
 html[data-theme="light"] .case-title-nav      { color: #2672b4; }

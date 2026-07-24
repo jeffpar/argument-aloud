@@ -19,8 +19,8 @@ if [ -n "$1" ]; then
     popd
   }
   sync_to_website "argument-aloud"
-  sync_to_website "argument-aloud-xml"
   sync_to_website "argument-aloud-index"
+  sync_to_website "argument-aloud-xml"
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js

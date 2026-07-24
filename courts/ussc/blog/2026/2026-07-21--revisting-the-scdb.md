@@ -23,7 +23,7 @@ On this site, under Collections, you'll find a group named [Outstanding Issues](
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)," any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)", any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
 SCDB claims that it, too, is relying on the Court's research; regarding *dateDecision*, it says:
 
@@ -31,13 +31,19 @@ SCDB claims that it, too, is relying on the Court's research; regarding *dateDec
 
 And yet, SCDB set *dateDecision* to March 15, 1822 instead of 1821. Since this type of deviation occurs repeatedly, it seems less likely a simple "typo" and more likely that someone concluded they had a better source of information.  But nowhere is there any notation, either in the case record or anywhere else on the website, of what this better source might have been.
 
-Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a), you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822," which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
+Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a), you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822", which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
 
 > This cause was argued and determined at the last term, but omitted to be reported.
 
 And so it goes.
 
-NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear that the data on *this* site is certainly not error-free either.  My concern is less about errors and more about transparency and having a process for reporting errors, recording corrections, and citing the correct sources -- something that even this project does not do consistently.  But, if you look at a case like [Green v. United States (1957)](/courts/ussc/?term=1957-10&case=46), you can see an example of what we should all be aiming for: an explanation of why our data differs from one or more of our primary sources.
+NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear that the data on *this* site is certainly not error-free either.  My concern is less about errors and more about transparency and having a process for reporting errors, recording corrections, and citing the correct sources -- something that even this project does not do consistently.
+
+But we're working on it.  If you look at a case like [Green v. United States (1957)](/courts/ussc/?term=1957-10&case=46), you will now see the following message:
+
+> U.S. Reports indicates argument occurred on October 15, 1957, but the Journal indicates otherwise
+
+For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases With Corrections](/courts/ussc/?collection=issues&group=8&sort=decided&o=a).
 
 ---
 

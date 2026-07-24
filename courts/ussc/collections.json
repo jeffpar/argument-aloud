@@ -282,7 +282,7 @@
         "page": "/courts/ussc/transcripts/opinions"
       },
       {
-        "name": "Cases without LOC Opinion",
+        "name": "Cases Missing LOC Opinion",
         "conditions": [
           "volume <= 578",
           "decision_loc == undefined"
@@ -290,7 +290,7 @@
         "order": "decision:ascending,titles:ascending"
       },
       {
-        "name": "Cases without XML Opinion",
+        "name": "Cases Missing XML Opinion",
         "conditions": [
           "volume <= 609",
           "decision_xml == undefined"
@@ -298,7 +298,7 @@
         "order": "decision:ascending,titles:ascending"
       },
       {
-        "name": "Cases without SCDB Record",
+        "name": "Cases Missing SCDB Record",
         "conditions": [
           "term <= '2024-10'",
           "id == undefined"
@@ -320,7 +320,8 @@
             "scdb_check contains 'decision'"
           ]
         ],
-        "order": "decision:ascending,titles:ascending"
+        "order": "decision:ascending,titles:ascending",
+        "enabled": false
       },
       {
         "name": "Cases with Other Incorrect SCDB Data",
@@ -329,6 +330,19 @@
           "!scdb_check contains 'argument'",
           "!scdb_check contains 'reargument'",
           "!scdb_check contains 'decision'"
+        ],
+        "order": "decision:ascending,titles:ascending",
+        "enabled": false
+      },
+      {
+        "name": "Cases with Corrections",
+        "conditions": [
+          [
+            "scdb_message != undefined"
+          ],
+          [
+            "audit_message != undefined"
+          ]
         ],
         "order": "decision:ascending,titles:ascending"
       }

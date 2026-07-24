@@ -5732,6 +5732,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     let _pageStart = 0;
     let _highlights = [];
     let _sortedItems = [];
+    // Set by the "All cases" link; reset whenever the group is closed (see
+    // onClose below) so reopening it always starts back in paginated form.
+    let _showAll = false;
 
     const prevSentinel = Object.assign(document.createElement('li'), { className: 'page-sentinel' });
     const prevBtn = prevSentinel.appendChild(document.createElement('button'));
@@ -5739,6 +5742,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     prevBtn.addEventListener('click', () => {
       _preserveScrollAcrossRerender(prevBtn, () => {
         _pageStart = Math.max(0, _pageStart - PAGE_SIZE);
+        _renderGroupPage();
+      });
+    });
+    prevSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: ' or ' }));
+    const prevAllBtn = prevSentinel.appendChild(document.createElement('button'));
+    prevAllBtn.className = 'page-sentinel-btn';
+    prevAllBtn.textContent = 'All cases)';
+    prevAllBtn.addEventListener('click', () => {
+      _preserveScrollAcrossRerender(prevAllBtn, () => {
+        _showAll = true;
         _renderGroupPage();
       });
     });
@@ -5752,8 +5765,28 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         _renderGroupPage();
       });
     });
+    nextSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: ' or ' }));
+    const nextAllBtn = nextSentinel.appendChild(document.createElement('button'));
+    nextAllBtn.className = 'page-sentinel-btn';
+    nextAllBtn.textContent = 'All cases)';
+    nextAllBtn.addEventListener('click', () => {
+      _preserveScrollAcrossRerender(nextAllBtn, () => {
+        _showAll = true;
+        _renderGroupPage();
+      });
+    });
 
     function _renderGroupPage() {
+      if (_showAll) {
+        for (const item of _sortedItems) {
+          item.hidden = false;
+          item._upgradeIcons?.();
+        }
+        prevSentinel.hidden = true;
+        nextSentinel.hidden = true;
+        groupUl.replaceChildren(..._highlights, ..._sortedItems);
+        return;
+      }
       const pageEnd = _pageStart + PAGE_SIZE;
       const prevCount = _pageStart;
       const nextCount = Math.max(0, _sortedItems.length - pageEnd);
@@ -5767,11 +5800,11 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       nextSentinel.hidden = nextCount === 0;
       if (prevCount > 0) {
         const show = Math.min(prevCount, PAGE_SIZE);
-        prevBtn.textContent = `(Previous ${show} case${show !== 1 ? 's' : ''}...)`;
+        prevBtn.textContent = `(Previous ${show} case${show !== 1 ? 's' : ''}`;
       }
       if (nextCount > 0) {
         const show = Math.min(nextCount, PAGE_SIZE);
-        nextBtn.textContent = `(Next ${show} case${show !== 1 ? 's' : ''}...)`;
+        nextBtn.textContent = `(Next ${show} case${show !== 1 ? 's' : ''}`;
       }
       groupUl.replaceChildren(
         ..._highlights,
@@ -6014,6 +6047,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       onClose: () => {
         groupCount.classList.remove('sort-active');
         groupCount.textContent = hoursLabel || (n + '\u00a0Cases');
+        // Closing only hides groupUl via CSS — its contents persist until
+        // re-rendered, so reset back to paginated form now (not just the
+        // flag) or reopening would still show the stale "all cases" markup.
+        if (_showAll) {
+          _showAll = false;
+          _pageStart = 0;
+          _renderGroupPage();
+        }
       },
       onOpen: async () => {
         groupCount.classList.add('sort-active');

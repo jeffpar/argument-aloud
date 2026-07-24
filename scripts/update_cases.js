@@ -6312,6 +6312,10 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
     if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
         const output = [];
         for (const g of collEntry.groups) {
+            // A group explicitly marked "enabled": false is dropped from the
+            // output entirely — kept in the collections registry for whenever
+            // it's re-enabled, but shouldn't take up space while disabled.
+            if (g.enabled === false) continue;
             const requiredTags = Array.isArray(g.tags) && g.tags.length ? g.tags : [];
             if ((g.name ?? g.title) === '*') {
                 // Fan-out: one group per unique non-required tag on matching cases.
@@ -10535,7 +10539,7 @@ function _buildVerifyAuditMessage(missing) {
         if (!usDates.length) continue;
         const label = field === 'argument' ? (usDates.length > 1 ? 'arguments' : 'argument') : 'reargument';
         const usStr = _formatDateListForMessage(usDates);
-        parts.push(`U.S. Reports indicates ${label} occurred on ${usStr}, but the Journal indicates otherwise.`);
+        parts.push(`U.S. Reports indicates ${label} occurred on ${usStr}, but the Journal indicates otherwise`);
     }
     return parts.join(' ');
 }
@@ -13026,16 +13030,31 @@ function runGenerateIssues(dryRun) {
     }
 
     // Only process groups whose conditions are all simple (top-level field comparisons).
-    // Complex conditions using COUNT(), event.*, &&, !, etc. are left to manual curation.
+    // Complex conditions using COUNT(), event.*, &&, !, contains, etc. are left to manual
+    // curation. `conditions` may be a flat AND'ed array, or (like _casesByConditions
+    // elsewhere) an array of OR'ed branches, each internally AND'ed — same nesting rule
+    // applies when checking simplicity, so a branch array is never handed to _isSimpleCond
+    // itself (which expects a string and would throw on .trim()).
     const _isSimpleCond = c => /^[\w]+\s*(==|!=|<=|>=|<|>)\s*('.*'|undefined|\d+)$/.test(c.trim());
+    const _isSimpleCondGroup = (conditions) => Array.isArray(conditions[0])
+        ? conditions.every(set => Array.isArray(set) && set.every(_isSimpleCond))
+        : conditions.every(_isSimpleCond);
     const condGroups = (issuesEntry.groups || []).filter(
-        g => Array.isArray(g.conditions) && g.conditions.length > 0 &&
-             g.conditions.every(_isSimpleCond)
+        g => g.enabled !== false && Array.isArray(g.conditions) && g.conditions.length > 0 &&
+             _isSimpleCondGroup(g.conditions)
     );
     if (!condGroups.length) {
         console.log('No auto-generatable condition groups found');
         return;
     }
+
+    // A group explicitly marked "enabled": false is dropped from the output
+    // entirely (not just skipped for regeneration) — kept in collections.json
+    // for whenever it's re-enabled, but shouldn't take up space in issues.json
+    // while disabled.
+    const disabledNames = new Set(
+        (issuesEntry.groups || []).filter(g => g.enabled === false).map(g => g.name)
+    );
 
     // Read all cases.json files
     const termDirs = fs.readdirSync(TERMS_DIR)
@@ -13055,14 +13074,21 @@ function runGenerateIssues(dryRun) {
     let existing = [];
     try { existing = _readJson(_ISSUES_PATH); } catch {}
     const genNames = new Set(condGroups.map(g => g.name));
-    const preserved = Array.isArray(existing) ? existing.filter(g => !genNames.has(g.name)) : [];
+    const preserved = Array.isArray(existing)
+        ? existing.filter(g => !genNames.has(g.name) && !disabledNames.has(g.name))
+        : [];
+
+    // Mirrors the OR-branches/flat-AND nesting rule used by _casesByConditions:
+    // an array-of-arrays matches if ANY branch matches (each branch's own
+    // conditions still AND'ed together); a flat array matches if ALL do.
+    const _matchesIssueConditions = (conditions, c, term) => Array.isArray(conditions[0])
+        ? conditions.some(set => set.every(cond => _evalIssueCondition(cond, c, term)))
+        : conditions.every(cond => _evalIssueCondition(cond, c, term));
 
     // Build generated groups
     const generated = [];
     for (const grpDef of condGroups) {
-        const matching = allEntries.filter(({ term, c }) =>
-            grpDef.conditions.every(cond => _evalIssueCondition(cond, c, term))
-        );
+        const matching = allEntries.filter(({ term, c }) => _matchesIssueConditions(grpDef.conditions, c, term));
 
         const orderRules = _parseOrderSpec(grpDef.order) || [{ key: 'term', asc: true }];
         const orderKeyOf = ({ term, c }, key) => {
