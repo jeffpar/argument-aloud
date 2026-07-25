@@ -177,3 +177,53 @@ Below is a list of all transcripts updates that have been applied to the server 
       - [Turn 62](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=62): new turn (UNKNOWN JUSTICE)
       - [Turn 63](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=63): new turn (GEORGE R. HODGES)
       - [Turn 64](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=64): new turn (UNKNOWN JUSTICE)
+
+<style>
+  /* Restyles the plain nested list above into expand/collapse case entries,
+     purely at render time — the list itself (written by the transcript-edit
+     logging script) stays untouched. */
+  .wrapper > ul > li {
+    cursor: pointer;
+    list-style: none;
+  }
+  .wrapper > ul {
+    padding-left: 0;
+  }
+  .tu-toggle {
+    display: inline-block;
+    width: 10px;
+    margin-right: 4px;
+    font-size: 9px;
+    color: #999;
+    transition: transform 0.15s;
+  }
+  .wrapper > ul > li.tu-open > .tu-toggle {
+    transform: rotate(90deg);
+  }
+  .wrapper > ul > li > ul {
+    display: none;
+    margin-top: 4px;
+  }
+  .wrapper > ul > li.tu-open > ul {
+    display: block;
+  }
+  html[data-theme="dark"] .tu-toggle { color: #6c7280; }
+</style>
+<script>
+  (function () {
+    var topUl = document.querySelector('.wrapper > ul');
+    if (!topUl) return;
+    Array.prototype.forEach.call(topUl.children, function (li) {
+      var subUl = li.querySelector(':scope > ul');
+      if (!subUl) return;
+      var tog = document.createElement('span');
+      tog.className = 'tu-toggle';
+      tog.textContent = '▶︎';
+      li.insertBefore(tog, li.firstChild);
+      li.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return; // let case/turn links navigate normally
+        li.classList.toggle('tu-open');
+      });
+    });
+  })();
+</script>

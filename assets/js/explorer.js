@@ -21,7 +21,7 @@ let _currentEvents    = [];    // unsorted events[] for the active case (URL `ev
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentLoadedEntry = null; // the audio entry object currently loaded in loadAudioEntry
 let _currentCaseEntry   = null; // the case object currently loaded
-let _currentDecisionEntries    = []; // decision entries [{value,href,title}] for the active case (audio dropdown sentinels)
+let _currentDecisionEntries    = []; // decision entries [{value,href,title}] for the active case (file dropdown sentinels)
 let _currentTranscriptEntries  = []; // transcript PDF entries [{value,href,title}] for the active case
 // Pool of persistent PDF iframes keyed by full src URL (including #page fragment).
 // Switching between entries is a pure show/hide — no reload, no about:blank bounce.
@@ -177,14 +177,24 @@ function _favKey(fav) {
   return `${fav.court}:${fav.caseRef.term}:${fav.caseRef.number}:${fav.caseRef.event ?? 0}`;
 }
 
+// #file-select's `hidden` and its wrapper's `hidden` are kept in sync — the
+// wrapper also draws the arrow indicator, which has no meaning when there's
+// no dropdown to open.
+function _setFileSelectHidden(hidden) {
+  const sel = document.getElementById('file-select');
+  if (sel) sel.hidden = hidden;
+  const wrap = document.getElementById('file-select-wrap');
+  if (wrap) wrap.hidden = hidden;
+}
+
 function _currentFavKey() {
   if (!_currentCaseEntry || !_currentCaseKey) return null;
   const term   = _currentCaseKey.split('/')[0];
   const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
-  const audioSel = document.getElementById('audio-select');
+  const fileSel = document.getElementById('file-select');
   let evIdx = 0;
-  if (!audioSel?.hidden) {
-    const selVal   = parseInt(audioSel?.value ?? '0', 10);
+  if (!fileSel?.hidden) {
+    const selVal   = parseInt(fileSel?.value ?? '0', 10);
     const selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
     evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
   }
@@ -218,10 +228,10 @@ function _toggleFavorite() {
   } else {
     const term   = _currentCaseKey.split('/')[0];
     const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
-    const audioSel = document.getElementById('audio-select');
+    const fileSel = document.getElementById('file-select');
     let evIdx = 0, selEntry = null;
-    if (!audioSel?.hidden) {
-      const selVal = parseInt(audioSel?.value ?? '0', 10);
+    if (!fileSel?.hidden) {
+      const selVal = parseInt(fileSel?.value ?? '0', 10);
       selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
       evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
     }
@@ -497,10 +507,10 @@ function _collectTagGroupDefs() {
       if (Array.isArray(e.collections)) { walk(e.collections, isTopic); continue; }
       const fileUrl = e.file ?? e.collection;
       if (!fileUrl || !Array.isArray(e.groups)) continue;
-      const id = fileUrl.split('/').pop().replace('.json', '');
+      const id = e.id || fileUrl.split('/').pop().replace('.json', '');
       for (const g of e.groups) {
         if (!Array.isArray(g.tags) || !g.tags.length) continue;
-        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, isFanout: g.name === '*', allowMerge: !!g.allow_group_merging });
+        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, groupId: g.id ?? null, isFanout: g.name === '*', allowMerge: !!g.allow_group_merging });
       }
     }
   }
@@ -509,26 +519,30 @@ function _collectTagGroupDefs() {
   return out;
 }
 
-// Resolve one of a case's own tags to a { isTopic, id, groupIdx } navigation
-// target within collections.json/topics.json, or null when the tag doesn't
-// correspond to any collection/topic. groupIdx (1-based, matching the URL
-// 'group' param) is resolved by fetching the collection/topic's generated
-// file and finding the matching group's position — null means "link to the
-// collection/topic root, no specific group".
+// Resolve one of a case's own tags to a { isTopic, id, groupId, groupIdx }
+// navigation target within collections.json/topics.json, or null when the
+// tag doesn't correspond to any collection/topic. A statically-declared
+// group (one with its own "id" in collections.json) resolves groupId
+// directly, no fetch needed; only a group without one falls back to
+// groupIdx (1-based, matching the legacy URL 'group' param), resolved by
+// fetching the collection/topic's generated file and finding the matching
+// group's position. Both null means "link to the collection/topic root, no
+// specific group".
 async function _resolveTagTarget(tag, caseTags) {
   const defs = _collectTagGroupDefs();
   // Direct match: tag is a named (non-fan-out) group's own declared tag.
   const direct = defs.find(d => !d.isFanout && d.requiredTags.includes(tag));
   if (direct) {
+    if (direct.groupId != null) return { isTopic: direct.isTopic, id: direct.id, groupId: direct.groupId, groupIdx: null };
     const groups = await _fetchCollectionGroups(direct.fileUrl);
     const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === direct.groupName) : -1;
-    return { isTopic: direct.isTopic, id: direct.id, groupIdx: idx >= 0 ? idx + 1 : null };
+    return { isTopic: direct.isTopic, id: direct.id, groupId: null, groupIdx: idx >= 0 ? idx + 1 : null };
   }
   // Fan-out root match: tag is the fan-out's own required tag — link to the
   // collection/topic root (e.g. the "Noteworthy" tag itself, as opposed to
   // one of its per-category sub-tags).
   const fanoutRoot = defs.find(d => d.isFanout && d.requiredTags.includes(tag));
-  if (fanoutRoot) return { isTopic: fanoutRoot.isTopic, id: fanoutRoot.id, groupIdx: null };
+  if (fanoutRoot) return { isTopic: fanoutRoot.isTopic, id: fanoutRoot.id, groupId: null, groupIdx: null };
   // Fan-out sub-group match: the case qualifies for some fan-out (carries all
   // of its required tags — or, when the fan-out opts in to
   // "allow_group_merging", just the candidate tag itself), and `tag` may be
@@ -540,7 +554,7 @@ async function _resolveTagTarget(tag, caseTags) {
     if (!d.allowMerge && !d.requiredTags.every(rt => caseTags.includes(rt))) continue;
     const groups = await _fetchCollectionGroups(d.fileUrl);
     const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === tag) : -1;
-    if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupIdx: idx + 1 };
+    if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupId: null, groupIdx: idx + 1 };
   }
   return null;
 }
@@ -558,7 +572,8 @@ function _navigateToTagTarget(target) {
     term,
     case: currentCaseParam,
   };
-  if (target.groupIdx != null) params.group = target.groupIdx;
+  if (target.groupId != null) params.id = target.groupId;
+  else if (target.groupIdx != null) params.group = target.groupIdx;
   const href = buildUrlParams(
     params,
     ['highlight', 'file', 'citation', 'event', 'turn', 'find', 'group', 'id'],
@@ -959,6 +974,7 @@ function _initFavoritesCollectionItem(sectionLi) {
   _favoritesLi = document.createElement('li');
   _favoritesLi.className = 'term-group';
   _favoritesLi.dataset.collectionUrl = '/courts/ussc/collections/favorites.json';
+  _favoritesLi.dataset.collectionId = 'favorites';
 
   const header = document.createElement('div');
   header.className = 'term-header';
@@ -1100,6 +1116,7 @@ function _initEditsNavItem(sectionLi) {
   _editsLi = document.createElement('li');
   _editsLi.className = 'term-group';
   _editsLi.dataset.collectionUrl = '/courts/ussc/collections/edits.json';
+  _editsLi.dataset.collectionId = 'edits';
 
   const header = document.createElement('div');
   header.className = 'term-header';
@@ -1608,7 +1625,25 @@ let TERMS = [];         // flat array {name, file, cases(count), term(derived), 
 let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
-const _COLLECTION_ALIASES = { loners: 'lone_dissents', top_advocates: 'top100_advocates' };
+// Old collection ids, mapped forward to their current value, so
+// bookmarked/shared links built before a rename keep resolving.
+// _resolveCollectionAlias() below chains through these, so an entry only
+// needs to name its immediate successor. collections.json's explicit "id"
+// values are kept equal to each collection's file basename (matching what's
+// already published), so this table only needs actual renames, not the
+// general file-basename-vs-id case.
+const _COLLECTION_ALIASES = {
+  loners: 'lone_dissents',
+  top_advocates: 'top100_advocates',
+};
+
+// Repeatedly follows _COLLECTION_ALIASES until reaching a value with no
+// further alias (or a cap is hit, as a guard against a misconfigured cycle).
+function _resolveCollectionAlias(collId) {
+  let id = collId, hops = 0;
+  while (id && _COLLECTION_ALIASES[id] && hops++ < 10) id = _COLLECTION_ALIASES[id];
+  return id;
+}
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 const _titleIndexCache   = new Map(); // first-char → inflight Promise or resolved index object
 const _keywordIndexCache = new Map(); // first-char → inflight Promise or resolved index object
@@ -2393,7 +2428,7 @@ function caseTitleLabel(caseEntry, subCase) {
 }
 
 // Set the case-title-label element to a link that reveals the case in the nav pane.
-// optionText: text of the currently selected audio dropdown option — used to resolve
+// optionText: text of the currently selected file dropdown option — used to resolve
 // the matching sub-case title for consolidated cases.
 // numberOverride: a specific docket number (e.g. from a URL 'case' param) that takes
 // priority over optionText — lets a link to one docket in a consolidated case show
@@ -2538,7 +2573,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 // "Decision on <full date> (XXX)". This is the shared source list behind both
 // the top-right document dropdown (_currentDecisionEntries) and the
 // #case-cite click menu (_buildCiteMenuEntries derives its own shorter
-// "Opinion (XXX)" button labels from it), so both list the same sources in
+// "Decision (XXX)" button labels from it), so both list the same sources in
 // the same order and stay in sync automatically.
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
@@ -2558,14 +2593,14 @@ function _buildOpinionEntries(caseEntry) {
 
 // Returns _buildOpinionEntries' list with each entry's `menuLabel` set to the
 // fixed, source-specific button text shown in the #case-cite click menu (see
-// _setCaseInfoRow2) \u2014 "Opinion (LOC)" etc., as opposed to that same list's
+// _setCaseInfoRow2) \u2014 "Decision (LOC)" etc., as opposed to that same list's
 // own `title`, which is what the doc viewer's title bar shows once opened.
 function _buildCiteMenuEntries(caseEntry) {
-  const MENU_LABELS = { decision_loc: 'Opinion (LOC)', decision_ussc: 'Opinion (USSC)', decision_reports: 'Opinion (VOL)', decision_xml: 'Opinion (XML)' };
+  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_reports: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
   return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
 }
 
-// Bidirectional mapping between the audio-select dropdown's decision_* option
+// Bidirectional mapping between the file-select dropdown's decision_* option
 // values and the short values used for the URL 'file' param, so a selected
 // decision source round-trips through the URL (?file=loc|ussc|vol|xml) and
 // can be restored on load.
@@ -2574,14 +2609,14 @@ const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 
 
 // If `param` (a URL 'file' value) names a decision source present in the
 // current case's _currentDecisionEntries, show it in the doc viewer and sync
-// the audio-select dropdown to match. Returns whether it was handled.
+// the file-select dropdown to match. Returns whether it was handled.
 function _showDecisionFromParam(param) {
   const key = DECISION_PARAM_KEYS[param];
   const de  = key && _currentDecisionEntries.find(d => d.value === key);
   if (!de) return false;
   showDocViewer({ href: de.href, title: de.title, view: de.view }, { autoScroll: true });
-  const audioSelect = document.getElementById('audio-select');
-  if (audioSelect && !audioSelect.hidden) audioSelect.value = key;
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = key;
   return true;
 }
 
@@ -2651,7 +2686,7 @@ function _buildOyezEntries(caseEntry) {
 }
 
 // Reference-type files.json entries (the same ones grouped under "References"
-// in the sidebar) get pulled out of #audio-select's alphabetized file list and
+// in the sidebar) get pulled out of #file-select's alphabetized file list and
 // appended as their own block at the very end (after decisions/video), each
 // prefixed "Reference: " so they read as a distinct group rather than mingling
 // with briefs/transcripts by title alone.
@@ -2747,12 +2782,6 @@ function _setCaseInfoRow2(caseEntry) {
     citeEl.hidden = true;
     citeEl.onclick = null;
   }
-  // Only needed (see the mobile #case-decided-break rule in explorer.css)
-  // when there's a preceding Argued/Reargued date for Decided to break away
-  // from — otherwise Decided is already first on the line and forcing its
-  // own row would just leave a blank line above it.
-  document.getElementById('case-decided-break').hidden =
-    !(caseEntry.decision && (caseEntry.argument || caseEntry.reargument));
   document.getElementById('case-info-row2').hidden =
     !(caseEntry.argument || caseEntry.reargument || caseEntry.decision);
   _setCaseNotes(caseEntry.notes || '');
@@ -4174,6 +4203,11 @@ function _findCollectionEntry(entries, collId) {
       const found = _findCollectionEntry(c.collections, collId);
       if (found) return found;
     } else {
+      if (c.id === collId) return c;
+      // Fall back to the legacy file-basename-derived id for entries with no
+      // explicit "id" (e.g. topics.json), or as extra defense-in-depth for
+      // any collId that reached here without going through
+      // _resolveCollectionAlias() first.
       const fileUrl = c.file ?? c.collection;
       if (fileUrl && fileUrl.split('/').pop().replace('.json', '') === collId) return c;
     }
@@ -4749,10 +4783,11 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
 
   // Leaf entry: has a data file ('file' key; 'collection' supported for backward compat)
   const fileUrl = collEntry.file ?? collEntry.collection;
-  const collId = fileUrl.split('/').pop().replace('.json', '');
+  const collId = collEntry.id || fileUrl.split('/').pop().replace('.json', '');
   const collLi = document.createElement('li');
   collLi.className = 'term-group';
   collLi.dataset.collectionUrl = fileUrl;
+  collLi.dataset.collectionId = collId;
 
   const collHeader = document.createElement('div');
   collHeader.className = 'term-header';
@@ -5097,7 +5132,7 @@ function _buildHighlightItem(highlight, highlightIdx, href = null, isTopic = fal
     if (!fromRestore) {
       const groupLi = ci.closest('.month-group');
       const collLi  = ci.closest('.term-group[data-collection-url]');
-      const collId  = collLi?.dataset.collectionUrl?.split('/').pop().replace('.json', '');
+      const collId  = collLi?.dataset.collectionId;
       const groupId = groupLi?.dataset.groupId ?? null;
       const groupIdx = groupLi?.dataset.groupIdx ?? null;
       const groupOrId = groupId != null ? { id: groupId } : (groupIdx != null ? { group: groupIdx } : {});
@@ -5119,7 +5154,7 @@ async function loadHighlight(highlight) {
   // Reset UI to a minimal "case" view
   document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
   document.getElementById('transcript-viewer').classList.add('no-transcript');
-  document.getElementById('audio-select').hidden = true;
+  _setFileSelectHidden(true);
   const decisionLabel = document.getElementById('decision-date-label');
   if (highlight.date) {
     decisionLabel.textContent = new Date(highlight.date + 'T00:00:00').toLocaleDateString('en-US', {
@@ -6298,7 +6333,7 @@ function _buildJournalRefOptions(caseEntry, term) {
 }
 
 // Display a case in opinion-only mode: no transcript pane (i.e. no synced,
-// turn-by-turn transcript), no audio dropdown. Whatever opens full-height in
+// turn-by-turn transcript), no file dropdown. Whatever opens full-height in
 // the document viewer follows the same preference as a case with real audio
 // defaulting to its argument: the first oral-argument transcript source, if
 // any, falling back to the opinion. Used for historical cases without
@@ -6350,7 +6385,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   setCaseTitleLabel(term, caseEntry, null, numberOverride);
   const _opSub = _subCaseForNumber(caseEntry, numberOverride);
   setPageMeta((_opSub ? _opSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud', caseMetaDescription(caseEntry));
-  const audioSelect = document.getElementById('audio-select');
+  const fileSelect = document.getElementById('file-select');
   const decisionLabel = document.getElementById('decision-date-label');
 
   // Collect any events with journal_ref so we can offer them in a dropdown
@@ -6379,12 +6414,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // wants a new tab already has the doc viewer's own "open in new tab" button.
   if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
     decisionLabel.hidden = true;
-    audioSelect.innerHTML = '';
+    fileSelect.innerHTML = '';
     journalOpts.forEach(j => {
       const opt = document.createElement('option');
       opt.value = j.value;
       opt.textContent = j.title;
-      audioSelect.appendChild(opt);
+      fileSelect.appendChild(opt);
     });
     _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
       if ((f.type || '').toLowerCase() === 'opinion' && caseEntry.decision_ussc) return;
@@ -6393,35 +6428,35 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       opt.value = 'file:' + f.file;
       const t = f.title || '';
       opt.textContent = t.length > 40 ? t.slice(0, 40) + '…' : t;
-      audioSelect.appendChild(opt);
+      fileSelect.appendChild(opt);
     });
     _currentTranscriptEntries.forEach(te => {
       const opt = document.createElement('option');
       opt.value = te.value;
       opt.textContent = te.title;
-      audioSelect.appendChild(opt);
+      fileSelect.appendChild(opt);
     });
     _currentDecisionEntries.forEach(de => {
       const opt = document.createElement('option');
       opt.value = de.value;
       opt.textContent = de.title;
-      audioSelect.appendChild(opt);
+      fileSelect.appendChild(opt);
     });
     _currentVideoEntries.forEach((v, i) => {
       const opt = document.createElement('option');
       opt.value = 'video:' + i;
       opt.textContent = v.title;
-      audioSelect.appendChild(opt);
+      fileSelect.appendChild(opt);
     });
-    _buildReferenceOptions(_opRawFiles).forEach(opt => audioSelect.appendChild(opt));
+    _buildReferenceOptions(_opRawFiles).forEach(opt => fileSelect.appendChild(opt));
     // Default to the first oral-argument transcript when present (matches a
     // case with real audio defaulting to its argument), else the first
     // decision entry — both open in the document viewer.
     const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0];
-    if (_defaultEntry) audioSelect.value = _defaultEntry.value;
-    audioSelect.hidden = false;
+    if (_defaultEntry) fileSelect.value = _defaultEntry.value;
+    _setFileSelectHidden(false);
   } else {
-    audioSelect.hidden = true;
+    _setFileSelectHidden(true);
     if (decisionText) {
       decisionLabel.textContent = decisionText;
       const _firstDE = _currentDecisionEntries[0];
@@ -6491,11 +6526,11 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     return loadCaseAsOpinion(term, caseEntry, numberOverride);
   }
 
-  // Restore audio-select visibility for normal audio cases.
+  // Restore file-select visibility for normal audio cases.
   // Reset height so the doc viewer reopens at the default 45vh, not any
   // full-height value left over from a previous no-audio (historical) case.
   document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
-  document.getElementById('audio-select').hidden = false;
+  _setFileSelectHidden(false);
   document.getElementById('decision-date-label').hidden = true;
   _setCaseInfoRow2(caseEntry);
   _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
@@ -6619,7 +6654,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // the same objects, so indexOf comparisons work for 1-based position lookups.
   const allAudio = (caseEntry.events || []).filter(e => e.source !== 'otd');
 
-  // Build audio select dropdown.
+  // Build file-select dropdown.
   // Each option's value = 1-based position of the entry in allAudio (the full list).
   // USSC audio was aligned by us (machine alignment), so always append " (USSC)"
   // as a signal that timing may not be optimal. When multiple entries for the same
@@ -6638,14 +6673,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     }
     for (const [k, sources] of _seen) if (sources.size > 1) _dupTypeDate.add(k);
   }
-  const audioSelect = document.getElementById('audio-select');
-  audioSelect.innerHTML = '';
+  const fileSelect = document.getElementById('file-select');
+  fileSelect.innerHTML = '';
   // Docket Search appears first when available.
   if (caseEntry.docket_href) {
     const docketOpt = document.createElement('option');
     docketOpt.value = 'docket-page';
     docketOpt.textContent = 'Docket Search';
-    audioSelect.appendChild(docketOpt);
+    fileSelect.appendChild(docketOpt);
   }
   // Journal entries appear next, before audio.
   const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
@@ -6654,7 +6689,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     const opt = document.createElement('option');
     opt.value = j.value;
     opt.textContent = j.title;
-    audioSelect.appendChild(opt);
+    fileSelect.appendChild(opt);
   });
   const _appendAudioOption = (a) => {
     const opt = document.createElement('option');
@@ -6665,7 +6700,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
       ? (_sourceSuffixes[a.source] ?? (' (' + (a.source || '').toUpperCase() + ')'))
       : '';
     opt.textContent = audioEntryLabel(a, _suffix);
-    audioSelect.appendChild(opt);
+    fileSelect.appendChild(opt);
   };
   // Argument/reargument audio entries first, then transcript PDF sentinels,
   // then opinion audio entries — transcripts always precede any opinion
@@ -6676,7 +6711,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     const opt = document.createElement('option');
     opt.value = te.value;
     opt.textContent = te.title;
-    audioSelect.appendChild(opt);
+    fileSelect.appendChild(opt);
   });
   sortedAudio.filter(a => a.type === 'opinion').forEach(_appendAudioOption);
   // Append sentinel options linking to decision PDFs, in order: LOC, USSC, US Reports.
@@ -6684,28 +6719,28 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     const sentinelOpt = document.createElement('option');
     sentinelOpt.value = de.value;
     sentinelOpt.textContent = de.title;
-    audioSelect.appendChild(sentinelOpt);
+    fileSelect.appendChild(sentinelOpt);
   });
   // Append sentinel option(s) linking to the Oyez case page(s), if available.
   _currentOyezEntries.forEach(oe => {
     const oyezOpt = document.createElement('option');
     oyezOpt.value = oe.value;
     oyezOpt.textContent = oe.title;
-    audioSelect.appendChild(oyezOpt);
+    fileSelect.appendChild(oyezOpt);
   });
   // Append sentinel options linking to On The Docket videos, if available.
   _currentVideoEntries.forEach((v, i) => {
     const opt = document.createElement('option');
     opt.value = 'video:' + i;
     opt.textContent = v.title;
-    audioSelect.appendChild(opt);
+    fileSelect.appendChild(opt);
   });
   // Resolve audioIdx (1-based into caseEntry.events, or 0 = default) to a dropdown
   // option value. The dropdown values are 1-based positions within the
   // date-sorted `allAudio`, so translate via the underlying event reference.
   // If the requested entry was filtered out of the dropdown, fall back to the
   // first option.
-  const _dropdownValues = [...audioSelect.options]
+  const _dropdownValues = [...fileSelect.options]
     .map(o => o.value)
     .filter(v => v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
@@ -6714,7 +6749,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const resolvedOptionValue = (_requestedAllAudioPos >= 1 && _dropdownValues.includes(_requestedAllAudioPos))
     ? _requestedAllAudioPos
     : (_dropdownValues.find(v => allAudio[v - 1]?.audio_href) ?? _dropdownValues[0] ?? 1);
-  audioSelect.value = String(resolvedOptionValue);
+  fileSelect.value = String(resolvedOptionValue);
 
   // Update nav highlight now that resolvedOptionValue is known.
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
@@ -6773,7 +6808,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
 
   // Update case title — for consolidated cases, reflect the selected sub-case
   // (or numberOverride, e.g. from a URL 'case' param naming one specific docket).
-  const _selOptText = audioSelect.options[audioSelect.selectedIndex]?.textContent || '';
+  const _selOptText = fileSelect.options[fileSelect.selectedIndex]?.textContent || '';
   setCaseTitleLabel(term, caseEntry, _selOptText, numberOverride);
   const _selSub = _subCaseForNumber(caseEntry, numberOverride) || _subCaseForOption(caseEntry, _selOptText);
   setPageMeta((_selSub ? _selSub.title : caseTitle(caseEntry.title)) + ' | Argument Aloud', caseMetaDescription(caseEntry));
@@ -6846,7 +6881,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
   _currentFiles = rawFiles;
   links = rawFiles.filter(f => f.refs);
-  const _fileSel = document.getElementById('audio-select');
+  const _fileSel = document.getElementById('file-select');
   if (rawFiles.length) {
     const _fileFrag = document.createDocumentFragment();
     rawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
@@ -7036,9 +7071,9 @@ function renderTranscript() {
           const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
           const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
           // Get the current event index (1-based) from the audio selector
-          const audioSelect = document.getElementById('audio-select');
-          const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
-            ? parseInt(audioSelect.value, 10)
+          const fileSelect = document.getElementById('file-select');
+          const currentEvent = fileSelect && !fileSelect.hidden && fileSelect.value
+            ? parseInt(fileSelect.value, 10)
             : 0;
           const turnUrl = (ciTerm && ciCase)
             ? buildUrlParams(
@@ -7087,9 +7122,9 @@ function renderTranscript() {
           const slashIdx = caseKey.indexOf('/');
           const ciTerm = slashIdx >= 0 ? caseKey.slice(0, slashIdx) : '';
           const ciCase = slashIdx >= 0 ? caseKey.slice(slashIdx + 1) : '';
-          const audioSelect = document.getElementById('audio-select');
-          const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
-            ? parseInt(audioSelect.value, 10)
+          const fileSelect = document.getElementById('file-select');
+          const currentEvent = fileSelect && !fileSelect.hidden && fileSelect.value
+            ? parseInt(fileSelect.value, 10)
             : 0;
           const turnUrl = (ciTerm && ciCase)
             ? buildUrlParams(
@@ -7162,9 +7197,9 @@ function renderTranscript() {
       let url;
       if (ciTerm && ciCase) {
         // Get the current event index from the audio selector
-        const audioSelect = document.getElementById('audio-select');
-        const currentEvent = audioSelect && !audioSelect.hidden && audioSelect.value
-          ? parseInt(audioSelect.value, 10)
+        const fileSelect = document.getElementById('file-select');
+        const currentEvent = fileSelect && !fileSelect.hidden && fileSelect.value
+          ? parseInt(fileSelect.value, 10)
           : 0;
         // If we're already viewing within a collection, preserve collection/id/group/event
         // so the advocate context stays in the URL. The user can click the case title
@@ -7193,8 +7228,8 @@ function renderTranscript() {
       // a URL to match it — clear it too, rather than leaving a stale mark.
       _transcriptSearchClearHighlight?.();
       if (_currentCaseKey) {
-        const _audioSel  = document.getElementById('audio-select');
-        const _selVal    = parseInt(_audioSel?.value ?? '0', 10);
+        const _fileSel  = document.getElementById('file-select');
+        const _selVal    = parseInt(_fileSel?.value ?? '0', 10);
         const _selEntry  = _selVal >= 1 ? _currentAudioList[_selVal - 1] : null;
         const _evIdx     = _selEntry ? _currentEvents.indexOf(_selEntry) + 1 : 0;
         const _prevState = _caseSessionState.get(_currentCaseKey) ?? {};
@@ -7248,7 +7283,7 @@ function _clearDocViewerUrlParams() {
 }
 
 // ── Audio entry dropdown ──────────────────────────────────────────────────
-document.getElementById('audio-select').addEventListener('change', async (e) => {
+document.getElementById('file-select').addEventListener('change', async (e) => {
   // Always reset to case-level notes first; audio entry selection below will
   // override with event-specific notes if the chosen entry has any.
   _setCaseNotes(_currentCaseEntry?.notes || '');
@@ -9026,7 +9061,7 @@ async function _openCollectionSection(collId) {
     if (!sLi) continue;
     sLi.classList.add('open');
     await sLi._ensureBuilt();
-    if (sLi.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`)) return sLi;
+    if (sLi.querySelector(`.term-group[data-collection-id="${CSS.escape(collId)}"]`)) return sLi;
   }
   return null;
 }
@@ -9037,7 +9072,7 @@ async function _openCollectionSection(collId) {
 // with whichever item they consider "first" under their own sort order.
 async function _scrollSidebarToCollectionItem(collId, itemId) {
   const sLi = await _openCollectionSection(collId);
-  const collLi = sLi?.querySelector(`.term-group[data-collection-url$="/${CSS.escape(collId)}.json"]`);
+  const collLi = sLi?.querySelector(`.term-group[data-collection-id="${CSS.escape(collId)}"]`);
   if (!collLi) return;
   let ancestor = collLi.parentElement?.closest('.term-group');
   while (ancestor && sLi.contains(ancestor)) { ancestor.classList.add('open'); ancestor = ancestor.parentElement?.closest('.term-group'); }
@@ -9080,7 +9115,7 @@ async function restoreFromURL() {
   const dateParam       = params.get('date') ?? null;
   let collectionParam = params.get('collection') ?? params.get('topic');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
-    collectionParam = _COLLECTION_ALIASES[collectionParam];
+    collectionParam = _resolveCollectionAlias(collectionParam);
     params.set('collection', collectionParam);
     history.replaceState(null, '', '?' + params.toString());
   }
@@ -9152,7 +9187,7 @@ async function restoreFromURL() {
   if (collectionParam && !groupParam && !idParam && highlightParam == null && !termParam && !caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
-      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+      `.term-group[data-collection-id="${CSS.escape(collectionParam)}"]`
     );
     const _hash = location.hash.slice(1);
     if (collLi) {
@@ -9198,7 +9233,7 @@ async function restoreFromURL() {
   if (collectionParam && idParam && highlightParam != null && !termParam && !caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
-      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+      `.term-group[data-collection-id="${CSS.escape(collectionParam)}"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
@@ -9214,7 +9249,7 @@ async function restoreFromURL() {
         const hlEl = groupLi.querySelector(`.highlight-item[data-highlight-idx="${highlightParam}"]`);
         if (hlEl) {
           if (!isMobile()) requestAnimationFrame(() => hlEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
-          hlEl.querySelector('.case-title-nav')?.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+          hlEl.querySelector('.case-title-nav')?.dispatchEvent(Object.assign(new MouseEvent('click', { cancelable: true }), { fromRestore: true }));
         }
       }
     }
@@ -9225,7 +9260,7 @@ async function restoreFromURL() {
   if (collectionParam && (groupParam || idParam) && !termParam && !caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
-      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+      `.term-group[data-collection-id="${CSS.escape(collectionParam)}"]`
     );
     if (collLi) {
       let _ag = collLi.parentElement?.closest('.term-group');
@@ -9272,7 +9307,7 @@ async function restoreFromURL() {
   if (collectionParam && termParam && caseParam && _anySectionLi) {
     const _sLi = await _openCollectionSection(collectionParam);
     const collLi = _sLi?.querySelector(
-      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+      `.term-group[data-collection-id="${CSS.escape(collectionParam)}"]`
     );
     let _collCaseFocused = false;
     if (collLi) {

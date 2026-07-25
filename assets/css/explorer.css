@@ -1039,41 +1039,58 @@ button.term-case-count.sort-active:hover {
   text-underline-offset: 3px;
 }
 
-#audio-select {
+/* Wrapper gives the native <select> below a visible box frame plus a
+   static downward-pointing triangle (matching .term-toggle's glyph, just
+   permanently rotated instead of toggled) so it reads as a dropdown at a
+   glance instead of a plain link. */
+#file-select-wrap {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+#file-select-arrow {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 9px;
+  color: #999;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#file-select {
+  box-sizing: border-box;
   font-size: 12px;
   font-weight: bold;
   font-family: inherit;
   color: #2672b4;
-  flex-shrink: 0;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   outline: none;
-  padding: 0 0 4px;
+  padding: 3px 20px 3px 8px;
   background: none;
   cursor: pointer;
-  text-align: right;
-  /* Safari's native <option> popup ignores text-align entirely (only the
-     closed box respects it) but does honor direction — this is the standard
-     workaround. Harmless for our plain-English option text: the Unicode
-     bidi algorithm keeps LTR-script runs in normal reading order regardless
-     of the container's overall direction; only the alignment/anchor edge
-     flips. */
-  direction: rtl;
+  text-align: left;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-#audio-select:focus {
+#file-select:focus {
   outline: none;
+  border-color: #2672b4;
 }
 
-#audio-select::-moz-focus-inner {
+#file-select::-moz-focus-inner {
   border: 0;
 }
 
-#audio-select:hover {
+#file-select:hover {
   color: #4a9eff;
-  text-decoration: underline;
+  border-color: #4a9eff;
 }
 
 #decision-date-label {
@@ -1107,15 +1124,6 @@ button.term-case-count.sort-active:hover {
 #case-argued, #case-reargued, #case-decided {
   font-size: 12px;
   color: #888;
-}
-
-/* Purely a mobile line-break aid (see the mobile #case-decided-break rule) —
-   on desktop it must stay out of the flex flow, otherwise being an empty
-   flex item still consumes its own two 12px column-gaps, doubling the gap
-   between the preceding date and Decided versus the gap between Argued and
-   Reargued. */
-#case-decided-break {
-  display: none;
 }
 
 #case-argued .date-link, #case-reargued .date-link, #case-decided .date-link {
@@ -2389,35 +2397,32 @@ button.term-case-count.sort-active:hover {
   /* 1st: title (grows to fill); right padding makes room for the back button */
   #case-title-label  { order: 1; flex-basis: 100%; padding-right: 28px; }
 
-  /* 2nd: audio dropdown or decision label */
-  #audio-select,
+  /* 2nd: decision label (file dropdown moved below the vote line — see order: 5) */
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
-  #audio-select { text-align: left; direction: ltr; }
+  /* The wrapper stretches to fill the row, but a bare <select> only sizes to
+     its content — without also stretching it, the wrapper (and the arrow
+     positioned relative to it) end up wider than the visible box. */
+  #file-select-wrap { display: block; }
+  #file-select { width: 100%; }
 
-  /* 3rd: argued / decided dates + favorite + tags */
+  /* 3rd: argued / decided dates + favorite + tags — wraps naturally (see the
+     base #case-info-row2 rule) so Decided only drops to its own line when it
+     actually doesn't fit, instead of always leaving the rest of the Argued/
+     Reargued line blank. */
   #case-info-row2    { order: 3; flex-basis: 100%; }
-
-  /* Decided always starts its own line rather than wrapping independently —
-     that left favorite+tags stranded alone on a mostly-blank line beneath
-     both dates. #case-decided-break is a zero-height dedicated flex item
-     (shown by JS only when there's a preceding Argued/Reargued date to break
-     away from — see _setCaseInfoRow2) that eats the rest of its line via
-     flex-basis: 100%, forcing everything after it — Decided, citation,
-     favorite+tags — onto one new line together. Giving #case-decided itself
-     flex-basis: 100% would be wrong: it would claim the whole line for its
-     own text, pushing favorite+tags to a third line. Re-enabled as a flex
-     item here (display:none by default — see the base rule) only for this
-     line-break purpose, which is mobile-only. */
-  #case-decided-break:not([hidden]) { display: block; flex-basis: 100%; }
 
   /* 4th: vote line */
   #case-info-row3    { order: 4; flex-basis: 100%; }
 
-  /* 5th: SCDB discrepancy message */
-  #case-info-row4    { order: 5; flex-basis: 100%; }
+  /* 5th: file dropdown — placed after the vote line on mobile, unlike the
+     desktop layout where it sits up in row1 next to the title. */
+  #file-select-wrap  { order: 5; flex-basis: 100%; margin-top: 6px; }
 
-  /* 6th: questions */
-  #case-questions    { order: 6; flex-basis: 100%; }
+  /* 6th: SCDB discrepancy message */
+  #case-info-row4    { order: 6; flex-basis: 100%; }
+
+  /* 7th: questions */
+  #case-questions    { order: 7; flex-basis: 100%; }
 
   #mobile-back-btn {
     display: block;
@@ -2568,11 +2573,19 @@ button.term-case-count.sort-active:hover {
   #case-title-label               { color: #d0d3dc; }
   #case-title-label a.case-title-link { color: inherit; }
 
-  #audio-select {
+  #file-select {
     color: #5eaee0;
+    border-color: #404450;
   }
-  #audio-select:hover {
+  #file-select:focus {
+    border-color: #5eaee0;
+  }
+  #file-select:hover {
     color: #7bc8f0;
+    border-color: #5eaee0;
+  }
+  #file-select-arrow {
+    color: #6c7280;
   }
 
   #decision-date-label            { color: #9da5b4; }
@@ -2888,8 +2901,10 @@ html[data-theme="dark"] #player-section { background: #1a1c22; border-bottom-col
 html[data-theme="dark"] #audio-controls { background: #1a1c22; border-top-color: #2d2f38; }
 html[data-theme="dark"] #case-title-label               { color: #d0d3dc; }
 html[data-theme="dark"] #case-title-label a.case-title-link { color: inherit; }
-html[data-theme="dark"] #audio-select { color: #5eaee0; }
-html[data-theme="dark"] #audio-select:hover { color: #7bc8f0; }
+html[data-theme="dark"] #file-select { color: #5eaee0; border-color: #404450; }
+html[data-theme="dark"] #file-select:focus { border-color: #5eaee0; }
+html[data-theme="dark"] #file-select:hover { color: #7bc8f0; border-color: #5eaee0; }
+html[data-theme="dark"] #file-select-arrow { color: #6c7280; }
 html[data-theme="dark"] #decision-date-label            { color: #9da5b4; }
 html[data-theme="dark"] #decision-date-label[href]       { color: #5eaee0; }
 html[data-theme="dark"] #decision-date-label[href]:hover { color: #7bc8f0; }
@@ -3108,8 +3123,10 @@ html[data-theme="light"] #player-section { background: #fafafa; border-bottom-co
 html[data-theme="light"] #audio-controls { background: #fafafa; border-top-color: #e0e0e0; }
 html[data-theme="light"] #case-title-label               { color: #222; }
 html[data-theme="light"] #case-title-label a.case-title-link { color: inherit; }
-html[data-theme="light"] #audio-select { color: #2672b4; }
-html[data-theme="light"] #audio-select:hover { color: #4a9eff; }
+html[data-theme="light"] #file-select { color: #2672b4; border-color: #ccc; }
+html[data-theme="light"] #file-select:focus { border-color: #2672b4; }
+html[data-theme="light"] #file-select:hover { color: #4a9eff; border-color: #4a9eff; }
+html[data-theme="light"] #file-select-arrow { color: #999; }
 html[data-theme="light"] #decision-date-label            { color: #555; }
 html[data-theme="light"] #decision-date-label[href]       { color: #2672b4; }
 html[data-theme="light"] #decision-date-label[href]:hover { color: #4a9eff; }

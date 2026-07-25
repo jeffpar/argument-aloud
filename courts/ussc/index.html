@@ -27,12 +27,14 @@ image: /assets/img/aa_exterior1.jpg
           <span id="case-title-label"></span>
           <button id="mobile-back-btn" title="Back to case list" aria-label="Back to case list">&#9650;</button>
           <a id="decision-date-label" hidden></a>
-          <select id="audio-select"></select>
+          <span id="file-select-wrap">
+            <select id="file-select"></select>
+            <span id="file-select-arrow" aria-hidden="true">&#9654;&#65038;</span>
+          </span>
         </div>
         <div id="case-info-row2" hidden>
           <span id="case-argued"></span>
           <span id="case-reargued"></span>
-          <span id="case-decided-break" hidden></span>
           <span id="case-decided"></span>
           <a id="case-cite"></a>
           <div id="case-info-actions">
@@ -136,4 +138,4 @@ image: /assets/img/aa_exterior1.jpg
 
 <script>window.INDEXES_BASE_URL = "{{ site.indexes_base_url }}";</script>
 <script>window.OPINIONS_BASE_URL = "{{ site.opinions_base_url }}";</script>
-<script src="{{ '/assets/js/explorer.js' | relative_url }}?v=28"></script>
+<script src="{{ '/assets/js/explorer.js' | relative_url }}?v=32"></script>

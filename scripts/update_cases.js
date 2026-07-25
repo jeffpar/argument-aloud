@@ -6370,7 +6370,12 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder) : [];
                 }
                 const name = g.name || g.title || '';
-                output.push({ name: _expandGroupName(name, cases), cases });
+                // g.id, when present, is propagated through to the built file so
+                // consumers reading it directly (rather than cross-referencing
+                // collections.json) still have it — explorer.js's own runtime
+                // merge (see _ensureCollectionBuilt) already did this on the fly,
+                // this just makes the static file self-describing too.
+                output.push({ id: g.id, name: _expandGroupName(name, cases), cases });
             }
         }
         return output;
@@ -13472,7 +13477,7 @@ function _collectSitemapCollectionIds(entries) {
             out.push(..._collectSitemapCollectionIds(entry.collections));
         } else {
             const fileUrl = entry.file || entry.collection;
-            if (fileUrl) out.push(fileUrl.split('/').pop().replace(/\.json$/, ''));
+            if (fileUrl) out.push(entry.id || fileUrl.split('/').pop().replace(/\.json$/, ''));
         }
     }
     return out;
