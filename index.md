@@ -78,21 +78,21 @@ layout: home
     <a class="hp-card-link" href="/courts/ussc?source=all" aria-label="Sources"></a>
     <div class="hp-icon">🏛️</div>
     <div class="hp-card-title">Sources</div>
-    <p class="hp-card-desc">Only trusted sources of data are used, starting with the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/nara">National Archives</a>, the <a href="/courts/ussc/?source=oyez">Oyez Project</a>, and other scholarly work.</p>
+    <p class="hp-card-desc">Trust the data, because we rely only on authoritative sources, starting with the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/nara">National Archives</a>, and the <a href="/courts/ussc/?source=oyez">Oyez Project</a>.</p>
   </div>
 
   <div class="hp-card">
     <a class="hp-card-link" href="/courts/ussc/?link=/courts/ussc/blog/2026/welcome-to-argument-aloud" aria-label="Blog"></a>
     <div class="hp-icon">🐙</div>
     <div class="hp-card-title">Blog</div>
-    <p class="hp-card-desc">Musings from Argument Aloud, discussing the challenges of gathering error-free data and oddities we have found along the way.</p>
+    <p class="hp-card-desc">Immerse yourself in musings from Argument Aloud, as we discuss the challenges of gathering error-free data and highlight oddities we have found along the way.</p>
   </div>
 
   <div class="hp-card">
     <a class="hp-card-link" href="/courts/ussc/?action=randomize&start=1955-10" aria-label="Surprise!"></a>
     <div class="hp-icon">🎲</div>
     <div class="hp-card-title">Surprise!</div>
-    <p class="hp-card-desc">Let the dice decide &mdash; jump to a randomly selected case from anywhere in the Court&rsquo;s history. A great way to stumble across something you would never have searched for.</p>
+    <p class="hp-card-desc">Let the dice decide, and see a case randomly selected from the past 70+ years. It's a fnu way to stumble across something you might never have searched for.</p>
   </div>
 
 </div>
