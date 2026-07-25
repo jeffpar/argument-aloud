@@ -374,11 +374,11 @@
     "id": "oddities",
     "name": "Oddities",
     "file": "/courts/ussc/collections/oddities.json",
-    "page": "/courts/ussc/collections/oddities",
     "groups": [
       {
         "id": "opinion-transcripts",
         "name": "Opinion Transcripts",
+        "page": "/courts/ussc/collections/oddities/transcripts",
         "conditions": [
           "event.source == 'ussc' && event.type == 'opinion'"
         ],
