@@ -4381,8 +4381,14 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
 
   const isTopLevelSource = sourceId === null;
   const thisSourceId = isTopLevelSource ? (page.id || null) : sourceId;
+  // A child one level below a top-level source uses its own declared "id"
+  // (e.g. index.json's "audio"/"transcripts"/... under "U.S. Supreme Court")
+  // for the ?id= param when present, falling back to the positional ?group=
+  // index otherwise — same id-preferred/index-fallback convention already
+  // used for collections.json/topics.json groups.
+  const thisGroupId = (!isTopLevelSource && page.id) ? page.id : null;
   // Only a top-level source with an id, or an immediate child of one, uses
-  // the ?source=/&group= scheme; everything else keeps the old ?link= scheme.
+  // the ?source=/&group=|&id= scheme; everything else keeps the old ?link= scheme.
   const usesSourceScheme = isTopLevelSource ? !!thisSourceId : (!!thisSourceId && groupIndex != null);
 
   // Breadcrumb title, e.g. "Docket Search | U.S. Supreme Court | Sources | Argument Aloud".
@@ -4396,8 +4402,10 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
 
   function navUrl() {
     if (usesSourceScheme) {
-      const updates = isTopLevelSource ? { source: thisSourceId } : { source: thisSourceId, group: groupIndex };
-      return buildUrlParams(updates, ['collection', 'topic', 'term', 'date', 'case', 'event', 'turn', 'file', 'id', 'highlight', 'sort', 'o']);
+      const groupOrId = isTopLevelSource ? {} : (thisGroupId != null ? { id: thisGroupId } : { group: groupIndex });
+      const updates = { source: thisSourceId, ...groupOrId };
+      const groupKeysToDrop = isTopLevelSource ? ['group', 'id'] : (thisGroupId != null ? ['group'] : ['id']);
+      return buildUrlParams(updates, ['collection', 'topic', 'term', 'date', 'case', 'event', 'turn', 'file', 'highlight', 'sort', 'o', ...groupKeysToDrop]);
     }
     if (pagePath) {
       const u = new URL(location.href);
@@ -4419,7 +4427,10 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
     if (pagePath) li.dataset.link = pagePath;
     if (usesSourceScheme) {
       if (isTopLevelSource) li.dataset.sourceId = thisSourceId;
-      else li.dataset.groupIndex = String(groupIndex);
+      else {
+        li.dataset.groupIndex = String(groupIndex);
+        if (thisGroupId != null) li.dataset.groupId = thisGroupId;
+      }
     }
     li._openPage = openPage;
 
@@ -4456,8 +4467,10 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
     function isSelected() {
       const params = new URLSearchParams(location.search);
       if (usesSourceScheme) {
-        const expectedGroup = isTopLevelSource ? null : String(groupIndex);
-        return params.get('source') === thisSourceId && (params.get('group') || null) === expectedGroup;
+        if (params.get('source') !== thisSourceId) return false;
+        if (isTopLevelSource) return !params.get('group') && !params.get('id');
+        if (thisGroupId != null) return params.get('id') === thisGroupId;
+        return (params.get('group') || null) === String(groupIndex);
       }
       if (pagePath) return params.get('link') === pagePath;
       return true; // no distinct URL identity — open implies selected
@@ -4507,7 +4520,10 @@ function buildStaticPageItem(parentUl, page, sourceId = null, groupIndex = null,
     if (pagePath) li.dataset.link = pagePath;
     if (usesSourceScheme) {
       if (isTopLevelSource) li.dataset.sourceId = thisSourceId;
-      else li.dataset.groupIndex = String(groupIndex);
+      else {
+        li.dataset.groupIndex = String(groupIndex);
+        if (thisGroupId != null) li.dataset.groupId = thisGroupId;
+      }
     }
     li._openPage = openPage;
 
@@ -9152,9 +9168,13 @@ async function restoreFromURL() {
         const srcLi = sourcesLi.querySelector(`[data-source-id="${CSS.escape(sourceParam)}"]`);
         if (srcLi) {
           srcLi.classList.add('open');
+          const srcIdParam    = params.get('id');
           const srcGroupParam = params.get('group');
           let targetLi = srcLi;
-          if (srcGroupParam != null) {
+          if (srcIdParam != null) {
+            const grpLi = srcLi.querySelector(`:scope > ul > [data-group-id="${CSS.escape(srcIdParam)}"]`);
+            if (grpLi) targetLi = grpLi;
+          } else if (srcGroupParam != null) {
             const grpLi = srcLi.querySelector(`:scope > ul > [data-group-index="${CSS.escape(srcGroupParam)}"]`);
             if (grpLi) targetLi = grpLi;
           }

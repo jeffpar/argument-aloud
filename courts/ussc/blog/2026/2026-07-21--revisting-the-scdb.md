@@ -19,11 +19,11 @@ It's also worth noting that, in 2024, the database's home [moved](https://www.ps
 
 ## Dates of Argument, Reargument, and Decision
 
-On this site, under Collections, you'll find a group named [Outstanding Issues](/courts/ussc/?collection=issues&link=/courts/ussc/blog/2026/revisiting-the-scdb/), and in there, you'll find a number of other interesting groups, but the one we're going to focus on here is named [Cases with Incorrect SCDB Dates](/courts/ussc/?collection=issues&group=8&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
+On this site, under Collections, you'll find a group named [Outstanding Issues](/courts/ussc/?collection=issues&link=/courts/ussc/blog/2026/revisiting-the-scdb/), and in there, you'll find a number of other interesting groups, but the one we're going to focus on here is named [Cases with Incorrect SCDB Dates](/courts/ussc/?collection=issues&id=incorrect-scdb-dates&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)", for all cases decided from 1791 through 1882, any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)", for all cases decided from 1791 through 1882, any deviations from that research are suspect.  And there are numerous SCDB deviations.  For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&id=incorrect-scdb-dates&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
 SCDB claims that it, too, is relying on the Court's research; regarding *dateDecision*, it says:
 
@@ -31,7 +31,7 @@ SCDB claims that it, too, is relying on the Court's research; regarding *dateDec
 
 And yet, SCDB set *dateDecision* in **Miller v. Kerr** to March 15, 1822 instead of 1821. Since this type of deviation occurs repeatedly, it seems less likely a simple "typo" and more likely that someone concluded they had a better source of information.  But nowhere is there any notation, either in the case record or anywhere else on the website, of what this better source might have been.
 
-Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&group=8&term=1821-02&case=1822-019&sort=decided&o=a), you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822", which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
+Here's a clue though: if you examine [Miller v. Kerr (1821)](/courts/ussc/?collection=issues&id=incorrect-scdb-dates&term=1821-02&case=1822-019&sort=decided&o=a), you'll see that the U.S. Reports heading is "FEBRUARY TERM, 1822", which might lead someone to believe this case must have been decided in 1822... until you read a bit further, where it says:
 
 > This cause was argued and determined at the last term, but omitted to be reported.
 
@@ -43,7 +43,7 @@ But we're working on it.  If you look at a case like [Green v. United States (19
 
 > U.S. Reports indicates argument occurred on October 15, 1957, but the Journal indicates otherwise
 
-For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases With Corrections](/courts/ussc/?collection=issues&group=9&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
+For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases With Corrections](/courts/ussc/?collection=issues&id=corrections&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
 
 ---
 

@@ -38,13 +38,17 @@ There is still more work to do in terms of producing a complete and accurate lis
 
 #### Regarding Dates of Decisions
 
-As we mention [here](https://argumentaloud.org/courts/ussc/?source=ussc&group=9), the Court published what we generally consider the "definitive" list of all (early) "Dates of Supreme Court Decisions (and Arguments)."  Unfortunately, it turns out they may have missed a few.
+As we mention [here](https://argumentaloud.org/courts/ussc/?source=ussc&group=9), the Court published what we generally consider the "definitive" list of all (early) "Dates of Supreme Court Decisions and Arguments" for decisions in 1791 through 1882.  Unfortunately, it turns out they may have missed a few.
 
 For example, in U.S. Reports [Volume 154](https://www.supremecourt.gov/pdfs/USReports/USREPORTS-154_PDFA.pdf#page=553), there is a section titled "SOME CASES NOT HITHERTO REPORTED IN FULL" which includes this preamble:
 
 > The Centennial Appendix, at the end of Volume 131, contained two tables of omitted cases. In the first table the cases were reported in full. The second contained only a list of cases, term by term [see pages ccxx to ccxxxi], in which opinions were given which were supposed to decide the case on the facts; or on the authority of some case referred to; or in which the decision was made partly on the facts and partly on such authority; or in which judgment was entered either on the stipulation of the parties, or for incompleteness of the record, or for non-compliance with the rules of court. It was assumed that it was not worth while to occupy the space necessary to report these cases in full. The fact that two or three of them have been referred to in opinions of the court, since rendered, shows that this assumption was not well founded, and calls upon the reporter now to print them in full.
 
 So, for example, the case "1863-12/1863-084 (267): Milwaukee & Minnesota R. Co. v. Soutter", which was originally listed as No. 268 and argued on Monday, February 1, 1864, was reported in Volume 131 as No. 267, argued on February 1-9, 1864, and decided on Tuesday, February 23, 1864.  However, this later report fails to mention that 68 U.S. 405 lists the case as being decided with "Bronson v. La Cross & Milwaukee R. Co.", which *does* appear in the "Dates of Decisions."  We assume that both cases were not only decided together but also argued together, on February 1-5 and 8-9; those 7 dates also seem more plausible than 9 straight days.
+
+Other examples of cases not mentioned in "Dates of Supreme Court Decisions and Arguments":
+
+  - [United States v. Carrère (1853)](/courts/ussc/?term=1852-12&case=78)
 
 While reviewing all argument dates, we have unfortunately noticed some mistakes in U.S. Reports.  For example, 355 U.S. 184 reports that Green v. United States (No. 46) was reargued on October 15, 1957; however, the 1957 Journal indicates that, while No. 46 was *scheduled* for that day, they apparently ran out of time, because argument did not commence until the following day, on October 16, 1957.
 
