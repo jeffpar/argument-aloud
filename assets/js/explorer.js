@@ -8073,7 +8073,7 @@ let _transcriptSearchClearHighlight = null;
     // Populate refs dropdown from current links
     const refTexts = links.flatMap(l => getRefTexts(l));
     const unique = [...new Set(refTexts)].sort((a, b) => a.localeCompare(b));
-    refsSelect.innerHTML = `<option value=""></option>`;
+    refsSelect.innerHTML = `<option value="">All References</option>`;
     if (unique.length) {
       unique.forEach(ref => {
         const opt = document.createElement('option');

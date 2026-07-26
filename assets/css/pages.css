@@ -1,0 +1,568 @@
+/* ════════════════════════════════════════════════════════════════════════
+   Page-specific styles for individual "pane"-layout pages.
+   Linked selectively via each page's `extra_css` front matter — see
+   _layouts/pane.html. Sections are independent (each only loads on its own
+   page), but are kept together here so related/near-duplicate rules across
+   pages are easy to spot and consolidate over time.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Blog index — courts/ussc/blog/ ─────────────────────────────────────── */
+
+.blog-list-item {
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.blog-list-item:last-child { border-bottom: none; }
+@media (prefers-color-scheme: dark) { .blog-list-item { border-color: #2d2f38; } }
+html[data-theme="dark"]  .blog-list-item { border-color: #2d2f38; }
+html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
+.blog-list-title { margin: 0 0 2px; }
+.blog-list-title a { text-decoration: none; }
+.blog-list-title a:hover { text-decoration: underline; }
+.blog-list-date { font-size: 0.78rem; opacity: 0.6; margin: 0 0 0.6rem; }
+.blog-list-more { margin-top: 0.4rem; }
+
+/* ── Term stats & calendar — courts/ussc/terms/ ─────────────────────────── */
+
+.stats-title-row { display: flex; align-items: baseline; gap: 8px; margin: 0.75rem 0 0.6rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
+.stats-title-row h1, .stats-title-row h2 { flex: 1; }
+.stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
+.stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
+.stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
+@media (prefers-color-scheme: dark) { .stats-title-row { border-color: #2d2f38; } }
+html[data-theme="dark"]  .stats-title-row { border-color: #2d2f38; }
+html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
+.term-stats h1 { font-size: 28px; font-weight: 700; margin: 0; border: none; padding: 0; }
+.term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
+#covers-row { float: right; display: flex; gap: 8px; align-items: flex-start; margin-left: 1rem; }
+#journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+#journal-cover-btn[hidden] { display: none; }
+#journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
+#journal-cover-btn:hover #journal-cover-img { opacity: 0.8; }
+#journal-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.report-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.report-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
+.report-cover-btn:hover .report-cover-img { opacity: 0.8; }
+.report-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
+.stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
+@media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
+html[data-theme="dark"]  .stat-card { background: #21242c; }
+html[data-theme="light"] .stat-card { background: #f5f6fa; }
+.stat-value { font-size: 1.55rem; font-weight: 700; line-height: 1.1; display: block; }
+.stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: #666; display: block; margin-top: 0.15rem; }
+@media (prefers-color-scheme: dark) { .stat-label { color: #9da5b4; } }
+html[data-theme="dark"]  .stat-label { color: #9da5b4; }
+html[data-theme="light"] .stat-label { color: #666; }
+.stats-note { font-size: 0.8rem; color: #888; margin: 0.25rem 0 0; }
+@media (prefers-color-scheme: dark) { .stats-note { color: #6a7080; } }
+html[data-theme="dark"]  .stats-note { color: #6a7080; }
+html[data-theme="light"] .stats-note { color: #888; }
+
+/* ── Term calendar ──────────────────────────────────────────────────────── */
+#term-calendar { margin: 1.25rem 0 0.75rem; }
+.term-calendar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem 2rem; }
+.cal-month-hdr {
+  font-size: 0.68rem; font-weight: 700; text-align: center;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding-bottom: 0.25rem; margin-bottom: 0.25rem;
+  border-bottom: 1px solid #ccc;
+}
+@media (prefers-color-scheme: dark) { .cal-month-hdr { border-color: #3a3d47; } }
+html[data-theme="dark"]  .cal-month-hdr { border-color: #3a3d47; }
+html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
+.cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 0.6rem; opacity: 0.45; margin-bottom: 0.1rem; }
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-day { text-align: center; font-size: 0.7rem; line-height: 1.75; border-radius: 2px; min-width: 0; }
+.cal-arg     { background: #d97070; color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-dec     { background: #6090cc; color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-arg-dec { background: linear-gradient(135deg, #d97070 50%, #6090cc 50%); color: #fff; cursor: pointer; font-weight: 600; border-radius: 3px; }
+.cal-arg:hover     { background: #c85c5c; }
+.cal-dec:hover     { background: #4e7db8; }
+.cal-arg-dec:hover { background: linear-gradient(135deg, #c85c5c 50%, #4e7db8 50%); }
+.cal-sel { box-shadow: inset 0 0 0 2px #fbbf24; }
+@media (max-width: 600px) {
+  .term-calendar { grid-template-columns: repeat(2, 1fr); gap: 1rem 1rem; }
+}
+
+/* Extra breathing room above the calendar/case-listing sections — double the
+   ~1rem gap .stats-grid's own margin-bottom otherwise provides. */
+#term-calendar-heading { margin-top: 2rem; }
+#case-listing-heading  { margin-top: 2rem; }
+
+/* ── All-terms progressive Court Calendar (term=all) ────────────────────── */
+#all-terms-calendar-heading { margin-top: 2rem; }
+.all-cal-term { margin: 1.5rem 0; min-height: 1.5rem; }
+.all-cal-term-heading {
+  font-size: 0.82rem; font-weight: 700; margin: 0 0 0.6rem;
+  padding-bottom: 0.3rem; border-bottom: 1px solid #e0e0e0;
+}
+@media (prefers-color-scheme: dark) { .all-cal-term-heading { border-color: #2d2f38; } }
+html[data-theme="dark"]  .all-cal-term-heading { border-color: #2d2f38; }
+html[data-theme="light"] .all-cal-term-heading { border-color: #e0e0e0; }
+.all-cal-term-heading a { color: inherit; text-decoration: none; }
+.all-cal-term-heading a:hover { color: #4a9eff; text-decoration: underline; }
+
+/* ── Case listing table ─────────────────────────────────────────────────── */
+.table-scroll { overflow-x: auto; }
+#case-listing-table { width: 100%; margin-top: 0.5rem; font-size: 0.85rem; }
+#case-listing-table th { white-space: nowrap; }
+#case-listing-table th button {
+  all: unset;
+  display: inline;
+  cursor: pointer;
+  user-select: none;
+}
+#case-listing-table th button:hover { color: #2672b4; }
+#case-listing-table th button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+#case-listing-table th[aria-sort="ascending"]::after  { content: " \25B2"; font-size: 0.7em; }
+#case-listing-table th[aria-sort="descending"]::after { content: " \25BC"; font-size: 0.7em; }
+#case-listing-table td a { color: #2672b4; text-decoration: none; }
+#case-listing-table td a:hover { text-decoration: underline; color: #4a9eff; }
+@media (prefers-color-scheme: dark) {
+  #case-listing-table th button:hover { color: #5eaee0; }
+  #case-listing-table td a { color: #5eaee0; }
+}
+html[data-theme="dark"]  #case-listing-table th button:hover { color: #5eaee0; }
+html[data-theme="light"] #case-listing-table th button:hover { color: #2672b4; }
+html[data-theme="dark"]  #case-listing-table td a { color: #5eaee0; }
+html[data-theme="light"] #case-listing-table td a { color: #2672b4; }
+/* Reserve enough room for a full "Mon DD, YYYY" date / "XXX U.S. NNNN"
+   citation so they never wrap mid-value. */
+#case-listing-table th, #case-listing-table td { padding-left: 0; }
+#case-listing-table td.col-date, #case-listing-table td.col-opinion { white-space: nowrap; }
+@media (max-width: 600px) {
+  #case-listing-table .col-opinion { display: none; }
+}
+
+@media (max-width: 600px) {
+  body { padding-top: 6px; }
+  .stats-title-row { margin-top: 0.2rem; }
+}
+
+/* Chart CSS variables (consumed via var() from inline SVG in terms.js — can't
+   go through _getChartColors() like the Chart.js-based pages below do). */
+:root { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#666; --chart-tip-bg:#f5f6fa; }
+@media (prefers-color-scheme: dark) { :root { --chart-grid:#2d2f38; --chart-axis:#3a3d47; --chart-label:#9da5b4; --chart-tip-bg:#21242c; } }
+html[data-theme="dark"]  { --chart-grid:#2d2f38; --chart-axis:#3a3d47; --chart-label:#9da5b4; --chart-tip-bg:#21242c; }
+html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#666; --chart-tip-bg:#f5f6fa; }
+#history-view { padding: 0.5rem 0 0.25rem; }
+
+/* Date-specific case list */
+.date-section { display: flow-root; margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0; }
+.date-section[hidden] { display: none; }
+@media (prefers-color-scheme: dark) { .date-section { border-color: #2d2f38; } }
+html[data-theme="dark"]  .date-section { border-color: #2d2f38; }
+html[data-theme="light"] .date-section { border-color: #e0e0e0; }
+.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
+.date-case-list { list-style: none; margin: 0; padding: 0 0 0 1rem; }
+.date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
+.date-case-list a { color: #2672b4; text-decoration: none; }
+.date-case-list a:hover { text-decoration: underline; color: #4a9eff; }
+@media (prefers-color-scheme: dark) {
+  .date-section h3 { color: #6a7080; }
+  .date-case-list a { color: #5eaee0; }
+}
+html[data-theme="dark"]  .date-section h3 { color: #6a7080; }
+html[data-theme="light"] .date-section h3 { color: #888; }
+html[data-theme="dark"]  .date-case-list a { color: #5eaee0; }
+html[data-theme="light"] .date-case-list a { color: #2672b4; }
+
+/* ── Transcript Updates — courts/ussc/transcripts/updates/ ──────────────── */
+
+/* Restyles the plain nested list above into expand/collapse case entries,
+   purely at render time — the list itself (written by the transcript-edit
+   logging script) stays untouched. */
+.wrapper > ul > li {
+  cursor: pointer;
+  list-style: none;
+}
+.wrapper > ul {
+  padding-left: 0;
+}
+.tu-toggle {
+  display: inline-block;
+  width: 10px;
+  margin-right: 4px;
+  font-size: 9px;
+  color: #999;
+  transition: transform 0.15s;
+}
+.wrapper > ul > li.tu-open > .tu-toggle {
+  transform: rotate(90deg);
+}
+.wrapper > ul > li > ul {
+  display: none;
+  margin-top: 4px;
+}
+.wrapper > ul > li.tu-open > ul {
+  display: block;
+}
+html[data-theme="dark"] .tu-toggle { color: #6c7280; }
+
+/* ── Collections: Lone Dissents / Opinions / Vocal Justices ──────────────
+   Shared by all three justice-bar-chart pages (see assets/js/justice-bar-
+   chart.js) — only the "Currently Serving" filter checkbox label. Chart grid
+   colors come from _getChartColors() in JS, not CSS vars. ───────────────── */
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.65;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+.filter-label:hover { opacity: 0.9; }
+
+/* ── Collections: Justice Gallery & Benches — shared portrait-grid pieces ─
+   Both pages render a grid of clickable justice portraits with sort-toggle
+   buttons; these were duplicated (or differed only in a couple of cosmetic
+   values) between the two pages, so the common parts live here. The page-
+   specific sections below layer the small remaining differences on top via
+   jg-/jb- prefixed modifier classes. ────────────────────────────────────── */
+
+.portrait-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #ccc;
+}
+html[data-theme="dark"] .portrait-photo { background: #3a3c45; }
+.portrait-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.portrait-name {
+  font-size: 0.54rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.2;
+}
+.grid-sort-btn {
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.6;
+  transition: opacity 0.15s;
+}
+
+/* ── Collections: Justice Gallery — courts/ussc/collections/gallery/ ───── */
+
+.jg-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.jg-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.jg-heading {
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.jg-sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.jg-sort-btn { opacity: 0.45; }
+.jg-sort-btn:hover  { opacity: 0.75; }
+.jg-sort-btn.active { opacity: 1; }
+.jg-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 8px;
+  padding-bottom: 24px;
+}
+@media (max-width: 600px) {
+  .jg-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.jg-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+a.jg-item { cursor: pointer; }
+a.jg-item:hover .portrait-photo { opacity: 0.82; }
+.jg-name { letter-spacing: 0.05em; margin-top: 5px; }
+.jg-sub {
+  font-size: 0.48rem;
+  opacity: 0.65;
+  text-align: center;
+  margin-top: 2px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+@keyframes jg-jiggle {
+  0%   { transform: scale(1);    }
+  30%  { transform: scale(0.88); }
+  65%  { transform: scale(1.12); }
+  100% { transform: scale(1);    }
+}
+.jg-jiggle {
+  animation: jg-jiggle 1.4s ease-in-out 1;
+}
+
+/* ── Collections: Justice Benches — courts/ussc/collections/benches/ ────── */
+
+.jb-page-title {
+  margin: 0;
+  font-weight: 700;
+}
+.jb-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+.jb-sort-btn { opacity: 0.6; }
+.jb-sort-btn:hover { opacity: 1; }
+.jb-separator {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+  margin: 18px 0;
+}
+.jb-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  opacity: 0.8;
+}
+.jb-heading:hover { opacity: 1; }
+.jb-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.68rem;
+  opacity: 0.6;
+  margin: 0 0 10px;
+}
+.jb-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 8px;
+  margin-bottom: 4px;
+}
+@media (max-width: 600px) {
+  .jb-row { grid-template-columns: repeat(4, 1fr); }
+}
+.jb-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.jb-item:hover .portrait-photo { opacity: 0.82; }
+.jb-name { letter-spacing: 0.04em; margin-top: 4px; }
+/* detail view */
+.jb-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 6px;
+}
+.jb-title-row .jb-detail-title { flex: 1; margin: 0; }
+.jb-bench-nav {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+.jb-bench-nav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+.jb-bench-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
+.jb-detail-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.jb-detail-dates {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0 0 16px;
+}
+.jb-photo-frame {
+  max-width: 480px;
+  margin: 24px auto 16px;
+  padding: 8px;
+  background: linear-gradient(145deg,#c8a44e 0%,#7c560e 25%,#b8900a 50%,#7c560e 75%,#c8a44e 100%);
+  border: 1px solid rgba(0,0,0,0.45);
+  box-shadow: inset 0 0 0 1px rgba(255,218,100,0.55), inset 0 0 8px rgba(0,0,0,0.25), 4px 6px 18px rgba(0,0,0,0.45);
+}
+.jb-photo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.jb-name-list {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin: 0 0 20px;
+}
+#jb-intro {
+  display: none;
+  margin: 0 0 18px;
+}
+
+/* ── Collections: Rarest Spoken Words — courts/ussc/collections/rare/ ───── */
+
+#rw-list, #rw-list-nondict, #rw-list ul, #rw-list-nondict ul {
+  list-style: none;
+  padding-left: 1.5em;
+}
+#rw-list ul, #rw-list-nondict ul {
+  padding-left: 3em;
+}
+/* Word text: plain, not a link color. */
+.rw-word {
+  color: #212529;
+}
+@media (prefers-color-scheme: dark) {
+  .rw-word { color: #fff; }
+}
+html[data-theme="dark"] .rw-word { color: #fff; }
+html[data-theme="light"] .rw-word { color: #212529; }
+
+/* Scrolled-to word — same colors as the transcript search highlight. */
+.rw-highlight {
+  background: #fff3cd;
+  border-radius: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  .rw-highlight { background: #3a2e00; }
+}
+html[data-theme="dark"] .rw-highlight { background: #3a2e00; }
+html[data-theme="light"] .rw-highlight { background: #fff3cd; }
+
+/* ── Collections: Original Jurisdiction Records & Briefs — courts/ussc/collections/orig/ ── */
+
+.og-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 28px 0 14px;
+}
+.og-heading h2 {
+  margin: 0;
+  font-weight: 700;
+}
+.og-case {
+  margin-bottom: 22px;
+}
+.og-case-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 6px;
+}
+.og-case-title:hover { text-decoration: underline; }
+.og-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  gap: 8px;
+}
+.og-item {
+  display: block;
+  aspect-ratio: 230 / 400;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+html[data-theme="dark"] .og-item { background: #3a3c45; }
+.og-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.15s;
+}
+.og-item:hover img { opacity: 0.8; }
+#og-preview {
+  position: fixed;
+  display: none;
+  max-width: 70vw;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid transparent;
+}
+#og-preview-img {
+  display: block;
+  max-height: 70vh;
+  max-width: 70vw;
+  width: auto;
+  height: auto;
+  /* Override the layout's html[data-theme="dark"] img { opacity: 0.9 } —
+     at full size over page text, even 10% translucency reads as "see-through". */
+  opacity: 1 !important;
+}
+#og-preview-caption {
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  background: #fff;
+  color: #222;
+  border-top: 1px solid #ddd;
+  overflow-wrap: break-word;
+}
+html[data-theme="dark"] #og-preview       { border-color: #fff; }
+html[data-theme="dark"] #og-preview-caption {
+  background: #1e2028;
+  color: #d0d3dc;
+  border-top-color: #fff;
+}
+
+/* ── Advocates: Women — courts/ussc/people/advocates/women/ ─────────────── */
+
+.footnote-label { font-size: 0.67em; font-weight: bold; margin: 0 0 20px; }

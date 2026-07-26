@@ -1,25 +1,9 @@
 ---
-title: "Blog"
+title: Blog
 layout: pane
+styles:
+- /assets/css/pages.css
 ---
-
-<style>
-.blog-list-item {
-  padding-bottom: 1.1rem;
-  margin-bottom: 1.1rem;
-  border-bottom: 1px solid #e0e0e0;
-}
-.blog-list-item:last-child { border-bottom: none; }
-@media (prefers-color-scheme: dark) { .blog-list-item { border-color: #2d2f38; } }
-html[data-theme="dark"]  .blog-list-item { border-color: #2d2f38; }
-html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
-.blog-list-title { margin: 0 0 2px; }
-.blog-list-title a { text-decoration: none; }
-.blog-list-title a:hover { text-decoration: underline; }
-.blog-list-date { font-size: 0.78rem; opacity: 0.6; margin: 0 0 0.6rem; }
-.blog-list-more { margin-top: 0.4rem; }
-</style>
-
 # Blog
 
 {%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" | reverse %}

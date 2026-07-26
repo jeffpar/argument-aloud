@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
-  {%- include head/default.html style="argument" %}
+  {%- capture home_style %}
   <style>
     @media (prefers-color-scheme: dark) {
       h1, h2, h3, h4, h5, h6 { color: #d0d3dc; border-color: #2d2f38; }
@@ -27,6 +27,8 @@
     html[data-theme="light"] a:hover { color: #1a5090; }
     html[data-theme="light"] .wrapper { color: #333; }
   </style>
+  {%- endcapture %}
+  {%- include head/default.html style="argument" extra_head=home_style %}
   <body style="overflow: auto;">
     {%- include topbar.html %}
     <div class="wrapper" style="padding: 20px 30px;">

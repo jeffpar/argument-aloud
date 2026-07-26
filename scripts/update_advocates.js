@@ -40,7 +40,6 @@ const WOMEN_CSV_FILE    = path.join(REPO_ROOT, 'data', 'ussc', 'women.csv');
 const TRANS_OUTPUT_FILE = path.join(ADVOCATES_BASE, 'transgender', 'transgender_advocates.json');
 const ADVOCATES_DIR     = path.join(ADVOCATES_BASE, 'all');
 const FEATURED_DIR      = path.join(ADVOCATES_BASE, 'featured');
-const JUSTICES_README   = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'README.md');
 const JUSTICES_ALL_DIR  = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'all');
 const JUSTICE_ADVOCATES_FILE = path.join(ADVOCATES_BASE, 'justice', 'justice_advocates.json');
 const JOURNALS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'journals', 'text');
@@ -415,46 +414,7 @@ function writeCsvNonnumeric(headers, rows) {
 
 // ── Justice-advocates sync (event-driven) ────────────────────────────────────
 
-const _JM_HEADING_RE  = /^## ((?:CHIEF )?JUSTICE .+)$/;
-const _JM_OYEZ_URL_RE = /https:\/\/www\.oyez\.org\/cases\/(\d{4})\/([^\s)]+)/g;
-const _JM_LOC_RE      = /https:\/\/tile\.loc\.gov\/[^)]+\/usrep(\d+)\/usrep\d+(\d{3})\/[^)]+\.pdf/;
-const _JM_OYEZ_MULTI_RE = /https:\/\/www\.oyez\.org\/cases\/\d{4}-\d{4}\/(\d+)us(\d+)/;
-const _JM_JUSTIA_RE   = /https:\/\/supreme\.justia\.com\/cases\/federal\/us\/(\d+)\/(\d+)\//;
-const _JM_CASE_LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/;
-const _JM_SUFFIX_RE   = /,?\s+(?:JR|SR|II|III|IV)\.?$/i;
 const _JM_YEAR_SUFFIX_RE = /\s+\((\d{4})\)$/;
-const _JM_MONTHS = ['January','February','March','April','May','June',
-                    'July','August','September','October','November','December',
-                    'Jan','Feb','Mar','Apr','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const _JM_MONTHS_PAT = _JM_MONTHS.join('|');
-const _JM_ARGUED_DATE_RE = new RegExp(
-    '(?:[Aa]rgued\\s+)?((?:' + _JM_MONTHS_PAT + ')\\s+\\d+' +
-    '(?:\\s*[\\-\\u2013]\\s*(?:\\d+|(?:' + _JM_MONTHS_PAT + ')\\s+\\d+))?' +
-    '(?:\\s+and\\s+\\d+)?' +
-    ',\\s*\\d{4})',
-    'i',
-);
-
-function _jmDecodeEntities(s) {
-    return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-            .replace(/&quot;/g, '"').replace(/&#39;/g, "'");
-}
-
-function _jmDisplayName(upper) {
-    return upper.toUpperCase();
-}
-
-function _jmParseHeading(heading) {
-    let prefix, fullName;
-    if (heading.startsWith('CHIEF JUSTICE ')) {
-        prefix = 'CHIEF JUSTICE';
-        fullName = heading.slice('CHIEF JUSTICE '.length).trim();
-    } else {
-        prefix = 'JUSTICE';
-        fullName = heading.slice('JUSTICE '.length).trim();
-    }
-    return { prefix, fullName, displayName: _jmDisplayName(fullName) };
-}
 
 function _jmNormalizeCaseNumber(raw) {
     const first = String(raw).split(',')[0].trim();
@@ -496,102 +456,6 @@ function _jmNameMatchesCanonical(advocateName, canonicalName) {
         if (adv[i] !== can[i]) return false;
     }
     return true;
-}
-
-function _jmOyezTermCase(url) {
-    const m = url.match(/https:\/\/www\.oyez\.org\/cases\/(\d{4})\/([^\s)]+)/);
-    if (!m) return null;
-    const year = m[1];
-    let cs = m[2].replace(/_([a-z])/g, (_, c) => '-' + c.toUpperCase());
-    return [`${year}-10`, cs];
-}
-
-function _jmVolPageFromUrl(url) {
-    for (const re of [_JM_LOC_RE, _JM_OYEZ_MULTI_RE, _JM_JUSTIA_RE]) {
-        const m = url.match(re);
-        if (m) return [String(parseInt(m[1], 10)), String(parseInt(m[2], 10))];
-    }
-    return null;
-}
-
-function _jmParseFirstArgDateIso(note) {
-    if (!note) return null;
-    const m = note.match(_JM_ARGUED_DATE_RE);
-    if (!m) return null;
-    let raw = m[1];
-    raw = raw.replace(
-        new RegExp('(\\d+)\\s*[\\-\\u2013]\\s*(?:\\d+|(?:' + _JM_MONTHS_PAT + ')\\s+\\d+)', 'i'),
-        '$1');
-    raw = raw.replace(/(\d+)\s+and\s+\d+/, '$1');
-    raw = raw.trim().replace(/^,/, '').trim();
-    const dm = raw.match(/^(\w+)\s+(\d+),\s*(\d{4})$/);
-    if (!dm) return null;
-    const mi = _JM_MONTHS.indexOf(dm[1]);
-    if (mi === -1) return null;
-    const monthIdx = (mi % 12) + 1;
-    return `${dm[3]}-${String(monthIdx).padStart(2, '0')}-${String(parseInt(dm[2], 10)).padStart(2, '0')}`;
-}
-
-/** Walk justices README for [{ displayName, cases:[{name, url, note}] }]. */
-function _jmLoadJustices() {
-    if (!exists(JUSTICES_README)) return [];
-    const text = readText(JUSTICES_README);
-    const out = [];
-    let cur = null;
-    let inCases = false;
-    for (const line of text.split('\n')) {
-        const hm = line.match(_JM_HEADING_RE);
-        if (hm) {
-            if (cur) out.push(cur);
-            cur = { ..._jmParseHeading(hm[1].trim()), cases: [] };
-            inCases = false;
-        } else if (cur) {
-            if (line.trim() === '### Cases Argued') inCases = true;
-            else if (inCases) {
-                const lm = line.match(_JM_CASE_LINK_RE);
-                if (lm) {
-                    const note = line.slice(line.indexOf(lm[0]) + lm[0].length).trim();
-                    cur.cases.push({
-                        name: _jmDecodeEntities(lm[1].trim()),
-                        url:  lm[2].trim(),
-                        note,
-                    });
-                }
-            }
-        }
-    }
-    if (cur) out.push(cur);
-    return out;
-}
-
-/** Pick the best argument event index (1-based into events[]). */
-function _jmBestEventIndex(events, isoDate, forcedPosition) {
-    const argTypes = new Set(['argument', 'reargument']);
-    const argIdxs = [];
-    for (let i = 0; i < (events || []).length; i++) {
-        if (argTypes.has(events[i].type)) argIdxs.push(i);
-    }
-    if (argIdxs.length === 0) return null;
-    if (forcedPosition) {
-        const i = forcedPosition - 1;
-        if (i >= 0 && i < argIdxs.length) return argIdxs[i] + 1;
-        return argIdxs[0] + 1;
-    }
-    let cands = argIdxs;
-    if (isoDate) {
-        const dm = argIdxs.filter(i => events[i].date === isoDate);
-        if (dm.length) cands = dm;
-    }
-    const aligned = cands.filter(i => events[i].aligned);
-    if (aligned.length) return aligned[0] + 1;
-    const withAudio = cands.filter(i => events[i].audio_href);
-    if (withAudio.length) return withAudio[0] + 1;
-    return cands[0] + 1;
-}
-
-function _jmEventDateForIndex(events, idx) {
-    if (!events || !idx || idx < 1 || idx > events.length) return null;
-    return events[idx - 1].date || null;
 }
 
 /** Build {(term,number)→case}, {usCite→[term,number]}, and {titleStripped→[term,number]} indices. */

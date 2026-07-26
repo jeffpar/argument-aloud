@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script src="{{ '/assets/js/chart.js@4.4.9/dist/chart.umd.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=9"></script>
+  <script src="{{ '/assets/js/justice-bar-chart.js' | relative_url }}"></script>
   <script>(function(){var t=localStorage.getItem('aa-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
   <style>
     /* ── Chart sort control ── */
@@ -108,17 +109,24 @@
     .jp-frame {
       flex: 1; min-width: 0; align-self: flex-start;
       padding: 8px;
+      cursor: pointer;
       background: linear-gradient(145deg,#c8a44e 0%,#7c560e 25%,#b8900a 50%,#7c560e 75%,#c8a44e 100%);
       border: 1px solid rgba(0,0,0,0.45);
       box-shadow: inset 0 0 0 1px rgba(255,218,100,0.55), inset 0 0 8px rgba(0,0,0,0.25), 4px 6px 18px rgba(0,0,0,0.45);
     }
     .jp-frame img { width: 100%; height: auto; display: block; }
   </style>
+  {%- for href in page.styles %}
+  <link rel="stylesheet" href="{{ href | relative_url }}">
+  {%- endfor %}
 </head>
 <body>
   <div class="wrapper">
     {{ content }}
   </div>
+  {%- for src in page.scripts %}
+  <script src="{{ src | relative_url }}"></script>
+  {%- endfor %}
   {%- if page.date_start %}
   <script>
     (function () {
@@ -136,7 +144,6 @@
   </script>
   {%- endif %}
   {%- if page.justice_id %}
-  <style>.jp-frame { cursor: pointer; }</style>
   <script>
     document.querySelector('.jp-frame').addEventListener('click', function () {
       var parentParams = new URLSearchParams(

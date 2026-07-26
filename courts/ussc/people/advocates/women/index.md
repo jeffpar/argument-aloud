@@ -1,5 +1,7 @@
 ---
 layout: pane
+styles:
+- /assets/css/pages.css
 ---
 
 # Women Advocates
@@ -116,7 +118,7 @@ Generally, the number of *appearances* and *arguments* are clear and congruent. 
 
 ---
 
-###### Footnote 1
+<p id="footnote-1" class="footnote-label">Footnote 1</p>
 
 In the [Journal of Supreme Court History, Vol. 37, No. 1, at 58 (2012)](https://supremecourthistory.org/wp-content/uploads/2025/02/Volume-37-Number-1-2012.pdf#page=60), Marlene Trestman explains that Bessie Margolin was initially only going to argue No. 820, but was asked to also argue No. 688 at the last minute.  But even if we count her appearance as two arguments, it remains unclear how the Supreme Court itself would count it, and more to the point, how we should count all other such appearances, given that we don't generally have the benefit of additional context outside the Court's own records.
 

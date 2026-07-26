@@ -14,7 +14,7 @@
     {%- assign month_index = length | minus: 2 %}
     {%- assign year_index = length | minus: 1 %}
     {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
-  <li id="{{ object.date }}">{{ date }}
+  <li>{{ date }}
     <ul>
     {%- for event in object.events %}
       <li>{{ event }}</li>
@@ -22,7 +22,7 @@
     {%- assign i = 0 %}
     {%- for destination in object.destinations %}
       <li><a href="{{ object.sources[i] }}">{{ destination }}</a>
-        <audio preload="none"><source src="" type="audio/mp3"/></audio>
+        <audio preload="none"></audio>
         <span class="clickable" onclick="toggleAudio(this, '{{ object.sources[i] }}')">▶️</span>
       </li>
       {%- assign i = i | plus: 1 %}
