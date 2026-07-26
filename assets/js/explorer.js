@@ -1680,7 +1680,7 @@ async function fetchTermCases(term) {
 
 async function _fetchTitleIndex(prefix) {
   if (_titleIndexCache.has(prefix)) return _titleIndexCache.get(prefix);
-  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/titles/' + prefix + '.json')
+  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/titles/' + prefix + '.json', { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
   _titleIndexCache.set(prefix, p);
@@ -1720,7 +1720,7 @@ let _numberIndexPromise = null;
 async function _fetchNumberIndex() {
   if (_numberIndex) return _numberIndex;
   if (_numberIndexPromise) return _numberIndexPromise;
-  _numberIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/numbers.json')
+  _numberIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/numbers.json', { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _numberIndex = d; return d; });
@@ -1733,7 +1733,7 @@ let _citationIndexPromise = null;
 async function _fetchCitationIndex() {
   if (_citationIndex) return _citationIndex;
   if (_citationIndexPromise) return _citationIndexPromise;
-  _citationIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/citations.json')
+  _citationIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/citations.json', { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _citationIndex = d; return d; });
@@ -3770,7 +3770,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', reference:'References', media:'Media', other:'Other' };
           const ORDER = ['petitioner','respondent','amicus','briefs','reference','media','other'];
           const MERGE_AMICUS_OTHER = true;
-          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','reference','media','other','transcript','opinion']);
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','reference','media','other','transcript','opinion','statement']);
           const groups = {};
           rawFiles.forEach(f => {
             let key = (f.group || '').toLowerCase();
@@ -3795,14 +3795,18 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             delete groups.amicus;
           }
           // Each transcript ("Oral Argument on ...") and decision ("Decision
-          // on ...") gets surfaced under its own "Records" group — arguments
-          // first (chronological), decisions last — appended as the very
+          // on ..."), plus any relating-to-orders statement ("Statement in
+          // ..." — see importRelatingToOrdersCases in scripts/import_ussc.js),
+          // gets surfaced under its own "Records" group — arguments first
+          // (chronological), decisions/statements last — appended as the very
           // last group, after Citations/Consolidations/References (see below).
           const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
           const recordsFiles = [
             ...(groups.transcript || []).slice().sort(byDate),
             ...(groups.opinion || []).slice().sort(byDate),
+            ...(groups.statement || []).slice().sort(byDate),
           ];
+          delete groups.statement;
           delete groups.transcript;
           delete groups.opinion;
           const referenceFiles = groups.reference || [];
@@ -5441,22 +5445,24 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           return activeCats[0];
         }
 
-        // Each transcript ("Oral Argument on ...") and decision ("Decision
-        // on ...") gets pulled out into its own "Records" group instead of
-        // being categorized below — arguments first (chronological),
-        // decisions last — appended as the very last group of all, after
+        // Each transcript ("Oral Argument on ..."), decision ("Decision on
+        // ..."), and relating-to-orders statement ("Statement in ...") gets
+        // pulled out into its own "Records" group instead of being
+        // categorized below — arguments first (chronological), decisions/
+        // statements last — appended as the very last group of all, after
         // Citations/Consolidations/References.
         const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+        const _isRecordsType = (t) => t === 'transcript' || t === 'opinion' || t === 'statement';
         const recordsFiles = [
           ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript').sort(byDate),
-          ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'opinion'),
+          ...rawFiles.filter(f => { const t = (f.type || '').toLowerCase(); return t === 'opinion' || t === 'statement'; }),
         ];
 
         const groups = {};
         let totalFiles = 0;
         rawFiles.forEach(f => {
           const fType = (f.type || '').toLowerCase();
-          if (fType === 'transcript' || fType === 'opinion') return;
+          if (_isRecordsType(fType)) return;
           totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
@@ -6440,6 +6446,18 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
   _currentFiles = _opRawFiles;
+  // Same filter+sort as the "file:" options built into the dropdown below —
+  // reused so the transcript/decision/file fallback chain (see _defaultEntry
+  // and _primaryEntry) can pick the same first file a viewer would land on.
+  const _opFileEntries = _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || ''))
+    .filter(f => {
+      const t = (f.type || '').toLowerCase();
+      if (t === 'opinion' && caseEntry.decision_ussc) return false;
+      if (t === 'reference') return false;
+      return true;
+    })
+    .filter(f => f.href)
+    .map(f => ({ value: 'file:' + f.file, href: f.href, title: f.title || '' }));
   // Take the dropdown+doc-viewer path whenever there's anything at all to
   // show — including a lone decision entry. The plain external-link fallback
   // below is reserved for a decided case with no document source at all
@@ -6485,7 +6503,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     // Default to the first oral-argument transcript when present (matches a
     // case with real audio defaulting to its argument), else the first
     // decision entry — both open in the document viewer.
-    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0];
+    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0];
     if (_defaultEntry) fileSelect.value = _defaultEntry.value;
     _setFileSelectHidden(false);
   } else {
@@ -6528,7 +6546,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // argument — falling back to the decision when there's no transcript
   // source. Use a local override so this large height doesn't persist for
   // the next audio case.
-  const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0];
+  const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0];
   if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
@@ -8605,21 +8623,16 @@ let _navSearchActivate = null;
     // Citation mode: query looks like a U.S. Reports citation, e.g.
     // "387 U.S. 397" or the more succinct "387 US 397". Triggers as soon as
     // the leading volume number is followed by "U.S."/"US" and at least one
-    // digit or roman-numeral page character, so results appear while the
-    // citation is still being typed (rather than waiting for it to be
-    // complete) — until then, the query keeps matching against the title
-    // index below, which is harmless since it won't find anything either.
+    // digit or roman-numeral page character — until the page number is a
+    // complete, exact match (e.g. "456 U.S. 45" fully typed), the query keeps
+    // matching against the title index below instead, which is harmless
+    // since it won't find anything either. Exact match only (not a prefix)
+    // so "456 U.S. 4" doesn't also surface "456 U.S. 45", "456 U.S. 400", etc.
     const citationMode = !keywordMode && /^\d+\s*u\.?s\.?\s+[0-9ivxlcdm]/i.test(q);
     if (citationMode) {
       const citeIndex = await _fetchCitationIndex();
       const normQ = _normalizeUsCite(q);
-      let refs = [];
-      if (normQ) {
-        const seen = new Set();
-        for (const [key, val] of Object.entries(citeIndex)) {
-          if (key.startsWith(normQ)) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
-        }
-      }
+      const refs = normQ && citeIndex[normQ] ? [...citeIndex[normQ]] : [];
       await renderRefResults(refs);
       return;
     }

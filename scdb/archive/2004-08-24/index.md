@@ -35,11 +35,11 @@ Contains conference vote data, plus final vote data. The unit of analysis is the
 
 Last updated: September 25, 2002
 
-  - SPSS file (formatted as a SPSS portable file)
-  - STATA file (formatted as a .dta file)
-  - SAS file (formatted as a SAS transport file)
-  - ASCII file (formatted as a fixed ASCII .dat file)
-  - Documentation (in .pdf format and updated September 25, 2002)
+  - [SPSS file](vinwar/vinwar_spss.zip) (formatted as a SPSS portable file)
+  - [STATA file](vinwar/vinwar_stata.zip) (formatted as a .dta file)
+  - [SAS file](vinwar/vinwar_sas.zip) (formatted as a SAS transport file)
+  - [ASCII file](vinwar/vinwar_asc.zip) (formatted as a fixed ASCII .dat file)
+  - [Documentation](vinwar/vinwar_codebook.pdf) (in .pdf format and updated September 25, 2002)
 
 ## The Burger Court Database, 1969-1985 Terms (nickname: BURGER)
 
@@ -47,11 +47,11 @@ Contains conference vote data, plus final vote data. The unit of analysis is the
 
 Last updated: December 12, 2003
 
-  - SPSS file (formatted as a SPSS portable file)
-  - STATA file (formatted as a .dta file)
-  - SAS file (formatted as a SAS transport file)
-  - ASCII file (formatted as a fixed ASCII .dat file)
-  - Documentation (in .pdf format and updated September 25, 2003)
+  - [SPSS file](burger/burger_spss.zip) (formatted as a SPSS portable file)
+  - [STATA file](burger/burger_stata.zip) (formatted as a .dta file)
+  - [SAS file](burger/burger_sas.zip) (formatted as a SAS transport file)
+  - [ASCII file](burger/burger_asc.zip) (formatted as a fixed ASCII .dat file)
+  - [Documentation](burger/burger_codebook.pdf) (in .pdf format and updated September 25, 2003)
 
 ## The Justice-Centered Rehnquist Court Database, 1986-1998 Terms (nickname: REHNFLPD)
 
@@ -59,11 +59,11 @@ This version of the Rehnquist Justice-Centered database differs from the version
 
 Last updated: June 24, 2003
 
-  - SPSS file (formatted as a SPSS portable file)
-  - STATA file (formatted as a .dta file)
-  - SAS file (formatted as a SAS transport file)
-  - ASCII file (formatted as a fixed ASCII .dat file)
-  - Documentation (in .pdf format and updated September 25, 2003)
+  - [SPSS file](rehnflpd/rehnflpd_spss.zip) (formatted as a SPSS portable file)
+  - [STATA file](rehnflpd/rehnflpd_stata.zip) (formatted as a .dta file)
+  - [SAS file](rehnflpd/rehnflpd_sas.zip) (formatted as a SAS transport file)
+  - [ASCII file](rehnflpd/rehnflpd_asc.zip) (formatted as a fixed ASCII .dat file)
+  - [Documentation](burgflpd/flpdcodebk.pdf) (in .pdf format and updated September 25, 2003)
 
 ## The Justice-Centered Burger Court Database, 1969-1985 Terms (nickname: BURGFLPD)
 
@@ -71,8 +71,8 @@ Contains conference vote and final vote data. The unit of analysis is the indivi
 
 Last updated: April 7, 2003
 
-  - SPSS file (formatted as a SPSS portable file)
-  - STATA file (formatted as a .dta file)
-  - SAS file (formatted as a SAS transport file)
-  - ASCII file (formatted as a fixed ASCII .dat file)
-  - Documentation (in .pdf format and updated September 25, 2003)
+  - [SPSS file](burgflpd/burgflpd_spss.zip) (formatted as a SPSS portable file)
+  - [STATA file](burgflpd/burgflpd_stata.zip) (formatted as a .dta file)
+  - [SAS file](burgflpd/burgflpd_sas.zip) (formatted as a SAS transport file)
+  - [ASCII file](burgflpd/burgflpd_asc.zip) (formatted as a fixed ASCII .dat file)
+  - [Documentation](burgflpd/flpdcodebk.pdf) (in .pdf format and updated September 25, 2003)

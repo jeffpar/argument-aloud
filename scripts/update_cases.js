@@ -1221,25 +1221,29 @@ function checkVoteTenures(casesPath, term) {
     }
 }
 
-// Warn when a case has audio/transcript media (audio_href, transcript_href,
-// or text_href on any event) but no `votes` array — typically meaning we
-// haven't yet pulled SCDB vote data for it. Returns the count of warned
-// cases so the top-level driver can suggest re-running with --scdb.
+// Warn when a case has a decision but no `votes` array — typically meaning
+// we haven't yet pulled SCDB vote data for it. Checked for every term (no
+// "active term" exemption — a case can pick up a decision, and so become
+// eligible for this check, at any point). Cases with no oral argument (e.g.
+// a cert-denial "relating to orders" entry — see importRelatingToOrdersCases
+// in import_ussc.js) are common enough, and often enough not SCDB-trackable
+// the same way, that they're only warned about with --verbose; unargued
+// cases are still included in the returned count either way, so the
+// top-level "N case(s) ... try --scdb" hint stays accurate.
 function checkArgumentsHaveVotes(casesPath, term) {
-    // Don't warn for active terms (term year + 1 October hasn't arrived yet).
-    const termYear = parseInt(term.slice(0, 4), 10);
-    if (!isNaN(termYear) && new Date() < new Date(`${termYear + 1}-10-01`)) return 0;
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return 0;
     let count = 0;
     for (const c of data) {
         if (Array.isArray(c.votes) && c.votes.length) continue;
         if (!c.decision) continue;
+        count++;
+        const argued = !!(c.argument || c.reargument);
+        if (!argued && !_VERBOSE) continue;
         const label = c.number || c.id || '?';
         const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_reports || '';
         const suffix = decisionUrl ? ` (see ${decisionUrl})` : '';
         console.log(`WARNING: ${term}/${label}: has decision but no votes${suffix}`);
-        count++;
     }
     return count;
 }
@@ -3336,6 +3340,7 @@ const _SCDB_LEGACY_CSV  = path.join(_SCDB_CURRENT_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
 const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
 const _SCDB_CORRECTIONS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'corrections.json');
+const _SCDB_NOT_INCLUDED_PAGE = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'scdb', 'index.md');
 
 const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
 const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
@@ -7573,6 +7578,52 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     return reorderCase(obj);
 }
 
+// Renders one "Cases Not Included from SCDB" list entry: title (re-capitalized
+// by _scdbCleanTitle inside _scdbBuildCaseFromSources), docket number(s) in
+// parens, then citation — e.g. "Smith v. Jones (No. 12-345), 400 U.S. 100 (1971)".
+// Matches the "No./Nos." + raw-comma docket convention used for case listings
+// elsewhere (see explorer.js's case-title-nav rendering).
+function _scdbNotIncludedLine(c) {
+    let line = c.title || c.id;
+    if (c.number) {
+        const label = c.number.includes(',') ? 'Nos.' : 'No.';
+        line += ` (${label} ${c.number.replace(/-(?=Orig|Misc)/gi, ' ')})`;
+    }
+    if (c.usCite) {
+        const year = (c.decision || '').slice(0, 4);
+        line += `, ${c.usCite}${year ? ` (${year})` : ''}`;
+    }
+    return line;
+}
+
+// Regenerates courts/ussc/collections/scdb/index.md's case list from scratch —
+// front matter (title/layout) is preserved as-is; only the body is replaced.
+// `cases` is the list of built case objects for every SCDB caseId (argued or
+// not) with no corresponding entry anywhere in courts/ussc/terms/*/cases.json
+// (see the `notIncluded` collection param on _scdbVerifyTerms).
+function _writeScdbNotIncludedPage(cases) {
+    let existing = '';
+    try { existing = fs.readFileSync(_SCDB_NOT_INCLUDED_PAGE, 'utf8'); } catch { /* use default below */ }
+    const fmMatch = existing.match(/^(---\n[\s\S]*?\n---\n)/);
+    const frontMatter = fmMatch ? fmMatch[1] : '---\nlayout: pane\ntitle: "Cases Not Included from SCDB"\n---\n';
+
+    const lines = cases.map(c => `  - ${_scdbNotIncludedLine(c)}`);
+    const body = [
+        '',
+        '# Cases Not Included from SCDB',
+        '',
+        `The [Supreme Court Database](https://scdb.la.psu.edu) (SCDB) includes ${cases.length.toLocaleString()} case(s) not yet present in Argument Aloud's own records:`,
+        '',
+        ...lines,
+        '',
+    ].join('\n');
+
+    const text = frontMatter + body;
+    if (existing === text) return;
+    fs.writeFileSync(_SCDB_NOT_INCLUDED_PAGE, text, 'utf8');
+    console.log(`Wrote ${cases.length} case(s) to ${path.relative(REPO_ROOT, _SCDB_NOT_INCLUDED_PAGE)}`);
+}
+
 function _scdbFirstArgDate(c) {
     const raw = (c.argument || '').trim();
     if (!raw) return '';
@@ -7648,7 +7699,11 @@ function _scdbAddCaseToTerm(scdb, termYear, caseId) {
     console.log(JSON.stringify(newCase, null, 2));
 }
 
-function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, backfill, all) {
+// `notIncluded`, when passed an array, is appended with the built case object
+// for every unmatched-SCDB-case entry found across the run (see
+// _writeScdbNotIncludedPage) — used for a read-only, all-terms harvest pass
+// that never touches cases.json/corrections.json regardless of `update`.
+function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, backfill, all, notIncluded) {
     let cases_files;
     if (termFilter) {
         const p = path.join(_SCDB_TERMS_DIR, termFilter, 'cases.json');
@@ -8150,6 +8205,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     const dateStr = [built.argument, built.reargument].filter(Boolean).join(' / rearg: ');
                     console.log(`  ${k}  ${built.number || ''}  ${dateStr || built.decision || ''}  ${built.title || ''}`);
                     if (update) cases.push(built);
+                    if (notIncluded) notIncluded.push(built);
                 }
                 if (update) {
                     sortCases(term, cases, false);
@@ -8320,6 +8376,20 @@ async function runScdb(opts) {
         _scdbPrintCase(scdb, opts.case);
     } else {
         _scdbVerifyTerms(scdb, opts.term || null, opts.caseFilter || null, !!opts.update, !!opts.verbose, !!opts.debug, !!opts.backfill, !!opts.all);
+    }
+
+    // Regenerate the "Cases Not Included from SCDB" reference page on every
+    // full (unfiltered) --scdb run. Always a separate, forced read-only
+    // (update=false), comprehensive (all=true — unlike --backfill, there's no
+    // reason to hide unargued cases on a page that only ever documents, never
+    // inserts, them) pass regardless of opts.update/opts.backfill/opts.all, so
+    // this never risks adding these cases to cases.json — they're deliberately
+    // excluded from courts/ussc/collections/issues.json for that reason (see
+    // courts/ussc/collections.json's "ignored-scdb-records" Issues group).
+    if (!opts.term && !opts.caseFilter && !opts.add) {
+        const notIncluded = [];
+        _scdbVerifyTerms(scdb, null, null, false, false, false, true, true, notIncluded);
+        _writeScdbNotIncludedPage(notIncluded);
     }
 }
 

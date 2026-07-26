@@ -2245,6 +2245,180 @@ async function importOpinionCases(casesPath, term) {
     }
 }
 
+// ── Step 6b: add cases from "Relating to Orders" opinions ────────────────
+//
+// https://www.supremecourt.gov/opinions/relatingtoorders/YY lists individual
+// statements/opinions (dissents from cert denial, etc.) attached to orders,
+// keyed by docket rather than case id — several rows can share one docket
+// (one per justice who wrote separately), so there's no single row that's
+// "the" decision URL for the case. Every row instead becomes its own
+// files.json entry; the case object itself (added only if missing) is filled
+// in from the first row seen for that docket.
+
+const _RTO_DATE_RE = /^(\d{1,2})\/(\d{1,2})\/(\d{2})$/;
+
+// "158, Orig." -> "158-Orig"; "24A1153(06-23-25)" -> "24A1153" (a docket can
+// carry a parenthetical disambiguator when the same number recurs across
+// multiple orders); anything else passes through _normalizeNumber unchanged.
+function _rtoNormalizeNumber(raw) {
+    let s = (raw || '').trim();
+    s = s.replace(/\s*\([^)]*\)\s*$/, '');
+    s = s.replace(/,\s*Orig\.?$/i, '-Orig');
+    return _normalizeNumber(s);
+}
+
+// The "J." column's author code, empirically gathered from relatingtoorders
+// pages spanning 2005-2024: long-tenured justices keep the single-letter code
+// assigned when their surname was still unique on the bench (R/T/A/B/G/K —
+// Roberts/Thomas/Alito/Breyer/Ginsburg/Kennedy); every justice since then gets
+// a first-initial+last-initial code regardless of collision risk. A code not
+// in this table (an older or, someday, a newer justice) is left unresolved —
+// the caller falls back to no author suffix rather than guessing.
+const _RTO_JUSTICE_BY_CODE = {
+    R:  'Chief Justice Roberts',
+    T:  'Justice Thomas',
+    A:  'Justice Alito',
+    AS: 'Justice Scalia',
+    B:  'Justice Breyer',
+    G:  'Justice Ginsburg',
+    JS: 'Justice Stevens',
+    K:  'Justice Kennedy',
+    SS: 'Justice Sotomayor',
+    EK: 'Justice Kagan',
+    NG: 'Justice Gorsuch',
+    BK: 'Justice Kavanaugh',
+    AB: 'Justice Barrett',
+    KJ: 'Justice Jackson',
+};
+
+// The case title is already implied by which case's files.json this entry
+// lives in, so the file's own title just names the author — "Statement" alone
+// when the code isn't in the table above.
+function _rtoStatementTitle(code) {
+    const name = _RTO_JUSTICE_BY_CODE[(code || '').trim()];
+    return name ? `Statement by ${name}` : 'Statement';
+}
+
+async function importRelatingToOrdersCases(casesPath, term) {
+    const year2 = term.split('-')[0].slice(-2);
+    const pageUrl = `${BASE_URL}/opinions/relatingtoorders/${year2}`;
+
+    let html;
+    try {
+        html = await fetchHtml(pageUrl);
+    } catch (exc) {
+        console.log(`Warning: could not fetch relating-to-orders page: ${exc.message || exc}`);
+        return;
+    }
+
+    const root = parseHtml(html);
+    const rows = [];
+    for (const table of root.querySelectorAll('table.table')) {
+        for (const tr of table.querySelectorAll('tr')) {
+            const tds = tr.querySelectorAll('td');
+            if (tds.length < 5) continue;
+            const dateRaw   = (tds[0].text || '').trim();
+            const docketRaw = (tds[1].text || '').trim();
+            const a         = tds[2].querySelector('a');
+            const name      = (a ? a.text : tds[2].text || '').trim();
+            const rawHref   = a ? (a.getAttribute('href') || '').trim() : '';
+            const author    = (tds[3].text || '').trim();
+            const citeRaw   = (tds[4].text || '').trim();
+            if (!docketRaw || !name || !rawHref) continue;
+
+            const dm = _RTO_DATE_RE.exec(dateRaw);
+            const date = dm ? `20${dm[3]}-${dm[1].padStart(2, '0')}-${dm[2].padStart(2, '0')}` : '';
+            const number = _rtoNormalizeNumber(docketRaw);
+            const href   = _resolveHref(rawHref, BASE_URL);
+            const cite   = _formatUsCite(citeRaw);
+            if (!number || !href) continue;
+            rows.push({ number, name, date, author, href, cite });
+        }
+    }
+    if (!rows.length) {
+        vprint('No relating-to-orders entries found.');
+        return;
+    }
+
+    if (!exists(casesPath)) {
+        ensureDir(path.dirname(casesPath));
+        writeText(casesPath, '[]\n');
+    }
+    const data = readJson(casesPath);
+
+    // Group rows by normalized docket number, preserving first-seen order —
+    // the first row for a docket supplies the new case object's fields.
+    const byNumber = new Map();
+    for (const row of rows) {
+        const key = row.number.toLowerCase();
+        if (!byNumber.has(key)) byNumber.set(key, []);
+        byNumber.get(key).push(row);
+    }
+
+    let addedCases = 0;
+    let addedFiles = 0;
+
+    for (const [numLower, groupRows] of byNumber) {
+        let matchedCase = data.find(c =>
+            (c.number || '').split(',').some(p => _normalizeNumber(p.trim()).toLowerCase() === numLower));
+
+        if (!matchedCase) {
+            if (!ADD_CASES) {
+                console.log(`  WARNING: ${groupRows[0].number} has a relating-to-orders opinion but is not in cases.json; pass --cases to add it`);
+                continue;
+            }
+            const first = groupRows[0];
+            const newCaseObj = { title: first.name, number: first.number };
+            if (first.date) newCaseObj.decision = first.date;
+            if (first.cite) newCaseObj.usCite   = first.cite;
+            matchedCase = reorderCase(newCaseObj);
+            data.push(matchedCase);
+            addedCases++;
+            console.log(`  ${first.number}: added from relating-to-orders page (${first.date || '?'})${first.cite ? `, usCite=${first.cite}` : ''}`);
+        }
+
+        const caseDir   = path.join(path.dirname(casesPath), 'cases', _caseFolder(matchedCase.number));
+        const filesPath = path.join(caseDir, 'files.json');
+        let files = exists(filesPath) ? readJson(filesPath) : [];
+        const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
+        let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
+        let added = 0;
+
+        for (const row of groupRows) {
+            if (existingHrefs.has(row.href)) continue;
+            // type: 'statement' (not 'opinion') so update_cases.js's
+            // syncOpinionHrefFromFiles/checkOpinionForCase — which only look
+            // for type === 'opinion' — never mistake one of these for the
+            // case's actual decision and auto-populate decision_ussc from it.
+            // No 'group' set, so explorer.js's Records grouping picks it up
+            // via its type-based fallback rather than the usual "Other" bucket.
+            const entry = { file: ++maxId, type: 'statement', title: _rtoStatementTitle(row.author) };
+            if (row.date)   entry.date   = row.date;
+            if (row.author) entry.author = row.author;
+            entry.href = row.href;
+            files.push(entry);
+            existingHrefs.add(row.href);
+            added++;
+        }
+
+        if (added) {
+            ensureDir(caseDir);
+            writeJson(filesPath, files);
+            addedFiles += added;
+            reportChange(`  ${matchedCase.number}: added ${added} relating-to-orders file(s)`);
+        }
+    }
+
+    if (addedCases) {
+        sortCases(term, data, false);
+        writeJson(casesPath, data);
+        reportChange(`Added ${addedCases} case(s) from relating-to-orders page to cases.json.`);
+    }
+    if (!addedCases && !addedFiles) {
+        vprint('No new relating-to-orders cases or files to add.');
+    }
+}
+
 // ── Step 7: decision_ussc / decision_loc maintenance ──────────────────────
 
 async function upgradeDeadOpinionHrefs(casesPath) {
@@ -2938,6 +3112,9 @@ async function main() {
 
     console.log('Checking opinions page for missing cases...');
     await importOpinionCases(casesPath, term);
+
+    console.log('Checking relating-to-orders page for missing cases...');
+    await importRelatingToOrdersCases(casesPath, term);
 
     vprint('Cleaning up files.json entries ...');
     cleanFilesJson(casesPath);
