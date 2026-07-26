@@ -33,10 +33,10 @@ layout: home
   </div>
 
   <div class="hp-card">
-    <a class="hp-card-link" href="/courts/ussc/?term=2025-10&case=24-109" aria-label="Transcripts"></a>
+    <a class="hp-card-link" href="/courts/ussc/?term=1962-10&case=155" aria-label="Transcripts"></a>
     <div class="hp-icon">✏️</div>
     <div class="hp-card-title">Transcripts</div>
-    <p class="hp-card-desc">Read through <a href="/courts/ussc/?collection=transcripts&group=1">Historical</a> transcripts, or follow along in recorded arguments. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
+    <p class="hp-card-desc">Read through <a href="/courts/ussc/?collection=transcripts&group=1">Historical</a> transcripts, or follow along in recorded <a href="/courts/ussc/?term=2025-10&case=24-935">arguments</a>. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
   </div>
 
   <div class="hp-card">

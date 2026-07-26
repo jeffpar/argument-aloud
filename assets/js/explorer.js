@@ -29,6 +29,18 @@ let _currentTranscriptEntries  = []; // transcript PDF entries [{value,href,titl
 const _pdfIframePool = new Map();   // src → <iframe>  (insertion order == LRU)
 const _PDF_POOL_MAX  = 5;
 
+// Propagates the top-level document's current dark/light theme into a same-
+// origin framed document (e.g. a PDF viewer's own UI, or an embedded "pane"
+// page). Cross-origin frames (e.g. an actual PDF file, as opposed to our own
+// PDF-viewing chrome) throw on contentDocument access — caught and ignored.
+function _applyThemeToFrame(frame) {
+  try {
+    const t = document.documentElement.getAttribute('data-theme');
+    if (t) frame.contentDocument.documentElement.setAttribute('data-theme', t);
+    else frame.contentDocument.documentElement.removeAttribute('data-theme');
+  } catch (_) {}
+}
+
 function _getOrCreatePdfIframe(src) {
   if (_pdfIframePool.has(src)) {
     // Refresh to most-recently-used position.
@@ -46,6 +58,11 @@ function _getOrCreatePdfIframe(src) {
   el.title = 'PDF document';
   el.setAttribute('allow', 'fullscreen');
   el.className = 'pdf-iframe';
+  // Non-PDF "pane" documents already self-apply the theme on load (see the
+  // localStorage bootstrap script in _layouts/pane.html), but nothing then
+  // keeps them in sync if the user switches theme while one is open — so
+  // re-apply on every load, and expose the pool to the theme switcher below.
+  el.addEventListener('load', () => _applyThemeToFrame(el));
   document.getElementById('doc-viewer-pdf').insertAdjacentElement('afterend', el);
   _pdfIframePool.set(src, el);
   return el;
@@ -5796,7 +5813,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         _renderGroupPage();
       });
     });
-    prevSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: ' or ' }));
+    prevSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: 'or' }));
     const prevAllBtn = prevSentinel.appendChild(document.createElement('button'));
     prevAllBtn.className = 'page-sentinel-btn';
     prevAllBtn.textContent = 'All cases)';
@@ -5816,7 +5833,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         _renderGroupPage();
       });
     });
-    nextSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: ' or ' }));
+    nextSentinel.appendChild(Object.assign(document.createElement('span'), { className: 'page-sentinel-or', textContent: 'or' }));
     const nextAllBtn = nextSentinel.appendChild(document.createElement('button'));
     nextAllBtn.className = 'page-sentinel-btn';
     nextAllBtn.textContent = 'All cases)';
@@ -9037,13 +9054,6 @@ async function init() {
   _attachRandomizeHoverListeners(document);
   const pageFrame = document.getElementById('page-viewer-frame');
   if (pageFrame) {
-    function _applyThemeToFrame(frame) {
-      try {
-        const t = document.documentElement.getAttribute('data-theme');
-        if (t) frame.contentDocument.documentElement.setAttribute('data-theme', t);
-        else frame.contentDocument.documentElement.removeAttribute('data-theme');
-      } catch (_) {}
-    }
     // Re-attach on every iframe navigation (content changes).
     pageFrame.addEventListener('load', function () {
       try { _attachRandomizeHoverListeners(this.contentDocument); } catch (_) {}
@@ -9063,9 +9073,14 @@ async function init() {
     pageFrame.addEventListener('mouseleave', () => {
       document.getElementById('random-case-btn')?.classList.remove('spinning');
     });
-    // Re-export for topbar.js theme switcher.
-    window._applyThemeToPageFrame = () => _applyThemeToFrame(pageFrame);
   }
+  // Re-export for topbar.js theme switcher — syncs both the main page-viewer
+  // iframe (if present) and any pooled doc-viewer iframes currently showing
+  // a non-PDF "pane" document (see _getOrCreatePdfIframe).
+  window._applyThemeToPageFrame = () => {
+    if (pageFrame) _applyThemeToFrame(pageFrame);
+    for (const el of _pdfIframePool.values()) _applyThemeToFrame(el);
+  };
 
   await restoreFromURL();
 }
