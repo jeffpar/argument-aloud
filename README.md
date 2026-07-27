@@ -151,8 +151,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-![U.S. Supreme Court Courtroom](/assets/img/ussc_courtroom1.jpg)  
+![U.S. Supreme Court Courtroom](/assets/img/ussc/courtroom1.jpg)  
 [[Source](https://www.supremecourt.gov/about/photos.aspx)]
 
-![Photograph of Supreme Court Building](/assets/img/scotus.gif)  
+![Photograph of Supreme Court Building](/assets/img/nara/scotus.gif)  
 [[Source](https://catalog.archives.gov/id/594954)]

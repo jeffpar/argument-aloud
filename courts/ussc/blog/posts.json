@@ -1,7 +1,7 @@
 ---
 ---
 [
-{%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" -%}
+{%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" | reverse -%}
 {%- for post in blog_posts -%}
   {%- assign blog_url_len = post.url.size | minus: 1 -%}
   {%- assign blog_page = post.url | slice: 0, blog_url_len -%}

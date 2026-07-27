@@ -107,7 +107,7 @@ layout: home
       <div class="hp-icon">🗒️</div>
       <div class="hp-card-title">Posts</div>
     </div>
-    <p class="hp-card-desc">Learn more about Argument Aloud, as we discuss the challenges of gathering error-free data and highlight oddities we have found along the way.</p>
+    <p class="hp-card-desc">Learn more about <a href="/courts/ussc/?blog=all">Argument Aloud</a>, as we discuss the challenges of gathering error-free data and highlight oddities we have found along the way.</p>
   </div>
 
   <div class="hp-card">
