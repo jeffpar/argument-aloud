@@ -4997,7 +4997,13 @@ function _buildOrigGallery(c, term) {
     return gallery.length ? gallery : null;
 }
 
-function _setCaseEntry(c, term, extra = null) {
+// `fields`, when given (a group's collections.json "fields" array — see
+// _buildTagsCollection), copies those named properties straight from the
+// source case `c` onto the entry, verbatim. This lets a collection surface
+// extra per-case data (e.g. "scdb_message"/"audit_message" for the Audits
+// collection) without a page having to separately fetch each case's own
+// cases.json.
+function _setCaseEntry(c, term, extra = null, fields = null) {
     const year = _decisionYearOf(c);
     const baseTitle = firstTitle(c.title) || '';
     const title = year ? `${baseTitle} (${year})` : baseTitle;
@@ -5011,6 +5017,7 @@ function _setCaseEntry(c, term, extra = null) {
     const events = Array.isArray(c.events) ? c.events : [];
     if (events.some(e => e.audio_href))  entry.event      = true;
     if (events.some(e => e.text_href))   entry.transcript = true;
+    if (fields) for (const name of fields) if (c[name] != null) entry[name] = c[name];
     if (extra) Object.assign(entry, extra);
     const gallery = _buildOrigGallery(c, term);
     if (gallery) entry.gallery = gallery;
@@ -5023,7 +5030,11 @@ function _setCaseEntry(c, term, extra = null) {
 // beyond what _setCaseEntry computes (e.g. a hand-curated "gallery" array).
 // _buildTagsCollection fully rebuilds its case entries from cases.json on every
 // run, so without this, any such hand-added field would be silently dropped.
-function _loadExtraFieldsByKey(filePath) {
+// `declaredFields` (the union of every group's collections.json "fields" list
+// in this collection) is also excluded — those are freshly recomputed by
+// _setCaseEntry itself on every run, so treating stale copies of them as
+// "extra" would let a since-changed or since-removed value linger forever.
+function _loadExtraFieldsByKey(filePath, declaredFields = null) {
     const map = new Map();
     let data;
     try { data = _readJson(filePath); } catch { return map; }
@@ -5035,7 +5046,8 @@ function _loadExtraFieldsByKey(filePath) {
             if (!term || !num) continue;
             const extra = {};
             for (const k of Object.keys(c)) {
-                if (!_CASE_ENTRY_FIELDS.has(k)) extra[k] = c[k];
+                if (_CASE_ENTRY_FIELDS.has(k) || declaredFields?.has(k)) continue;
+                extra[k] = c[k];
             }
             if (Object.keys(extra).length) map.set(`${term}\u0000${num}`, extra);
         }
@@ -6190,7 +6202,7 @@ function _sortCaseEntriesByOrder(cases, orderSpec) {
 // satisfies ANY branch (each branch's own conditions still AND'ed together).
 // This lets a group merge what would otherwise be several separate
 // condition-based groups (e.g. "argument date wrong OR reargument date wrong").
-function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null) {
+function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null, fields = null) {
     const isOrBranches = Array.isArray(conditions[0]);
     const flatConditions = isOrBranches ? conditions.flat() : conditions;
     const matchesConditions = (c, termDir) => isOrBranches
@@ -6226,7 +6238,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             if (!matchesConditions(c, termDir)) continue;
             const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
-            const entry = _setCaseEntry(c, term, extraByKey?.get(key));
+            const entry = _setCaseEntry(c, term, extraByKey?.get(key), fields);
             if (hasFileCount) {
                 const info = _findFirstEventAndTurn(c, flatConditions, termDir);
                 if (info) {
@@ -6262,7 +6274,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
 
 // Scan allTerms for cases that match a set of required tags; return sorted
 // case entries.
-function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, orderSpec = null) {
+function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, orderSpec = null, fields = null) {
     const cases = [];
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -6275,7 +6287,7 @@ function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, or
             if (!requiredTags.every(t => c.tags.includes(t))) continue;
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
-            cases.push(_setCaseEntry(c, term, extraByKey?.get(key)));
+            cases.push(_setCaseEntry(c, term, extraByKey?.get(key), fields));
         }
     }
     _sortCaseEntriesByOrder(cases, orderSpec);
@@ -6310,10 +6322,17 @@ function _expandGroupName(name, cases) {
 }
 
 function _buildTagsCollection(allTerms, collEntry, filePath = null) {
+    // Union of every group's (plus the collection's own, for the flat form)
+    // "fields" list — see _setCaseEntry — so _loadExtraFieldsByKey knows not
+    // to treat those freshly-recomputed properties as hand-curated "extra".
+    const declaredFields = new Set(collEntry.fields || []);
+    if (Array.isArray(collEntry.groups)) {
+        for (const g of collEntry.groups) for (const f of (g.fields || [])) declaredFields.add(f);
+    }
     // Carry forward any hand-added per-case fields (e.g. "gallery") from the
     // collection's existing output, since every branch below rebuilds case
     // entries from scratch via _setCaseEntry.
-    const extraByKey = filePath ? _loadExtraFieldsByKey(filePath) : null;
+    const extraByKey = filePath ? _loadExtraFieldsByKey(filePath, declaredFields) : null;
     if (Array.isArray(collEntry.groups) && collEntry.groups.length) {
         const output = [];
         for (const g of collEntry.groups) {
@@ -6340,7 +6359,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                         if (!requiredTags.every(t => c.tags.includes(t))) continue;
                         if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
                         const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
-                        const entry = _setCaseEntry(c, term, extraByKey?.get(key));
+                        const entry = _setCaseEntry(c, term, extraByKey?.get(key), g.fields);
                         for (const tag of c.tags) {
                             if (requiredTags.includes(tag) || excludeTags.includes(tag)) continue;
                             if (!fanOut.has(tag)) fanOut.set(tag, []);
@@ -6370,9 +6389,9 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                     const parsed = Array.isArray(g.conditions[0])
                         ? g.conditions.map(set => set.map(_parseCaseCondition).filter(Boolean))
                         : g.conditions.map(_parseCaseCondition).filter(Boolean);
-                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder);
+                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder, g.fields);
                 } else {
-                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder) : [];
+                    cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder, g.fields) : [];
                 }
                 const name = g.name || g.title || '';
                 // g.id, when present, is propagated through to the built file so
@@ -6387,7 +6406,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
     }
     // Flat (single-group) form.
     const name = collEntry.name ?? collEntry.title ?? '';
-    const cases = _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey, collEntry.order || null);
+    const cases = _casesByTags(allTerms, collEntry.tags || [], {}, extraByKey, collEntry.order || null, collEntry.fields);
     return [{ name: _expandGroupName(name, cases), cases }];
 }
 

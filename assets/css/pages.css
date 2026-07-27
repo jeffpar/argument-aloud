@@ -566,3 +566,58 @@ html[data-theme="dark"] #og-preview-caption {
 /* ── Advocates: Women — courts/ussc/people/advocates/women/ ─────────────── */
 
 .footnote-label { font-size: 0.67em; font-weight: bold; margin: 0 0 20px; }
+
+/* ── Cases with Warnings — courts/ussc/collections/warnings/ ────────────── */
+
+/* Each term is a native <details> — collapsed by default, expanding to
+   reveal that term's cases. Reuses .date-section/.date-case-list for the
+   overall look, just swapping the plain <h3> for a clickable <summary> with
+   a rotating disclosure triangle (same visual language as .term-toggle in
+   the sidebar term tree and .tu-toggle on the Transcript Updates page). */
+.corr-term-summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.corr-term-summary::-webkit-details-marker { display: none; }
+.corr-term-summary::marker { content: ""; }
+.corr-term-toggle {
+  flex-shrink: 0;
+  font-size: 9px;
+  color: #999;
+  transition: transform 0.15s;
+  line-height: 1;
+}
+.corr-term-section[open] > .corr-term-summary > .corr-term-toggle {
+  transform: rotate(90deg);
+}
+.corr-term-name { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.corr-term-count { margin-left: auto; flex-shrink: 0; font-size: 0.72rem; color: #888; }
+@media (prefers-color-scheme: dark) {
+  .corr-term-toggle { color: #6c7280; }
+  .corr-term-name   { color: #6a7080; }
+  .corr-term-count  { color: #6a7080; }
+}
+html[data-theme="dark"]  .corr-term-toggle { color: #6c7280; }
+html[data-theme="dark"]  .corr-term-name   { color: #6a7080; }
+html[data-theme="dark"]  .corr-term-count  { color: #6a7080; }
+html[data-theme="light"] .corr-term-toggle { color: #999; }
+html[data-theme="light"] .corr-term-name   { color: #888; }
+html[data-theme="light"] .corr-term-count  { color: #888; }
+
+.corr-case-list { margin-top: 0.5rem; }
+.corr-case-list li { margin-bottom: 0.6rem; }
+.corr-message-list { list-style: none; margin: 0.15rem 0 0; padding: 0 0 0 1rem; }
+.corr-message-list li { font-size: 0.78rem; font-weight: bold; margin-bottom: 0; }
+.corr-scdb-message  { color: #c0392b; }
+.corr-audit-message { color: #27ae60; }
+@media (prefers-color-scheme: dark) {
+  .corr-scdb-message  { color: #ff6b6b; }
+  .corr-audit-message { color: #4cd787; }
+}
+html[data-theme="dark"]  .corr-scdb-message  { color: #ff6b6b; }
+html[data-theme="dark"]  .corr-audit-message { color: #4cd787; }
+html[data-theme="light"] .corr-scdb-message  { color: #c0392b; }
+html[data-theme="light"] .corr-audit-message { color: #27ae60; }

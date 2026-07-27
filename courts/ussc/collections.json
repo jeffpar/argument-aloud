@@ -224,6 +224,14 @@
         "search": "cases:title"
       },
       {
+        "id": "oddities",
+        "name": "Oddities",
+        "file": "/courts/ussc/collections/oddities.json",
+        "conditions": [
+        ],
+        "order": "decision:ascending,titles:ascending"
+      },
+      {
         "id": "orig",
         "name": "Original Jurisdiction",
         "file": "/courts/ussc/collections/orig.json",
@@ -260,10 +268,39 @@
         "order": "argument:ascending",
         "groups": [
           {
-            "name": "Transcripts ($first_decision_year-$last_decision_year)",
+            "name": "Opinions",
+            "page": "/courts/ussc/collections/oddities/transcripts",
+            "conditions": [
+              "event.source == 'ussc' && event.type == 'opinion'"
+            ],
+            "order": "decision:ascending,titles:ascending"
+          },
+          {
+            "name": "Arguments ($first_decision_year-$last_decision_year)",
             "tags": ["Historical Transcripts"]
           }
         ]
+      }
+    ]
+  },
+  {
+    "name": "Audits",
+    "file": "/courts/ussc/collections/audits.json",
+    "groups": [
+      {
+        "id": "warnings",
+        "name": "Cases with Warnings",
+        "page": "/courts/ussc/collections/warnings",
+        "conditions": [
+          [
+            "scdb_message != undefined"
+          ],
+          [
+            "audit_message != undefined"
+          ]
+        ],
+        "fields": ["scdb_message", "audit_message"],
+        "order": "decision:ascending,titles:ascending"
       }
     ]
   },
@@ -355,40 +392,10 @@
         "enabled": false
       },
       {
-        "id": "corrections",
-        "name": "Cases with Corrections",
-        "conditions": [
-          [
-            "scdb_message != undefined"
-          ],
-          [
-            "audit_message != undefined"
-          ]
-        ],
-        "order": "decision:ascending,titles:ascending"
-      },
-      {
         "id": "ignored-scdb-records",
         "name": "Cases Not Included from SCDB",
         "page": "/courts/ussc/collections/scdb",
         "enabled": false
-      }
-    ],
-    "search": "cases:title"
-  },
-  {
-    "id": "oddities",
-    "name": "Oddities",
-    "file": "/courts/ussc/collections/oddities.json",
-    "groups": [
-      {
-        "id": "opinion-transcripts",
-        "name": "Opinion Transcripts",
-        "page": "/courts/ussc/collections/oddities/transcripts",
-        "conditions": [
-          "event.source == 'ussc' && event.type == 'opinion'"
-        ],
-        "order": "decision:ascending,titles:ascending"
       }
     ],
     "search": "cases:title"
