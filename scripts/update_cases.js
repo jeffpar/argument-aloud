@@ -11698,9 +11698,9 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
         console.error('ERROR: --advocate requires --date YYYY-MM-DD');
         process.exit(1);
     }
-    const page = (getValue('--page') || '').trim();
-    if (!page) {
-        console.error('ERROR: --advocate requires --page (the journal page number)');
+    const journalRef = (getValue('--journal') || '').trim();
+    if (!/^\d{4}\.\d+$/.test(journalRef)) {
+        console.error('ERROR: --advocate requires --journal YYYY.N (the journal volume year and page number)');
         process.exit(1);
     }
     const advocateRaws = getValues('--advocate');
@@ -11766,7 +11766,7 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
             type,
             date,
             title: type === 'reargument' ? `Oral Reargument on ${dateLabel}` : `Oral Argument on ${dateLabel}`,
-            journal_ref: page,
+            journal_ref: journalRef,
             advocates: [],
         });
         // Insert in chronological order rather than blindly appending, so a
@@ -12969,7 +12969,7 @@ async function main() {
 
     if (flags.has('--advocate')) {
         if (positional.length < 2) {
-            console.error('Usage: node update_cases.js TERM CASE --date YYYY-MM-DD --page N --advocate "NAME|TITLE|ROLE" [--advocate ...]');
+            console.error('Usage: node update_cases.js TERM CASE --date YYYY-MM-DD --journal YYYY.N --advocate "NAME|TITLE|ROLE" [--advocate ...]');
             process.exit(1);
         }
         runAddAdvocate(positional[0], positional[1], argv, dryRun);

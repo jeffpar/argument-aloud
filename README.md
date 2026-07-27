@@ -121,9 +121,9 @@ Adding votes to an existing case:
 
 Adding advocates to an existing case:
 
-`node scripts/update_cases.js 1938-10 771 --date 1939-04-24 --page 212 --advocate "ROBERT JACKSON|MR.,SOLICITOR GENERAL|appellant"`
+`node scripts/update_cases.js 1938-10 771 --date 1939-04-24 --journal 1938.212 --advocate "ROBERT JACKSON|MR.,SOLICITOR GENERAL|appellant"`
 
-`node scripts/update_cases.js 1938-10 771 --date 1939-04-25 --page 213 --advocate "ROBERT JACKSON|MR.,SOLICITOR GENERAL|appellant" --advocate "LEONARD ACKER|MR.|appellee" --advocate "WILLARD R. PRATT|MR.|appellee"`
+`node scripts/update_cases.js 1938-10 771 --date 1939-04-25 --journal 1938.213 --advocate "ROBERT JACKSON|MR.,SOLICITOR GENERAL|appellant" --advocate "LEONARD ACKER|MR.|appellee" --advocate "WILLARD R. PRATT|MR.|appellee"`
 
 Applying a downloaded set of transcript edits (speaker/text corrections submitted via "Download Edits" in the transcript editor) — this patches the named turns directly in their transcript JSON files and records a changelog entry at `courts/ussc/transcripts/updates`:
 

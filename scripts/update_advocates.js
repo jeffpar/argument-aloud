@@ -137,7 +137,13 @@ function summarizeResult(fullResult, role) {
     if (r === 'appellant' || r === 'appellee')      family = 'appeal';
     else if (r === 'plaintiff' || r === 'defendant') family = 'civil';
     const won = fullResult.includes('petitioning party received a favorable disposition');
-    const lost = fullResult.includes('no favorable disposition for petitioning party apparent');
+    // A "dismissed"/"dismissed as improvidently granted" result carries no
+    // partyWinning text of its own (see schema.js / the SCDB result migration),
+    // but SCDB's partyWinning for that caseDisposition is "no favorable
+    // disposition for petitioning party apparent" in all but a handful of
+    // cases, so treat it as a loss for the petitioning party here too.
+    const lost = fullResult.includes('no favorable disposition for petitioning party apparent')
+        || /^dismissed\b/i.test(fullResult);
     if (!won && !lost) return '';
     if (family === 'appeal') return won ? 'appellant' : 'appellee';
     if (family === 'civil')  return won ? 'plaintiff' : 'defendant';

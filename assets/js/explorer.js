@@ -2637,6 +2637,19 @@ function _showDecisionFromParam(param) {
   return true;
 }
 
+// If `param` (a URL 'file' value) names a journal entry ("YYYY.N") present in
+// _currentJournalRefs, show it in the doc viewer and sync the file-select
+// dropdown to match. Returns whether it was handled.
+function _showJournalFromParam(param) {
+  const key   = 'journal:' + param;
+  const entry = _currentJournalRefs.get(key);
+  if (!entry) return false;
+  showDocViewer({ href: entry.href, title: entry.title }, { autoScroll: true });
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = key;
+  return true;
+}
+
 // Popup menu for #case-cite: lets the user pick which opinion-text source to
 // open in the doc viewer, when one or more of LOC/USSC/Volume/XML is
 // available. Reuses the same generic dropdown look as the term/collection
@@ -2733,50 +2746,57 @@ function _setCaseNotes(text) {
 function _setCaseInfoRow2(caseEntry) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
 
-  // Replaces the contents of `el` with a prefix label followed by one
-  // clickable <a> per date or consecutive same-month day range.
-  // e.g. "1949-12-08,1949-12-09" \u2192 one link: "December 8\u20139, 1949"
-  //      "1979-04-30,1979-05-01" \u2192 two links: "April 30, 1979 \u00b7 May 1, 1979"
-  // Each link navigates to the first date in its group.
+  // Replaces the contents of `el` with a prefix label followed by a single
+  // clickable <a> spanning every date, navigating to the first one.
+  // e.g. "1890-11-21,1890-11-24"  \u2192 "November 21, 24, 1890"
+  //      "1890-11-30,1890-12-01"  \u2192 "November 30, December 1, 1890"
   function _setDateLinks(el, prefix, dateStr) {
     while (el.firstChild) el.removeChild(el.firstChild);
     if (!dateStr) { el.hidden = true; return; }
-    el.hidden = false;
     const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
+    if (!dates.length) { el.hidden = true; return; }
+    el.hidden = false;
+    const firstIso = dates[0];
 
-    // Build segments: runs of consecutive days within the same month+year.
-    const segments = []; // [{ y, m, days: [int], firstIso }]
-    for (const iso of dates) {
-      const [y, m, d] = iso.split('-');
-      const day = parseInt(d, 10);
-      const last = segments[segments.length - 1];
-      if (last && last.y === y && last.m === m && last.days[last.days.length - 1] === day - 1) {
-        last.days.push(day);
-      } else {
-        segments.push({ y, m, days: [day], firstIso: iso });
+    let text;
+    if (dates.length === 1) {
+      text = formatDecisionDate(firstIso);
+    } else {
+      // Group into runs sharing the same calendar month, in order of
+      // appearance (no adjacency requirement \u2014 e.g. the 21st and 24th of the
+      // same month share one run), then join the runs with a single trailing
+      // year, repeated only where an earlier run's year differs from the next.
+      const segments = []; // [{ y, m, days: [int] }]
+      for (const iso of dates) {
+        const [y, m, d] = iso.split('-');
+        const day = parseInt(d, 10);
+        const last = segments[segments.length - 1];
+        if (last && last.y === y && last.m === m) {
+          last.days.push(day);
+        } else {
+          segments.push({ y, m, days: [day] });
+        }
       }
+      text = segments.map((seg, i) => {
+        const month = MONTHS[parseInt(seg.m, 10) - 1] || seg.m;
+        let s = month + '\u00a0' + seg.days.join(',\u00a0');
+        const isLast = i === segments.length - 1;
+        if (isLast || segments[i + 1].y !== seg.y) s += ',\u00a0' + seg.y;
+        return s;
+      }).join(',\u00a0');
     }
 
     el.appendChild(document.createTextNode(prefix + '\u00a0'));
-    segments.forEach((seg, i) => {
-      if (i > 0) el.appendChild(document.createTextNode('\u00a0\u00b7\u00a0'));
-      const { firstIso, y, m, days } = seg;
-      const a = document.createElement('a');
-      a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
-      a.className = 'date-link';
-      if (days.length > 1) {
-        const month = MONTHS[parseInt(m, 10) - 1] || m;
-        a.textContent = month + '\u00a0' + days[0] + '\u2013' + days[days.length - 1] + ',\u00a0' + y;
-      } else {
-        a.textContent = formatDecisionDate(firstIso);
-      }
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
-        updateEmptyStateForTerm(term, firstIso);
-      });
-      el.appendChild(a);
+    const a = document.createElement('a');
+    a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
+    a.className = 'date-link';
+    a.textContent = text;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
+      updateEmptyStateForTerm(term, firstIso);
     });
+    el.appendChild(a);
   }
 
   _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
@@ -3891,7 +3911,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
-      if (fileRestore != null && !caseEntry.events?.length && !_showDecisionFromParam(fileRestore)) {
+      if (fileRestore != null && !caseEntry.events?.length && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
       }
@@ -5634,7 +5654,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
     const fileRestore = e.fileRestore ?? null;
-    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore)) {
+    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -6354,11 +6374,14 @@ function _buildJournalRefOptions(caseEntry, term) {
   const seen = new Set();
   (caseEntry.events || []).forEach((ev, i) => {
     if (!ev.journal_ref || !ev.date) return;
-    const m = String(ev.journal_ref).match(/^(?:(\d{4}-\d{2}):)?(.+)$/);
+    // journal_ref is normalized to "YYYY.N" — YYYY is the journal volume's
+    // own year (its journal is always the October Term of that year), N is
+    // the page number within it, independent of which term this case lives in.
+    const m = String(ev.journal_ref).trim().match(/^(\d{4})\.(\d+)$/);
     if (!m) return;
-    const refTerm = m[1] || term;
-    const page    = m[2].trim();
-    if (!page) return;
+    const refValue = m[0];
+    const refTerm  = m[1] + '-10';
+    const page     = m[2];
     const refTermEntry = TERMS.find(t => t.term === refTerm);
     const journalHref  = refTermEntry?.journal_href;
     if (!journalHref) return;
@@ -6373,7 +6396,7 @@ function _buildJournalRefOptions(caseEntry, term) {
     const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
     if (seen.has(url)) return;
     seen.add(url);
-    const value = 'journal:' + (i + 1);
+    const value = 'journal:' + refValue;
     map.set(value, { href: url, title });
     opts.push({ value, title });
   });
@@ -7388,7 +7411,10 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     if (entry) {
       showDocViewer({ href: entry.href, title: entry.title }, { force: true });
     }
-    _clearDocViewerUrlParams();
+    const url = new URL(location.href);
+    url.searchParams.set('file', e.target.value.slice('journal:'.length));
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
     return;
   }
   if (e.target.value.startsWith('file:')) {
@@ -9491,7 +9517,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
@@ -9616,7 +9642,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
