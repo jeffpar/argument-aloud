@@ -123,16 +123,22 @@ html[data-theme="light"] .card:hover { background: #eef1f8; box-shadow: 0 2px 10
   text-decoration: none;
   color: inherit;
 }
+.hp-card-head {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 .hp-icon {
   font-size: 1.6rem;
   line-height: 1;
-  margin-bottom: 10px;
 }
 .hp-card-title {
   font-size: 0.93rem;
   font-weight: 700;
   color: #2672b4;
-  margin-bottom: 6px;
 }
 .hp-card-desc {
   font-size: 0.77rem;

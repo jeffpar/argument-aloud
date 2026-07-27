@@ -136,8 +136,8 @@ function summarizeResult(fullResult, role) {
     let family = 'cert';            // petitioner / respondent
     if (r === 'appellant' || r === 'appellee')      family = 'appeal';
     else if (r === 'plaintiff' || r === 'defendant') family = 'civil';
-    const won = fullResult === 'petitioning party received a favorable disposition';
-    const lost = fullResult === 'no favorable disposition for petitioning party apparent';
+    const won = fullResult.includes('petitioning party received a favorable disposition');
+    const lost = fullResult.includes('no favorable disposition for petitioning party apparent');
     if (!won && !lost) return '';
     if (family === 'appeal') return won ? 'appellant' : 'appellee';
     if (family === 'civil')  return won ? 'plaintiff' : 'defendant';

@@ -2826,11 +2826,20 @@ function _setCaseInfoRow3(caseEntry) {
   const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
   const firstTitle = (caseEntry.title || '').split('|')[0];
   let party;
-  if (caseEntry.result === 'petitioning party received a favorable disposition') {
+  if ((caseEntry.result || '').includes('petitioning party received a favorable disposition')) {
     party = firstTitle.split(' v. ')[0].trim();
   } else {
     const parts = firstTitle.split(' v. ');
     party = (parts[1] || parts[0]).trim();
+  }
+
+  const result = caseEntry.result || '';
+  if (caseEntry.voteMinority === 0 && /^dismissed/i.test(result)) {
+    span.textContent = '';
+    const label = result.charAt(0).toUpperCase() + result.slice(1);
+    span.appendChild(document.createTextNode(label + ' in favor of ' + party));
+    row.hidden = false;
+    return;
   }
 
   // Determine opinion author link params if a justice has opinion:true.
