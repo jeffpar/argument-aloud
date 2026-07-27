@@ -102,10 +102,10 @@ layout: home
   </div>
 
   <div class="hp-card">
-    <a class="hp-card-link" href="/courts/ussc/?link=/courts/ussc/blog/2026/welcome-to-argument-aloud" aria-label="Blog"></a>
+    <a class="hp-card-link" href="/courts/ussc/?link=/courts/ussc/blog/2026/welcome-to-argument-aloud" aria-label="Posts"></a>
     <div class="hp-card-head">
       <div class="hp-icon">🗒️</div>
-      <div class="hp-card-title">Blog</div>
+      <div class="hp-card-title">Posts</div>
     </div>
     <p class="hp-card-desc">Learn more about Argument Aloud, as we discuss the challenges of gathering error-free data and highlight oddities we have found along the way.</p>
   </div>

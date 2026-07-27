@@ -26,7 +26,7 @@ export const CASE_KEY_ORDER = [
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
     'audio_href', 'bad_audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
-    'journal_ref', 'minutes_ref',
+    'journal_ref', 'minutes_ref', 'minutes_href',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view'
 ];
 

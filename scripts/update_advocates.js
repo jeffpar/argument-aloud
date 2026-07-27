@@ -129,12 +129,17 @@ function isFeminineTitle(title) {
 //
 // Map the verbose `c.result` string and an advocate's role to a short side
 // label. Roles ending in '*' (low-confidence) are accepted as-is for the
-// purpose of choosing the family (cert/appeal/civil).
+// purpose of choosing the family (cert/appeal/civil/complaint). "defendant"
+// is shared between the civil (plaintiff/defendant) and complaint
+// (complainant/defendant) pairs, so a bare "defendant" role always resolves
+// to the more common civil family — only an explicit "complainant" role
+// picks the complaint family.
 function summarizeResult(fullResult, role) {
     if (!fullResult) return '';
     const r = (role || '').replace(/\*$/, '').toLowerCase();
     let family = 'cert';            // petitioner / respondent
-    if (r === 'appellant' || r === 'appellee')      family = 'appeal';
+    if (r === 'appellant' || r === 'appellee')       family = 'appeal';
+    else if (r === 'complainant')                    family = 'complaint';
     else if (r === 'plaintiff' || r === 'defendant') family = 'civil';
     const won = fullResult.includes('petitioning party received a favorable disposition');
     // A "dismissed"/"dismissed as improvidently granted" result carries no
@@ -145,8 +150,9 @@ function summarizeResult(fullResult, role) {
     const lost = fullResult.includes('no favorable disposition for petitioning party apparent')
         || /^dismissed\b/i.test(fullResult);
     if (!won && !lost) return '';
-    if (family === 'appeal') return won ? 'appellant' : 'appellee';
-    if (family === 'civil')  return won ? 'plaintiff' : 'defendant';
+    if (family === 'appeal')    return won ? 'appellant'   : 'appellee';
+    if (family === 'complaint') return won ? 'complainant' : 'defendant';
+    if (family === 'civil')     return won ? 'plaintiff'   : 'defendant';
     return won ? 'petitioner' : 'respondent';
 }
 

@@ -76,6 +76,7 @@ let _currentOyezEntries = []; // Oyez case-description entries for the active ca
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
+let _currentMinutesRefs = new Map(); // sentinel value -> { href, title } for minutes_href dropdown options
 let _currentFiles       = [];        // files.json entries for the active case (used by file: dropdown options)
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
@@ -2650,6 +2651,19 @@ function _showJournalFromParam(param) {
   return true;
 }
 
+// If `param` (a URL 'file' value) names a minutes entry (an ISO date) present
+// in _currentMinutesRefs, show it in the doc viewer and sync the file-select
+// dropdown to match. Returns whether it was handled.
+function _showMinutesFromParam(param) {
+  const key   = 'minutes:' + param;
+  const entry = _currentMinutesRefs.get(key);
+  if (!entry) return false;
+  showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { autoScroll: true });
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = key;
+  return true;
+}
+
 // Popup menu for #case-cite: lets the user pick which opinion-text source to
 // open in the doc viewer, when one or more of LOC/USSC/Volume/XML is
 // available. Reuses the same generic dropdown look as the term/collection
@@ -3807,8 +3821,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             if (!_TERM_GROUP_KEYS.has(key)) {
               // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
               key = (f.type || '').toLowerCase();
-              if (key === 'appellant' || key === 'appellants') key = 'petitioner';
-              else if (key === 'appellee' || key === 'appellees') key = 'respondent';
+              if (key === 'appellant' || key === 'appellants' || key === 'plaintiff' || key === 'plaintiffs' || key === 'complainant' || key === 'complainants') key = 'petitioner';
+              else if (key === 'appellee' || key === 'appellees' || key === 'defendant' || key === 'defendants') key = 'respondent';
               if (!_TERM_GROUP_KEYS.has(key)) key = 'other';
             }
             if (!groups[key]) groups[key] = [];
@@ -3911,11 +3925,12 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
-      if (fileRestore != null && !caseEntry.events?.length && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore)) {
+      const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_href);
+      if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
       }
-      if (citationRestore != null && !caseEntry.events?.length) {
+      if (citationRestore != null && !_hasPlayableAudio) {
         const citeEl = findCitationItem(citationRestore);
         if (citeEl) { citeEl.closest('.file-type-group')?.classList.add('open'); citeEl.querySelector('.citation-title')?.click(); }
       }
@@ -5453,8 +5468,8 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           if (!_COLL_SEM_KEYS.has(sem)) {
             // Fallback for synthetic entries (virtual transcripts, injected opinions) without a group.
             sem = (f.type || '').toLowerCase();
-            if (sem === 'appellant' || sem === 'appellants') sem = 'petitioner';
-            else if (sem === 'appellee' || sem === 'appellees') sem = 'respondent';
+            if (sem === 'appellant' || sem === 'appellants' || sem === 'plaintiff' || sem === 'plaintiffs' || sem === 'complainant' || sem === 'complainants') sem = 'petitioner';
+            else if (sem === 'appellee' || sem === 'appellees' || sem === 'defendant' || sem === 'defendants') sem = 'respondent';
             if (!_COLL_SEM_KEYS.has(sem)) sem = 'other';
           }
           const prefs = {
@@ -5654,7 +5669,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
     const fileRestore = e.fileRestore ?? null;
-    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore)) {
+    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -6403,6 +6418,28 @@ function _buildJournalRefOptions(caseEntry, term) {
   return { map, opts };
 }
 
+// Build the minutes-href Map and options array shared by loadCaseAsOpinion and loadCase.
+// Unlike journal_ref, minutes_href is already a direct, per-event URL — no
+// term-level lookup or page-offset math needed.
+// Returns { map: Map<value, {href, title}>, opts: Array<{value, title}> }.
+function _buildMinutesRefOptions(caseEntry) {
+  const map  = new Map();
+  const opts = [];
+  const seen = new Set();
+  (caseEntry.events || []).forEach((ev) => {
+    if (!ev.minutes_href || !ev.date) return;
+    if (seen.has(ev.minutes_href)) return;
+    seen.add(ev.minutes_href);
+    const [y, mo, d] = ev.date.split('-');
+    const dateLabel = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+    const title = 'Minutes for ' + dateLabel;
+    const value = 'minutes:' + ev.date;
+    map.set(value, { href: ev.minutes_href, title, view: 'pane' });
+    opts.push({ value, title });
+  });
+  return { map, opts };
+}
+
 // Display a case in opinion-only mode: no transcript pane (i.e. no synced,
 // turn-by-turn transcript), no file dropdown. Whatever opens full-height in
 // the document viewer follows the same preference as a case with real audio
@@ -6463,6 +6500,8 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // alongside the decision/opinion.
   const { map: _jrMap, opts: journalOpts } = _buildJournalRefOptions(caseEntry, term);
   _currentJournalRefs = _jrMap;
+  const { map: _mrMap, opts: minutesOpts } = _buildMinutesRefOptions(caseEntry);
+  _currentMinutesRefs = _mrMap;
 
   const decisionText = caseEntry.decision
     ? 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision)
@@ -6495,9 +6534,15 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // below is reserved for a decided case with no document source at all
   // (decisionText set but every decision_* href missing); a visitor who
   // wants a new tab already has the doc viewer's own "open in new tab" button.
-  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
+  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
     decisionLabel.hidden = true;
     fileSelect.innerHTML = '';
+    minutesOpts.forEach(mn => {
+      const opt = document.createElement('option');
+      opt.value = mn.value;
+      opt.textContent = mn.title;
+      fileSelect.appendChild(opt);
+    });
     journalOpts.forEach(j => {
       const opt = document.createElement('option');
       opt.value = j.value;
@@ -6765,7 +6810,15 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     docketOpt.textContent = 'Docket Search';
     fileSelect.appendChild(docketOpt);
   }
-  // Journal entries appear next, before audio.
+  // Minutes and Journal entries appear next, before audio.
+  const { map: _mrMap, opts: _minutesOpts } = _buildMinutesRefOptions(caseEntry);
+  _currentMinutesRefs = _mrMap;
+  _minutesOpts.forEach(mn => {
+    const opt = document.createElement('option');
+    opt.value = mn.value;
+    opt.textContent = mn.title;
+    fileSelect.appendChild(opt);
+  });
   const { map: _jrMap, opts: _journalOpts } = _buildJournalRefOptions(caseEntry, term);
   _currentJournalRefs = _jrMap;
   _journalOpts.forEach(j => {
@@ -6825,7 +6878,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...fileSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
+    .filter(v => v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('minutes:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -7413,6 +7466,17 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     }
     const url = new URL(location.href);
     url.searchParams.set('file', e.target.value.slice('journal:'.length));
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
+    return;
+  }
+  if (typeof e.target.value === 'string' && e.target.value.startsWith('minutes:')) {
+    const entry = _currentMinutesRefs.get(e.target.value);
+    if (entry) {
+      showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+    }
+    const url = new URL(location.href);
+    url.searchParams.set('file', e.target.value.slice('minutes:'.length));
     url.searchParams.delete('citation');
     history.replaceState(null, '', url);
     return;
@@ -9517,7 +9581,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
@@ -9642,7 +9706,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');

@@ -28,9 +28,9 @@
  *   node update_cases.js 1979-10 --roles            # derive advocate roles for each
  *                                                   #   argument event (petitioner /
  *                                                   #   respondent / appellant / appellee /
- *                                                   #   plaintiff / defendant). A trailing
- *                                                   #   '*' on a role means it was confirmed
- *                                                   #   by only one source.
+ *                                                   #   plaintiff / defendant / complainant).
+ *                                                   #   A trailing '*' on a role means it
+ *                                                   #   was confirmed by only one source.
  *
  *   # Vote update: unanimous decision, author Roberts
  *   node update_cases.js 2024-10 2024-001 --votes win 9-0 roberts
@@ -1315,8 +1315,8 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
 function _fileTypeFromName(name) {
     const lower = name.toLowerCase();
     if (lower.includes('amicus') || lower.includes('amici')) return 'amicus';
-    if (lower.includes('petitioner') || lower.includes('appellant')) return 'petitioner';
-    if (lower.includes('respondent') || lower.includes('appellee'))  return 'respondent';
+    if (lower.includes('petitioner') || lower.includes('appellant') || lower.includes('plaintiff') || lower.includes('complainant')) return 'petitioner';
+    if (lower.includes('respondent') || lower.includes('appellee')  || lower.includes('defendant'))                                 return 'respondent';
     return null;
 }
 
@@ -10650,7 +10650,7 @@ async function runDissentCheck(termFilter) {
 // only one source confirms it; with two or more sources it's left bare.
 // ═══════════════════════════════════════════════════════════════════════════
 
-const PARTY_PETITIONER_TERMS = ['petitioner', 'appellant', 'plaintiff'];
+const PARTY_PETITIONER_TERMS = ['petitioner', 'appellant', 'plaintiff', 'complainant'];
 const PARTY_RESPONDENT_TERMS = ['respondent', 'appellee', 'defendant'];
 const PARTY_ALL_ROLE_TERMS   = [...PARTY_PETITIONER_TERMS, ...PARTY_RESPONDENT_TERMS];
 const PARTY_JUSTICE_TITLES   = new Set(['JUSTICE', 'CHIEF JUSTICE']);
@@ -11512,7 +11512,7 @@ async function runAddCase(term, title, argv, dryRun) {
     // Parse speaker options and build advocates list. Scan argv linearly so
     // that repeated flags (e.g. two --petitioner entries) are each captured.
     const _TITLE_RE = /^(Mr|Mrs|Miss|Ms)\.?$/i;
-    const _SPEAKER_ROLES_SET = new Set(['petitioner', 'respondent', 'appellant', 'appellee', 'plaintiff', 'defendant']);
+    const _SPEAKER_ROLES_SET = new Set(['petitioner', 'respondent', 'appellant', 'appellee', 'plaintiff', 'defendant', 'complainant']);
     const speakers = [];
     for (let i = 0; i < argv.length; i++) {
         if (!argv[i].startsWith('--')) continue;
