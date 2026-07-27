@@ -790,10 +790,10 @@
     "title": "Aikens v. Wisconsin|Huegin v. Wisconsin|Hoyt v. Wisconsin",
     "number": "3,4,5",
     "files": false,
-    "argument": "1903-11-07",
-    "argument_days": "Saturday, November 7, 1903",
-    "reargument": "1904-10-17",
-    "reargument_days": "Monday, October 17, 1904",
+    "argument": "1903-10-21,1903-10-22",
+    "argument_days": "Wednesday, October 21, 1903; Thursday, October 22, 1903",
+    "reargument": "1904-10-17,1904-10-18",
+    "reargument_days": "Monday, October 17, 1904; Tuesday, October 18, 1904",
     "decision": "1904-11-07",
     "decision_days": "Monday, November 7, 1904",
     "usCite": "195 U.S. 194",
@@ -846,18 +846,37 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "journal",
         "type": "argument",
-        "date": "1903-11-07",
-        "title": "Oral Argument on November 7, 1903"
+        "date": "1903-10-21",
+        "title": "Oral Argument on October 21, 1903",
+        "journal_ref": "18"
+      },
+      {
+        "source": "journal",
+        "type": "argument",
+        "date": "1903-10-22",
+        "title": "Oral Argument on October 22, 1903",
+        "journal_ref": "19"
       },
       {
         "source": "scdb",
         "type": "reargument",
         "date": "1904-10-17",
-        "title": "Oral Reargument on October 17, 1904"
+        "title": "Oral Reargument on October 17, 1904",
+        "journal_ref": "14"
+      },
+      {
+        "source": "journal",
+        "type": "reargument",
+        "date": "1904-10-18",
+        "title": "Oral Reargument on October 18, 1904",
+        "journal_ref": "15"
       }
-    ]
+    ],
+    "scdb_check": "argument,reargument",
+    "scdb_message": "SCDB argument date (1903-11-07) incorrect; SCDB argument dates incomplete; SCDB reargument dates incomplete",
+    "audit_message": "U.S. Reports indicates argument occurred on November 7, 1903, but the Journal indicates otherwise"
   },
   {
     "id": "1904-041",
@@ -6239,7 +6258,7 @@
         "journal_ref": "84"
       }
     ],
-    "scdb_check": "reargument,argument",
+    "scdb_check": "argument,reargument",
     "scdb_message": "SCDB argument dates incomplete; SCDB reargument dates incomplete"
   },
   {
