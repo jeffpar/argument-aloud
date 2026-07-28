@@ -2,6 +2,12 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
+  <!-- Every "pane" page only makes sense wrapped in the SPA's doc-viewer iframe --
+       nothing in the site ever links to one directly, always through
+       /courts/ussc/?link=<path>. Opened directly (a bookmark, a search result,
+       a shared link), send the visitor to the real app instead of the bare,
+       chrome-less page. -->
+  <script>if (window.parent === window) location.replace('/courts/ussc/?link=' + location.pathname);</script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base target="_top">

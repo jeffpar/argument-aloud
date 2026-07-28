@@ -1,16 +1,51 @@
 User-agent: *
 Allow: /
 
-# /courts/ussc/terms/?term=...&case=... is an iframe-only fragment (the term
-# stats view embedded inside the real SPA page at /courts/ussc/?term=...) —
-# it's never a top-level destination, carries a static canonical tag that
-# can't reflect its query string, and its own case-listing links resolve to
-# more URLs in this same family. Every one of those query variants duplicates
-# content that's already correctly indexed at /courts/ussc/?term=...&case=...,
-# so keep the whole family out of the crawl instead of relying on canonical
-# tags to unwind it after the fact. (Only the "?" query-string form is
-# blocked — /courts/ussc/terms/YYYY-MM/... data files are unrelated and must
-# stay crawlable for rendering the real SPA pages.)
+# Every page using the "pane" layout (_layouts/pane.html) only makes sense
+# wrapped in the real SPA's doc-viewer iframe at /courts/ussc/?link=<path> —
+# nothing anywhere in this site ever links to one directly, and pane.html
+# itself now JS-redirects a standalone visit there. Their bare URLs carry a
+# static canonical tag that can't reflect the SPA state they're shown under,
+# so keep them out of the crawl entirely rather than rely on that canonical
+# (or the JS redirect, which a crawler may not follow) to sort it out after
+# the fact. Every one of these rules was checked against the actual directory
+# contents so real data files (JSON/images/PDFs the SPA fetches directly,
+# e.g. courts/ussc/collections/*.json, courts/ussc/terms/YYYY-MM/cases.json,
+# courts/ussc/collections/orig/'s case thumbnails) stay crawlable — pages
+# sharing a directory with such files are blocked by exact path ("$", not a
+# trailing wildcard); dedicated pane-only subtrees are blocked recursively.
+
+Disallow: /courts/ussc/blog/$
+Disallow: /courts/ussc/blog/20*/
+Disallow: /courts/ussc/collections/$
+Disallow: /courts/ussc/collections/benches/$
+Disallow: /courts/ussc/collections/gallery/
+Disallow: /courts/ussc/collections/lone/
+Disallow: /courts/ussc/collections/media/
+Disallow: /courts/ussc/collections/oddities/
+Disallow: /courts/ussc/collections/opinions/
+Disallow: /courts/ussc/collections/orig/$
+Disallow: /courts/ussc/collections/rare/
+Disallow: /courts/ussc/collections/scdb/
+Disallow: /courts/ussc/collections/scgh/$
+Disallow: /courts/ussc/collections/vocal/
+Disallow: /courts/ussc/collections/warnings/
+Disallow: /courts/ussc/sources/$
+Disallow: /courts/ussc/sources/docket/
+Disallow: /courts/ussc/sources/reports/$
 Disallow: /courts/ussc/terms/?
+Disallow: /courts/ussc/terms/$
+Disallow: /courts/ussc/topics/$
+Disallow: /courts/ussc/transcripts/updates/
+Disallow: /courts/ussc/people/advocates/$
+Disallow: /courts/ussc/people/advocates/featured/
+Disallow: /courts/ussc/people/advocates/top100/$
+Disallow: /courts/ussc/people/advocates/top21st/$
+Disallow: /courts/ussc/people/advocates/women/$
+Disallow: /courts/ussc/people/advocates/justice/$
+Disallow: /courts/ussc/people/justices/all/
+Disallow: /nara/
+Disallow: /scdb/archive/2003-12-11/$
+Disallow: /scdb/archive/2004-08-24/$
 
 Sitemap: https://argumentaloud.org/courts/ussc/sitemap.xml

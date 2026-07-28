@@ -12711,8 +12711,15 @@ function _readFrontMatter(filePath) {
 // page itself. New posts need no registration anywhere else — dropping a
 // dated .md file with a `permalink` under courts/ussc/blog/ is enough for it
 // to show up here the next time --sitemap runs.
+//
+// Blog posts use the "pane" layout, like every other page wrapped by the
+// SPA's doc-viewer iframe (/courts/ussc/?link=<path>) — nothing on this site
+// ever links to one at its own bare URL, so the sitemap shouldn't submit that
+// bare URL either (robots.txt disallows crawling it directly). ?link= drops
+// the target's own trailing slash, matching the convention already used by
+// blog/index.md's own post links.
 function _collectSitemapBlogUrls(buildDate) {
-    const urls = [{ loc: `${FEED_SITE_URL}/courts/ussc/blog/`, lastmod: buildDate }];
+    const urls = [{ loc: `${FEED_SITE_URL}/courts/ussc/?link=/courts/ussc/blog`, lastmod: buildDate }];
     const walk = (dir) => {
         for (const name of fs.readdirSync(dir, { withFileTypes: true })) {
             const full = path.join(dir, name.name);
@@ -12720,7 +12727,8 @@ function _collectSitemapBlogUrls(buildDate) {
             if (!name.isFile() || !name.name.endsWith('.md') || name.name === 'index.md') continue;
             const fm = _readFrontMatter(full);
             if (!fm.date || !fm.permalink) continue;
-            urls.push({ loc: FEED_SITE_URL + fm.permalink, lastmod: fm.date });
+            const target = fm.permalink.replace(/\/$/, '');
+            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?link=${target}`, lastmod: fm.date });
         }
     };
     if (fs.existsSync(BLOG_DIR)) walk(BLOG_DIR);
