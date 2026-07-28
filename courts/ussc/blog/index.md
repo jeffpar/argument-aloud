@@ -4,7 +4,7 @@ layout: pane
 styles:
 - /assets/css/pages.css
 ---
-# Blog
+# Argument Aloud Blog
 
 {%- assign blog_posts = site.pages | where_exp: "p", "p.url contains '/courts/ussc/blog/'" | where_exp: "p", "p.date" | sort: "date" | reverse %}
 {%- assign blog_posts = blog_posts | slice: 0, 20 %}
