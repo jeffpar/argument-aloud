@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
 
+# /courts/ussc/terms/?term=...&case=... is an iframe-only fragment (the term
+# stats view embedded inside the real SPA page at /courts/ussc/?term=...) —
+# it's never a top-level destination, carries a static canonical tag that
+# can't reflect its query string, and its own case-listing links resolve to
+# more URLs in this same family. Every one of those query variants duplicates
+# content that's already correctly indexed at /courts/ussc/?term=...&case=...,
+# so keep the whole family out of the crawl instead of relying on canonical
+# tags to unwind it after the fact. (Only the "?" query-string form is
+# blocked — /courts/ussc/terms/YYYY-MM/... data files are unrelated and must
+# stay crawlable for rendering the real SPA pages.)
+Disallow: /courts/ussc/terms/?
+
 Sitemap: https://argumentaloud.org/courts/ussc/sitemap.xml

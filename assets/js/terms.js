@@ -59,15 +59,19 @@
 
   // Same-origin postMessage-to-parent-when-framed / direct-navigate-when-
   // standalone pattern already used by the term-nav and date-section links
-  // in this file.
+  // in this file. `a.href` is set to the real top-level SPA URL (not a
+  // page-relative query string against this iframe-only page) so that a
+  // crawler, or a user opening the link in a new tab, lands on the actual
+  // canonical page instead of minting a duplicate under /courts/ussc/terms/.
   function wireSearchLink(a, search) {
-    a.href = search;
+    var target = '/courts/ussc/' + search;
+    a.href = target;
     a.addEventListener('click', function (e) {
       e.preventDefault();
       if (window.parent !== window) {
         window.parent.postMessage({ type: 'ussc-navigate', search: search }, location.origin);
       } else {
-        location.href = search;
+        location.href = target;
       }
     });
   }
@@ -373,7 +377,7 @@
             dayEl.addEventListener('click', function() {
               var s = '?term=' + encodeURIComponent(termId) + '&date=' + encodeURIComponent(isoDate);
               if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
-              else { location.href = s; }
+              else { location.href = '/courts/ussc/' + s; }
             });
           })(iso);
         }
@@ -607,7 +611,7 @@
           prevBtn.addEventListener('click', function () {
             var s = '?term=' + encodeURIComponent(prevEntry.id);
             if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
-            else { location.href = s; }
+            else { location.href = '/courts/ussc/' + s; }
           });
         }
         if (nextEntry) {
@@ -617,7 +621,7 @@
           nextBtn.addEventListener('click', function () {
             var s = '?term=' + encodeURIComponent(nextEntry.id);
             if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
-            else { location.href = s; }
+            else { location.href = '/courts/ussc/' + s; }
           });
         }
       }
