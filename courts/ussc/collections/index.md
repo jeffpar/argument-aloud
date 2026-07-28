@@ -2,15 +2,6 @@
 layout: pane
 title: "Collections"
 cards:
-  - title: "Justices"
-    desc: "Portraits, tenures, dissents, and more for every Justice of the Court."
-    href: "/courts/ussc/?collection=gallery"
-  - title: "Advocates"
-    desc: "The attorneys who've argued the most before the Court."
-    href: "/courts/ussc/?collection=top100_advocates"
-  - title: "Historical"
-    desc: "Original Jurisdiction Records & Briefs, digitized by the Court's Library."
-    href: "/courts/ussc/?collection=orig"
   - title: "Lone Dissents"
     desc: "Justices ranked by how often they've dissented alone."
     href: "/courts/ussc/?collection=lone_dissents"
