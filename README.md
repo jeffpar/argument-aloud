@@ -6,7 +6,7 @@ Every U.S. Supreme Court case ends in a decision, but it starts with arguments, 
 
 Unfortunately, all those pieces tend to be scattered.  Even the Supreme Court's own [website](https://www.supremecourt.gov) directs you to different pages for *every* one of those pieces.  Other essential pieces of information, such as copies of statutes, records from the lower courts, etc, can usually be found in the briefs or elsewhere, but you have to know where to look.
 
-So we've created this "hub" to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+So we've created this "hub" to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 
 This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
@@ -48,11 +48,11 @@ So, for example, the case "1863-12/1863-084 (267): Milwaukee & Minnesota R. Co. 
 
 Other examples of cases not mentioned in "Dates of Supreme Court Decisions and Arguments":
 
-  - [United States v. Carrère (1853)](/courts/ussc/?term=1852-12&case=78)
+  - [United States v. Carrère (1853)](https://argumentaloud.org/courts/ussc/?term=1852-12&case=78)
 
-While reviewing all argument dates, we have unfortunately noticed some mistakes in U.S. Reports.  For example, 355 U.S. 184 reports that Green v. United States (No. 46) was reargued on October 15, 1957; however, the 1957 Journal indicates that, while No. 46 was *scheduled* for that day, they apparently ran out of time, because argument did not commence until the following day, on October 16, 1957.
+While reviewing all argument dates, we have unfortunately noticed some mistakes in U.S. Reports.  For example, 355 U.S. 184 reports that [Green v. United States (No. 46)](https://argumentaloud.org/courts/ussc/?term=1957-10&case=46) was reargued on October 15, 1957; however, the 1957 Journal indicates that, while No. 46 was *scheduled* for that day, they apparently ran out of time, because argument did not commence until the following day, on October 16, 1957.
 
-Similarly, 445 U.S. 480 reports that Vitek v. Jones (No. 78-1155) was argued on December 3, 1979, but all other evidence (journal, audio recording, transcript) indicates it was actually argued on December 5, 1979.  And 449 U.S. 200 reports that United States v. Will was argued on October 13, 1980, but the correct date is October 14, 1980; the Court was not even in session on October 13.
+Similarly, 445 U.S. 480 reports that [Vitek v. Jones (No. 78-1155)](https://argumentaloud.org/courts/ussc/?term=1979-10&case=78-1155) was argued on December 3, 1979, but all other evidence (journal, audio recording, transcript) indicates it was actually argued on December 5, 1979.  And 449 U.S. 200 reports that [United States v. Will](https://argumentaloud.org/courts/ussc/?term=1980-10&case=79-983) was argued on October 13, 1980, but the correct date is October 14, 1980; the Court was not even in session on October 13.
 
 ## Curiosities
 
