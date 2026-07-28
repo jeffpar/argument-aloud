@@ -288,27 +288,6 @@
     "file": "/courts/ussc/collections/audits.json",
     "groups": [
       {
-        "id": "warnings",
-        "name": "Cases with Warnings",
-        "page": "/courts/ussc/collections/warnings",
-        "conditions": [
-          [
-            "scdb_message != undefined"
-          ],
-          [
-            "audit_message != undefined"
-          ]
-        ],
-        "fields": ["scdb_message", "audit_message"],
-        "order": "decision:ascending,titles:ascending"
-      }
-    ]
-  },
-  {
-    "name": "Issues",
-    "file": "/courts/ussc/collections/issues.json",
-    "groups": [
-      {
         "id": "missing-audio",
         "name": "Cases Missing Audio",
         "conditions": [
@@ -377,6 +356,21 @@
             "scdb_check contains 'decision'"
           ]
         ],
+        "order": "decision:ascending,titles:ascending"
+      },
+      {
+        "id": "warnings",
+        "name": "Cases with Warnings",
+        "page": "/courts/ussc/collections/warnings",
+        "conditions": [
+          [
+            "scdb_message != undefined"
+          ],
+          [
+            "audit_message != undefined"
+          ]
+        ],
+        "fields": ["scdb_message", "audit_message"],
         "order": "decision:ascending,titles:ascending"
       },
       {

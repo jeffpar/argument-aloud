@@ -9,7 +9,7 @@
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
  *   node update_cases.js [TERM [CASE]] --unargued
- *   node update_cases.js --issues                     # regenerate auto-computed groups in issues.json
+ *   node update_cases.js --audits                      # regenerate auto-computed groups in audits.json
  *   node update_cases.js --feeds                      # rebuild podcast feeds under courts/ussc/feeds/
  *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_href to cases.json
  *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_href
@@ -429,7 +429,7 @@ function _caseFolder(numberOrId) {
 // The web app resolves a case by its first docket number alone (or by id when
 // there is no number) even for consolidated cases with several comma-joined
 // numbers, so collection-style output files (noteworthy.json, transcripts.json,
-// briefs.json, issues.json, the per-justice people/justices/*.json sets, etc.)
+// briefs.json, audits.json, the per-justice people/justices/*.json sets, etc.)
 // only need to record that one number — never the full comma-joined list.
 function _primaryCaseNumber(c) {
     return (c.number || c.id || '').split(',')[0].trim();
@@ -3515,6 +3515,29 @@ function _scdbNormalizeDate(s) {
     return s;
 }
 
+// audit_message is a single free-text string, multiple notes joined by "; "
+// (the same convention assets/js/collections/warnings.js's messageParts()
+// splits on). These two keep the "Case is missing from SCDB" note in sync
+// with whether the case currently has an SCDB-matched `id`, without
+// disturbing any other note already recorded there.
+const SCDB_MISSING_MESSAGE = 'Case is missing from SCDB';
+function _addAuditMessage(c, msg) {
+    const parts = String(c.audit_message || '').split('; ').map(s => s.trim()).filter(Boolean);
+    if (parts.includes(msg)) return false;
+    parts.push(msg);
+    c.audit_message = parts.join('; ');
+    return true;
+}
+function _removeAuditMessage(c, msg) {
+    if (!c.audit_message) return false;
+    const parts = String(c.audit_message).split('; ').map(s => s.trim()).filter(Boolean);
+    if (!parts.includes(msg)) return false;
+    const kept = parts.filter(p => p !== msg);
+    if (kept.length) c.audit_message = kept.join('; ');
+    else delete c.audit_message;
+    return true;
+}
+
 function _scdbDateList(val) {
     if (Array.isArray(val)) return val.map(v => _scdbNormalizeDate(String(v))).filter(Boolean);
     if (typeof val === 'string' && val.trim()) return val.split(',').map(p => _scdbNormalizeDate(p)).filter(Boolean);
@@ -4947,7 +4970,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
 const _COLLECTIONS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
 const _COLLECTIONS_REGISTRY = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
 const _INDEX_JSON            = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
-const _ISSUES_PATH           = path.join(_COLLECTIONS_DIR, 'issues.json');
+const _AUDITS_PATH           = path.join(_COLLECTIONS_DIR, 'audits.json');
 
 function _firstDate(s) {
     if (!s) return '';
@@ -7868,6 +7891,10 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         for (const c of cases) {
             let cid = c.id;
             let matchHow = '';
+            // A case can pick up an `id` some other way (e.g. a manual --votes edit)
+            // without ever passing through the "matched" branch below that clears
+            // this note -- so check it here too, regardless of how cid was set.
+            if (cid && update && _removeAuditMessage(c, SCDB_MISSING_MESSAGE)) termChanged = true;
             if (!cid) {
                 const cite = _scdbNormalizeCite(c.usCite || '');
                 let cand = cite ? scdbByCite.get(cite) : null;
@@ -7936,12 +7963,19 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                         const datesStr = dates.length ? ` (${dates.join(', ')})` : '';
                         unmatchedOurs.push(`WARNING: ${term}/${c.number || '?'}: ${label}${datesStr}: no SCDB match`);
                     }
+                    if (update && _addAuditMessage(c, SCDB_MISSING_MESSAGE)) {
+                        const reordered = reorderCase(c);
+                        for (const k of Object.keys(c)) delete c[k];
+                        Object.assign(c, reordered);
+                        termChanged = true;
+                    }
                     skipped++;
                     continue;
                 }
                 cid = cand;
                 if (update) {
                     c.id = cid;
+                    _removeAuditMessage(c, SCDB_MISSING_MESSAGE);
                     const reordered = reorderCase(c);
                     for (const k of Object.keys(c)) delete c[k];
                     Object.assign(c, reordered);
@@ -8403,8 +8437,8 @@ async function runScdb(opts) {
     // reason to hide unargued cases on a page that only ever documents, never
     // inserts, them) pass regardless of opts.update/opts.backfill/opts.all, so
     // this never risks adding these cases to cases.json — they're deliberately
-    // excluded from courts/ussc/collections/issues.json for that reason (see
-    // courts/ussc/collections.json's "ignored-scdb-records" Issues group).
+    // excluded from courts/ussc/collections/audits.json for that reason (see
+    // courts/ussc/collections.json's "ignored-scdb-records" Audits group).
     if (!opts.term && !opts.caseFilter && !opts.add) {
         const notIncluded = [];
         _scdbVerifyTerms(scdb, null, null, false, false, false, true, true, notIncluded);
@@ -12195,35 +12229,35 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
 }
 
 // =====================================================================
-// --issues: regenerate condition-based groups in issues.json
+// --audits: regenerate condition-based groups in audits.json
 // =====================================================================
 
 // Resolve a field name to its value, supporting computed fields.
 // Computed: 'volume' → first integer in caseObj.usCite (e.g. "601 U.S. 1" → 601)
-function _resolveIssueField(field, caseObj, term) {
+function _resolveAuditField(field, caseObj, term) {
     if (field === 'term')   return { value: term, numeric: false };
     if (field === 'volume') return { value: _deriveVolumeFromUsCite(caseObj), numeric: true };
     return { value: caseObj[field], numeric: false };
 }
 
-function _evalIssueCondition(cond, caseObj, term) {
+function _evalAuditCondition(cond, caseObj, term) {
     const s = cond.trim();
     // "FIELD == undefined"
     let m = /^(\w+)\s*==\s*undefined$/.exec(s);
     if (m) {
-        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        const { value: v } = _resolveAuditField(m[1], caseObj, term);
         return v === undefined || v === null || v === '';
     }
     // "FIELD != undefined"
     m = /^(\w+)\s*!=\s*undefined$/.exec(s);
     if (m) {
-        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        const { value: v } = _resolveAuditField(m[1], caseObj, term);
         return v !== undefined && v !== null && v !== '';
     }
     // "FIELD OP NUMBER" (numeric comparison)
     m = /^(\w+)\s*(<=|>=|<|>|==|!=)\s*(\d+)$/.exec(s);
     if (m) {
-        const { value: v } = _resolveIssueField(m[1], caseObj, term);
+        const { value: v } = _resolveAuditField(m[1], caseObj, term);
         if (v === null || v === undefined) return false;
         const lhs = Number(v), rhs = Number(m[3]), op = m[2];
         if (op === '<=') return lhs <= rhs;
@@ -12236,7 +12270,7 @@ function _evalIssueCondition(cond, caseObj, term) {
     // "FIELD OP 'VALUE'" (string comparison)
     m = /^(\w+)\s*(<=|>=|<|>|==|!=)\s*'([^']*)'$/.exec(s);
     if (m) {
-        const { value: raw } = _resolveIssueField(m[1], caseObj, term);
+        const { value: raw } = _resolveAuditField(m[1], caseObj, term);
         const v = String(raw ?? ''), rhs = m[3], op = m[2];
         if (op === '<=') return v <= rhs;
         if (op === '>=') return v >= rhs;
@@ -12248,16 +12282,16 @@ function _evalIssueCondition(cond, caseObj, term) {
     return false;
 }
 
-function runGenerateIssues(dryRun) {
+function runGenerateAudits(dryRun) {
     // Read the collections registry to find condition-based groups
     let registry;
     try { registry = _readJson(_COLLECTIONS_REGISTRY); } catch { registry = []; }
-    const issuesEntry = registry.find(c => {
+    const auditsEntry = registry.find(c => {
         const f = c.file || c.collection || '';
-        return f.endsWith('issues.json') || f.endsWith('/issues.json');
+        return f.endsWith('audits.json') || f.endsWith('/audits.json');
     });
-    if (!issuesEntry) {
-        console.log('No Outstanding Issues entry found in collections.json');
+    if (!auditsEntry) {
+        console.log('No Audits entry found in collections.json');
         return;
     }
 
@@ -12271,7 +12305,7 @@ function runGenerateIssues(dryRun) {
     const _isSimpleCondGroup = (conditions) => Array.isArray(conditions[0])
         ? conditions.every(set => Array.isArray(set) && set.every(_isSimpleCond))
         : conditions.every(_isSimpleCond);
-    const condGroups = (issuesEntry.groups || []).filter(
+    const condGroups = (auditsEntry.groups || []).filter(
         g => g.enabled !== false && Array.isArray(g.conditions) && g.conditions.length > 0 &&
              _isSimpleCondGroup(g.conditions)
     );
@@ -12282,10 +12316,10 @@ function runGenerateIssues(dryRun) {
 
     // A group explicitly marked "enabled": false is dropped from the output
     // entirely (not just skipped for regeneration) — kept in collections.json
-    // for whenever it's re-enabled, but shouldn't take up space in issues.json
+    // for whenever it's re-enabled, but shouldn't take up space in audits.json
     // while disabled.
     const disabledNames = new Set(
-        (issuesEntry.groups || []).filter(g => g.enabled === false).map(g => g.name)
+        (auditsEntry.groups || []).filter(g => g.enabled === false).map(g => g.name)
     );
 
     // Read all cases.json files
@@ -12302,9 +12336,9 @@ function runGenerateIssues(dryRun) {
     }
     console.log(`Scanned ${termDirs.length} terms, ${allEntries.length} total cases`);
 
-    // Read existing issues.json; preserve groups not being auto-generated
+    // Read existing audits.json; preserve groups not being auto-generated
     let existing = [];
-    try { existing = _readJson(_ISSUES_PATH); } catch {}
+    try { existing = _readJson(_AUDITS_PATH); } catch {}
     const genNames = new Set(condGroups.map(g => g.name));
     const preserved = Array.isArray(existing)
         ? existing.filter(g => !genNames.has(g.name) && !disabledNames.has(g.name))
@@ -12313,14 +12347,14 @@ function runGenerateIssues(dryRun) {
     // Mirrors the OR-branches/flat-AND nesting rule used by _casesByConditions:
     // an array-of-arrays matches if ANY branch matches (each branch's own
     // conditions still AND'ed together); a flat array matches if ALL do.
-    const _matchesIssueConditions = (conditions, c, term) => Array.isArray(conditions[0])
-        ? conditions.some(set => set.every(cond => _evalIssueCondition(cond, c, term)))
-        : conditions.every(cond => _evalIssueCondition(cond, c, term));
+    const _matchesAuditConditions = (conditions, c, term) => Array.isArray(conditions[0])
+        ? conditions.some(set => set.every(cond => _evalAuditCondition(cond, c, term)))
+        : conditions.every(cond => _evalAuditCondition(cond, c, term));
 
     // Build generated groups
     const generated = [];
     for (const grpDef of condGroups) {
-        const matching = allEntries.filter(({ term, c }) => _matchesIssueConditions(grpDef.conditions, c, term));
+        const matching = allEntries.filter(({ term, c }) => _matchesAuditConditions(grpDef.conditions, c, term));
 
         const orderRules = _parseOrderSpec(grpDef.order) || [{ key: 'term', asc: true }];
         const orderKeyOf = ({ term, c }, key) => {
@@ -12357,10 +12391,10 @@ function runGenerateIssues(dryRun) {
     // Rebuild: preserved (manually curated) groups first, then generated groups
     const updated = [...preserved, ...generated];
     if (!dryRun) {
-        _writeJson(_ISSUES_PATH, updated);
-        console.log(`Wrote ${path.relative(REPO_ROOT, _ISSUES_PATH)}`);
+        _writeJson(_AUDITS_PATH, updated);
+        console.log(`Wrote ${path.relative(REPO_ROOT, _AUDITS_PATH)}`);
     } else {
-        console.log(`[dry-run] Would write ${path.relative(REPO_ROOT, _ISSUES_PATH)}`);
+        console.log(`[dry-run] Would write ${path.relative(REPO_ROOT, _AUDITS_PATH)}`);
     }
 }
 
@@ -12937,8 +12971,8 @@ async function main() {
         return;
     }
 
-    if (flags.has('--issues')) {
-        runGenerateIssues(dryRun);
+    if (flags.has('--audits')) {
+        runGenerateAudits(dryRun);
         return;
     }
 

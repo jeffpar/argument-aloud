@@ -2,7 +2,7 @@
 title: "Working on the Weekends"
 layout: pane
 date: 2026-07-27
-permalink: /courts/ussc/blog/2026/linking-primary-sources/
+permalink: /courts/ussc/blog/2026/working-on-the-weekends/
 ---
 
 # Working on the Weekends

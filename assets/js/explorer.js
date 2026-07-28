@@ -1653,6 +1653,7 @@ let TOPICS      = []; // populated from topics.json in init()
 const _COLLECTION_ALIASES = {
   loners: 'lone_dissents',
   top_advocates: 'top100_advocates',
+  issues: 'audits',
 };
 
 // Repeatedly follows _COLLECTION_ALIASES until reaching a value with no
