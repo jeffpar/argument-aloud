@@ -2,7 +2,7 @@
 layout: pane
 ---
 
-# U.S. Supreme Court Arguments
+# U.S. Supreme Court Media
 
 ## Auditing and Oddities
 

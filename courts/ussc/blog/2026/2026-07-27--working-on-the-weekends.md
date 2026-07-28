@@ -15,7 +15,7 @@ When you find an error in some data, it's tempting to just fix the error and mov
 
 For example, take the case of [Aikens v. Wisconsin (No. 3)](/courts/ussc/?term=1904-10&case=3), which U.S. Reports *clearly* says was argued on November 7, 1903, a date that everyone else has copied.
 
-However, November 7, 1903 was a **Saturday**, and the Court has not heard many arguments on the weekends over the past 150 years, except under very unusual circumstances. I'm aware of only a couple modern instances, both in 1971: [New York Times Company v. United States (Nos. 1873, 1885)](/courts/ussc/?term=1970-10&case=1873) and [The Committee for Nuclear Responsibility, Inc. v. Schlesinger (No. A-483)](/courts/ussc/?term=1971-10&case=A-483).
+However, November 7, 1903 was a ***Saturday***, and the Court has not heard many arguments on the weekends over the past 150 years, except under very unusual circumstances. I'm aware of only a couple modern instances, both in 1971: [New York Times Company v. United States (Nos. 1873, 1885)](/courts/ussc/?term=1970-10&case=1873) and [The Committee for Nuclear Responsibility, Inc. v. Schlesinger (No. A-483)](/courts/ussc/?term=1971-10&case=A-483).
 
 Anyway, it turns out that the U.S. Reports' argument date was not only wrong but incomplete.  So, to make it clear that *we* did not record the wrong date, we flag the case with a warning *and* include a link to the confirming page in the U.S. Supreme Court Journal.
 
