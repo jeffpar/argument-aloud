@@ -15,7 +15,7 @@ The distinctive feature of each Supreme Court database is its vote data. This di
 
 Databases are available as SPSS, SAS, STATA and ASCII files.
 
-To learn more about using the Spaeth Supreme Court datasets, please refer to the paper, "[Becoming an Intelligent User of the Spaeth Databases](../2004-02-11/allcourt/benesh_handout.pdf)," presented by Sara C. Benesh at the 2002 Southwestern Political Science Association Meeting.
+To learn more about using the Spaeth Supreme Court datasets, please refer to the paper, "[Becoming an Intelligent User of the Spaeth Databases](../2003-12-11/allcourt/benesh_handout.pdf)," presented by Sara C. Benesh at the 2002 Southwestern Political Science Association Meeting.
 
 ## The Original U.S. Supreme Court Judicial Database (nickname: ALLCOURT)
 
