@@ -31,6 +31,8 @@ So there are 7 terms (1882 through 1888, aka "The Void") during which, even thou
 
 Look at [Abendroth v. Van Dolsen (No. 229)](/courts/ussc/?term=1888-10&case=229), which U.S. Reports claims was argued "April 12, 13, 1889".  Except that, once again, it turns out April 13, 1889 was a **Saturday**, making the date highly suspect.  And sure enough, when you look at the [Minutes for April 12, 1889](/courts/ussc/?term=1888-10&case=229&file=1889-04-12) and [Minutes for April 15, 1889](/courts/ussc/?term=1888-10&case=229&file=1889-04-15), you can see that the case was argued Friday and Monday, not Friday and Saturday.
 
+{% include generic-image.html src="/assets/img/nara/1889/M215-017-0855.jpg" desc="U.S. Supreme Court Minutes from April 12, 1889 (excerpt)" href="https://catalog.archives.gov/id/178846789?objectPage=855" %}
+
 A similar problem existed for a case in 1887, [Mercantile Bank v. New York (No. 1258)](/courts/ussc/?term=1886-10&case=1258), which we have also corrected and recorded the confirming pages in the Minutes.
 
 ## Spot-Checking Pre-Void Cases
@@ -56,7 +58,7 @@ Case in point: [Gibbs v. Diekma (No. 88)](/courts/ussc/?term=1880-10&case=88). I
 
 And so it is the appendix of Volume 131 where we find the opinion in *Gibbs v. Diekma* (p. clxxxvi, hence the unusual citation "131 U.S. clxxxvi"), along with its decision date of December 13, 1880.
 
-Volume 154 revisits the matter of previously unreported decisions, in its appendix (p. 531):
+Volume 154 revisits the problem of previously unreported decisions in its appendix (p. 531):
 
 > SOME CASES NOT HITHERTO REPORTED IN FULL
 > 

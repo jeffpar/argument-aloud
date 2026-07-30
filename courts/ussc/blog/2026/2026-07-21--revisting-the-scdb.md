@@ -277,7 +277,7 @@ How SCDB defines the [Term](http://scdb.wustl.edu/documentation.php?var=term) in
 
 Specifically, until 1802, there were *two* terms per year. This is why my project has adopted a string format for Supreme Court terms ("YYYY-MM") rather than an ambiguous numeric format (YYYY).
 
-The ambiguity didn't stop in 1802, either. In 1844, there were two terms as well, because after the normal January 1844 term began, the Act of June 1844 changed the start of subsequent terms to December. Apparently out of habit, U.S. Reports still called these terms "January Terms", but that didn't change the fact that, beginning in December 1844, the Court started churning out new opinions.
+The ambiguity didn't stop in 1802 either. In 1844, there were two terms as well, because after the normal January 1844 term began, the Act of June 1844 changed the start of subsequent terms to December. Apparently out of habit, U.S. Reports still called these terms "January Terms", but that didn't change the fact that, beginning in December 1844, the Court started churning out new opinions.
 
 SCDB, on the other hand, ignores the actual dates that the Court operated, and instead pretends that the Court's work started every January -- up until 1850, when U.S. Reports finally changed its "term-inology". As a result, SCDB implies there two terms in 1850, when in fact, there were not.
 
@@ -333,7 +333,7 @@ The case [Ableman v. Booth (59 U.S. 479)](/courts/ussc/?term=1855-12&case=35) is
 
 One interpretation is that this is simply an SCDB error, in which case the argument date should be deleted from the next release. However, typos typically manifest themselves as a mistake in one or two digits, not as an entirely new value appearing out of nowhere.
 
-Another interpretation is that SCDB, relying on some other (unspecified) primary source, discovered that the case had *indeed* been argued on January 4, 1856. We have *no idea* which is the correct answer. It's also quite likely that, at this moment, no one working on SCDB knows the correct answer, either.
+Another interpretation is that SCDB, relying on some other (unspecified) primary source, discovered that the case had *indeed* been argued on January 4, 1856. We have *no idea* which is the correct answer. It's also quite likely that, at this moment, no one working on SCDB knows the correct answer either.
 
 This reminds me of email conversations I had with one of the SCDB principals, Andrew D. Martin, many years ago, when the SCDB was still in its infancy. For example, on November 3, 2009, I had written to him:
 

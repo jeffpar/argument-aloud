@@ -1,4 +1,4 @@
 <p>
-	<img src="{{ include.src }}" alt="{{ include.desc }}"/>
+	{% if include.href %}<a href="{{ include.href }}" target="_blank">{% endif %}<img src="{{ include.src }}" alt="{{ include.desc }}"/>{% if include.href %}</a>{% endif %}
 	<br/><span style="font-size: x-small">{{ include.desc }}</span>
 </p>
