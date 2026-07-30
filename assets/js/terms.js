@@ -19,6 +19,14 @@
     var h = Math.floor(m / 60), rem = m % 60;
     return h + 'h ' + rem + 'm';
   }
+  // Resolve a "{{ indexes_base_url }}" placeholder in a terms.json href value
+  // against window.INDEXES_BASE_URL (self-hosted files too large for the main
+  // site, e.g. scanned journal PDFs). Plain absolute URLs pass through as-is.
+  function resolveIndexesUrl(href) {
+    return typeof href === 'string'
+      ? href.replace('{{ indexes_base_url }}', window.INDEXES_BASE_URL || '')
+      : href;
+  }
   function fmtDate(iso) {
     var MONTHS = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
@@ -628,6 +636,7 @@
       if (!entry) return;
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
+        var journalHref = resolveIndexesUrl(entry.journal_href);
         var btn = document.getElementById('journal-cover-btn');
         var img = document.getElementById('journal-cover-img');
         img.src = coverUrl;
@@ -636,11 +645,11 @@
           if (window.parent !== window) {
             window.parent.postMessage({
               type: 'ussc-open-doc',
-              href: entry.journal_href,
+              href: journalHref,
               title: termTitle(term) + ' Journal'
             }, location.origin);
           } else {
-            window.open(entry.journal_href, '_blank', 'noopener,noreferrer');
+            window.open(journalHref, '_blank', 'noopener,noreferrer');
           }
         });
       }

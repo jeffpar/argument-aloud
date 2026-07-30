@@ -1669,10 +1669,10 @@ function _parseRomanNumeral(s) {
     return total > 0 ? total : NaN;
 }
 
-// Parse a page_numbers string like "1:85,801:717" into a sorted array of
+// Parse a pages string like "1:85,801:717" into a sorted array of
 // {start, pdfPage} breakpoints. Roman numeral starts (e.g. "vi:490") are
 // tagged with roman:true and startStr, and sorted after all arabic breakpoints.
-function _parsePageNumbers(str) {
+function _parsePages(str) {
     if (!str) return [];
     const entries = [];
     for (const s of str.split(',')) {
@@ -1700,11 +1700,11 @@ function _parsePageNumbers(str) {
     });
 }
 
-// Given parsed page_numbers breakpoints and a US Reports page number, return
+// Given parsed pages breakpoints and a US Reports page number, return
 // the corresponding PDF page, or null if no applicable breakpoint is found.
 // Pass roman=true to look up a roman-numeral page (e.g. "cxxv" → 125).
-function _pdfPageFor(pageNumbers, reportPage, roman = false) {
-    const bps = pageNumbers.filter(e => !!e.roman === roman);
+function _pdfPageFor(pages, reportPage, roman = false) {
+    const bps = pages.filter(e => !!e.roman === roman);
     if (!bps.length) return null;
     let match = null;
     for (const e of bps) {
@@ -1716,28 +1716,28 @@ function _pdfPageFor(pageNumbers, reportPage, roman = false) {
 }
 
 // Convert a raw numeric page offset (PDF page of US Reports page 1, minus 1)
-// to the "1:<offset+1>" page_numbers string, or null if the offset is invalid.
-function _offsetToPageNumbers(offset) {
+// to the "1:<offset+1>" pages string, or null if the offset is invalid.
+function _offsetToPages(offset) {
     if (offset == null || offset < 0) return null;
     return `1:${offset + 1}`;
 }
 
-// Extract the numeric offset for the first breakpoint from a page_numbers
+// Extract the numeric offset for the first breakpoint from a pages
 // string (used to compute the cover page for US Reports page 1).
-function _pageNumbersToOffset(str) {
-    const parsed = _parsePageNumbers(str).filter(e => !e.roman);
+function _pagesToOffset(str) {
+    const parsed = _parsePages(str).filter(e => !e.roman);
     if (!parsed.length) return null;
     return parsed[0].pdfPage - parsed[0].start;
 }
 
-// Read the page_numbers value from a reports.json entry, supporting both the
-// new {page_numbers} format and the legacy {page_offset} format.
+// Read the pages value from a reports.json entry, supporting both the
+// new {pages} format and the legacy {page_offset} format.
 // Returns: a string (known mapping), null (tried but failed), or undefined (not in db).
-function _reportsDbPageNumbers(entry) {
+function _reportsDbPages(entry) {
     if (!entry || typeof entry !== 'object') return undefined;
-    if ('page_numbers' in entry) return entry.page_numbers;
+    if ('pages' in entry) return entry.pages;
     if (typeof entry.page_offset === 'number') {
-        return entry.page_offset >= 0 ? _offsetToPageNumbers(entry.page_offset) : null;
+        return entry.page_offset >= 0 ? _offsetToPages(entry.page_offset) : null;
     }
     return undefined;
 }
@@ -1745,7 +1745,7 @@ function _reportsDbPageNumbers(entry) {
 // Build/update the decision_reports field on each case whose usCite contains
 // "<volume> U.S. <page>" and whose volume matches an entry in the term's reports
 // array. The value is reports[].href + "#page=<pdfPage>" where pdfPage is
-// derived from the report's page_numbers breakpoints.
+// derived from the report's pages breakpoints.
 function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
@@ -1773,8 +1773,8 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         const roman = !/^\d+$/.test(m[2]);
         const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
         let url = report.href;
-        if (isFinite(page) && report.page_numbers) {
-            const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page, roman);
+        if (isFinite(page) && report.pages) {
+            const pdfPage = _pdfPageFor(_parsePages(report.pages), page, roman);
             if (pdfPage != null) url += `#page=${pdfPage}`;
         }
         if (c.decision_reports === url) continue;
@@ -1788,7 +1788,7 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
 }
 
 // Remove decision_loc links that reference a US Reports page in the second (or
-// later) page_numbers segment of a multi-book bound volume. The Library of
+// later) pages segment of a multi-book bound volume. The Library of
 // Congress only digitized the first physical book, so those URLs do not exist.
 // A LOC URL encodes volume and page as: usrep{vol3}{page}/usrep{vol3}{page}.pdf
 function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
@@ -1799,8 +1799,8 @@ function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
     // Build a map from volume number → first US Reports page of the second segment.
     const secondSegmentStart = new Map();
     for (const r of reports) {
-        if (!r.volume || !r.page_numbers) continue;
-        const bps = _parsePageNumbers(r.page_numbers).filter(e => !e.roman);
+        if (!r.volume || !r.pages) continue;
+        const bps = _parsePages(r.pages).filter(e => !e.roman);
         if (bps.length >= 2) secondSegmentStart.set(Number(r.volume), bps[1].start);
     }
     if (!secondSegmentStart.size) return;
@@ -5188,7 +5188,7 @@ function _findCaseInList(cases, row) {
     return null;
 }
 
-const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_page_offset', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
 
 function syncTermsJson() {
     let tj;
@@ -5287,7 +5287,7 @@ function syncTermsJson() {
 
 // ── U.S. Reports sync ────────────────────────────────────────────────────────
 
-// Cache: Map<pdfPath, page_numbers string | null> so each PDF is scanned at most once per run.
+// Cache: Map<pdfPath, pages string | null> so each PDF is scanned at most once per run.
 const _PAGE_OFFSET_CACHE = new Map();
 
 // Derive the canonical supremecourt.gov URL for a US Reports bound volume.
@@ -5328,7 +5328,7 @@ async function _pdfPageCount(pdfPath) {
     }
 }
 
-// Detect the page_numbers mapping for a US Reports bound volume PDF.
+// Detect the pages mapping for a US Reports bound volume PDF.
 //
 // Phase 1: scan for a page whose text contains the title pattern
 //   "CASES/OASES/DECISIONS/REPORTS ... IN/OF THE ... SUPREME COURT OF THE
@@ -5345,12 +5345,12 @@ async function _pdfPageCount(pdfPath) {
 //   Read the PDF page expected under the current offset; if the printed page
 //   number differs, compute the new offset and verify it by checking the page
 //   that should be at the candidate under the new offset. If confirmed, add a
-//   breakpoint to the page_numbers string (e.g. "1:85,801:717").
+//   breakpoint to the pages string (e.g. "1:85,801:717").
 // Phase 3b: fallback when 3a finds nothing. Use pdfinfo to get the total page
 //   count, read the last page's printed number to detect any offset mismatch,
 //   then binary-search for the first PDF page with the new offset and record it
 //   as the second breakpoint.
-async function _detectPageNumbers(pdfPath) {
+async function _detectPages(pdfPath) {
     if (_PAGE_OFFSET_CACHE.has(pdfPath)) return _PAGE_OFFSET_CACHE.get(pdfPath);
     let offset = null;
 
@@ -5383,9 +5383,9 @@ async function _detectPageNumbers(pdfPath) {
     const base = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
     // Append trailing comma when Phase 3b ran but found no secondary breakpoint,
     // so re-runs skip the expensive binary search for this volume.
-    const pageNumbers = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
-    _PAGE_OFFSET_CACHE.set(pdfPath, pageNumbers);
-    return pageNumbers;
+    const pages = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
+    _PAGE_OFFSET_CACHE.set(pdfPath, pages);
+    return pages;
 }
 
 // Find every "Reporter's Note ... purposely numbered N" marker in a volume.
@@ -5528,7 +5528,7 @@ async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
 // numbers (from usCite fields), cross-reference against the bound volumes
 // listed on USReports.aspx, and build/maintain the "reports" array on
 // each term group entry. Cover images are generated via pdftoppm if absent;
-// page_numbers values are computed via pdftotext if absent.
+// pages values are computed via pdftotext if absent.
 async function syncTermsReports(termFilter, volFilter = null) {
     let tj;
     try { tj = _readJson(TERMS_JSON); } catch { return; }
@@ -5536,8 +5536,8 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
     // Load reports.json to seed the page_offset cache so PDFs are not
     // re-scanned on subsequent runs. -1 means detection was attempted but
-    // failed; cache it as null so _detectPageNumbers skips it.
-    // Volumes with a single-breakpoint page_numbers and no trailing comma
+    // failed; cache it as null so _detectPages skips it.
+    // Volumes with a single-breakpoint pages and no trailing comma
     // (meaning Phase 3b hasn't run yet) are tracked in needsPhase3b and
     // NOT seeded into the cache, so _detectPhase3 runs fresh for them.
     let reportsDb = {};
@@ -5548,14 +5548,14 @@ async function syncTermsReports(termFilter, volFilter = null) {
     const needsPhase3b = new Set();
     const needsPhase3bVerify = new Set();
     for (const [key, val] of Object.entries(reportsDb)) {
-        const pn = _reportsDbPageNumbers(val);
+        const pn = _reportsDbPages(val);
         if (pn === undefined) continue;
-        if (typeof pn === 'string' && !pn.endsWith(',') && _parsePageNumbers(pn).length === 1) {
+        if (typeof pn === 'string' && !pn.endsWith(',') && _parsePages(pn).length === 1) {
             // Single-breakpoint, not yet Phase-3b-searched — don't seed cache.
             needsPhase3b.add(key);
         } else {
             _PAGE_OFFSET_CACHE.set(path.join(PDFS_DIR, key + '.pdf'), pn);
-            if (typeof pn === 'string' && !pn.endsWith(',') && _parsePageNumbers(pn).length === 2) {
+            if (typeof pn === 'string' && !pn.endsWith(',') && _parsePages(pn).length === 2) {
                 // Two-breakpoint entry — re-verify the second breakpoint start with the
                 // current algorithm (binary search + backward scan) in case it was set
                 // by an older version that may have landed on the wrong page.
@@ -5564,7 +5564,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
         }
     }
 
-    // Pre-pass: propagate any manual reports.json edits into terms.json page_numbers.
+    // Pre-pass: propagate any manual reports.json edits into terms.json pages.
     // decision_reports recomputation is handled by the standard update_cases.js flow.
     {
         let tjModified = false;
@@ -5582,11 +5582,11 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     const volKey = `v${String(r.volume).padStart(3, '0')}`;
                     const dbEntry = reportsDb[volKey];
                     if (!dbEntry) continue;
-                    const dbPageNumbers = _reportsDbPageNumbers(dbEntry);
-                    if (dbPageNumbers == null || dbPageNumbers === r.page_numbers) continue;
+                    const dbPages = _reportsDbPages(dbEntry);
+                    if (dbPages == null || dbPages === r.pages) continue;
 
-                    const dbBps = _parsePageNumbers(dbPageNumbers || '').filter(e => !e.roman);
-                    const tjBps = _parsePageNumbers(r.page_numbers || '').filter(e => !e.roman);
+                    const dbBps = _parsePages(dbPages || '').filter(e => !e.roman);
+                    const tjBps = _parsePages(r.pages || '').filter(e => !e.roman);
                     const arabicMatch = dbBps.length === tjBps.length &&
                         dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                     if (arabicMatch) continue;
@@ -5594,15 +5594,15 @@ async function syncTermsReports(termFilter, volFilter = null) {
                         dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                     if (tjExtends) continue;
 
-                    console.log(`  ${term}: vol ${r.volume} page_numbers: ${r.page_numbers ?? '(none)'} → ${dbPageNumbers}`);
-                    r.page_numbers = dbPageNumbers;
+                    console.log(`  ${term}: vol ${r.volume} pages: ${r.pages ?? '(none)'} → ${dbPages}`);
+                    r.pages = dbPages;
                     tjModified = true;
                 }
             }
         }
         if (tjModified) {
             if (!_DRY_RUN) _writeJson(TERMS_JSON, tj);
-            console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} terms.json (propagated reports.json page_numbers)`);
+            console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} terms.json (propagated reports.json pages)`);
         }
     }
 
@@ -5706,7 +5706,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 const coverName = `v${volStr}-cover.jpg`;
                 const coverPath = path.join(termDir, coverName);
 
-                // Resolve page_numbers before computing the cover page.
+                // Resolve pages before computing the cover page.
                 // Priority (highest to lowest):
                 //   1. terms.json value that extends reports.json (user-added breakpoints):
                 //      if terms.json has all of reports.json's breakpoints plus more, treat
@@ -5717,11 +5717,11 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 //      result (possibly with trailing comma sentinel) to reports.json.
                 //   4. Full detection for new volumes not yet in reports.json.
                 const volKey = `v${volStr}`;
-                let pageNumbers = existingByVol.get(vol)?.page_numbers ?? null;
+                let pages = existingByVol.get(vol)?.pages ?? null;
                 // Save any roman bps from the original terms.json entry; they must
                 // be preserved even when reports.json provides the arabic bps.
-                const tjRomanBps = _parsePageNumbers(pageNumbers ?? '').filter(e => e.roman);
-                const dbPageNumbers = _reportsDbPageNumbers(reportsDb[volKey]);
+                const tjRomanBps = _parsePages(pages ?? '').filter(e => e.roman);
+                const dbPages = _reportsDbPages(reportsDb[volKey]);
 
                 const _writeReportsDb = () => {
                     const sorted = Object.fromEntries(Object.keys(reportsDb).sort().map(k => [k, reportsDb[k]]));
@@ -5734,94 +5734,94 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     }
                 };
                 const _setReportsEntry = (pn) => {
-                    reportsDb[volKey] = { ...reportsDb[volKey], page_numbers: pn };
+                    reportsDb[volKey] = { ...reportsDb[volKey], pages: pn };
                 };
 
-                if (dbPageNumbers !== undefined) {
-                    if (pageNumbers !== null && pageNumbers !== dbPageNumbers) {
+                if (dbPages !== undefined) {
+                    if (pages !== null && pages !== dbPages) {
                         // Compare arabic-only bps; roman bps are user metadata and never
                         // written to reports.json.
-                        const dbBps = _parsePageNumbers(dbPageNumbers || '').filter(e => !e.roman);
-                        const tjBps = _parsePageNumbers(pageNumbers || '').filter(e => !e.roman);
+                        const dbBps = _parsePages(dbPages || '').filter(e => !e.roman);
+                        const tjBps = _parsePages(pages || '').filter(e => !e.roman);
                         const arabicMatch = dbBps.length === tjBps.length &&
                             dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                         const tjExtends = tjBps.length > dbBps.length &&
                             dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                         if (tjExtends) {
                             // terms.json has more arabic breakpoints; write arabic-only to
-                            // reports.json and keep pageNumbers (with roman bps) for terms.json.
+                            // reports.json and keep pages (with roman bps) for terms.json.
                             const arabicOnly = tjBps.map(b => `${b.start}:${b.pdfPage}`).join(',');
                             _setReportsEntry(arabicOnly);
                             _writeReportsDb();
                             needsPhase3b.delete(volKey);
-                            console.log(`  ${term}: v${volStr} page_numbers extended to ${arabicOnly} (from terms.json)`);
+                            console.log(`  ${term}: v${volStr} pages extended to ${arabicOnly} (from terms.json)`);
                         } else if (arabicMatch) {
                             // Same arabic bps; keep terms.json value (may have roman bps or
-                            // trailing-comma difference). pageNumbers stays as-is.
+                            // trailing-comma difference). pages stays as-is.
                         } else {
                             // reports.json wins for arabic bps; cover may need regeneration.
-                            pageNumbers = dbPageNumbers;
+                            pages = dbPages;
                             _deleteStaleCover();
                         }
                     } else {
-                        pageNumbers = dbPageNumbers;
+                        pages = dbPages;
                     }
-                } else if (volKey in reportsDb || pageNumbers == null) {
-                    // Entry in reports.json has no page_numbers (cleared to force
+                } else if (volKey in reportsDb || pages == null) {
+                    // Entry in reports.json has no pages (cleared to force
                     // re-detection), OR nothing known yet — scan the PDF.
-                    const prevPageNumbers = pageNumbers;
+                    const prevPages = pages;
                     console.log(`  ${term}: detecting page numbers for v${volStr} ...`);
-                    pageNumbers = await _detectPageNumbers(pdfPath);
-                    if (pageNumbers == null) {
+                    pages = await _detectPages(pdfPath);
+                    if (pages == null) {
                         console.log(`  ${term}: could not detect page numbers for v${volStr}`);
                     } else if (_VERBOSE) {
-                        console.log(`  ${term}: v${volStr} page_numbers = ${pageNumbers}`);
+                        console.log(`  ${term}: v${volStr} pages = ${pages}`);
                     }
-                    _setReportsEntry(pageNumbers);
+                    _setReportsEntry(pages);
                     _writeReportsDb();
-                    if (pageNumbers !== prevPageNumbers) _deleteStaleCover();
+                    if (pages !== prevPages) _deleteStaleCover();
                 }
 
                 // Phase 3b check: for volumes with a single-breakpoint mapping that
                 // haven't yet been searched for a secondary discontinuity, run
                 // _detectPhase3 now. The result (with trailing comma if nothing found)
                 // is written to reports.json so future runs skip the expensive scan.
-                if (needsPhase3b.has(volKey) && typeof pageNumbers === 'string' &&
-                        !pageNumbers.endsWith(',') && _parsePageNumbers(pageNumbers).filter(e => !e.roman).length === 1) {
-                    const bps = _parsePageNumbers(pageNumbers).filter(e => !e.roman);
+                if (needsPhase3b.has(volKey) && typeof pages === 'string' &&
+                        !pages.endsWith(',') && _parsePages(pages).filter(e => !e.roman).length === 1) {
+                    const bps = _parsePages(pages).filter(e => !e.roman);
                     const initialOffset = bps[0].pdfPage - bps[0].start;
-                    console.log(`  ${term}: checking secondary page_numbers for v${volStr} ...`);
+                    console.log(`  ${term}: checking secondary pages for v${volStr} ...`);
                     const { breakpoints, phase3bSearched } = await _detectPhase3(pdfPath, initialOffset);
                     const base = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                    const newPageNumbers = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
-                    if (newPageNumbers !== pageNumbers) {
+                    const newPages = (phase3bSearched && breakpoints.length === 1) ? base + ',' : base;
+                    if (newPages !== pages) {
                         if (breakpoints.length > 1) {
-                            console.log(`  ${term}: v${volStr} secondary breakpoint found: ${newPageNumbers}`);
+                            console.log(`  ${term}: v${volStr} secondary breakpoint found: ${newPages}`);
                         } else if (_VERBOSE) {
-                            console.log(`  ${term}: v${volStr} no secondary breakpoint (${newPageNumbers})`);
+                            console.log(`  ${term}: v${volStr} no secondary breakpoint (${newPages})`);
                         }
-                        pageNumbers = newPageNumbers;
+                        pages = newPages;
                         _deleteStaleCover();
                     }
-                    _setReportsEntry(pageNumbers);
+                    _setReportsEntry(pages);
                     _writeReportsDb();
                     needsPhase3b.delete(volKey);
                 }
 
                 // Re-verify existing two-breakpoint mappings using the current algorithm
                 // (backward scan may correct a second breakpoint that was set too late).
-                if (needsPhase3bVerify.has(volKey) && typeof pageNumbers === 'string' &&
-                        _parsePageNumbers(pageNumbers).filter(e => !e.roman).length === 2) {
-                    const bps = _parsePageNumbers(pageNumbers).filter(e => !e.roman);
+                if (needsPhase3bVerify.has(volKey) && typeof pages === 'string' &&
+                        _parsePages(pages).filter(e => !e.roman).length === 2) {
+                    const bps = _parsePages(pages).filter(e => !e.roman);
                     const initialOffset = bps[0].pdfPage - bps[0].start;
                     if (_VERBOSE) console.log(`  ${term}: re-verifying phase3 for v${volStr} ...`);
                     const { breakpoints } = await _detectPhase3(pdfPath, initialOffset);
                     if (breakpoints.length === 2) {
                         const verified = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                        const arabicPageNumbers = bps.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                        if (verified !== arabicPageNumbers) {
-                            console.log(`  ${term}: v${volStr} corrected page_numbers: ${arabicPageNumbers} → ${verified}`);
-                            pageNumbers = verified; // roman bps reattached by post-process below
+                        const arabicPages = bps.map(b => `${b.start}:${b.pdfPage}`).join(',');
+                        if (verified !== arabicPages) {
+                            console.log(`  ${term}: v${volStr} corrected pages: ${arabicPages} → ${verified}`);
+                            pages = verified; // roman bps reattached by post-process below
                             _setReportsEntry(verified);
                             _writeReportsDb();
                             _deleteStaleCover();
@@ -5832,12 +5832,12 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
                 // Re-attach any roman bps from the original terms.json entry that may
                 // have been displaced by reports.json or Phase 3b detection.
-                if (pageNumbers && tjRomanBps.length > 0 &&
-                        !_parsePageNumbers(pageNumbers).some(e => e.roman)) {
-                    const hasTrailing = pageNumbers.endsWith(',');
-                    const base = hasTrailing ? pageNumbers.slice(0, -1) : pageNumbers;
+                if (pages && tjRomanBps.length > 0 &&
+                        !_parsePages(pages).some(e => e.roman)) {
+                    const hasTrailing = pages.endsWith(',');
+                    const base = hasTrailing ? pages.slice(0, -1) : pages;
                     const romanStr = tjRomanBps.map(e => `${e.startStr}:${e.pdfPage}`).join(',');
-                    pageNumbers = `${base},${romanStr}${hasTrailing ? ',' : ''}`;
+                    pages = `${base},${romanStr}${hasTrailing ? ',' : ''}`;
                 }
 
                 // If an earlier term already has the canonical cover for this
@@ -5853,12 +5853,12 @@ async function syncTermsReports(termFilter, volFilter = null) {
                             console.log(`  [dry-run] would delete duplicate ${path.relative(REPO_ROOT, coverPath)}`);
                         }
                     }
-                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, ...(pageNumbers && { page_numbers: pageNumbers }) });
+                    reports.push({ volume: vol, cover: `../${priorCover.term}/${priorCover.coverName}`, href, ...(pages && { pages: pages }) });
                 } else {
                     // Generate (or regenerate) the cover image from the page
                     // numbered "1" in the volume.
                     if (!fs.existsSync(coverPath)) {
-                        const coverPdfPage = _pdfPageFor(_parsePageNumbers(pageNumbers ?? ''), 1) ?? 1;
+                        const coverPdfPage = _pdfPageFor(_parsePages(pages ?? ''), 1) ?? 1;
                         console.log(`  ${term}: generating ${coverName} (PDF page ${coverPdfPage}) ...`);
                         if (!_DRY_RUN) {
                             await _generateReportCover(pdfPath, coverPath, coverPdfPage);
@@ -5869,7 +5869,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     if (!coverRegistry.has(vol)) {
                         coverRegistry.set(vol, { term, coverName });
                     }
-                    reports.push({ volume: vol, cover: coverName, href, ...(pageNumbers && { page_numbers: pageNumbers }) });
+                    reports.push({ volume: vol, cover: coverName, href, ...(pages && { pages: pages }) });
                 }
             }
 
@@ -5888,7 +5888,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 console.log(`  ${term}: updated reports (volumes ${reports.map(r => r.volume).join(', ')})`);
             } else {
                 // page.reports may already equal mergedReports textually, but
-                // page_numbers could have been updated in-memory above (Phase 3b
+                // pages could have been updated in-memory above (Phase 3b
                 // or tjExtends). Ensure page.reports reflects the latest values.
                 page.reports = mergedReports;
             }
@@ -11138,7 +11138,7 @@ async function processOneTerm(term, opts) {
                 return m && m[1] === term;
             });
             if (_termEntry?.reports?.length) {
-                // Patch page_numbers from reports.json (may have been manually updated
+                // Patch pages from reports.json (may have been manually updated
                 // since the last --reports run) so decision_reports uses current values.
                 let _reportsDb = {};
                 try { const raw = _readJson(REPORTS_JSON); if (raw && !Array.isArray(raw)) _reportsDb = raw; } catch {}
@@ -11146,15 +11146,15 @@ async function processOneTerm(term, opts) {
                 for (const r of _termEntry.reports) {
                     if (r.volume == null) continue;
                     const volKey = `v${String(r.volume).padStart(3, '0')}`;
-                    const dbPn = _reportsDbPageNumbers(_reportsDb[volKey]);
-                    if (dbPn == null || dbPn === r.page_numbers) continue;
-                    const dbBps = _parsePageNumbers(dbPn).filter(e => !e.roman);
-                    const tjBps = _parsePageNumbers(r.page_numbers || '').filter(e => !e.roman);
+                    const dbPn = _reportsDbPages(_reportsDb[volKey]);
+                    if (dbPn == null || dbPn === r.pages) continue;
+                    const dbBps = _parsePages(dbPn).filter(e => !e.roman);
+                    const tjBps = _parsePages(r.pages || '').filter(e => !e.roman);
                     const same = dbBps.length === tjBps.length &&
                         dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
                     const tjExt = !same && tjBps.length > dbBps.length &&
                         dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                    if (!same && !tjExt) { r.page_numbers = dbPn; _tjModified = true; }
+                    if (!same && !tjExt) { r.pages = dbPn; _tjModified = true; }
                 }
                 if (_tjModified) _writeJson(TERMS_JSON, _tj);
                 addDecisionReports(casesPath, _termEntry, caseFilter || '');
@@ -11650,7 +11650,7 @@ async function runAddCase(term, title, argv, dryRun) {
                     /\/terms\/([^/]+)\/cases\.json$/.exec(p.file || (typeof p.cases === 'string' ? p.cases : '') || '')?.[1] === term
                 );
                 const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
-                const pdfPage = _pdfPageFor(_parsePageNumbers(report.page_numbers), page);
+                const pdfPage = _pdfPageFor(_parsePages(report.pages), page);
                 if (report && pdfPage != null) {
                     entry.decision_reports = report.href + '#page=' + pdfPage;
                 }

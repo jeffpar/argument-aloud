@@ -2506,7 +2506,7 @@ function _parseRomanNumeral(s) {
   return total > 0 ? total : NaN;
 }
 
-// Parse a page_numbers string ("1:19,33:34,vi:490") into [{start, pdfPage, roman?, startStr?}]
+// Parse a pages breakpoint string ("1:19,33:34,vi:490") into [{start, pdfPage, roman?, startStr?}]
 // breakpoints. Roman-numeral starts (e.g. "vi:490") are tagged with roman:true and startStr.
 function _parsePnBps(pn) {
   if (!pn) return [];
@@ -2527,7 +2527,7 @@ function _parsePnBps(pn) {
 }
 
 // Compute the PDF page for a given US Reports logical page using the term's
-// reports[] page_numbers mapping.  Returns null if no mapping is available.
+// reports[] pages mapping.  Returns null if no mapping is available.
 function _reportPdfPage(usCite, termEntry) {
   const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite.trim());
   if (!m) return null;
@@ -2536,8 +2536,8 @@ function _reportPdfPage(usCite, termEntry) {
   const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
   if (!isFinite(page)) return null;
   const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
-  if (!report?.page_numbers) return null;
-  const bps = _parsePnBps(report.page_numbers).filter(bp => !!bp.roman === roman);
+  if (!report?.pages) return null;
+  const bps = _parsePnBps(report.pages).filter(bp => !!bp.roman === roman);
   let match = null;
   for (const bp of bps) { if (bp.start <= page) match = bp; }
   if (!match) return null;
@@ -6382,6 +6382,15 @@ async function loadAudioEntry(arg, basePath) {
   }
 }
 
+// Resolve a "{{ indexes_base_url }}" placeholder in a terms.json href value
+// against window.INDEXES_BASE_URL (self-hosted files too large for the main
+// site, e.g. scanned journal PDFs). Plain absolute URLs pass through as-is.
+function _resolveIndexesUrl(href) {
+  return typeof href === 'string'
+    ? href.replace('{{ indexes_base_url }}', window.INDEXES_BASE_URL || '')
+    : href;
+}
+
 // Build the journal-ref Map and options array shared by loadCaseAsOpinion and loadCase.
 // Returns { map: Map<value, {href, title}>, opts: Array<{value, title}> }.
 function _buildJournalRefOptions(caseEntry, term) {
@@ -6399,13 +6408,13 @@ function _buildJournalRefOptions(caseEntry, term) {
     const refTerm  = m[1] + '-10';
     const page     = m[2];
     const refTermEntry = TERMS.find(t => t.term === refTerm);
-    const journalHref  = refTermEntry?.journal_href;
+    const journalHref  = _resolveIndexesUrl(refTermEntry?.journal_href);
     if (!journalHref) return;
     const pageNum  = parseInt(page, 10);
-    const offset   = parseInt(refTermEntry?.journal_page_offset, 10);
-    const pageAnchor = (Number.isFinite(pageNum) && Number.isFinite(offset))
-      ? String(pageNum + offset)
-      : page;
+    const bps      = _parsePnBps(refTermEntry?.journal_pages).filter(bp => !bp.roman);
+    let pdfPage    = null;
+    for (const bp of bps) { if (bp.start <= pageNum) pdfPage = pageNum + (bp.pdfPage - bp.start); }
+    const pageAnchor = (Number.isFinite(pageNum) && pdfPage != null) ? String(pdfPage) : page;
     const [y, mo, d] = ev.date.split('-');
     const dateLabel  = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title      = 'Journal Entry for ' + dateLabel;

@@ -3,8 +3,12 @@
  * scripts/parse_journals.js
  *
  * Scans local journal PDFs to detect how many front-matter pages precede
- * the journal's actual "Page 1", then stores that count as `journal_page_offset`
- * in terms.json for any term where the offset is > 0.
+ * the journal's actual "Page 1", then stores that as a `journal_pages`
+ * breakpoint string (e.g. "1:11") in terms.json for any term where the
+ * offset is > 0 — the same "<journal page>:<pdf page>" format used by the
+ * "pages" field on U.S. Reports entries, so it also supports additional
+ * comma-separated breakpoints for journals with a mid-volume renumbering
+ * (preserved as-is; this script only ever detects/updates the first one).
  *
  * Detection strategy:
  *   1. Extract text from first 40 PDF pages via pdftotext.
@@ -50,6 +54,10 @@ function yearFromHref(href) {
     const yy = parseInt(m[1], 10);
     return yy >= 88 ? 1900 + yy : 2000 + yy;
   }
+  // Self-hosted (e.g. "{{ indexes_base_url }}/.../pdfs/YYYY.pdf" or "YYYY-partial.pdf"):
+  // same filename convention as pdfFilename() below.
+  m = href.match(/(\d{4})(?:-partial)?\.pdf$/i);
+  if (m) return parseInt(m[1], 10);
   return null;
 }
 
@@ -101,7 +109,7 @@ function extractPages(pdfPath, maxPages = 50) {
 }
 
 /**
- * Find the journal_page_offset for one term inside the extracted page array.
+ * Find the journal page offset for one term inside the extracted page array.
  *
  * monthKeywords: Set of uppercase month names for this term's section.
  * allowFallback: When the month filter finds no results, fall back to all
@@ -113,8 +121,16 @@ function extractPages(pdfPath, maxPages = 50) {
  * Returns 0 if page 1 is the first PDF page, null if detection failed.
  */
 function findOffset(pages, monthKeywords, allowFallback = true) {
-  // Pre-compute which pages contain a day-of-week word
-  const hasDay = pages.map(p => DAYS.some(d => p.toUpperCase().includes(d)));
+  // First 10 lines of each page, uppercased — the dateline "MONDAY, OCTOBER
+  // 4, 1943" always appears there. Used for both the day-word and (below)
+  // month-keyword checks so neither is fooled by incidental day/month names
+  // in front-matter prose (e.g. a REFERENCE INDEX entry mentioning "a
+  // Saturday" or "August Special Term").
+  const headerOf = (idx) => pages[idx].split('\n').slice(0, 10).join(' ').toUpperCase();
+  const headers = pages.map((_, i) => headerOf(i));
+
+  // Pre-compute which pages have a day-of-week word in their header.
+  const hasDay = headers.map(h => DAYS.some(d => h.includes(d)));
 
   // Collect candidates: pages with a day word nearby AND a standalone small int
   const candidates = [];
@@ -140,15 +156,13 @@ function findOffset(pages, monthKeywords, allowFallback = true) {
   if (candidates.length === 0) return null;
 
   // Filter to this term's section using month keywords (for shared PDFs).
-  // Check only the first 10 lines of the candidate page — the date header
-  // where "MONDAY, OCTOBER 6, 1958" appears — not the full body text, which
-  // may contain cross-references to other terms (e.g. "August Special Term").
+  // Check only the header (first 10 lines) of the candidate page — not the
+  // full body text, which may contain cross-references to other terms
+  // (e.g. "August Special Term").
   let filtered = candidates;
   if (monthKeywords && monthKeywords.size > 0) {
-    const headerOf = (idx) =>
-      pages[idx].split('\n').slice(0, 10).join(' ').toUpperCase();
     const withMonth = candidates.filter(({ idx }) =>
-      [...monthKeywords].some(m => headerOf(idx).includes(m))
+      [...monthKeywords].some(m => headers[idx].includes(m))
     );
     if (withMonth.length > 0) {
       filtered = withMonth;
@@ -175,23 +189,44 @@ function findOffset(pages, monthKeywords, allowFallback = true) {
 }
 
 /**
- * Return a new term object with journal_page_offset set (offset > 0) or
- * removed (offset === 0), inserted right after the journal_href key.
+ * Extract the numeric offset for the first breakpoint from a journal_pages
+ * string (e.g. "1:11" → 10, "1:11,300:295" → 10), for comparison against a
+ * freshly detected offset.
+ */
+function firstBreakpointOffset(str) {
+  if (!str) return null;
+  const first = str.split(',')[0].trim();
+  const colon = first.indexOf(':');
+  if (colon < 0) return null;
+  const start = Number(first.slice(0, colon));
+  const pdfPage = Number(first.slice(colon + 1));
+  if (!Number.isFinite(start) || !Number.isFinite(pdfPage)) return null;
+  return pdfPage - start;
+}
+
+/**
+ * Return a new term object with journal_pages set (offset > 0) or removed
+ * (offset === 0), inserted right after the journal_href key. Any additional
+ * comma-separated breakpoints already present past the first are carried
+ * over unchanged — this script only ever detects/updates the first one.
  */
 function applyOffset(term, offset) {
+  const rest = (term.journal_pages || '').split(',').slice(1).join(',');
+  const newValue = offset > 0 ? `1:${offset + 1}${rest ? ',' + rest : ''}` : null;
+
   const result = {};
   let placed = false;
   for (const [k, v] of Object.entries(term)) {
-    if (k === 'journal_page_offset') continue; // drop old value
+    if (k === 'journal_pages') continue; // drop old value
     result[k] = v;
     if (k === 'journal_href') {
-      if (offset > 0) {
-        result.journal_page_offset = offset;
+      if (newValue) {
+        result.journal_pages = newValue;
         placed = true;
       }
     }
   }
-  if (!placed && offset > 0) result.journal_page_offset = offset;
+  if (!placed && newValue) result.journal_pages = newValue;
   return result;
 }
 
@@ -208,7 +243,7 @@ const data = JSON.parse(readFileSync(TERMS_PATH, 'utf8'));
 // Group term entries by journal year so we only extract each PDF once
 const termsByYear = new Map();
 for (const group of data) {
-  for (const term of (group.pages || [])) {
+  for (const term of (group.groups || [])) {
     if (!term.journal_href) continue;
     const year = yearFromHref(term.journal_href);
     if (!year) continue;
@@ -226,7 +261,7 @@ for (const [year, terms] of [...termsByYear.entries()].sort((a, b) => a[0] - b[0
   if (!existsSync(pdfPath)) {
     noPdf += terms.length;
     if (verbose) {
-      for (const t of terms) console.log(`[SKIP] No local PDF for: ${t.title}`);
+      for (const t of terms) console.log(`[SKIP] No local PDF for: ${t.name}`);
     }
     continue;
   }
@@ -244,23 +279,23 @@ for (const [year, terms] of [...termsByYear.entries()].sort((a, b) => a[0] - b[0
 
     if (offset === null) {
       failed++;
-      console.log(`[WARN] Could not detect page 1 for: ${term.title}`);
+      console.log(`[WARN] Could not detect page 1 for: ${term.name}`);
       continue;
     }
 
-    const prev = term.journal_page_offset ?? null;
+    const prev = term.journal_pages ? firstBreakpointOffset(term.journal_pages) : null;
     const want = offset > 0 ? offset : null;
 
     if (prev === want) {
       unchanged++;
-      if (verbose) console.log(`[OK]   ${term.title}: offset=${offset}`);
+      if (verbose) console.log(`[OK]   ${term.name}: offset=${offset}`);
       continue;
     }
 
     if (offset > 0) {
-      console.log(`[SET]  ${term.title}: offset=${offset}${prev !== null ? ` (was ${prev})` : ''}`);
+      console.log(`[SET]  ${term.name}: offset=${offset}${prev !== null ? ` (was ${prev})` : ''}`);
     } else {
-      console.log(`[CLR]  ${term.title}: offset removed (was ${prev})`);
+      console.log(`[CLR]  ${term.name}: offset removed (was ${prev})`);
     }
     updated++;
 
