@@ -42,9 +42,7 @@ Just out of curiosity, I checked the Court's [reported](/courts/ussc/?source=uss
   - [Chicago & Northwestern Railway Co. v. United States (No. 508), 104 U.S. 680 (1982)](/courts/ussc/?term=1881-10&case=508)
   - [Chicago, Milwaukee & St. Paul Railway Co. v. United States (No. 194), 104 U.S. 687 (1982)](/courts/ussc/?term=1881-10&case=194)
   
-which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](https://catalog.archives.gov/id/178843742?objectPage=628) confirmed that they did indeed hear arguments on Saturday.
-
-So for cases covered by the "Dates of Decisions" document with dates falling on a weekend, we generally presume that they are correct.
+which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](https://catalog.archives.gov/id/178843742?objectPage=628) confirmed that they did indeed hear arguments on Saturday.  So for cases covered by the "Dates of Decisions" document with dates falling on a weekend, we generally presume that they are correct.
 
 ## Cases Missing from "Dates of Decisions"
 

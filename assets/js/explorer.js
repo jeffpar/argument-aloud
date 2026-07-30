@@ -4672,8 +4672,15 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
 // Navigate the page-viewer iframe using location.replace() so that the iframe
 // does not push its own entry into the joint session history.  Each logical
 // navigation in the parent already owns one pushState entry; a separate iframe
-// src-change entry causes the back button to show mismatched URL/content.
-// Falls back to pf.src for the very first load (contentWindow still blank).
+// src-change entry causes the back button to show mismatched URL/content — and
+// in Safari specifically, setting .src directly (rather than calling
+// location.replace()) gets counted as its own joint-session-history entry even
+// on the very first load, throwing off the Back button by one step for the
+// rest of the session (see explorer.js history notes above navigate()).
+// contentWindow is available synchronously for this iframe (present in the
+// initial HTML, same-origin) even before any navigation, so location.replace()
+// works from the very first call — pf.src is kept only as a last-resort
+// fallback for the unexpected case where contentWindow isn't available at all.
 // Directory-style permalinks (e.g. /collections/benches) get redirected by the
 // server to add a trailing slash, so the iframe's post-load location never
 // matches a freshly-built target href literally. Compare with trailing
@@ -4768,9 +4775,9 @@ function _frameNavigate(pf, url) {
   const targetHref = new URL(url, location.href).href;
   try {
     const cur = pf.contentWindow?.location.href;
-    if (cur && cur !== 'about:blank') {
-      if (!_sameFrameLocation(cur, targetHref)) {
-        _savePageFrameScroll(); // covers SPA-only navigation away (no full page reload)
+    if (pf.contentWindow) {
+      if (!cur || !_sameFrameLocation(cur, targetHref)) {
+        if (cur && cur !== 'about:blank') _savePageFrameScroll(); // covers SPA-only navigation away (no full page reload)
         pf.contentWindow.location.replace(targetHref);
       }
       return;
