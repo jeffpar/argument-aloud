@@ -1827,8 +1827,13 @@ function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
     if (modified) _writeJson(casesPath, data);
 }
 
-// Remove redundant `volume`/`page` properties when they match the first/second
-// numbers of `usCite` (e.g. usCite "584 U.S. 1" with volume "584" and page "1").
+// Remove redundant `volume`/`page` properties when they match the citation
+// numbers derived from `usCite` (e.g. usCite "584 U.S. 1" with volume "584"
+// and page "1"). For a roman-numeral page (e.g. "131 U.S. clxxxvi" — an
+// appendix/table page), there's no second arabic number to compare against;
+// the legacy `page` value for those is instead a numeric surrogate key of the
+// form 9000 + <arabic value of the roman numeral>, so it's compared against
+// that formula instead.
 // Verbose mode reports any discrepancies between volume/page and usCite numbers.
 function pruneRedundantCitation(casesPath, term, caseFilter = '') {
     const data = _readJson(casesPath);
@@ -1839,9 +1844,19 @@ function pruneRedundantCitation(casesPath, term, caseFilter = '') {
         const usCite = c.usCite || '';
         if (!usCite) continue;
         const nums = usCite.match(/\d+/g);
-        if (!nums || nums.length < 2) continue;
-        const citeVol  = String(parseInt(nums[0], 10));
-        const citePage = String(parseInt(nums[1], 10));
+        if (!nums || nums.length < 1) continue;
+        let citeVol, citePage, romanPage = null;
+        if (nums.length >= 2) {
+            citeVol  = String(parseInt(nums[0], 10));
+            citePage = String(parseInt(nums[1], 10));
+        } else {
+            const rm = /U\.S\.\s+([ivxlcdmIVXLCDM]+)\s*$/.exec(usCite.trim());
+            const rv = rm ? _parseRomanNumeral(rm[1]) : NaN;
+            if (!Number.isFinite(rv)) continue;
+            citeVol   = String(parseInt(nums[0], 10));
+            citePage  = String(9000 + rv);
+            romanPage = rm[1];
+        }
         const label    = c.number || c.id || '?';
         const hasVol   = 'volume' in c;
         const hasPage  = 'page'   in c;
@@ -1853,7 +1868,7 @@ function pruneRedundantCitation(casesPath, term, caseFilter = '') {
             console.log(` NOTICE: ${term}/${label}: volume='${c.volume}' but usCite='${usCite}' has volume ${citeVol}`);
         }
         if (hasPage && !pageMatch && _VERBOSE) {
-            console.log(` NOTICE: ${term}/${label}: page='${c.page}' but usCite='${usCite}' has page ${citePage}`);
+            console.log(` NOTICE: ${term}/${label}: page='${c.page}' but usCite='${usCite}' has page ${citePage}${romanPage ? ` (roman '${romanPage}')` : ''}`);
         }
         if (volMatch || pageMatch) {
             const verb = _DRY_RUN ? 'would remove' : 'removed';

@@ -2665,6 +2665,26 @@ function _showMinutesFromParam(param) {
   return true;
 }
 
+// "Historical Article from <domain>" — the file-select label and doc-viewer
+// title for a case's history_href, e.g. "https://www.supremecourt.gov/..."
+// → "Historical Article from supremecourt.gov".
+function _historyEntryTitle(href) {
+  let host = '';
+  try { host = new URL(href, location.href).hostname.replace(/^www\./, ''); } catch {}
+  return 'Historical Article' + (host ? ' from ' + host : '');
+}
+
+// If `param` (a URL 'file' value) is "history" and the current case has a
+// history_href, show it in the doc viewer and sync the file-select dropdown
+// to match. Returns whether it was handled.
+function _showHistoryFromParam(param) {
+  if (param !== 'history' || !_currentCaseEntry?.history_href) return false;
+  showDocViewer({ href: _currentCaseEntry.history_href, title: _historyEntryTitle(_currentCaseEntry.history_href), view: 'pane' }, { autoScroll: true });
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = 'history-page';
+  return true;
+}
+
 // Popup menu for #case-cite: lets the user pick which opinion-text source to
 // open in the doc viewer, when one or more of LOC/USSC/Volume/XML is
 // available. Reuses the same generic dropdown look as the term/collection
@@ -3927,7 +3947,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
       const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_href);
-      if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore)) {
+      if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !_showHistoryFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
       }
@@ -5670,7 +5690,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
     // events (no audio_href) are also covered.
     const fileRestore = e.fileRestore ?? null;
-    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore)) {
+    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !_showHistoryFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -6544,7 +6564,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // below is reserved for a decided case with no document source at all
   // (decisionText set but every decision_* href missing); a visitor who
   // wants a new tab already has the doc viewer's own "open in new tab" button.
-  if (_opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
+  if (caseEntry.history_href || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
     decisionLabel.hidden = true;
     fileSelect.innerHTML = '';
     minutesOpts.forEach(mn => {
@@ -6587,6 +6607,13 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       fileSelect.appendChild(opt);
     });
     _buildReferenceOptions(_opRawFiles).forEach(opt => fileSelect.appendChild(opt));
+    // Historical Article appears last, at the bottom of the list.
+    if (caseEntry.history_href) {
+      const historyOpt = document.createElement('option');
+      historyOpt.value = 'history-page';
+      historyOpt.textContent = _historyEntryTitle(caseEntry.history_href);
+      fileSelect.appendChild(historyOpt);
+    }
     // Default to the first oral-argument transcript when present (matches a
     // case with real audio defaulting to its argument), else the first
     // decision entry — both open in the document viewer.
@@ -6881,6 +6908,13 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     opt.textContent = v.title;
     fileSelect.appendChild(opt);
   });
+  // Historical Article appears last, at the bottom of the list.
+  if (caseEntry.history_href) {
+    const historyOpt = document.createElement('option');
+    historyOpt.value = 'history-page';
+    historyOpt.textContent = _historyEntryTitle(caseEntry.history_href);
+    fileSelect.appendChild(historyOpt);
+  }
   // Resolve audioIdx (1-based into caseEntry.events, or 0 = default) to a dropdown
   // option value. The dropdown values are 1-based positions within the
   // date-sorted `allAudio`, so translate via the underlying event reference.
@@ -6888,7 +6922,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...fileSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'docket-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('minutes:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
+    .filter(v => v !== 'docket-page' && v !== 'history-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('minutes:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -7438,6 +7472,16 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
       showDocViewer({ href: _currentCaseEntry.docket_href, title: 'Docket Search', view: 'pane' }, { force: true });
     }
     _clearDocViewerUrlParams();
+    return;
+  }
+  if (e.target.value === 'history-page') {
+    if (_currentCaseEntry?.history_href) {
+      showDocViewer({ href: _currentCaseEntry.history_href, title: _historyEntryTitle(_currentCaseEntry.history_href), view: 'pane' }, { force: true });
+    }
+    const url = new URL(location.href);
+    url.searchParams.set('file', 'history');
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
     return;
   }
   if (e.target.value.startsWith('decision_')) {
@@ -9591,7 +9635,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !_showHistoryFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
@@ -9716,7 +9760,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !_showHistoryFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');

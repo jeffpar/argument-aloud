@@ -500,6 +500,7 @@
             }
             var slot = document.createElement('div');
             slot.className = 'all-cal-term';
+            slot.id = t.id;
             slot.dataset.term = t.id;
             var h = document.createElement('h3');
             h.className = 'all-cal-term-heading';

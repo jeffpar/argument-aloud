@@ -7,9 +7,9 @@ title: "U.S. Reports"
 
 ## Dates of Decisions and Arguments
 
-As the Court's [U.S. Reports](https://www.supremecourt.gov/opinions/USReports.aspx) page mentions:
+As the Court's <a href="https://www.supremecourt.gov/opinions/USReports.aspx" target="_blank">U.S. Reports</a> page mentions:
 
-> Explanatory material on the dates of early Supreme Court decisions and arguments from 1791-1882 is available [here](https://www.supremecourt.gov/opinions/datesofdecisions.pdf).
+> Explanatory material on the dates of early Supreme Court decisions and arguments from 1791-1882 is available <a href="https://www.supremecourt.gov/opinions/datesofdecisions.pdf" target="_blank">here</a>.
 
 And, in typical fashion, someone at the Court updated the document in 2018 without mentioning *what* they updated -- aside from helpfully mentioning that it was "Updated December 26, 2018".
 
