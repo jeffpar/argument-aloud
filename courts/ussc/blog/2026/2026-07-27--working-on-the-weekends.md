@@ -15,7 +15,7 @@ When you find an error in some data, it's tempting to just fix the error and mov
 
 For example, take the case of [Aikens v. Wisconsin (No. 3)](/courts/ussc/?term=1904-10&case=3), which U.S. Reports says was argued on November 7, 1903.
 
-However, November 7, 1903 was a ***Saturday***, and the Court has not heard many arguments on the weekends over the past 150 years, except under very unusual circumstances. I'm aware of only a couple modern instances, both in 1971: [New York Times Company v. United States (Nos. 1873, 1885)](/courts/ussc/?term=1970-10&case=1873) and [The Committee for Nuclear Responsibility, Inc. v. Schlesinger (No. A-483)](/courts/ussc/?term=1971-10&case=A-483).
+However, November 7, 1903 was a ***Saturday***, and the Court has not heard many arguments on the weekends over the past 150 years, except under very unusual circumstances. We're aware of only a couple modern instances, both in 1971: [New York Times Company v. United States (Nos. 1873, 1885)](/courts/ussc/?term=1970-10&case=1873) and [The Committee for Nuclear Responsibility, Inc. v. Schlesinger (No. A-483)](/courts/ussc/?term=1971-10&case=A-483).
 
 Anyway, it turns out that the U.S. Reports' argument date is not only wrong but incomplete.  So, to make it clear that *we* did not record the wrong date, we have flagged the case with a warning *and* included a link to the confirming page in the U.S. Supreme Court Journal.  In the top right corner of the case page, click the entry labeled [Journal Entry for October 21, 1903](/courts/ussc/?term=1904-10&case=3&file=1903.18), and you'll see that argument in *Aikens* and the companion cases did indeed commence on October 21 and continue the following day.
 
@@ -37,16 +37,20 @@ A similar problem existed for a case in 1887, [Mercantile Bank v. New York (No. 
 
 ## Spot-Checking Pre-Void Cases
 
-Just out of curiosity, I checked the Court's [reported](/courts/ussc/?source=ussc&group=9) argument dates for a few cases in 1882:
+Just out of curiosity, we checked the Court's [reported](/courts/ussc/?source=ussc&group=9) argument dates for a few cases in 1882:
 
   - [Chicago & Northwestern Railway Co. v. United States (No. 508), 104 U.S. 680 (1982)](/courts/ussc/?term=1881-10&case=508)
   - [Chicago, Milwaukee & St. Paul Railway Co. v. United States (No. 194), 104 U.S. 687 (1982)](/courts/ussc/?term=1881-10&case=194)
   
-which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](https://catalog.archives.gov/id/178843742?objectPage=628) confirmed that they did indeed hear arguments on Saturday.  So for cases covered by the "Dates of Decisions" document with dates falling on a weekend, we generally presume that they are correct.
+which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](https://argumentaloud.org/courts/ussc/?term=1881-10&case=508&file=1882-01-28) confirmed that they did indeed hear arguments on Saturday.
+
+{% include generic-image.html src="/assets/img/nara/1882/M215-014-0628.jpg" desc="U.S. Supreme Court Minutes from Saturday, January 28, 1882 (excerpt)" href="https://catalog.archives.gov/id/178843742?objectPage=628" %}
+
+So for cases covered by the "Dates of Decisions" document with dates falling on a weekend, we generally presume that they are correct.
 
 ## Cases Missing from "Dates of Decisions"
 
-I had originally assumed that the Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it seems more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
+We had originally assumed that the Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it seems more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
 
 Case in point: [Gibbs v. Diekma (No. 88)](/courts/ussc/?term=1880-10&case=88). It was decided on December 13, 1880, which means it *should* have appeared in one of those early volumes, but it did not.  When Volume 131 was published in 1889, it contained this note in its appendix (p. lxiv):
 

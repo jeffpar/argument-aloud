@@ -264,8 +264,13 @@ function stripDiacritics(s) {
 
 function makeAdvocateId(name) {
     const ascii = stripDiacritics(name).toLowerCase();
+    // Consecutive single-letter initials are written without a space between
+    // them (e.g. "A.C. EPPS", "D.P.S. PAUL") — but the id must stay the same
+    // regardless of that display convention, so re-insert the space between
+    // each such pair before tokenizing, whether or not it was there already.
+    const spacedInitials = ascii.replace(/\b([a-z])\.(?=[a-z]\.)/g, '$1. ');
     // Remove punctuation except hyphens, then collapse whitespace/-/_ to single _.
-    const noPunct = ascii.replace(/[^\w\s-]/g, '');
+    const noPunct = spacedInitials.replace(/[^\w\s-]/g, '');
     return noPunct.replace(/[\s\-_]+/g, '_').replace(/^_+|_+$/g, '');
 }
 

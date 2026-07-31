@@ -1,5 +1,5 @@
 ---
-title: Paul R. Q. Wolfson
+title: Paul R.Q. Wolfson
 layout: pane
 case_count: 21
 last_argument: January 15, 2013
