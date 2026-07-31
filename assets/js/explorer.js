@@ -9833,7 +9833,12 @@ async function restoreFromURL() {
     const _extra = [];
     if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
     if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
-    const _linkWithSort = _extra.length ? linkBase + '?' + _extra.join('&') : linkBase;
+    let _linkWithSort = _extra.length ? linkBase + '?' + _extra.join('&') : linkBase;
+    // Forward the outer page's own #hash (e.g. #2018-04-23) onto the linked
+    // page's URL so the iframe's native browser scroll-to-anchor lands on the
+    // matching id inside it — the linked page itself has no use for the hash,
+    // it's purely a pointer into content that lives inside the iframe.
+    if (location.hash) _linkWithSort += location.hash;
     showPageViewer(_linkWithSort, { pushState: false });
   } else if (termParam === 'all') {
     const _termsSectionLi = _sectionLiById.get('term');
