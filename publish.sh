@@ -25,6 +25,7 @@ else
   node scripts/update_cases.js
   node scripts/update_opinions.js
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
   rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 fi

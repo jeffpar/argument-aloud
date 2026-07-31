@@ -12750,6 +12750,55 @@ function _collectSitemapBlogUrls(buildDate) {
     return urls;
 }
 
+// Every other "pane"-layout page on the site — courts/ussc/collections/*,
+// courts/ussc/sources/*, courts/ussc/terms/index.md, the individual
+// justice/advocate bio pages under courts/ussc/people/**, nara/*, the
+// scdb/archive/* snapshots, etc. — is reachable only via
+// /courts/ussc/?link=<path> and has its own bare URL blocked in robots.txt,
+// exactly like a blog post, but isn't part of any JSON registry the sitemap
+// already walks (collections.json/topics.json cover the ?collection=/
+// ?topic= browsing views, a related but different thing from these pages'
+// own narrative content). Without this, none of it has any path into the
+// sitemap. Every one of these is always an index.md (Jekyll's directory-
+// style URL), so the target is simply the file's own directory — no
+// front-matter permalink needed, unlike blog posts.
+const SITEMAP_PANE_SKIP_DIRS = new Set([
+    '.git', '.github', '.history', '.playwright-profile', 'node_modules', '_site',
+    'scripts', 'tests', 'data',
+    'courts/ussc/blog', // handled separately, by _collectSitemapBlogUrls
+    'courts/ussc/cache', 'courts/ussc/indexes', 'courts/ussc/journals', 'courts/ussc/opinions',
+    'courts/ussc/transcripts/pdfs', 'courts/ussc/transcripts/text',
+    'scdb/cache', 'scdb/current',
+].map(p => p.split('/').join(path.sep)));
+
+function _collectSitemapPaneUrls(buildDate) {
+    const urls = [];
+    const walk = (dir) => {
+        const rel = path.relative(REPO_ROOT, dir);
+        if (SITEMAP_PANE_SKIP_DIRS.has(rel)) return;
+        let entries;
+        try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+        for (const entry of entries) {
+            if (entry.name.startsWith('.')) continue;
+            const full = path.join(dir, entry.name);
+            if (entry.isDirectory()) {
+                // Per-term case data (courts/ussc/terms/YYYY-MM/...): thousands of
+                // files, no pane pages of its own ever nested inside.
+                if (/^\d{4}-\d{2}$/.test(entry.name)) continue;
+                walk(full);
+                continue;
+            }
+            if (entry.name !== 'index.md') continue;
+            const fm = _readFrontMatter(full);
+            if (fm.layout !== 'pane') continue;
+            const target = '/' + rel.split(path.sep).join('/') + '/';
+            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?link=${target}`, lastmod: buildDate });
+        }
+    };
+    walk(REPO_ROOT);
+    return urls;
+}
+
 // Walk a collections.json/topics.json-shaped registry and return every leaf
 // entry's derived collection id (its "file"/"collection" URL's basename,
 // minus ".json" — the same value _findCollectionEntry() in explorer.js
@@ -12809,6 +12858,7 @@ function runGenerateSitemap(dryRun) {
     }
 
     urls.push(..._collectSitemapBlogUrls(buildDate));
+    urls.push(..._collectSitemapPaneUrls(buildDate));
 
     if (urls.length > SITEMAP_URL_WARN_THRESHOLD) {
         console.warn(`WARNING: sitemap has ${urls.length} URLs, approaching the sitemap protocol's `
