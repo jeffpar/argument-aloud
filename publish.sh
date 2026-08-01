@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
-if [ -n "$1" ]; then
+
+sync_xml() {
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
+  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
+  rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
+}
+
+if [ "$1" = "xml" ]; then
+  sync_xml
+elif [ -n "$1" ]; then
   MSG="$1"
   sync_to_website() {
     local repo_name="$1"
@@ -24,8 +34,5 @@ if [ -n "$1" ]; then
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
-  rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
+  sync_xml
 fi

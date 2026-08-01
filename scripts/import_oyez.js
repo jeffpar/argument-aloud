@@ -345,7 +345,7 @@ function audioTitle(typeVal, dateStr, part = 0, caseNum = '') {
     const partStr = part ? ` Part ${part}` : '';
     const caseStr = caseNum ? ` in No. ${caseNum}` : '';
     if (typeVal === 'reargument') return `Oral Reargument${caseStr}${partStr} on ${dateLabel}`;
-    if (typeVal === 'opinion') return `Opinion Announcement${partStr} on ${dateLabel}`;
+    if (typeVal === 'decision') return `Opinion Announcement${partStr} on ${dateLabel}`;
     return `Oral Argument${caseStr}${partStr} on ${dateLabel}`;
 }
 
@@ -756,7 +756,7 @@ async function main() {
                     try { data = readJson(oyezPath); audioHref = data?.media?.url || ''; }
                     catch { /* ignore */ }
                     const aLower = (audioHref || '').toLowerCase();
-                    const typeVal = aLower.includes('opinion') ? 'opinion'
+                    const typeVal = aLower.includes('decision') ? 'decision'
                         : aLower.includes('reargument') ? 'reargument' : 'argument';
                     const newArg = reorderEvent({
                         source: 'oyez',
@@ -854,7 +854,7 @@ async function main() {
                         try { rdata = readJson(rp); rurl = rdata?.media?.url || ''; }
                         catch { /* ignore */ }
                         const rl = (rurl || '').toLowerCase();
-                        const rtype = rl.includes('opinion') ? 'opinion'
+                        const rtype = rl.includes('decision') ? 'decision'
                             : rl.includes('reargument') ? 'reargument' : 'argument';
                         const rnew = reorderEvent({
                             source: 'oyez', type: rtype, date: rd,
@@ -1033,7 +1033,7 @@ async function main() {
             const existingOpinionDates = new Set();
             if (isSecondary) {
                 for (const a of localCase.events || []) {
-                    if (a.type === 'opinion' && a.date) existingOpinionDates.add(a.date);
+                    if (a.type === 'decision' && a.date) existingOpinionDates.add(a.date);
                 }
             }
             const opinionsByDate = {};
@@ -1089,8 +1089,8 @@ async function main() {
                                 console.log(`already filed as ${matched?.text_href || matched?.date || 'an existing entry'} — skipping`);
                             } else {
                                 const newEntry = reorderEvent({
-                                    source: 'oyez', type: 'opinion', date: dateStr,
-                                    title: audioTitle('opinion', dateStr, partNum, caseNumForTitle),
+                                    source: 'oyez', type: 'decision', date: dateStr,
+                                    title: audioTitle('decision', dateStr, partNum, caseNumForTitle),
                                     audio_href: mp3Url,
                                 });
                                 (localCase.events = localCase.events || []).push(newEntry);
@@ -1116,8 +1116,8 @@ async function main() {
 
                         if (!existingOyezFilenames.has(outHref)) {
                             const newEntry = reorderEvent({
-                                source: 'oyez', type: 'opinion', date: dateStr,
-                                title: audioTitle('opinion', dateStr, partNum, caseNumForTitle),
+                                source: 'oyez', type: 'decision', date: dateStr,
+                                title: audioTitle('decision', dateStr, partNum, caseNumForTitle),
                                 audio_href: audioHref, text_href: outHref,
                                 aligned: turnsAreAligned(envelope) ? true : null,
                             });
@@ -1198,7 +1198,7 @@ async function main() {
 
             for (const [sectionKey, baseType] of [
                 ['oral_argument_audio', 'argument'],
-                ['opinion_announcement', 'opinion'],
+                ['opinion_announcement', 'decision'],
             ]) {
                 const argList = detail[sectionKey] || [];
                 const compByDate = {};
@@ -1221,10 +1221,10 @@ async function main() {
                         const outFname = oyezFilename(dateStr, partNum);
                         const outHref  = compNum + '/' + outFname;
                         const outPath  = path.join(compDir, outFname);
-                        const typeVal  = (baseType === 'opinion')
-                            ? 'opinion' : oyezArgType(oyezArg.title || '');
+                        const typeVal  = (baseType === 'decision')
+                            ? 'decision' : oyezArgType(oyezArg.title || '');
 
-                        if (typeVal === 'opinion'
+                        if (typeVal === 'decision'
                                 && (localCase.events || []).some(a => a.unique)) {
                             skipped++; continue;
                         }

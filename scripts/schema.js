@@ -14,9 +14,9 @@
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'docket_href', 'questions', 'questions_href',
-    'argument', 'argument_days', 'reargument', 'reargument_days', 'decision', 'decision_days',
+    'argument', 'argument_day', 'reargument', 'reargument_day', 'decision', 'decision_day',
     'usCite', 'volume', 'page', 'opCite',
-    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports',
+    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_rep',
     'result', 'disposition',
     'voteMajority', 'voteMinority', 'votes',
     'events', 'history_href', 'scdb_check', 'scdb_message',
@@ -38,6 +38,10 @@ export const VOTE_KEY_ORDER = [
     'name', 'vote', 'action', 'opinion', 'dissent',
 ];
 
+export const OPCITE_KEY_ORDER = [
+    'id', 'title', 'term', 'decision', 'count',
+];
+
 function _reorder(obj, order) {
     const out = {};
     for (const k of order) {
@@ -49,13 +53,13 @@ function _reorder(obj, order) {
     return out;
 }
 
-const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_reports'];
+const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_rep'];
 
-// When usCite is absent, decision href keys belong right after decision_days (or decision).
+// When usCite is absent, decision href keys belong right after decision_day (or decision).
 export function caseKeyOrder(obj) {
     if (!obj.usCite && _DECISION_HREF_KEYS.some(k => k in obj)) {
         const order = CASE_KEY_ORDER.filter(k => !_DECISION_HREF_KEYS.includes(k));
-        const anchorIdx = order.indexOf('decision_days');
+        const anchorIdx = order.indexOf('decision_day');
         const insertAt = anchorIdx !== -1 ? anchorIdx + 1 : order.indexOf('decision') + 1;
         order.splice(insertAt, 0, ..._DECISION_HREF_KEYS);
         return order;
@@ -67,3 +71,4 @@ export const reorderCase     = (obj) => _reorder(obj, caseKeyOrder(obj));
 export const reorderEvent    = (obj) => _reorder(obj, EVENT_KEY_ORDER);
 export const reorderAdvocate = (obj) => _reorder(obj, ADVOCATE_KEY_ORDER);
 export const reorderVote     = (obj) => _reorder(obj, VOTE_KEY_ORDER);
+export const reorderOpCite   = (obj) => _reorder(obj, OPCITE_KEY_ORDER);

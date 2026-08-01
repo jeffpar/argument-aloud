@@ -1585,7 +1585,7 @@ function audioEntryLabel(a, suffix) {
       : '';
     const type = a.type || 'argument';
     if (type === 'reargument') label = 'Oral Reargument on ' + dateFormatted;
-    else if (type === 'opinion') label = 'Opinion Announcement on ' + dateFormatted;
+    else if (type === 'decision') label = 'Opinion Announcement on ' + dateFormatted;
     else label = 'Oral Argument on ' + dateFormatted;
   }
   return suffix ? label + suffix : label;
@@ -2488,7 +2488,7 @@ function formatDecisionDate(iso) {
 }
 
 function hasDecisionHref(c) {
-  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_reports));
+  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_rep));
 }
 
 // Convert a roman numeral string (e.g. "cxxv") to an integer, or NaN if the
@@ -2558,14 +2558,14 @@ function _buildDecisionEntries(caseEntry) {
   if (caseEntry.decision_ussc)
     entries.push({ value: 'decision_ussc',    href: caseEntry.decision_ussc,
                    title: dateLabel + '\u00a0(USSC)' });
-  if (caseEntry.decision_reports) {
-    let href = caseEntry.decision_reports;
+  if (caseEntry.decision_rep) {
+    let href = caseEntry.decision_rep;
     if (!href.includes('#page=')) {
       const termEntry = TERMS.find(t => t.term === _currentTerm);
       const pdfPage = _reportPdfPage(caseEntry.usCite, termEntry);
       if (pdfPage != null) href = href + '#page=' + pdfPage;
     }
-    entries.push({ value: 'decision_reports', href,
+    entries.push({ value: 'decision_rep', href,
                    title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
   }
   return entries;
@@ -2573,7 +2573,7 @@ function _buildDecisionEntries(caseEntry) {
 
 // Returns the single best decision entry {value, href, title} for contexts
 // that show just one decision link (case file list, scales-icon quick-open):
-// prefer decision_loc, then decision_ussc, then decision_reports — same
+// prefer decision_loc, then decision_ussc, then decision_rep — same
 // priority order as _buildDecisionEntries, whose href/page-anchor computation
 // this reuses. Unlike the dropdown, the title always uses the usCite rather
 // than a (LOC)/(USSC) source suffix.
@@ -2587,7 +2587,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 }
 
 // Returns [{value, href, title, view?}] for every opinion-text source this
-// case has \u2014 LOC, USSC, Volume (decision_reports), and XML (decision_xml), in
+// case has \u2014 LOC, USSC, Volume (decision_rep), and XML (decision_xml), in
 // that order, each included only when the corresponding prop exists \u2014 titled
 // "Decision on <full date> (XXX)". This is the shared source list behind both
 // the top-right document dropdown (_currentDecisionEntries) and the
@@ -2597,7 +2597,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
   const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
-  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_reports: 'VOL' };
+  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_rep: 'VOL' };
   const entries = _buildDecisionEntries(caseEntry).map(e => ({ ...e, title: dateLabel + '\u00a0(' + SUFFIX[e.value] + ')' }));
   if (caseEntry.decision_xml) {
     entries.push({
@@ -2615,7 +2615,7 @@ function _buildOpinionEntries(caseEntry) {
 // _setCaseInfoRow2) \u2014 "Decision (LOC)" etc., as opposed to that same list's
 // own `title`, which is what the doc viewer's title bar shows once opened.
 function _buildCiteMenuEntries(caseEntry) {
-  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_reports: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
+  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_rep: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
   return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
 }
 
@@ -2623,8 +2623,8 @@ function _buildCiteMenuEntries(caseEntry) {
 // values and the short values used for the URL 'file' param, so a selected
 // decision source round-trips through the URL (?file=loc|ussc|vol|xml) and
 // can be restored on load.
-const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_reports: 'vol', decision_xml: 'xml' };
-const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_reports', xml: 'decision_xml' };
+const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_rep: 'vol', decision_xml: 'xml' };
+const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_rep', xml: 'decision_xml' };
 
 // If `param` (a URL 'file' value) names a decision source present in the
 // current case's _currentDecisionEntries, show it in the doc viewer and sync
@@ -2971,7 +2971,7 @@ function caseTermDate(caseEntry, term) {
   const termEnd   = `${nextYear}-${monthStr}-01`;
   const audio = caseEntry.events ?? [];
   const inTerm = audio.find(a =>
-    a.type !== 'opinion' && a.date && a.date >= termStart && a.date < termEnd
+    a.type !== 'decision' && a.date && a.date >= termStart && a.date < termEnd
   );
   return inTerm?.date ?? audio[0]?.date ?? caseEntry.decision ?? '';
 }
@@ -3038,9 +3038,9 @@ function oyezCircleData(caseEntry) {
 // filled=true → case has ≥1 OTD video event (purple filled circle)
 function opinionCircleData(caseEntry) {
   const opinionEvents = (caseEntry.events || []).filter(
-    e => e.type === 'opinion' && e.audio_href,
+    e => e.type === 'decision' && e.audio_href,
   );
-  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'opinion' && e.video_href);
+  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'decision' && e.video_href);
   if (!opinionEvents.length && !hasOtd) return null;
   const hasOpinionAudio = opinionEvents.length > 0;
   const blue   = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
@@ -3287,11 +3287,11 @@ function findCitationItem(param) {
 }
 
 // Look up a cited case's own decision link (decision_loc, else decision_ussc,
-// else decision_reports) by loading its term's cases.json and matching on id.
+// else decision_rep) by loading its term's cases.json and matching on id.
 async function _resolveCitationHref(term, id) {
   const cases = await fetchTermCases(term);
   const c = Array.isArray(cases) ? cases.find(x => x?.id === id) : null;
-  return c ? (c.decision_loc || c.decision_ussc || c.decision_reports || null) : null;
+  return c ? (c.decision_loc || c.decision_ussc || c.decision_rep || null) : null;
 }
 
 // Build a single <li class="file-item"> with the standard click handler.
@@ -3757,8 +3757,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const urlId = urlIdOf(caseEntry);
     const caseKey = term + '/' + urlId;
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
-    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'opinion');
-    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'opinion');
+    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'decision');
+    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'decision');
     const hasOpinion    = hasDecisionHref(caseEntry);
     const hasFiles      = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
 
@@ -6838,7 +6838,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   {
     const _seen = new Map(); // type:date → Set of distinct sources
     for (const a of sortedAudio) {
-      if (a.type === 'opinion') continue;
+      if (a.type === 'decision') continue;
       const k = (a.type || 'argument') + ':' + (a.date ?? '');
       if (!_seen.has(k)) _seen.set(k, new Set());
       _seen.get(k).add(a.source);
@@ -6886,14 +6886,14 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // then opinion audio entries — transcripts always precede any opinion
   // entry, even when an opinion's audio-only event chronologically sorts
   // before the argument's transcript-bearing event.
-  sortedAudio.filter(a => a.type !== 'opinion').forEach(_appendAudioOption);
+  sortedAudio.filter(a => a.type !== 'decision').forEach(_appendAudioOption);
   _currentTranscriptEntries.forEach(te => {
     const opt = document.createElement('option');
     opt.value = te.value;
     opt.textContent = te.title;
     fileSelect.appendChild(opt);
   });
-  sortedAudio.filter(a => a.type === 'opinion').forEach(_appendAudioOption);
+  sortedAudio.filter(a => a.type === 'decision').forEach(_appendAudioOption);
   // Append sentinel options linking to decision PDFs, in order: LOC, USSC, US Reports.
   _currentDecisionEntries.forEach(de => {
     const sentinelOpt = document.createElement('option');

@@ -711,7 +711,7 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                 console.log(`  [${disp}] WARNING: case not found in cases.json: ${lookupKey}`);
                 delete entry.argument; delete entry.reargument;
                 delete entry.decision; delete entry.event;
-                delete entry.audio;    delete entry.decision_loc; delete entry.decision_ussc; delete entry.decision_reports;
+                delete entry.audio;    delete entry.decision_loc; delete entry.decision_ussc; delete entry.decision_rep;
                 continue;
             }
 

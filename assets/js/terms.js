@@ -200,7 +200,7 @@
         decIso: decIso,
         voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
         opinionText: opinionText,
-        decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_reports || '') : '',
+        decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_rep || '') : '',
         decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
           + (opinionText ? ' (' + opinionText + ')' : ''),
         sortValues: {
@@ -809,7 +809,7 @@
       var opEventCount = 0;
       cases.forEach(function (c) {
         var caseOpEvents = (c.events || []).filter(function (e) {
-          return e.type === 'opinion' && e.audio_href && e.length;
+          return e.type === 'decision' && e.audio_href && e.length;
         });
         var seenOpTitles = new Set();
         caseOpEvents.forEach(function (e) {

@@ -24,15 +24,28 @@
  *   5. For PDFs shared between a special term and an October term,
  *      month-keyword filtering selects the right section.
  *
- * Usage:
- *   node scripts/parse_journals.js [--dry-run] [--verbose] [YEAR]
- *   node scripts/parse_journals.js --pages [--dry-run] [--verbose] [YEAR]
+ * With --verify-case-dates (requires YEAR), cross-checks the October Term
+ * YEAR's cases.json against the already-generated YYYY.xml: for every case,
+ * every date in its argument/reargument/decision fields that falls on or
+ * after the journal XML's first recorded date must appear as a <case> tag
+ * (matching that case's docket number) under a <date> tag for that same
+ * date — see runVerifyCaseDates() below. Read-only; reports mismatches
+ * without writing anything.
  *
- *   --pages     Run the journal_pages offset-detection pass instead of
- *               generating XML (see above)
- *   --dry-run   Report changes without writing terms.json / XML files
- *   --verbose   Also print unchanged terms / per-file XML stats
- *   YEAR        Only process that journal year (e.g. 1971)
+ * Usage:
+ *   node scripts/parse_journals.js [YEAR] [--dry-run] [--verbose]
+ *   node scripts/parse_journals.js [YEAR] --pages [--dry-run] [--verbose]
+ *   node scripts/parse_journals.js YEAR --verify-case-dates
+ *
+ *   YEAR                 Only process that journal year (e.g. 1971); the
+ *                        year may be given anywhere among the options.
+ *   --pages              Run the journal_pages offset-detection pass
+ *                        instead of generating XML (see above)
+ *   --verify-case-dates  Cross-check YEAR's cases.json against YYYY.xml
+ *                        (see above)
+ *   --dry-run            Report changes without writing terms.json / XML
+ *                        files
+ *   --verbose            Also print unchanged terms / per-file XML stats
  */
 
 import { execSync } from 'child_process';
@@ -288,9 +301,14 @@ const CASE_START_LEAD_RE = /^Nos?\.\s*(.+)$/;
 const CASE_NUMBER_RE = /^(\d+[AM]\d+|[A-Z]-\d+|\d[\d,\-–—]*)/;
 
 // Old-style docket suffix immediately after the number: "9 Original" / "45,
-// Original" / "1070 Misc" / "648, Misc" — normalized onto the number as
-// "9-Orig" / "45-Orig" / "1070-Misc" / "648-Misc".
-const CASE_SUFFIX_RE = /^,?\s*(Original|Orig\.?|Misc\.?)\b/i;
+// Original" / "5. Original." / "7.-Original." / "1070 Misc" / "648, Misc" —
+// normalized onto the number as "9-Orig" / "45-Orig" / "5-Orig" / "7-Orig" /
+// "1070-Misc" / "648-Misc". The punctuation/dash prefix covers older
+// journals (e.g. 1889's "No. 5. Original. Ex parte..." or "No. 7.-Original.
+// The State...") that separate the suffix from the number with a sentence-
+// ending period (optionally followed by the usual number-to-title dash)
+// rather than a comma.
+const CASE_SUFFIX_RE = /^[.,:;\-–—\s]*(Original|Orig\.?|Misc\.?)\b/i;
 
 /**
  * Parse a "No. ..."/"Nos. ..." case-start line into { number, rest }, where
@@ -350,10 +368,13 @@ function parseCaseStart(line) {
     return null;
   }
 
-  // Drop a trailing period and/or dash(es) before the title text begins
-  // (OCR sometimes renders the em dash after the period as one or more
-  // hyphens, e.g. "No. 1195.-Title" or "No. 294.--Title").
-  rest = rest.replace(/^\.?\s*[-–—]*\s*/, '');
+  // Drop a trailing period/colon/semicolon/comma and/or dash(es) before the
+  // title text begins (OCR sometimes renders the em dash after the period
+  // as one or more hyphens, e.g. "No. 1195.-Title" or "No. 294.--Title"; a
+  // docket suffix is sometimes punctuated as "Original:", "Original;", or
+  // "Original," followed by more punctuation of its own — e.g. "210, Misc.,
+  // October Term, 1947. Title" — leaving that leftover punctuation here).
+  rest = rest.replace(/^[.,:;\-–—\s]*/, '');
   // A genuine case entry's title always starts right on this same line —
   // nothing left (e.g. a bare "Nos. 520 and 521." that's actually a
   // mid-sentence cross-reference to an already-open case, not a new one)
@@ -683,18 +704,36 @@ function parseJournalText(text) {
   return entries;
 }
 
-/** Render parsed entries as the journal's XML document text. */
+/**
+ * Render parsed entries as the journal's XML document text. Each <date>
+ * is a container for every <case> that followed it (up to the next <date>),
+ * rather than a standalone sibling marker; and each <case> is in turn a
+ * container for its own <text> (parseJournalText() always emits a case's
+ * <text>, if any, as the very next entry, so a one-entry lookahead is all
+ * that's needed to nest it).
+ */
 function renderJournalXml(year, entries) {
   const lines = [`<?xml version="1.0" encoding="UTF-8"?>`, `<journal year="${year}">`];
-  for (const e of entries) {
+  let inDate = false;
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
     if (e.type === 'date') {
-      lines.push(`<date value="${e.value}">${xmlEscape(e.display)}</date>`);
+      if (inDate) lines.push('</date>');
+      lines.push(`<date value="${e.value}" day="${xmlEscape(e.display)}">`);
+      inDate = true;
     } else if (e.type === 'case') {
-      lines.push(`<case number="${xmlEscape(e.number)}">${xmlEscape(e.title)}</case>`);
-    } else if (e.type === 'text') {
-      lines.push(`<text>${xmlEscape(e.text)}</text>`);
+      const next = entries[i + 1];
+      if (next && next.type === 'text') {
+        lines.push(`  <case number="${xmlEscape(e.number)}">${xmlEscape(e.title)}`);
+        lines.push(`    <text>${xmlEscape(next.text)}</text>`);
+        lines.push('  </case>');
+        i++; // this text entry is now nested; don't visit it again
+      } else {
+        lines.push(`  <case number="${xmlEscape(e.number)}">${xmlEscape(e.title)}</case>`);
+      }
     }
   }
+  if (inDate) lines.push('</date>');
   lines.push('</journal>');
   return lines.join('\n') + '\n';
 }
@@ -853,15 +892,106 @@ function runXmlMode({ dryRun, verbose, yearFilter }) {
   if (dryRun) console.log('(dry run — no XML files written)');
 }
 
-const args = process.argv.slice(2);
-const dryRun     = args.includes('--dry-run');
-const verbose     = args.includes('--verbose');
-const pagesMode   = args.includes('--pages');
-const yearFilter  = args.find(a => /^\d{4}$/.test(a));
-if (yearFilter) console.log(`Filtering to year: ${yearFilter}`);
+/**
+ * Parse a generated journal XML file (see renderJournalXml() above) into
+ * the first recorded <date>'s value and a Map of date value -> Set of
+ * every case number recorded under that date (a "<case number="1593,1594">"
+ * joint listing contributes both "1593" and "1594" individually). Each
+ * <date>...</date> is now a self-contained container, so this just walks
+ * one block at a time rather than tracking "current date" line by line.
+ */
+function parseJournalXml(xmlPath) {
+  const text = readFileSync(xmlPath, 'utf8');
+  const dateBlockRe = /<date value="([^"]+)"[^>]*>([\s\S]*?)<\/date>/g;
+  const caseRe = /<case number="([^"]+)">/g;
 
-if (pagesMode) {
-  runPagesMode({ dryRun, verbose, yearFilter });
+  let firstDate = null;
+  const casesByDate = new Map();
+
+  for (const block of text.matchAll(dateBlockRe)) {
+    const [, dateValue, body] = block;
+    if (!firstDate) firstDate = dateValue;
+    let set = casesByDate.get(dateValue);
+    if (!set) casesByDate.set(dateValue, set = new Set());
+    for (const caseMatch of body.matchAll(caseRe)) {
+      for (const num of caseMatch[1].split(',')) set.add(num.trim());
+    }
+  }
+  return { firstDate, casesByDate };
+}
+
+const CASE_DATE_PROPS = ['argument', 'reargument', 'decision'];
+const FULL_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * For October Term YEAR, verify every case date (argument/reargument/
+ * decision, each possibly a comma-joined list of dates for a multi-day
+ * proceeding) on or after the journal XML's first recorded date actually
+ * shows up there: a <case> tag whose number matches (exactly, or as one
+ * comma-separated component of a joint listing) under a <date> tag for
+ * that same date, with no other <date> tag in between. Read-only; prints
+ * every date that can't be located and a final tally.
+ */
+function runVerifyCaseDates(year) {
+  const xmlPath = join(XML_DIR, `${year}.xml`);
+  if (!existsSync(xmlPath)) {
+    console.error(`No journal XML found: ${xmlPath}`);
+    process.exit(1);
+  }
+  const { firstDate, casesByDate } = parseJournalXml(xmlPath);
+  if (!firstDate) {
+    console.log(`No <date> entries found in ${xmlPath}.`);
+    return;
+  }
+
+  const term = `${year}-10`;
+  const casesPath = join(ROOT, 'courts/ussc/terms', term, 'cases.json');
+  if (!existsSync(casesPath)) {
+    console.error(`No cases.json found for term ${term}: ${casesPath}`);
+    process.exit(1);
+  }
+  const cases = JSON.parse(readFileSync(casesPath, 'utf8'));
+
+  console.log(`Verifying ${term} case dates against ${year}.xml (journal starts ${firstDate})...\n`);
+
+  let checked = 0, missing = 0;
+  for (const c of cases) {
+    for (const prop of CASE_DATE_PROPS) {
+      const raw = c[prop];
+      if (!raw) continue;
+      for (const date of raw.split(',').map(s => s.trim())) {
+        if (!FULL_DATE_RE.test(date) || date < firstDate) continue;
+        checked++;
+        const nums = casesByDate.get(date);
+        if (!nums || !nums.has(c.number)) {
+          missing++;
+          console.log(`${term} No. ${c.number} — ${c.title} [${prop}: ${date}]`);
+        }
+      }
+    }
+  }
+
+  console.log(`\nChecked ${checked} date(s); ${missing} not found in the journal.`);
+}
+
+const args = process.argv.slice(2);
+const dryRun         = args.includes('--dry-run');
+const verbose         = args.includes('--verbose');
+const pagesMode       = args.includes('--pages');
+const verifyDatesMode = args.includes('--verify-case-dates');
+const yearFilter      = args.find(a => /^\d{4}$/.test(a));
+
+if (verifyDatesMode) {
+  if (!yearFilter) {
+    console.error('--verify-case-dates requires a YEAR argument.');
+    process.exit(1);
+  }
+  runVerifyCaseDates(yearFilter);
 } else {
-  runXmlMode({ dryRun, verbose, yearFilter });
+  if (yearFilter) console.log(`Filtering to year: ${yearFilter}`);
+  if (pagesMode) {
+    runPagesMode({ dryRun, verbose, yearFilter });
+  } else {
+    runXmlMode({ dryRun, verbose, yearFilter });
+  }
 }

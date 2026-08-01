@@ -10,7 +10,7 @@
  *   TERM    Term in YYYY-MM format (e.g., 2014-10)
  *   CASE    Case number (e.g., 14-378), or - to process all eligible cases in the term
  *   SOURCE  Event source: ussc | oyez | nara
- *   TYPE    Event type:   argument | opinion | reargument
+ *   TYPE    Event type:   argument | decision | reargument
  *
  * Batch mode (CASE = -):
  *   Processes every case in the term that has a SOURCE/TYPE event with a text_href

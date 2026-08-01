@@ -479,7 +479,7 @@ export function syncOpinionHrefFromFiles(casesPath) {
     let modified = false;
 
     for (const c of data) {
-        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_reports;
+        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_rep;
         const needsHref     = !hasDecisionHref;
         const needsDecision = !c.decision;
         if (!needsHref && !needsDecision) continue;
@@ -665,7 +665,7 @@ function _detectSourceType(audioHref) {
     else if (lower.includes('oyez'))        source = 'oyez';
     else                                    source = 'unknown';
     let type;
-    if (source === 'oyez' && lower.includes('opinion'))         type = 'opinion';
+    if (source === 'oyez' && lower.includes('opinion'))         type = 'decision';
     else if (source === 'oyez' && lower.includes('reargument')) type = 'reargument';
     else                                                        type = 'argument';
     return [source, type];
@@ -1241,7 +1241,7 @@ function checkArgumentsHaveVotes(casesPath, term) {
         const argued = !!(c.argument || c.reargument);
         if (!argued && !_VERBOSE) continue;
         const label = c.number || c.id || '?';
-        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_reports || '';
+        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_rep || '';
         const suffix = decisionUrl ? ` (see ${decisionUrl})` : '';
         console.log(`WARNING: ${term}/${label}: has decision but no votes${suffix}`);
     }
@@ -1262,7 +1262,7 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
         for (const [hrefKey, badKey, tag] of [
             ['decision_loc',  'decision_loc_bad',  'loc'],
             ['decision_ussc', 'decision_ussc_bad', 'ussc'],
-            ['decision_reports', null,              'rpt'],
+            ['decision_rep', null,              'rpt'],
         ]) {
             const oh = c[hrefKey] || '';
             if (!oh || !/^https?:\/\//.test(oh)) continue;
@@ -1549,7 +1549,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
             } else if (atype === 'reargument') {
                 if (!date) console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): audio[${i}] (reargument) missing date`);
                 else reargDates.push(date);
-            } else if (atype === 'opinion') {
+            } else if (atype === 'decision') {
                 if (!date) console.log(`WARNING: ${term}/${label} (${title.slice(0,40)}): audio[${i}] (opinion) missing date`);
                 else opDates.push(date);
             }
@@ -1629,7 +1629,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
 }
 
 function _hasDecisionHref(c) {
-    return !!(c.decision_loc || c.decision_ussc || c.decision_reports);
+    return !!(c.decision_loc || c.decision_ussc || c.decision_rep);
 }
 
 function warnMissingOpinionHref(casesPath, term) {
@@ -1742,7 +1742,7 @@ function _reportsDbPages(entry) {
     return undefined;
 }
 
-// Build/update the decision_reports field on each case whose usCite contains
+// Build/update the decision_rep field on each case whose usCite contains
 // "<volume> U.S. <page>" and whose volume matches an entry in the term's reports
 // array. The value is reports[].href + "#page=<pdfPage>" where pdfPage is
 // derived from the report's pages breakpoints.
@@ -1761,8 +1761,8 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     let modified = false;
     for (const c of data) {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
-        // If decision_reports already carries an explicit #page=N, leave it alone.
-        if (/#page=\d+$/.test(c.decision_reports || '')) continue;
+        // If decision_rep already carries an explicit #page=N, leave it alone.
+        if (/#page=\d+$/.test(c.decision_rep || '')) continue;
         const usCite = (c.usCite || '').trim();
         if (!usCite) continue;
         const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
@@ -1777,8 +1777,8 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
             const pdfPage = _pdfPageFor(_parsePages(report.pages), page, roman);
             if (pdfPage != null) url += `#page=${pdfPage}`;
         }
-        if (c.decision_reports === url) continue;
-        c.decision_reports = url;
+        if (c.decision_rep === url) continue;
+        c.decision_rep = url;
         const reordered = reorderCase(c);
         for (const k of Object.keys(c)) delete c[k];
         Object.assign(c, reordered);
@@ -2735,7 +2735,7 @@ function checkDuplicateMediaHrefs(termsToCheck) {
             // date, each with a distinct offset or turn → these are intentional split
             // events. Not a duplicate.
             if (field === 'audio_href' && tcSet.size === 1) {
-                const allOpinion = locs.every(l => l[5] === 'opinion');
+                const allOpinion = locs.every(l => l[5] === 'decision');
                 if (allOpinion) {
                     const dates = locs.map(l => l[2]);
                     const sameDates = new Set(dates).size === 1;
@@ -2813,7 +2813,7 @@ function fixArgumentDates(term, cases, dryRun) {
     return fixed;
 }
 
-// Keep argument_days / reargument_days / decision_days in sync with their
+// Keep argument_day / reargument_day / decision_day in sync with their
 // source date fields.  Adds the property when the source exists and has valid
 // dates; removes it when the source is absent.
 function fixDayLabels(term, cases, dryRun) {
@@ -2821,9 +2821,9 @@ function fixDayLabels(term, cases, dryRun) {
     for (const c of cases) {
         let changed = false;
         for (const [src, dst] of [
-            ['argument',   'argument_days'],
-            ['reargument', 'reargument_days'],
-            ['decision',   'decision_days'],
+            ['argument',   'argument_day'],
+            ['reargument', 'reargument_day'],
+            ['decision',   'decision_day'],
         ]) {
             const expected = c[src] ? _computeDays(c[src]) : undefined;
             if (expected === undefined) {
@@ -2900,17 +2900,17 @@ function fixEventTypes(term, cases, dryRun) {
                     console.log(`WARNING: ${term}/${number} ${date}: event type '${etype}' on argument date (not auto-fixed)`);
                 }
             } else if (decisionDates.has(date)) {
-                if (etype !== 'opinion') {
+                if (etype !== 'decision') {
                     console.log(`WARNING: ${term}/${number} ${date}: event type '${etype}' on decision date (not auto-fixed)`);
                 }
             }
-            if (['argument', 'reargument', 'opinion'].includes(etype) && date) {
+            if (['argument', 'reargument', 'decision'].includes(etype) && date) {
                 if (etype === 'argument' && !argDates.has(date))
                     console.log(`WARNING: ${term}/${number} ${date}: argument event date not in 'argument' field`);
                 else if (etype === 'reargument' && !reargDates.has(date))
                     console.log(`WARNING: ${term}/${number} ${date}: reargument event date not in 'reargument' field`);
-                else if (etype === 'opinion' && !decisionDates.has(date))
-                    console.log(`WARNING: ${term}/${number} ${date}: opinion event date not in 'decision' field`);
+                else if (etype === 'decision' && !decisionDates.has(date))
+                    console.log(`WARNING: ${term}/${number} ${date}: decision event date not in 'decision' field`);
             }
         }
     }
@@ -5580,7 +5580,7 @@ async function syncTermsReports(termFilter, volFilter = null) {
     }
 
     // Pre-pass: propagate any manual reports.json edits into terms.json pages.
-    // decision_reports recomputation is handled by the standard update_cases.js flow.
+    // decision_rep recomputation is handled by the standard update_cases.js flow.
     {
         let tjModified = false;
         for (const decade of tj) {
@@ -7225,7 +7225,7 @@ function _scdbFieldPresent(c, key) {
 }
 
 function _scdbHasImportedOpinion(c) {
-    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_reports']) {
+    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_rep']) {
         if (_scdbFieldPresent(c, k)) return true;
     }
     return false;
@@ -8632,7 +8632,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             if (discrepancy) {
                 totalDiscrepancies++;
                 if (update) {
-                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_reports || '(no decision href)'}`);
+                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_rep || '(no decision href)'}`);
                     console.log();
                     const answer = await _ask('  Change to CSV date? (y/N) ');
                     if (answer.toLowerCase() === 'y') {
@@ -8883,7 +8883,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
             const casesDir = path.join(termsDir, term, 'cases');
 
             for (const ev of c.events) {
-                if (ev.type !== 'opinion' || ev.offset === undefined || !ev.text_href) continue;
+                if (ev.type !== 'decision' || ev.offset === undefined || !ev.text_href) continue;
 
                 const transcriptPath = path.join(casesDir, ev.text_href);
                 if (!fs.existsSync(transcriptPath)) continue;
@@ -8966,7 +8966,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
             // Only process cases with at least one "Part N" opinion event title.
             const hasPartN = c.events.some(ev =>
-                ev.type === 'opinion' && _PART_N_RE.test(ev.title || ''));
+                ev.type === 'decision' && _PART_N_RE.test(ev.title || ''));
             if (!hasPartN) continue;
 
             const opinionVote = c.votes.find(v => v.opinion === true);
@@ -8975,7 +8975,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
             const casesDir = path.join(termsDir, term, 'cases');
 
             for (const ev of c.events) {
-                if (ev.type !== 'opinion' || !ev.text_href) continue;
+                if (ev.type !== 'decision' || !ev.text_href) continue;
 
                 const transcriptPath = path.join(casesDir, ev.text_href);
                 if (!fs.existsSync(transcriptPath)) continue;
@@ -9046,7 +9046,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
-                if (ev.type !== 'opinion' || !ev.text_href) continue;
+                if (ev.type !== 'decision' || !ev.text_href) continue;
 
                 const transcriptPath = path.join(casesDir, ev.text_href);
                 if (!fs.existsSync(transcriptPath)) continue;
@@ -9123,7 +9123,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
                 const alreadySplit = c.events.some((e, i) =>
                     i > evIdx &&
-                    e.type === 'opinion' &&
+                    e.type === 'decision' &&
                     e.text_href === ev.text_href &&
                     (e.turn !== undefined || e.offset !== undefined)
                 );
@@ -9955,7 +9955,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
 
     return order.map(ref => {
         const { title, term, id, decision, count } = results.get(ref);
-        return { title, term, id, decision, count };
+        return { id, title, term, decision, count };
     });
 }
 
@@ -10074,7 +10074,7 @@ function _loadCaseByRef(term, id) {
 // For each opCite entry, search the case's own argument transcript(s) for
 // mentions of its parties, returning { title, href, refs } for every entry
 // that's actually discussed by name (href comes from the cited case's own
-// decision_loc / decision_ussc / decision_reports, in that preference order).
+// decision_loc / decision_ussc / decision_rep, in that preference order).
 function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
     if (!opCite.length || !Array.isArray(c.events)) return [];
 
@@ -10098,7 +10098,7 @@ function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
         if (!matches.size) continue;
 
         const cited = _loadCaseByRef(entry.term, entry.id);
-        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_reports || null;
+        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_rep || null;
         if (!href) {
             if (verbose) console.log(`  [ref-skip] "${entry.title}" matched but has no decision href`);
             continue;
@@ -10674,7 +10674,7 @@ async function runDissentCheck(termFilter) {
             if (!Array.isArray(c.events)) continue;
             for (let i = 0; i < c.events.length; i++) {
                 const ev = c.events[i];
-                if (ev.type !== 'opinion') continue;
+                if (ev.type !== 'decision') continue;
                 const title = ev.title || '';
                 if (title.startsWith('Opinion')) continue;
                 // This opinion event's title is non-standard. A case can have
@@ -11154,7 +11154,7 @@ async function processOneTerm(term, opts) {
             });
             if (_termEntry?.reports?.length) {
                 // Patch pages from reports.json (may have been manually updated
-                // since the last --reports run) so decision_reports uses current values.
+                // since the last --reports run) so decision_rep uses current values.
                 let _reportsDb = {};
                 try { const raw = _readJson(REPORTS_JSON); if (raw && !Array.isArray(raw)) _reportsDb = raw; } catch {}
                 let _tjModified = false;
@@ -11637,17 +11637,17 @@ async function runAddCase(term, title, argv, dryRun) {
     if (argumentRaw) {
         entry.argument = argumentRaw;
         const argDays = _computeDays(argumentRaw);
-        if (argDays) entry.argument_days = argDays;
+        if (argDays) entry.argument_day = argDays;
     }
     if (reargumentRaw) {
         entry.reargument = reargumentRaw;
         const reargDays = _computeDays(reargumentRaw);
-        if (reargDays) entry.reargument_days = reargDays;
+        if (reargDays) entry.reargument_day = reargDays;
     }
     if (decisionRaw) {
         entry.decision = decisionRaw;
         const decDays = _computeDays(decisionRaw);
-        if (decDays) entry.decision_days = decDays;
+        if (decDays) entry.decision_day = decDays;
     }
     const citeRaw = getValues('--cite').join(' ').trim();
     if (citeRaw) {
@@ -11667,7 +11667,7 @@ async function runAddCase(term, title, argv, dryRun) {
                 const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
                 const pdfPage = _pdfPageFor(_parsePages(report.pages), page);
                 if (report && pdfPage != null) {
-                    entry.decision_reports = report.href + '#page=' + pdfPage;
+                    entry.decision_rep = report.href + '#page=' + pdfPage;
                 }
             }
         } catch {}
@@ -11970,7 +11970,7 @@ function _parseJustiaOpinionHtml(html) {
         const argM   = /^Argued:?\s+(.+)$/i.exec(text);
         if (argM)  { info.argued.push(argM[1].trim()); continue; }
         const reargM = /^Re-?argued:?\s+(.+)$/i.exec(text);
-        if (reargM){ info.reargued.push(reargM[1].trim()); continue; }
+        if (reargM){ info.reargument.push(reargM[1].trim()); continue; }
         const decM   = /^Decided:?\s+(.+)$/i.exec(text);
         if (decM)  { info.decided = decM[1].trim(); }
     }
@@ -11985,7 +11985,7 @@ function _parseJustiaOpinionHtml(html) {
             if (/^docket\s+no\.?$/.test(key) || /^nos?\.?$/.test(key)) {
                 info.numbers.push(...val.split(/\s*,\s*/).map(s => s.trim()).filter(Boolean));
             } else if (key === 'argued')         { info.argued.push(val); }
-            else if (/^re-?argued$/.test(key))  { info.reargued.push(val); }
+            else if (/^re-?argued$/.test(key))  { info.reargument.push(val); }
             else if (key === 'decided')          { info.decided = val; }
         }
     }
@@ -12089,7 +12089,7 @@ async function runJustiaCheck(volFilter, opts) {
     function _printCaseLine({ basename, info }, suffix) {
         const dates = [];
         for (const d of info.argued)   dates.push(`Argued ${d}`);
-        for (const d of info.reargued) dates.push(`Reargued ${d}`);
+        for (const d of info.reargument) dates.push(`Reargued ${d}`);
         if (info.decided)   dates.push(`Decided ${info.decided}`);
         else if (info.year) dates.push(`Decided ${info.year}`);
         const datePart = dates.length ? ` (${dates.join('; ')})` : '';
@@ -12445,7 +12445,7 @@ const FEED_IMAGE_URL   = FEED_SITE_URL + '/assets/img/podcast-cover.jpg';
 const FEED_CATEGORY    = { main: 'News', sub: 'Government' };
 const FEED_XSL_HREF    = '/assets/xsl/podcast.xsl';
 
-const EVENT_TYPE_LABELS = { argument: 'Oral Argument', reargument: 'Reargument', opinion: 'Opinion Announcement' };
+const EVENT_TYPE_LABELS = { argument: 'Oral Argument', reargument: 'Reargument', decision: 'Opinion Announcement' };
 
 // Source priority used only when the same (type, date, title) audio is
 // available from more than one source and neither copy was ever flagged

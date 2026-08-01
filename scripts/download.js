@@ -3,7 +3,7 @@
  * Downloads and caches external assets referenced in cases.json and files.json files.
  *
  * Default mode (cases.json assets):
- *   - decision_loc / decision_ussc / decision_reports  → PDF opinion
+ *   - decision_loc / decision_ussc / decision_rep  → PDF opinion
  *   - audio_href    → MP3 audio (from each event)
  *   - transcript_href → PDF transcript (from each event)
  *
@@ -291,7 +291,7 @@ async function processCase(term, c, folderKey, opts) {
     // decision hrefs
     if (c.decision_loc)     tasks.push({ url: c.decision_loc });
     if (c.decision_ussc)    tasks.push({ url: c.decision_ussc });
-    if (c.decision_reports) tasks.push({ url: c.decision_reports });
+    if (c.decision_rep) tasks.push({ url: c.decision_rep });
 
     // event assets: audio_href, transcript_href
     for (const ev of c.events || []) {

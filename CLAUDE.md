@@ -59,7 +59,7 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
   "events": [
     {
       "source": "ussc|oyez|nara",
-      "type": "argument|opinion|reargument",
+      "type": "argument|decision|reargument",
       "date": "YYYY-MM-DD",
       "title": "Oral Argument on Month D, YYYY",
       "audio_href": "https://…/mp3",
