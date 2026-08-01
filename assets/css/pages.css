@@ -160,14 +160,18 @@ html[data-theme="light"] .date-section { border-color: #e0e0e0; }
 .date-case-list li { font-size: 0.85rem; margin-bottom: 0.2rem; }
 .date-case-list a { color: #2672b4; text-decoration: none; }
 .date-case-list a:hover { text-decoration: underline; color: #4a9eff; }
+.date-minutes-list { list-style: none; margin: 0; padding: 0 0 0 1rem; display: flex; flex-wrap: wrap; column-gap: 1rem; row-gap: 0.2rem; }
+.date-minutes-list li { font-size: 0.85rem; }
+.date-minutes-list a { color: #2672b4; text-decoration: none; }
+.date-minutes-list a:hover { text-decoration: underline; color: #4a9eff; }
 @media (prefers-color-scheme: dark) {
   .date-section h3 { color: #6a7080; }
-  .date-case-list a { color: #5eaee0; }
+  .date-case-list a, .date-minutes-list a { color: #5eaee0; }
 }
 html[data-theme="dark"]  .date-section h3 { color: #6a7080; }
 html[data-theme="light"] .date-section h3 { color: #888; }
-html[data-theme="dark"]  .date-case-list a { color: #5eaee0; }
-html[data-theme="light"] .date-case-list a { color: #2672b4; }
+html[data-theme="dark"]  .date-case-list a, html[data-theme="dark"]  .date-minutes-list a { color: #5eaee0; }
+html[data-theme="light"] .date-case-list a, html[data-theme="light"] .date-minutes-list a { color: #2672b4; }
 
 /* ── Transcript Updates — courts/ussc/transcripts/updates/ ──────────────── */
 

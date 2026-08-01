@@ -9063,6 +9063,30 @@ let _navSearchActivate = null;
     if (e.key === 'Escape') { closeNavSearch(); return; }
     if (e.key === 'Enter') {
       const val = navSearchInput.value.trim();
+
+      // A bare 4-digit query is treated as a term year on Enter — e.g.
+      // "1982" opens term "1982-10", "1860" opens "1860-12" — rather than
+      // as a title/number search, since a real case title/number is never
+      // just a lone 4-digit year. Requires Enter (unlike every other query
+      // mode, which searches as you type via runNavSearch) so a partially-
+      // typed year doesn't jump the page around mid-keystroke. An ambiguous
+      // year (rare — a handful of pre-1875 years had more than one term)
+      // opens whichever matching term comes first in TERMS; a year with no
+      // term at all (also rare) does nothing, rather than falling through
+      // to a "find=" search that couldn't match a bare year anyway.
+      if (/^\d{4}$/.test(val)) {
+        const match = TERMS.find(t => t.term && t.term.startsWith(val + '-'));
+        if (match) {
+          navigate(buildUrlParams(
+            { term: match.term },
+            ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', 'sort', 'o'],
+          ));
+          restoreFromURL();
+          closeNavSearch();
+        }
+        return;
+      }
+
       // Save search state for all modes: keyword ("), number (#), or plain title.
       // Bare '"' or '#' with nothing after are not valid queries.
       if (val.length > 0 && val !== '"' && val !== '#') {

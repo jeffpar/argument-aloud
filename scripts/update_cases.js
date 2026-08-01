@@ -9487,6 +9487,8 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
+       node update_cases.js TERM CASE --date YYYY-MM-DD --minutes URL   # attach a NARA minutes reference
+       node update_cases.js --minutes [--dry-run]              # backfill missing minutes_src values
        node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
        node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
        node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/top_cites.json
@@ -9568,6 +9570,14 @@ Examples:
   node update_cases.js 2025-10 24-1260 --tag Noteworthy
   node update_cases.js 2025-10 24-1260 --tag "Fourth Amendment"
   node update_cases.js 2025-10 24-1260 --tag Noteworthy --dry-run
+
+  # Attach a NARA "Minutes of the U.S. Supreme Court" (M215) page reference
+  # to one event: minutes_href records the catalog URL, minutes_src the
+  # resolved image URL (no local copy)
+  node update_cases.js 1881-10 194 --date 1882-01-28 --minutes "https://catalog.archives.gov/id/178843742?objectPage=628"
+  node update_cases.js 1881-10 194 --date 1882-01-28 --minutes "https://catalog.archives.gov/id/178843742?objectPage=628" --dry-run
+  node update_cases.js --minutes                           # backfill minutes_src for existing minutes_href values
+  node update_cases.js --minutes --dry-run                 # preview only
 
   # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
   node update_cases.js --import ~/Downloads/ussc-favorites.json
@@ -11876,6 +11886,210 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
 }
 
 
+// ── --minutes: attach a NARA "Minutes of the U.S. Supreme Court" (M215)   ──
+// ── microfilm-page reference to an event (metadata only — no local copy) ──
+
+// The document-library path segment of every M215 media URL we've checked
+// (M215-014 and M215-017, covering two different terms/naIds) is identical
+// — confirmed against archives.gov directly before hardcoding it here — so
+// only the roll ("M215-NNN") and zero-padded page number actually vary.
+const NARA_MINUTES_MEDIA_BASE = 'https://catalog.archives.gov/medialz/dc-metro/rg-267/607809';
+
+// Parses a catalog.archives.gov minutes URL like
+// "https://catalog.archives.gov/id/178843742?objectPage=628" into its naId
+// and (1-based) page number (defaulting to page 1 if objectPage is absent).
+function _parseNaraMinutesUrl(url) {
+    const idMatch = /\/id\/(\d+)/.exec(url);
+    if (!idMatch) return null;
+    const pageMatch = /[?&]objectPage=(\d+)/.exec(url);
+    return { naId: idMatch[1], objectPage: pageMatch ? parseInt(pageMatch[1], 10) : 1 };
+}
+
+// Finds a roll name (e.g. "M215-014") already in use anywhere in this
+// term's cases.json, via a sibling event's minutes_src — every case in a
+// term's minutes are on the same physical roll, so this is what makes the
+// cheap guess in _resolveMinutesAsset() below worth trying at all.
+function _findKnownMinutesRoll(cases) {
+    for (const c of cases) {
+        for (const ev of (c.events || [])) {
+            const m = /\/(M\d+-\d+)\/\1-\d+\.jpg$/.exec(ev.minutes_src || '');
+            if (m) return m[1];
+        }
+    }
+    return null;
+}
+
+// Resolves a catalog.archives.gov minutes URL to its downloadable image URL
+// and filename ({objectUrl, objectFilename}), or null if nothing at all
+// could be resolved (malformed URL, or NARA's own record lacks that page).
+//
+// First tries a cheap guess: reusing a roll name already known for this
+// term (see _findKnownMinutesRoll()) with the page number from the URL
+// zero-padded into NARA_MINUTES_MEDIA_BASE's template, verified with a HEAD
+// request — NARA's media host doesn't 404 a wrong guess, it serves the
+// catalog's own SPA shell (text/html, HTTP 200) instead, so success is
+// judged by the response actually being an image, not by status code.
+// Only when there's no known roll to guess from yet, or the guess doesn't
+// pan out, does this fall back to resolving the *real* roll via the same
+// JSON search API import_nara.js already uses for this host (the catalog
+// page itself is a client-rendered SPA with nothing to scrape — confirmed
+// directly: its raw HTML is just the app shell, no server-rendered data).
+async function _resolveMinutesAsset(url, knownRoll) {
+    const parsed = _parseNaraMinutesUrl(url);
+    if (!parsed) return null;
+    const page4 = String(parsed.objectPage).padStart(4, '0');
+
+    if (knownRoll) {
+        const filename = `${knownRoll}-${page4}.jpg`;
+        const guessUrl = `${NARA_MINUTES_MEDIA_BASE}/${knownRoll}/${filename}`;
+        try {
+            const res = await fetch(guessUrl, { method: 'HEAD' });
+            if ((res.headers.get('content-type') || '').startsWith('image/')) {
+                return { objectUrl: guessUrl, objectFilename: filename };
+            }
+        } catch { /* fall through to the API below */ }
+    }
+
+    const apiUrl = `https://catalog.archives.gov/proxy/records/search?naId=${parsed.naId}`;
+    const res = await fetch(apiUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${apiUrl}`);
+    const data = await res.json();
+    const objs = data?.body?.hits?.hits?.[0]?._source?.record?.digitalObjects;
+    if (!Array.isArray(objs) || !objs.length) return null;
+    const obj = objs[parsed.objectPage - 1];
+    if (!obj?.objectUrl) return null;
+    return { objectUrl: obj.objectUrl, objectFilename: obj.objectFilename };
+}
+
+async function runAddMinutes(term, caseArg, argv, dryRun) {
+    const getValue = (flag) => {
+        const i = argv.indexOf(flag);
+        return i !== -1 && i + 1 < argv.length ? argv[i + 1] : null;
+    };
+
+    const date = getValue('--date');
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        console.error('ERROR: --minutes requires --date YYYY-MM-DD');
+        process.exit(1);
+    }
+    const url = getValue('--minutes');
+    if (!url || !/^https:\/\/catalog\.archives\.gov\/id\//.test(url)) {
+        console.error('ERROR: --minutes requires a catalog.archives.gov/id/... URL');
+        process.exit(1);
+    }
+
+    const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+    let cases;
+    try { cases = _readJson(casesPath); } catch {
+        console.error(`ERROR: could not read ${path.relative(REPO_ROOT, casesPath)}`);
+        process.exit(1);
+    }
+    if (!Array.isArray(cases)) {
+        console.error(`ERROR: ${path.relative(REPO_ROOT, casesPath)} is not an array`);
+        process.exit(1);
+    }
+    const c = cases.find(x => x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg)));
+    if (!c) {
+        console.error(`ERROR: ${term}: case "${caseArg}" not found`);
+        process.exit(1);
+    }
+    const label = c.number || c.id || '?';
+
+    const event = (c.events || []).find(e => e && e.date === date);
+    if (!event) {
+        console.error(`ERROR: ${term}/${label}: no events[] entry dated ${date}`);
+        process.exit(1);
+    }
+
+    const asset = await _resolveMinutesAsset(url, _findKnownMinutesRoll(cases));
+    if (!asset) {
+        console.error(`ERROR: could not resolve an image URL from ${url}`);
+        process.exit(1);
+    }
+
+    console.log(`  ${term}/${label}: minutes_href=${url}, minutes_src=${asset.objectUrl}`);
+    if (dryRun) {
+        console.log(`[dry-run] Would update ${path.relative(REPO_ROOT, casesPath)}`);
+        return;
+    }
+
+    event.minutes_href = url;
+    event.minutes_src = asset.objectUrl;
+    const idx = c.events.indexOf(event);
+    c.events[idx] = reorderEvent(event);
+
+    const reordered = reorderCase(c);
+    for (const k of Object.keys(c)) delete c[k];
+    Object.assign(c, reordered);
+
+    _writeJson(casesPath, cases);
+    console.log(`Added minutes reference to ${term}/${label} (${date}).`);
+}
+
+// Sweeps every term's cases.json for an event with minutes_href but no
+// minutes_src, and resolves+fills in minutes_src — e.g. for minutes_href
+// values that were entered by hand before this field existed. Metadata
+// only — no network fetch of the image itself, just the small API lookup
+// needed to resolve its URL.
+async function runMinutesBackfill(dryRun) {
+    const terms = fs.readdirSync(TERMS_DIR)
+        .filter(d => fs.existsSync(path.join(TERMS_DIR, d, 'cases.json')))
+        .sort();
+
+    let checked = 0, filled = 0, skipped = 0, failed = 0;
+    for (const term of terms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        const knownRoll = _findKnownMinutesRoll(cases);
+        let changed = false;
+
+        for (const c of cases) {
+            const label = c.number || c.id || '?';
+            for (const ev of (c.events || [])) {
+                if (!ev.minutes_href) continue;
+                checked++;
+                if (ev.minutes_src) { skipped++; continue; }
+
+                try {
+                    const asset = await _resolveMinutesAsset(ev.minutes_href, knownRoll);
+                    if (!asset) {
+                        console.log(`  WARNING: ${term}/${label}: could not resolve ${ev.minutes_href}`);
+                        failed++;
+                        continue;
+                    }
+
+                    console.log(`  ${term}/${label}: minutes_src=${asset.objectUrl}`);
+                    if (!dryRun) {
+                        ev.minutes_src = asset.objectUrl;
+                        changed = true;
+                    }
+                    filled++;
+                } catch (e) {
+                    console.log(`  WARNING: ${term}/${label}: ${e.message || e}`);
+                    failed++;
+                }
+            }
+        }
+
+        if (changed) {
+            for (const c of cases) {
+                if (!c.events) continue;
+                c.events = c.events.map(reorderEvent);
+                const reordered = reorderCase(c);
+                for (const k of Object.keys(c)) delete c[k];
+                Object.assign(c, reordered);
+            }
+            _writeJson(casesPath, cases);
+        }
+    }
+
+    console.log(`\nChecked ${checked} minutes reference(s): ${filled} filled in, ${skipped} already had minutes_src, ${failed} failed.`);
+    if (dryRun) console.log('(dry run — no files written)');
+}
+
+
 // ── --justia: scan downloaded Justia HTML opinions for cases missing in cases.json ──
 
 function _decodeHtmlEntities(str) {
@@ -13099,6 +13313,19 @@ async function main() {
             process.exit(1);
         }
         runAddAdvocate(positional[0], positional[1], argv, dryRun);
+        return;
+    }
+
+    if (flags.has('--minutes')) {
+        if (positional.length >= 2) {
+            await runAddMinutes(positional[0], positional[1], argv, dryRun);
+        } else if (positional.length === 0) {
+            await runMinutesBackfill(dryRun);
+        } else {
+            console.error('Usage: node update_cases.js TERM CASE --date YYYY-MM-DD --minutes URL   # attach one reference');
+            console.error('       node update_cases.js --minutes [--dry-run]                        # backfill missing minutes_src values');
+            process.exit(1);
+        }
         return;
     }
 

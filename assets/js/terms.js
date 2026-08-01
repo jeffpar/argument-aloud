@@ -86,12 +86,27 @@
 
   // Same postMessage pattern already used by the journal/report cover
   // buttons in this file to open a document in the SPA's doc viewer.
-  function wireDocLink(a, href, title) {
+  // `view` is forwarded as-is to showDocViewer's own `link.view` — pass
+  // 'pane' to force the embedded-iframe view instead of the default
+  // external-link card (showDocViewer only auto-picks the pane for
+  // .pdf/.mp4/.mp3 hrefs, and a catalog.archives.gov URL matches none of those).
+  // `altHref` (optional) opens in a plain new tab — bypassing the doc-viewer
+  // postMessage entirely, even when framed — on a Shift-click, instead of
+  // `href`'s normal doc-viewer behavior (see the Minutes page links below).
+  // Shift, not Cmd/Ctrl: a Cmd/Ctrl-click's new tab didn't reliably get
+  // focus (browsers can special-case that combination as a background-tab
+  // hint even past preventDefault()), whereas a plain window.open() call
+  // triggered by Shift does.
+  function wireDocLink(a, href, title, view, altHref) {
     a.href = href;
     a.addEventListener('click', function (e) {
       e.preventDefault();
+      if (altHref && e.shiftKey) {
+        window.open(altHref, '_blank', 'noopener,noreferrer');
+        return;
+      }
       if (window.parent !== window) {
-        window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title }, location.origin);
+        window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title, view: view }, location.origin);
       } else {
         window.open(href, '_blank', 'noopener,noreferrer');
       }
@@ -731,6 +746,40 @@
         fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument'));
         fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument'));
         fillGroup('date-decided-section',  'date-decided-list',  casesOnDate('decision'));
+
+        // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
+        // per-term file (most terms don't have one) built by
+        // tests/extract_minutes_text.js from NARA's own OCR'd minutes books —
+        // keyed by ISO date, each entry a {minutes_href, minutes_src,
+        // minutes_pages} triple. minutes_href (the catalog page URL, literal
+        // "$page" placeholder) is what opens by default; minutes_src (a
+        // direct image URL, literal "$page:4" placeholder zero-padded to 4
+        // digits) is kept one Shift-click away, opening in a plain new
+        // tab (not the doc viewer) for a quicker, chrome-free look at the
+        // page image itself.
+        fetch('/courts/ussc/terms/' + term + '/dates.json')
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (datesData) {
+            var entry = datesData && datesData[date];
+            if (!entry || !Array.isArray(entry.minutes_pages) || !entry.minutes_pages.length) return;
+            var ul = document.getElementById('date-minutes-list');
+            entry.minutes_pages.slice().sort(function (a, b) { return a - b; }).forEach(function (page) {
+              var li = document.createElement('li');
+              var a = document.createElement('a');
+              a.textContent = 'Page ' + page;
+              var page4 = String(page).padStart(4, '0');
+              var srcHref  = entry.minutes_src  ? entry.minutes_src.replace('$page:4', page4) : null;
+              var hrefHref = entry.minutes_href ? entry.minutes_href.replace('$page', page) : null;
+              var title = termTitle(term) + ' Minutes, p. ' + page;
+              var altHref = hrefHref ? srcHref : null;
+              if (altHref) a.title = 'Use Shift+Click to open this page in a new window';
+              wireDocLink(a, hrefHref || srcHref, title, 'pane', altHref);
+              li.appendChild(a);
+              ul.appendChild(li);
+            });
+            document.getElementById('date-minutes-section').hidden = false;
+          })
+          .catch(function () {});
       }
 
       // ── Term stats ──────────────────────────────────────────────────────────

@@ -34,6 +34,10 @@ scripts:
       <h3>Decided</h3>
       <ul id="date-decided-list" class="date-case-list"></ul>
     </div>
+    <div id="date-minutes-section" hidden>
+      <h3>Minutes</h3>
+      <ul id="date-minutes-list" class="date-minutes-list"></ul>
+    </div>
   </div>
 
   <div class="stats-grid">

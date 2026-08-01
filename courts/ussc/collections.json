@@ -374,6 +374,14 @@
         "order": "decision:ascending,titles:ascending"
       },
       {
+        "id": "minutes-references",
+        "name": "Cases with Minutes References",
+        "conditions": [
+          "event.minutes_href"
+        ],
+        "order": "argument:ascending,titles:ascending"
+      },
+      {
         "id": "incorrect-scdb-data",
         "name": "Cases with Other Incorrect SCDB Data",
         "conditions": [
