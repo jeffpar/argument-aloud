@@ -1,14 +1,15 @@
 ---
 title: Chief Justice William Howard Taft
 layout: pane
+case_count: 2
+first_argument: April 15, 1890
+last_argument: May 1, 1890
 justice_id: william_howard_taft
+wikipedia_url: https://en.wikipedia.org/wiki/William_Howard_Taft
 years_served: 8.6
 days_served: "3,130"
 opinions: 255
 lone_dissents: 1
-case_count: 2
-first_argument: April 15, 1890
-last_argument: May 1, 1890
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">
