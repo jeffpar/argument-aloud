@@ -264,9 +264,28 @@
     window.location.href = '/';
   }
 
+  // Kept in sync with terms.js's own LS_DATES_KEY constant. Value is a flat
+  // map of ISO date -> full replacement array-of-groups for a term's
+  // dates.json (the same shape a dates.json entry itself uses), or null for
+  // a date whose entry was deleted entirely — written by the Minutes
+  // drag-and-drop editing on the term stats page.
+  var LS_DATES_KEY = 'aa-dates-overrides';
+
+  function downloadDateOverrides() {
+    var raw;
+    try { raw = JSON.parse(localStorage.getItem(LS_DATES_KEY) || 'null'); } catch (e) { raw = null; }
+    if (!raw || typeof raw !== 'object' || !Object.keys(raw).length) {
+      alert('No date changes to download.');
+      return;
+    }
+    downloadJson('ussc-dates.json', raw);
+    alert('Downloaded. Apply it with:\n\nnode scripts/parse_minutes.js ussc-dates.json');
+  }
+
   window._saveFavorites           = saveFavorites;
   window._restoreFavorites        = restoreFavorites;
   window._clearFavorites          = clearFavorites;
   window._downloadTranscriptEdits = downloadTranscriptEdits;
   window._clearTranscriptEdits    = clearTranscriptEdits;
+  window._downloadDateOverrides   = downloadDateOverrides;
 }());

@@ -24,6 +24,13 @@
     <button class="menu-item" id="end-editing-btn" role="menuitem" hidden><span class="menu-check"></span>End Edits</button>
     <button class="menu-item" id="download-edits-btn" role="menuitem"><span class="menu-check"></span>Download Edits</button>
     <button class="menu-item" id="clear-edits-btn" role="menuitem"><span class="menu-check"></span>Clear Edits</button>
+    <!-- Hidden until this browser actually has local Minutes date edits (see
+         terms.js's drag-and-drop editing and storage-actions.js's
+         window._downloadDateOverrides) — unlike the always-visible sections
+         above, most visitors never have any of these. -->
+    <div class="menu-divider" id="customizations-divider" hidden></div>
+    <div class="menu-section-label" id="customizations-label" hidden>Customizations</div>
+    <button class="menu-item" id="download-dates-btn" role="menuitem" hidden><span class="menu-check"></span>Download Dates</button>
   </div>
 </div>
 <script src="{{ '/assets/js/storage-actions.js' | relative_url }}"></script>

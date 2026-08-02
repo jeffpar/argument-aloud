@@ -41,11 +41,12 @@ html[data-theme="light"] .stats-title-row { border-color: #e0e0e0; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
 #journal-cover-btn:hover #journal-cover-img { opacity: 0.8; }
 #journal-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
-.report-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.report-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
-.report-cover-btn:hover .report-cover-img { opacity: 0.8; }
-.report-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+.report-cover-btn, .minutes-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.report-cover-img, .minutes-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
+.report-cover-btn:hover .report-cover-img, .minutes-cover-btn:hover .minutes-cover-img { opacity: 0.8; }
+.report-cover-label, .minutes-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
+.stats-grid[hidden] { display: none; }
 .stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
 @media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
 html[data-theme="dark"]  .stat-card { background: #21242c; }
@@ -82,6 +83,10 @@ html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
 .cal-dec:hover     { background: #4e7db8; }
 .cal-arg-dec:hover { background: linear-gradient(135deg, #c85c5c 50%, #4e7db8 50%); }
 .cal-sel { box-shadow: inset 0 0 0 2px #fbbf24; }
+/* Compound selector (two classes) so this outranks the single-class
+   .cal-arg/.cal-dec/.cal-arg-dec color:#fff rules regardless of source
+   order, keeping the day digits bright green even on a colored day. */
+.cal-day.cal-minutes { color: #00e676; font-weight: 700; cursor: pointer; }
 @media (max-width: 600px) {
   .term-calendar { grid-template-columns: repeat(2, 1fr); gap: 1rem 1rem; }
 }
@@ -163,6 +168,20 @@ html[data-theme="light"] .date-section { border-color: #e0e0e0; }
 .date-minutes-list { margin: 0; padding: 0 0 0 1rem; font-size: 0.85rem; }
 .date-minutes-list a { color: #2672b4; text-decoration: none; }
 .date-minutes-list a:hover { text-decoration: underline; color: #4a9eff; }
+/* ID selectors so these win over the .date-case-list/.date-minutes-list
+   color rules above (and their dark-mode variants) regardless of source
+   order — matching the same reddish-pink/green used for argument days and
+   minutes-book digits on the term calendar (.cal-arg / .cal-day.cal-minutes). */
+#date-argued-list a { color: #d97070; }
+#date-minutes-list, #date-minutes-list a { color: rgb(46, 139, 87); }
+#date-minutes-list a { cursor: grab; }
+/* Extra class so the brighter calendar green wins over the rgb(46, 139, 87)
+   rule above regardless of source order (one more class = higher
+   specificity) — the currently click-selected Minutes page. */
+#date-minutes-list a.minutes-page-selected { color: #00e676; }
+/* Drag-over feedback for a calendar day accepting a dropped Minutes page —
+   see wireCalDayDropTarget in terms.js. */
+.cal-day.cal-drop-target { box-shadow: inset 0 0 0 2px #00e676; }
 @media (prefers-color-scheme: dark) {
   .date-section h3 { color: #6a7080; }
   .date-case-list a, .date-minutes-list a { color: #5eaee0; }

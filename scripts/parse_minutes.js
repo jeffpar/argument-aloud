@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * tests/extract_minutes_text.js
+ * scripts/parse_minutes.js
  *
- * Test script: given a NARA "Minutes of the U.S. Supreme Court" (M215)
+ * Given a NARA "Minutes of the U.S. Supreme Court" (M215)
  * volume URL (e.g. https://catalog.archives.gov/id/178847707), fetches
  * every page's own "Extracted Text" (NARA's OCR, via the same proxy API
  * catalog.archives.gov's own frontend uses — the catalog page itself is a
@@ -70,16 +70,62 @@
  * heal into the current shape as new pages come in for the same date.
  *
  * Usage:
- *   node tests/extract_minutes_text.js <volume-url> [--dry-run] [--limit N]
+ *   node scripts/parse_minutes.js <volume-url> [--dry-run] [--limit N]
+ *   node scripts/parse_minutes.js --thumbnails [--dry-run]
+ *   node scripts/parse_minutes.js <overrides-file.json> [--dry-run]
+ *   node scripts/parse_minutes.js [TERM] [--dry-run]
  *
- *   --dry-run   Report what would be saved without writing any files
- *   --limit N   Only process the first N pages (for a quick test run —
- *               a full volume can be 1000+ pages)
+ *   --dry-run     Report what would be saved without writing any files
+ *   --limit N     Only process the first N pages (for a quick test run —
+ *                 a full volume can be 1000+ pages)
+ *   --thumbnails  Separate mode (no volume-url): for every term with a
+ *                 dates.json, generate one cover thumbnail per unique
+ *                 minutes_src template found in it (i.e. one per physical
+ *                 roll referenced by that term, not one per date/page) —
+ *                 courts/ussc/terms/<term>/m<XXX>-cover.jpg, a 1340px-tall
+ *                 proportional resize (via macOS's `sips`) of the first
+ *                 page number seen for that template, where <XXX> is the
+ *                 3-digit roll number in "M215-XXX". Every group sharing
+ *                 that minutes_src gets a "minutes_cover" prop (right after
+ *                 minutes_src) pointing at it, e.g.
+ *                 "/courts/ussc/terms/1888-10/m017-cover.jpg".
+ *
+ * Applying a downloaded overrides file: the term stats page's Minutes Pages
+ * list (assets/js/terms.js) lets a visitor drag a page number onto a
+ * calendar day to reassign it (and every later page in its source group) to
+ * that date — these edits are kept in that browser's own localStorage and
+ * can be exported via the site's "Download Dates" menu item into a flat
+ * JSON file: { "<ISO date>": <array-of-groups> | null, ... }, one entry per
+ * date the visitor touched, `null` meaning that date's entry should be
+ * removed entirely. Passing that file as the positional argument here
+ * (instead of a volume URL) looks up each date's own term (same "latest
+ * term starting on/before this date" rule used everywhere else in this
+ * script) and applies the change directly to that term's own dates.json —
+ * across as many different terms' files as the overrides touch.
+ *
+ * Backfilling the local text cache (no volume-url, no overrides file): with
+ * no positional argument at all (or just a bare TERM like "1888-10", to
+ * scope it to one term instead of every term with a dates.json), this
+ * reconciles courts/ussc/minutes/text/<year>/ against dates.json's own,
+ * already-resolved dates rather than re-deriving them — dates.json is only
+ * ever read here, never rewritten. For every unique minutes_href a term's
+ * dates.json references (its own "?..." query string stripped back down to
+ * a bare volume URL first), and every page number dates.json says belongs to
+ * it: if <year>/<basename>.txt already exists where dates.json's own
+ * resolved date for that page says it should (<year> being that date's
+ * calendar year), nothing to do. Otherwise, since an earlier, less accurate
+ * run of the OCR date-parsing above may have originally filed it under a
+ * different year within the volume's own valid range (see the record's
+ * title-derived year range above), every other year in that range is
+ * checked first — if found there, the file is moved into the expected year
+ * folder instead of being re-downloaded. Only if it's genuinely missing
+ * everywhere in that range is it fetched fresh from NARA.
  */
 
-import { writeFileSync, mkdirSync, readFileSync, readdirSync, existsSync, statSync } from 'fs';
+import { writeFileSync, mkdirSync, readFileSync, readdirSync, existsSync, statSync, unlinkSync } from 'fs';
 import { join, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -290,16 +336,333 @@ function smoothDates(records) {
   return resolved;
 }
 
+// One cover thumbnail per unique minutes_src template (i.e. per physical
+// roll), across every term that has a dates.json — see the --thumbnails
+// doc comment at the top of this file for the exact naming/placement rules.
+async function runThumbnails(dryRun) {
+  const terms = readdirSync(TERMS_DIR)
+    .filter(d => /^\d{4}-\d{2}$/.test(d) && existsSync(join(TERMS_DIR, d, 'dates.json')))
+    .sort();
+
+  let created = 0, existing = 0, failed = 0;
+
+  for (const term of terms) {
+    const datesPath = join(TERMS_DIR, term, 'dates.json');
+    let dates;
+    try { dates = JSON.parse(readFileSync(datesPath, 'utf8')); } catch { continue; }
+
+    // First page number seen for each unique minutes_src template, walking
+    // dates in sorted (chronological) order so "first" is deterministic.
+    const firstPageByTemplate = new Map();
+    for (const iso of Object.keys(dates).sort()) {
+      const groups = dates[iso];
+      if (!Array.isArray(groups)) continue;
+      for (const g of groups) {
+        if (!g.minutes_src || !Array.isArray(g.minutes_pages) || !g.minutes_pages.length) continue;
+        if (!firstPageByTemplate.has(g.minutes_src)) {
+          firstPageByTemplate.set(g.minutes_src, Math.min(...g.minutes_pages));
+        }
+      }
+    }
+    if (!firstPageByTemplate.size) continue;
+
+    let changed = false;
+    for (const [template, firstPage] of firstPageByTemplate) {
+      const rollMatch = /M215-(\d{3})/.exec(template);
+      if (!rollMatch) {
+        console.log(`  ${term}: could not parse a roll number from ${template}`);
+        failed++;
+        continue;
+      }
+      const xxx = rollMatch[1];
+      const coverName = `m${xxx}-cover.jpg`;
+      const coverPath = join(TERMS_DIR, term, coverName);
+      const coverRef = `/courts/ussc/terms/${term}/${coverName}`;
+
+      if (existsSync(coverPath)) {
+        existing++;
+      } else {
+        const page4 = String(firstPage).padStart(4, '0');
+        const imgUrl = template.replace('$page:4', page4);
+        console.log(`  ${term}: fetching ${imgUrl} -> ${coverName}`);
+        if (!dryRun) {
+          const tmpPath = join(TERMS_DIR, term, `.${coverName}.raw`);
+          try {
+            const res = await fetch(imgUrl);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            writeFileSync(tmpPath, Buffer.from(await res.arrayBuffer()));
+            execFileSync('sips', ['--resampleHeight', '1340', tmpPath, '--out', coverPath], { stdio: 'ignore' });
+          } catch (e) {
+            console.log(`  ${term}: ERROR ${e.message || e}`);
+            failed++;
+            continue;
+          } finally {
+            if (existsSync(tmpPath)) unlinkSync(tmpPath);
+          }
+        }
+        created++;
+      }
+
+      // Every group sharing this exact minutes_src template shows the same
+      // physical roll, so they all get the same cover — not just whichever
+      // group's page happened to be used to fetch it.
+      for (const iso of Object.keys(dates)) {
+        const groups = dates[iso];
+        if (!Array.isArray(groups)) continue;
+        for (let gi = 0; gi < groups.length; gi++) {
+          const g = groups[gi];
+          if (g.minutes_src !== template || g.minutes_cover === coverRef) continue;
+          console.log(`  ${term}/dates.json[${iso}] gained minutes_cover=${coverRef}`);
+          if (!dryRun) {
+            groups[gi] = {
+              minutes_href: g.minutes_href,
+              minutes_src: g.minutes_src,
+              minutes_cover: coverRef,
+              minutes_pages: g.minutes_pages,
+            };
+          }
+          changed = true;
+        }
+      }
+    }
+
+    if (changed && !dryRun) {
+      writeFileSync(datesPath, JSON.stringify(dates, null, 2) + '\n', 'utf8');
+      console.log(`  ${term}: updated dates.json`);
+    }
+  }
+
+  console.log(`\nThumbnails: ${created} created, ${existing} already existed, ${failed} failed.`);
+  if (dryRun) console.log('(dry run — no files written)');
+}
+
+// Normalizes one override value (a single group object, an array of them,
+// possibly hand-edited or from an older format) into the same
+// {minutes_href, minutes_src, minutes_cover?, minutes_pages} key order and
+// ascending-sorted minutes_pages that the rest of this script writes.
+function normalizeOverrideGroups(val) {
+  const groups = Array.isArray(val) ? val : [val];
+  return groups.map((g) => {
+    const out = { minutes_href: g.minutes_href, minutes_src: g.minutes_src };
+    if (g.minutes_cover) out.minutes_cover = g.minutes_cover;
+    out.minutes_pages = [...new Set(g.minutes_pages || [])].sort((a, b) => a - b);
+    return out;
+  });
+}
+
+// Applies a downloaded date-overrides file (see the doc comment at the top
+// of this file) — a flat { "<ISO date>": <groups>|null } map, possibly
+// spanning several terms — directly to each affected term's own dates.json.
+async function applyDateOverrides(filePath, dryRun) {
+  const raw = JSON.parse(readFileSync(filePath, 'utf8'));
+  const termStarts = loadTermStarts();
+  const datesByTerm = new Map();
+  const getDates = (term) => {
+    if (!datesByTerm.has(term)) datesByTerm.set(term, loadDatesJson(term));
+    return datesByTerm.get(term);
+  };
+
+  const changedTerms = new Set();
+  let applied = 0, skipped = 0;
+
+  for (const iso of Object.keys(raw)) {
+    const term = termForDate(iso, termStarts);
+    if (!term) {
+      console.log(`  ${iso}: matches no known term; skipping`);
+      skipped++;
+      continue;
+    }
+    const dates = getDates(term);
+    const val = raw[iso];
+
+    if (val === null) {
+      if (dates[iso] === undefined) {
+        console.log(`  ${iso}: already absent from ${term}/dates.json`);
+        skipped++;
+        continue;
+      }
+      delete dates[iso];
+      changedTerms.add(term);
+      console.log(`  ${iso}: removed from ${term}/dates.json`);
+      applied++;
+      continue;
+    }
+
+    const groups = normalizeOverrideGroups(val);
+    if (JSON.stringify(dates[iso]) === JSON.stringify(groups)) {
+      console.log(`  ${iso}: already up to date in ${term}/dates.json`);
+      skipped++;
+      continue;
+    }
+    dates[iso] = groups;
+    changedTerms.add(term);
+    console.log(`  ${iso}: updated in ${term}/dates.json`);
+    applied++;
+  }
+
+  if (!dryRun) {
+    for (const term of changedTerms) {
+      const dates = datesByTerm.get(term);
+      const sorted = {};
+      for (const k of Object.keys(dates).sort()) sorted[k] = dates[k];
+      const p = join(TERMS_DIR, term, 'dates.json');
+      writeFileSync(p, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+    }
+  }
+
+  console.log(`\nOverrides: ${applied} applied across ${changedTerms.size} term(s), ${skipped} already matched or unresolvable.`);
+  if (dryRun) console.log('(dry run — no files written)');
+}
+
+// Reconciles courts/ussc/minutes/text/<year>/ against one term's (or every
+// term's) already-resolved dates.json — see the "Backfilling the local text
+// cache" doc comment at the top of this file. dates.json is only ever read
+// here, never rewritten.
+async function syncMinutesText(termFilter, dryRun) {
+  const terms = readdirSync(TERMS_DIR)
+    .filter(d => /^\d{4}-\d{2}$/.test(d) && (!termFilter || d === termFilter) && existsSync(join(TERMS_DIR, d, 'dates.json')))
+    .sort();
+  if (termFilter && !terms.length) {
+    console.error(`ERROR: no dates.json found for term ${termFilter}`);
+    process.exit(1);
+  }
+
+  // base volume URL (query string stripped) -> Map<pageNum, isoDate>, merged
+  // across every term that references it (in practice always one term, but
+  // nothing stops two adjacent terms' dates.json from citing the same
+  // volume right at a term boundary).
+  const pagesByHref = new Map();
+  for (const term of terms) {
+    let dates;
+    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+    for (const iso of Object.keys(dates)) {
+      const groups = dates[iso];
+      if (!Array.isArray(groups)) continue;
+      for (const g of groups) {
+        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
+        const baseHref = g.minutes_href.split('?')[0];
+        if (!pagesByHref.has(baseHref)) pagesByHref.set(baseHref, new Map());
+        const pageMap = pagesByHref.get(baseHref);
+        for (const pageNum of g.minutes_pages) pageMap.set(pageNum, iso);
+      }
+    }
+  }
+
+  let ok = 0, moved = 0, downloaded = 0, skipped = 0, failed = 0;
+
+  for (const [baseHref, pageMap] of pagesByHref) {
+    const naId = parseVolumeUrl(baseHref);
+    if (!naId) {
+      console.log(`${baseHref}: could not parse a naId; skipping ${pageMap.size} page(s)`);
+      skipped += pageMap.size;
+      continue;
+    }
+    console.log(`\n${baseHref} (naId ${naId}): checking ${pageMap.size} page(s)...`);
+    let objs, title;
+    try {
+      ({ objs, title } = await fetchRecordMeta(naId));
+    } catch (e) {
+      console.log(`  ERROR fetching record metadata: ${e.message || e}`);
+      failed += pageMap.size;
+      continue;
+    }
+    const yearRange = parseVolumeYearRange(title);
+    // Bounded by the volume's own valid range — never a blind scan of every
+    // year folder on disk, so a misfiled page can only ever be "found" among
+    // years this exact volume could plausibly cover.
+    const rangeYears = yearRange
+      ? Array.from({ length: yearRange.max - yearRange.min + 1 }, (_, i) => String(yearRange.min + i))
+      : [];
+
+    const pages = [...pageMap.entries()].sort((a, b) => a[0] - b[0]);
+    for (const [pageNum, iso] of pages) {
+      const obj = objs[pageNum - 1];
+      const base = obj && obj.objectFilename ? basename(obj.objectFilename, '.jpg') : null;
+      if (!base || !obj.objectId) {
+        console.log(`  [page ${pageNum}] SKIP (missing filename/objectId in volume listing)`);
+        skipped++;
+        continue;
+      }
+      const expectedYear = iso.slice(0, 4);
+      const expectedPath = join(MINUTES_DIR, expectedYear, `${base}.txt`);
+      if (existsSync(expectedPath)) {
+        ok++;
+        continue;
+      }
+
+      const foundYear = rangeYears.find(y => y !== expectedYear && existsSync(join(MINUTES_DIR, y, `${base}.txt`)));
+      if (foundYear) {
+        console.log(`  [page ${pageNum}] ${base}.txt: found under ${foundYear}/ — moving to ${expectedYear}/ (dates.json says ${iso})`);
+        moved++;
+        if (!dryRun) {
+          mkdirSync(join(MINUTES_DIR, expectedYear), { recursive: true });
+          writeFileSync(expectedPath, readFileSync(join(MINUTES_DIR, foundYear, `${base}.txt`), 'utf8'), 'utf8');
+          unlinkSync(join(MINUTES_DIR, foundYear, `${base}.txt`));
+        }
+        continue;
+      }
+
+      console.log(`  [page ${pageNum}] ${base}.txt: missing everywhere in range; fetching from NARA...`);
+      try {
+        const text = await fetchExtractedText(naId, obj.objectId);
+        if (!text || !text.trim()) {
+          console.log('    no extracted text available');
+          failed++;
+        } else {
+          downloaded++;
+          if (!dryRun) {
+            mkdirSync(join(MINUTES_DIR, expectedYear), { recursive: true });
+            writeFileSync(expectedPath, text, 'utf8');
+          }
+        }
+      } catch (e) {
+        console.log(`    ERROR ${e.message || e}`);
+        failed++;
+      }
+      await sleep(150); // be polite to NARA's API
+    }
+  }
+
+  console.log(`\nMinutes text cache: ${ok} already correct, ${moved} moved, ${downloaded} downloaded, ${skipped} skipped, ${failed} failed.`);
+  if (dryRun) console.log('(dry run — no files moved or written)');
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
+
+  if (args.includes('--thumbnails')) {
+    await runThumbnails(dryRun);
+    return;
+  }
+
   const limitIdx = args.indexOf('--limit');
   const limit = limitIdx !== -1 ? parseInt(args[limitIdx + 1], 10) : null;
-  const volumeUrl = args.find(a => !a.startsWith('--') && !/^\d+$/.test(a));
-  if (!volumeUrl) {
-    console.error('Usage: node tests/extract_minutes_text.js <volume-url> [--dry-run] [--limit N]');
-    process.exit(1);
+  const positional = args.find(a => !a.startsWith('--') && !/^\d+$/.test(a));
+
+  // No volume URL, overrides file, or term given at all — reconcile every
+  // term's local Minutes text cache against its existing dates.json (see
+  // syncMinutesText's own doc comment) rather than erroring out.
+  if (!positional) {
+    await syncMinutesText(null, dryRun);
+    return;
   }
+
+  // A downloaded overrides file is a local path, never a URL — distinguish
+  // it from <volume-url> that way rather than requiring a separate flag.
+  if (!/^https?:\/\//.test(positional) && existsSync(positional)) {
+    await applyDateOverrides(positional, dryRun);
+    return;
+  }
+
+  // A bare term (e.g. "1888-10", never a valid URL or an existing local
+  // file) scopes the same text-cache reconciliation to just that term.
+  if (/^\d{4}-\d{2}$/.test(positional)) {
+    await syncMinutesText(positional, dryRun);
+    return;
+  }
+
+  const volumeUrl = positional;
   const naId = parseVolumeUrl(volumeUrl);
   if (!naId) {
     console.error(`ERROR: could not parse a naId from ${volumeUrl}`);

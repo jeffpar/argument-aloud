@@ -28,6 +28,32 @@
     menu.setAttribute('aria-hidden', 'true');
   }
 
+  // Kept in sync with terms.js's own LS_DATES_KEY constant (the term stats
+  // page, where Minutes drag-and-drop edits are made, lives in a same-origin
+  // iframe under this topbar rather than sharing this script directly).
+  var LS_DATES_KEY = 'aa-dates-overrides';
+
+  // The Customizations section only ever shows up for a visitor who has
+  // actually made a local Minutes date edit — unlike Appearance/Favorites/
+  // Transcripts above, most visitors never populate it at all. This topbar
+  // only loads once per full page load, but the iframe holding the term
+  // stats page (where an edit happens) is a *different* browsing context, so
+  // its localStorage writes fire a 'storage' event here that this listens
+  // for, instead of only checking once at DOMContentLoaded.
+  function updateCustomizationsMenu() {
+    var has = !!localStorage.getItem(LS_DATES_KEY);
+    var divider = document.getElementById('customizations-divider');
+    var label   = document.getElementById('customizations-label');
+    var dlBtn   = document.getElementById('download-dates-btn');
+    if (divider) divider.hidden = !has;
+    if (label)   label.hidden   = !has;
+    if (dlBtn)   dlBtn.hidden   = !has;
+  }
+
+  window.addEventListener('storage', function (e) {
+    if (e.key === LS_DATES_KEY) updateCustomizationsMenu();
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
     // Standalone/installed web-app mode hides the browser's own back/forward
     // controls, so provide equivalents here.
@@ -117,5 +143,14 @@
         if (typeof window._clearFavorites === 'function') window._clearFavorites();
       });
     }
+
+    var downloadDatesBtn = document.getElementById('download-dates-btn');
+    if (downloadDatesBtn) {
+      downloadDatesBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._downloadDateOverrides === 'function') window._downloadDateOverrides();
+      });
+    }
+    updateCustomizationsMenu();
   });
 }());

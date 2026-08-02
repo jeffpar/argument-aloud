@@ -131,17 +131,13 @@ Applying a downloaded set of transcript edits (speaker/text corrections submitte
 
 ### Building date information from Engrossed Minutes:
 
-#### Volumes 47 - 50; October 27, 1884 - April 25, 1887
-
-`node tests/extract_minutes_text.js https://catalog.archives.gov/id/178845576`
-
 #### Volumes 51 - 53; April 25, 1887 - May 13, 1889
 
-`node tests/extract_minutes_text.js https://catalog.archives.gov/id/178846789`
+`node scripts/parse_minutes.js https://catalog.archives.gov/id/178846789`
 
 #### Volumes 54 - 57; May 13, 1889 - March 7, 1892
 
-`node tests/extract_minutes_text.js https://catalog.archives.gov/id/178847707`
+`node scripts/parse_minutes.js https://catalog.archives.gov/id/178847707`
 
 ## MIT License
 

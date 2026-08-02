@@ -40,7 +40,7 @@ scripts:
     </div>
   </div>
 
-  <div class="stats-grid">
+  <div class="stats-grid" id="stats-grid">
     <div class="stat-card">
       <span class="stat-value" id="stat-argued-cases">—</span>
       <span class="stat-label">Cases argued</span>
