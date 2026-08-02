@@ -90,13 +90,15 @@
   // 'pane' to force the embedded-iframe view instead of the default
   // external-link card (showDocViewer only auto-picks the pane for
   // .pdf/.mp4/.mp3 hrefs, and a catalog.archives.gov URL matches none of those).
-  // `altHref` (optional) opens in a plain new tab — bypassing the doc-viewer
-  // postMessage entirely, even when framed — on a Shift-click, instead of
+  // `altHref` (optional) opens in a new tab on a Shift-click, instead of
   // `href`'s normal doc-viewer behavior (see the Minutes page links below).
-  // Shift, not Cmd/Ctrl: a Cmd/Ctrl-click's new tab didn't reliably get
-  // focus (browsers can special-case that combination as a background-tab
-  // hint even past preventDefault()), whereas a plain window.open() call
-  // triggered by Shift does.
+  // Simple window.open() — tab-vs-window and inline-vs-download for a
+  // Shift-clicked image both end up somewhat browser-dependent no matter
+  // how this is done (window.open(), a synthetic click, or letting a real
+  // modified click fall through to native handling — all three were tried
+  // and each regressed some combination of Chrome/Safari), so this just
+  // takes the straightforward approach rather than chasing full cross-
+  // browser parity here.
   function wireDocLink(a, href, title, view, altHref) {
     a.href = href;
     a.addEventListener('click', function (e) {
@@ -751,31 +753,47 @@
         // per-term file (most terms don't have one) built by
         // tests/extract_minutes_text.js from NARA's own OCR'd minutes books —
         // keyed by ISO date, each entry a {minutes_href, minutes_src,
-        // minutes_pages} triple. minutes_href (the catalog page URL, literal
-        // "$page" placeholder) is what opens by default; minutes_src (a
-        // direct image URL, literal "$page:4" placeholder zero-padded to 4
-        // digits) is kept one Shift-click away, opening in a plain new
-        // tab (not the doc viewer) for a quicker, chrome-free look at the
-        // page image itself.
+        // minutes_pages} triple. minutes_src (a direct image URL, literal
+        // "$page:4" placeholder zero-padded to 4 digits) opens by default,
+        // in a new tab, for a quick chrome-free look at the page image
+        // itself; minutes_href (the catalog page URL, literal "$page"
+        // placeholder) is kept one Shift-click away, opening in the doc
+        // viewer instead. This is the inverse of wireDocLink's usual
+        // default-is-doc-viewer/alt-is-new-tab convention, so it's wired
+        // up by hand below rather than through that helper.
         fetch('/courts/ussc/terms/' + term + '/dates.json')
           .then(function (r) { return r.ok ? r.json() : null; })
           .then(function (datesData) {
             var entry = datesData && datesData[date];
             if (!entry || !Array.isArray(entry.minutes_pages) || !entry.minutes_pages.length) return;
-            var ul = document.getElementById('date-minutes-list');
-            entry.minutes_pages.slice().sort(function (a, b) { return a - b; }).forEach(function (page) {
-              var li = document.createElement('li');
+            var pages = entry.minutes_pages.slice().sort(function (a, b) { return a - b; });
+            var container = document.getElementById('date-minutes-list');
+            // "Page N" for a single page; "Pages N1, N2, N3" for several —
+            // saves repeating "Page" once per link when there's more than one.
+            container.appendChild(document.createTextNode(pages.length === 1 ? 'Page ' : 'Pages '));
+            pages.forEach(function (page, i) {
+              if (i > 0) container.appendChild(document.createTextNode(', '));
               var a = document.createElement('a');
-              a.textContent = 'Page ' + page;
+              a.textContent = String(page);
               var page4 = String(page).padStart(4, '0');
               var srcHref  = entry.minutes_src  ? entry.minutes_src.replace('$page:4', page4) : null;
               var hrefHref = entry.minutes_href ? entry.minutes_href.replace('$page', page) : null;
               var title = termTitle(term) + ' Minutes, p. ' + page;
-              var altHref = hrefHref ? srcHref : null;
-              if (altHref) a.title = 'Use Shift+Click to open this page in a new window';
-              wireDocLink(a, hrefHref || srcHref, title, 'pane', altHref);
-              li.appendChild(a);
-              ul.appendChild(li);
+              a.href = srcHref || hrefHref;
+              if (srcHref && hrefHref) a.title = 'Use Shift+Click to open this page in the doc viewer';
+              a.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (hrefHref && e.shiftKey) {
+                  if (window.parent !== window) {
+                    window.parent.postMessage({ type: 'ussc-open-doc', href: hrefHref, title: title, view: 'pane' }, location.origin);
+                  } else {
+                    window.open(hrefHref, '_blank', 'noopener,noreferrer');
+                  }
+                } else {
+                  window.open(srcHref || hrefHref, '_blank', 'noopener,noreferrer');
+                }
+              });
+              container.appendChild(a);
             });
             document.getElementById('date-minutes-section').hidden = false;
           })

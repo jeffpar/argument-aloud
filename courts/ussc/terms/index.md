@@ -23,7 +23,7 @@ scripts:
     </div>
     <h2 id="stat-date-title" hidden></h2>
     <div id="date-argued-section" hidden>
-      <h3>Argued</h3>
+      <h3>Arguments</h3>
       <ul id="date-argued-list" class="date-case-list"></ul>
     </div>
     <div id="date-reargued-section" hidden>
@@ -31,12 +31,12 @@ scripts:
       <ul id="date-reargued-list" class="date-case-list"></ul>
     </div>
     <div id="date-decided-section" hidden>
-      <h3>Decided</h3>
+      <h3>Decisions</h3>
       <ul id="date-decided-list" class="date-case-list"></ul>
     </div>
     <div id="date-minutes-section" hidden>
       <h3>Minutes</h3>
-      <ul id="date-minutes-list" class="date-minutes-list"></ul>
+      <p id="date-minutes-list" class="date-minutes-list"></p>
     </div>
   </div>
 
