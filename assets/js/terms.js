@@ -397,13 +397,18 @@
   }
 
   // Makes a calendar day cell a drop target for a Minutes-page-list drag (see
-  // renderMinutesPagesList below): onDrop(sourceIso, sourcePage, targetIso)
-  // is called with this day's own iso as targetIso. Wrapped in its own
-  // function (rather than wired inline in renderTermCalendar's loop) so each
-  // call gets its own `iso` binding — the loop variable itself is shared
-  // across every iteration and would otherwise have moved on by drop time.
+  // renderMinutesPagesList below): onDrop(sourceIso, sourcePage, targetIso,
+  // copyOnly) is called with this day's own iso as targetIso, and copyOnly
+  // true if Shift was held at drop time (see handleMinutesDrop). Wrapped in
+  // its own function (rather than wired inline in renderTermCalendar's loop)
+  // so each call gets its own `iso` binding — the loop variable itself is
+  // shared across every iteration and would otherwise have moved on by drop
+  // time.
   function wireCalDayDropTarget(dayEl, iso, onDrop) {
-    dayEl.addEventListener('dragover', function (e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; });
+    dayEl.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = e.shiftKey ? 'copy' : 'move';
+    });
     dayEl.addEventListener('dragenter', function () { dayEl.classList.add('cal-drop-target'); });
     dayEl.addEventListener('dragleave', function () { dayEl.classList.remove('cal-drop-target'); });
     dayEl.addEventListener('drop', function (e) {
@@ -413,7 +418,7 @@
       if (!raw) return;
       var payload;
       try { payload = JSON.parse(raw); } catch (err) { return; }
-      if (payload && payload.iso && payload.page != null) onDrop(payload.iso, payload.page, iso);
+      if (payload && payload.iso && payload.page != null) onDrop(payload.iso, payload.page, iso, e.shiftKey);
     });
   }
 
@@ -477,16 +482,34 @@
     container.appendChild(calEl);
   }
 
+  // A date's own groups array isn't necessarily stored in the record's
+  // actual physical/chronological order (e.g. a later drag-and-drop edit can
+  // append a newly created group after an older one) — minutes_src embeds
+  // the roll number directly (".../M215-013/M215-013-$page:4.jpg") in a
+  // reliably, lexicographically-sortable form, unlike minutes_href's opaque
+  // catalog naId, so sorting by it is what actually recovers record-group
+  // order. Shared by every place that combines more than one group's pages
+  // for display, and by handleMinutesDrop below so a date's groups are
+  // written back in this same order — otherwise a wrong in-memory order
+  // could get baked in permanently once scripts/parse_minutes.js applies it
+  // and marks the group "modified" (never resorted again after that).
+  function sortGroupsBySrc(groups) {
+    return groups.slice().sort(function (a, b) {
+      return (a.minutes_src || '').localeCompare(b.minutes_src || '');
+    });
+  }
+
   // "Minutes Pages: 522-528, 601, 603-609" — collapses each run of consecutive
   // page numbers into an "A-D" range, listing separate runs (or a lone page)
   // comma-separated. Kept per-group (not one flat sort across every page in
   // datesData[iso]) since a date occasionally spans two physical minutes
   // volumes (see 1889-05-13) whose page numbers restart and would otherwise
-  // interleave in a single numeric sort.
+  // interleave in a single numeric sort — sortGroupsBySrc above puts them in
+  // the record's own physical order first.
   function formatMinutesTooltip(groups) {
     if (!Array.isArray(groups)) return '';
     var parts = [];
-    groups.forEach(function (g) {
+    sortGroupsBySrc(groups).forEach(function (g) {
       var pages = Array.from(new Set(g.minutes_pages || [])).sort(function (a, b) { return a - b; });
       if (!pages.length) return;
       var ranges = [];
@@ -555,15 +578,21 @@
     selectedMinutesPageEl = null;
     var groups = termDatesData && termDatesData[date];
     if (!Array.isArray(groups) || !groups.length) { section.hidden = true; return; }
-    // Flatten in group order, not a single global page-number sort — a
-    // date's proceedings occasionally roll from one physical minutes volume
-    // into the next (see 1889-05-13, ending v.17 then starting v.18), and
-    // v.18's low page numbers would otherwise sort ahead of v.17's high
-    // ones. Pages within each group are still sorted ascending (should
-    // already be in that order in dates.json, but sorted here defensively).
+    // Flatten in the groups' own record order (sortGroupsBySrc above), not a
+    // single global page-number sort — a date's proceedings occasionally
+    // roll from one physical minutes volume into the next (see 1889-05-13,
+    // ending v.17 then starting v.18), and v.18's low page numbers would
+    // otherwise sort ahead of v.17's high ones. Pages within each group are
+    // still sorted ascending (should already be in that order in
+    // dates.json, but sorted here defensively).
     var flatPages = [];
-    groups.forEach(function (g) {
-      var pages = (g.minutes_pages || []).slice().sort(function (a, b) { return a - b; });
+    sortGroupsBySrc(groups).forEach(function (g) {
+      // Deduplicated defensively — a page should only ever be listed once
+      // for a given date (handleMinutesDrop below guards against creating a
+      // duplicate in the first place, but this keeps a stray one, from
+      // before that guard existed or a hand-edited dates.json, from ever
+      // rendering twice).
+      var pages = Array.from(new Set(g.minutes_pages || [])).sort(function (a, b) { return a - b; });
       pages.forEach(function (page) {
         flatPages.push({ page: page, minutes_href: g.minutes_href, minutes_src: g.minutes_src });
       });
@@ -590,7 +619,8 @@
       var title = termTitle(term) + ' Minutes, p. ' + page;
       a.href = srcHref || hrefHref;
       a.title = (srcHref && hrefHref ? 'Use Shift+Click to open this page in the doc viewer. ' : '')
-        + 'Drag onto a calendar day to move this page (and any later pages) to that date.';
+        + 'Drag onto a calendar day to move this page (and any later pages) to that date; '
+        + 'Shift+drag to copy just this one page there instead, without removing it here.';
       a.addEventListener('click', function (e) {
         e.preventDefault();
         if (selectedMinutesPageEl && selectedMinutesPageEl !== a) selectedMinutesPageEl.classList.remove('minutes-page-selected');
@@ -607,7 +637,12 @@
         }
       });
       a.addEventListener('dragstart', function (e) {
-        e.dataTransfer.effectAllowed = 'move';
+        // 'move' alone would make the drop target's own dropEffect = 'copy'
+        // (set on dragover when Shift is held — see wireCalDayDropTarget)
+        // invalid per the HTML5 DnD spec, which some browsers then enforce
+        // by silently refusing the drop altogether — 'copyMove' allows both,
+        // since a plain drag and a Shift+drag both need to work here.
+        e.dataTransfer.effectAllowed = 'copyMove';
         e.dataTransfer.setData('text/plain', JSON.stringify({ iso: date, page: page }));
       });
       container.appendChild(a);
@@ -624,23 +659,54 @@
     applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(termDatesData[iso]), term, iso);
   }
 
+  // True if some OTHER date has actual (non-tombstone) minutes_pages for
+  // this same context (href AND src together — the same physical volume)
+  // strictly between sourceIso and targetIso — moving or copying a page
+  // across it would skip past a day that's still part of this same volume's
+  // sequence, creating a gap that, in a real minutes book, should never
+  // exist. Used by handleMinutesDrop below as a safety check before
+  // touching anything.
+  function hasIntermediateMinutesDate(href, src, sourceIso, targetIso) {
+    var lo = sourceIso < targetIso ? sourceIso : targetIso;
+    var hi = sourceIso < targetIso ? targetIso : sourceIso;
+    return Object.keys(termDatesData).some(function (iso) {
+      if (iso <= lo || iso >= hi) return false;
+      var groups = termDatesData[iso];
+      return Array.isArray(groups) && groups.some(function (g) {
+        return g.minutes_href === href && g.minutes_src === src && Array.isArray(g.minutes_pages) && g.minutes_pages.length;
+      });
+    });
+  }
+
   // Drag-and-drop Minutes editing: dropping a page link from the Minutes
   // Pages list (see renderMinutesPagesList above) onto a calendar day moves
   // that page and every later page in its own source group over to the
-  // target date. The moved run is prepended to the target date's matching
-  // group if the target date is later than the source (it continues right
-  // where the source's later pages left off), or appended if the target is
-  // earlier (it now comes right before the source's remaining pages). A
-  // group is matched across dates by its own minutes_href (the same
-  // physical volume); one is created — with the same minutes_href/
-  // minutes_src/minutes_cover as the source, starting empty — if the target
-  // date has no matching group yet. If this empties the source group, it's
-  // dropped; if that was the source date's only group, the date entry
-  // itself is dropped. Every touched date's full new value (or null, if
-  // dropped) is written to localStorage as a standing override — see
+  // target date — or, if Shift was held at drop time, copies just that one
+  // page to the target instead, leaving it in place at the source too (for
+  // a page whose proceedings genuinely span the end of one day and the
+  // start of the next). Either way, the moved/copied page(s) are prepended
+  // to the target date's matching group if the target date is later than
+  // the source (continuing right where the source's later pages left off),
+  // or appended if the target is earlier (coming right before the source's
+  // own remaining pages). A group is matched across dates by its own
+  // minutes_href (the same physical volume); one is created — with the same
+  // minutes_href/minutes_src/minutes_cover as the source, starting empty —
+  // if the target date has no matching group yet. hasIntermediateMinutesDate
+  // above blocks the whole operation if some other date with real pages for
+  // this same href sits between source and target, since a legitimate move
+  // or copy should only ever happen between two chronologically adjacent
+  // entries for a given volume. If a move empties the source group, it's
+  // kept in place with an empty minutes_pages rather than removed — a
+  // tombstone, so scripts/parse_minutes.js's own applyDateOverrides (which
+  // tags every group an override touches with "modified": true) can still
+  // record that this date+volume was deliberately cleared, and its own
+  // OCR-driven Pass 3 will then never silently repopulate it on a later
+  // re-run (renderMinutesCoverThumbnails below skips a tombstone's empty
+  // pages when picking a cover's earliest real date). Every touched date's
+  // full new value is written to localStorage as a standing override — see
   // LS_DATES_KEY above and window._downloadDateOverrides in
   // storage-actions.js.
-  function handleMinutesDrop(sourceIso, sourcePage, targetIso) {
+  function handleMinutesDrop(sourceIso, sourcePage, targetIso, copyOnly) {
     if (!termDatesData || sourceIso === targetIso) return;
     var groups = termDatesData[sourceIso];
     if (!Array.isArray(groups)) return;
@@ -649,22 +715,31 @@
     });
     if (srcIdx === -1) return;
     var srcGroup = groups[srcIdx];
-    var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
-    var splitIdx = pages.indexOf(sourcePage);
-    var moving = pages.slice(splitIdx);     // this page, and every later one in the same group
-    var staying = pages.slice(0, splitIdx); // pages before it, remain in the source group
 
-    var newSourceGroups = groups.slice();
-    if (staying.length) {
-      newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
-    } else {
-      newSourceGroups.splice(srcIdx, 1);
+    if (hasIntermediateMinutesDate(srcGroup.minutes_href, srcGroup.minutes_src, sourceIso, targetIso)) {
+      alert('Can’t ' + (copyOnly ? 'copy' : 'move') + ' this page — another date with Minutes for this same volume falls between ' + sourceIso + ' and ' + targetIso + '.');
+      return;
     }
-    if (newSourceGroups.length) termDatesData[sourceIso] = newSourceGroups;
-    else delete termDatesData[sourceIso];
 
+    var moving;
+    if (copyOnly) {
+      moving = [sourcePage]; // just this one page — stays in the source group too
+    } else {
+      var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
+      var splitIdx = pages.indexOf(sourcePage);
+      moving = pages.slice(splitIdx);         // this page, and every later one in the same group
+      var staying = pages.slice(0, splitIdx); // pages before it, remain in the source group
+      var newSourceGroups = groups.slice();
+      newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
+      termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
+    }
+
+    // Matched by minutes_href AND minutes_src together — the same physical
+    // volume/record group, never just one or the other.
     var targetGroups = Array.isArray(termDatesData[targetIso]) ? termDatesData[targetIso].slice() : [];
-    var tgtIdx = targetGroups.findIndex(function (g) { return g.minutes_href === srcGroup.minutes_href; });
+    var tgtIdx = targetGroups.findIndex(function (g) {
+      return g.minutes_href === srcGroup.minutes_href && g.minutes_src === srcGroup.minutes_src;
+    });
     var tgtGroup;
     if (tgtIdx === -1) {
       tgtGroup = { minutes_href: srcGroup.minutes_href, minutes_src: srcGroup.minutes_src };
@@ -675,14 +750,29 @@
     } else {
       tgtGroup = Object.assign({}, targetGroups[tgtIdx], { minutes_pages: (targetGroups[tgtIdx].minutes_pages || []).slice() });
     }
+
+    // A page should only ever be listed once for a given date — drop any
+    // page(s) the target already has (e.g. re-doing the same Shift+drag
+    // copy a second time) rather than duplicating them.
+    var toAdd = moving.filter(function (p) { return tgtGroup.minutes_pages.indexOf(p) === -1; });
+    if (!toAdd.length) {
+      if (copyOnly) {
+        alert('Page ' + sourcePage + ' is already at ' + targetIso + ' — nothing to copy.');
+        return;
+      }
+      // A plain move with nothing new to add at the target (only possible if
+      // an earlier Shift+drag copy already put it there) still completes as
+      // a move — the page belongs solely at the target now, so it's removed
+      // from the source above regardless; there's just nothing left to add.
+    }
     tgtGroup.minutes_pages = (targetIso > sourceIso)
-      ? moving.concat(tgtGroup.minutes_pages)
-      : tgtGroup.minutes_pages.concat(moving);
+      ? toAdd.concat(tgtGroup.minutes_pages)
+      : tgtGroup.minutes_pages.concat(toAdd);
     targetGroups[tgtIdx] = tgtGroup;
-    termDatesData[targetIso] = targetGroups;
+    termDatesData[targetIso] = sortGroupsBySrc(targetGroups);
 
     var overrides = loadDateOverrides();
-    overrides[sourceIso] = (termDatesData[sourceIso] !== undefined) ? termDatesData[sourceIso] : null;
+    overrides[sourceIso] = termDatesData[sourceIso]; // always a real (possibly tombstoned) array now — see above
     overrides[targetIso] = termDatesData[targetIso];
     saveDateOverrides(overrides);
 
@@ -696,9 +786,12 @@
   // dates.json — see the Minutes drag-and-drop editing further down, and
   // window._downloadDateOverrides in storage-actions.js. Value is a flat map
   // of ISO date -> full replacement array-of-groups (the same shape a
-  // dates.json entry itself uses), or null for a date whose entry was
-  // deleted entirely. Kept as one flat map, not one per term, since a given
-  // ISO date can only ever belong to a single term.
+  // dates.json entry itself uses — an emptied-out group is kept as a
+  // zero-page tombstone rather than removed, see handleMinutesDrop below),
+  // or null for a date whose entry should be removed entirely (not produced
+  // by the drag-and-drop editing itself, but still honored here). Kept as
+  // one flat map, not one per term, since a given ISO date can only ever
+  // belong to a single term.
   var LS_DATES_KEY = 'aa-dates-overrides';
 
   function loadDateOverrides() {
@@ -712,11 +805,31 @@
     } catch (e) { /* storage full/unavailable — the edit stays in memory for this page view only */ }
   }
 
+  // Normalizes a group array purely for equality comparison (never written
+  // back anywhere) — sorted by minutes_src (sortGroupsBySrc above), each
+  // group's own minutes_pages deduplicated and sorted, and any
+  // "modified": true flag dropped (scripts/parse_minutes.js's own
+  // applyDateOverrides stamps that onto every group it writes; this
+  // browser's own copy never has it). Without this, an override that's
+  // otherwise identical to what the server now has — just, say, a stray
+  // duplicate page number left over from before handleMinutesDrop's own
+  // dedup guard existed — would never be recognized as "already applied"
+  // and would keep showing up in "Download Dates" forever.
+  function canonicalizeGroups(groups) {
+    if (!Array.isArray(groups)) return null;
+    return sortGroupsBySrc(groups).map(function (g) {
+      var copy = Object.assign({}, g);
+      delete copy.modified;
+      copy.minutes_pages = Array.from(new Set(copy.minutes_pages || [])).sort(function (a, b) { return a - b; });
+      return copy;
+    });
+  }
+
   // Layers this browser's own local date overrides on top of a term's
   // server-fetched dates.json (raw is null if the term has none), and prunes
-  // any override that now matches — or is no longer distinguishable from —
-  // the server's own current data, e.g. once scripts/parse_minutes.js has
-  // applied a downloaded override upstream, it's no longer a real
+  // any override that now matches — or is no longer meaningfully different
+  // from — the server's own current data, e.g. once scripts/parse_minutes.js
+  // has applied a downloaded override upstream, it's no longer a real
   // customization and shouldn't keep showing up in "Download Dates".
   function applyDateOverrides(raw) {
     var overrides = loadDateOverrides();
@@ -727,7 +840,7 @@
     keys.forEach(function (iso) {
       var val = overrides[iso];
       var serverVal = (raw && raw[iso]) || null;
-      if (JSON.stringify(val) === JSON.stringify(serverVal)) {
+      if (JSON.stringify(canonicalizeGroups(val)) === JSON.stringify(canonicalizeGroups(serverVal))) {
         delete overrides[iso];
         pruned = true;
         return;
@@ -1073,7 +1186,10 @@
     var frag = document.createDocumentFragment();
     Object.keys(termDatesData).sort().forEach(function (iso) {
       (termDatesData[iso] || []).forEach(function (g) {
-        if (!g.minutes_cover || seen.has(g.minutes_cover)) return;
+        // A tombstone left by handleMinutesDrop above (minutes_pages emptied
+        // out entirely) never counts as a cover's "first occurrence" — that
+        // date no longer actually shows anything for this volume.
+        if (!g.minutes_cover || seen.has(g.minutes_cover) || !(g.minutes_pages && g.minutes_pages.length)) return;
         seen.add(g.minutes_cover);
         var page = (g.minutes_pages || [])[0];
         // iso is the first date (chronologically) this cover appears at,

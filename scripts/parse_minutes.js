@@ -67,13 +67,19 @@
  * dates.json is created if missing; existing entries are rewritten in this
  * same {minutes_href, minutes_src, minutes_pages} key order every time
  * they're touched, so older entries (including pre-array-format ones) self-
- * heal into the current shape as new pages come in for the same date.
+ * heal into the current shape as new pages come in for the same date. A
+ * group written by applying a downloaded overrides file (see below) instead
+ * carries a trailing "modified": true — this run's own OCR-derived Pass 3
+ * (further down) always leaves such a group untouched, even if it disagrees
+ * with what the OCR text on this run says, so a manual browser correction
+ * can never be silently re-overwritten by a later re-run of this script.
  *
  * Usage:
  *   node scripts/parse_minutes.js <volume-url> [--dry-run] [--limit N]
  *   node scripts/parse_minutes.js --thumbnails [--dry-run]
  *   node scripts/parse_minutes.js <overrides-file.json> [--dry-run]
  *   node scripts/parse_minutes.js [TERM] [--dry-run]
+ *   node scripts/parse_minutes.js --verify [TERM]
  *
  *   --dry-run     Report what would be saved without writing any files
  *   --limit N     Only process the first N pages (for a quick test run —
@@ -120,6 +126,11 @@
  * checked first — if found there, the file is moved into the expected year
  * folder instead of being re-downloaded. Only if it's genuinely missing
  * everywhere in that range is it fetched fresh from NARA.
+ *
+ * Verifying consistency (--verify [TERM]): read-only sanity check of every
+ * term's (or just TERM's) dates.json — see verifyMinutesConsistency's own
+ * doc comment for the exact two invariants it checks. Nothing is ever
+ * written; problems are only reported.
  */
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync, existsSync, statSync, unlinkSync } from 'fs';
@@ -438,14 +449,18 @@ async function runThumbnails(dryRun) {
 
 // Normalizes one override value (a single group object, an array of them,
 // possibly hand-edited or from an older format) into the same
-// {minutes_href, minutes_src, minutes_cover?, minutes_pages} key order and
-// ascending-sorted minutes_pages that the rest of this script writes.
+// {minutes_href, minutes_src, minutes_cover?, minutes_pages} key order the
+// rest of this script writes, plus a trailing `modified: true` — this marks
+// the group as a deliberate, browser-made edit so a later re-run of the
+// normal <volume-url> flow (Pass 3 below) never overwrites it with a fresh
+// OCR-derived result.
 function normalizeOverrideGroups(val) {
   const groups = Array.isArray(val) ? val : [val];
   return groups.map((g) => {
     const out = { minutes_href: g.minutes_href, minutes_src: g.minutes_src };
     if (g.minutes_cover) out.minutes_cover = g.minutes_cover;
     out.minutes_pages = [...new Set(g.minutes_pages || [])].sort((a, b) => a - b);
+    out.modified = true;
     return out;
   });
 }
@@ -627,12 +642,131 @@ async function syncMinutesText(termFilter, dryRun) {
   if (dryRun) console.log('(dry run — no files moved or written)');
 }
 
+// Smallest/largest of an array without Math.max/min(...arr) — safe even for
+// a pathologically large minutes_pages array, which would risk overflowing
+// the call stack via the spread operator.
+function arrMin(arr) { return arr.reduce((m, v) => (v < m ? v : m), Infinity); }
+function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); }
+
+// Checks three invariants across one term's (or every term's) dates.json,
+// read-only:
+//   1. No single group's own minutes_pages array repeats a page number.
+//   2. For a given context (minutes_href AND minutes_src together — the
+//      same physical volume), a page number never appears at more than one
+//      date, EXCEPT when it appears at exactly two dates that are
+//      immediately adjacent among that context's own dates (no third date
+//      with real pages for that same context falls between them) — a page
+//      whose proceedings genuinely straddle the end of one court day and
+//      the start of the next (see the Minutes drag-and-drop editor's
+//      Shift+drag "copy" feature in assets/js/terms.js). Anything else —
+//      3+ dates, or 2 non-adjacent dates — is reported as a problem.
+//   3. Within a given context, page numbers only ever increase from one of
+//      its dates to the next (i.e. moving forward through time never moves
+//      backward through the volume's own pages) — a date's lowest page must
+//      be >= the previous date's own highest page. A volume's pages
+//      resetting to a low number is only ever legitimate at a genuine
+//      change of context (a new physical volume/roll), which this can't
+//      mistake for a same-context regression since it's checked separately
+//      per context, never by comparing across two different ones.
+function verifyMinutesConsistency(termFilter) {
+  const terms = readdirSync(TERMS_DIR)
+    .filter(d => /^\d{4}-\d{2}$/.test(d) && (!termFilter || d === termFilter) && existsSync(join(TERMS_DIR, d, 'dates.json')))
+    .sort();
+  if (termFilter && !terms.length) {
+    console.error(`ERROR: no dates.json found for term ${termFilter}`);
+    process.exit(1);
+  }
+
+  let problems = 0;
+
+  for (const term of terms) {
+    let dates;
+    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+
+    // context key (href + "\0" + src) -> Map<pageNum, isoDate[]>
+    const pageLocations = new Map();
+    // context key -> Map<isoDate, pages[]> — every page recorded for that
+    // context on that date, across however many groups share it (normally
+    // just one group per date per context).
+    const datePagesByContext = new Map();
+
+    for (const iso of Object.keys(dates).sort()) {
+      const groups = dates[iso];
+      if (!Array.isArray(groups)) continue;
+      for (const g of groups) {
+        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
+
+        const seenInGroup = new Set();
+        for (const p of g.minutes_pages) {
+          if (seenInGroup.has(p)) {
+            console.log(`  ${term}/dates.json[${iso}]: page ${p} repeated within the same group (${g.minutes_href})`);
+            problems++;
+          }
+          seenInGroup.add(p);
+        }
+        if (!seenInGroup.size) continue; // a tombstone (see handleMinutesDrop in terms.js) — nothing to check
+
+        const ctxKey = `${g.minutes_href}\0${g.minutes_src || ''}`;
+
+        if (!pageLocations.has(ctxKey)) pageLocations.set(ctxKey, new Map());
+        const locMap = pageLocations.get(ctxKey);
+        for (const p of seenInGroup) {
+          if (!locMap.has(p)) locMap.set(p, []);
+          locMap.get(p).push(iso);
+        }
+
+        if (!datePagesByContext.has(ctxKey)) datePagesByContext.set(ctxKey, new Map());
+        const dateMap = datePagesByContext.get(ctxKey);
+        dateMap.set(iso, (dateMap.get(iso) || []).concat([...seenInGroup]));
+      }
+    }
+
+    for (const [ctxKey, locMap] of pageLocations) {
+      const href = ctxKey.split('\0')[0];
+      // Every date that actually carries a page for this context, in
+      // chronological order — "adjacent" below means adjacent within this
+      // list, not adjacent on the calendar at large.
+      const contextDates = [...new Set([].concat(...locMap.values()))].sort();
+      for (const [page, isos] of locMap) {
+        if (isos.length <= 1) continue;
+        if (isos.length === 2) {
+          const [a, b] = [...isos].sort();
+          if (contextDates[contextDates.indexOf(a) + 1] === b) continue; // legitimate straddle
+        }
+        console.log(`  ${term}: page ${page} (${href}) appears at ${isos.length} date(s) — ${isos.join(', ')}`);
+        problems++;
+      }
+    }
+
+    for (const [ctxKey, dateMap] of datePagesByContext) {
+      const href = ctxKey.split('\0')[0];
+      const isos = [...dateMap.keys()].sort();
+      for (let i = 1; i < isos.length; i++) {
+        const prevMax = arrMax(dateMap.get(isos[i - 1]));
+        const currMin = arrMin(dateMap.get(isos[i]));
+        if (currMin < prevMax) {
+          console.log(`  ${term}: page numbers go backward for ${href} — ${isos[i - 1]} reaches ${prevMax}, then ${isos[i]} starts at ${currMin}`);
+          problems++;
+        }
+      }
+    }
+  }
+
+  console.log(`\nVerify: ${problems} problem(s) found across ${terms.length} term(s).`);
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
 
   if (args.includes('--thumbnails')) {
     await runThumbnails(dryRun);
+    return;
+  }
+
+  if (args.includes('--verify')) {
+    const termArg = args.find(a => /^\d{4}-\d{2}$/.test(a));
+    verifyMinutesConsistency(termArg || null);
     return;
   }
 
@@ -693,7 +827,7 @@ async function main() {
   };
 
   let saved = 0, cached = 0, skipped = 0, failed = 0;
-  let datesAdded = 0, datesSkipped = 0;
+  let datesAdded = 0, datesSkipped = 0, datesProtected = 0;
   let lastYear = null;
   const changedTerms = new Set();
   const records = []; // {pageNum, label, minutesSrcTemplate, rawDate} per successfully-read page
@@ -802,6 +936,17 @@ async function main() {
     // its own minutes_href template, so pages from a different volume land
     // in their own group instead of corrupting an existing group's links.
     let group = groups.find(g => g.minutes_href === minutesHrefTemplate);
+
+    // A group already carrying modified:true was written by applyDateOverrides
+    // above from a downloaded browser edit — a deliberate correction, not an
+    // OCR artifact — so it's left completely alone here, even if this page's
+    // freshly re-extracted OCR date disagrees with it.
+    if (group && group.modified) {
+      console.log(`  ${label}: ${term}/dates.json[${fullDate}] is marked modified; leaving it as-is`);
+      datesProtected++;
+      continue;
+    }
+
     const isNewGroup = !group;
     if (isNewGroup) {
       group = { minutes_href: minutesHrefTemplate, minutes_src: minutesSrcTemplate, minutes_pages: [] };
@@ -849,7 +994,7 @@ async function main() {
   }
 
   console.log(`\nText: ${saved} saved, ${cached} already cached, ${skipped} skipped, ${failed} failed.`);
-  console.log(`Dates: ${datesAdded} minutes page(s) recorded across ${changedTerms.size} term(s), ${datesSkipped} page(s) had no usable date.`);
+  console.log(`Dates: ${datesAdded} minutes page(s) recorded across ${changedTerms.size} term(s), ${datesSkipped} page(s) had no usable date, ${datesProtected} page(s) skipped (modified group).`);
   if (dryRun) console.log('(dry run — no files written)');
 }
 
