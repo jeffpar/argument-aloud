@@ -279,7 +279,6 @@
       return;
     }
     downloadJson('ussc-dates.json', raw);
-    alert('Downloaded. Apply it with:\n\nnode scripts/parse_minutes.js ussc-dates.json');
   }
 
   window._saveFavorites           = saveFavorites;
