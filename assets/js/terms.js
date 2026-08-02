@@ -752,32 +752,42 @@
         // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
         // per-term file (most terms don't have one) built by
         // tests/extract_minutes_text.js from NARA's own OCR'd minutes books —
-        // keyed by ISO date, each entry a {minutes_href, minutes_src,
-        // minutes_pages} triple. minutes_src (a direct image URL, literal
-        // "$page:4" placeholder zero-padded to 4 digits) opens by default,
-        // in a new tab, for a quick chrome-free look at the page image
-        // itself; minutes_href (the catalog page URL, literal "$page"
-        // placeholder) is kept one Shift-click away, opening in the doc
-        // viewer instead. This is the inverse of wireDocLink's usual
-        // default-is-doc-viewer/alt-is-new-tab convention, so it's wired
-        // up by hand below rather than through that helper.
+        // keyed by ISO date, each entry an *array* of {minutes_href,
+        // minutes_src, minutes_pages} groups (usually just one, but a date
+        // occasionally spans two physical volumes, each needing its own
+        // templates). minutes_src (a direct image URL, literal "$page:4"
+        // placeholder zero-padded to 4 digits) opens by default, in a new
+        // tab, for a quick chrome-free look at the page image itself;
+        // minutes_href (the catalog page URL, literal "$page" placeholder)
+        // is kept one Shift-click away, opening in the doc viewer instead.
+        // This is the inverse of wireDocLink's usual default-is-doc-viewer/
+        // alt-is-new-tab convention, so it's wired up by hand below rather
+        // than through that helper.
         fetch('/courts/ussc/terms/' + term + '/dates.json')
           .then(function (r) { return r.ok ? r.json() : null; })
           .then(function (datesData) {
-            var entry = datesData && datesData[date];
-            if (!entry || !Array.isArray(entry.minutes_pages) || !entry.minutes_pages.length) return;
-            var pages = entry.minutes_pages.slice().sort(function (a, b) { return a - b; });
+            var groups = datesData && datesData[date];
+            if (!Array.isArray(groups) || !groups.length) return;
+            var flatPages = [];
+            groups.forEach(function (g) {
+              (g.minutes_pages || []).forEach(function (page) {
+                flatPages.push({ page: page, minutes_href: g.minutes_href, minutes_src: g.minutes_src });
+              });
+            });
+            if (!flatPages.length) return;
+            flatPages.sort(function (a, b) { return a.page - b.page; });
             var container = document.getElementById('date-minutes-list');
             // "Page N" for a single page; "Pages N1, N2, N3" for several —
             // saves repeating "Page" once per link when there's more than one.
-            container.appendChild(document.createTextNode(pages.length === 1 ? 'Page ' : 'Pages '));
-            pages.forEach(function (page, i) {
+            container.appendChild(document.createTextNode(flatPages.length === 1 ? 'Page ' : 'Pages '));
+            flatPages.forEach(function (fp, i) {
               if (i > 0) container.appendChild(document.createTextNode(', '));
+              var page = fp.page;
               var a = document.createElement('a');
               a.textContent = String(page);
               var page4 = String(page).padStart(4, '0');
-              var srcHref  = entry.minutes_src  ? entry.minutes_src.replace('$page:4', page4) : null;
-              var hrefHref = entry.minutes_href ? entry.minutes_href.replace('$page', page) : null;
+              var srcHref  = fp.minutes_src  ? fp.minutes_src.replace('$page:4', page4) : null;
+              var hrefHref = fp.minutes_href ? fp.minutes_href.replace('$page', page) : null;
               var title = termTitle(term) + ' Minutes, p. ' + page;
               a.href = srcHref || hrefHref;
               if (srcHref && hrefHref) a.title = 'Use Shift+Click to open this page in the doc viewer';

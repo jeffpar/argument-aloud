@@ -30,29 +30,44 @@
  * dates.json can be rebuilt/extended without re-fetching anything.
  *
  * For every page (freshly fetched or loaded from disk), a full date is
- * parsed from the top of its text (e.g. "May 13th, 1889" -> "1889-05-13"),
- * falling back to the last full date successfully parsed from an earlier
- * page in this same run when a given page has no date of its own (e.g. a
- * "Continued" page) — and treating an extracted date that's earlier than
- * that last one as an OCR misread rather than an actual step backward in
- * time, falling back the same way. It's then recorded in
+ * parsed from the top of its text (e.g. "May 13th, 1889" -> "1889-05-13").
+ * These per-page raw dates are then reconciled in a second, page-order-only
+ * pass (see smoothDates()): a page whose date disagrees with the current
+ * "frontier" date is only trusted if more of the next few pages agree with
+ * it than agree with the frontier — otherwise it's dropped in favor of the
+ * frontier, same as a page with no date at all. This catches not just an
+ * isolated misread (no corroboration either way, frontier wins) but also a
+ * single garbled page whose OCR jumps far from its neighbors and would
+ * otherwise become a false new frontier that every subsequent *correct*
+ * page then looks like it's "going backward" from — when a look-ahead
+ * confirms the earlier frontier was itself the mistake, the pages already
+ * assigned to it are retroactively corrected too. It's then recorded in
  * courts/ussc/terms/<term>/dates.json — <term> being
  * whichever term's own start date is the latest one on/before that date —
  * as:
- *   { "1889-05-13": { "minutes_href": "https://catalog.archives.gov/id/178847707?objectPage=$page",
- *                      "minutes_src": ".../M215-018/M215-018-$page:4.jpg",
- *                      "minutes_pages": [6, 7] } }
- * minutes_pages holds the page's 1-based position in the volume (matching
- * the `objectPage` query param NARA's own catalog URLs use); minutes_href
- * is that same volume's catalog URL with a literal "$page" placeholder, and
- * minutes_src the direct image download URL with a literal "$page:4"
- * placeholder (the ":4" meaning zero-padded to 4 digits, since — unlike the
- * catalog URL's plain query-string page number — the image filename itself
- * embeds the page number that way) — both for the frontend to substitute
- * per page. dates.json is created if missing; existing entries are
- * rewritten in this same {minutes_href, minutes_src, minutes_pages} key
- * order every time they're touched, so older entries self-heal into the
- * current shape as new pages come in for the same date.
+ *   { "1889-05-13": [
+ *       { "minutes_href": "https://catalog.archives.gov/id/178847707?objectPage=$page",
+ *         "minutes_src": ".../M215-018/M215-018-$page:4.jpg",
+ *         "minutes_pages": [6, 7] }
+ *     ] }
+ * Each date maps to an *array* of source groups rather than a single one,
+ * because a calendar day's minutes occasionally spans two different
+ * physical volumes (NARA splits a session's pages across consecutive
+ * volumes at whatever point the microfilm roll ends) — grouping by source
+ * keeps minutes_href/minutes_src accurate per page instead of one group's
+ * template getting wrongly applied to another volume's page numbers. The
+ * common case is still just a one-element array. minutes_pages holds the
+ * page's 1-based position within ITS volume (matching the `objectPage`
+ * query param NARA's own catalog URLs use); minutes_href is that volume's
+ * catalog URL with a literal "$page" placeholder, and minutes_src the
+ * direct image download URL with a literal "$page:4" placeholder (the ":4"
+ * meaning zero-padded to 4 digits, since — unlike the catalog URL's plain
+ * query-string page number — the image filename itself embeds the page
+ * number that way) — both for the frontend to substitute per page.
+ * dates.json is created if missing; existing entries are rewritten in this
+ * same {minutes_href, minutes_src, minutes_pages} key order every time
+ * they're touched, so older entries (including pre-array-format ones) self-
+ * heal into the current shape as new pages come in for the same date.
  *
  * Usage:
  *   node tests/extract_minutes_text.js <volume-url> [--dry-run] [--limit N]
@@ -93,8 +108,15 @@ const MONTH_NAMES = Object.keys(MONTHS).join('|');
 // The comma is optional and can land on either side of the day (OCR is
 // inconsistent about it — "March 7, 1892" and "march, 7th, 1892" both
 // occur), so it's matched loosely on both sides rather than anchored once
-// after the day the way a hand-typed date reliably would be.
-const FULL_DATE_RE = new RegExp(`\\b(${MONTH_NAMES})\\s*,?\\s*(\\d{1,2})(?:st|nd|rd|th)?\\s*,?\\s*(\\d{4})\\b`, 'i');
+// after the day the way a hand-typed date reliably would be. The gap
+// between the day and the year also tolerates stray OCR noise beyond just
+// comma/whitespace — an apostrophe, a stray quote, a degree/ordinal-
+// indicator sign (all typically standing in for a garbled "nd"/"th"
+// superscript, e.g. "May 2°, 1887" or "May 2', 1887") — since without it
+// that page's own duplicate, more-garbled heading line ("May 20 1887",
+// "2nd" misread as "20") matches instead and produces a wrong date weeks
+// off from the correct one.
+const FULL_DATE_RE = new RegExp(`\\b(${MONTH_NAMES})\\s*,?\\s*(\\d{1,2})(?:st|nd|rd|th)?[.,'"°ºª\\s]*(\\d{4})\\b`, 'i');
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -182,10 +204,90 @@ function extractFullDate(text, yearRange) {
   return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
+// Loads a term's dates.json, migrating any pre-array-format entry (a bare
+// {minutes_href, minutes_src, minutes_pages} object, from before a date's
+// pages could span more than one source volume) into a one-element array.
 function loadDatesJson(term) {
   const p = join(TERMS_DIR, term, 'dates.json');
   if (!existsSync(p)) return {};
-  try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return {}; }
+  let data;
+  try { data = JSON.parse(readFileSync(p, 'utf8')); } catch { return {}; }
+  for (const k of Object.keys(data)) {
+    if (!Array.isArray(data[k])) data[k] = [data[k]];
+  }
+  return data;
+}
+
+// Reconciles every page's raw candidate date (records[i].rawDate, possibly
+// null) into a final resolved date, in page order. A candidate that
+// disagrees with the current "frontier" (the date most recently accepted)
+// is only trusted if more of the next LOOKAHEAD non-null candidates agree
+// with it than agree with the frontier — otherwise it's rejected, falling
+// back to the frontier just like a page with no date at all.
+//
+// This is what lets a single garbled page's misread (e.g. "2nd" -> "20",
+// jumping three weeks ahead) get outvoted by the many correct pages that
+// follow it, rather than becoming a false new frontier that poisons every
+// subsequent *correct* page as "going backward" from it. When a look-ahead
+// confirms a *smaller* candidate over the current frontier, every page
+// already assigned to that (now-recognized-as-wrong) frontier is
+// retroactively corrected back to the confirmed value.
+function smoothDates(records) {
+  const LOOKAHEAD = 5;
+  const resolved = new Array(records.length).fill(null);
+  let lastAccepted = null;
+  let frontierRun = []; // indices already resolved to lastAccepted
+
+  const countMatches = (fromIdx, value) => {
+    let count = 0, seen = 0;
+    for (let j = fromIdx; j < records.length && seen < LOOKAHEAD; j++) {
+      const d = records[j].rawDate;
+      if (d == null) continue;
+      seen++;
+      if (d === value) count++;
+    }
+    return count;
+  };
+
+  for (let i = 0; i < records.length; i++) {
+    const { label, rawDate: raw } = records[i];
+
+    if (raw == null) {
+      if (lastAccepted == null) {
+        console.log(`  ${label}: no full date found, and no earlier page to fall back to; skipping dates.json`);
+      } else {
+        console.log(`  ${label}: no full date found; using previous page's ${lastAccepted}`);
+        resolved[i] = lastAccepted;
+        frontierRun.push(i);
+      }
+      continue;
+    }
+
+    if (lastAccepted == null || raw === lastAccepted) {
+      lastAccepted = raw;
+      resolved[i] = raw;
+      frontierRun.push(i);
+      continue;
+    }
+
+    const newCount = countMatches(i + 1, raw);
+    const oldCount = countMatches(i + 1, lastAccepted);
+    if (newCount > oldCount) {
+      if (raw < lastAccepted && frontierRun.length) {
+        console.log(`  ${label}: ${raw} confirmed by ${newCount} of the next page(s) — correcting ${frontierRun.length} earlier page(s) back from ${lastAccepted}`);
+        for (const j of frontierRun) resolved[j] = raw;
+      }
+      lastAccepted = raw;
+      frontierRun = [i];
+      resolved[i] = raw;
+    } else {
+      console.log(`  ${label}: extracted date ${raw} conflicts with ${lastAccepted} (${newCount} vs ${oldCount} supporting page(s) ahead); ignoring`);
+      resolved[i] = lastAccepted;
+      frontierRun.push(i);
+    }
+  }
+
+  return resolved;
 }
 
 async function main() {
@@ -230,9 +332,11 @@ async function main() {
   let saved = 0, cached = 0, skipped = 0, failed = 0;
   let datesAdded = 0, datesSkipped = 0;
   let lastYear = null;
-  let lastFullDate = null;
   const changedTerms = new Set();
+  const records = []; // {pageNum, label, minutesSrcTemplate, rawDate} per successfully-read page
 
+  // ── Pass 1: gather every page's text (fetch or cache) and its own,
+  // independent raw candidate date — no cross-page reasoning yet. ──────────
   for (let i = 0; i < objs.length; i++) {
     const obj = objs[i];
     const pageNum = i + 1;
@@ -309,25 +413,17 @@ async function main() {
     const roll = base.replace(/-\d+$/, '');
     const minutesSrcTemplate = `https://catalog.archives.gov/medialz/dc-metro/rg-267/607809/${roll}/${roll}-$page:4.jpg`;
 
-    let fullDate = extractFullDate(text, yearRange);
-    // Minutes pages are bound in date order — a "full date" earlier than the
-    // last one we accepted is almost certainly an OCR misread, not an actual
-    // step backward in time, so it's treated the same as finding no date at
-    // all (fall back to the previous page's date) rather than trusted as-is.
-    if (fullDate && lastFullDate && fullDate < lastFullDate) {
-      console.log(`  ${label}: extracted date ${fullDate} precedes previous page's ${lastFullDate}; ignoring`);
-      fullDate = null;
-    }
-    if (!fullDate) {
-      if (!lastFullDate) {
-        console.log(`  ${label}: no full date found, and no earlier page to fall back to; skipping dates.json`);
-        datesSkipped++;
-        continue;
-      }
-      console.log(`  ${label}: no full date found; using previous page's ${lastFullDate}`);
-      fullDate = lastFullDate;
-    }
-    lastFullDate = fullDate;
+    records.push({ pageNum, label, minutesSrcTemplate, rawDate: extractFullDate(text, yearRange) });
+  }
+
+  // ── Pass 2: reconcile raw candidates into a final date per page ─────────
+  const resolved = smoothDates(records);
+
+  // ── Pass 3: build/merge dates.json entries from the resolved dates ──────
+  for (let i = 0; i < records.length; i++) {
+    const { pageNum, label, minutesSrcTemplate } = records[i];
+    const fullDate = resolved[i];
+    if (!fullDate) { datesSkipped++; continue; }
 
     const term = termForDate(fullDate, termStarts);
     if (!term) {
@@ -337,27 +433,43 @@ async function main() {
     }
 
     const dates = getDates(term);
-    const existingEntry = dates[fullDate] || {};
-    const existingPages = new Set(Array.isArray(existingEntry.minutes_pages) ? existingEntry.minutes_pages : []);
-    const hadPage = existingPages.has(pageNum);
-    const hadSrc  = !!existingEntry.minutes_src;
-    existingPages.add(pageNum);
+    const groups = Array.isArray(dates[fullDate]) ? dates[fullDate] : [];
+    // A date's pages can span more than one physical volume (see the
+    // format note above) — the volume this page came from is identified by
+    // its own minutes_href template, so pages from a different volume land
+    // in their own group instead of corrupting an existing group's links.
+    let group = groups.find(g => g.minutes_href === minutesHrefTemplate);
+    const isNewGroup = !group;
+    if (isNewGroup) {
+      group = { minutes_href: minutesHrefTemplate, minutes_src: minutesSrcTemplate, minutes_pages: [] };
+      groups.push(group);
+    }
+    const hadPage = group.minutes_pages.includes(pageNum);
+    const hadSrc  = !!group.minutes_src;
 
-    // Always rebuilt (rather than mutated in place) so the key order stays
-    // {minutes_href, minutes_src, minutes_pages} even for an entry that
-    // predates minutes_src, self-healing it into the current shape.
-    dates[fullDate] = {
-      minutes_href: existingEntry.minutes_href || minutesHrefTemplate,
-      minutes_src: existingEntry.minutes_src || minutesSrcTemplate,
-      minutes_pages: [...existingPages].sort((a, b) => a - b),
+    // The group is always rebuilt (rather than mutated in place) so the key
+    // order stays {minutes_href, minutes_src, minutes_pages} even for a
+    // group that predates minutes_src, self-healing it into the current shape.
+    const pages = new Set(group.minutes_pages);
+    pages.add(pageNum);
+    const newGroup = {
+      minutes_href: group.minutes_href || minutesHrefTemplate,
+      minutes_src: group.minutes_src || minutesSrcTemplate,
+      minutes_pages: [...pages].sort((a, b) => a - b),
     };
+    groups[groups.indexOf(group)] = newGroup;
+    groups.sort((a, b) => a.minutes_href.localeCompare(b.minutes_href));
+    dates[fullDate] = groups;
 
-    if (!hadPage || !hadSrc) {
+    if (isNewGroup || !hadPage || !hadSrc) {
       changedTerms.add(term);
+      if (isNewGroup) {
+        console.log(`  ${label}: ${term}/dates.json[${fullDate}] gained a new source group (${minutesHrefTemplate})`);
+      }
       if (!hadPage) {
         datesAdded++;
         console.log(`  ${label}: ${term}/dates.json[${fullDate}].minutes_pages += ${pageNum}`);
-      } else {
+      } else if (!hadSrc) {
         console.log(`  ${label}: ${term}/dates.json[${fullDate}] gained minutes_src`);
       }
     }
