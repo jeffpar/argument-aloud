@@ -2135,10 +2135,11 @@ function toEmbedUrl(href) {
 
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {  const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
-  const isPdf  = /\.pdf(#|\?|$)/i.test(link.href);
-  const isMp4  = /\.mp4(#|\?|$)/i.test(link.href);
-  const isMp3  = /\.mp3(#|\?|$)/i.test(link.href);
-  const inPane = isPdf || isMp4 || isMp3 || link.view === 'pane';
+  const isPdf   = /\.pdf(#|\?|$)/i.test(link.href);
+  const isMp4   = /\.mp4(#|\?|$)/i.test(link.href);
+  const isMp3   = /\.mp3(#|\?|$)/i.test(link.href);
+  const isImage = /\.(jpe?g|png|gif|webp|bmp|tiff?)(#|\?|$)/i.test(link.href);
+  const inPane  = isPdf || isMp4 || isMp3 || isImage || link.view === 'pane';
 
   // Build the effective href, appending #page=N if applicable
   const effectiveHref = (() => {
@@ -2146,6 +2147,15 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     return isPdf ? link.href + '#page=' + page + '&pagemode=none'
                  : link.href + '#page=' + page;
   })();
+  // A bare image URL, loaded directly as an iframe's src, renders at native
+  // resolution with no way for us to style it (a cross-origin document we
+  // can't inject CSS into) — routed through our own same-origin wrapper
+  // page instead, which fits it to the frame. Only the iframe itself uses
+  // this; the "open externally"/new-tab link below still points at
+  // effectiveHref (the real image), never this wrapper.
+  const iframeSrc = isImage
+    ? '/assets/img-viewer.html?src=' + encodeURIComponent(effectiveHref)
+    : effectiveHref;
 
   const refEl = document.getElementById('doc-viewer-ref');
   if (matchedRef) {
@@ -2197,7 +2207,8 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     } else {
       videoEl.style.display = 'none';
       audioEl.style.display = 'none';
-      const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
+      const src = isImage ? iframeSrc
+        : (effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none');
       const isNew = !_pdfIframePool.has(src);
       const iframe = _getOrCreatePdfIframe(src);
       // Show only this iframe; others stay hidden but alive — no reload needed on return.
@@ -5337,7 +5348,7 @@ function _ordinal(n) {
   return n + suffix;
 }
 
-function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false, groupName = null, collEntry = null) {
+function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic = false, groupName = null, collEntry = null, group = null) {
   const caseKey = caseRef.term + '/' + caseRef.number;
   // caseRef.find, when present, names the word/phrase to highlight on arrival
   // (see rare_words.json). It's omitted from the JSON when it's just the
@@ -5350,6 +5361,15 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   const _ciGroupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
   const _ciDeleteOther = groupId != null ? 'group' : 'id';
   const _baseTitle = caseTitle(caseRef.title);
+  // A group can declare "openFile": "event.PROP" (see collections.json's
+  // "Cases with Minutes References", using "event.date") to jump straight to
+  // that file (see _showMinutesFromParam et al.) instead of landing on the
+  // case with no doc-viewer content open and the file dropdown requiring an
+  // extra click to find it. update_cases.js's own _casesByConditions parses
+  // the same "event.PROP" spec and stores the matched event's value under
+  // this same entry_PROP key, so the two stay in sync.
+  const _openFileMatch = /^event\.(\w+)$/.exec(group?.openFile || '');
+  const _openFileValue = _openFileMatch ? caseRef['event_' + _openFileMatch[1]] : null;
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
     title:     caseRef.appearance != null ? _baseTitle + ' (' + _ordinal(caseRef.appearance) + ')' : _baseTitle,
@@ -5366,7 +5386,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           : null,
     hasFiles:  !!caseRef.files,
     href:      buildUrlParams(
-      { [isTopic ? 'topic' : 'collection']: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number },
+      {
+        [isTopic ? 'topic' : 'collection']: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number,
+        ...(_openFileValue ? { file: _openFileValue } : {}),
+      },
       [_ciDeleteOther, 'highlight', 'event', 'file', 'turn'],
     ),
   });
@@ -5680,6 +5703,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           ...(audioIdx > 0 ? { event: audioIdx } : {}),
           ...(initialTurn ? { turn: initialTurn } : {}),
           ...(_find ? { find: _find } : {}),
+          ...(_openFileValue ? { file: _openFileValue } : {}),
         },
         [...deleteOther, 'highlight', ...(audioIdx === 0 ? ['event'] : []), 'file', 'citation', ...(initialTurn ? [] : ['turn'])],
       );
@@ -5695,8 +5719,13 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     }
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
-    // events (no audio_href) are also covered.
-    const fileRestore = e.fileRestore ?? null;
+    // events (no audio_href) are also covered. A genuine (non-restore) click with no
+    // fileRestore of its own falls back to the group's own openFile value (see above)
+    // so e.g. "Cases Linked to Minutes" opens its Minutes file without the visitor
+    // having to find it in the file dropdown themselves — but an actual restore
+    // replay's own fileRestore (even explicitly null, e.g. a URL with no file= or a
+    // case with real audio) always wins; it reflects what the URL actually asked for.
+    const fileRestore = fromRestore ? (e.fileRestore ?? null) : (e.fileRestore ?? _openFileValue ?? null);
     if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !_showHistoryFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
@@ -6058,7 +6087,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         const seenKeys = new Set();
         for (const caseRef of group.cases) {
           seenKeys.add(caseRef.term + '/' + caseRef.number);
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry, group));
         }
         // Reconcile with localStorage tags: a case that only qualifies for this
         // group because of a user-added tag won't be in the server-generated
@@ -6068,7 +6097,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
           const key = caseRef.term + '/' + caseRef.number;
           if (seenKeys.has(key)) continue;
           seenKeys.add(key);
-          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
+          groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry, group));
         }
         n = seenKeys.size;
         _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -6104,7 +6133,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
               _cases = sorted.map((c, i) => ({ ...c, appearance: i + 1 }));
             }
             for (const caseRef of _cases) {
-              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
+              groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry, group));
             }
             n = _cases.length;
             _applyGroupSortMode(_groupSortMode, _groupSortAsc);
@@ -6149,7 +6178,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         return;
       }
       if (groupUl.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`)) return;
-      groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry));
+      groupUl.appendChild(_buildCollectionCaseItem(caseRef, collId, groupNumber, group.id, isTopic, group.name, collEntry, group));
       n++;
       _applyGroupSortMode(_groupSortMode, _groupSortAsc);
       groupCount.textContent = groupCount.classList.contains('sort-active')
@@ -6457,7 +6486,10 @@ function _buildJournalRefOptions(caseEntry, term) {
 
 // Build the minutes-href Map and options array shared by loadCaseAsOpinion and loadCase.
 // Unlike journal_ref, minutes_href is already a direct, per-event URL — no
-// term-level lookup or page-offset math needed.
+// term-level lookup or page-offset math needed. Prefers the event's own
+// minutes_src (a direct page-image URL) over minutes_href (the NARA catalog
+// page wrapped around it) when present, opening straight to the scan itself
+// — falls back to minutes_href for older events that predate minutes_src.
 // Returns { map: Map<value, {href, title}>, opts: Array<{value, title}> }.
 function _buildMinutesRefOptions(caseEntry) {
   const map  = new Map();
@@ -6471,7 +6503,7 @@ function _buildMinutesRefOptions(caseEntry) {
     const dateLabel = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title = 'Minutes for ' + dateLabel;
     const value = 'minutes:' + ev.date;
-    map.set(value, { href: ev.minutes_href, title, view: 'pane' });
+    map.set(value, { href: ev.minutes_src || ev.minutes_href, title, view: 'pane' });
     opts.push({ value, title });
   });
   return { map, opts };

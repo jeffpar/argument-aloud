@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Image</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #1a1c22; overflow: hidden; }
+  /* All pinch/pan/scroll gestures are handled ourselves below — this stops
+     the browser from also applying its own native page pinch-zoom or
+     scroll on top of (or instead of) our own. */
+  body { touch-action: none; }
+  #stage { position: absolute; inset: 0; overflow: hidden; cursor: default; }
+  #stage.pannable { cursor: grab; }
+  #stage.dragging { cursor: grabbing; }
+  #img {
+    position: absolute;
+    display: block;
+    transform-origin: 0 0;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  #toolbar {
+    position: fixed; top: 8px; right: 8px;
+    display: flex; gap: 4px;
+    z-index: 10;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .zoom-btn {
+    width: 30px; height: 30px;
+    border: none; border-radius: 4px;
+    background: rgba(20,20,20,0.6); color: #fff;
+    font-size: 17px; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+  }
+  .zoom-btn:hover { background: rgba(20,20,20,0.8); }
+  #zoom-pct {
+    min-width: 46px; padding: 0 6px;
+    background: rgba(20,20,20,0.6); color: #fff;
+    border: none; border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #zoom-pct:hover { background: rgba(20,20,20,0.8); }
+  html[data-theme="light"] body { background: #fff; }
+  @media (prefers-color-scheme: light) { html:not([data-theme]) body { background: #fff; } }
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="img" alt="" draggable="false">
+</div>
+<div id="toolbar">
+  <button class="zoom-btn" id="zoom-out" title="Zoom out" aria-label="Zoom out">&minus;</button>
+  <button id="zoom-pct" title="Reset zoom" aria-label="Reset zoom">100%</button>
+  <button class="zoom-btn" id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var src = params.get('src');
+  var img = document.getElementById('img');
+  var stage = document.getElementById('stage');
+  var zoomPct = document.getElementById('zoom-pct');
+  if (src) img.src = src;
+
+  // baseLeft/baseTop/baseWidth/baseHeight describe the image's own
+  // "fit to viewport" (object-fit: contain, at scale 1) position and size —
+  // computed once the image loads (and again on resize), since #img is
+  // absolutely positioned (so its own transform-origin can anchor zoom at
+  // an arbitrary point) rather than centered via flexbox.
+  var baseLeft = 0, baseTop = 0, baseWidth = 0, baseHeight = 0;
+  var scale = 1, minScale = 1, maxScale = 8;
+  var panX = 0, panY = 0; // screen-pixel offset applied on top of the base fit, at the current scale
+
+  function layoutBase() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var iw = img.naturalWidth || vw, ih = img.naturalHeight || vh;
+    var fit = Math.min(vw / iw, vh / ih);
+    baseWidth = iw * fit;
+    baseHeight = ih * fit;
+    baseLeft = (vw - baseWidth) / 2;
+    baseTop = (vh - baseHeight) / 2;
+    img.style.width = baseWidth + 'px';
+    img.style.height = baseHeight + 'px';
+    img.style.left = baseLeft + 'px';
+    img.style.top = baseTop + 'px';
+    render();
+  }
+
+  function render() {
+    img.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
+    zoomPct.textContent = Math.round(scale * 100) + '%';
+    stage.classList.toggle('pannable', scale > minScale);
+  }
+
+  // Changes scale while keeping the point at (screenX, screenY) visually
+  // fixed — used by both the +/- buttons (anchored at the stage's own
+  // center) and wheel/pinch zoom (anchored at the cursor/pinch midpoint).
+  function zoomTo(newScale, screenX, screenY) {
+    newScale = Math.max(minScale, Math.min(maxScale, newScale));
+    var localX = (screenX - baseLeft - panX) / scale;
+    var localY = (screenY - baseTop - panY) / scale;
+    scale = newScale;
+    if (scale <= minScale) {
+      panX = 0; panY = 0; // snap back to a clean, centered "fit" view
+    } else {
+      panX = screenX - baseLeft - localX * scale;
+      panY = screenY - baseTop - localY * scale;
+    }
+    render();
+  }
+
+  function stageCenter() {
+    return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  }
+
+  img.addEventListener('load', layoutBase);
+  window.addEventListener('resize', layoutBase);
+
+  document.getElementById('zoom-in').addEventListener('click', function () {
+    var c = stageCenter();
+    zoomTo(scale * 1.4, c.x, c.y);
+  });
+  document.getElementById('zoom-out').addEventListener('click', function () {
+    var c = stageCenter();
+    zoomTo(scale / 1.4, c.x, c.y);
+  });
+  zoomPct.addEventListener('click', function () {
+    scale = minScale; panX = 0; panY = 0; render();
+  });
+
+  // Wheel = zoom (there's nothing else on this page to scroll), anchored at
+  // the cursor so the point under it stays put — matches trackpad pinch,
+  // which Chrome/Firefox report as wheel events with ctrlKey set.
+  stage.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    zoomTo(scale * Math.pow(1.0025, -e.deltaY), e.clientX, e.clientY);
+  }, { passive: false });
+
+  document.addEventListener('dblclick', function (e) {
+    if (scale > minScale) { zoomTo(minScale, e.clientX, e.clientY); }
+    else { zoomTo(2, e.clientX, e.clientY); }
+  });
+
+  // Single-finger / mouse drag-to-pan (only meaningful once zoomed in —
+  // harmless no-op at the fit scale, since the image exactly fills its
+  // space either way) and two-finger pinch-to-zoom-and-pan together.
+  var dragging = false, dragX = 0, dragY = 0;
+  var pinchStartDist = 0, pinchStartScale = 1, pinchAnchorLocalX = 0, pinchAnchorLocalY = 0;
+
+  function dist(t0, t1) { return Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY); }
+  function mid(t0, t1) { return { x: (t0.clientX + t1.clientX) / 2, y: (t0.clientY + t1.clientY) / 2 }; }
+
+  stage.addEventListener('mousedown', function (e) {
+    dragging = true; dragX = e.clientX; dragY = e.clientY;
+    stage.classList.add('dragging');
+  });
+  window.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    panX += e.clientX - dragX; panY += e.clientY - dragY;
+    dragX = e.clientX; dragY = e.clientY;
+    render();
+  });
+  window.addEventListener('mouseup', function () {
+    dragging = false;
+    stage.classList.remove('dragging');
+  });
+
+  stage.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) {
+      pinchStartDist = dist(e.touches[0], e.touches[1]);
+      pinchStartScale = scale;
+      var m = mid(e.touches[0], e.touches[1]);
+      pinchAnchorLocalX = (m.x - baseLeft - panX) / scale;
+      pinchAnchorLocalY = (m.y - baseTop - panY) / scale;
+    } else if (e.touches.length === 1) {
+      dragging = true; dragX = e.touches[0].clientX; dragY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      var d = dist(e.touches[0], e.touches[1]);
+      var m = mid(e.touches[0], e.touches[1]);
+      var newScale = Math.max(minScale, Math.min(maxScale, pinchStartScale * (d / pinchStartDist)));
+      scale = newScale;
+      if (scale <= minScale) { panX = 0; panY = 0; }
+      else {
+        panX = m.x - baseLeft - pinchAnchorLocalX * scale;
+        panY = m.y - baseTop - pinchAnchorLocalY * scale;
+      }
+      render();
+    } else if (e.touches.length === 1 && dragging) {
+      var t = e.touches[0];
+      panX += t.clientX - dragX; panY += t.clientY - dragY;
+      dragX = t.clientX; dragY = t.clientY;
+      render();
+    }
+  }, { passive: false });
+
+  stage.addEventListener('touchend', function (e) {
+    dragging = e.touches.length === 1;
+    if (e.touches.length === 1) { dragX = e.touches[0].clientX; dragY = e.touches[0].clientY; }
+  });
+})();
+</script>
+</body>
+</html>

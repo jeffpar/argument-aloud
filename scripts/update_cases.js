@@ -6240,7 +6240,14 @@ function _sortCaseEntriesByOrder(cases, orderSpec) {
 // satisfies ANY branch (each branch's own conditions still AND'ed together).
 // This lets a group merge what would otherwise be several separate
 // condition-based groups (e.g. "argument date wrong OR reargument date wrong").
-function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null, fields = null) {
+function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, extraByKey = null, orderSpec = null, fields = null, openFileSpec = null) {
+  // "event.PROP" (collections.json's group.openFile, e.g. "event.date") names
+  // a property of the matched event to expose as entry.event_PROP, for the
+  // front end to jump straight to the right file (see explorer.js's
+  // _buildCollectionCaseItem) — same dotted-path style already used by the
+  // "event.PROP" truthy conditions this function's own eventMatchCond
+  // branch below evaluates.
+  const openFileMatch = /^event\.(\w+)$/.exec(openFileSpec || '');
     const isOrBranches = Array.isArray(conditions[0]);
     const flatConditions = isOrBranches ? conditions.flat() : conditions;
     const matchesConditions = (c, termDir) => isOrBranches
@@ -6287,7 +6294,18 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
             } else if (eventMatchCond) {
                 const events = Array.isArray(c.events) ? c.events : [];
                 const idx = _findFirstMatchingEventOrigIdx(events, eventMatchCond);
-                if (idx !== null) entry.event = idx;
+                if (idx !== null) {
+                    entry.event = idx;
+                    // group.openFile (e.g. "event.date") lets the front end
+                    // (see "Cases with Minutes References") jump straight to
+                    // that event's file (?file=) without an extra round trip
+                    // just to look up its value.
+                    if (openFileMatch) {
+                        const ev = events[idx - 1];
+                        const val = ev?.[openFileMatch[1]];
+                        if (val != null) entry['event_' + openFileMatch[1]] = val;
+                    }
+                }
                 delete entry.transcript;
             } else if (countZeroCond) {
                 const events = Array.isArray(c.events) ? c.events : [];
@@ -6427,7 +6445,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                     const parsed = Array.isArray(g.conditions[0])
                         ? g.conditions.map(set => set.map(_parseCaseCondition).filter(Boolean))
                         : g.conditions.map(_parseCaseCondition).filter(Boolean);
-                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder, g.fields);
+                    cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder, g.fields, g.openFile);
                 } else {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder, g.fields) : [];
                 }
