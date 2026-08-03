@@ -616,9 +616,8 @@
       var page4 = String(page).padStart(4, '0');
       var srcHref  = fp.minutes_src  ? fp.minutes_src.replace('$page:4', page4) : null;
       var hrefHref = fp.minutes_href ? fp.minutes_href.replace('$page', page) : null;
-      var title = termTitle(term) + ' Minutes, p. ' + page;
       a.href = srcHref || hrefHref;
-      a.title = (srcHref && hrefHref ? 'Use Shift+Click to open this page in the doc viewer. ' : '')
+      a.title = (srcHref && hrefHref ? 'Use Shift+Click to open the catalog page in a new tab. ' : '')
         + 'Drag onto a calendar day to move this page (and any later pages) to that date; '
         + 'Shift+drag to copy just this one page there instead, without removing it here.';
       a.addEventListener('click', function (e) {
@@ -626,15 +625,8 @@
         if (selectedMinutesPageEl && selectedMinutesPageEl !== a) selectedMinutesPageEl.classList.remove('minutes-page-selected');
         a.classList.add('minutes-page-selected');
         selectedMinutesPageEl = a;
-        if (hrefHref && e.shiftKey) {
-          if (window.parent !== window) {
-            window.parent.postMessage({ type: 'ussc-open-doc', href: hrefHref, title: title, view: 'pane' }, location.origin);
-          } else {
-            window.open(hrefHref, '_blank', 'noopener,noreferrer');
-          }
-        } else {
-          window.open(srcHref || hrefHref, '_blank', 'noopener,noreferrer');
-        }
+        var target = (hrefHref && e.shiftKey) ? hrefHref : (srcHref || hrefHref);
+        window.open(target, '_blank', 'noopener,noreferrer');
       });
       a.addEventListener('dragstart', function (e) {
         // 'move' alone would make the drop target's own dropEffect = 'copy'
@@ -911,7 +903,7 @@
           if (decade.hidden) return;
           (decade.groups || []).forEach(function(g) {
             var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
-            if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]) });
+            if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]), minutes: g.minutes });
           });
         });
         // terms.json stores decades/terms newest-first; the calendar list
@@ -967,7 +959,7 @@
             var body = document.createElement('div');
             slot.appendChild(body);
             calSection.appendChild(slot);
-            slots[t.id] = { slot: slot, body: body, monthCount: monthCount, loaded: false };
+            slots[t.id] = { slot: slot, body: body, monthCount: monthCount, loaded: false, minutes: t.minutes };
           });
 
           // Paints one term's calendar from its (already-known) date lists —
@@ -1001,10 +993,14 @@
                 .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); }),
               // dates.json is a separate, optional per-term file — most terms
               // don't have one, so a missing/failed fetch resolves to null
-              // rather than rejecting the whole Promise.all.
-              fetch('/courts/ussc/terms/' + termId + '/dates.json')
+              // rather than rejecting the whole Promise.all. Skipped entirely
+              // when terms.json's own "minutes" prop already says there's
+              // none for this term (see update_cases.js's syncTermsJson) —
+              // falls back to probing when that prop is absent altogether
+              // (e.g. an older terms.json that predates it).
+              (s.minutes === false ? Promise.resolve(null) : fetch('/courts/ussc/terms/' + termId + '/dates.json')
                 .then(function(r) { return r.ok ? r.json() : null; })
-                .catch(function() { return null; })
+                .catch(function() { return null; }))
                 .then(function (raw) { return applyDateOverrides(raw); }),
             ])
               .then(function(results) {
@@ -1081,11 +1077,28 @@
   var termDatesData = null;
   var calContainer = null;
   var selectedMinutesPageEl = null;
-
-  var termDatesPromise = fetch('/courts/ussc/terms/' + term + '/dates.json')
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .catch(function () { return null; })
-    .then(function (raw) { termDatesData = applyDateOverrides(raw); return termDatesData; });
+  // Resolved below, once terms.json's own per-term "minutes" flag is known
+  // (see update_cases.js's syncTermsJson) — skips ever fetching dates.json
+  // when that flag is explicitly false (most terms don't have one), falling
+  // back to the old unconditional fetch/probe when it's absent altogether
+  // (an older terms.json that predates this) or terms.json itself failed to
+  // load at all.
+  var _resolveTermDatesPromise;
+  var termDatesPromise = new Promise(function (resolve) { _resolveTermDatesPromise = resolve; });
+  function _resolveTermDates(minutesFlag) {
+    if (minutesFlag === false) {
+      termDatesData = applyDateOverrides(null);
+      _resolveTermDatesPromise(termDatesData);
+      return;
+    }
+    fetch('/courts/ussc/terms/' + term + '/dates.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (raw) {
+        termDatesData = applyDateOverrides(raw);
+        _resolveTermDatesPromise(termDatesData);
+      });
+  }
 
   // Oral argument audio only exists starting with October Term 1955 — omit
   // these stat cards entirely for earlier terms rather than showing six
@@ -1136,6 +1149,7 @@
           });
         }
       }
+      _resolveTermDates(entry && entry.minutes);
       if (!entry) return;
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
@@ -1166,7 +1180,7 @@
         coversRow.appendChild(rBtn);
       });
     })
-    .catch(function () {});
+    .catch(function () { _resolveTermDates(undefined); }); // couldn't determine the "minutes" flag at all — fall back to probing
 
   // Minutes-book cover thumbnails: dates.json (see the Minutes section below)
   // carries a minutes_cover image per date group — a term's minutes can span

@@ -5203,7 +5203,7 @@ function _findCaseInList(cases, row) {
     return null;
 }
 
-const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'minutes', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
 
 function syncTermsJson() {
     let tj;
@@ -5223,6 +5223,19 @@ function syncTermsJson() {
 
             const termId = m[1];
             const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'cases.json');
+            // Recorded here so the front end can skip ever fetching a
+            // dates.json that doesn't exist (most terms don't have one) —
+            // see terms.js/explorer.js, which still fall back to probing
+            // directly whenever this prop is altogether absent (e.g. an
+            // older terms.json that predates this).
+            const datesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'dates.json');
+            let hasMinutes = false;
+            if (fs.existsSync(datesPath)) {
+                try {
+                    const d = _readJson(datesPath);
+                    hasMinutes = !!d && typeof d === 'object' && Object.keys(d).length > 0;
+                } catch {}
+            }
             let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0, unanimous = 0;
             if (fs.existsSync(casesPath)) {
                 try {
@@ -5255,6 +5268,7 @@ function syncTermsJson() {
                 if (k === 'id')      { newPage.id = termId; continue; }
                 if (k === 'file')    { newPage.file = fileUrl; continue; }
                 if (k === 'cases')   { newPage.cases = count; continue; }
+                if (k === 'minutes') { newPage.minutes = hasMinutes; continue; }
                 if (k === 'term')    { if (page.term) newPage.term = page.term; continue; }
                 if (k === 'decided') { newPage.decided = decided; continue; }
                 if (k === 'argued')  { newPage.argued  = argued;  continue; }

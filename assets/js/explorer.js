@@ -77,6 +77,19 @@ let _currentVideoEntries = []; // OTD video events for the active case [{href, t
 let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
 let _currentMinutesRefs = new Map(); // sentinel value -> { href, title } for minutes_href dropdown options
+// 'minutes-date:' + iso -> { images, title } — dropdown options for the case's
+// own argued/reargued/decided dates that also have a Minutes gallery in the
+// term's dates.json (distinct from _currentMinutesRefs above, which is the
+// per-event minutes_href/minutes_src pair, not this term-dates-driven, multi-
+// page gallery). See _refreshMinutesGalleryOptions and _showMinutesGalleryForDate.
+let _currentMinutesGalleryRefs = new Map();
+// ISO date whose Minutes gallery is the doc viewer's *current* content, or
+// null — lets a case-info date link (see _setDateLinks) tell a first click
+// (show the gallery) apart from a second one (fall through to the usual
+// term-page navigation), while still reverting to "first click" behavior
+// the moment anything else is shown, e.g. picking a different file-select
+// entry (that handler resets this to null before doing anything else).
+let _activeMinutesGalleryIso = null;
 let _currentFiles       = [];        // files.json entries for the active case (used by file: dropdown options)
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
@@ -2133,6 +2146,17 @@ function toEmbedUrl(href) {
   return href;
 }
 
+let _imageGalleryCounter = 0;
+// Stashes an array of image URLs in sessionStorage (shared with the
+// same-origin img-viewer.html iframe) under a short, unique key, returning
+// that key for use in a "?gallery=<key>" iframe src — see showDocViewer's
+// own isImage/link.images handling below.
+function _stashImageGallery(images) {
+  const key = 'aa-img-gallery-' + (++_imageGalleryCounter);
+  try { sessionStorage.setItem(key, JSON.stringify(images)); } catch (e) { /* storage full/unavailable — that gallery just won't page */ }
+  return key;
+}
+
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {  const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const isPdf   = /\.pdf(#|\?|$)/i.test(link.href);
@@ -2152,9 +2176,18 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // can't inject CSS into) — routed through our own same-origin wrapper
   // page instead, which fits it to the frame. Only the iframe itself uses
   // this; the "open externally"/new-tab link below still points at
-  // effectiveHref (the real image), never this wrapper.
+  // effectiveHref (the real image), never this wrapper. link.images, when
+  // given (e.g. every Minutes page image for one date — see
+  // _minutesImagesForDate), lets the wrapper's own prev/next controls page
+  // through all of them instead of showing just the one (link.href/
+  // effectiveHref) image — passed via a sessionStorage entry (shared with
+  // this same-origin iframe) rather than a URL param, since a few dozen
+  // full image URLs can trivially exceed a request-URI length limit
+  // (WEBrick's dev server 414s well before Chrome's own ~64K-ish cap).
   const iframeSrc = isImage
-    ? '/assets/img-viewer.html?src=' + encodeURIComponent(effectiveHref)
+    ? (Array.isArray(link.images) && link.images.length > 1
+        ? '/assets/img-viewer.html?gallery=' + _stashImageGallery(link.images)
+        : '/assets/img-viewer.html?src=' + encodeURIComponent(effectiveHref))
     : effectiveHref;
 
   const refEl = document.getElementById('doc-viewer-ref');
@@ -2788,6 +2821,134 @@ function _setCaseNotes(text) {
   el.hidden = !text;
 }
 
+// term -> Promise<dates.json object|null>, cached since most terms don't
+// have one at all (a cheap, cached 404) and a term's own dates.json rarely
+// changes within a single browsing session. Skips the fetch entirely when
+// TERMS already says (via terms.json's own "minutes" prop — see
+// update_cases.js's syncTermsJson) that this term has none, falling back to
+// the fetch/probe when that prop is absent altogether (an older terms.json)
+// or the term isn't in TERMS for some other reason.
+const _termDatesCache = new Map();
+function _fetchTermDates(term) {
+  if (!_termDatesCache.has(term)) {
+    const termEntry = TERMS.find(t => t.term === term);
+    const promise = (termEntry && termEntry.minutes === false)
+      ? Promise.resolve(null)
+      : fetch('/courts/ussc/terms/' + term + '/dates.json')
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null);
+    _termDatesCache.set(term, promise);
+  }
+  return _termDatesCache.get(term);
+}
+
+// Resolves to an ordered array of minutes_src image URLs (one per page,
+// "$page:4" replaced with the zero-padded page number) for `iso` in `term`'s
+// dates.json, across every group recorded for that date — sorted by
+// minutes_src (the same record-group ordering terms.js's own
+// sortGroupsBySrc uses), so a date spanning two physical volumes reads in
+// the volumes' own physical order rather than a raw page-number sort.
+// Resolves to null if the term has no dates.json, or the date has none.
+async function _minutesImagesForDate(term, iso) {
+  const datesData = await _fetchTermDates(term);
+  const groups = datesData && datesData[iso];
+  if (!Array.isArray(groups) || !groups.length) return null;
+  const images = [];
+  [...groups]
+    .sort((a, b) => (a.minutes_src || '').localeCompare(b.minutes_src || ''))
+    .forEach(g => {
+      if (!g.minutes_src) return;
+      [...new Set(g.minutes_pages || [])].sort((a, b) => a - b).forEach(page => {
+        images.push(g.minutes_src.replace('$page:4', String(page).padStart(4, '0')));
+      });
+    });
+  return images.length ? images : null;
+}
+
+// Shows `iso`'s Minutes gallery in the doc viewer, syncs the file-select
+// dropdown to match (adding the option if this is the first time this exact
+// date has come up for the current case), and records a "file=<iso>" URL
+// param — the single shared implementation behind a case-info date link's
+// first click (_setDateLinks below), manually picking the option from
+// file-select, and restoring one from a URL (_showMinutesGalleryFromParam).
+// Returns whether a gallery was actually found and shown.
+async function _showMinutesGalleryForDate(term, iso, label) {
+  const images = await _minutesImagesForDate(term, iso);
+  if (!images || !images.length) return false;
+  const key = 'minutes-date:' + iso;
+  const title = label + ' ' + formatDecisionDate(iso);
+  _currentMinutesGalleryRefs.set(key, { images, title });
+  _activeMinutesGalleryIso = iso;
+  showDocViewer({ href: images[0], images, title, view: 'pane' }, { autoScroll: true });
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) {
+    if (!fileSelect.querySelector(`option[value="${CSS.escape(key)}"]`)) {
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = title;
+      const anchor = [...fileSelect.children].find(o =>
+        o.value !== 'docket-page' && !o.value.startsWith('minutes:') &&
+        !o.value.startsWith('journal:') && !o.value.startsWith('minutes-date:')
+      ) || null;
+      fileSelect.insertBefore(opt, anchor);
+    }
+    fileSelect.value = key;
+  }
+  const url = new URL(location.href);
+  url.searchParams.set('file', iso);
+  url.searchParams.delete('citation');
+  history.replaceState(null, '', url);
+  return true;
+}
+
+// If `param` (a URL 'file' value) is an ISO date with a Minutes gallery for
+// the current case's own term (see _showMinutesGalleryForDate above), show
+// it. Independent of whether _refreshMinutesGalleryOptions has already run
+// for this case — it resolves the gallery itself — so it works regardless
+// of exactly when in a case-load sequence a caller's own restoration check
+// happens to run.
+async function _showMinutesGalleryFromParam(param) {
+  const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
+  if (!term || !param) return false;
+  return _showMinutesGalleryForDate(term, param, 'Minutes for');
+}
+
+// Adds a "Minutes for <date>" file-select option for each of the case's
+// own argued/reargued/decided dates that has a Minutes gallery in the term's
+// dates.json — called once per case load (see loadCase) so a visitor can
+// find/select these without needing to click the case-info date link first.
+async function _refreshMinutesGalleryOptions(term, caseEntry) {
+  _currentMinutesGalleryRefs = new Map();
+  _activeMinutesGalleryIso = null;
+  const fileSelect = document.getElementById('file-select');
+  if (!fileSelect) return;
+  [...fileSelect.querySelectorAll('option')].forEach(o => { if (o.value.startsWith('minutes-date:')) o.remove(); });
+
+  // Sorted oldest-first regardless of which field each came from (normally
+  // already argument < reargument < decision, but this doesn't assume it).
+  const isos = [...new Set(
+    [caseEntry.argument, caseEntry.reargument, caseEntry.decision]
+      .filter(Boolean)
+      .map(field => field.split(',')[0].trim())
+      .filter(Boolean)
+  )].sort();
+  for (const iso of isos) {
+    const images = await _minutesImagesForDate(term, iso);
+    if (!images) continue;
+    const key = 'minutes-date:' + iso;
+    const title = 'Minutes for ' + formatDecisionDate(iso);
+    _currentMinutesGalleryRefs.set(key, { images, title });
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = title;
+    const anchor = [...fileSelect.children].find(o =>
+      o.value !== 'docket-page' && !o.value.startsWith('minutes:') &&
+      !o.value.startsWith('journal:') && !o.value.startsWith('minutes-date:')
+    ) || null;
+    fileSelect.insertBefore(opt, anchor);
+  }
+}
+
 // Populate and show/hide the argued/decided date row below the case title.
 function _setCaseInfoRow2(caseEntry) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
@@ -2837,8 +2998,22 @@ function _setCaseInfoRow2(caseEntry) {
     a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
     a.className = 'date-link';
     a.textContent = text;
-    a.addEventListener('click', (e) => {
+    // The usual behavior (jump to the term page scoped to this date) is what
+    // a click does whenever this date's own Minutes gallery isn't already
+    // the doc viewer's current content. Otherwise (this is genuinely a
+    // second click right after the first opened it) it instead falls
+    // through to that usual navigation \u2014 clearing _activeMinutesGalleryIso
+    // first so a *third* click goes back to showing the gallery, same as a
+    // first one would. Selecting anything else from file-select also resets
+    // _activeMinutesGalleryIso (see its 'change' listener), so this always
+    // reflects "is my own gallery what's actually being shown right now",
+    // not just "was I ever clicked."
+    a.addEventListener('click', async (e) => {
       e.preventDefault();
+      if (_activeMinutesGalleryIso !== firstIso) {
+        if (await _showMinutesGalleryForDate(term, firstIso, 'Minutes for')) return;
+      }
+      _activeMinutesGalleryIso = null;
       navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
       updateEmptyStateForTerm(term, firstIso);
     });
@@ -3958,7 +4133,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
       const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_href);
-      if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !_showHistoryFromParam(fileRestore)) {
+      if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !(await _showMinutesGalleryFromParam(fileRestore)) && !_showHistoryFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
       }
@@ -5726,7 +5901,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // replay's own fileRestore (even explicitly null, e.g. a URL with no file= or a
     // case with real audio) always wins; it reflects what the URL actually asked for.
     const fileRestore = fromRestore ? (e.fileRestore ?? null) : (e.fileRestore ?? _openFileValue ?? null);
-    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !_showHistoryFromParam(fileRestore)) {
+    if (fileRestore != null && !hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !(await _showMinutesGalleryFromParam(fileRestore)) && !_showHistoryFromParam(fileRestore)) {
       const fileEl = findFileItem(fileRestore);
       if (fileEl) {
         fileEl.closest('.file-type-group')?.classList.add('open');
@@ -6658,6 +6833,13 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     // decision entry — both open in the document viewer.
     const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0];
     if (_defaultEntry) fileSelect.value = _defaultEntry.value;
+    // Adds "Minutes for <date>" options (if any) for this case's own argued/
+    // reargument/decided dates — see _showMinutesGalleryForDate/_setDateLinks
+    // for how a case-info date link's own first click shows the same
+    // gallery without needing the visitor to find it here first. This path
+    // (as opposed to loadCase's own copy of this same call) is for cases
+    // with no playable audio — most Minutes-era cases, historically.
+    await _refreshMinutesGalleryOptions(term, caseEntry);
     _setFileSelectHidden(false);
   } else {
     _setFileSelectHidden(true);
@@ -6961,7 +7143,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // first option.
   const _dropdownValues = [...fileSelect.options]
     .map(o => o.value)
-    .filter(v => v !== 'docket-page' && v !== 'history-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('minutes:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
+    .filter(v => v !== 'docket-page' && v !== 'history-page' && !v.startsWith('decision_') && !v.startsWith('journal:') && !v.startsWith('minutes:') && !v.startsWith('minutes-date:') && !v.startsWith('transcript:') && !v.startsWith('oyez:') && !v.startsWith('video:') && !v.startsWith('file:'))
     .map(v => parseInt(v, 10));
   const _requestedEvent = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
@@ -6969,6 +7151,12 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     ? _requestedAllAudioPos
     : (_dropdownValues.find(v => allAudio[v - 1]?.audio_href) ?? _dropdownValues[0] ?? 1);
   fileSelect.value = String(resolvedOptionValue);
+
+  // Adds "Minutes for <date>" options (if any) for this case's own argued/
+  // reargument/decided dates — see _showMinutesGalleryForDate/_setDateLinks
+  // for how a case-info date link's own first click shows the same gallery
+  // without needing the visitor to find it here first.
+  await _refreshMinutesGalleryOptions(term, caseEntry);
 
   // Update nav highlight now that resolvedOptionValue is known.
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
@@ -7506,6 +7694,11 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
   // Always reset to case-level notes first; audio entry selection below will
   // override with event-specific notes if the chosen entry has any.
   _setCaseNotes(_currentCaseEntry?.notes || '');
+  // Picking anything here means whatever Minutes gallery a case-info date
+  // link may have opened is no longer the doc viewer's current content —
+  // the 'minutes-date:' branch below re-sets this immediately if that's
+  // what was actually picked, same as clicking that link would.
+  _activeMinutesGalleryIso = null;
   if (e.target.value === 'docket-page') {
     if (_currentCaseEntry?.docket_href) {
       showDocViewer({ href: _currentCaseEntry.docket_href, title: 'Docket Search', view: 'pane' }, { force: true });
@@ -7570,6 +7763,19 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     }
     const url = new URL(location.href);
     url.searchParams.set('file', e.target.value.slice('minutes:'.length));
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
+    return;
+  }
+  if (typeof e.target.value === 'string' && e.target.value.startsWith('minutes-date:')) {
+    const iso = e.target.value.slice('minutes-date:'.length);
+    const entry = _currentMinutesGalleryRefs.get(e.target.value);
+    if (entry) {
+      _activeMinutesGalleryIso = iso;
+      showDocViewer({ href: entry.images[0], images: entry.images, title: entry.title, view: 'pane' }, { force: true });
+    }
+    const url = new URL(location.href);
+    url.searchParams.set('file', iso);
     url.searchParams.delete('citation');
     history.replaceState(null, '', url);
     return;
@@ -9673,7 +9879,7 @@ async function restoreFromURL() {
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
         const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
         if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
-          document.addEventListener('transcriptloaded', () => {
+          document.addEventListener('transcriptloaded', async () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
               if (turnIdx >= 0 && activeTurnIdx !== turnIdx) {
@@ -9698,7 +9904,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !_showHistoryFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !(await _showMinutesGalleryFromParam(fileParam)) && !_showHistoryFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
@@ -9798,7 +10004,7 @@ async function restoreFromURL() {
           if (_evIdx >= 0) _defaultAudioIdx = _evIdx + 1;
         }
         if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
-          document.addEventListener('transcriptloaded', () => {
+          document.addEventListener('transcriptloaded', async () => {
             if (turnParam != null) {
               const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
               if (turnIdx >= 0 && activeTurnIdx !== turnIdx) {
@@ -9823,7 +10029,7 @@ async function restoreFromURL() {
                 }
               }
             }
-            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !_showHistoryFromParam(fileParam)) {
+            if (fileParam != null && !_showDecisionFromParam(fileParam) && !_showJournalFromParam(fileParam) && !_showMinutesFromParam(fileParam) && !(await _showMinutesGalleryFromParam(fileParam)) && !_showHistoryFromParam(fileParam)) {
               const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
