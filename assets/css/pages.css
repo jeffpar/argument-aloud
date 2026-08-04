@@ -6,6 +6,21 @@
    pages are easy to spot and consolidate over time.
    ════════════════════════════════════════════════════════════════════════ */
 
+/* ── General markdown list styling (shared by every "pane" page) ─────────
+   Plain tag selectors, deliberately low-specificity, so any page/section
+   below that gives its own <ul>/<ol> a more specific, intentional style
+   (.date-case-list, .corr-message-list, #tu-list > ul, #rw-list ul, etc.,
+   all list-style: none for their own custom widgets) keeps winning
+   regardless of where in this file it's declared. Unordered lists get a
+   hyphen bullet (list-style-type accepts a plain string as of CSS Lists
+   Level 3); ordered ones just get their standard browser-default numbering
+   back (decimal already prints as "1.", "2.", …) now that nothing here
+   suppresses list-style wholesale. Both slightly indented via padding-left
+   rather than the (much larger) browser default. */
+ul, ol { padding-left: 1.3em; }
+ul { list-style-type: '- '; }
+ol { list-style-type: decimal; }
+
 /* ── Blog index — courts/ussc/blog/ ─────────────────────────────────────── */
 
 .blog-list-item {
@@ -262,12 +277,17 @@ html[data-theme="light"] .date-case-list a, html[data-theme="light"] .date-minut
 
 /* Restyles the plain nested list above into expand/collapse case entries,
    purely at render time — the list itself (written by the transcript-edit
-   logging script) stays untouched. */
-.wrapper > ul > li {
+   logging script) stays untouched. Scoped to #tu-list (the wrapping
+   <div id="tu-list" markdown="1"> in the file itself) rather than the
+   generic .wrapper every "pane" page shares — a .wrapper > ul selector here
+   used to suppress list-style on any other page's own plain top-level
+   markdown list too (e.g. the Women Advocates page's "was argued with"
+   bullets — see git history). */
+#tu-list > ul > li {
   cursor: pointer;
   list-style: none;
 }
-.wrapper > ul {
+#tu-list > ul {
   padding-left: 0;
 }
 .tu-toggle {
@@ -278,14 +298,16 @@ html[data-theme="light"] .date-case-list a, html[data-theme="light"] .date-minut
   color: #999;
   transition: transform 0.15s;
 }
-.wrapper > ul > li.tu-open > .tu-toggle {
+#tu-list > ul > li.tu-open > .tu-toggle {
   transform: rotate(90deg);
 }
-.wrapper > ul > li > ul {
+#tu-list > ul > li > ul {
   display: none;
   margin-top: 4px;
+  padding-left: 14px;
+  list-style: none;
 }
-.wrapper > ul > li.tu-open > ul {
+#tu-list > ul > li.tu-open > ul {
   display: block;
 }
 html[data-theme="dark"] .tu-toggle { color: #6c7280; }

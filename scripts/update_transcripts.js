@@ -1063,6 +1063,16 @@ async function applyEditsFromFile(filePath) {
     const mdLines = md.split('\n');
     if (mdLines[mdLines.length - 1] === '') mdLines.pop();
 
+    // The list itself lives inside a wrapping <div id="tu-list" markdown="1">
+    // in the file (needed so pages.css's own list-style/toggle-arrow
+    // treatment for this page's expand/collapse widget doesn't bleed into
+    // every other page's plain markdown lists too — see git history) — new
+    // content must land *before* its closing tag, not at the true end of
+    // the file, or it'd render outside the div (losing that styling, and
+    // never getting kramdown's markdown="1" processing at all). Kept in
+    // sync across splices below since each one can shift its position.
+    let closeDivIdx = mdLines.lastIndexOf('</div>');
+
     for (const [heading, ...turnLines] of blocks) {
         const newUrl = urlOf(heading);
         let matchIdx = -1;
@@ -1072,12 +1082,17 @@ async function applyEditsFromFile(filePath) {
             }
         }
         if (matchIdx >= 0) {
-            // Insert turn lines at the end of this case's section.
+            // Insert turn lines at the end of this case's section — stopping
+            // at the next case heading, or the closing </div> if this case
+            // is currently the last one in the file.
             let insertIdx = matchIdx + 1;
-            while (insertIdx < mdLines.length && !/^  - \[/.test(mdLines[insertIdx])) insertIdx++;
+            while (insertIdx < mdLines.length && !/^  - \[/.test(mdLines[insertIdx]) && mdLines[insertIdx] !== '</div>') insertIdx++;
             mdLines.splice(insertIdx, 0, ...turnLines);
+            if (closeDivIdx >= 0 && insertIdx <= closeDivIdx) closeDivIdx += turnLines.length;
         } else {
-            mdLines.push(heading, ...turnLines);
+            const insertIdx = closeDivIdx >= 0 ? closeDivIdx : mdLines.length;
+            mdLines.splice(insertIdx, 0, heading, ...turnLines);
+            if (closeDivIdx >= 0) closeDivIdx += 1 + turnLines.length;
         }
     }
 

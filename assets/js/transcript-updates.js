@@ -1,5 +1,5 @@
   (function () {
-    var topUl = document.querySelector('.wrapper > ul');
+    var topUl = document.querySelector('#tu-list > ul');
     if (!topUl) return;
     Array.prototype.forEach.call(topUl.children, function (li) {
       var subUl = li.querySelector(':scope > ul');
