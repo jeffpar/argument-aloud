@@ -1323,6 +1323,17 @@
       }
       _resolveTermDates(entry ? entry.dates : undefined);
       if (!entry) return;
+      // argued/argDays/audio here are cross-term-aware (see update_cases.js's
+      // syncTermsJson/_computeTermArgAudioStats) — an argument/reargument
+      // date only counts toward the term whose own calendar window actually
+      // contains it, not necessarily the term the case is filed under. The
+      // stat cards were already given a locally-computed (cases-only, not
+      // cross-term-aware) approximation above so there's no flash of "—"
+      // before this fetch resolves; overwrite with the authoritative values
+      // once they're in hand.
+      if (entry.argued  != null) document.getElementById('stat-argued-cases').textContent  = entry.argued  || '—';
+      if (entry.argDays != null) document.getElementById('stat-argument-days').textContent = entry.argDays || '—';
+      if (entry.audio   != null) document.getElementById('stat-with-audio').textContent    = entry.audio   || '—';
       termMinutesCovers = entry.minutes || [];
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
@@ -1495,6 +1506,14 @@
       }
 
       // ── Term stats ──────────────────────────────────────────────────────────
+      // arguedCases/argDays/withAudio computed below are a fast local
+      // approximation from this term's own cases.json alone — not
+      // cross-term-aware (a case's argument/reargument date can chronologically
+      // belong to an *earlier* term than the one it's filed under; see
+      // update_cases.js's syncCrossTermCaseDates). They're shown immediately
+      // so the stat cards never sit on "—", then overwritten with the
+      // authoritative cross-term-aware terms.json values in the
+      // fetch('/courts/ussc/terms.json') handler above once it resolves.
       var argEvents = [];
       cases.forEach(function (c) {
         (c.events || []).forEach(function (e) {

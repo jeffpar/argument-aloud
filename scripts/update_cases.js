@@ -5242,6 +5242,34 @@ function syncTermsJson() {
     try { tj = _readJson(TERMS_JSON); } catch { return; }
     if (!Array.isArray(tj)) return;
 
+    // Pre-read every term's cases.json (needed for cross-term lookups — a
+    // pointer object recorded in term X's dates.json refers to a case filed
+    // under a different term Y, so Y's own cases.json must already be in
+    // hand regardless of which term is being processed) and every term's
+    // dates.json case-detail pointer entries (see syncCrossTermCaseDates;
+    // must have already run this pass). See _computeTermArgAudioStats.
+    const termStarts = _loadTermStarts();
+    const casesByTerm = new Map();
+    const crossTermByTerm = new Map();
+    for (const { term: tId } of termStarts) {
+        try {
+            const data = _readJson(path.join(TERMS_DIR, tId, 'cases.json'));
+            if (Array.isArray(data)) casesByTerm.set(tId, data);
+        } catch {}
+        try {
+            const dates = _readJson(path.join(TERMS_DIR, tId, 'dates.json'));
+            if (dates && typeof dates === 'object' && !Array.isArray(dates)) {
+                const entries = [];
+                for (const iso of Object.keys(dates)) {
+                    for (const g of dates[iso] || []) {
+                        if (!('minutes_src' in g) && (g.type === 'argument' || g.type === 'reargument')) entries.push({ iso, obj: g });
+                    }
+                }
+                if (entries.length) crossTermByTerm.set(tId, entries);
+            }
+        } catch {}
+    }
+
     let modified = false;
     let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0, totalUnanimous = 0;
 
@@ -5254,7 +5282,6 @@ function syncTermsJson() {
             if (!m) continue;
 
             const termId = m[1];
-            const casesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'cases.json');
             // hasDates ("dates" below) is recorded so the front end can skip
             // ever fetching a dates.json that doesn't exist (most terms don't
             // have one) — see terms.js/explorer.js, which still fall back to
@@ -5267,24 +5294,12 @@ function syncTermsJson() {
             const hasDates = fs.existsSync(datesPath);
             const minutesCovers = _minutesCoversForTerm(datesPath);
             let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0, unanimous = 0;
-            if (fs.existsSync(casesPath)) {
-                try {
-                    const data = _readJson(casesPath);
-                    if (Array.isArray(data)) {
-                        count   = data.length;
-                        decided = data.filter(c => c.decision || c.dateDecision).length;
-                        argued  = data.filter(c => c.argument  || c.reargument).length;
-                        const argDaySet = new Set();
-                        data.forEach(c => {
-                            for (const field of ['argument', 'reargument']) {
-                                if (c[field]) c[field].split(',').forEach(d => { const s = d.trim(); if (s) argDaySet.add(s); });
-                            }
-                        });
-                        argDays = argDaySet.size;
-                        audio     = data.filter(c => (c.events || []).some(e => e.audio_href)).length;
-                        unanimous = data.filter(c => c.voteMinority === 0).length;
-                    }
-                } catch {}
+            const data = casesByTerm.get(termId);
+            if (Array.isArray(data)) {
+                count   = data.length;
+                decided = data.filter(c => c.decision || c.dateDecision).length;
+                unanimous = data.filter(c => c.voteMinority === 0).length;
+                ({ argued, argDays, audio } = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm));
             }
             totalDecided   += decided;
             totalArgued    += argued;
@@ -5366,6 +5381,63 @@ function _termForDate(dateStr, termStarts) {
         else break;
     }
     return found;
+}
+
+// Computes a term's own "argued"/"argDays"/"audio" counts the same way
+// syncCrossTermCaseDates reasons about dates: an argument/reargument date
+// only belongs to the term whose own calendar window (per _termForDate)
+// actually contains it, not necessarily the term the case is filed/decided
+// under. A case's own cases.json can carry an argument or reargument date
+// that chronologically falls in an *earlier* term (see that function's own
+// doc comment) — such dates are excluded here and instead picked up via the
+// case-detail pointer objects syncCrossTermCaseDates already wrote into that
+// earlier term's own dates.json (must have already run for this to see
+// them). "decided"/"unanimous" are untouched by any of this — decision
+// dates are never tracked cross-term.
+//
+// casesByTerm: Map<termId, caseArray> for every term (own + referenced).
+// crossTermByTerm: Map<termId, [{iso, obj}, ...]> — this term's own
+// dates.json case-detail entries (type argument/reargument, no minutes_src).
+function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm) {
+    const argDaySet   = new Set();
+    const argCaseIds  = new Set();
+    const audioCaseIds = new Set();
+
+    for (const c of casesByTerm.get(termId) || []) {
+        const caseKey = c.id || c.number;
+        for (const field of ['argument', 'reargument']) {
+            const raw = c[field];
+            if (!raw) continue;
+            for (const d of raw.split(',').map(s => s.trim()).filter(Boolean)) {
+                if (_termForDate(d, termStarts) !== termId) continue; // belongs to an earlier term instead
+                argDaySet.add(d);
+                if (caseKey) argCaseIds.add(caseKey);
+            }
+        }
+        // A decision-type (or other) audio event always counts toward this
+        // term, same as before — only an argument/reargument event whose own
+        // date resolves elsewhere is excluded (its earlier term picks it up
+        // below via the cross-term pointer instead).
+        const hasQualifyingAudio = (c.events || []).some(e => {
+            if (!e.audio_href) return false;
+            if ((e.type === 'argument' || e.type === 'reargument') && e.date && _termForDate(e.date, termStarts) !== termId) return false;
+            return true;
+        });
+        if (hasQualifyingAudio && caseKey) audioCaseIds.add(caseKey);
+    }
+
+    for (const { iso, obj } of crossTermByTerm.get(termId) || []) {
+        const caseKey = obj.id || obj.number;
+        argDaySet.add(iso);
+        if (caseKey) argCaseIds.add(caseKey);
+
+        const srcCase = (casesByTerm.get(obj.term) || []).find(c => (c.id || c.number) === caseKey);
+        if (caseKey && srcCase && (srcCase.events || []).some(e => e.type === obj.type && e.audio_href)) {
+            audioCaseIds.add(caseKey);
+        }
+    }
+
+    return { argued: argCaseIds.size, argDays: argDaySet.size, audio: audioCaseIds.size };
 }
 
 // Some cases were actually argued/reargued during an *earlier* term's own
