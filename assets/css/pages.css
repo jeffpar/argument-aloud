@@ -27,6 +27,8 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 
 .stats-title-row { display: flex; align-items: baseline; gap: 8px; margin: 0.75rem 0 0.6rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
 .stats-title-row h1, .stats-title-row h2 { flex: 1; }
+.stat-term-title-link { color: inherit; text-decoration: none; cursor: pointer; }
+.stat-term-title-link:hover { text-decoration: underline; }
 .stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
 .stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }

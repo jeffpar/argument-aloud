@@ -31,8 +31,15 @@ scripts/             Import/update/alignment scripts (Node.js)
 
 ### Terms
 - Format: `YYYY-MM` (e.g., `2025-10` = October Term 2025, `1793-02` = February Term 1793)
-- `courts/ussc/terms.json` — master list of all terms
+- `courts/ussc/terms.json` — master list of all terms. Each term object's own `dates` boolean says whether `courts/ussc/terms/YYYY-MM/dates.json` exists (set by `update_cases.js`'s `syncTermsJson`) — the front end (`assets/js/terms.js`, `explorer.js`) checks this before ever fetching it, since most terms don't have one. `minutes` (an array of `{cover}` cover-thumbnail filenames) is independent of this — a term's `dates.json` can exist purely for cross-term case entries (see below) with no Minutes-scan data at all.
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
+
+### dates.json (optional, per term)
+`courts/ussc/terms/YYYY-MM/dates.json` maps an ISO date to an array of entries, built/maintained by two different scripts:
+- **Minutes-scan groups** — `{minutes_href, minutes_src, minutes_pages, modified?}`, built by `scripts/parse_minutes.js` from NARA's OCR'd Minutes books. See that script's own top-of-file doc comment for the full format.
+- **Cross-term case-detail objects** — `{id, term, number, title, usCite, type}`, added by `update_cases.js`'s `syncCrossTermCaseDates` for a case whose `argument`/`reargument` date falls within an *earlier* term's own date range than the term it's filed under (e.g. a case reargued in the term after the one it was first argued in — `term` here is the case's own term, `type` is `"argument"` or `"reargument"`). The front end adds these to that earlier term's own date-argued/reargued lists and Court Calendar coloring when viewing its page, linking to the case via its own `term`.
+
+Since either kind of object can appear in the same date's array, **any code reading it must check for `minutes_src` before treating an entry as a Minutes group** — never assume every entry is one.
 
 ### Case schema (in `cases.json`)
 Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Always call `reorderCase()` / `reorderEvent()` when writing new objects.

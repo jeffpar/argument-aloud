@@ -42,12 +42,14 @@
   // for, instead of only checking once at DOMContentLoaded.
   function updateCustomizationsMenu() {
     var has = !!localStorage.getItem(LS_DATES_KEY);
-    var divider = document.getElementById('customizations-divider');
-    var label   = document.getElementById('customizations-label');
-    var dlBtn   = document.getElementById('download-dates-btn');
-    if (divider) divider.hidden = !has;
-    if (label)   label.hidden   = !has;
-    if (dlBtn)   dlBtn.hidden   = !has;
+    var divider   = document.getElementById('customizations-divider');
+    var label     = document.getElementById('customizations-label');
+    var dlBtn     = document.getElementById('download-dates-btn');
+    var clearBtn  = document.getElementById('clear-dates-btn');
+    if (divider)  divider.hidden  = !has;
+    if (label)    label.hidden    = !has;
+    if (dlBtn)    dlBtn.hidden    = !has;
+    if (clearBtn) clearBtn.hidden = !has;
   }
 
   window.addEventListener('storage', function (e) {
@@ -149,6 +151,13 @@
       downloadDatesBtn.addEventListener('click', function () {
         closeMenu();
         if (typeof window._downloadDateOverrides === 'function') window._downloadDateOverrides();
+      });
+    }
+    var clearDatesBtn = document.getElementById('clear-dates-btn');
+    if (clearDatesBtn) {
+      clearDatesBtn.addEventListener('click', function () {
+        closeMenu();
+        if (typeof window._clearDateOverrides === 'function') window._clearDateOverrides();
       });
     }
     updateCustomizationsMenu();

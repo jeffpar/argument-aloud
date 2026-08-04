@@ -117,6 +117,11 @@
     // A fresh page starts back at "fit" rather than carrying over whatever
     // zoom/pan the previous page was left at.
     scale = minScale; panX = 0; panY = 0;
+    // Lets the parent (explorer.js's showDocViewer) relay this gallery's own
+    // current page down into the page-viewer iframe, if it opened this
+    // gallery — see terms.js's Minutes Pages list, which keeps its own
+    // highlighted page in sync with Left/Right navigation here.
+    if (images.length > 1) window.parent.postMessage({ type: 'ussc-gallery-index', index: index }, location.origin);
   }
 
   if (images.length > 1) {
@@ -130,10 +135,10 @@
   }
 
   // baseLeft/baseTop/baseWidth/baseHeight describe the image's own
-  // "fit to viewport" (object-fit: contain, at scale 1) position and size —
+  // "fit to viewport width, top-anchored" (at scale 1) position and size —
   // computed once the image loads (and again on resize), since #img is
   // absolutely positioned (so its own transform-origin can anchor zoom at
-  // an arbitrary point) rather than centered via flexbox.
+  // an arbitrary point) rather than laid out via flexbox.
   var baseLeft = 0, baseTop = 0, baseWidth = 0, baseHeight = 0;
   var scale = 1, minScale = 1, maxScale = 8;
   var panX = 0, panY = 0; // screen-pixel offset applied on top of the base fit, at the current scale
@@ -142,14 +147,21 @@
   // the very first image is shown only once they're declared above.
   if (images.length) showImage(index);
 
+  // Fits to the viewport's full width (rather than shrinking to also fit the
+  // whole image within the viewport's height) and anchors the top edge —
+  // these are scanned document pages, and the top is what a reader wants to
+  // land on by default. #stage's own overflow:hidden simply crops whatever
+  // of a taller-than-viewport page runs past the bottom at this, the
+  // viewer's most-zoomed-out state — reachable by dragging up (see the
+  // "pannable" cursor below).
   function layoutBase() {
     var vw = window.innerWidth, vh = window.innerHeight;
     var iw = img.naturalWidth || vw, ih = img.naturalHeight || vh;
-    var fit = Math.min(vw / iw, vh / ih);
+    var fit = vw / iw;
     baseWidth = iw * fit;
     baseHeight = ih * fit;
-    baseLeft = (vw - baseWidth) / 2;
-    baseTop = (vh - baseHeight) / 2;
+    baseLeft = 0;
+    baseTop = 0;
     img.style.width = baseWidth + 'px';
     img.style.height = baseHeight + 'px';
     img.style.left = baseLeft + 'px';
@@ -160,7 +172,11 @@
   function render() {
     img.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     zoomPct.textContent = Math.round(scale * 100) + '%';
-    stage.classList.toggle('pannable', scale > minScale);
+    // Grab cursor whenever there's anything to drag to — either zoomed in,
+    // or (now that layoutBase fits to width rather than the whole page) a
+    // page tall enough that fitting the width alone already runs its bottom
+    // past the viewport at scale 1.
+    stage.classList.toggle('pannable', scale > minScale || baseHeight * scale > window.innerHeight);
   }
 
   // Changes scale while keeping the point at (screenX, screenY) visually
@@ -172,7 +188,7 @@
     var localY = (screenY - baseTop - panY) / scale;
     scale = newScale;
     if (scale <= minScale) {
-      panX = 0; panY = 0; // snap back to a clean, centered "fit" view
+      panX = 0; panY = 0; // snap back to the base top-anchored, full-width "fit" view
     } else {
       panX = screenX - baseLeft - localX * scale;
       panY = screenY - baseTop - localY * scale;

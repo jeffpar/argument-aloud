@@ -91,10 +91,12 @@
  *                 courts/ussc/terms/<term>/m<XXX>-cover.jpg, a 1340px-tall
  *                 proportional resize (via macOS's `sips`) of the first
  *                 page number seen for that template, where <XXX> is the
- *                 3-digit roll number in "M215-XXX". Every group sharing
- *                 that minutes_src gets a "minutes_cover" prop (right after
- *                 minutes_src) pointing at it, e.g.
- *                 "/courts/ussc/terms/1888-10/m017-cover.jpg".
+ *                 3-digit roll number in "M215-XXX". dates.json itself is
+ *                 never modified by this mode — the roll number embedded in
+ *                 each group's own minutes_src is enough to derive its cover
+ *                 filename on demand; update_cases.js's syncTermsJson reads
+ *                 that back into terms.json's own per-term "minutes" array
+ *                 (see there).
  *
  * Applying a downloaded overrides file: the term stats page's Minutes Pages
  * list (assets/js/terms.js) lets a visitor drag a page number onto a
@@ -377,7 +379,6 @@ async function runThumbnails(dryRun) {
     }
     if (!firstPageByTemplate.size) continue;
 
-    let changed = false;
     for (const [template, firstPage] of firstPageByTemplate) {
       const rollMatch = /M215-(\d{3})/.exec(template);
       if (!rollMatch) {
@@ -388,58 +389,30 @@ async function runThumbnails(dryRun) {
       const xxx = rollMatch[1];
       const coverName = `m${xxx}-cover.jpg`;
       const coverPath = join(TERMS_DIR, term, coverName);
-      const coverRef = `/courts/ussc/terms/${term}/${coverName}`;
 
       if (existsSync(coverPath)) {
         existing++;
-      } else {
-        const page4 = String(firstPage).padStart(4, '0');
-        const imgUrl = template.replace('$page:4', page4);
-        console.log(`  ${term}: fetching ${imgUrl} -> ${coverName}`);
-        if (!dryRun) {
-          const tmpPath = join(TERMS_DIR, term, `.${coverName}.raw`);
-          try {
-            const res = await fetch(imgUrl);
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            writeFileSync(tmpPath, Buffer.from(await res.arrayBuffer()));
-            execFileSync('sips', ['--resampleHeight', '1340', tmpPath, '--out', coverPath], { stdio: 'ignore' });
-          } catch (e) {
-            console.log(`  ${term}: ERROR ${e.message || e}`);
-            failed++;
-            continue;
-          } finally {
-            if (existsSync(tmpPath)) unlinkSync(tmpPath);
-          }
-        }
-        created++;
+        continue;
       }
-
-      // Every group sharing this exact minutes_src template shows the same
-      // physical roll, so they all get the same cover — not just whichever
-      // group's page happened to be used to fetch it.
-      for (const iso of Object.keys(dates)) {
-        const groups = dates[iso];
-        if (!Array.isArray(groups)) continue;
-        for (let gi = 0; gi < groups.length; gi++) {
-          const g = groups[gi];
-          if (g.minutes_src !== template || g.minutes_cover === coverRef) continue;
-          console.log(`  ${term}/dates.json[${iso}] gained minutes_cover=${coverRef}`);
-          if (!dryRun) {
-            groups[gi] = {
-              minutes_href: g.minutes_href,
-              minutes_src: g.minutes_src,
-              minutes_cover: coverRef,
-              minutes_pages: g.minutes_pages,
-            };
-          }
-          changed = true;
+      const page4 = String(firstPage).padStart(4, '0');
+      const imgUrl = template.replace('$page:4', page4);
+      console.log(`  ${term}: fetching ${imgUrl} -> ${coverName}`);
+      if (!dryRun) {
+        const tmpPath = join(TERMS_DIR, term, `.${coverName}.raw`);
+        try {
+          const res = await fetch(imgUrl);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          writeFileSync(tmpPath, Buffer.from(await res.arrayBuffer()));
+          execFileSync('sips', ['--resampleHeight', '1340', tmpPath, '--out', coverPath], { stdio: 'ignore' });
+        } catch (e) {
+          console.log(`  ${term}: ERROR ${e.message || e}`);
+          failed++;
+          continue;
+        } finally {
+          if (existsSync(tmpPath)) unlinkSync(tmpPath);
         }
       }
-    }
-
-    if (changed && !dryRun) {
-      writeFileSync(datesPath, JSON.stringify(dates, null, 2) + '\n', 'utf8');
-      console.log(`  ${term}: updated dates.json`);
+      created++;
     }
   }
 
@@ -449,16 +422,21 @@ async function runThumbnails(dryRun) {
 
 // Normalizes one override value (a single group object, an array of them,
 // possibly hand-edited or from an older format) into the same
-// {minutes_href, minutes_src, minutes_cover?, minutes_pages} key order the
-// rest of this script writes, plus a trailing `modified: true` — this marks
-// the group as a deliberate, browser-made edit so a later re-run of the
-// normal <volume-url> flow (Pass 3 below) never overwrites it with a fresh
-// OCR-derived result.
+// {minutes_href, minutes_src, minutes_pages} key order the rest of this
+// script writes, plus a trailing `modified: true` — this marks the group as
+// a deliberate, browser-made edit so a later re-run of the normal
+// <volume-url> flow (Pass 3 below) never overwrites it with a fresh
+// OCR-derived result. A downloaded override's own array can also carry a
+// case-detail object (see update_cases.js's syncCrossTermCaseDates) alongside
+// any minutes groups, exported as-is from the browser's own in-memory copy —
+// identified by the absence of minutes_src (the only prop guaranteed never to
+// appear on one) and passed through completely untouched, never coerced into
+// minutes-group shape.
 function normalizeOverrideGroups(val) {
   const groups = Array.isArray(val) ? val : [val];
   return groups.map((g) => {
+    if (!('minutes_src' in g)) return g;
     const out = { minutes_href: g.minutes_href, minutes_src: g.minutes_src };
-    if (g.minutes_cover) out.minutes_cover = g.minutes_cover;
     out.minutes_pages = [...new Set(g.minutes_pages || [])].sort((a, b) => a - b);
     out.modified = true;
     return out;
@@ -468,6 +446,12 @@ function normalizeOverrideGroups(val) {
 // Applies a downloaded date-overrides file (see the doc comment at the top
 // of this file) — a flat { "<ISO date>": <groups>|null } map, possibly
 // spanning several terms — directly to each affected term's own dates.json.
+// Returns true if every entry resolved to a known term (regardless of
+// whether it actually changed anything — "already matched" still counts as
+// resolved) — main() below deletes the source file on a clean, non-dry-run
+// pass, since a downloaded overrides file has no further purpose once fully
+// applied. False if any entry's date fell outside every known term's range,
+// which is the only real per-entry failure mode here.
 async function applyDateOverrides(filePath, dryRun) {
   const raw = JSON.parse(readFileSync(filePath, 'utf8'));
   const termStarts = loadTermStarts();
@@ -478,13 +462,13 @@ async function applyDateOverrides(filePath, dryRun) {
   };
 
   const changedTerms = new Set();
-  let applied = 0, skipped = 0;
+  let applied = 0, skipped = 0, unresolvable = 0;
 
   for (const iso of Object.keys(raw)) {
     const term = termForDate(iso, termStarts);
     if (!term) {
       console.log(`  ${iso}: matches no known term; skipping`);
-      skipped++;
+      unresolvable++;
       continue;
     }
     const dates = getDates(term);
@@ -525,8 +509,9 @@ async function applyDateOverrides(filePath, dryRun) {
     }
   }
 
-  console.log(`\nOverrides: ${applied} applied across ${changedTerms.size} term(s), ${skipped} already matched or unresolvable.`);
+  console.log(`\nOverrides: ${applied} applied across ${changedTerms.size} term(s), ${skipped} already matched, ${unresolvable} unresolvable.`);
   if (dryRun) console.log('(dry run — no files written)');
+  return unresolvable === 0;
 }
 
 // Reconciles courts/ussc/minutes/text/<year>/ against one term's (or every
@@ -648,7 +633,7 @@ async function syncMinutesText(termFilter, dryRun) {
 function arrMin(arr) { return arr.reduce((m, v) => (v < m ? v : m), Infinity); }
 function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); }
 
-// Checks three invariants across one term's (or every term's) dates.json,
+// Checks four invariants across one term's (or every term's) dates.json,
 // read-only:
 //   1. No single group's own minutes_pages array repeats a page number.
 //   2. For a given context (minutes_href AND minutes_src together — the
@@ -658,8 +643,10 @@ function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); 
 //      with real pages for that same context falls between them) — a page
 //      whose proceedings genuinely straddle the end of one court day and
 //      the start of the next (see the Minutes drag-and-drop editor's
-//      Shift+drag "copy" feature in assets/js/terms.js). Anything else —
-//      3+ dates, or 2 non-adjacent dates — is reported as a problem.
+//      Shift+drag feature in assets/js/terms.js, which leaves the dragged
+//      page at both dates while still moving any pages after it on to the
+//      target). Anything else — 3+ dates, or 2 non-adjacent dates — is
+//      reported as a problem.
 //   3. Within a given context, page numbers only ever increase from one of
 //      its dates to the next (i.e. moving forward through time never moves
 //      backward through the volume's own pages) — a date's lowest page must
@@ -668,6 +655,13 @@ function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); 
 //      change of context (a new physical volume/roll), which this can't
 //      mistake for a same-context regression since it's checked separately
 //      per context, never by comparing across two different ones.
+//   4. No gaps: across every date recorded for a given context (within this
+//      term — a volume's own pages that continue into an adjacent term are
+//      out of scope here, same as invariants 2 and 3 above), every integer
+//      between its lowest and highest recorded page must actually appear
+//      somewhere. A missing page usually means a date's own group never got
+//      it added (e.g. a drag-and-drop edit or an OCR misread dropped it),
+//      not that the page itself doesn't exist.
 function verifyMinutesConsistency(termFilter) {
   const terms = readdirSync(TERMS_DIR)
     .filter(d => /^\d{4}-\d{2}$/.test(d) && (!termFilter || d === termFilter) && existsSync(join(TERMS_DIR, d, 'dates.json')))
@@ -750,6 +744,23 @@ function verifyMinutesConsistency(termFilter) {
         }
       }
     }
+
+    for (const [ctxKey, locMap] of pageLocations) {
+      const href = ctxKey.split('\0')[0];
+      const allPages = [...locMap.keys()].sort((a, b) => a - b);
+      const gaps = [];
+      for (let i = 1; i < allPages.length; i++) {
+        const prev = allPages[i - 1], curr = allPages[i];
+        if (curr - prev > 1) {
+          const gapStart = prev + 1, gapEnd = curr - 1;
+          gaps.push(gapStart === gapEnd ? String(gapStart) : `${gapStart}-${gapEnd}`);
+        }
+      }
+      if (gaps.length) {
+        console.log(`  ${term}: ${href} is missing page(s) ${gaps.join(', ')} (recorded pages run ${allPages[0]}-${allPages[allPages.length - 1]})`);
+        problems += gaps.length;
+      }
+    }
   }
 
   console.log(`\nVerify: ${problems} problem(s) found across ${terms.length} term(s).`);
@@ -785,7 +796,15 @@ async function main() {
   // A downloaded overrides file is a local path, never a URL — distinguish
   // it from <volume-url> that way rather than requiring a separate flag.
   if (!/^https?:\/\//.test(positional) && existsSync(positional)) {
-    await applyDateOverrides(positional, dryRun);
+    const ok = await applyDateOverrides(positional, dryRun);
+    // Nothing left to keep it around for once every entry has been cleanly
+    // applied (or was already applied) — skipped on --dry-run, since nothing
+    // was actually written, and on any unresolvable entry, so its dates stay
+    // available to retry (e.g. against a term added since).
+    if (ok && !dryRun) {
+      unlinkSync(positional);
+      console.log(`Deleted ${positional} (all overrides applied cleanly).`);
+    }
     return;
   }
 
@@ -966,7 +985,10 @@ async function main() {
       minutes_pages: [...pages].sort((a, b) => a - b),
     };
     groups[groups.indexOf(group)] = newGroup;
-    groups.sort((a, b) => a.minutes_href.localeCompare(b.minutes_href));
+    // A date's own array can now also hold a case-detail object (see
+    // update_cases.js's syncCrossTermCaseDates) with no minutes_href at all —
+    // the fallback keeps those sorting to the front rather than throwing.
+    groups.sort((a, b) => (a.minutes_href || '').localeCompare(b.minutes_href || ''));
     dates[fullDate] = groups;
 
     if (isNewGroup || !hadPage || !hadSrc) {

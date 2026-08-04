@@ -281,10 +281,22 @@
     downloadJson('ussc-dates.json', raw);
   }
 
+  // Unlike clearFavorites/clearTranscriptEdits above, this reloads in place
+  // rather than navigating to '/' — a stuck/stale override (e.g. one left
+  // over from before a bug fix landed server-side) is specific to whatever
+  // term/date page the visitor is already looking at, so that's exactly
+  // where they want to land right back on once it's gone.
+  function clearDateOverrides() {
+    if (!confirm('This will erase all your local Minutes date edits (drag-and-drop changes not yet sent in via Download Dates). Are you sure?')) return;
+    localStorage.removeItem(LS_DATES_KEY);
+    window.location.reload();
+  }
+
   window._saveFavorites           = saveFavorites;
   window._restoreFavorites        = restoreFavorites;
   window._clearFavorites          = clearFavorites;
   window._downloadTranscriptEdits = downloadTranscriptEdits;
   window._clearTranscriptEdits    = clearTranscriptEdits;
   window._downloadDateOverrides   = downloadDateOverrides;
+  window._clearDateOverrides      = clearDateOverrides;
 }());

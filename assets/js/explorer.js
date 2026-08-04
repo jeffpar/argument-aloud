@@ -1582,10 +1582,15 @@ function speakerClass(speaker) {
 // Also updates the stats page if it's already shown (switching between terms).
 // Pass null when a term is collapsed (no-op; leave whatever is currently shown).
 // Pass date (YYYY-MM-DD) to show the cases-for-a-day view above the stats.
-function updateEmptyStateForTerm(term, date = null) {
+// Pass page (a Minutes page number) to also have that page's own iframe
+// (terms.js's openMinutesPageFromUrl) open straight to it in the doc viewer,
+// as if visited via a green calendar day's own "page" deep link — meaningless
+// without date, and ignored by terms.js if it is given without one.
+function updateEmptyStateForTerm(term, date = null, page = null) {
   if (!term) return; // term collapsed — leave current view
   const statsUrl = '/courts/ussc/terms/?term=' + encodeURIComponent(term)
-    + (date ? '&date=' + encodeURIComponent(date) : '');
+    + (date ? '&date=' + encodeURIComponent(date) : '')
+    + (page ? '&page=' + encodeURIComponent(page) : '');
   showPageViewer(statsUrl, { pushState: false });
 }
 
@@ -2157,7 +2162,19 @@ function _stashImageGallery(images) {
   return key;
 }
 
-function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {  const panel  = document.getElementById('doc-viewer');
+// Whether the image gallery currently shown in the doc viewer (if any)
+// should have its own Left/Right navigation echoed back down into the
+// page-viewer iframe — set by the 'ussc-open-doc' message handler below
+// right after a page-viewer page (e.g. a term stats page's Minutes Pages
+// list — see assets/js/terms.js) opens one via postMessage, and reset to
+// false at the top of every showDocViewer call so it can never stay
+// (incorrectly) true for a gallery opened some other way, e.g. this page's
+// own case-level Minutes viewer (_showMinutesGalleryForDate below).
+let _docViewerRelayIndexToPageFrame = false;
+
+function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {
+  _docViewerRelayIndexToPageFrame = false;
+  const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const isPdf   = /\.pdf(#|\?|$)/i.test(link.href);
   const isMp4   = /\.mp4(#|\?|$)/i.test(link.href);
@@ -2184,9 +2201,12 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // this same-origin iframe) rather than a URL param, since a few dozen
   // full image URLs can trivially exceed a request-URI length limit
   // (WEBrick's dev server 414s well before Chrome's own ~64K-ish cap).
+  // link.index (optional) opens the gallery already positioned at that page
+  // rather than always starting at index 0 — e.g. a Minutes Pages list link
+  // clicked partway through a date's pages (see terms.js's wireDocLink calls).
   const iframeSrc = isImage
     ? (Array.isArray(link.images) && link.images.length > 1
-        ? '/assets/img-viewer.html?gallery=' + _stashImageGallery(link.images)
+        ? '/assets/img-viewer.html?gallery=' + _stashImageGallery(link.images) + '&index=' + (link.index || 0)
         : '/assets/img-viewer.html?src=' + encodeURIComponent(effectiveHref))
     : effectiveHref;
 
@@ -2353,6 +2373,15 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     // Same scroll when un-minimized automatically during playback (desktop only).
     if (!isMobile() && !autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
   }
+
+  // Move keyboard focus into the image iframe so its own Left/Right
+  // (img-viewer.html's gallery paging) actually receive the keydown —
+  // otherwise focus stays wherever the visitor last clicked (e.g. a Minutes
+  // Pages link in the page-viewer iframe — see terms.js), which silently
+  // swallows the arrow keys instead. Must run down here, after the panel is
+  // actually unhidden/expanded above — #doc-viewer[hidden] (and a freshly-
+  // created iframe still inside it) can't take focus while still display:none.
+  if (isImage && activePdfIframe) activePdfIframe.focus({ preventScroll: true });
 }
 
 // ── Build nav ───────────────────────────────────────────────────────────────
@@ -2824,15 +2853,15 @@ function _setCaseNotes(text) {
 // term -> Promise<dates.json object|null>, cached since most terms don't
 // have one at all (a cheap, cached 404) and a term's own dates.json rarely
 // changes within a single browsing session. Skips the fetch entirely when
-// TERMS already says (via terms.json's own "minutes" prop — see
+// TERMS already says (via terms.json's own "dates" boolean — see
 // update_cases.js's syncTermsJson) that this term has none, falling back to
-// the fetch/probe when that prop is absent altogether (an older terms.json)
-// or the term isn't in TERMS for some other reason.
+// the fetch/probe when that's absent altogether (an older terms.json) or the
+// term isn't in TERMS for some other reason.
 const _termDatesCache = new Map();
 function _fetchTermDates(term) {
   if (!_termDatesCache.has(term)) {
     const termEntry = TERMS.find(t => t.term === term);
-    const promise = (termEntry && termEntry.minutes === false)
+    const promise = (termEntry && termEntry.dates === false)
       ? Promise.resolve(null)
       : fetch('/courts/ussc/terms/' + term + '/dates.json')
         .then(r => r.ok ? r.json() : null)
@@ -9317,7 +9346,7 @@ let _navSearchActivate = null;
         if (match) {
           navigate(buildUrlParams(
             { term: match.term },
-            ['collection', 'group', 'id', 'highlight', 'date', 'case', 'event', 'file', 'turn', 'sort', 'o'],
+            ['collection', 'group', 'id', 'highlight', 'date', 'page', 'case', 'event', 'file', 'turn', 'sort', 'o'],
           ));
           restoreFromURL();
           closeNavSearch();
@@ -9330,7 +9359,7 @@ let _navSearchActivate = null;
       if (val.length > 0 && val !== '"' && val !== '#') {
         const url = new URL(location.href);
         url.searchParams.set('find', val);
-        ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date'].forEach(k => url.searchParams.delete(k));
+        ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link', 'date', 'page'].forEach(k => url.searchParams.delete(k));
         history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString());
       }
     }
@@ -9579,6 +9608,7 @@ async function restoreFromURL() {
   let termParam         = params.get('term');
   if (termParam === 'current') termParam = TERMS[0]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
+  const pageParam       = params.get('page') ?? null;
   let collectionParam = params.get('collection') ?? params.get('topic');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
     collectionParam = _resolveCollectionAlias(collectionParam);
@@ -10131,7 +10161,7 @@ async function restoreFromURL() {
           }
         })();
       }
-      updateEmptyStateForTerm(termParam, dateParam);
+      updateEmptyStateForTerm(termParam, dateParam, pageParam);
       setTopbarTerm(termParam);
       setPageMeta(termDisplayName(termParam) + ' | Argument Aloud');
       trackPageView(location.href);
@@ -10154,7 +10184,20 @@ window.addEventListener('message', async (e) => {
     navigate(url);
     await restoreFromURL();
   } else if (e.data?.type === 'ussc-open-doc' && e.data.href) {
-    showDocViewer({ href: e.data.href, title: e.data.title || '', view: e.data.view });
+    showDocViewer({ href: e.data.href, images: e.data.images, index: e.data.index, title: e.data.title || '', view: e.data.view });
+    // Opt into relaying this gallery's own Left/Right navigation back down —
+    // must come after showDocViewer, which unconditionally resets this to
+    // false at its own top (see _docViewerRelayIndexToPageFrame above).
+    _docViewerRelayIndexToPageFrame = Array.isArray(e.data.images) && e.data.images.length > 1;
+  } else if (e.data?.type === 'ussc-gallery-index' && typeof e.data.index === 'number') {
+    // Posted by assets/img-viewer.html whenever its own current page changes
+    // (Left/Right or the prev/next buttons) — echoed down into the
+    // page-viewer iframe so e.g. terms.js's Minutes Pages list can keep its
+    // own highlighted page in sync, but only for a gallery that iframe
+    // itself opened (see the 'ussc-open-doc' branch above).
+    if (_docViewerRelayIndexToPageFrame) {
+      document.getElementById('page-viewer-frame')?.contentWindow?.postMessage({ type: 'ussc-minutes-index', index: e.data.index }, location.origin);
+    }
   } else if (e.data?.type === 'ussc-update-sort' && e.data.sort) {
     const newUrl = new URL(location.href);
     newUrl.hash = '';
@@ -10162,6 +10205,15 @@ window.addEventListener('message', async (e) => {
     newUrl.searchParams.set('o', e.data.o || 'd');
     if (e.data.s) newUrl.searchParams.set('s', e.data.s);
     else          newUrl.searchParams.delete('s');
+    history.replaceState(null, '', newUrl.toString());
+  } else if (e.data?.type === 'ussc-update-page' && e.data.page) {
+    // Posted by terms.js's updateUrlPageParam whenever the Minutes page
+    // actually shown in the doc viewer changes (a page click or Left/Right
+    // gallery nav) — keeps the address bar's own "page" param in sync
+    // without a real navigation (no navigate()/restoreFromURL(), since the
+    // page-viewer iframe and doc viewer are already showing the right thing).
+    const newUrl = new URL(location.href);
+    newUrl.searchParams.set('page', e.data.page);
     history.replaceState(null, '', newUrl.toString());
   } else if (e.data?.type === 'ussc-scroll-collection-item' && e.data.collection && e.data.id) {
     _scrollSidebarToCollectionItem(e.data.collection, e.data.id);

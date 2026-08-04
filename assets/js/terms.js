@@ -84,17 +84,28 @@
     });
   }
 
+  // window.open()'s third argument (windowFeatures) — even just
+  // 'noopener,noreferrer', with no size/position of its own — is enough to
+  // make some browsers treat the result as a popup window rather than a
+  // normal tab. Omitting it and stripping .opener off the returned reference
+  // instead gets the same noopener protection (blocking the new tab from
+  // reaching back into this page via window.opener) without that.
+  function _openInNewTab(href) {
+    var w = window.open(href, '_blank');
+    if (w) w.opener = null;
+  }
+
   // Wires a term-page cover thumbnail (journal/U.S. Reports/minutes) to open
   // its document in the SPA's doc viewer by default — postMessage when
   // framed, a new tab when standalone — or always in a new tab on
   // Shift-click, matching wireDocLink's shift-to-new-tab convention below.
   function wireCoverClick(btn, href, title, view) {
     btn.addEventListener('click', function (e) {
-      if (e.shiftKey) { window.open(href, '_blank', 'noopener,noreferrer'); return; }
+      if (e.shiftKey) { _openInNewTab(href); return; }
       if (window.parent !== window) {
         window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title, view: view }, location.origin);
       } else {
-        window.open(href, '_blank', 'noopener,noreferrer');
+        _openInNewTab(href);
       }
     });
   }
@@ -107,25 +118,26 @@
   // .pdf/.mp4/.mp3 hrefs, and a catalog.archives.gov URL matches none of those).
   // `altHref` (optional) opens in a new tab on a Shift-click, instead of
   // `href`'s normal doc-viewer behavior (see the Minutes page links below).
-  // Simple window.open() — tab-vs-window and inline-vs-download for a
-  // Shift-clicked image both end up somewhat browser-dependent no matter
-  // how this is done (window.open(), a synthetic click, or letting a real
-  // modified click fall through to native handling — all three were tried
-  // and each regressed some combination of Chrome/Safari), so this just
-  // takes the straightforward approach rather than chasing full cross-
-  // browser parity here.
-  function wireDocLink(a, href, title, view, altHref) {
+  // `images`/`index` (optional, both or neither) let a caller open `href` as
+  // one page of a multi-image gallery in the doc viewer's own image viewer
+  // instead of a single static image — see the Minutes page links below,
+  // whose whole date's worth of pages are passed this way so the doc
+  // viewer's own Left/Right arrow keys can page through them without
+  // reopening it.
+  function wireDocLink(a, href, title, view, altHref, images, index) {
     a.href = href;
     a.addEventListener('click', function (e) {
       e.preventDefault();
       if (altHref && e.shiftKey) {
-        window.open(altHref, '_blank', 'noopener,noreferrer');
+        _openInNewTab(altHref);
         return;
       }
       if (window.parent !== window) {
-        window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title, view: view }, location.origin);
+        var msg = { type: 'ussc-open-doc', href: href, title: title, view: view };
+        if (Array.isArray(images) && images.length > 1) { msg.images = images; msg.index = index; }
+        window.parent.postMessage(msg, location.origin);
       } else {
-        window.open(href, '_blank', 'noopener,noreferrer');
+        _openInNewTab(href);
       }
     });
   }
@@ -375,11 +387,17 @@
   // isn't wired twice) via the .cal-clickable marker class. The handler is
   // stashed on the element so unwireCalDayNav (below) can later remove this
   // exact listener if a minutes-only day loses its only minutes entry.
+  // A "page" URL param (this date's first Minutes page — see
+  // applyMinutesTooltipToDay's own dayEl.dataset.minutesPage) is read fresh
+  // at click time, not baked in here, since an argument/decision day is
+  // wired up front (before dates.json has even loaded) and would otherwise
+  // never pick up a page number that only becomes known afterward.
   function wireCalDayNav(dayEl, termId, iso) {
     if (dayEl.classList.contains('cal-clickable')) return;
     dayEl.classList.add('cal-clickable');
     var handler = function () {
       var s = '?term=' + encodeURIComponent(termId) + '&date=' + encodeURIComponent(iso);
+      if (dayEl.dataset.minutesPage) s += '&page=' + encodeURIComponent(dayEl.dataset.minutesPage);
       if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
       else { location.href = '/courts/ussc/' + s; }
     };
@@ -398,12 +416,12 @@
 
   // Makes a calendar day cell a drop target for a Minutes-page-list drag (see
   // renderMinutesPagesList below): onDrop(sourceIso, sourcePage, targetIso,
-  // copyOnly) is called with this day's own iso as targetIso, and copyOnly
-  // true if Shift was held at drop time (see handleMinutesDrop). Wrapped in
-  // its own function (rather than wired inline in renderTermCalendar's loop)
-  // so each call gets its own `iso` binding — the loop variable itself is
-  // shared across every iteration and would otherwise have moved on by drop
-  // time.
+  // keepSource) is called with this day's own iso as targetIso, and
+  // keepSource true if Shift was held at drop time (see handleMinutesDrop).
+  // Wrapped in its own function (rather than wired inline in
+  // renderTermCalendar's loop) so each call gets its own `iso` binding — the
+  // loop variable itself is shared across every iteration and would
+  // otherwise have moved on by drop time.
   function wireCalDayDropTarget(dayEl, iso, onDrop) {
     dayEl.addEventListener('dragover', function (e) {
       e.preventDefault();
@@ -429,15 +447,19 @@
   // if given, makes every real day cell (not the empty leading padding
   // cells) a drop target for the Minutes-page drag-and-drop editing below —
   // omitted by the all-terms progressive calendar, which has no per-date
-  // Minutes page list for a drag to originate from.
-  function renderTermCalendar(container, termId, argDays, decDays, selectedDate, monthCount, onMinutesDrop) {
+  // Minutes page list for a drag to originate from. startOverride
+  // ({year, month} — month 0-based), if given, replaces termId's own start
+  // month/year as where the grid begins — used by the single-term page's own
+  // Court Calendar (see below) to jump straight to the quarter nearest a
+  // ?date= param instead of always starting from the term's actual first day.
+  function renderTermCalendar(container, termId, argDays, decDays, selectedDate, monthCount, onMinutesDrop, startOverride) {
     function pad2(n) { return n < 10 ? '0' + n : '' + n; }
     var MONTHS = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
     var DOW = ['S','M','T','W','T','F','S'];
     var parts = termId.split('-');
-    var startYear = parseInt(parts[0], 10);
-    var startMonth = parseInt(parts[1], 10) - 1; // 0-based
+    var startYear = startOverride ? startOverride.year : parseInt(parts[0], 10);
+    var startMonth = startOverride ? startOverride.month : parseInt(parts[1], 10) - 1; // 0-based
     var calEl = document.createElement('div');
     calEl.className = 'term-calendar';
     for (var mi = 0; mi < (monthCount || 12); mi++) {
@@ -525,20 +547,39 @@
     return parts.length ? 'Minutes Pages: ' + parts.join(', ') : '';
   }
 
+  // The first page number a date's Minutes would show — same group-then-page
+  // ordering as sortGroupsBySrc/renderMinutesPagesList's own flatPages, so
+  // this always matches whichever page ends up first in that list. Used to
+  // deep-link a calendar day straight to it (see wireCalDayNav's "page" URL
+  // param and applyMinutesTooltipToDay below). Null if none.
+  function firstMinutesPage(groups) {
+    if (!Array.isArray(groups)) return null;
+    var sorted = sortGroupsBySrc(groups);
+    for (var i = 0; i < sorted.length; i++) {
+      var pages = sorted[i].minutes_pages;
+      if (Array.isArray(pages) && pages.length) return Math.min.apply(null, pages);
+    }
+    return null;
+  }
+
   // Applies (or clears) the .cal-minutes green digit color + tooltip + nav
-  // link for one already-rendered calendar day cell, given its final
-  // "Minutes Pages: …" tooltip text (or '' if it has none). Shared by the
-  // initial per-term render below, the all-terms progressive calendar, and
-  // the drag-and-drop Minutes editing's live refresh of a single day.
-  function applyMinutesTooltipToDay(dayEl, tooltip, termId, iso) {
+  // link (plus its "page" deep-link — see wireCalDayNav) for one already-
+  // rendered calendar day cell, given its final "Minutes Pages: …" tooltip
+  // text (or '' if it has none) and first page number. Shared by the initial
+  // per-term render below, the all-terms progressive calendar, and the
+  // drag-and-drop Minutes editing's live refresh of a single day.
+  function applyMinutesTooltipToDay(dayEl, tooltip, termId, iso, page) {
     if (!dayEl) return;
     if (tooltip) {
       dayEl.classList.add('cal-minutes');
       dayEl.title = tooltip;
+      if (page != null) dayEl.dataset.minutesPage = String(page);
+      else delete dayEl.dataset.minutesPage;
       wireCalDayNav(dayEl, termId, iso); // no-op if already wired (e.g. an argument/decision day)
     } else {
       dayEl.classList.remove('cal-minutes');
       dayEl.removeAttribute('title');
+      delete dayEl.dataset.minutesPage;
       // Only a minutes-only day's own nav link should ever be torn down —
       // an argument/decision day keeps its link regardless of minutes.
       var hasEventFill = dayEl.classList.contains('cal-arg') || dayEl.classList.contains('cal-dec') || dayEl.classList.contains('cal-arg-dec');
@@ -556,26 +597,56 @@
     if (!datesData || !calEl) return;
     Object.keys(datesData).forEach(function (iso) {
       var dayEl = calEl.querySelector('[data-iso="' + iso + '"]');
-      applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(datesData[iso]), termId, iso);
+      applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(datesData[iso]), termId, iso, firstMinutesPage(datesData[iso]));
     });
+  }
+
+  // Selects one Minutes Pages link (see renderMinutesPagesList below),
+  // clearing any previously-selected one — shared by the click handler there
+  // and by the 'ussc-minutes-index' message listener further down, which
+  // keeps this in sync with Left/Right arrow navigation inside the doc
+  // viewer's own image gallery once it's open.
+  function selectMinutesPage(el) {
+    if (selectedMinutesPageEl && selectedMinutesPageEl !== el) selectedMinutesPageEl.classList.remove('minutes-page-selected');
+    if (el) el.classList.add('minutes-page-selected');
+    selectedMinutesPageEl = el;
+  }
+
+  // Keeps the "page" URL param in sync with whatever Minutes page is
+  // actually being shown in the doc viewer — both this iframe's own URL
+  // (replaceState, so this doesn't spam browser history — one entry per
+  // Minutes Pages list visited, not per page flipped through within it; also
+  // means a plain refresh lands back on the page last viewed) and, via
+  // postMessage, the top-level SPA URL the visitor actually sees in their
+  // address bar. Called on a genuine (non-Shift) page click and by the
+  // 'ussc-minutes-index' listener below (Left/Right arrow nav).
+  function updateUrlPageParam(page) {
+    var url = new URL(location.href);
+    url.searchParams.set('page', String(page));
+    history.replaceState(null, '', url.toString());
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'ussc-update-page', page: String(page) }, location.origin);
+    }
   }
 
   // Renders (or re-renders) the Minutes Pages list for the currently viewed
   // ?date= from termDatesData[date] (shared state declared further below,
   // populated once termDatesPromise resolves) — called once then, and again
   // after any drag-and-drop edit (see handleMinutesDrop below) that touches
-  // this date. minutes_src (a direct image URL, literal "$page:4" placeholder
-  // zero-padded to 4 digits) opens by default, in a new tab, for a quick
-  // chrome-free look at the page image itself; minutes_href (the catalog
-  // page URL, literal "$page" placeholder) is kept one Shift-click away,
-  // opening in the doc viewer instead. This is the inverse of wireDocLink's
-  // usual default-is-doc-viewer/alt-is-new-tab convention, so it's wired up
-  // by hand below rather than through that helper.
+  // this date. Every page's own direct image URL (minutes_src, literal
+  // "$page:4" placeholder zero-padded to 4 digits — falling back to the
+  // minutes_href catalog URL for the rare page missing one) is precomputed
+  // into minutesPageHrefs below and passed as a whole to wireDocLink's
+  // images/index params, so clicking any one page opens the doc viewer's
+  // image gallery there, with Left/Right able to page through this entire
+  // date's Minutes without reopening it — Shift-click instead opens just
+  // that one page's image in a new tab (wireDocLink's usual convention).
   function renderMinutesPagesList() {
     var container = document.getElementById('date-minutes-list');
     var section = document.getElementById('date-minutes-section');
     container.innerHTML = '';
     selectedMinutesPageEl = null;
+    minutesPageEls = [];
     var groups = termDatesData && termDatesData[date];
     if (!Array.isArray(groups) || !groups.length) { section.hidden = true; return; }
     // Flatten in the groups' own record order (sortGroupsBySrc above), not a
@@ -598,6 +669,12 @@
       });
     });
     if (!flatPages.length) { section.hidden = true; return; }
+    var minutesPageHrefs = flatPages.map(function (fp) {
+      var page4 = String(fp.page).padStart(4, '0');
+      var srcHref  = fp.minutes_src  ? fp.minutes_src.replace('$page:4', page4) : null;
+      var hrefHref = fp.minutes_href ? fp.minutes_href.replace('$page', fp.page) : null;
+      return srcHref || hrefHref;
+    });
     // "Page N" for a single page; "Pages N1, N2, N3" for several — saves
     // repeating "Page" once per link when there's more than one.
     container.appendChild(document.createTextNode(flatPages.length === 1 ? 'Page ' : 'Pages '));
@@ -608,25 +685,23 @@
       a.textContent = String(page);
       // Draggable onto a calendar day — see handleMinutesDrop below — to
       // move this page (and every later page in the same source group) to
-      // that date; click still opens the page as before, and additionally
-      // highlights it (see .minutes-page-selected in pages.css), clearing
-      // any previously-selected page in this same list.
+      // that date; click still opens the page (in the doc viewer's image
+      // gallery, positioned at this page — see wireDocLink above) and
+      // additionally highlights it (see .minutes-page-selected in
+      // pages.css), clearing any previously-selected page in this same list.
       a.draggable = true;
       a.dataset.page = String(page);
-      var page4 = String(page).padStart(4, '0');
-      var srcHref  = fp.minutes_src  ? fp.minutes_src.replace('$page:4', page4) : null;
-      var hrefHref = fp.minutes_href ? fp.minutes_href.replace('$page', page) : null;
-      a.href = srcHref || hrefHref;
-      a.title = (srcHref && hrefHref ? 'Use Shift+Click to open the catalog page in a new tab. ' : '')
-        + 'Drag onto a calendar day to move this page (and any later pages) to that date; '
-        + 'Shift+drag to copy just this one page there instead, without removing it here.';
+      a.title = 'Click to view this page or Shift+Click to view in a new tab. '
+        + 'Drag onto a calendar day to move the page to that date or Shift+Drag to copy it; '
+        + 'later pages will be moved if the target is also later.';
+      var href = minutesPageHrefs[i];
+      wireDocLink(a, href, termTitle(term) + ' Minutes, p. ' + page, 'pane', href, minutesPageHrefs, i);
       a.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (selectedMinutesPageEl && selectedMinutesPageEl !== a) selectedMinutesPageEl.classList.remove('minutes-page-selected');
-        a.classList.add('minutes-page-selected');
-        selectedMinutesPageEl = a;
-        var target = (hrefHref && e.shiftKey) ? hrefHref : (srcHref || hrefHref);
-        window.open(target, '_blank', 'noopener,noreferrer');
+        selectMinutesPage(a);
+        // Shift-click opens in a new tab (wireDocLink above) rather than this
+        // page's own doc viewer, so it doesn't change what's actually shown
+        // here — the URL shouldn't follow it.
+        if (!e.shiftKey) updateUrlPageParam(page);
       });
       a.addEventListener('dragstart', function (e) {
         // 'move' alone would make the drop target's own dropEffect = 'copy'
@@ -637,10 +712,48 @@
         e.dataTransfer.effectAllowed = 'copyMove';
         e.dataTransfer.setData('text/plain', JSON.stringify({ iso: date, page: page }));
       });
+      minutesPageEls.push(a);
       container.appendChild(a);
     });
     section.hidden = false;
   }
+
+  // Opens the doc viewer straight to a ?page=N URL param, exactly as if the
+  // visitor had clicked that page's own link in the just-rendered Minutes
+  // Pages list — used both for a plain link to this date/page and for a
+  // calendar day's own deep link (see wireCalDayNav's "page" param, set from
+  // applyMinutesTooltipToDay's dayEl.dataset.minutesPage). A synthetic
+  // .click() (rather than re-deriving the gallery images/index here) reuses
+  // wireDocLink's own click handler as-is, so this can never drift from what
+  // a real click does. No-op if there's no ?page= param or it doesn't match
+  // any page actually rendered for this date.
+  function openMinutesPageFromUrl() {
+    var pageParam = params.get('page');
+    if (!pageParam) return;
+    for (var i = 0; i < minutesPageEls.length; i++) {
+      if (minutesPageEls[i].dataset.page === pageParam) { minutesPageEls[i].click(); return; }
+    }
+  }
+
+  // Keeps the Minutes Pages list's own highlighted page (and the "page" URL
+  // param — see updateUrlPageParam above) in sync with Left/Right arrow (or
+  // the prev/next buttons) inside the doc viewer's image gallery, once
+  // wireDocLink above has opened one from a page click — explorer.js relays
+  // the gallery's own current index down to this iframe as this message
+  // whenever it changes (see assets/img-viewer.html and the 'ussc-open-doc'
+  // handler in explorer.js). Ignored if this date's list has since been
+  // re-rendered for some other date (minutesPageEls swapped out from under
+  // it) or the index is out of range for it.
+  window.addEventListener('message', function (e) {
+    if (e.origin !== location.origin) return;
+    if (e.data && e.data.type === 'ussc-minutes-index' && typeof e.data.index === 'number') {
+      var el = minutesPageEls[e.data.index];
+      if (el) {
+        selectMinutesPage(el);
+        updateUrlPageParam(el.dataset.page);
+      }
+    }
+  });
 
   // Refreshes one calendar day's .cal-minutes highlighting/tooltip from the
   // current (possibly just-edited) termDatesData — used after a drag-and-
@@ -648,7 +761,7 @@
   function refreshMinutesCalendarDay(iso) {
     if (!calContainer) return;
     var dayEl = calContainer.querySelector('[data-iso="' + iso + '"]');
-    applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(termDatesData[iso]), term, iso);
+    applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(termDatesData[iso]), term, iso, firstMinutesPage(termDatesData[iso]));
   }
 
   // True if some OTHER date has actual (non-tombstone) minutes_pages for
@@ -673,32 +786,37 @@
   // Drag-and-drop Minutes editing: dropping a page link from the Minutes
   // Pages list (see renderMinutesPagesList above) onto a calendar day moves
   // that page and every later page in its own source group over to the
-  // target date — or, if Shift was held at drop time, copies just that one
-  // page to the target instead, leaving it in place at the source too (for
-  // a page whose proceedings genuinely span the end of one day and the
-  // start of the next). Either way, the moved/copied page(s) are prepended
-  // to the target date's matching group if the target date is later than
-  // the source (continuing right where the source's later pages left off),
-  // or appended if the target is earlier (coming right before the source's
-  // own remaining pages). A group is matched across dates by its own
-  // minutes_href (the same physical volume); one is created — with the same
-  // minutes_href/minutes_src/minutes_cover as the source, starting empty —
-  // if the target date has no matching group yet. hasIntermediateMinutesDate
-  // above blocks the whole operation if some other date with real pages for
-  // this same href sits between source and target, since a legitimate move
-  // or copy should only ever happen between two chronologically adjacent
-  // entries for a given volume. If a move empties the source group, it's
-  // kept in place with an empty minutes_pages rather than removed — a
-  // tombstone, so scripts/parse_minutes.js's own applyDateOverrides (which
-  // tags every group an override touches with "modified": true) can still
-  // record that this date+volume was deliberately cleared, and its own
-  // OCR-driven Pass 3 will then never silently repopulate it on a later
-  // re-run (renderMinutesCoverThumbnails below skips a tombstone's empty
-  // pages when picking a cover's earliest real date). Every touched date's
-  // full new value is written to localStorage as a standing override — see
-  // LS_DATES_KEY above and window._downloadDateOverrides in
-  // storage-actions.js.
-  function handleMinutesDrop(sourceIso, sourcePage, targetIso, copyOnly) {
+  // target date. Shift held at drop time additionally leaves the dragged
+  // page itself behind at the source too, for a page whose proceedings
+  // genuinely belong to both days — normally the day that *follows* it (the
+  // common case), where every later page still moves along with it same as
+  // a plain drag. Shift+drag onto an *earlier* date instead moves only that
+  // one page, never the rest of the sequence after it — those are later-
+  // dated pages that plainly don't belong on an earlier day; only a plain
+  // (non-Shift) drag backward still takes the whole rest of the sequence,
+  // same as forward. Either way, the moved page(s) are prepended to the
+  // target date's matching group if
+  // the target date is later than the source (continuing right where the
+  // source's later pages left off), or appended if the target is earlier
+  // (coming right before the source's own remaining pages). A group is
+  // matched across dates by its own minutes_href (the same physical
+  // volume); one is created — with the same minutes_href/minutes_src as the
+  // source, starting empty — if the target date has no matching group yet.
+  // hasIntermediateMinutesDate above blocks the whole operation if some
+  // other date with real pages for this same href sits between source and
+  // target, since a legitimate move should only ever happen between two
+  // chronologically adjacent entries for a given volume. If a move empties
+  // the source group, it's kept in place with an empty minutes_pages rather
+  // than removed — a tombstone, so scripts/parse_minutes.js's own
+  // applyDateOverrides (which tags every group an override touches with
+  // "modified": true) can still record that this date+volume was
+  // deliberately cleared, and its own OCR-driven Pass 3 will then never
+  // silently repopulate it on a later re-run (renderMinutesCoverThumbnails
+  // below skips a tombstone's empty pages when picking a cover's earliest
+  // real date). Every touched date's full new value is written to
+  // localStorage as a standing override — see LS_DATES_KEY above and
+  // window._downloadDateOverrides in storage-actions.js.
+  function handleMinutesDrop(sourceIso, sourcePage, targetIso, keepSource) {
     if (!termDatesData || sourceIso === targetIso) return;
     var groups = termDatesData[sourceIso];
     if (!Array.isArray(groups)) return;
@@ -709,22 +827,33 @@
     var srcGroup = groups[srcIdx];
 
     if (hasIntermediateMinutesDate(srcGroup.minutes_href, srcGroup.minutes_src, sourceIso, targetIso)) {
-      alert('Can’t ' + (copyOnly ? 'copy' : 'move') + ' this page — another date with Minutes for this same volume falls between ' + sourceIso + ' and ' + targetIso + '.');
+      alert('Can’t move this page — another date with Minutes for this same volume falls between ' + sourceIso + ' and ' + targetIso + '.');
       return;
     }
 
-    var moving;
-    if (copyOnly) {
-      moving = [sourcePage]; // just this one page — stays in the source group too
-    } else {
-      var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
-      var splitIdx = pages.indexOf(sourcePage);
-      moving = pages.slice(splitIdx);         // this page, and every later one in the same group
-      var staying = pages.slice(0, splitIdx); // pages before it, remain in the source group
-      var newSourceGroups = groups.slice();
-      newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
-      termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
-    }
+    var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
+    var splitIdx = pages.indexOf(sourcePage);
+    // Shift+drag onto an *earlier* date is the straddle in the other
+    // direction — this one page also belongs on that earlier day too, but
+    // everything after it in the sequence is later-dated material that
+    // clearly doesn't; only shift+drag forward (the common case: a page
+    // straddling into the day that follows) brings the rest of the sequence
+    // along. A plain (non-Shift) drag always takes the whole rest of the
+    // sequence either direction, same as before.
+    var copyOneBack = keepSource && targetIso < sourceIso;
+    var moving = copyOneBack ? [sourcePage] : pages.slice(splitIdx);
+    // Shift+drag (keepSource) leaves the dragged page itself behind at the
+    // source too — only the pages strictly after it actually leave. But when
+    // only that one page is moving at all (copyOneBack above), *nothing*
+    // actually leaves the source — every later page must stay right where it
+    // was, not just up through the dragged page (the bug this fixes: it
+    // previously reused the "moving takes everything after" staying formula
+    // even when moving had been cut down to just the one page, silently
+    // dropping every later page that was never actually part of this drag).
+    var staying = copyOneBack ? pages : (keepSource ? pages.slice(0, splitIdx + 1) : pages.slice(0, splitIdx));
+    var newSourceGroups = groups.slice();
+    newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
+    termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
 
     // Matched by minutes_href AND minutes_src together — the same physical
     // volume/record group, never just one or the other.
@@ -735,7 +864,6 @@
     var tgtGroup;
     if (tgtIdx === -1) {
       tgtGroup = { minutes_href: srcGroup.minutes_href, minutes_src: srcGroup.minutes_src };
-      if (srcGroup.minutes_cover) tgtGroup.minutes_cover = srcGroup.minutes_cover;
       tgtGroup.minutes_pages = [];
       targetGroups.push(tgtGroup);
       tgtIdx = targetGroups.length - 1;
@@ -744,19 +872,10 @@
     }
 
     // A page should only ever be listed once for a given date — drop any
-    // page(s) the target already has (e.g. re-doing the same Shift+drag
-    // copy a second time) rather than duplicating them.
+    // page(s) the target already has (e.g. re-doing the same drag a second
+    // time) rather than duplicating them. Nothing new to add there is still
+    // a complete, valid drop — the source-side change above stands either way.
     var toAdd = moving.filter(function (p) { return tgtGroup.minutes_pages.indexOf(p) === -1; });
-    if (!toAdd.length) {
-      if (copyOnly) {
-        alert('Page ' + sourcePage + ' is already at ' + targetIso + ' — nothing to copy.');
-        return;
-      }
-      // A plain move with nothing new to add at the target (only possible if
-      // an earlier Shift+drag copy already put it there) still completes as
-      // a move — the page belongs solely at the target now, so it's removed
-      // from the source above regardless; there's just nothing left to add.
-    }
     tgtGroup.minutes_pages = (targetIso > sourceIso)
       ? toAdd.concat(tgtGroup.minutes_pages)
       : tgtGroup.minutes_pages.concat(toAdd);
@@ -810,6 +929,9 @@
   function canonicalizeGroups(groups) {
     if (!Array.isArray(groups)) return null;
     return sortGroupsBySrc(groups).map(function (g) {
+      // A case-detail object (see update_cases.js's syncCrossTermCaseDates) —
+      // nothing here applies to it, so it passes through untouched.
+      if (!('minutes_src' in g)) return g;
       var copy = Object.assign({}, g);
       delete copy.modified;
       copy.minutes_pages = Array.from(new Set(copy.minutes_pages || [])).sort(function (a, b) { return a - b; });
@@ -823,6 +945,15 @@
   // from — the server's own current data, e.g. once scripts/parse_minutes.js
   // has applied a downloaded override upstream, it's no longer a real
   // customization and shouldn't keep showing up in "Download Dates".
+  //
+  // An override only ever represents a Minutes edit (see handleMinutesDrop —
+  // dragging a Minutes page is the only thing that ever writes one), never a
+  // case-detail object (update_cases.js's syncCrossTermCaseDates) — those
+  // are entirely server-managed. So for a date with an override, this always
+  // takes that override's own Minutes groups but the *server's current*
+  // case-detail objects, not whatever the override's own snapshot happened
+  // to capture at edit time — otherwise an override from before a case was
+  // added there (or after one was later removed) would silently hide it.
   function applyDateOverrides(raw) {
     var overrides = loadDateOverrides();
     var keys = Object.keys(overrides);
@@ -837,7 +968,15 @@
         pruned = true;
         return;
       }
-      if (val === null) delete merged[iso]; else merged[iso] = val;
+      // null means "remove this date's own Minutes entirely" (a downloaded-
+      // overrides-file thing, not something drag-and-drop itself ever
+      // produces — see loadDateOverrides above) — server case-detail objects
+      // still survive that, same as a real override's own minutes groups
+      // below, since neither kind of override was ever about them.
+      var serverCaseObjs = (serverVal || []).filter(function (g) { return !('minutes_src' in g); });
+      var minutesGroups = val === null ? [] : val.filter(function (g) { return 'minutes_src' in g; });
+      var combined = minutesGroups.concat(serverCaseObjs);
+      if (combined.length) merged[iso] = combined; else delete merged[iso];
     });
     if (pruned) saveDateOverrides(overrides);
     return merged;
@@ -903,7 +1042,7 @@
           if (decade.hidden) return;
           (decade.groups || []).forEach(function(g) {
             var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
-            if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]), minutes: g.minutes });
+            if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]), dates: g.dates });
           });
         });
         // terms.json stores decades/terms newest-first; the calendar list
@@ -959,7 +1098,7 @@
             var body = document.createElement('div');
             slot.appendChild(body);
             calSection.appendChild(slot);
-            slots[t.id] = { slot: slot, body: body, monthCount: monthCount, loaded: false, minutes: t.minutes };
+            slots[t.id] = { slot: slot, body: body, monthCount: monthCount, loaded: false, dates: t.dates };
           });
 
           // Paints one term's calendar from its (already-known) date lists —
@@ -972,7 +1111,7 @@
             if (argDaySet.size || decDaySet.size) {
               renderTermCalendar(s.body, termId, argDaySet, decDaySet, null, s.monthCount);
               (minArr || []).forEach(function (m) {
-                applyMinutesTooltipToDay(s.body.querySelector('[data-iso="' + m.iso + '"]'), m.title, termId, m.iso);
+                applyMinutesTooltipToDay(s.body.querySelector('[data-iso="' + m.iso + '"]'), m.title, termId, m.iso, m.page);
               });
             } else {
               s.slot.hidden = true;
@@ -994,13 +1133,11 @@
               // dates.json is a separate, optional per-term file — most terms
               // don't have one, so a missing/failed fetch resolves to null
               // rather than rejecting the whole Promise.all. Skipped entirely
-              // when terms.json's own "minutes" prop already says there's
-              // none for this term (see update_cases.js's syncTermsJson) —
-              // falls back to probing when that prop is absent altogether
-              // (e.g. an older terms.json that predates it).
-              (s.minutes === false ? Promise.resolve(null) : fetch('/courts/ussc/terms/' + termId + '/dates.json')
+              // when terms.json's own "dates" boolean says there's none for
+              // this term (see update_cases.js's syncTermsJson).
+              (s.dates ? fetch('/courts/ussc/terms/' + termId + '/dates.json')
                 .then(function(r) { return r.ok ? r.json() : null; })
-                .catch(function() { return null; }))
+                .catch(function() { return null; }) : Promise.resolve(null))
                 .then(function (raw) { return applyDateOverrides(raw); }),
             ])
               .then(function(results) {
@@ -1017,7 +1154,7 @@
                 if (datesData) {
                   Object.keys(datesData).forEach(function (iso) {
                     var tooltip = formatMinutesTooltip(datesData[iso]);
-                    if (tooltip) minArr.push({ iso: iso, title: tooltip });
+                    if (tooltip) minArr.push({ iso: iso, title: tooltip, page: firstMinutesPage(datesData[iso]) });
                   });
                 }
                 var argArr = Array.from(argDaySet), decArr = Array.from(decDaySet);
@@ -1057,7 +1194,20 @@
       });
     return;
   }
-  document.getElementById('stat-term-title').textContent = termTitle(term);
+  // Clickable, but deliberately not styled like a link (see .stat-term-title-link
+  // in pages.css — plain text color, underline only on hover) — jumps back to
+  // this same term's own plain page (no date/page/etc.), e.g. from a ?date=
+  // and/or ?page= deep link. Text is refined below (allTerms[idx].name, once
+  // terms.json resolves — may differ slightly from termTitle()'s own guess);
+  // that later assignment updates titleLink's own textContent, not this
+  // element's, so the link itself is only ever created once, here.
+  var titleLink = document.createElement('a');
+  titleLink.className = 'stat-term-title-link';
+  titleLink.textContent = termTitle(term);
+  wireSearchLink(titleLink, '?term=' + encodeURIComponent(term));
+  var titleEl = document.getElementById('stat-term-title');
+  titleEl.textContent = '';
+  titleEl.appendChild(titleLink);
   if (date) {
     var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false;
     // The term-wide stat cards (and the audio-availability note below them)
@@ -1077,16 +1227,34 @@
   var termDatesData = null;
   var calContainer = null;
   var selectedMinutesPageEl = null;
-  // Resolved below, once terms.json's own per-term "minutes" flag is known
+  // The Minutes Pages <a> elements currently rendered by renderMinutesPagesList,
+  // in the same order as the images array passed to the doc viewer's gallery
+  // — so the 'ussc-minutes-index' listener below (Left/Right arrow nav inside
+  // that gallery) can look up which link to re-highlight by index alone.
+  var minutesPageEls = [];
+  // terms.json's own per-term "minutes" array — [{ cover: "m001-cover.jpg" }, ...],
+  // in first-appearance (chronological) order — set once the terms.json
+  // fetch below resolves; used by renderMinutesCoverThumbnails further down.
+  var termMinutesCovers = [];
+  // Resolved below, once terms.json's own per-term "dates" boolean is known
   // (see update_cases.js's syncTermsJson) — skips ever fetching dates.json
-  // when that flag is explicitly false (most terms don't have one), falling
-  // back to the old unconditional fetch/probe when it's absent altogether
-  // (an older terms.json that predates this) or terms.json itself failed to
-  // load at all.
+  // when that's explicitly false (most terms don't have one). Falls back to
+  // fetching/probing when it's undefined — terms.json itself failed to load
+  // (the .catch below) or this term's own entry wasn't found in it.
   var _resolveTermDatesPromise;
   var termDatesPromise = new Promise(function (resolve) { _resolveTermDatesPromise = resolve; });
-  function _resolveTermDates(minutesFlag) {
-    if (minutesFlag === false) {
+
+  // Resolves to the next chronological term's own id (e.g. "1881-10"), or
+  // null if this is the latest term (or terms.json couldn't be loaded at
+  // all) — resolved once the terms.json fetch below finds this term's own
+  // entry (see nextEntry there). Used by the Court Calendar section further
+  // down to stop the grid the month before the next term begins, rather than
+  // always showing a flat 12 months that could run into it.
+  var _resolveNextTermIdPromise;
+  var nextTermIdPromise = new Promise(function (resolve) { _resolveNextTermIdPromise = resolve; });
+
+  function _resolveTermDates(hasDates) {
+    if (hasDates === false) {
       termDatesData = applyDateOverrides(null);
       _resolveTermDatesPromise(termDatesData);
       return;
@@ -1123,9 +1291,13 @@
       // below mean chronologically older/newer regardless of storage order.
       allTerms.reverse();
       var idx = allTerms.findIndex(function (t) { return t.id === term; });
-      if (idx >= 0) document.getElementById('stat-term-title').textContent = allTerms[idx].name;
+      // Refines the title text set above (termTitle(term)'s own guess) —
+      // updates the link's own textContent, not #stat-term-title's, so the
+      // click-to-this-term link created there survives this.
+      if (idx >= 0) document.querySelector('#stat-term-title .stat-term-title-link').textContent = allTerms[idx].name;
       var prevEntry = idx > 0 ? allTerms[idx - 1] : null;
       var nextEntry = idx < allTerms.length - 1 ? allTerms[idx + 1] : null;
+      _resolveNextTermIdPromise(nextEntry ? nextEntry.id : null);
       if (prevEntry || nextEntry) {
         document.getElementById('stats-term-nav').hidden = false;
         if (prevEntry) {
@@ -1149,8 +1321,9 @@
           });
         }
       }
-      _resolveTermDates(entry && entry.minutes);
+      _resolveTermDates(entry ? entry.dates : undefined);
       if (!entry) return;
+      termMinutesCovers = entry.minutes || [];
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
         var journalHref = resolveIndexesUrl(entry.journal_href);
@@ -1180,53 +1353,70 @@
         coversRow.appendChild(rBtn);
       });
     })
-    .catch(function () { _resolveTermDates(undefined); }); // couldn't determine the "minutes" flag at all — fall back to probing
+    .catch(function () {
+      _resolveTermDates(undefined); // couldn't determine the "dates" flag at all — fall back to probing
+      _resolveNextTermIdPromise(null); // couldn't determine the next term either — Court Calendar falls back to a flat 12 months
+    });
 
-  // Minutes-book cover thumbnails: dates.json (see the Minutes section below)
-  // carries a minutes_cover image per date group — a term's minutes can span
-  // more than one physical NARA volume, so one thumbnail is shown for the
-  // first occurrence of each unique cover, to the left of the journal/U.S.
-  // Reports covers above. Each links to that volume's own minutes_href with
-  // $page resolved to the first page number in that same group's
-  // minutes_pages. Re-run (not just rendered once) after a drag-and-drop
-  // Minutes edit below, since moving pages around can shift which date is
-  // first to reference a given cover — existing buttons are removed by class
-  // first so a re-run doesn't just pile up duplicates alongside them.
+  // Minutes-book cover thumbnails: terms.json's own per-term "minutes" array
+  // (termMinutesCovers, set above once the terms.json fetch resolves) lists
+  // one { cover } per physical NARA volume this term's dates.json touches,
+  // already in first-appearance (chronological) order — a term's minutes can
+  // span more than one physical volume, so one thumbnail is shown per
+  // volume, to the left of the journal/U.S. Reports covers above. Each
+  // volume's own roll number is parsed back out of its cover filename
+  // ("mXXX-cover.jpg") and matched against dates.json's own minutes_src
+  // templates (which embed the same roll number) to find that volume's
+  // earliest real (non-tombstoned) date/page, which the thumbnail links to.
+  // Re-run (not just rendered once) after a drag-and-drop Minutes edit
+  // below, since moving pages around can shift which date is first to
+  // reference a given volume — existing buttons are removed by class first
+  // so a re-run doesn't just pile up duplicates alongside them.
+  function firstMinutesOccurrenceForRoll(xxx) {
+    if (!termDatesData) return null;
+    var isos = Object.keys(termDatesData).sort();
+    for (var i = 0; i < isos.length; i++) {
+      var groups = termDatesData[isos[i]] || [];
+      for (var j = 0; j < groups.length; j++) {
+        var g = groups[j];
+        var m = /M215-(\d{3})/.exec(g.minutes_src || '');
+        // A tombstone left by handleMinutesDrop above (minutes_pages emptied
+        // out entirely) never counts as this volume's "first occurrence" —
+        // that date no longer actually shows anything for it.
+        if (!m || m[1] !== xxx || !(g.minutes_pages && g.minutes_pages.length)) continue;
+        return { iso: isos[i], page: g.minutes_pages[0], href: g.minutes_href };
+      }
+    }
+    return null;
+  }
   function renderMinutesCoverThumbnails() {
     var coversRowEl = document.getElementById('covers-row');
     coversRowEl.querySelectorAll('.minutes-cover-btn').forEach(function (el) { el.remove(); });
-    if (!termDatesData) return;
-    var seen = new Set();
+    if (!termDatesData || !termMinutesCovers.length) return;
     var frag = document.createDocumentFragment();
-    Object.keys(termDatesData).sort().forEach(function (iso) {
-      (termDatesData[iso] || []).forEach(function (g) {
-        // A tombstone left by handleMinutesDrop above (minutes_pages emptied
-        // out entirely) never counts as a cover's "first occurrence" — that
-        // date no longer actually shows anything for this volume.
-        if (!g.minutes_cover || seen.has(g.minutes_cover) || !(g.minutes_pages && g.minutes_pages.length)) return;
-        seen.add(g.minutes_cover);
-        var page = (g.minutes_pages || [])[0];
-        // iso is the first date (chronologically) this cover appears at,
-        // since Object.keys() above is walked in sorted ISO order.
-        var dateLabel = fmtMonthDayYear(iso);
-        var mBtn = document.createElement('button');
-        mBtn.className = 'minutes-cover-btn';
-        mBtn.title = 'Open Minutes for ' + dateLabel;
-        var mImg = document.createElement('img');
-        mImg.className = 'minutes-cover-img';
-        mImg.src = g.minutes_cover;
-        mImg.alt = 'Minutes cover';
-        var mLabel = document.createElement('span');
-        mLabel.className = 'minutes-cover-label';
-        mLabel.textContent = dateLabel;
-        mBtn.appendChild(mImg);
-        mBtn.appendChild(mLabel);
-        if (g.minutes_href && page != null) {
-          var href = g.minutes_href.replace('$page', page);
-          wireCoverClick(mBtn, href, termTitle(term) + ' Minutes, p. ' + page, 'pane');
-        }
-        frag.appendChild(mBtn);
-      });
+    termMinutesCovers.forEach(function (cover) {
+      var rollMatch = /^m(\d{3})-cover\.jpg$/.exec((cover && cover.cover) || '');
+      if (!rollMatch) return;
+      var occ = firstMinutesOccurrenceForRoll(rollMatch[1]);
+      if (!occ) return;
+      var dateLabel = fmtMonthDayYear(occ.iso);
+      var mBtn = document.createElement('button');
+      mBtn.className = 'minutes-cover-btn';
+      mBtn.title = 'Open Minutes for ' + dateLabel;
+      var mImg = document.createElement('img');
+      mImg.className = 'minutes-cover-img';
+      mImg.src = '/courts/ussc/terms/' + term + '/' + cover.cover;
+      mImg.alt = 'Minutes cover';
+      var mLabel = document.createElement('span');
+      mLabel.className = 'minutes-cover-label';
+      mLabel.textContent = dateLabel;
+      mBtn.appendChild(mImg);
+      mBtn.appendChild(mLabel);
+      if (occ.href != null) {
+        var href = occ.href.replace('$page', occ.page);
+        wireCoverClick(mBtn, href, termTitle(term) + ' Minutes, p. ' + occ.page, 'pane');
+      }
+      frag.appendChild(mBtn);
     });
     if (frag.childNodes.length) coversRowEl.insertBefore(frag, coversRowEl.firstChild);
   }
@@ -1245,6 +1435,9 @@
           });
         }
 
+        // c.term (only ever set on a cross-term case-detail object — see
+        // below) links to that case's own term instead of this page's, since
+        // it isn't actually part of this term's own docket.
         function fillGroup(sectionId, listId, group) {
           if (!group.length) return;
           var ul = document.getElementById(listId);
@@ -1256,14 +1449,15 @@
             var li = document.createElement('li');
             var a = document.createElement('a');
             var id = caseUrlId(c);
+            var linkTerm = c.term || term;
             a.textContent = caseDisplayTitle(c) + (c.usCite ? ' (' + c.usCite + ')' : '');
-            a.href = '/courts/ussc/?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(id);
+            a.href = '/courts/ussc/?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id);
             a.addEventListener('click', function (e) {
               e.preventDefault();
               if (window.parent !== window) {
                 window.parent.postMessage({
                   type: 'ussc-navigate',
-                  search: '?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(id)
+                  search: '?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id)
                 }, location.origin);
               } else {
                 location.href = a.href;
@@ -1275,15 +1469,29 @@
           document.getElementById(sectionId).hidden = false;
         }
 
-        fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument'));
-        fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument'));
-        fillGroup('date-decided-section',  'date-decided-list',  casesOnDate('decision'));
-
         // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
         // per-term file (most terms don't have one) built by
         // scripts/parse_minutes.js from NARA's own OCR'd minutes books — see
-        // renderMinutesPagesList below.
-        termDatesPromise.then(renderMinutesPagesList);
+        // renderMinutesPagesList below. It can also hold a case-detail object
+        // (see update_cases.js's syncCrossTermCaseDates) — a later term's own
+        // case actually argued/reargued on this earlier term's own date —
+        // which joins the argued/reargued lists below alongside this term's
+        // own cases, same as any of them (their own "term" field, not this
+        // page's, is what fillGroup's link above uses). A ?page= param (see
+        // openMinutesPageFromUrl's own doc comment) then opens straight to
+        // that Minutes page once the list exists for it to find.
+        termDatesPromise.then(function (datesData) {
+          var crossTermCases = (datesData && datesData[date]) || [];
+          var crossArg   = crossTermCases.filter(function (g) { return !('minutes_src' in g) && g.type === 'argument'; });
+          var crossRearg = crossTermCases.filter(function (g) { return !('minutes_src' in g) && g.type === 'reargument'; });
+
+          fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument').concat(crossArg));
+          fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument').concat(crossRearg));
+          fillGroup('date-decided-section',  'date-decided-list',  casesOnDate('decision'));
+
+          renderMinutesPagesList();
+          openMinutesPageFromUrl();
+        });
       }
 
       // ── Term stats ──────────────────────────────────────────────────────────
@@ -1311,13 +1519,57 @@
       });
 
       calContainer = document.getElementById('term-calendar'); // module-scope — see handleMinutesDrop above
-      if (calContainer && (argDaySet.size || decDaySet.size)) {
-        renderTermCalendar(calContainer, term, argDaySet, decDaySet, date || null, undefined, handleMinutesDrop);
-        calContainer.hidden = false;
-        var calHdr = document.getElementById('term-calendar-heading');
-        if (calHdr) calHdr.hidden = false;
+      if (calContainer) {
+        Promise.all([nextTermIdPromise, termDatesPromise]).then(function (results) {
+          var nextTermId = results[0], datesData = results[1];
 
-        termDatesPromise.then(function (datesData) { applyMinutesHighlight(calContainer, datesData, term); });
+          // Cross-term case-detail entries (see update_cases.js's
+          // syncCrossTermCaseDates) in this term's own dates.json — a later
+          // term's own case actually argued/reargued during this earlier
+          // term's own date range — get the same calendar coloring as this
+          // term's own argument/reargument days. Built as a copy rather than
+          // mutating argDaySet itself, since argDays (the stat card above,
+          // already rendered from argDaySet.size before this promise even
+          // resolves) should only ever count this term's own docket.
+          var calArgDaySet = new Set(argDaySet);
+          if (datesData) {
+            Object.keys(datesData).forEach(function (iso) {
+              (datesData[iso] || []).forEach(function (g) {
+                if (!('minutes_src' in g) && (g.type === 'argument' || g.type === 'reargument')) calArgDaySet.add(iso);
+              });
+            });
+          }
+          if (!calArgDaySet.size && !decDaySet.size) return;
+
+          var termParts = term.split('-');
+          var termStart = { year: parseInt(termParts[0], 10), month: parseInt(termParts[1], 10) - 1 }; // 0-based
+          // A ?date= param jumps the grid's own start to the nearest quarter
+          // (Jan/Apr/Jul/Oct) on or before it, instead of always the term's
+          // own actual first month — never earlier than that, though, since
+          // there's nothing to show before the term itself begins.
+          var calStart = termStart;
+          if (date) {
+            var d = date.split('-');
+            var qStart = { year: parseInt(d[0], 10), month: Math.floor((parseInt(d[1], 10) - 1) / 3) * 3 };
+            if (qStart.year * 12 + qStart.month >= termStart.year * 12 + termStart.month) calStart = qStart;
+          }
+          // Stops the month before the next term begins, however many months
+          // that actually is (no 12-month cap) — falls back to a flat 12 when
+          // there's no known next term (the latest term, or terms.json failed).
+          var monthCount = 12;
+          if (nextTermId) {
+            var n = nextTermId.split('-');
+            var nextStartIdx = parseInt(n[0], 10) * 12 + (parseInt(n[1], 10) - 1);
+            var diff = nextStartIdx - (calStart.year * 12 + calStart.month);
+            if (diff > 0) monthCount = diff;
+          }
+          renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, date || null, monthCount, handleMinutesDrop, calStart);
+          calContainer.hidden = false;
+          var calHdr = document.getElementById('term-calendar-heading');
+          if (calHdr) calHdr.hidden = false;
+
+          applyMinutesHighlight(calContainer, datesData, term);
+        });
       }
 
       renderCaseListing(term, cases);
