@@ -80,6 +80,7 @@
  *   node scripts/parse_minutes.js <overrides-file.json> [--dry-run]
  *   node scripts/parse_minutes.js [TERM] [--dry-run]
  *   node scripts/parse_minutes.js --verify [TERM]
+ *   node scripts/parse_minutes.js --backfill [TERM] [--dry-run]
  *
  *   --dry-run     Report what would be saved without writing any files
  *   --limit N     Only process the first N pages (for a quick test run —
@@ -131,8 +132,15 @@
  *
  * Verifying consistency (--verify [TERM]): read-only sanity check of every
  * term's (or just TERM's) dates.json — see verifyMinutesConsistency's own
- * doc comment for the exact two invariants it checks. Nothing is ever
+ * doc comment for the exact four invariants it checks. Nothing is ever
  * written; problems are only reported.
+ *
+ * Backfilling missing pages (--backfill [TERM]): for every gap --verify's
+ * own 4th invariant would report, tries to work out which date it actually
+ * belongs to (from cached or freshly-fetched OCR text, narrowed to the date
+ * range the two surrounding known pages already bound it to) and adds it —
+ * see runBackfill's own doc comment for exactly how a date gets picked, and
+ * what happens when none can be extracted at all.
  */
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync, existsSync, statSync, unlinkSync } from 'fs';
@@ -633,8 +641,68 @@ async function syncMinutesText(termFilter, dryRun) {
 function arrMin(arr) { return arr.reduce((m, v) => (v < m ? v : m), Infinity); }
 function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); }
 
-// Checks four invariants across one term's (or every term's) dates.json,
-// read-only:
+// Reads every term's dates.json and aggregates each Minutes context's own
+// pages GLOBALLY, across the whole corpus — a single physical volume/roll's
+// page numbering essentially always continues across many terms (every
+// context currently in the corpus spans at least 2, and up to 11), so
+// working out a context's own gaps/duplicates/backward-progression from just
+// one term's own dates.json produces false positives at what only looks
+// like a "boundary" from that one term's narrow view — a "missing" page is
+// very often simply recorded under a different (adjacent, or not even
+// adjacent) term instead. Shared by verifyMinutesConsistency and
+// runBackfill below so both operate on the exact same picture.
+// Returns { terms, contexts, duplicates }:
+//   terms       — every term (sorted) with a dates.json.
+//   contexts    — Map<ctxKey, { href, src, pageOwners }>, ctxKey being
+//                 "href\0src". pageOwners is Map<pageNum, Array<{iso, term}>>
+//                 — normally one owner per page; more than one means the
+//                 same page number is recorded at multiple dates (see
+//                 verifyMinutesConsistency's own invariant 2).
+//   duplicates  — [{ term, iso, page, href }] for a page number repeated
+//                 within one single group's own minutes_pages array.
+function loadMinutesContexts() {
+  const terms = readdirSync(TERMS_DIR)
+    .filter(d => /^\d{4}-\d{2}$/.test(d) && existsSync(join(TERMS_DIR, d, 'dates.json')))
+    .sort();
+
+  const contexts = new Map();
+  const duplicates = [];
+
+  for (const term of terms) {
+    let dates;
+    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+
+    for (const iso of Object.keys(dates)) {
+      const groups = dates[iso];
+      if (!Array.isArray(groups)) continue;
+      for (const g of groups) {
+        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
+
+        const seenInGroup = new Set();
+        for (const p of g.minutes_pages) {
+          if (seenInGroup.has(p)) duplicates.push({ term, iso, page: p, href: g.minutes_href });
+          seenInGroup.add(p);
+        }
+        if (!seenInGroup.size) continue; // a tombstone (see handleMinutesDrop in terms.js) — nothing to check
+
+        const ctxKey = `${g.minutes_href}\0${g.minutes_src || ''}`;
+        if (!contexts.has(ctxKey)) contexts.set(ctxKey, { href: g.minutes_href, src: g.minutes_src, pageOwners: new Map() });
+        const pageOwners = contexts.get(ctxKey).pageOwners;
+        for (const p of seenInGroup) {
+          if (!pageOwners.has(p)) pageOwners.set(p, []);
+          pageOwners.get(p).push({ iso, term });
+        }
+      }
+    }
+  }
+
+  return { terms, contexts, duplicates };
+}
+
+// Checks four invariants across the whole corpus's dates.json files,
+// read-only (termFilter, if given, only limits which problems get printed —
+// see loadMinutesContexts above for why every term still has to be read
+// regardless):
 //   1. No single group's own minutes_pages array repeats a page number.
 //   2. For a given context (minutes_href AND minutes_src together — the
 //      same physical volume), a page number never appears at more than one
@@ -655,115 +723,288 @@ function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); 
 //      change of context (a new physical volume/roll), which this can't
 //      mistake for a same-context regression since it's checked separately
 //      per context, never by comparing across two different ones.
-//   4. No gaps: across every date recorded for a given context (within this
-//      term — a volume's own pages that continue into an adjacent term are
-//      out of scope here, same as invariants 2 and 3 above), every integer
-//      between its lowest and highest recorded page must actually appear
-//      somewhere. A missing page usually means a date's own group never got
-//      it added (e.g. a drag-and-drop edit or an OCR misread dropped it),
-//      not that the page itself doesn't exist.
+//   4. No gaps: across every date recorded for a given context — across
+//      every term that cites it — every integer between its lowest and
+//      highest recorded page must actually appear somewhere. A missing page
+//      usually means a date's own group never got it added (e.g. a drag-
+//      and-drop edit or an OCR misread dropped it), not that the page
+//      itself doesn't exist.
 function verifyMinutesConsistency(termFilter) {
-  const terms = readdirSync(TERMS_DIR)
-    .filter(d => /^\d{4}-\d{2}$/.test(d) && (!termFilter || d === termFilter) && existsSync(join(TERMS_DIR, d, 'dates.json')))
-    .sort();
-  if (termFilter && !terms.length) {
+  const { terms, contexts, duplicates } = loadMinutesContexts();
+  if (termFilter && !terms.includes(termFilter)) {
     console.error(`ERROR: no dates.json found for term ${termFilter}`);
     process.exit(1);
   }
+  const isRelevant = (t) => !termFilter || t === termFilter;
 
   let problems = 0;
 
-  for (const term of terms) {
-    let dates;
-    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+  for (const { term, iso, page, href } of duplicates) {
+    if (!isRelevant(term)) continue;
+    console.log(`  ${term}/dates.json[${iso}]: page ${page} repeated within the same group (${href})`);
+    problems++;
+  }
 
-    // context key (href + "\0" + src) -> Map<pageNum, isoDate[]>
-    const pageLocations = new Map();
-    // context key -> Map<isoDate, pages[]> — every page recorded for that
-    // context on that date, across however many groups share it (normally
-    // just one group per date per context).
-    const datePagesByContext = new Map();
+  for (const { href, pageOwners } of contexts.values()) {
+    const allPages = [...pageOwners.keys()].sort((a, b) => a - b);
 
-    for (const iso of Object.keys(dates).sort()) {
-      const groups = dates[iso];
-      if (!Array.isArray(groups)) continue;
-      for (const g of groups) {
-        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
+    // Every date that actually carries a page for this context, across
+    // every term that cites it, in chronological order — "adjacent" below
+    // means adjacent within this list, not adjacent on the calendar at large.
+    const contextDates = [...new Set(allPages.flatMap(p => pageOwners.get(p).map(o => o.iso)))].sort();
 
-        const seenInGroup = new Set();
-        for (const p of g.minutes_pages) {
-          if (seenInGroup.has(p)) {
-            console.log(`  ${term}/dates.json[${iso}]: page ${p} repeated within the same group (${g.minutes_href})`);
-            problems++;
-          }
-          seenInGroup.add(p);
-        }
-        if (!seenInGroup.size) continue; // a tombstone (see handleMinutesDrop in terms.js) — nothing to check
-
-        const ctxKey = `${g.minutes_href}\0${g.minutes_src || ''}`;
-
-        if (!pageLocations.has(ctxKey)) pageLocations.set(ctxKey, new Map());
-        const locMap = pageLocations.get(ctxKey);
-        for (const p of seenInGroup) {
-          if (!locMap.has(p)) locMap.set(p, []);
-          locMap.get(p).push(iso);
-        }
-
-        if (!datePagesByContext.has(ctxKey)) datePagesByContext.set(ctxKey, new Map());
-        const dateMap = datePagesByContext.get(ctxKey);
-        dateMap.set(iso, (dateMap.get(iso) || []).concat([...seenInGroup]));
+    for (const p of allPages) {
+      const owners = pageOwners.get(p);
+      if (owners.length <= 1) continue;
+      if (!owners.some(o => isRelevant(o.term))) continue;
+      if (owners.length === 2) {
+        const isos = owners.map(o => o.iso).sort();
+        if (contextDates[contextDates.indexOf(isos[0]) + 1] === isos[1]) continue; // legitimate straddle
       }
+      const termsInvolved = [...new Set(owners.map(o => o.term))].join('/');
+      console.log(`  ${termsInvolved}: page ${p} (${href}) appears at ${owners.length} date(s) — ${owners.map(o => o.iso).join(', ')}`);
+      problems++;
     }
 
-    for (const [ctxKey, locMap] of pageLocations) {
-      const href = ctxKey.split('\0')[0];
-      // Every date that actually carries a page for this context, in
-      // chronological order — "adjacent" below means adjacent within this
-      // list, not adjacent on the calendar at large.
-      const contextDates = [...new Set([].concat(...locMap.values()))].sort();
-      for (const [page, isos] of locMap) {
-        if (isos.length <= 1) continue;
-        if (isos.length === 2) {
-          const [a, b] = [...isos].sort();
-          if (contextDates[contextDates.indexOf(a) + 1] === b) continue; // legitimate straddle
-        }
-        console.log(`  ${term}: page ${page} (${href}) appears at ${isos.length} date(s) — ${isos.join(', ')}`);
+    // iso -> { term, pages[] }, for the backward-progression check below.
+    const byIso = new Map();
+    for (const p of allPages) {
+      for (const o of pageOwners.get(p)) {
+        if (!byIso.has(o.iso)) byIso.set(o.iso, { term: o.term, pages: [] });
+        byIso.get(o.iso).pages.push(p);
+      }
+    }
+    const isos = [...byIso.keys()].sort();
+    for (let i = 1; i < isos.length; i++) {
+      const prevEntry = byIso.get(isos[i - 1]);
+      const currEntry = byIso.get(isos[i]);
+      const prevMax = arrMax(prevEntry.pages);
+      const currMin = arrMin(currEntry.pages);
+      if (currMin < prevMax) {
+        if (!isRelevant(prevEntry.term) && !isRelevant(currEntry.term)) continue;
+        console.log(`  page numbers go backward for ${href} — ${prevEntry.term}/${isos[i - 1]} reaches ${prevMax}, then ${currEntry.term}/${isos[i]} starts at ${currMin}`);
         problems++;
       }
     }
 
-    for (const [ctxKey, dateMap] of datePagesByContext) {
-      const href = ctxKey.split('\0')[0];
-      const isos = [...dateMap.keys()].sort();
-      for (let i = 1; i < isos.length; i++) {
-        const prevMax = arrMax(dateMap.get(isos[i - 1]));
-        const currMin = arrMin(dateMap.get(isos[i]));
-        if (currMin < prevMax) {
-          console.log(`  ${term}: page numbers go backward for ${href} — ${isos[i - 1]} reaches ${prevMax}, then ${isos[i]} starts at ${currMin}`);
-          problems++;
-        }
+    for (let i = 1; i < allPages.length; i++) {
+      const prev = allPages[i - 1], curr = allPages[i];
+      if (curr - prev <= 1) continue;
+      const prevTerm = pageOwners.get(prev)[0].term;
+      const currTerm = pageOwners.get(curr)[0].term;
+      if (!isRelevant(prevTerm) && !isRelevant(currTerm)) continue;
+      const gapStart = prev + 1, gapEnd = curr - 1;
+      const range = gapStart === gapEnd ? String(gapStart) : `${gapStart}-${gapEnd}`;
+      const span = currTerm === prevTerm ? prevTerm : `${prevTerm}→${currTerm}`;
+      console.log(`  ${span}: ${href} is missing page(s) ${range} (between page ${prev} and ${curr})`);
+      problems += gapEnd - gapStart + 1;
+    }
+  }
+
+  console.log(`\nVerify: ${problems} problem(s) found${termFilter ? ` involving ${termFilter}` : ` across ${terms.length} term(s)`}.`);
+}
+
+// For every gap identified the same way --verify's 4th invariant does (a
+// missing page number strictly between two already-recorded pages of the
+// same context — see loadMinutesContexts above for why that's checked
+// across every term that cites the context, not just one), tries to
+// determine which date it actually belongs to and adds it there — every
+// page in a minutes volume should be accounted for somewhere. Uses whatever
+// OCR text is already cached locally (in *any* year folder — a misfiled
+// page is exactly the kind of thing that causes it to have been skipped
+// from dates.json in the first place), fetching it fresh from NARA
+// otherwise. A date is only trusted if FULL_DATE_RE actually finds one AND
+// it falls within (inclusive) the two bounding pages' own dates — much
+// narrower, and so more reliable, than the whole volume's own title-derived
+// year range, since a small gap can't legitimately land outside that tight
+// a window; the resolved date's own term (which, per the above, isn't
+// necessarily either bounding page's term) is where the page actually gets
+// added. When no such date can be extracted (common for a docket/index
+// page, which often carries no date of its own at all), the page is instead
+// added to the earlier bounding page's own date, logged as a guess rather
+// than a confident read, so it's still accounted for while remaining easy
+// to find and correct later (see terms.js's Minutes Pages drag-and-drop
+// editor) — but only when the whole gap it's part of is no wider than
+// MAX_GUESS_GAP; a page that can't be dated by OCR *and* sits in a much
+// wider gap (e.g. an entire multi-hundred-page index/appendix section) is
+// left unresolved instead, since guessing would just wrongly pile the whole
+// thing onto one date rather than actually account for it. A target date
+// whose own group for this context is already "modified": true (a
+// deliberate human correction) is left alone either way, same as the normal
+// <volume-url> flow's own Pass 3. termFilter, if given, only limits which
+// gaps get acted on (either bounding page's own term must match) — every
+// term is still read, for the same reason loadMinutesContexts always reads
+// everything.
+const MAX_GUESS_GAP = 10;
+
+async function runBackfill(termFilter, dryRun) {
+  const { terms, contexts } = loadMinutesContexts();
+  if (termFilter && !terms.includes(termFilter)) {
+    console.error(`ERROR: no dates.json found for term ${termFilter}`);
+    process.exit(1);
+  }
+  const termStarts = loadTermStarts();
+
+  const existingIndex = buildExistingIndex();
+  // naId -> Promise<{objs, title}|null>, memoized so a volume with many gap
+  // pages only ever triggers one record-metadata fetch.
+  const metaCache = new Map();
+  const getMeta = (naId) => {
+    if (!metaCache.has(naId)) metaCache.set(naId, fetchRecordMeta(naId).catch(() => null));
+    return metaCache.get(naId);
+  };
+
+  // Loaded lazily, mutated in place, and only written back for a term that
+  // actually changed — a single run can touch several terms' dates.json,
+  // since a context's gaps can resolve to any term along its own span.
+  const datesByTerm = new Map();
+  const getDates = (term) => {
+    if (!datesByTerm.has(term)) {
+      let d;
+      try { d = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { d = {}; }
+      datesByTerm.set(term, d);
+    }
+    return datesByTerm.get(term);
+  };
+  const changedTerms = new Set();
+
+  let confident = 0, guessed = 0, unresolved = 0;
+
+  for (const { href, src, pageOwners } of contexts.values()) {
+    const allPages = [...pageOwners.keys()].sort((a, b) => a - b);
+    const gaps = []; // { page, beforeP, afterP }
+    for (let i = 1; i < allPages.length; i++) {
+      for (let p = allPages[i - 1] + 1; p < allPages[i]; p++) {
+        gaps.push({ page: p, beforeP: allPages[i - 1], afterP: allPages[i] });
       }
     }
+    if (!gaps.length) continue;
 
-    for (const [ctxKey, locMap] of pageLocations) {
-      const href = ctxKey.split('\0')[0];
-      const allPages = [...locMap.keys()].sort((a, b) => a - b);
-      const gaps = [];
-      for (let i = 1; i < allPages.length; i++) {
-        const prev = allPages[i - 1], curr = allPages[i];
-        if (curr - prev > 1) {
-          const gapStart = prev + 1, gapEnd = curr - 1;
-          gaps.push(gapStart === gapEnd ? String(gapStart) : `${gapStart}-${gapEnd}`);
-        }
+    const naId = parseVolumeUrl(href);
+    const rollMatch = /\/([^/]+)\/[^/]+-\$page:4\.jpg$/.exec(src || '');
+    if (!naId || !rollMatch) {
+      const relevant = gaps.filter(({ beforeP, afterP }) =>
+        isRelevantGap(pageOwners, beforeP, afterP, termFilter));
+      if (relevant.length) console.log(`  can't parse volume/roll from ${href} — skipping its ${relevant.length} gap page(s)`);
+      unresolved += relevant.length;
+      continue;
+    }
+    const roll = rollMatch[1];
+
+    for (const { page: p, beforeP, afterP } of gaps) {
+      const beforeOwner = pageOwners.get(beforeP)[0];
+      const afterOwner = pageOwners.get(afterP)[0];
+      if (termFilter && beforeOwner.term !== termFilter && afterOwner.term !== termFilter) continue;
+
+      const beforeIso = beforeOwner.iso, afterIso = afterOwner.iso;
+      const base = `${roll}-${String(p).padStart(4, '0')}`;
+      const span = afterOwner.term === beforeOwner.term ? beforeOwner.term : `${beforeOwner.term}→${afterOwner.term}`;
+      const label = `${span}: ${base}`;
+
+      // Read from cache (any year folder — see doc comment above) or fetch fresh.
+      let text = null;
+      let fetchedFresh = false;
+      const cachedYear = existingIndex.get(base);
+      if (cachedYear) {
+        try { text = readFileSync(join(MINUTES_DIR, cachedYear, `${base}.txt`), 'utf8'); } catch { text = null; }
       }
-      if (gaps.length) {
-        console.log(`  ${term}: ${href} is missing page(s) ${gaps.join(', ')} (recorded pages run ${allPages[0]}-${allPages[allPages.length - 1]})`);
-        problems += gaps.length;
+      if (text === null) {
+        const meta = await getMeta(naId);
+        const obj = meta?.objs?.[p - 1];
+        if (!obj?.objectId) {
+          console.log(`  ${label}: could not locate this page on NARA (naId ${naId}); skipping`);
+          unresolved++;
+          continue;
+        }
+        try {
+          text = await fetchExtractedText(naId, obj.objectId);
+        } catch (e) {
+          console.log(`  ${label}: ERROR fetching text — ${e.message || e}`);
+          unresolved++;
+          await sleep(150);
+          continue;
+        }
+        fetchedFresh = true;
+        await sleep(150); // be polite to NARA's API
+      }
+      text = text || '';
+
+      // Narrow, gap-specific year range — much tighter (and more reliable)
+      // than the whole volume's own title-derived range, since a small
+      // gap can't legitimately land outside it.
+      const beforeYear = parseInt(beforeIso.slice(0, 4), 10);
+      const afterYear = parseInt(afterIso.slice(0, 4), 10);
+      const yearRange = { min: Math.min(beforeYear, afterYear), max: Math.max(beforeYear, afterYear) };
+      let resolvedDate = text ? extractFullDate(text, yearRange) : null;
+      // Must also fall within the two bounding dates themselves, not just
+      // their year(s) — a same-year OCR misread elsewhere on the page
+      // could otherwise still slip through.
+      if (resolvedDate && (resolvedDate < beforeIso || resolvedDate > afterIso)) resolvedDate = null;
+
+      if (!resolvedDate && (afterP - beforeP - 1) > MAX_GUESS_GAP) {
+        console.log(`  ${label}: no extractable date, and this gap runs ${afterP - beforeP - 1} pages (> ${MAX_GUESS_GAP}) — too wide to guess; leaving unresolved`);
+        unresolved++;
+        continue;
+      }
+
+      const targetIso = resolvedDate || beforeIso; // best guess — see doc comment above
+      const isGuess = !resolvedDate;
+      const targetTerm = resolvedDate ? termForDate(resolvedDate, termStarts) : beforeOwner.term;
+      if (!targetTerm) {
+        console.log(`  ${label}: resolved date ${resolvedDate} matches no known term; leaving unresolved`);
+        unresolved++;
+        continue;
+      }
+
+      const dates = getDates(targetTerm);
+      if (!Array.isArray(dates[targetIso])) dates[targetIso] = [];
+      const targetGroups = dates[targetIso];
+      let group = targetGroups.find(g => g.minutes_href === href && g.minutes_src === src);
+      if (group && group.modified) {
+        console.log(`  ${label}: ${targetTerm}/dates.json[${targetIso}] is marked modified; leaving page ${p} out`);
+        unresolved++;
+        continue;
+      }
+      if (!group) {
+        group = { minutes_href: href, minutes_src: src, minutes_pages: [] };
+        targetGroups.push(group);
+      }
+      group.minutes_pages = [...new Set([...group.minutes_pages, p])].sort((a, b) => a - b);
+      changedTerms.add(targetTerm);
+
+      console.log(`  ${label}: ${isGuess ? 'guessed' : 'resolved'} -> ${targetTerm}/${targetIso}${isGuess ? ' (no extractable date; nearest earlier page)' : ''}`);
+      if (isGuess) guessed++; else confident++;
+
+      if (fetchedFresh && !dryRun && text) {
+        const outPath = join(MINUTES_DIR, targetIso.slice(0, 4), `${base}.txt`);
+        mkdirSync(dirname(outPath), { recursive: true });
+        writeFileSync(outPath, text, 'utf8');
       }
     }
   }
 
-  console.log(`\nVerify: ${problems} problem(s) found across ${terms.length} term(s).`);
+  if (!dryRun) {
+    for (const term of changedTerms) {
+      const dates = datesByTerm.get(term);
+      const sorted = {};
+      for (const k of Object.keys(dates).sort()) sorted[k] = dates[k];
+      writeFileSync(join(TERMS_DIR, term, 'dates.json'), JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+      console.log(`  ${term}: updated dates.json`);
+    }
+  }
+
+  console.log(`\nBackfill: ${confident} resolved via OCR, ${guessed} guessed (no extractable date), ${unresolved} left unresolved, across ${changedTerms.size} dates.json file(s) updated.`);
+  if (dryRun) console.log('(dry run — no files written)');
+}
+
+// Whether a gap between beforeP/afterP (both already-known pages, per
+// pageOwners) is even worth reporting/counting for termFilter — used only by
+// runBackfill's own "can't parse volume/roll" bailout above, since that path
+// skips every gap in the context at once rather than looking at them
+// individually the way the main loop below does inline.
+function isRelevantGap(pageOwners, beforeP, afterP, termFilter) {
+  if (!termFilter) return true;
+  return pageOwners.get(beforeP)[0].term === termFilter || pageOwners.get(afterP)[0].term === termFilter;
 }
 
 async function main() {
@@ -778,6 +1019,12 @@ async function main() {
   if (args.includes('--verify')) {
     const termArg = args.find(a => /^\d{4}-\d{2}$/.test(a));
     verifyMinutesConsistency(termArg || null);
+    return;
+  }
+
+  if (args.includes('--backfill')) {
+    const termArg = args.find(a => /^\d{4}-\d{2}$/.test(a));
+    await runBackfill(termArg || null, dryRun);
     return;
   }
 
