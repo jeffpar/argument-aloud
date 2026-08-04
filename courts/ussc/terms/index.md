@@ -15,13 +15,18 @@ scripts:
   </div>
 
   <div class="date-section" id="date-section">
-    <div id="covers-row">
-      <button id="journal-cover-btn" hidden title="Open journal">
-        <img id="journal-cover-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Journal cover">
-        <span id="journal-cover-label">Journal</span>
-      </button>
+    <div id="date-header-row">
+      <div id="date-header-text">
+        <h2 id="stat-date-title" hidden></h2>
+        <p id="date-empty-message" class="date-empty-message" hidden><span class="date-empty-message-nowrap">Click any day below</span> to see a list of cases <span class="date-empty-message-red">argued</span> and <span class="date-empty-message-blue">decided</span> on that date. If the day is also <span class="date-empty-message-green">green</span>, view the minutes for that date.</p>
+      </div>
+      <div id="covers-row">
+        <button id="journal-cover-btn" hidden title="Open journal">
+          <img id="journal-cover-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Journal cover">
+          <span id="journal-cover-label">Journal</span>
+        </button>
+      </div>
     </div>
-    <h2 id="stat-date-title" hidden></h2>
     <div id="date-argued-section" hidden>
       <h3>Arguments</h3>
       <ul id="date-argued-list" class="date-case-list"></ul>

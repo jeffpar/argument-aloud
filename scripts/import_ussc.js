@@ -2383,16 +2383,44 @@ async function importRelatingToOrdersCases(casesPath, term) {
         const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
         let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         let added = 0;
+        let replaced = 0;
 
         for (const row of groupRows) {
             if (existingHrefs.has(row.href)) continue;
+            const title = _rtoStatementTitle(row.author);
+
+            // The Court periodically replaces a relating-to-orders document
+            // with a corrected version hosted under a brand new filename (a
+            // changed random suffix, e.g. "25a1235_fd9g.pdf" ->
+            // "25a1235_7648.pdf") rather than editing it in place — so a
+            // literal href match (above) never catches it, and it would
+            // otherwise be added as a second, functionally-duplicate entry.
+            // Recognized instead by an existing entry with the very same
+            // descriptive metadata (type/title/date/author — everything
+            // this scrape actually knows about a statement) but a different
+            // href, and updated in place (same file number, new href) —
+            // the title is itself just a lookup on author (see
+            // _rtoStatementTitle), so this really only requires date+author
+            // to coincide, which a genuinely distinct statement for the
+            // same case essentially never would.
+            const replacing = files.find(f =>
+                f.href && f.href !== row.href && f.type === 'statement' && f.title === title &&
+                (f.date || '') === (row.date || '') && (f.author || '') === (row.author || ''));
+            if (replacing) {
+                existingHrefs.delete(replacing.href);
+                replacing.href = row.href;
+                existingHrefs.add(row.href);
+                replaced++;
+                continue;
+            }
+
             // type: 'statement' (not 'opinion') so update_cases.js's
             // syncOpinionHrefFromFiles/checkOpinionForCase — which only look
             // for type === 'opinion' — never mistake one of these for the
             // case's actual decision and auto-populate decision_ussc from it.
             // No 'group' set, so explorer.js's Records grouping picks it up
             // via its type-based fallback rather than the usual "Other" bucket.
-            const entry = { file: ++maxId, type: 'statement', title: _rtoStatementTitle(row.author) };
+            const entry = { file: ++maxId, type: 'statement', title };
             if (row.date)   entry.date   = row.date;
             if (row.author) entry.author = row.author;
             entry.href = row.href;
@@ -2401,11 +2429,14 @@ async function importRelatingToOrdersCases(casesPath, term) {
             added++;
         }
 
-        if (added) {
+        if (added || replaced) {
             ensureDir(caseDir);
             writeJson(filesPath, files);
             addedFiles += added;
-            reportChange(`  ${matchedCase.number}: added ${added} relating-to-orders file(s)`);
+            const parts = [];
+            if (added)   parts.push(`added ${added}`);
+            if (replaced) parts.push(`replaced ${replaced}`);
+            reportChange(`  ${matchedCase.number}: ${parts.join(', ')} relating-to-orders file(s)`);
         }
     }
 

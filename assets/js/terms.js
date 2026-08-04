@@ -184,24 +184,24 @@
     return asc ? cmp : -cmp;
   }
 
-  function buildCaseListingRow(term, row) {
+  function buildCaseListingRow(row) {
     var tr = document.createElement('tr');
 
     var tdTitle = document.createElement('td');
     var aTitle = document.createElement('a');
     aTitle.textContent = row.title;
-    wireSearchLink(aTitle, '?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(row.caseId));
+    wireSearchLink(aTitle, '?term=' + encodeURIComponent(row.caseTerm) + '&case=' + encodeURIComponent(row.caseId));
     tdTitle.appendChild(aTitle);
     tr.appendChild(tdTitle);
 
     var tdArgued = document.createElement('td');
     tdArgued.className = 'col-date';
-    renderDateCell(tdArgued, term, row.argIso);
+    renderDateCell(tdArgued, row.argTerm, row.argIso);
     tr.appendChild(tdArgued);
 
     var tdDecided = document.createElement('td');
     tdDecided.className = 'col-date';
-    renderDateCell(tdDecided, term, row.decIso);
+    renderDateCell(tdDecided, row.caseTerm, row.decIso);
     tr.appendChild(tdDecided);
 
     var tdVote = document.createElement('td');
@@ -223,39 +223,115 @@
     return tr;
   }
 
-  function renderCaseListing(term, cases) {
-    var rows = cases.map(function (c) {
-      // A case reargued in a later term than it was first argued in still
-      // carries both dates on the same case record — comparing by
-      // year-month (both "argument"/"reargument" and "term" share the same
-      // "YYYY-MM" prefix) drops any date that belongs to an earlier term, so
-      // e.g. a reargument in this term takes over from an original argument
-      // that predates it.
-      var argIso = Array.from(new Set(dateTokens(c.argument).concat(dateTokens(c.reargument))))
-        .filter(function (d) { return d.slice(0, 7) >= term; });
-      var decIso = dateTokens(c.decision);
-      var voteM = c.voteMajority, voteN = c.voteMinority;
-      var opinionText = c.usCite || '';
-      var decDates = decIso.slice().sort();
-      return {
-        title: caseDisplayTitle(c),
-        caseId: caseUrlId(c),
-        argIso: argIso,
-        decIso: decIso,
-        voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
-        opinionText: opinionText,
-        decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_rep || '') : '',
-        decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
-          + (opinionText ? ' (' + opinionText + ')' : ''),
-        sortValues: {
-          title: caseDisplayTitle(c).toLowerCase(),
-          argued: argIso.slice().sort()[0] || null,
-          decided: decDates[0] || null,
-          vote: (voteM != null) ? voteM : null,
-          opinion: opinionSortKey(opinionText),
-        },
-      };
+  // Builds one Case Listing row from a full case record. caseTerm is what
+  // the title link (and the Decided cell, since a decision date isn't
+  // cross-term-tracked anywhere — see collectCrossTermRows below — so its
+  // own filing term is the best link target available) navigates to;
+  // argTerm is what the Argued cell links to — normally the same term, but
+  // for a cross-term row (see collectCrossTermRows) argTerm is instead
+  // wherever that specific argued/reargued date actually falls on a
+  // calendar (this page's own term), since the case's real home term
+  // (caseTerm) wouldn't have that date in its own range at all.
+  // argIsoOverride, if given, replaces the normal "this case's own argument/
+  // reargument dates, dropping anything before caseTerm" computation
+  // (which assumes c belongs to caseTerm) with an explicit list — used by
+  // collectCrossTermRows to show only the one date that's actually relevant
+  // to *this* page, not every argument/reargument date on the record.
+  function buildCaseRow(c, caseTerm, argTerm, argIsoOverride) {
+    // A case reargued in a later term than it was first argued in still
+    // carries both dates on the same case record — comparing by
+    // year-month (both "argument"/"reargument" and caseTerm share the same
+    // "YYYY-MM" prefix) drops any date that belongs to an earlier term, so
+    // e.g. a reargument in this term takes over from an original argument
+    // that predates it.
+    var argIso = argIsoOverride || Array.from(new Set(dateTokens(c.argument).concat(dateTokens(c.reargument))))
+      .filter(function (d) { return d.slice(0, 7) >= caseTerm; });
+    var decIso = dateTokens(c.decision);
+    var voteM = c.voteMajority, voteN = c.voteMinority;
+    var opinionText = c.usCite || '';
+    var decDates = decIso.slice().sort();
+    return {
+      title: caseDisplayTitle(c),
+      caseId: caseUrlId(c),
+      caseTerm: caseTerm,
+      argTerm: argTerm,
+      argIso: argIso,
+      decIso: decIso,
+      voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
+      opinionText: opinionText,
+      decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_rep || '') : '',
+      decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
+        + (opinionText ? ' (' + opinionText + ')' : ''),
+      sortValues: {
+        title: caseDisplayTitle(c).toLowerCase(),
+        argued: argIso.slice().sort()[0] || null,
+        decided: decDates[0] || null,
+        vote: (voteM != null) ? voteM : null,
+        opinion: opinionSortKey(opinionText),
+      },
+    };
+  }
+
+  // Finds every cross-term case-detail pointer object (see update_cases.js's
+  // syncCrossTermCaseDates) across ALL of this term's own dates.json dates —
+  // a case filed under a *later* term whose argument/reargument date
+  // actually falls within this term's own calendar window, e.g. Davis v.
+  // Gaines (filed under 1881-10) argued Jan 27 1881, which is within
+  // 1880-10's own range. These already show up in the single-date argued/
+  // reargued lists (see fillGroup above) but were missing from the Case
+  // Listing table entirely, which only ever looked at this term's own
+  // cases.json. A pointer only carries {id, term, number, title, usCite,
+  // type} — not enough to build a full row (no votes/decision/etc.) — so
+  // each one is resolved against its own home term's cases.json (grouped by
+  // term first so a term with several cross-term entries is only fetched
+  // once), deduped by case id (rare, but the same case could have e.g. both
+  // an argument and reargument pointer landing on different dates within
+  // this same term — merged into one row with both dates). Returns a
+  // Promise resolving to an array of rows in buildCaseRow's own shape;
+  // resolves to [] (never rejects) if datesData is empty or every fetch
+  // fails, so a lookup failure just means the table falls back to native
+  // cases only rather than never rendering.
+  function collectCrossTermRows(datesData, term) {
+    if (!datesData) return Promise.resolve([]);
+    var byId = new Map(); // case id/number -> { pointer, isos: [iso, ...] }
+    Object.keys(datesData).forEach(function (iso) {
+      (datesData[iso] || []).forEach(function (g) {
+        if ('minutes_src' in g) return;
+        if (g.type !== 'argument' && g.type !== 'reargument') return;
+        var key = g.id || g.number;
+        if (!key) return;
+        if (!byId.has(key)) byId.set(key, { pointer: g, isos: [] });
+        byId.get(key).isos.push(iso);
+      });
     });
+    if (!byId.size) return Promise.resolve([]);
+
+    var byTerm = new Map(); // pointer's own home term -> [{ pointer, isos }, ...]
+    byId.forEach(function (entry) {
+      var t = entry.pointer.term;
+      if (!t) return;
+      if (!byTerm.has(t)) byTerm.set(t, []);
+      byTerm.get(t).push(entry);
+    });
+
+    return Promise.all(Array.from(byTerm.keys()).map(function (t) {
+      return fetch('/courts/ussc/terms/' + t + '/cases.json')
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .catch(function () { return []; })
+        .then(function (termCases) {
+          return byTerm.get(t).map(function (entry) {
+            var key = entry.pointer.id || entry.pointer.number;
+            var full = Array.isArray(termCases) && termCases.find(function (c) { return c.id === key || c.number === key; });
+            if (!full) return null;
+            return buildCaseRow(full, t, term, entry.isos.slice().sort());
+          }).filter(Boolean);
+        });
+    })).then(function (perTerm) { return [].concat.apply([], perTerm); });
+  }
+
+  function renderCaseListing(term, cases, extraRows) {
+    var rows = cases.map(function (c) { return buildCaseRow(c, term, term); });
+    if (extraRows && extraRows.length) rows = rows.concat(extraRows);
     if (!rows.length) return;
 
     var heading = document.getElementById('case-listing-heading');
@@ -268,7 +344,7 @@
     function render() {
       var sorted = rows.slice().sort(function (a, b) { return compareRows(a, b, state.key, state.asc); });
       tbody.innerHTML = '';
-      sorted.forEach(function (row) { tbody.appendChild(buildCaseListingRow(term, row)); });
+      sorted.forEach(function (row) { tbody.appendChild(buildCaseListingRow(row)); });
       table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
         var active = th.dataset.sortKey === state.key;
         th.setAttribute('aria-sort', active ? (state.asc ? 'ascending' : 'descending') : 'none');
@@ -647,6 +723,22 @@
     }
   }
 
+  // Reverses updateUrlPageParam — strips the "page" URL param (both this
+  // iframe's own and, via postMessage, the top-level SPA's) and reverts the
+  // doc viewer to its minimized/unshown state, same as its own close
+  // button. Called when the currently-selected Minutes page number is
+  // clicked again (see renderMinutesPagesList below) — a toggle-off, since
+  // there's otherwise no way to leave the Minutes viewer without picking a
+  // different day/case.
+  function clearUrlPageParam() {
+    var url = new URL(location.href);
+    url.searchParams.delete('page');
+    history.replaceState(null, '', url.toString());
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'ussc-close-minutes-page' }, location.origin);
+    }
+  }
+
   // Renders (or re-renders) the Minutes Pages list for the currently viewed
   // ?date= from termDatesData[date] (shared state declared further below,
   // populated once termDatesPromise resolves) — called once then, and again
@@ -706,13 +798,28 @@
       // that date; click still opens the page (in the doc viewer's image
       // gallery, positioned at this page — see wireDocLink above) and
       // additionally highlights it (see .minutes-page-selected in
-      // pages.css), clearing any previously-selected page in this same list.
+      // pages.css), clearing any previously-selected page in this same
+      // list — unless it's already the selected one, in which case the
+      // click instead toggles it off (see the listener registered just
+      // below, ahead of wireDocLink's own).
       a.draggable = true;
       a.dataset.page = String(page);
-      a.title = 'Click to view this page or Shift+Click to view in a new tab. '
+      a.title = 'Click to view this page (click again to close) or Shift+Click to view in a new tab. '
         + 'Drag onto a calendar day to move the page to that date or Shift+Drag to copy it; '
         + 'later pages will be moved if the target is also later.';
       var href = minutesPageHrefs[i];
+      // Toggle off: clicking the already-selected page again reverts to the
+      // unshown state (clears ?page=, unhighlights, hides the doc viewer)
+      // instead of reopening it. Registered ahead of wireDocLink's own click
+      // listener (added next) so stopImmediatePropagation here pre-empts
+      // both it and the plain-select listener below.
+      a.addEventListener('click', function (e) {
+        if (e.shiftKey || !a.classList.contains('minutes-page-selected')) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        selectMinutesPage(null);
+        clearUrlPageParam();
+      });
       wireDocLink(a, href, termTitle(term) + ' Minutes, p. ' + page, 'pane', href, minutesPageHrefs, i);
       a.addEventListener('click', function (e) {
         selectMinutesPage(a);
@@ -1456,7 +1563,13 @@
     .then(function (cases) {
 
       // ── Date section ────────────────────────────────────────────────────────
-      if (date) {
+      if (!date) {
+        // No ?date= yet — the covers row (journal/report/minutes covers) may
+        // still be showing something, but there's nothing day-specific here
+        // yet; point the visitor at the Court Calendar below instead of
+        // leaving this whole area blank.
+        document.getElementById('date-empty-message').hidden = false;
+      } else {
         function casesOnDate(field) {
           return cases.filter(function (c) {
             if (!c[field]) return false;
@@ -1623,7 +1736,10 @@
         });
       }
 
-      renderCaseListing(term, cases);
+      termDatesPromise
+        .then(function (datesData) { return collectCrossTermRows(datesData, term); })
+        .catch(function () { return []; })
+        .then(function (extraRows) { renderCaseListing(term, cases, extraRows); });
 
       var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true

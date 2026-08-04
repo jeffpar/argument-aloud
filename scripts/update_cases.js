@@ -6945,6 +6945,75 @@ function processCitationIndex(allTerms, dryRun) {
     }
 }
 
+// Builds courts/ussc/indexes/cases/onthisday.json.
+// Maps each calendar day ("MM-DD", zero-padded) to a sorted array of ref
+// strings for every case with an argument, reargument, or decision date
+// landing on that day in *any* year — same shortened-ref convention as
+// processTitleIndex/processNumberIndex/processCitationIndex. Backs the
+// action=onthisday URL param (see assets/js/explorer.js), which picks one
+// entry from a given day's list deterministically (seeded by the date plus
+// a "seed" param) rather than truly at random. A case is only ever added
+// once per day even if e.g. its argument and decision both happen to fall
+// on the same "MM-DD" in different years. Keys are sorted chronologically
+// (a plain string sort already achieves this for zero-padded "MM-DD"), not
+// by frequency like the other indexes — there's no search-relevance
+// question here. File is written compact (no indentation).
+function processOnThisDayIndex(allTerms, dryRun) {
+    const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'onthisday.json');
+
+    // "MM-DD" → Set of ref strings
+    const dayRefs = new Map();
+
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+
+        const termYYYY = term.slice(0, 4);
+        const isOctoberTerm = term.endsWith('-10');
+
+        for (const c of cases) {
+            if (!c.id && !c.number) continue;
+            const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
+            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+
+            const addedDays = new Set(); // this case's own already-added "MM-DD"s
+            for (const field of ['argument', 'reargument', 'decision']) {
+                const raw = c[field];
+                if (!raw) continue;
+                for (const d of raw.split(',').map(s => s.trim()).filter(Boolean)) {
+                    if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) continue; // skip partial/malformed dates
+                    const mmdd = d.slice(5, 10);
+                    if (addedDays.has(mmdd)) continue;
+                    addedDays.add(mmdd);
+                    if (!dayRefs.has(mmdd)) dayRefs.set(mmdd, new Set());
+                    dayRefs.get(mmdd).add(ref);
+                }
+            }
+        }
+    }
+
+    const sorted = {};
+    for (const mmdd of [...dayRefs.keys()].sort()) {
+        sorted[mmdd] = [...dayRefs.get(mmdd)].sort();
+    }
+
+    const content = JSON.stringify(sorted);
+    if (dryRun) {
+        if (_VERBOSE) console.log(`  [dry-run] would write courts/ussc/indexes/cases/onthisday.json`);
+    } else {
+        let changed = true;
+        try { changed = fs.readFileSync(OUT_FILE, 'utf8') !== content; } catch { /* new file */ }
+        if (changed) {
+            fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+            fs.writeFileSync(OUT_FILE, content, 'utf8');
+            console.log(`On-this-day index: wrote courts/ussc/indexes/cases/onthisday.json (${Object.keys(sorted).length} days)`);
+        }
+    }
+}
+
 // Words excluded from the keyword (transcript) index.
 // The 3-char minimum enforced during tokenisation already drops single-letter
 // words and two-letter words (a, an, as, at, be, by, do, go, he, if, in, is,
@@ -11999,6 +12068,7 @@ async function runAddCase(term, title, argv, dryRun) {
     processTitleIndex(allTerms, false);
     processNumberIndex(allTerms, false);
     processCitationIndex(allTerms, false);
+    processOnThisDayIndex(allTerms, false);
 
     // Cross-term argument/reargument dates first, since syncTermsJson below
     // reads dates.json's own existence (and minutes-cover contents) back
@@ -13660,7 +13730,7 @@ async function main() {
         return;
     }
 
-    if (flags.has('--keyword-index') || flags.has('--title-index') || flags.has('--number-index') || flags.has('--citation-index')) {
+    if (flags.has('--keyword-index') || flags.has('--title-index') || flags.has('--number-index') || flags.has('--citation-index') || flags.has('--onthisday-index')) {
         let allTerms = [];
         try {
             const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
@@ -13670,10 +13740,11 @@ async function main() {
                 return m ? m[1] : null;
             })).filter(Boolean);
         } catch {}
-        if (flags.has('--title-index'))    processTitleIndex(allTerms, false);
-        if (flags.has('--number-index'))   processNumberIndex(allTerms, false);
-        if (flags.has('--citation-index')) processCitationIndex(allTerms, false);
-        if (flags.has('--keyword-index'))  processKeywordIndex(allTerms, false);
+        if (flags.has('--title-index'))     processTitleIndex(allTerms, false);
+        if (flags.has('--number-index'))    processNumberIndex(allTerms, false);
+        if (flags.has('--citation-index'))  processCitationIndex(allTerms, false);
+        if (flags.has('--onthisday-index')) processOnThisDayIndex(allTerms, false);
+        if (flags.has('--keyword-index'))   processKeywordIndex(allTerms, false);
         return;
     }
 
@@ -13775,6 +13846,7 @@ async function main() {
         processTitleIndex(allTerms, false);
         processNumberIndex(allTerms, false);
         processCitationIndex(allTerms, false);
+        processOnThisDayIndex(allTerms, false);
         processKeywordIndex(allTerms, false);
         await runDissentCheck(null);
         // Advocate index rebuild (final phase).

@@ -1765,6 +1765,21 @@ async function _fetchCitationIndex() {
   return _citationIndexPromise;
 }
 
+// "MM-DD" -> [ref, ...] — see scripts/update_cases.js's processOnThisDayIndex
+// for how this is built and the ref format. Backs action=onthisday below.
+let _onThisDayIndex = null;
+let _onThisDayIndexPromise = null;
+
+async function _fetchOnThisDayIndex() {
+  if (_onThisDayIndex) return _onThisDayIndex;
+  if (_onThisDayIndexPromise) return _onThisDayIndexPromise;
+  _onThisDayIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/onthisday.json', { cache: 'reload' })
+    .then(r => r.ok ? r.json() : {})
+    .catch(() => ({}))
+    .then(d => { _onThisDayIndex = d; return d; });
+  return _onThisDayIndexPromise;
+}
+
 // Lowercase, strip periods, collapse whitespace — matches _normalizeUsCite in
 // scripts/update_cases.js so "387 U.S. 397" and "387 US 397" both resolve to
 // the same citations.json key ("387 us 397").
@@ -9433,6 +9448,141 @@ async function _randomizeThenRestore(startTerm, stopTerm) {
   await restoreFromURL();
 }
 
+// FNV-1a 32-bit string hash — turns a "day:seed" string into a single
+// deterministic array index (see _onThisDayThenRestore below) instead of
+// drawing from Math.random(), so the same date+seed always resolves to the
+// same case.
+function _hashStringToUint32(str) {
+  let h = 0x811c9dc5; // FNV-1a offset basis
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193); // FNV-1a prime
+  }
+  return h >>> 0;
+}
+
+// Extracts "MM-DD" from a "YYYY-MM-DD" dateParam, or from today (UTC) if
+// dateParam is absent/malformed. Shared by _onThisDayThenRestore and the
+// noteworthy-seed lookup below.
+function _mmddFor(dateParam) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateParam || '')) return dateParam.slice(5, 10);
+  const today = new Date();
+  return String(today.getUTCMonth() + 1).padStart(2, '0') + '-' + String(today.getUTCDate()).padStart(2, '0');
+}
+
+// seed=noteworthy: instead of picking from the full onthisday index, restrict
+// the candidates to courts/ussc/topics/noteworthy.json — a curated,
+// human-selected set of cases grouped by legal topic (each entry already
+// carries its own term/number/argument/reargument/decision fields, so this
+// doesn't need onthisday.json's ref index at all). The same case can appear
+// under more than one topic group, so candidates are deduped by "term/number"
+// first. Returns { term, id } or null if no noteworthy case matches mmdd.
+async function _pickNoteworthyOnThisDay(mmdd) {
+  let groups;
+  try {
+    const r = await fetch('/courts/ussc/topics/noteworthy.json', { cache: 'reload' });
+    groups = r.ok ? await r.json() : null;
+  } catch { groups = null; }
+  if (!Array.isArray(groups)) return null;
+
+  const seen = new Set();
+  const candidates = [];
+  for (const g of groups) {
+    for (const c of (g.cases || [])) {
+      if (!c.term || !c.number) continue;
+      const key = c.term + '/' + c.number;
+      if (seen.has(key)) continue;
+      const matches = ['argument', 'reargument', 'decision'].some(field => {
+        const raw = c[field];
+        if (!raw) return false;
+        return raw.split(',').map(s => s.trim()).some(d => /^\d{4}-\d{2}-\d{2}$/.test(d) && d.slice(5, 10) === mmdd);
+      });
+      if (!matches) continue;
+      seen.add(key);
+      candidates.push({ term: c.term, id: c.number });
+    }
+  }
+  if (!candidates.length) return null;
+  const idx = _hashStringToUint32(mmdd + ':noteworthy') % candidates.length;
+  return candidates[idx];
+}
+
+// Swaps the current (action=onthisday) URL for a plain ?link= one pointing
+// at the "no case found" page, then shows it — same replace-then-show shape
+// as the successful path below, just with nothing to redirect to. Mirrors
+// showPageViewer's own pushState logic (replaceState here instead, so the
+// dead-end action= URL doesn't linger as a back-button target).
+function _showOnThisDayNotFound(dateParam) {
+  const target = '/courts/ussc/collections/onthisday/' + (dateParam ? ('?date=' + encodeURIComponent(dateParam)) : '');
+  const url = new URL(location.href);
+  url.search = '';
+  url.searchParams.set('link', target);
+  url.search = url.search.replace(/%2F/gi, '/');
+  history.replaceState(null, '', url);
+  showPageViewer(target, { pushState: false });
+}
+
+// ── action=onthisday ─────────────────────────────────────────────────────────
+// Picks one case argued, reargued, or decided on the same month+day as
+// dateParam (a "YYYY-MM-DD" string — only its "MM-DD" matters, the year is
+// ignored) in *any* year of the Court's history, and navigates to it.
+// dateParam defaults to today (UTC) when absent/malformed. The pick is
+// "random" only in the sense that it isn't the most-relevant/first result —
+// it's fully deterministic for a given (date, seed) pair (seedParam defaults
+// to "1"), via _hashStringToUint32 above, so the same link always resolves
+// to the same case; a different seed picks a different one among that day's
+// candidates without needing a different date. seed=noteworthy is special —
+// see _pickNoteworthyOnThisDay above — restricting the pick to the curated
+// Noteworthy topic set instead of the full index. Backed by
+// courts/ussc/indexes/cases/onthisday.json (see scripts/update_cases.js's
+// processOnThisDayIndex) — a "MM-DD" -> [ref, ...] map, same shortened-ref
+// convention (a bare case id for an October Term case whose id starts with
+// its own term's year, else "term/id-or-number") used by the title/number/
+// citation indexes. Shows the "no case found" page (_showOnThisDayNotFound)
+// when nothing matches, at any step.
+async function _onThisDayThenRestore(dateParam, seedParam) {
+  const mmdd = _mmddFor(dateParam);
+  const seed = seedParam || '1';
+
+  let pick = null;
+  if (seed === 'noteworthy') {
+    pick = await _pickNoteworthyOnThisDay(mmdd);
+  } else {
+    const index = await _fetchOnThisDayIndex();
+    const refs = index[mmdd];
+    if (Array.isArray(refs) && refs.length) {
+      const pickIdx = _hashStringToUint32(mmdd + ':' + seed) % refs.length;
+      const ref = refs[pickIdx];
+      const i = ref.indexOf('/');
+      pick = {
+        term: i === -1 ? ref.slice(0, 4) + '-10' : ref.slice(0, i),
+        id:   i === -1 ? ref                     : ref.slice(i + 1),
+      };
+    }
+  }
+
+  if (!pick) { _showOnThisDayNotFound(dateParam); return; }
+
+  const cases = await fetchTermCases(pick.term);
+  const caseEntry = cases?.length ? cases.find(c => c.id === pick.id || c.number === pick.id) : null;
+  if (!caseEntry) { _showOnThisDayNotFound(dateParam); return; }
+
+  // Replace the current URL (so the action= URL is not in history) with the
+  // resolved case URL, then restore normally.
+  const caseId = _caseUrlId(caseEntry, cases);
+  const url = buildUrlParams(
+    { term: pick.term, case: caseId },
+    ['action', 'date', 'seed', 'collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
+  );
+  history.replaceState(null, '', url);
+
+  // Collapse all open decade/term groups so only the target path is expanded.
+  document.querySelectorAll('#term-list .decade-group.open, #term-list .term-group.open, #term-list .month-group.open')
+    .forEach(el => el.classList.remove('open'));
+
+  await restoreFromURL();
+}
+
 async function pickRandomCase() {
   const btn = document.getElementById('random-case-btn');
   if (btn) btn.disabled = true;
@@ -9596,6 +9746,17 @@ async function restoreFromURL() {
     const startParam = params.get('start') || null;
     const stopParam  = params.get('stop')  || null;
     await _randomizeThenRestore(startParam, stopParam);
+    return;
+  }
+
+  // ── action=onthisday ─────────────────────────────────────────────────────
+  // Redirect to a case argued/reargued/decided on this same month+day (any
+  // year) before doing anything else — see _onThisDayThenRestore's own doc
+  // comment for the date/seed params.
+  if (params.get('action') === 'onthisday') {
+    const dateParam = params.get('date') || null;
+    const seedParam = params.get('seed') || null;
+    await _onThisDayThenRestore(dateParam, seedParam);
     return;
   }
 
@@ -10221,6 +10382,16 @@ window.addEventListener('message', async (e) => {
     const newUrl = new URL(location.href);
     newUrl.searchParams.set('page', e.data.page);
     history.replaceState(null, '', newUrl.toString());
+  } else if (e.data?.type === 'ussc-close-minutes-page') {
+    // Posted by terms.js's clearUrlPageParam when the currently-selected
+    // Minutes page number is clicked again (a toggle-off) — strips the
+    // "page" param the same way 'ussc-update-page' above sets it, and
+    // reverts the doc viewer to its minimized/unshown state, same as its
+    // own close button.
+    const newUrl = new URL(location.href);
+    newUrl.searchParams.delete('page');
+    history.replaceState(null, '', newUrl.toString());
+    hideDocViewerFully();
   } else if (e.data?.type === 'ussc-scroll-collection-item' && e.data.collection && e.data.id) {
     _scrollSidebarToCollectionItem(e.data.collection, e.data.id);
   }
