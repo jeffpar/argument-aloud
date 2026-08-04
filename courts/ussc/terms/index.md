@@ -34,7 +34,7 @@ scripts:
       <h3>Decisions</h3>
       <ul id="date-decided-list" class="date-case-list"></ul>
     </div>
-    <div id="date-minutes-section" hidden>
+    <div id="minutes" hidden>
       <h3>Minutes</h3>
       <p id="date-minutes-list" class="date-minutes-list"></p>
     </div>

@@ -1586,11 +1586,16 @@ function speakerClass(speaker) {
 // (terms.js's openMinutesPageFromUrl) open straight to it in the doc viewer,
 // as if visited via a green calendar day's own "page" deep link — meaningless
 // without date, and ignored by terms.js if it is given without one.
-function updateEmptyStateForTerm(term, date = null, page = null) {
+// Pass hash (from location.hash, no leading '#') to carry a same-page anchor
+// (currently only "minutes" — see wireCalDayNav in terms.js) through onto
+// the iframe's own src, since a fresh load of it has no other way to know
+// to scroll there.
+function updateEmptyStateForTerm(term, date = null, page = null, hash = null) {
   if (!term) return; // term collapsed — leave current view
   const statsUrl = '/courts/ussc/terms/?term=' + encodeURIComponent(term)
     + (date ? '&date=' + encodeURIComponent(date) : '')
-    + (page ? '&page=' + encodeURIComponent(page) : '');
+    + (page ? '&page=' + encodeURIComponent(page) : '')
+    + (hash ? '#' + encodeURIComponent(hash) : '');
   showPageViewer(statsUrl, { pushState: false });
 }
 
@@ -9609,6 +9614,7 @@ async function restoreFromURL() {
   if (termParam === 'current') termParam = TERMS[0]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
   const pageParam       = params.get('page') ?? null;
+  const hashParam       = location.hash ? location.hash.slice(1) : null;
   let collectionParam = params.get('collection') ?? params.get('topic');
   if (collectionParam && _COLLECTION_ALIASES[collectionParam]) {
     collectionParam = _resolveCollectionAlias(collectionParam);
@@ -10161,7 +10167,7 @@ async function restoreFromURL() {
           }
         })();
       }
-      updateEmptyStateForTerm(termParam, dateParam, pageParam);
+      updateEmptyStateForTerm(termParam, dateParam, pageParam, hashParam);
       setTopbarTerm(termParam);
       setPageMeta(termDisplayName(termParam) + ' | Argument Aloud');
       trackPageView(location.href);

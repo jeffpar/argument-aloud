@@ -391,13 +391,31 @@
   // applyMinutesTooltipToDay's own dayEl.dataset.minutesPage) is read fresh
   // at click time, not baked in here, since an argument/decision day is
   // wired up front (before dates.json has even loaded) and would otherwise
-  // never pick up a page number that only becomes known afterward.
+  // never pick up a page number that only becomes known afterward. It's
+  // only ever added, though, if the *current* URL already has one — i.e.
+  // the visitor is already viewing a Minutes page (first set by clicking an
+  // actual page link in the Pages list — see renderMinutesPagesList's own
+  // click handler and updateUrlPageParam) — so a plain first click into a
+  // term's calendar lands on the date's own argued/reargued/decided cases
+  // like any other day, not straight into the Minutes viewer. Once that
+  // page param is present, though, every later day click keeps carrying it
+  // (and #minutes) through, re-pointed at the new day's own first page, so
+  // browsing stays inside the Minutes viewer for as long as the visitor
+  // does. location.search is re-read live (not the module-scope `params`
+  // parsed once at load) since updateUrlPageParam sets it via
+  // history.replaceState — no reload — so `params` would otherwise still
+  // reflect this page's stale pre-click state. The #minutes fragment itself
+  // is what explorer.js's restoreFromURL forwards through to the stats
+  // page's own iframe src so a fresh load of it lands with the "Minutes"
+  // heading (#minutes — see courts/ussc/terms/index.md) scrolled to the top.
   function wireCalDayNav(dayEl, termId, iso) {
     if (dayEl.classList.contains('cal-clickable')) return;
     dayEl.classList.add('cal-clickable');
     var handler = function () {
       var s = '?term=' + encodeURIComponent(termId) + '&date=' + encodeURIComponent(iso);
-      if (dayEl.dataset.minutesPage) s += '&page=' + encodeURIComponent(dayEl.dataset.minutesPage);
+      if (dayEl.dataset.minutesPage && new URLSearchParams(location.search).has('page')) {
+        s += '&page=' + encodeURIComponent(dayEl.dataset.minutesPage) + '#minutes';
+      }
       if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
       else { location.href = '/courts/ussc/' + s; }
     };
@@ -643,7 +661,7 @@
   // that one page's image in a new tab (wireDocLink's usual convention).
   function renderMinutesPagesList() {
     var container = document.getElementById('date-minutes-list');
-    var section = document.getElementById('date-minutes-section');
+    var section = document.getElementById('minutes');
     container.innerHTML = '';
     selectedMinutesPageEl = null;
     minutesPageEls = [];
@@ -1502,6 +1520,20 @@
 
           renderMinutesPagesList();
           openMinutesPageFromUrl();
+
+          // A calendar day link with minutes (see wireCalDayNav) lands here
+          // with a #minutes fragment — scroll the (now-unhidden, if this
+          // date actually has any) Minutes heading to the top, same as any
+          // other same-page anchor link, rather than relying on the
+          // browser's own native hash-scroll-on-load (which can't find an
+          // element that started out `hidden` and was only just unhidden
+          // above).
+          if (location.hash === '#minutes') {
+            var minutesSection = document.getElementById('minutes');
+            if (minutesSection && !minutesSection.hidden) {
+              requestAnimationFrame(function () { minutesSection.scrollIntoView({ behavior: 'instant', block: 'start' }); });
+            }
+          }
         });
       }
 
