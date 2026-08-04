@@ -39,8 +39,24 @@
   function caseDisplayTitle(c) {
     return (c.title || c.number || c.id || '(unknown)').split('|')[0].trim();
   }
-  function caseUrlId(c) {
-    return c.id || (c.number || '').split(',')[0].trim() || '';
+  // Preferred `case=` URL value for a case — its first docket number when
+  // that's unique among siblingCases, else its own id (matching
+  // explorer.js's own _caseUrlId()). siblingCases should be the cases.json
+  // array for c's own term. A cross-term case-detail pointer object (c.term
+  // set — see fillGroup below) doesn't belong to any siblingCases passed in
+  // here (that'd be a different term's cases.json), so there's no reliable
+  // way to check leading-number uniqueness for it — always use its id,
+  // which such an object is always given (see syncCrossTermCaseDates).
+  function caseUrlId(c, siblingCases) {
+    var num = (c.number || '').split(',')[0].trim();
+    if (!c.term && num && siblingCases) {
+      var count = 0;
+      for (var i = 0; i < siblingCases.length; i++) {
+        if ((siblingCases[i].number || '').split(',')[0].trim() === num) count++;
+      }
+      if (count === 1) return num;
+    }
+    return c.id || num;
   }
 
   var MONTHS_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -237,7 +253,9 @@
   // (which assumes c belongs to caseTerm) with an explicit list — used by
   // collectCrossTermRows to show only the one date that's actually relevant
   // to *this* page, not every argument/reargument date on the record.
-  function buildCaseRow(c, caseTerm, argTerm, argIsoOverride) {
+  // siblingCases should be c's own home term's cases.json array, passed
+  // through to caseUrlId() for its leading-number-uniqueness check.
+  function buildCaseRow(c, caseTerm, argTerm, siblingCases, argIsoOverride) {
     // A case reargued in a later term than it was first argued in still
     // carries both dates on the same case record — comparing by
     // year-month (both "argument"/"reargument" and caseTerm share the same
@@ -252,7 +270,7 @@
     var decDates = decIso.slice().sort();
     return {
       title: caseDisplayTitle(c),
-      caseId: caseUrlId(c),
+      caseId: caseUrlId(c, siblingCases),
       caseTerm: caseTerm,
       argTerm: argTerm,
       argIso: argIso,
@@ -323,14 +341,14 @@
             var key = entry.pointer.id || entry.pointer.number;
             var full = Array.isArray(termCases) && termCases.find(function (c) { return c.id === key || c.number === key; });
             if (!full) return null;
-            return buildCaseRow(full, t, term, entry.isos.slice().sort());
+            return buildCaseRow(full, t, term, termCases, entry.isos.slice().sort());
           }).filter(Boolean);
         });
     })).then(function (perTerm) { return [].concat.apply([], perTerm); });
   }
 
   function renderCaseListing(term, cases, extraRows) {
-    var rows = cases.map(function (c) { return buildCaseRow(c, term, term); });
+    var rows = cases.map(function (c) { return buildCaseRow(c, term, term, cases); });
     if (extraRows && extraRows.length) rows = rows.concat(extraRows);
     if (!rows.length) return;
 
@@ -1590,7 +1608,7 @@
           sorted.forEach(function (c) {
             var li = document.createElement('li');
             var a = document.createElement('a');
-            var id = caseUrlId(c);
+            var id = caseUrlId(c, cases);
             var linkTerm = c.term || term;
             a.textContent = caseDisplayTitle(c) + (c.usCite ? ' (' + c.usCite + ')' : '');
             a.href = '/courts/ussc/?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id);

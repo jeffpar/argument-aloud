@@ -51,6 +51,21 @@ const REPORTS_JSON      = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 /** Return the first pipe-delimited component of a case title for display. */
 const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
 
+/**
+ * Preferred `case=` URL value for a case — its first docket number when
+ * that's unique among its term's sibling cases, else its own id (matching
+ * the client-side _caseUrlId() in explorer.js). Avoids both raw comma-joined
+ * consolidated numbers and needlessly using id where the number alone
+ * already resolves unambiguously.
+ */
+function caseUrlNumber(c, siblingCases) {
+    const num = (c.number || '').split(',')[0].trim();
+    if (num && siblingCases.filter(s => (s.number || '').split(',')[0].trim() === num).length === 1) {
+        return num;
+    }
+    return c.id || num;
+}
+
 const exists    = (p) => fs.existsSync(p);
 const readText  = (p) => fs.readFileSync(p, 'utf8');
 const writeText = (p, s) => fs.writeFileSync(p, s, 'utf8');
@@ -1929,6 +1944,13 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                         Object.defineProperty(caseEntry, '_fullNumber', { value: number,        enumerable: false });
                         Object.defineProperty(caseEntry, '_fullTitle',  { value: c.title || '', enumerable: false });
                     }
+                    // Internal-only: the value to use when building this
+                    // entry's case= URL — subKey when a specific consolidated
+                    // docket was resolved (already unambiguous on its own),
+                    // else the term-unique leading number or (if that's
+                    // ambiguous) the case's own id. Never the raw comma-joined
+                    // number.
+                    Object.defineProperty(caseEntry, '_urlCase', { value: subKey || caseUrlNumber(c, cases), enumerable: false });
                     if (decision) caseEntry.decision = decision;
                     const advRole = (explicitRole
                         || audioRoles.get(nameKey)
@@ -2300,7 +2322,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             const lookupTitle = firstTitle(c._fullTitle || c.title);
             const cit = caseCitation.get(ckCite(lookupTitle, c.term, fullNum)) || '';
             const audioIdx = c.audio;
-            let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${fullNum.replace(/,/g, '%2C')}`;
+            let url = `https://argumentaloud.org/courts/ussc/?term=${c.term}&case=${encodeURIComponent(c._urlCase)}`;
             if (audioIdx) url += `&event=${audioIdx}`;
             const caseKey = ckCase(nameUpper, lookupTitle, c.term, fullNum);
             let allDates = [];
@@ -2610,11 +2632,9 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
                 });
                 for (const row of sorted) {
-                    const [advName, , argDate, term, caseNum, title] = row;
+                    const [advName, , argDate, , caseNum, title, , caseUrl] = row;
                     const advId = makeAdvocateId(advName);
                     const advUrl = `https://argumentaloud.org/courts/ussc/?collection=women_advocates&id=${advId}`;
-                    const caseNumUrl = caseNum.replace(/,/g, '%2C');
-                    const caseUrl = `https://argumentaloud.org/courts/ussc/?term=${term}&case=${caseNumUrl}`;
                     const firstIso = argDate.split(',')[0];
                     let dateStr = firstIso;
                     if (!Number.isNaN(isoToDays(firstIso))) {

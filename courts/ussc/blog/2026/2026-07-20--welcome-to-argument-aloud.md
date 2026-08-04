@@ -14,7 +14,7 @@ This website is a hub that connects U.S. Supreme Court media (briefs, transcript
 
 Not sure where to start? Here are some links to help you dive in.
 
-{% include card-grid.html cards=site.data.ussc.home_cards %}
+{% include card-grid.html cards=site.data.ussc.home %}
 
 We also want to improve how all the pieces of information associated with a case are connected.  For example, here's an excerpt from the March 23, 2026 argument in [Watson v. Republican National Committee (No. 24-1260)](/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 

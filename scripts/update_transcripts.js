@@ -60,6 +60,20 @@ const writeText = (p, s) => fs.writeFileSync(p, s, 'utf8');
 const readJson  = (p) => JSON.parse(readText(p));
 const writeJson = (p, d) => writeText(p, JSON.stringify(d, null, 2) + '\n');
 
+/**
+ * Preferred `case=` URL value for a case — its first docket number when
+ * that's unique among its term's sibling cases, else its own id (matching
+ * the client-side _caseUrlId() in explorer.js). Avoids raw comma-joined
+ * consolidated numbers ending up in a generated URL.
+ */
+function caseUrlNumber(c, siblingCases) {
+    const num = (c.number || '').split(',')[0].trim();
+    if (num && siblingCases.filter(s => (s.number || '').split(',')[0].trim() === num).length === 1) {
+        return num;
+    }
+    return c.id || num;
+}
+
 // ── Sentence splitting ─────────────────────────────────────────────────────
 
 /**
@@ -1002,8 +1016,9 @@ async function applyEditsFromFile(filePath) {
 
             // Find 1-based event index for the URL.
             let eventIdx = null;
+            let caseEntry = null;
             if (termCases) {
-                const caseEntry = termCases.find(c =>
+                caseEntry = termCases.find(c =>
                     c.number === caseRef ||
                     c.id     === caseRef ||
                     (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef))
@@ -1020,7 +1035,14 @@ async function applyEditsFromFile(filePath) {
             const displayTitle = (caseRef && !/\(No\.\s/.test(bareTitle))
                 ? `${bareTitle} (No. ${caseRef})`
                 : bareTitle;
-            const caseUrl = `/courts/ussc/?term=${term}&case=${caseRef}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
+            // caseRef is already a single clean docket number unless it
+            // matched the resolved case's own full (comma-joined) number —
+            // only then does the URL need the term-unique-leading-number/id
+            // fallback instead of the raw comma-joined string.
+            const caseUrlId = (caseEntry && caseRef.includes(','))
+                ? caseUrlNumber(caseEntry, termCases)
+                : caseRef;
+            const caseUrl = `/courts/ussc/?term=${term}&case=${encodeURIComponent(caseUrlId)}${eventIdx != null ? `&event=${eventIdx}` : ''}`;
 
             // Case-level heading
             logLines.push(`  - [${displayTitle}](${caseUrl})`);
