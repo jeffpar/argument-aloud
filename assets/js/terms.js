@@ -751,6 +751,10 @@
   function clearUrlPageParam() {
     var url = new URL(location.href);
     url.searchParams.delete('page');
+    // #minutes (see wireCalDayNav above) only ever exists to scroll the
+    // Minutes heading into view while actively showing a page — meaningless,
+    // and left dangling in the address bar, once there's no page shown.
+    if (url.hash === '#minutes') url.hash = '';
     history.replaceState(null, '', url.toString());
     if (window.parent !== window) {
       window.parent.postMessage({ type: 'ussc-close-minutes-page' }, location.origin);
@@ -823,8 +827,10 @@
       a.draggable = true;
       a.dataset.page = String(page);
       a.title = 'Click to view this page (click again to close) or Shift+Click to view in a new tab. '
-        + 'Drag onto a calendar day to move the page to that date or Shift+Drag to copy it; '
-        + 'later pages will be moved if the target is also later.';
+        + 'Drag onto a calendar day (anywhere in this term) to move the page to that date, '
+        + 'or onto the « / » term nav buttons to continue it into the adjacent term’s own last/first Minutes date; '
+        + 'Shift+Drag to also leave this page behind at its own date. '
+        + 'Later pages move along too if the target is later, earlier pages if the target is earlier.';
       var href = minutesPageHrefs[i];
       // Toggle off: clicking the already-selected page again reverts to the
       // unshown state (clears ?page=, unhighlights, hides the doc viewer)
@@ -907,58 +913,65 @@
     applyMinutesTooltipToDay(dayEl, formatMinutesTooltip(termDatesData[iso]), term, iso, firstMinutesPage(termDatesData[iso]));
   }
 
-  // True if some OTHER date has actual (non-tombstone) minutes_pages for
-  // this same context (href AND src together — the same physical volume)
-  // strictly between sourceIso and targetIso — moving or copying a page
-  // across it would skip past a day that's still part of this same volume's
-  // sequence, creating a gap that, in a real minutes book, should never
-  // exist. Used by handleMinutesDrop below as a safety check before
-  // touching anything.
-  function hasIntermediateMinutesDate(href, src, sourceIso, targetIso) {
-    var lo = sourceIso < targetIso ? sourceIso : targetIso;
-    var hi = sourceIso < targetIso ? targetIso : sourceIso;
-    return Object.keys(termDatesData).some(function (iso) {
-      if (iso <= lo || iso >= hi) return false;
-      var groups = termDatesData[iso];
-      return Array.isArray(groups) && groups.some(function (g) {
-        return g.minutes_href === href && g.minutes_src === src && Array.isArray(g.minutes_pages) && g.minutes_pages.length;
-      });
-    });
-  }
-
   // Drag-and-drop Minutes editing: dropping a page link from the Minutes
   // Pages list (see renderMinutesPagesList above) onto a calendar day moves
   // that page and every later page in its own source group over to the
-  // target date. Shift held at drop time additionally leaves the dragged
-  // page itself behind at the source too, for a page whose proceedings
-  // genuinely belong to both days — normally the day that *follows* it (the
-  // common case), where every later page still moves along with it same as
-  // a plain drag. Shift+drag onto an *earlier* date instead moves only that
-  // one page, never the rest of the sequence after it — those are later-
-  // dated pages that plainly don't belong on an earlier day; only a plain
-  // (non-Shift) drag backward still takes the whole rest of the sequence,
-  // same as forward. Either way, the moved page(s) are prepended to the
-  // target date's matching group if
-  // the target date is later than the source (continuing right where the
-  // source's later pages left off), or appended if the target is earlier
-  // (coming right before the source's own remaining pages). A group is
-  // matched across dates by its own minutes_href (the same physical
-  // volume); one is created — with the same minutes_href/minutes_src as the
-  // source, starting empty — if the target date has no matching group yet.
-  // hasIntermediateMinutesDate above blocks the whole operation if some
-  // other date with real pages for this same href sits between source and
-  // target, since a legitimate move should only ever happen between two
-  // chronologically adjacent entries for a given volume. If a move empties
-  // the source group, it's kept in place with an empty minutes_pages rather
-  // than removed — a tombstone, so scripts/parse_minutes.js's own
-  // applyDateOverrides (which tags every group an override touches with
-  // "modified": true) can still record that this date+volume was
-  // deliberately cleared, and its own OCR-driven Pass 3 will then never
-  // silently repopulate it on a later re-run (renderMinutesCoverThumbnails
-  // below skips a tombstone's empty pages when picking a cover's earliest
-  // real date). Every touched date's full new value is written to
-  // localStorage as a standing override — see LS_DATES_KEY above and
-  // window._downloadDateOverrides in storage-actions.js.
+  // target date (see splitMovingPages below for the exact Shift-key/
+  // direction semantics). The moved page(s) are prepended to the target
+  // date's matching group if the target date is later than the source
+  // (continuing right where the source's later pages left off), or appended
+  // if the target is earlier (coming right before the source's own
+  // remaining pages). A group is matched across dates by its own
+  // minutes_href (the same physical volume); one is created — with the same
+  // minutes_href/minutes_src as the source, starting empty — if the target
+  // date has no matching group yet. Drops are allowed anywhere within the
+  // term, not just onto a chronologically adjacent date — some terms have
+  // real discontinuities in their own page numbering (a volume's pages
+  // resuming several dates later than where they left off), so restricting
+  // to neighboring dates only made those unreachable by drag-and-drop. If a
+  // move empties the source group, it's kept in place with an empty
+  // minutes_pages rather than removed — a tombstone, so
+  // scripts/parse_minutes.js's own applyDateOverrides (which tags every
+  // group an override touches with "modified": true) can still record that
+  // this date+volume was deliberately cleared, and its own OCR-driven Pass 3
+  // will then never silently repopulate it on a later re-run
+  // (renderMinutesCoverThumbnails below skips a tombstone's empty pages when
+  // picking a cover's earliest real date). Every touched date's full new
+  // value is written to localStorage as a standing override — see
+  // LS_DATES_KEY above and window._downloadDateOverrides in
+  // storage-actions.js. See handleAdjacentTermMinutesDrop further down for
+  // the analogous cross-term-boundary version of this drop, dropped onto the
+  // stat-prev-term/stat-next-term nav buttons instead of a calendar day.
+  //
+  // Splits a source Minutes group's sorted pages into the pages that move to
+  // the target and the pages that stay behind, given whether Shift was held
+  // (keepSource) and whether the drop target precedes the source
+  // chronologically (targetEarlier). Shared by handleMinutesDrop and
+  // handleAdjacentTermMinutesDrop below so both apply the exact same
+  // direction/Shift semantics, which are fully orthogonal: direction alone
+  // decides *which* pages besides the dragged one are swept along (later
+  // target → the dragged page and everything after it, continuing the
+  // sequence forward; earlier target → the dragged page and everything
+  // before it, the mirror image — the boundary between the two days' own
+  // proceedings sits right at the dragged page either way); Shift alone
+  // decides whether the dragged page *itself* additionally stays behind at
+  // the source too (copied — its proceedings genuinely belong to both days)
+  // or leaves entirely (a plain move) — the rest of the swept set always
+  // leaves regardless of Shift, same in both directions.
+  function splitMovingPages(pages, sourcePage, keepSource, targetEarlier) {
+    var splitIdx = pages.indexOf(sourcePage);
+    if (targetEarlier) {
+      return {
+        moving: pages.slice(0, splitIdx + 1),
+        staying: keepSource ? pages.slice(splitIdx) : pages.slice(splitIdx + 1),
+      };
+    }
+    return {
+      moving: pages.slice(splitIdx),
+      staying: keepSource ? pages.slice(0, splitIdx + 1) : pages.slice(0, splitIdx),
+    };
+  }
+
   function handleMinutesDrop(sourceIso, sourcePage, targetIso, keepSource) {
     if (!termDatesData || sourceIso === targetIso) return;
     var groups = termDatesData[sourceIso];
@@ -969,31 +982,9 @@
     if (srcIdx === -1) return;
     var srcGroup = groups[srcIdx];
 
-    if (hasIntermediateMinutesDate(srcGroup.minutes_href, srcGroup.minutes_src, sourceIso, targetIso)) {
-      alert('Can’t move this page — another date with Minutes for this same volume falls between ' + sourceIso + ' and ' + targetIso + '.');
-      return;
-    }
-
     var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
-    var splitIdx = pages.indexOf(sourcePage);
-    // Shift+drag onto an *earlier* date is the straddle in the other
-    // direction — this one page also belongs on that earlier day too, but
-    // everything after it in the sequence is later-dated material that
-    // clearly doesn't; only shift+drag forward (the common case: a page
-    // straddling into the day that follows) brings the rest of the sequence
-    // along. A plain (non-Shift) drag always takes the whole rest of the
-    // sequence either direction, same as before.
-    var copyOneBack = keepSource && targetIso < sourceIso;
-    var moving = copyOneBack ? [sourcePage] : pages.slice(splitIdx);
-    // Shift+drag (keepSource) leaves the dragged page itself behind at the
-    // source too — only the pages strictly after it actually leave. But when
-    // only that one page is moving at all (copyOneBack above), *nothing*
-    // actually leaves the source — every later page must stay right where it
-    // was, not just up through the dragged page (the bug this fixes: it
-    // previously reused the "moving takes everything after" staying formula
-    // even when moving had been cut down to just the one page, silently
-    // dropping every later page that was never actually part of this drag).
-    var staying = copyOneBack ? pages : (keepSource ? pages.slice(0, splitIdx + 1) : pages.slice(0, splitIdx));
+    var split = splitMovingPages(pages, sourcePage, keepSource, targetIso < sourceIso);
+    var moving = split.moving, staying = split.staying;
     var newSourceGroups = groups.slice();
     newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
     termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
@@ -1034,6 +1025,111 @@
     refreshMinutesCalendarDay(targetIso);
     if (date === sourceIso) renderMinutesPagesList();
     renderMinutesCoverThumbnails();
+  }
+
+  // Wires the stat-prev-term/stat-next-term nav button (see the term-nav
+  // fetch further down) as a drop target for a Minutes page drag, same
+  // gesture as wireCalDayDropTarget above but calling
+  // handleAdjacentTermMinutesDrop below instead — continuing a page sequence
+  // into whichever date at the far edge of the adjacent term already carries
+  // a matching minutes_src, rather than a date within this term.
+  function wireAdjacentTermDropTarget(btnEl, direction) {
+    btnEl.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = e.shiftKey ? 'copy' : 'move';
+    });
+    btnEl.addEventListener('dragenter', function () { btnEl.classList.add('cal-drop-target'); });
+    btnEl.addEventListener('dragleave', function () { btnEl.classList.remove('cal-drop-target'); });
+    btnEl.addEventListener('drop', function (e) {
+      e.preventDefault();
+      btnEl.classList.remove('cal-drop-target');
+      var raw = e.dataTransfer.getData('text/plain');
+      if (!raw) return;
+      var payload;
+      try { payload = JSON.parse(raw); } catch (err) { return; }
+      if (payload && payload.iso && payload.page != null) {
+        handleAdjacentTermMinutesDrop(payload.iso, payload.page, direction, e.shiftKey);
+      }
+    });
+  }
+
+  // Cross-term-boundary counterpart to handleMinutesDrop above: dropping a
+  // page onto stat-prev-term continues its own volume onto the *last* date
+  // with Minutes in the previous term (appending, same as dropping on an
+  // earlier date within this term would); dropping onto stat-next-term
+  // continues it onto the *first* date with Minutes in the next term
+  // (prepending, same as dropping on a later date would) — see
+  // splitMovingPages above for the exact moving/staying split this reuses.
+  // Unlike handleMinutesDrop, this never invents a new group on the far side
+  // of a term boundary: if that edge date's own Minutes aren't the same
+  // volume (matched by minutes_src alone — a term boundary is exactly the
+  // kind of place a volume is expected to end, so requiring an existing
+  // matching group here, rather than href+src together like within a term,
+  // keeps the bar for "same volume" no stricter than necessary), the drop
+  // fails outright with an alert rather than silently starting an unrelated
+  // volume there.
+  function handleAdjacentTermMinutesDrop(sourceIso, sourcePage, direction, keepSource) {
+    if (!termDatesData) return;
+    var groups = termDatesData[sourceIso];
+    if (!Array.isArray(groups)) return;
+    var srcIdx = groups.findIndex(function (g) {
+      return Array.isArray(g.minutes_pages) && g.minutes_pages.indexOf(sourcePage) !== -1;
+    });
+    if (srcIdx === -1) return;
+    var srcGroup = groups[srcIdx];
+    var directionLabel = direction === 'prev' ? 'previous' : 'next';
+
+    (direction === 'prev' ? prevTermIdPromise : nextTermIdPromise).then(function (adjTermId) {
+      if (!adjTermId) {
+        alert('There’s no ' + directionLabel + ' term to move this page into.');
+        return;
+      }
+      fetch('/courts/ussc/terms/' + adjTermId + '/dates.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; })
+        .then(function (raw) {
+          var adjData = applyDateOverrides(raw);
+          var minutesIsos = Object.keys(adjData).filter(function (iso) {
+            var g = adjData[iso];
+            return Array.isArray(g) && g.some(function (x) { return 'minutes_src' in x && Array.isArray(x.minutes_pages) && x.minutes_pages.length; });
+          }).sort();
+          if (!minutesIsos.length) {
+            alert('Can’t move this page — the ' + directionLabel + ' term (' + termTitle(adjTermId) + ') has no Minutes.');
+            return;
+          }
+          var targetIso = direction === 'prev' ? minutesIsos[minutesIsos.length - 1] : minutesIsos[0];
+          var targetGroups = adjData[targetIso].slice();
+          var tgtIdx = targetGroups.findIndex(function (g) { return g.minutes_src === srcGroup.minutes_src; });
+          if (tgtIdx === -1) {
+            alert('Can’t move this page — the ' + directionLabel + ' term’s ' + (direction === 'prev' ? 'last' : 'first')
+              + ' Minutes date (' + targetIso + ') isn’t the same volume.');
+            return;
+          }
+
+          var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
+          var split = splitMovingPages(pages, sourcePage, keepSource, direction === 'prev');
+          var newSourceGroups = groups.slice();
+          newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: split.staying });
+          termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
+
+          var tgtGroup = Object.assign({}, targetGroups[tgtIdx], { minutes_pages: (targetGroups[tgtIdx].minutes_pages || []).slice() });
+          var toAdd = split.moving.filter(function (p) { return tgtGroup.minutes_pages.indexOf(p) === -1; });
+          tgtGroup.minutes_pages = direction === 'prev'
+            ? tgtGroup.minutes_pages.concat(toAdd)
+            : toAdd.concat(tgtGroup.minutes_pages);
+          targetGroups[tgtIdx] = tgtGroup;
+          adjData[targetIso] = sortGroupsBySrc(targetGroups);
+
+          var overrides = loadDateOverrides();
+          overrides[sourceIso] = termDatesData[sourceIso]; // always a real (possibly tombstoned) array now — see above
+          overrides[targetIso] = adjData[targetIso];
+          saveDateOverrides(overrides);
+
+          refreshMinutesCalendarDay(sourceIso); // targetIso belongs to the adjacent term's own (unrendered here) calendar
+          if (date === sourceIso) renderMinutesPagesList();
+          renderMinutesCoverThumbnails();
+        });
+    });
   }
 
   // localStorage key for this browser's own local edits to any term's
@@ -1396,6 +1492,13 @@
   var _resolveNextTermIdPromise;
   var nextTermIdPromise = new Promise(function (resolve) { _resolveNextTermIdPromise = resolve; });
 
+  // Same as nextTermIdPromise but for the previous chronological term — used
+  // by the stat-prev-term/stat-next-term Minutes drag-and-drop targets below
+  // (see wireAdjacentTermDropTarget/handleAdjacentTermMinutesDrop) to know
+  // which term's own dates.json to fetch and continue a page sequence into.
+  var _resolvePrevTermIdPromise;
+  var prevTermIdPromise = new Promise(function (resolve) { _resolvePrevTermIdPromise = resolve; });
+
   function _resolveTermDates(hasDates) {
     if (hasDates === false) {
       termDatesData = applyDateOverrides(null);
@@ -1440,6 +1543,7 @@
       if (idx >= 0) document.querySelector('#stat-term-title .stat-term-title-link').textContent = allTerms[idx].name;
       var prevEntry = idx > 0 ? allTerms[idx - 1] : null;
       var nextEntry = idx < allTerms.length - 1 ? allTerms[idx + 1] : null;
+      _resolvePrevTermIdPromise(prevEntry ? prevEntry.id : null);
       _resolveNextTermIdPromise(nextEntry ? nextEntry.id : null);
       if (prevEntry || nextEntry) {
         document.getElementById('stats-term-nav').hidden = false;
@@ -1452,6 +1556,7 @@
             if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
             else { location.href = '/courts/ussc/' + s; }
           });
+          wireAdjacentTermDropTarget(prevBtn, 'prev');
         }
         if (nextEntry) {
           var nextBtn = document.getElementById('stat-next-term');
@@ -1462,6 +1567,7 @@
             if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
             else { location.href = '/courts/ussc/' + s; }
           });
+          wireAdjacentTermDropTarget(nextBtn, 'next');
         }
       }
       _resolveTermDates(entry ? entry.dates : undefined);
@@ -1605,7 +1711,7 @@
             var ta = caseDisplayTitle(a).toLowerCase(), tb = caseDisplayTitle(b).toLowerCase();
             return ta < tb ? -1 : ta > tb ? 1 : 0;
           });
-          sorted.forEach(function (c) {
+          var items = sorted.map(function (c) {
             var li = document.createElement('li');
             var a = document.createElement('a');
             var id = caseUrlId(c, cases);
@@ -1625,7 +1731,27 @@
             });
             li.appendChild(a);
             ul.appendChild(li);
+            return li;
           });
+          // More than two entries would otherwise push this section well past
+          // its siblings' own height — collapse to the first two, with a
+          // third "…" line that reveals the rest in place on click (never
+          // re-collapses; there's no need to hide them again once seen).
+          if (items.length > 2) {
+            items.slice(2).forEach(function (li) { li.hidden = true; });
+            var moreLi = document.createElement('li');
+            var moreLink = document.createElement('a');
+            moreLink.href = '#';
+            moreLink.textContent = '…';
+            moreLink.title = 'Show ' + (items.length - 2) + ' more';
+            moreLink.addEventListener('click', function (e) {
+              e.preventDefault();
+              items.forEach(function (li) { li.hidden = false; });
+              moreLi.remove();
+            });
+            moreLi.appendChild(moreLink);
+            ul.insertBefore(moreLi, items[2]);
+          }
           document.getElementById(sectionId).hidden = false;
         }
 

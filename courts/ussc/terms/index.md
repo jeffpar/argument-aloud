@@ -8,10 +8,6 @@ scripts:
 <div class="term-stats" id="stats-container">
   <div class="stats-title-row">
     <h1 id="stat-term-title"></h1>
-    <div class="stats-term-nav" id="stats-term-nav" hidden>
-      <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
-      <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
-    </div>
   </div>
 
   <div class="date-section" id="date-section">
@@ -88,7 +84,13 @@ scripts:
     </div>
   </div>
   <p class="stats-note" id="stats-note"></p>
-  <h2 id="term-calendar-heading" hidden>Court Calendar</h2>
+  <div class="calendar-heading-row">
+    <h2 id="term-calendar-heading" hidden>Court Calendar</h2>
+    <div class="stats-term-nav" id="stats-term-nav" hidden>
+      <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
+      <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
+    </div>
+  </div>
   <div id="term-calendar" hidden></div>
 
   <h2 id="case-listing-heading" hidden>Court Case Listing</h2>

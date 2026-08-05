@@ -17,7 +17,7 @@ layout: home
       <div class="hp-icon">⚖️</div>
       <div class="hp-card-title">Cases</div>
     </div>
-    <p class="hp-card-desc">Browse cases from the earliest argued case in <a href="/courts/ussc/?term=1791-08&case=1791-001">1791</a> to the <a href="/courts/ussc/?term=2025-10">Present</a>. Terms may include links to <a href="/courts/ussc/?term=1880-10&date=1880-10-11&page=889">Minutes</a>, and cases may include links to <a href="/courts/ussc/?term=1889-10&case=1472&file=1889.7">Journals</a> as well as the opinions in <a href="/courts/ussc/?term=1889-10&case=1472&file=loc">U.S. Reports</a>.</p>
+    <p class="hp-card-desc">Browse cases from the earliest argued case in <a href="/courts/ussc/?term=1791-08&case=1791-001">1791</a> to the <a href="/courts/ussc/?term=2025-10">Present</a>. Terms can include links to <a href="/courts/ussc/?term=1880-10&date=1880-10-11&page=889">Minutes</a>, and cases can include links to <a href="/courts/ussc/?term=1889-10&case=1472&file=1889.7">Journals</a> as well as the opinions in <a href="/courts/ussc/?term=1889-10&case=1472&file=loc">U.S. Reports</a>.</p>
   </div>
 
   <div class="hp-card">

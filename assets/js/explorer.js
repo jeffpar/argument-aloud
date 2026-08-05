@@ -10390,6 +10390,10 @@ window.addEventListener('message', async (e) => {
     // own close button.
     const newUrl = new URL(location.href);
     newUrl.searchParams.delete('page');
+    // #minutes (see terms.js's wireCalDayNav) only ever exists to scroll the
+    // Minutes heading into view while actively showing a page — meaningless,
+    // and left dangling in the address bar, once there's no page shown.
+    if (newUrl.hash === '#minutes') newUrl.hash = '';
     history.replaceState(null, '', newUrl.toString());
     hideDocViewerFully();
   } else if (e.data?.type === 'ussc-scroll-collection-item' && e.data.collection && e.data.id) {
