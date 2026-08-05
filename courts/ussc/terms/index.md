@@ -58,27 +58,27 @@ scripts:
       <span class="stat-value" id="stat-advocates">—</span>
       <span class="stat-label">Advocates</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-with-audio">—</span>
       <span class="stat-label">Cases with audio</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-with-transcript">—</span>
       <span class="stat-label">Fully aligned</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-argued-hours">—</span>
       <span class="stat-label">Argument audio</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-avg-length">—</span>
       <span class="stat-label">Average argument</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-opinion-hours">—</span>
       <span class="stat-label">Opinion audio</span>
     </div>
-    <div class="stat-card audio-stat">
+    <div class="stat-card audio-stat" hidden>
       <span class="stat-value" id="stat-avg-opinion">—</span>
       <span class="stat-label">Average opinion</span>
     </div>

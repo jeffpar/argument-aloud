@@ -1247,6 +1247,7 @@
           document.getElementById('stat-argued-cases').textContent  = summary.argued.toLocaleString();
           document.getElementById('stat-argument-days').textContent = summary.argDays.toLocaleString();
           document.getElementById('stat-with-audio').textContent    = summary.audio.toLocaleString();
+          revealAudioStat('stat-with-audio', summary.audio > 0);
         }
         // Build per-term chart data from non-hidden group entries. Special terms
         // (e.g. "July Special Term 1942") decide only a handful of cases and
@@ -1514,11 +1515,28 @@
       });
   }
 
-  // Oral argument audio only exists starting with October Term 1955 — omit
-  // these stat cards entirely for earlier terms rather than showing six
-  // straight "—" placeholders every time.
+  // Oral argument audio only exists starting with October Term 1955 — still
+  // used below to decide whether a blank argument-length card gets an
+  // explanatory note (a real gap within the audio era) or just stays quietly
+  // hidden (expected, pre-era). The six .audio-stat cards themselves default
+  // to `hidden` in the markup, one-way revealed below (see revealAudioStat)
+  // only once each card's own real, non-zero count is actually in hand —
+  // rather than all six toggled together off this one era cutoff, which
+  // can't tell "no data yet for this specific card" (e.g. opinion audio
+  // recording starting later than argument audio within the same era) from
+  // "genuinely nothing to show". Defaulting hidden (instead of shown-by-
+  // default, hidden-off) also means a slow-loading terms.js can never flash
+  // an inapplicable card visible before hiding it again.
   var hasAudioEra = term >= '1955-10';
-  document.querySelectorAll('.audio-stat').forEach(function (el) { el.hidden = !hasAudioEra; });
+
+  // Reveals one .audio-stat card by its stat-value id, once (never re-hides
+  // — every card starts `hidden` in the markup and this is the only thing
+  // that ever clears it).
+  function revealAudioStat(valueId, hasData) {
+    if (!hasData) return;
+    var card = document.getElementById(valueId).closest('.stat-card');
+    if (card) card.hidden = false;
+  }
 
   // Load journal cover if available for this term.
   fetch('/courts/ussc/terms.json')
@@ -1582,7 +1600,7 @@
       // once they're in hand.
       if (entry.argued  != null) document.getElementById('stat-argued-cases').textContent  = entry.argued  || '—';
       if (entry.argDays != null) document.getElementById('stat-argument-days').textContent = entry.argDays || '—';
-      if (entry.audio   != null) document.getElementById('stat-with-audio').textContent    = entry.audio   || '—';
+      if (entry.audio   != null) { document.getElementById('stat-with-audio').textContent = entry.audio || '—'; revealAudioStat('stat-with-audio', entry.audio > 0); }
       termMinutesCovers = entry.minutes || [];
       if (entry.journal_cover && entry.journal_href) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
@@ -1943,15 +1961,21 @@
       document.getElementById('stat-argument-days').textContent  = argDays     || '—';
       document.getElementById('stat-argued-cases').textContent    = arguedCases || '—';
       document.getElementById('stat-with-audio').textContent        = withAudio    || '—';
+      revealAudioStat('stat-with-audio', withAudio > 0);
       document.getElementById('stat-with-transcript').textContent   = withTx       || '—';
+      revealAudioStat('stat-with-transcript', withTx > 0);
       document.getElementById('stat-opinion-hours').textContent = opEventCount > 0 ? fmtHours(opTotalSec) : '—';
       document.getElementById('stat-avg-opinion').textContent   = opEventCount > 0 ? fmtMins(opTotalSec / opEventCount) : '—';
+      revealAudioStat('stat-opinion-hours', opEventCount > 0);
+      revealAudioStat('stat-avg-opinion', opEventCount > 0);
       document.getElementById('stat-decided').textContent       = decided      || '—';
       document.getElementById('stat-advocates').textContent         = advSet.size  || '—';
 
       if (eventCount > 0) {
         document.getElementById('stat-argued-hours').textContent = fmtHours(totalSec);
         document.getElementById('stat-avg-length').textContent   = fmtMins(totalSec / eventCount);
+        revealAudioStat('stat-argued-hours', true);
+        revealAudioStat('stat-avg-length', true);
       } else if (hasAudioEra) {
         // Pre-1955 terms have no note here — their audio-stat cards are
         // already hidden entirely, so there's nothing to explain.

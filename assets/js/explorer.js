@@ -4961,6 +4961,12 @@ function _savePageFrameScroll() {
   try {
     const cw = pf?.contentWindow;
     if (!cw || cw.location.href === 'about:blank') return;
+    // A hash-bearing URL (currently only ever #minutes) has its own
+    // deterministic anchor-scroll target set by the page itself — never
+    // save an offset under its (hash-stripped, see _pageScrollKey) key,
+    // which would otherwise leak into a later hashless visit to the same
+    // pathname+search.
+    if (cw.location.hash) return;
     const key = _pageScrollKey(cw.location.href);
     if (!key) return;
     const y = cw.scrollY || cw.document.documentElement.scrollTop || 0;
@@ -4977,6 +4983,12 @@ function _restorePageFrameScroll(pf) {
   let key, targetY;
   try {
     if (!cw.location.href || cw.location.href === 'about:blank') return;
+    // A hash-bearing URL (currently only ever #minutes) means the target
+    // page scrolls itself to a specific anchor on load (see terms.js) —
+    // _pageScrollKey ignores the hash, so without this check a stale offset
+    // saved for the same pathname+search *without* a hash would silently
+    // overwrite that intentional scroll once the page finishes laying out.
+    if (cw.location.hash) return;
     key = _pageScrollKey(cw.location.href);
     if (!key || _restoredPageFrameUrls.has(key)) return;
     targetY = parseInt(key && sessionStorage.getItem(key), 10) || 0;
