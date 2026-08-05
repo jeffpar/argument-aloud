@@ -6,7 +6,6 @@ layout: home
 <div class="hp-hero">
   <h1>Argument Aloud</h1>
   <p class="hp-tagline">{{ site.description }}</p>
-  <p class="hp-example">See it in action: <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Watson v. Republican National Committee (No.&nbsp;24-1260)</a></p>
 </div>
 
 <div class="hp-grid">
@@ -44,7 +43,7 @@ layout: home
       <div class="hp-icon">✏️</div>
       <div class="hp-card-title">Transcripts</div>
     </div>
-    <p class="hp-card-desc">Read through <a href="/courts/ussc/?collection=transcripts&group=1">Historical</a> transcripts, or follow along in recorded <a href="/courts/ussc/?term=2025-10&case=24-935">arguments</a>. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
+    <p class="hp-card-desc">Read through <a href="/courts/ussc/?collection=transcripts&group=1">Historical</a> transcripts, or follow along in recorded <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Arguments</a>. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
   </div>
 
   <div class="hp-card">
