@@ -51,7 +51,7 @@ For a list of *all* cases where we have noted one or more corrections, check out
 
 *Originally posted on February 18, 2019 on [lonedissent.org](https://lonedissent.org/blog/2019/02/18/) and reproduced below with some minor changes and link updates*
 
-The [Supreme Court Database](http://scdb.wustl.edu/index.php), aka SCDB[*](#citing-to-the-scdb), is an enormously valuable resource. Other [sites](https://www.courtlistener.com/coverage/) have even referred to it as "the gold standard for high-quality legal information." It owes much of its reputation to Harold Spaeth, a political science professor who created "[The Original U.S. Supreme Court Judicial Database (nickname: ALLCOURT)](http://artsandsciences.sc.edu/poli/juri/sct.htm)" decades ago, and worked with the SCDB folks to help produce the modern version. Sadly, Harold passed away in 2017.
+The [Supreme Court Database](https://scdb.la.psu.edu), aka SCDB[*](#citing-to-the-scdb), is an enormously valuable resource. Other [sites](https://www.courtlistener.com/coverage/) have even referred to it as "the gold standard for high-quality legal information." It owes much of its reputation to Harold Spaeth, a political science professor who created "[The Original U.S. Supreme Court Judicial Database (nickname: ALLCOURT)](http://artsandsciences.sc.edu/poli/juri/sct.htm)" decades ago, and worked with the SCDB folks to help produce the modern version. Sadly, Harold passed away in 2017.
 
 So, regarding the SCDB: does it really meet the "gold standard", and what does that mean in a field with only one real competitor? Is there room for improvement? Let's find out.
 
@@ -74,7 +74,7 @@ Here are some examples of SCDB docket numbers for [Original Jurisdiction](https:
     "No. 137, Orig."
     "22O142"
 
-Yes, the human eye can easily discern that these are all original jurisdiction docket numbers, but databases are designed to be consumed by computers, not humans, and one of the presumptions for *any* database is well-defined and strictly-adhered-to data formats. Even after consulting SCDB's online codebook regarding the [docket](http://scdb.wustl.edu/documentation.php?var=docket) field, this is all we're told about such docket numbers:
+Yes, the human eye can easily discern that these are all original jurisdiction docket numbers, but databases are designed to be consumed by computers, not humans, and one of the presumptions for *any* database is well-defined and strictly-adhered-to data formats. Even after consulting SCDB's online codebook regarding the [docket](https://scdb.la.psu.edu/online-codebook/docket-number/) field, this is all we're told about such docket numbers:
 
 > Cases invoking the Court's original jurisdiction have a number followed by the abbreviation, "Orig."
 
@@ -84,15 +84,15 @@ There's also a small problem with "Miscellaneous" cases; SCDB usually appends a 
 
 ### 2. Consolidated Cases
 
-The U.S. Supreme Court often "consolidates" multiple cases from lower courts into a single case. For example, the docket number of the "lead" case in [McConnell v. Federal Election Commission (540 U.S. 93)](https://cdn.loc.gov/service/ll/usrep/usrep540/usrep540093/usrep540093.pdf) is 02-1674. However, the complete list of consolidated cases, by docket number, looks like this:
+The U.S. Supreme Court often "consolidates" multiple cases from lower courts into a single case. For example, the docket number of the "lead" case in [McConnell v. Federal Election Commission (540 U.S. 93)](/courts/ussc/?term=2003-10&case=02-1674) is 02-1674. However, the complete list of consolidated cases, by docket number, looks like this:
 
     02-1674,02-1675,02-1676,02-1702,02-1727,02-1733,02-1734,02-1740,02-1747,02-1753,02-1755,02-1756
 
-and if you download SCDB's "[Cases Organized by Docket](http://scdb.wustl.edu/_brickFiles/2018_02/SCDB_2018_02_caseCentered_Docket.csv.zip)" and search for **540 U.S. 93**, you will indeed see all 12 cases listed.
+and if you download SCDB's "[Cases Organized by Docket](https://scdb.la.psu.edu/data/2018-release-02/)" and search for **540 U.S. 93**, you will indeed see all 12 cases listed.
 
 So what's the problem?  Consolidated cases are not *consistently* included.
 
-For example, look at [East Texas Motor Freight System, Inc. v. Rodriguez (431 U.S. 395)](https://cdn.loc.gov/service/ll/usrep/usrep431/usrep431395/usrep431395.pdf). Three cases were consolidated:
+For example, look at [East Texas Motor Freight System, Inc. v. Rodriguez (431 U.S. 395)](/courts/ussc/?term=1976-10&case=75-718). Three cases were consolidated:
 
     75-718,75-651,75-715
 
@@ -104,19 +104,19 @@ The SCDB website simply says:
 
 > Multiple docket numbers under a single case citation almost always contain the same issue as the lead case and differ only in the parties to the case and its origin and source.
 
-And this isn't a trivial problem. When you look for the transcript in the [East Texas Motor Freight System](https://cdn.loc.gov/service/ll/usrep/usrep431/usrep431395/usrep431395.pdf) on the [Supreme Court's](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1976) website, it's *only* listed as [Teamsters v. Rodriguez, No. 75-651](https://www.supremecourt.gov/pdfs/transcripts/1976/75-651_75-715_75-718_01-10-1977.pdf). Not as 75-715 or 75-718, but as 75-651 -- a docket number which you will *not* find in the SCDB.
+And this isn't a trivial problem. When you look for the transcript for [East Texas Motor Freight System](/courts/ussc/?term=1976-10&case=75-718) on the [Supreme Court's](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1976) website, it's *only* listed as [Teamsters v. Rodriguez, No. 75-651](https://www.supremecourt.gov/pdfs/transcripts/1976/75-651_75-715_75-718_01-10-1977.pdf). Not as 75-715 or 75-718, but as 75-651 -- a docket number which you will *not* find in the SCDB.
 
 ### 3. Decision Dates
 
-For a case's [Date of Decision](http://scdb.wustl.edu/documentation.php?var=dateDecision), the SCDB online codebook says:
+For a case's [Date of Decision](https://scdb.la.psu.edu/online-codebook/date-of-decision/), the SCDB online codebook says:
 
 > This variable contains the year, month, and day that the Court announced its decision in the case. For volumes 2-107 of the U.S. Reports (1791-1882), we relied on [Dates of Supreme Court Decisions and Arguments](http://www.supremecourt.gov/opinions/datesofdecisions.pdf), prepared by Anne Ashmore of the Library of the Supreme Court, because many early reporters do not list the date of decision.
 
-Importing dates from a Supreme Court document should have been an error-free process, yet it wasn't. Take the case of [United States v. McDowell (8 U.S. 316)](https://cdn.loc.gov/service/ll/usrep/usrep008/usrep008316/usrep008316.pdf). SCDB claims it was decided on March 7, 1807, but the Supreme Court's "Dates of Supreme Court Decisions and Arguments" document -- which SCDB says it relied upon -- indicates March 7, 1808. I have found dozens of similar mistakes.
+Importing dates from a Supreme Court document should have been an error-free process, yet it wasn't. Take the case of [United States v. McDowell (8 U.S. 316)](/courts/ussc/?term=1808-02&case=1807-025). SCDB claims it was decided on March 7, 1807, but the Supreme Court's "Dates of Supreme Court Decisions and Arguments" document -- which SCDB says it relied upon -- indicates March 7, 1808. I have found dozens of similar mistakes.
 
-And these kinds of mistakes aren't just limited to those older cases. Look at [Perry v. Leeke (488 U.S. 272)](https://cdn.loc.gov/service/ll/usrep/usrep488/usrep488272/usrep488272.pdf). It was decided January 10, 1989, but SCDB lists the decision date as "1/1/1989". Even worse, SCDB lists the argument date for [Brown v. Board of Education (347 U.S. 483)](https://cdn.loc.gov/service/ll/usrep/usrep347/usrep347483/usrep347483.pdf) as "12/8/1952", but in fact, arguments began on December 9, 1952 and lasted three days.
+And these kinds of mistakes aren't just limited to those older cases. Look at [Perry v. Leeke (488 U.S. 272)](/courts/ussc/?term=1988-10&case=87-6325). It was decided January 10, 1989, but SCDB lists the decision date as "1/1/1989".
 
-There is also another, subtler problem with cases listed in the "Dates of Supreme Court Decisions and Arguments" document: the decision date of a number of cases could not be precisely identified, even by the Supreme Court's librarian, so only the date of the term was listed. This occurred, for example, in [Welsh v. Mandeville (9 U.S. 321)](https://cdn.loc.gov/service/ll/usrep/usrep009/usrep009321/usrep009321.pdf), where the decision date was listed as "Feb. term 1809".
+There is also another, subtler problem with cases listed in the "Dates of Supreme Court Decisions and Arguments" document: the decision date of a number of cases could not be precisely identified, even by the Supreme Court's librarian, so only the date of the term was listed. This occurred, for example, in [Welsh v. Mandeville (9 U.S. 321)](/courts/ussc/?term=1809-02&case=1808-009), where the decision date was listed only as "Feb. term 1809".
 
 Unfortunately, SCDB appears to have morphed such dates into the first day of the first month of the term, resulting in a date (e.g., February 1, 1809) that appears to be precise but is almost certainly incorrect.
 
@@ -198,7 +198,9 @@ Here's a list of all the corrections we've made to *dateDecision* in SCDB thus f
 
 ### 4. Argument and Reargument Dates
 
-Some cases are argued over a period of multiple days (and not necessarily consecutive days). An early example of this is [Talbot v. Janson (3 U.S. 133)](https://cdn.loc.gov/service/ll/usrep/usrep003/usrep003133/usrep003133.pdf), which was argued over the course of ten days:
+Argument dates are equally prone to error, even in major cases such as [Brown v. Board of Education (347 U.S. 483)](/courts/ussc/?term=1953-10&case=1), which SCDB says was argued on "12/8/1952", but in fact, arguments began on December 9, 1952 and lasted three days.
+
+In fact, many cases have been argued over a period of multiple days (and not necessarily consecutive days). An early example of this is [Talbot v. Janson (3 U.S. 133)](/courts/ussc/?term=1795-08&case=1795-006), which was argued over the course of ten days:
 
     Thursday, August 6, 1795
     Friday, August 7, 1795
@@ -211,34 +213,34 @@ Some cases are argued over a period of multiple days (and not necessarily consec
     Tuesday, August 18, 1795
     Wednesday, August 19, 1795
 
-This also occurs with some regularity in the "modern" era. See [American Trucking Assns., Inc. v. Atchison, T. &amp; S. F. R. Co. (387 U.S. 397)](https://cdn.loc.gov/service/ll/usrep/usrep387/usrep387397/usrep387397.pdf), which was argued:
+This also occurs with some regularity in the "modern" era. See [American Trucking Associations, Inc. v. Atchison, Topeka & Santa Fe Railway Company (387 U.S. 397)](/courts/ussc/?term=1966-10&case=57), which was argued:
 
     Thursday, April 13, 1967
     Monday, April 17, 1967
 
 However, recording all the dates of an oral argument (or even just the *number* of argument days) didn't seem to interest Harold Spaeth much, because his "ALLCOURT" database (SCDB's predecessor) provided only an `ORAL` field for the first date of argument.
 
-Despite my best efforts ten years ago to convince SCDB to consider broader research interests and to at least *enable* the coding of all argument dates for a case, all they did was rename Spaeth's variable to [dateArgument](http://scdb.wustl.edu/documentation.php?var=dateArgument) and continue the old practice, without justification:
+Despite my best efforts ten years ago to convince SCDB to consider broader research interests and to at least *enable* the coding of all argument dates for a case, all they did was rename Spaeth's variable to [dateArgument](https://scdb.la.psu.edu/online-codebook/date-of-oral-argument/) and continue the old practice, without justification:
 
 > On some occasions, oral argument extended over more than a single day. In such cases, only the first date is specified.
 
-NOTE: For the record, SCDB incorrectly reports that [387 U.S. 397](https://cdn.loc.gov/service/ll/usrep/usrep387/usrep387397/usrep387397.pdf) was argued on March 13, 1967, so we have more than a completeness problem -- we have the usual accuracy problems as well.
+NOTE: For the record, SCDB incorrectly reports that [387 U.S. 397](/courts/ussc/?term=1966-10&case=57) was argued on March 13, 1967, so we have more than a completeness problem -- we have the usual accuracy problems as well.
 
-Then there's the problem of multiple rearguments. Once again, the Spaeth "ALLCOURT" database dealt with this, but in the same limited fashion, by providing a single `REORAL` field, and SCDB followed suit with its [dateRearg](http://scdb.wustl.edu/documentation.php?var=dateRearg) variable:
+Then there's the problem of multiple rearguments. Once again, the Spaeth "ALLCOURT" database dealt with this, but in the same limited fashion, by providing a single `REORAL` field, and SCDB followed suit with its [dateRearg](https://scdb.la.psu.edu/online-codebook/date-of-reargument/) variable:
 
 > On those infrequent occasions when the Court orders that a case be reargued, this variable specifies the date of such argument following the same day, month, and year sequence used in the preceding variable (dateArgue [sic]).
 
-The limitation here is even worse than before, because not only can a reargument span multiple days, but there can also be *multiple* rearguments. Take a look at [Boyle v. Landry (401 U.S. 77)](https://cdn.loc.gov/service/ll/usrep/usrep401/usrep401077/usrep401077.pdf). The second reargument on November 16, 1970 is nowhere to be found in SCDB.
+The limitation here is even worse than before, because not only can a reargument span multiple days, but there can also be *multiple* rearguments. Take a look at [Boyle v. Landry (401 U.S. 77)](/courts/ussc/?term=1970-10&case=4). The second reargument on November 16, 1970 is nowhere to be found in SCDB.
 
 SCDB also doesn't comprehensively list cases that were granted, argued, and then dismissed without an opinion. This can happen when the Court "DIGs" (dismisses as improvidently granted) a case, or when it dismisses a case that has later become moot. To be clear, I'm referring to cases that were fully briefed and argued and *then* dismissed, which makes them significantly different from the many petitions that are routinely denied, as well as the occasional petition that is granted and then dismissed before argument.
 
-This is not to say that SCDB doesn't track *any* DIG'ed cases, but merely that its recording of them is haphazard. For example, [Stiles v. United States (393 U.S. 219)](http://cdn.loc.gov/service/ll/usrep/usrep393/usrep393219/usrep393219.pdf), argued November 20, 1968, is not listed in SCDB, while [Ford Motor Co. v. McCauley (537 U.S. 1)](https://cdn.loc.gov/service/ll/usrep/usrep537/usrep537001/usrep537001.pdf), argued October 7, 2000, is listed. The failure to record all such cases frustrates a variety of research, such as the accurate tracking of oral argument activity, the frequency of DIGs, etc.
+This is not to say that SCDB doesn't track *any* DIG'ed cases, but merely that its recording of them is haphazard. For example, [Stiles v. United States (393 U.S. 219)](/courts/ussc/?term=1968-10&case=74), argued November 20, 1968, is not listed in SCDB, while [Ford Motor Co. v. McCauley (537 U.S. 1)](/courts/ussc/?term=2002-10&case=01-896), argued October 7, 2000, is listed. The failure to record all such cases frustrates a variety of research, such as the accurate tracking of oral argument activity, the frequency of DIGs, etc.
 
-As an aside, it's also not a simple matter to identify *just* DIG'ed cases. SCDB has a [caseDisposition](http://scdb.wustl.edu/documentation.php?var=caseDisposition) variable that is generally set to 9 ("petition denied or appeal dismissed") in such cases, but that value is also used in other cases, such as [Schwarz v. National Security Agency (526 U.S. 122)](https://cdn.loc.gov/service/ll/usrep/usrep526/usrep526122/usrep526122.pdf), where the case was granted and a *per curiam* opinion was issued denying petitioner's motion.
+As an aside, it's also not a simple matter to identify *just* DIG'ed cases. SCDB has a [caseDisposition](https://scdb.la.psu.edu/online-codebook/disposition-of-case/) variable that is generally set to 9 ("petition denied or appeal dismissed") in such cases, but that value is also used in other cases, such as [Schwarz v. National Security Agency (526 U.S. 122)](/courts/ussc/?term=1998-10&case=98-7771), where the case was granted and a *per curiam* opinion was issued denying petitioner's motion.
 
 ### 5. Natural Courts
 
-A [Natural Court](http://scdb.wustl.edu/documentation.php?var=naturalCourt), as the SCDB online codebook explains, is:
+A [Natural Court](https://scdb.la.psu.edu/online-codebook/natural-court/), as the SCDB online codebook explains, is:
 
 > [A] period during which no personnel change occurs. Scholars have subdivided them into
 > "strong" and "weak" natural courts, but no convention exists as to the dates on which they
@@ -269,11 +271,11 @@ And this mistake with the "Warren 11" court isn't an isolated "one-off". There a
 
 And this isn't merely a problem with the natural court dates. Numerous cases are filed under one natural court even though they were decided under another.
 
-Look at [Braverman v. United States (317 U.S. 49)](https://cdn.loc.gov/service/ll/usrep/usrep317/usrep317049/usrep317049.pdf). It was argued on October 21, 1942 and decided on November 9, 1942, which would put it squarely in SCDB's "Stone 1" natural court. But it's coded in SCDB as being in the "Stone 2" (1202) natural court.
+Look at [Braverman v. United States (317 U.S. 49)](/courts/ussc/?term=1942-10&case=43). It was argued on October 21, 1942 and decided on November 9, 1942, which would put it squarely in SCDB's "Stone 1" natural court. But it's coded in SCDB as being in the "Stone 2" (1202) natural court.
 
 ### 6. Terms
 
-How SCDB defines the [Term](http://scdb.wustl.edu/documentation.php?var=term) in which a case was decided is problematic: it uses a simple number (a year), which is insufficient to properly identify the *actual* term in which a case was decided.
+How SCDB defines the [Term](https://scdb.la.psu.edu/online-codebook/term-of-court/) in which a case was decided is problematic: it uses a simple number (a year), which is insufficient to properly identify the *actual* term in which a case was decided.
 
 Specifically, until 1802, there were *two* terms per year. This is why my project has adopted a string format for Supreme Court terms ("YYYY-MM") rather than an ambiguous numeric format (YYYY).
 
@@ -287,9 +289,11 @@ Harold Spaeth's `TERM` variable didn't suffer from this ambiguity, because his "
 
 ### 7. Undocumented Values
 
-There are some variables, such as [caseOrigin](http://scdb.wustl.edu/documentation.php?var=caseOrigin) containing undocumented values (e.g., 157, 158, 161, etc).
+There are some variables, such as [caseOrigin](https://scdb.la.psu.edu/online-codebook/origin-of-case/) containing undocumented values (e.g., 157, 158, 161, etc).
 
-And then there's [lawMinor](http://scdb.wustl.edu/documentation.php?var=lawMinor), a free-form string that has become very problematic. Here's a small subset of the values, to give you a sense of the problems:
+And then there's [lawMinor](https://scdb.la.psu.edu/online-codebook/legal-provision-minor-supplement/), a free-form string that has become very problematic, and the values of which the Codebook does not even attempt to enumerate.
+
+Here's a small subset of the values, to give you a sense of the problems:
 
     "unidentifed act of congress",
     "unidentifed act of congress, 1828",
@@ -380,7 +384,7 @@ As an academic endeavour, more information and transparency -- not less -- shoul
 
 ### Citing to the SCDB
 
-Since we use the SCDB, we shall cite it. In fact, we shall go one step better, and *recite* their [instructions](http://scdb.wustl.edu/documentation.php?var=cite) on how one should cite it:
+Since we use the SCDB, we shall cite it. In fact, we shall go one step better, and *recite* their [instructions](https://scdb.la.psu.edu/how-to-cite-us/) on how one should cite it:
 
 > To cite to the Supreme Court Database, please employ either of the following:
 

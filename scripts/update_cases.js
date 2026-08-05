@@ -7678,17 +7678,24 @@ function _scdbApplyXUpdate(c, row, mm) {
         changed = true;
     };
 
-    if (mm.decision)   addToErrors('decision');
-    if (mm.argument)   addToErrors('argument');
-    if (mm.reargument) addToErrors('reargument');
+    // A comma-separated (multi-day) value flags the field too, even absent a
+    // genuine date mismatch: SCDB's single-date schema can never represent
+    // it, so it's always "incomplete" relative to ours (see
+    // _scdbBuildMessage's independent 'dates incomplete' message).
+    const argIncomplete   = String(c.argument   || '').includes(',');
+    const reargIncomplete = String(c.reargument || '').includes(',');
 
-    // Prune flags that no longer represent a genuine mismatch, using strict
-    // equality (unlike the lenient _scdbContainsDate check above used only to
-    // decide whether to *add* a flag in the first place — that asymmetry is
-    // intentional: it avoids newly flagging the large population of
-    // multi-day-argument cases that were never part of this cleanup, while
-    // still letting any already-flagged case (however it got flagged) clear
-    // once it's a true, exact match).
+    if (mm.decision)                      addToErrors('decision');
+    if (mm.argument   || argIncomplete)   addToErrors('argument');
+    if (mm.reargument || reargIncomplete) addToErrors('reargument');
+
+    // Prune flags that no longer represent a genuine mismatch or an
+    // incomplete (multi-day) value, using strict equality (unlike the
+    // lenient _scdbContainsDate check above used only to decide whether to
+    // *add* a flag for a genuine mismatch in the first place). A
+    // comma-separated value can never strictly equal SCDB's single date, so
+    // this naturally leaves an incomplete-only flag in place until the
+    // extra dates are removed.
     if (ignored.has('argument')   && _scdbStrictDateMatches(c.argument, row.dateArgument)) removeFromErrors('argument');
     if (ignored.has('reargument') && _scdbStrictDateMatches(c.reargument, row.dateRearg || row.datreRearg)) removeFromErrors('reargument');
     if (ignored.has('decision')   && _scdbStrictDateMatches(c.decision, row.dateDecision)) removeFromErrors('decision');
@@ -8375,6 +8382,13 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             const mm = { decision: false, argument: false, reargument: false,
                          voteMajority: null, voteMinority: null, missingVotes: [], scdbVotes: null };
 
+            // A comma-separated (multi-day) value flags its field regardless of
+            // whether SCDB's single date matches one of ours — SCDB's schema
+            // can never record more than one date, so it's always "incomplete"
+            // relative to ours. See _scdbApplyXUpdate/_scdbBuildMessage.
+            const argIncomplete   = String(c.argument   || '').includes(',');
+            const reargIncomplete = String(c.reargument || '').includes(',');
+
             const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
             if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
                 mm.argument = true;
@@ -8414,9 +8428,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 const errorFields = c.scdb_check
                     ? new Set(String(c.scdb_check).split(',').map(s => s.trim()).filter(Boolean))
                     : new Set();
-                if (mm.argument)   errorFields.add('argument');
-                if (mm.reargument) errorFields.add('reargument');
-                if (mm.decision)   errorFields.add('decision');
+                if (mm.argument   || argIncomplete)   errorFields.add('argument');
+                if (mm.reargument || reargIncomplete) errorFields.add('reargument');
+                if (mm.decision)                      errorFields.add('decision');
                 const entry = {};
                 if (errorFields.has('argument')) {
                     const ourArg = Array.isArray(c.argument) ? c.argument.join(', ') : (c.argument || '');

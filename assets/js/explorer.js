@@ -2527,16 +2527,21 @@ function _bestEventIndexForNumber(events, number) {
 // subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
 // Parenthesised annotation is the docket number(s), if any — usCite is shown
 // separately via #case-cite, so it's never repeated here.
+// Returns { text, full }: when four or more docket numbers would be listed,
+// `text` collapses them to "first, …, last" and `full` carries the untruncated
+// label (for use as a tooltip); otherwise `full` is null.
 function caseTitleLabel(caseEntry, subCase) {
   const title  = subCase ? subCase.title  : caseTitle(caseEntry.title);
   const number = subCase ? subCase.number : caseEntry.number;
-  let suffix = '';
-  if (number) {
-    const isMulti = /,/.test(number);
-    const displayNumber = number.replace(/,\s*/g, ', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
-    suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + displayNumber + ')';
-  }
-  return title + suffix;
+  if (!number) return { text: title, full: null };
+  const numbers = number.split(',').map(n => n.trim());
+  const isMulti = numbers.length > 1;
+  const label = isMulti ? 'Nos.' : 'No.';
+  const fmt = ns => ns.join(', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
+  const shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;
+  const text = title + '\u00a0(' + label + '\u00a0' + fmt(shown) + ')';
+  const full = numbers.length >= 4 ? title + '\u00a0(' + label + '\u00a0' + fmt(numbers) + ')' : null;
+  return { text, full };
 }
 
 // Set the case-title-label element to a link that reveals the case in the nav pane.
@@ -2553,7 +2558,9 @@ function setCaseTitleLabel(term, caseEntry, optionText, numberOverride) {
   const a = document.createElement('a');
   a.href = '?' + urlParams.toString();
   a.className = 'case-title-link';
-  a.textContent = caseTitleLabel(caseEntry, subCase);
+  const { text, full } = caseTitleLabel(caseEntry, subCase);
+  a.textContent = text;
+  if (full) a.title = full;
 
   a.addEventListener('click', e => {
     e.preventDefault();

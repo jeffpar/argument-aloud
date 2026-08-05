@@ -25,7 +25,7 @@ layout: home
       <div class="hp-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:1.6rem;height:1.6rem" fill="#c8955c"><rect height="20" transform="matrix(0.7075 -0.7067 0.7067 0.7075 -5.6854 13.7194)" width="4" x="11.73" y="3.73"/><rect height="8" transform="matrix(0.707 -0.7072 0.7072 0.707 0.3157 11.246)" width="4" x="11.73" y="1.24"/><rect height="8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.1722 7.7256)" width="4" x="3.24" y="9.73"/></svg></div>
       <div class="hp-card-title">Justices</div>
     </div>
-    <p class="hp-card-desc">Visit a gallery of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">Years of Service</a> or <a href="/courts/ussc/?collection=vocal_justices">Hours Spoken</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">Opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">Lone Dissents</a> the justices have written.</p>
+    <p class="hp-card-desc">Visit a <a href="/courts/ussc/?collection=benches">Gallery</a> of statistics, including <a href="/courts/ussc/?collection=gallery&sort=years&o=d">Years of Service</a> or <a href="/courts/ussc/?collection=vocal_justices">Hours Spoken</a> in oral arguments, as well as all the <a href="/courts/ussc/?collection=opinions">Opinions</a> and <a href="/courts/ussc/?collection=lone_dissents">Lone Dissents</a> the Justices have written.</p>
   </div>
 
   <div class="hp-card">
