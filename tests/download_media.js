@@ -24,9 +24,9 @@
  * At the end, reports which URLs are no longer reachable.
  *
  * Usage:
- *   node scripts/download.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
- *   node scripts/download.js [TERM [CASE]] --thumbs [--dry-run] [--refetch] [--verbose]
- *   node scripts/download.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
+ *   node tests/download_media.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
+ *   node tests/download_media.js [TERM [CASE]] --thumbs [--dry-run] [--refetch] [--verbose]
+ *   node tests/download_media.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
  *
  * Options:
  *   TERM       Term in YYYY-10 format (default: all terms)

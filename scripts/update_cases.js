@@ -7630,20 +7630,31 @@ function _scdbBuildMessage(c, row) {
 
     if (categories.has('argument')) {
         const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
-        if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
-            messages.push(`SCDB argument date (${scdbArg}) incorrect`);
-        }
-        if (String(c.argument || '').includes(',')) {
-            messages.push('SCDB argument dates incomplete');
+        // A blank SCDB value gets its own "missing" message instead of
+        // "incorrect"/"incomplete" — there's no date to compare against or
+        // to say ours is a superset of.
+        if (!scdbArg) {
+            messages.push('SCDB argument date missing');
+        } else {
+            if (!_scdbContainsDate(c.argument, scdbArg)) {
+                messages.push(`SCDB argument date (${scdbArg}) incorrect`);
+            }
+            if (String(c.argument || '').includes(',')) {
+                messages.push('SCDB argument dates incomplete');
+            }
         }
     }
     if (categories.has('reargument')) {
         const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
-        if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe)) {
-            messages.push(`SCDB reargument date (${scdbRe}) incorrect`);
-        }
-        if (String(c.reargument || '').includes(',')) {
-            messages.push('SCDB reargument dates incomplete');
+        if (!scdbRe) {
+            messages.push('SCDB reargument date missing');
+        } else {
+            if (!_scdbContainsDate(c.reargument, scdbRe)) {
+                messages.push(`SCDB reargument date (${scdbRe}) incorrect`);
+            }
+            if (String(c.reargument || '').includes(',')) {
+                messages.push('SCDB reargument dates incomplete');
+            }
         }
     }
     if (categories.has('decision')) {
@@ -8399,13 +8410,27 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             const reargIncomplete = String(c.reargument || '').includes(',');
 
             const scdbArg = _scdbNormalizeDate(row.dateArgument || '');
-            if (scdbArg && !_scdbContainsDate(c.argument, scdbArg)) {
+            if (!scdbArg) {
+                // A blank SCDB value only counts as a problem when we actually
+                // claim an argument date ourselves — most cases correctly have
+                // no reargument date on *either* side, which must stay a match,
+                // not a false "missing" flag.
+                if (String(c.argument || '').trim()) {
+                    mm.argument = true;
+                    pushErr('argument', `${prefix}: dateArgument missing from SCDB (ours=${JSON.stringify(c.argument)})`);
+                }
+            } else if (!_scdbContainsDate(c.argument, scdbArg)) {
                 mm.argument = true;
                 pushErr('argument', `${prefix}: dateArgument not contained by argument: scdb=${JSON.stringify(scdbArg)} ours=${JSON.stringify(c.argument)}`);
             }
 
             const scdbRe = _scdbNormalizeDate(row.dateRearg || row.datreRearg || '');
-            if (scdbRe && !_scdbContainsDate(c.reargument, scdbRe)) {
+            if (!scdbRe) {
+                if (String(c.reargument || '').trim()) {
+                    mm.reargument = true;
+                    pushErr('reargument', `${prefix}: dateRearg missing from SCDB (ours=${JSON.stringify(c.reargument)})`);
+                }
+            } else if (!_scdbContainsDate(c.reargument, scdbRe)) {
                 mm.reargument = true;
                 pushErr('reargument', `${prefix}: dateRearg not contained by reargument: scdb=${JSON.stringify(scdbRe)} ours=${JSON.stringify(c.reargument)}`);
             }

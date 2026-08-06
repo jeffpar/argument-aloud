@@ -15,6 +15,9 @@ export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'docket_href', 'questions', 'questions_href',
     'argument', 'argument_day', 'reargument', 'reargument_day', 'decision', 'decision_day',
+    // Case-level fallback for the decision's own journal entry, for a case
+    // with no decision-type event to hang a per-event journal_ref off of.
+    'journal_ref',
     'usCite', 'volume', 'page', 'opCite',
     'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_rep',
     'result', 'disposition',

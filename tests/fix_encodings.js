@@ -1,5 +1,5 @@
 /**
- * fix_encoding.js — Classify U+FFFD replacement-character occurrences in the
+ * fix_encodings.js — Classify U+FFFD replacement-character occurrences in the
  * generated opinion XML (courts/ussc/opinions/xml) and record fixes for the
  * confident ones into data/ussc/corrections/opinions.json, so update_opinions.js
  * applies them on every future regeneration. Anything not confidently resolved
@@ -14,13 +14,13 @@
  * corrections ledger, layered onto freshly generated XML at write time.
  *
  * Usage:
- *   node scripts/fix_encoding.js [--dry-run] [--verbose]
+ *   node tests/fix_encodings.js [--dry-run] [--verbose]
  */
 import {
     listAllCaseFiles, buildCitationIndex, convertCase,
     addCorrection, getCorrectionEntry,
     addReviewEntry, resetReview,
-} from './update_opinions.js';
+} from '../scripts/update_opinions.js';
 
 const MARK = '�';
 const STRIP_TAG_RE = /<[^>]+>/g;

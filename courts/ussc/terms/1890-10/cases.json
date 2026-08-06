@@ -6,8 +6,9 @@
     "files": false,
     "argument": "1889-11-25,1889-11-26",
     "argument_day": "Monday, November 25, 1889; Tuesday, November 26, 1889",
-    "decision": "1891-03-23",
-    "decision_day": "Monday, March 23, 1891",
+    "decision": "1891-03-30",
+    "decision_day": "Monday, March 30, 1891",
+    "journal_ref": "1890.153",
     "usCite": "139 U.S. 388",
     "opCite": [
       {
@@ -78,8 +79,9 @@
         "title": "Oral Argument on November 26, 1889"
       }
     ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_check": "argument,decision",
+    "scdb_message": "SCDB argument dates incomplete; SCDB decision date (1891-03-23) incorrect",
+    "audit_message": "U.S. Reports indicates decision occurred on March 23, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-275",
@@ -410,13 +412,13 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1890-01-31",
         "title": "Oral Argument on January 31, 1890"
       },
       {
-        "source": "ussc",
+        "source": "scdb",
         "type": "argument",
         "date": "1890-02-03",
         "title": "Oral Argument on February 3, 1890"
@@ -434,8 +436,9 @@
     "argument_day": "Thursday, October 18, 1888",
     "reargument": "1890-03-06",
     "reargument_day": "Thursday, March 6, 1890",
-    "decision": "1891-05-25",
-    "decision_day": "Monday, May 25, 1891",
+    "decision": "1891-05-11",
+    "decision_day": "Monday, May 11, 1891",
+    "journal_ref": "1890.199",
     "usCite": "141 U.S. 18",
     "opCite": [
       {
@@ -569,7 +572,10 @@
         "date": "1890-03-06",
         "title": "Oral Reargument on March 6, 1890"
       }
-    ]
+    ],
+    "scdb_check": "decision",
+    "scdb_message": "SCDB decision date (1891-05-25) incorrect",
+    "audit_message": "U.S. Reports indicates decision occurred on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-285",
@@ -578,8 +584,9 @@
     "files": false,
     "argument": "1890-03-06,1890-03-07",
     "argument_day": "Thursday, March 6, 1890; Friday, March 7, 1890",
-    "decision": "1891-05-25",
-    "decision_day": "Monday, May 25, 1891",
+    "decision": "1891-05-11",
+    "decision_day": "Monday, May 11, 1891",
+    "journal_ref": "1890.199",
     "usCite": "141 U.S. 36",
     "opCite": [
       {
@@ -650,8 +657,9 @@
         "title": "Oral Argument on March 7, 1890"
       }
     ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_check": "argument,decision",
+    "scdb_message": "SCDB argument dates incomplete; SCDB decision date (1891-05-25) incorrect",
+    "audit_message": "U.S. Reports indicates decision occurred on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-287",
@@ -1282,8 +1290,8 @@
   },
   {
     "id": "1890-179",
-    "title": "Peake v. New Orleans",
-    "number": "852",
+    "title": "Peake v. New Orleans|Peake v. New Orleans|Peake v. New Orleans|United States ex rel. Peake v. New Orleans",
+    "number": "852,459,41,460",
     "files": false,
     "argument": "1890-10-27,1890-10-28,1890-10-29",
     "argument_day": "Monday, October 27, 1890; Tuesday, October 28, 1890; Wednesday, October 29, 1890",
@@ -1359,69 +1367,6 @@
     ],
     "scdb_check": "argument",
     "scdb_message": "SCDB argument dates incomplete"
-  },
-  {
-    "id": "1890-180",
-    "title": "Peake v. New Orleans",
-    "number": "41",
-    "files": false,
-    "argument": "1890-10-29",
-    "argument_day": "Wednesday, October 29, 1890",
-    "decision": "1891-03-09",
-    "decision_day": "Monday, March 9, 1891",
-    "usCite": "139 U.S. 377",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=407",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 5,
-    "voteMinority": 3,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "minority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "minority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "minority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "none"
-      }
-    ],
-    "events": [
-      {
-        "source": "scdb",
-        "type": "argument",
-        "date": "1890-10-29",
-        "title": "Oral Argument on October 29, 1890"
-      }
-    ]
   },
   {
     "id": "1890-024",
@@ -1923,101 +1868,16 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1890-10-31",
         "title": "Oral Argument on October 31, 1890"
       },
       {
-        "source": "ussc",
+        "source": "scdb",
         "type": "argument",
         "date": "1890-11-03",
         "title": "Oral Argument on November 3, 1890"
-      }
-    ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
-  },
-  {
-    "id": "1890-029",
-    "title": "Macfarland v. Jackson",
-    "number": "66",
-    "files": false,
-    "argument": "1890-10-31,1890-11-11",
-    "argument_day": "Friday, October 31, 1890; Tuesday, November 11, 1890",
-    "decision": "1890-11-24",
-    "decision_day": "Monday, November 24, 1890",
-    "usCite": "137 U.S. 258",
-    "opCite": [
-      {
-        "id": "1880-045",
-        "title": "Manufacturing Co. v. Ladd (1880)",
-        "term": "1880-10",
-        "decision": "1880-12-13",
-        "count": 2
-      },
-      {
-        "id": "1879-088",
-        "title": "Leggett v. Avery (1880)",
-        "term": "1879-10",
-        "decision": "1880-02-02",
-        "count": 3
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us137/us137-0258.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep137/usrep137258/usrep137258.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-137_PDFA.pdf#page=284",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      }
-    ],
-    "events": [
-      {
-        "source": "scdb",
-        "type": "argument",
-        "date": "1890-10-31",
-        "title": "Oral Argument on October 31, 1890"
-      },
-      {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1890-11-11",
-        "title": "Oral Argument on November 11, 1890"
       }
     ],
     "scdb_check": "argument",
@@ -2359,13 +2219,13 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1890-11-06",
         "title": "Oral Argument on November 6, 1890"
       }
     ],
-    "scdb_check": "decision,argument",
+    "scdb_check": "argument,decision",
     "scdb_message": "SCDB argument date (1890-03-06) incorrect; SCDB decision date (1890-10-01) incorrect"
   },
   {
@@ -2843,6 +2703,83 @@
     "decision_xml": "/courts/ussc/opinions/xml/us137/us137-0245.xml",
     "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep137/usrep137245/usrep137245.pdf",
     "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-137_PDFA.pdf#page=271",
+    "result": "affirmed; no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      }
+    ],
+    "events": [
+      {
+        "source": "scdb",
+        "type": "argument",
+        "date": "1890-11-11",
+        "title": "Oral Argument on November 11, 1890"
+      }
+    ]
+  },
+  {
+    "id": "1890-029",
+    "title": "MacFarland v. Jackson",
+    "number": "66",
+    "files": false,
+    "argument": "1890-11-11",
+    "argument_day": "Tuesday, November 11, 1890",
+    "decision": "1890-11-24",
+    "decision_day": "Monday, November 24, 1890",
+    "usCite": "137 U.S. 258",
+    "opCite": [
+      {
+        "id": "1880-045",
+        "title": "Manufacturing Co. v. Ladd (1880)",
+        "term": "1880-10",
+        "decision": "1880-12-13",
+        "count": 2
+      },
+      {
+        "id": "1879-088",
+        "title": "Leggett v. Avery (1880)",
+        "term": "1879-10",
+        "decision": "1880-02-02",
+        "count": 3
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us137/us137-0258.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep137/usrep137258/usrep137258.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-137_PDFA.pdf#page=284",
     "result": "affirmed; no favorable disposition for petitioning party apparent",
     "voteMajority": 8,
     "voteMinority": 0,
@@ -3746,65 +3683,6 @@
     ]
   },
   {
-    "id": "1890-048",
-    "title": "Texas Land & Cattle Co. v. Scott",
-    "number": "1471",
-    "files": false,
-    "argument": "1890-11-20",
-    "argument_day": "Thursday, November 20, 1890",
-    "decision": "1890-11-10",
-    "decision_day": "Monday, November 10, 1890",
-    "usCite": "137 U.S. 436",
-    "decision_xml": "/courts/ussc/opinions/xml/us137/us137-0436.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep137/usrep137436/usrep137436.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-137_PDFA.pdf#page=462",
-    "result": "dismissed",
-    "voteMajority": 8,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      }
-    ],
-    "events": [
-      {
-        "source": "scdb",
-        "type": "argument",
-        "date": "1890-11-20",
-        "title": "Oral Argument on November 20, 1890"
-      }
-    ]
-  },
-  {
     "id": "1890-057",
     "title": "Holden v. Minnesota",
     "number": "1237",
@@ -4367,13 +4245,13 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1890-11-26",
         "title": "Oral Argument on November 26, 1890"
       },
       {
-        "source": "ussc",
+        "source": "scdb",
         "type": "argument",
         "date": "1890-12-01",
         "title": "Oral Argument on December 1, 1890"
@@ -7811,20 +7689,20 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1891-01-19",
         "title": "Oral Argument on January 19, 1891"
       },
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1891-01-20",
         "title": "Oral Argument on January 20, 1891"
       }
     ],
     "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_message": "SCDB argument date missing"
   },
   {
     "id": "1890-165",
@@ -14933,13 +14811,13 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "ussc",
         "type": "argument",
         "date": "1891-04-30",
         "title": "Oral Argument on April 30, 1891"
       },
       {
-        "source": "ussc",
+        "source": "scdb",
         "type": "argument",
         "date": "1891-05-01",
         "title": "Oral Argument on May 1, 1891"
@@ -15379,6 +15257,55 @@
         "vote": "majority",
         "action": "wrote an opinion: majority or plurality",
         "opinion": true
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      }
+    ]
+  },
+  {
+    "id": "1890-048",
+    "title": "Texas Land & Cattle Co. v. Scott",
+    "number": "1471",
+    "files": false,
+    "decision": "1890-11-10",
+    "decision_day": "Monday, November 10, 1890",
+    "usCite": "137 U.S. 436",
+    "decision_xml": "/courts/ussc/opinions/xml/us137/us137-0436.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep137/usrep137436/usrep137436.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-137_PDFA.pdf#page=462",
+    "result": "dismissed",
+    "voteMajority": 8,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
       },
       {
         "name": "JOSEPH BRADLEY",

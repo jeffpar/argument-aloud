@@ -129,15 +129,29 @@ Applying a downloaded set of transcript edits (speaker/text corrections submitte
 
 `node scripts/update_transcripts.js ussc-edits.json`
 
-### Building date information from Engrossed Minutes:
+Parsing Journal data into XML files:
 
-#### Volumes 51 - 53; April 25, 1887 - May 13, 1889
+`node scripts/parse_journals.js 1889`
+
+Checking Case dates against Journal dates:
+
+`node scripts/parse_journals.js 1889 --verify-case-dates`
+
+Checking Journal dates against Case dates:
+
+`node scripts/parse_journals.js 1889 --verify-journal-dates`
+
+Checking Journal dates against Case dates and offering to add Advocate data:
+
+`node scripts/parse_journals.js 1889 --verify-journal-dates --prompt`
+
+Building date information from Engrossed Minutes (eg, for Volumes 51 - 53; April 25, 1887 - May 13, 1889):
 
 `node scripts/parse_minutes.js https://catalog.archives.gov/id/178846789`
 
-#### Volumes 54 - 57; May 13, 1889 - March 7, 1892
+Parsing Minutes user edits into Minutes date files:
 
-`node scripts/parse_minutes.js https://catalog.archives.gov/id/178847707`
+`node scripts/parse_minutes.js ~/Downloads/ussc-dates.json`
 
 ## MIT License
 

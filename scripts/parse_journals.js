@@ -310,8 +310,14 @@ const MONTH_NUMBER = Object.fromEntries(MONTH_NAMES_DISPLAY.map((m, i) => [m.toU
 // "...opinion released at 10 p.m., Tuesday, December 12, 2000...", or "...
 // adjourned until Monday, April 21st next..." — both Title Case, both real
 // running text, neither a page heading).
+// The day-of-month suffix also needs to tolerate the 19th-century printing
+// convention of abbreviating "2nd"/"3rd"/"22nd"/"23rd" (etc.) down to a bare
+// "d" — e.g. "MONDAY, MARCH 2d, 1891." Unlike the day name and month, which
+// are always printed (and matched) in caps, this bare suffix is set in
+// lowercase even inside an all-caps heading, so it's matched case-
+// insensitively while ST/ND/RD/TH stay caps-only like the rest of the line.
 const DATE_HEADING_RE = new RegExp(
-  `\\b(${DAY_NAMES_UPPER.join('|')}),?\\s+([A-Za-z]+)\\.?\\s+(\\d{1,2})(?:ST|ND|RD|TH)?,?\\s+(\\d{4})\\b`
+  `\\b(${DAY_NAMES_UPPER.join('|')}),?\\s+([A-Za-z]+)\\.?\\s+(\\d{1,2})(?:ST|ND|RD|TH|[dD])?,?\\s+(\\d{4})\\b`
 );
 
 // "No. 195. Title..." — the leading "No."/"Nos." marker for a case-start
@@ -1150,6 +1156,7 @@ function runVerifyCaseDates(year) {
 
   let checked = 0, missing = 0;
   for (const c of cases) {
+    if (!c.number) continue; // e.g. an original-proceeding "In re" case with no docket number to match against the journal
     // A consolidated case's own "number" can itself be a comma-joined list
     // (e.g. "1031,1054") — same as a journal joint listing — so a match on
     // *any* one of its component docket numbers counts, not just an exact

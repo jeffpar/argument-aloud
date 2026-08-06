@@ -15593,7 +15593,7 @@
       }
     ],
     "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_message": "SCDB argument date missing"
   },
   {
     "id": "1967-138",
@@ -15655,7 +15655,7 @@
     ],
     "events": [
       {
-        "source": "ussc",
+        "source": "scdb",
         "type": "argument",
         "date": "1968-04-30",
         "title": "Oral Argument on April 30, 1968"
@@ -15980,7 +15980,9 @@
         ],
         "aligned": true
       }
-    ]
+    ],
+    "scdb_check": "argument",
+    "scdb_message": "SCDB argument date missing"
   },
   {
     "id": "1967-167",

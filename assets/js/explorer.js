@@ -6696,12 +6696,12 @@ function _buildJournalRefOptions(caseEntry, term) {
   const map  = new Map();
   const opts = [];
   const seen = new Set();
-  (caseEntry.events || []).forEach((ev, i) => {
-    if (!ev.journal_ref || !ev.date) return;
+  const addRef = (refRaw, date) => {
+    if (!refRaw || !date) return;
     // journal_ref is normalized to "YYYY.N" — YYYY is the journal volume's
     // own year (its journal is always the October Term of that year), N is
     // the page number within it, independent of which term this case lives in.
-    const m = String(ev.journal_ref).trim().match(/^(\d{4})\.(\d+)$/);
+    const m = String(refRaw).trim().match(/^(\d{4})\.(\d+)$/);
     if (!m) return;
     const refValue = m[0];
     const refTerm  = m[1] + '-10';
@@ -6714,16 +6714,21 @@ function _buildJournalRefOptions(caseEntry, term) {
     let pdfPage    = null;
     for (const bp of bps) { if (bp.start <= pageNum) pdfPage = pageNum + (bp.pdfPage - bp.start); }
     const pageAnchor = (Number.isFinite(pageNum) && pdfPage != null) ? String(pdfPage) : page;
-    const [y, mo, d] = ev.date.split('-');
+    const [y, mo, d] = date.split('-');
     const dateLabel  = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
-    const title      = 'Journal Entry for ' + dateLabel;
+    const title      = 'Journal for ' + dateLabel;
     const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
     if (seen.has(url)) return;
     seen.add(url);
     const value = 'journal:' + refValue;
     map.set(value, { href: url, title });
     opts.push({ value, title });
-  });
+  };
+  (caseEntry.events || []).forEach(ev => addRef(ev.journal_ref, ev.date));
+  // Case-level fallback (see schema.js) for the decision's own journal entry
+  // when there's no decision-type event to carry a per-event journal_ref —
+  // always ordered after any event-level refs above.
+  addRef(caseEntry.journal_ref, caseEntry.decision);
   return { map, opts };
 }
 
