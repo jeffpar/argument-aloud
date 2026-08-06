@@ -9,7 +9,7 @@ last_argument: January 28, 1852
 
 As of {{ site.time | date: "%B %-d, %Y" }}, {{ page.title }} argued {{ page.case_count }} {% if page.case_count == 1 %}case{% else %}cases{% endif %}, the last argument occurring on {{ page.last_argument }}.
 
-Source: [*Daniel Webster and The Supreme Court*](/courts/ussc/people/advocates/featured/daniel_webster/Daniel_Webster_and_The_Supreme_Court--Excerpts.pdf) by Maurice G. Baxter [Source ID: `baxter`]
+Source: [*Daniel Webster and The Supreme Court*]({{ site.indexes_base_url }}/courts/ussc/people/advocates/featured/daniel_webster/Daniel_Webster_and_The_Supreme_Court--Excerpts.pdf) by Maurice G. Baxter [Source ID: `baxter`]
 
 From the Appendix:
 
