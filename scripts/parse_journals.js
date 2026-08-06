@@ -342,8 +342,18 @@ const CASE_NUMBER_RE = /^(\d+[AM]\d+|[A-Z]-\d+|\d[\d,\-–—]*)/;
 // journals (e.g. 1889's "No. 5. Original. Ex parte..." or "No. 7.-Original.
 // The State...") that separate the suffix from the number with a sentence-
 // ending period (optionally followed by the usual number-to-title dash)
-// rather than a comma.
-const CASE_SUFFIX_RE = /^[.,:;\-–—\s]*(Original|Orig\.?|Misc\.?)\b/i;
+// rather than a comma. On a joint entry ("Nos. 6 and 7. Original."), the
+// suffix applies to each number individually: "6-Orig,7-Orig", not "6,7-Orig".
+// The extra (?!') (on top of \b) keeps an abbreviation like "orig'l" (a real
+// day-call-list token, not our suffix) from matching just its "orig" prefix —
+// \b alone treats the apostrophe as a word boundary and would accept it.
+// Deliberately narrower than excluding all letters: \b already rejects a
+// continuation into more letters (e.g. "Originally") just fine on its own,
+// and duplicating that exclusion here (e.g. via a lookahead against all
+// letters) changes whether the optional trailing period gets backtracked
+// away in "Misc., ..." — which then falsely trips the day-call-list comma
+// check below and truncates a real case's disposition text mid-sentence.
+const CASE_SUFFIX_RE = /^[.,:;\-–—\s]*(Original|Orig\.?|Misc\.?)\b(?!')/i;
 
 /**
  * Parse a "No. ..."/"Nos. ..." case-start line into { number, rest }, where
@@ -365,17 +375,22 @@ function parseCaseStart(line) {
   const hadTrailingComma = /,$/.test(numMatch[0]);
   let number = numMatch[0].replace(/,$/, '');
 
-  // "Nos. X and Y.—Title" / "Nos. X, Y, and Z.—Title" — up to two further
+  // "Nos. X and Y.—Title" / "Nos. W, X, Y, and Z.—Title" — up to three further
   // numbers sharing this one entry, folded into the number attribute
-  // ("X,Y" / "X,Y,Z"). Every joint entry actually seen in these journals
-  // tops out at 3 numbers total, while a day-call schedule line that
-  // happens to start the same way ("Nos. 252 and 1537, 1224, 253, 256,
-  // ...") runs on far longer — so finding a 4th number (checked right
-  // after the loop, below) is itself the signal that this is a list, not a
-  // case, and this line should be given up on as a case-start entirely.
+  // ("X,Y" / "W,X,Y,Z"). A day-call schedule line that happens to start the
+  // same way ("Nos. 252 and 1537, 1224, 253, 256, ...") runs on far longer,
+  // so finding a 5th number (checked right after the loop, below) is itself
+  // a signal that this is a list, not a case. Deliberately capped at 4
+  // total rather than higher still: a *decision* disposition narrating a
+  // companion group can itself read "...in Nos. 8, 9, 10, 11, and 12.
+  // Dissenting..." mid-sentence, wrapped onto its own physical line — with a
+  // 5-total cap that reads as a brand new (bogus) 5-number case-start
+  // instead of the disposition prose it actually is; capping at 4 leaves
+  // that specific pattern one number short, so it still trips the
+  // pending-number check below instead.
   const MORE_NUMBER_RE = /^(?:,\s*|\s+)(?:and\s+)?(\d+)\b/i;
   let extraNumbers = 0;
-  for (; extraNumbers < 2; extraNumbers++) {
+  for (; extraNumbers < 3; extraNumbers++) {
     const more = MORE_NUMBER_RE.exec(rest);
     if (!more) break;
     number += ',' + more[1];
@@ -385,22 +400,43 @@ function parseCaseStart(line) {
 
   const suffixMatch = CASE_SUFFIX_RE.exec(rest);
   if (suffixMatch) {
-    number += /orig/i.test(suffixMatch[1]) ? '-Orig' : '-Misc';
+    const tag = /orig/i.test(suffixMatch[1]) ? '-Orig' : '-Misc';
+    // A joint entry's suffix applies to every one of its numbers individually
+    // ("Nos. 6 and 7. Original." -> "6-Orig,7-Orig"), not just the last one.
+    number = number.split(',').map(n => n + tag).join(',');
     rest = rest.slice(suffixMatch[0].length);
     // A day-call schedule line can itself start "Nos. 2 original, 253,
     // 256, ..." — the suffix matches, but a comma right after means this
     // is really that list, not a title.
     if (/^,/.test(rest)) return null;
-  } else if (hadTrailingComma && extraNumbers === 0) {
-    // The comma was consumed as part of the greedy number match, but
-    // nothing recognizable followed it (no further joint-case number, no
-    // Original/Orig/Misc suffix) — so it wasn't part of this entry at all.
-    // This is a mid-sentence cross-reference to an already-open case (e.g.
-    // "...for the appellant in\nNo. 70-161, and the appellee in No.
-    // 70-5211...") that just happens to land at the start of a wrapped
-    // line, not a new case-start; treating it as one would wrongly cut off
-    // the sentence it's actually part of.
-    return null;
+  }
+  let usedEtc = false;
+  if (!suffixMatch) {
+    // "No. 1126, etc.—Title" / "No. 1126., etc. Title" — a case reargued or
+    // re-called on a later day is often re-announced with a trailing "etc."
+    // standing in for its consolidated companions, in place of a repeated
+    // joint-number list or Original/Misc suffix. Strip it here so it neither
+    // trips the trailing-comma rejection below nor leaks into the title.
+    // The period is mandatory (not "\.?") so this can't also match a bare
+    // capitalized acronym that happens to spell "ETC" as an actual party
+    // name (e.g. "No. 17-422. ETC Marketing, Ltd., Petitioner v. ...") —
+    // every genuine "etc." abbreviation in these journals is followed by
+    // its period; a real party name isn't.
+    const etcMatch = /^[.,:;\-–—\s]*etc\./i.exec(rest);
+    if (etcMatch) {
+      usedEtc = true;
+      rest = rest.slice(etcMatch[0].length);
+    } else if (hadTrailingComma && extraNumbers === 0) {
+      // The comma was consumed as part of the greedy number match, but
+      // nothing recognizable followed it (no further joint-case number, no
+      // Original/Orig/Misc suffix, no "etc.") — so it wasn't part of this
+      // entry at all. This is a mid-sentence cross-reference to an
+      // already-open case (e.g. "...for the appellant in\nNo. 70-161, and
+      // the appellee in No. 70-5211...") that just happens to land at the
+      // start of a wrapped line, not a new case-start; treating it as one
+      // would wrongly cut off the sentence it's actually part of.
+      return null;
+    }
   }
 
   // Drop a trailing period/colon/semicolon/comma and/or dash(es) before the
@@ -415,6 +451,28 @@ function parseCaseStart(line) {
   // mid-sentence cross-reference to an already-open case, not a new one)
   // means this wasn't really a case-start line at all.
   if (!rest.trim()) return null;
+  // A joint entry (multiple numbers, no Original/Misc suffix) or an "etc."
+  // continuation still risks being something else that merely *looks* like
+  // one at the point the number loop (or the etc. match) gave up — e.g.
+  // "...252, 1537, 1224, 2 orig'l, 253, ..." stops right at the
+  // un-abbreviated "orig'l" token, leaving exactly that as a bogus "title".
+  // A real title here always starts with a capitalized word (a party name,
+  // "The", "Ex parte", "In re", ...); anything else at this point is
+  // leftover list/sentence debris, not a case.
+  if ((extraNumbers > 0 || usedEtc) && !suffixMatch) {
+    const trimmed = rest.trim();
+    if (!/^[A-Z]/.test(trimmed)) return null;
+    // "etc." specifically also shows up mid-sentence inside an entity's own
+    // name ("...Trust No. 140, etc. Petition for writ of..." — "No. 140" is
+    // the trust's own number, not a docket, and just happens to start a
+    // wrapped line) — a genuine title never opens with disposition language,
+    // so require the DISPOSITION_RE trigger vocabulary not appear right at
+    // its start either.
+    if (usedEtc) {
+      const dispMatch = DISPOSITION_RE.exec(trimmed);
+      if (dispMatch && dispMatch.index === 0) return null;
+    }
+  }
   return { number, rest };
 }
 

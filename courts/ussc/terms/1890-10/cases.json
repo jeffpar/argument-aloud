@@ -4387,8 +4387,8 @@
     "title": "Lawrence Mfg. Co. v. Janesville Cotton Mills",
     "number": "102",
     "files": false,
-    "argument": "1890-12-02,1890-12-03",
-    "argument_day": "Tuesday, December 2, 1890; Wednesday, December 3, 1890",
+    "argument": "1890-12-03,1890-12-04",
+    "argument_day": "Wednesday, December 3, 1890; Thursday, December 4, 1890",
     "decision": "1891-03-02",
     "decision_day": "Monday, March 2, 1891",
     "usCite": "138 U.S. 552",
@@ -4440,20 +4440,23 @@
     ],
     "events": [
       {
-        "source": "scdb",
-        "type": "argument",
-        "date": "1890-12-02",
-        "title": "Oral Argument on December 2, 1890"
-      },
-      {
-        "source": "ussc",
+        "source": "journal",
         "type": "argument",
         "date": "1890-12-03",
-        "title": "Oral Argument on December 3, 1890"
+        "title": "Oral Argument on December 3, 1890",
+        "journal_ref": "1890.50"
+      },
+      {
+        "source": "journal",
+        "type": "argument",
+        "date": "1890-12-04",
+        "title": "Oral Argument on December 4, 1890",
+        "journal_ref": "1890.51"
       }
     ],
     "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_message": "SCDB argument date (1890-12-02) incorrect; SCDB argument dates incomplete",
+    "audit_message":"U.S. Reports indicates argument occurred on December 2, 3, 1890, but the Journal indicates otherwise"
   },
   {
     "id": "1890-137",
@@ -7629,8 +7632,9 @@
     "files": false,
     "argument": "1891-01-19,1891-01-20",
     "argument_day": "Monday, January 19, 1891; Tuesday, January 20, 1891",
-    "decision": "1891-05-25",
-    "decision_day": "Monday, May 25, 1891",
+    "decision": "1891-05-11",
+    "decision_day": "Monday, May 11, 1891",
+    "journal_ref": "1890.200",
     "usCite": "141 U.S. 40",
     "opCite": [
       {
@@ -7701,8 +7705,9 @@
         "title": "Oral Argument on January 20, 1891"
       }
     ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument date missing"
+    "scdb_check": "argument,decision",
+    "scdb_message": "SCDB argument date missing; SCDB decision date (1891-05-25) incorrect",
+    "audit_message": "U.S. Reports indicates argument occurred on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-165",
