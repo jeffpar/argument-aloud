@@ -1903,7 +1903,10 @@
         .catch(function () { return []; })
         .then(function (extraRows) { renderCaseListing(term, cases, extraRows); });
 
-      var withAudio   = cases.filter(function (c) { return (c.events || []).some(function (e) { return e.audio_href; }); }).length;
+      // Only counts cases that were actually argued (see the "decided" note
+      // below) — a case with no argument shouldn't count here even if it
+      // somehow carried an audio_href (e.g. a decision-announcement recording).
+      var withAudio   = cases.filter(function (c) { return (c.argument || c.reargument) && (c.events || []).some(function (e) { return e.audio_href; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
       // (only oyez provides aligned transcripts; ussc never does)
       var withTx = cases.filter(function (c) {
@@ -1912,7 +1915,11 @@
         });
         return oyezArgEvs.length > 0 && oyezArgEvs.every(function (e) { return e.text_href && e.aligned; });
       }).length;
-      var decided     = cases.filter(function (c) { return c.decision || c.dateDecision; }).length;
+      // Only counts cases that were actually argued — a case resolved
+      // without argument (cert denial, GVR, summary disposition) still
+      // carries a decision date but shouldn't inflate this stat, matching
+      // update_cases.js's own syncTermsJson computation.
+      var decided     = cases.filter(function (c) { return (c.argument || c.reargument) && (c.decision || c.dateDecision); }).length;
       var advSet = new Set();
       cases.forEach(function (c) {
         (c.events || []).forEach(function (e) {

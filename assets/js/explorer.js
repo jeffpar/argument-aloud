@@ -9354,6 +9354,17 @@ let _navSearchActivate = null;
     _showNormal();
   }
 
+  // Ctrl+F (Windows/Linux) / Cmd+F (Mac) always jumps to the terms/case
+  // search box instead of the browser's native find-in-page. Deliberate
+  // trade-off scoped to this SPA page only (courts/ussc/index.html) —
+  // every other page on the site keeps native find.
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'f') {
+      e.preventDefault();
+      openNavSearch();
+    }
+  });
+
   navSearchBtn.addEventListener('click', () => {
     if (navSearchRow.hidden) openNavSearch(); else closeNavSearch();
   });

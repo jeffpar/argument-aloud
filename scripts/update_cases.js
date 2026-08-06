@@ -5297,8 +5297,13 @@ function syncTermsJson() {
             const data = casesByTerm.get(termId);
             if (Array.isArray(data)) {
                 count   = data.length;
-                decided = data.filter(c => c.decision || c.dateDecision).length;
-                unanimous = data.filter(c => c.voteMinority === 0).length;
+                // "decided"/"unanimous" only count cases that were actually
+                // argued — a case resolved without argument (cert denial,
+                // GVR, summary disposition) still carries a decision date but
+                // shouldn't inflate these stats or the term=all history chart.
+                const arguedData = data.filter(c => c.argument || c.reargument);
+                decided = arguedData.filter(c => c.decision || c.dateDecision).length;
+                unanimous = arguedData.filter(c => c.voteMinority === 0).length;
                 ({ argued, argDays, audio } = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm));
             }
             totalDecided   += decided;
@@ -5414,11 +5419,15 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
                 if (caseKey) argCaseIds.add(caseKey);
             }
         }
-        // A decision-type (or other) audio event always counts toward this
-        // term, same as before — only an argument/reargument event whose own
-        // date resolves elsewhere is excluded (its earlier term picks it up
-        // below via the cross-term pointer instead).
-        const hasQualifyingAudio = (c.events || []).some(e => {
+        // "audio" only counts cases that were actually argued — a case
+        // resolved without argument (cert denial, GVR, summary disposition)
+        // shouldn't count here even if it somehow carried an audio_href (e.g.
+        // a decision-announcement recording). A decision-type (or other)
+        // audio event otherwise always counts toward this term, same as
+        // before — only an argument/reargument event whose own date resolves
+        // elsewhere is excluded (its earlier term picks it up below via the
+        // cross-term pointer instead).
+        const hasQualifyingAudio = (c.argument || c.reargument) && (c.events || []).some(e => {
             if (!e.audio_href) return false;
             if ((e.type === 'argument' || e.type === 'reargument') && e.date && _termForDate(e.date, termStarts) !== termId) return false;
             return true;
