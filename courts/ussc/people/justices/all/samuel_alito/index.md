@@ -7,9 +7,9 @@ date_start: 2006-01-31
 opinions: 139
 lone_dissents: 13
 vocal_secs: 203399
-case_count: 12
+case_count: 11
 first_argument: February 23, 1982
-last_argument: January 15, 1985
+last_argument: November 27, 1984
 ---
 <div style="display:flex; gap:1em;">
 <div style="flex:2; min-width:0; overflow:hidden;">

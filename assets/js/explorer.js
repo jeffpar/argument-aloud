@@ -1185,8 +1185,14 @@ function _initEditsNavItem(sectionLi) {
 }
 
 function _refreshEditsNav() {
+  const hasEdits = !!_transcriptEdits.size;
+  const downloadBtn = document.getElementById('download-edits-btn');
+  const clearBtn    = document.getElementById('clear-edits-btn');
+  if (downloadBtn) downloadBtn.disabled = !hasEdits;
+  if (clearBtn)    clearBtn.disabled    = !hasEdits;
+
   if (!_editsLi) return;
-  _editsLi.hidden = !_transcriptEdits.size;
+  _editsLi.hidden = !hasEdits;
   if (_editsItemsBuilt) _rebuildEditsItems();
 }
 
@@ -6846,6 +6852,15 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     })
     .filter(f => f.href)
     .map(f => ({ value: 'file:' + f.file, href: f.href, title: f.title || '' }));
+  // Last-resort fallback entries for the same chain, below — a case with
+  // none of transcript/decision/file (most Minutes-era cases with no
+  // decision document on file) still has a dropdown option selected by
+  // default (the <select>'s own first <option>, whichever of Minutes/
+  // Journal was added first), but nothing was ever telling the doc viewer
+  // to actually load it. _jrMap/_mrMap hold {href, title, view} per value;
+  // merge in the option's own value so these match the other entries' shape.
+  const _opMinutesPrimary = minutesOpts[0] ? { value: minutesOpts[0].value, ..._mrMap.get(minutesOpts[0].value) } : null;
+  const _opJournalPrimary = journalOpts[0] ? { value: journalOpts[0].value, ..._jrMap.get(journalOpts[0].value) } : null;
   // Take the dropdown+doc-viewer path whenever there's anything at all to
   // show — including a lone decision entry. The plain external-link fallback
   // below is reserved for a decided case with no document source at all
@@ -6903,8 +6918,9 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     }
     // Default to the first oral-argument transcript when present (matches a
     // case with real audio defaulting to its argument), else the first
-    // decision entry — both open in the document viewer.
-    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0];
+    // decision entry, else a file, else Minutes/Journal — all open in the
+    // document viewer.
+    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
     if (_defaultEntry) fileSelect.value = _defaultEntry.value;
     // Adds "Minutes for <date>" options (if any) for this case's own argued/
     // reargument/decided dates — see _showMinutesGalleryForDate/_setDateLinks
@@ -6951,10 +6967,10 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
 
   // Open the first oral-argument transcript href full-height in the document
   // viewer — matching how a case with real audio defaults to showing its
-  // argument — falling back to the decision when there's no transcript
-  // source. Use a local override so this large height doesn't persist for
-  // the next audio case.
-  const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0];
+  // argument — falling back to the decision, then a file, then Minutes/
+  // Journal when there's no transcript source. Use a local override so this
+  // large height doesn't persist for the next audio case.
+  const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
   if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
@@ -8280,6 +8296,23 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const navPanel  = document.getElementById('doc-browser');
   let dragging = false, startY = 0, startH = 0;
 
+  // JS-set inline height (rather than leaving the default to CSS alone) is
+  // the single source of truth here, so there's never ambiguity about what
+  // actually sized the panel on load — CSS's own max-height is just a
+  // pre-JS/no-JS fallback. A saved drag position is honored; otherwise this
+  // is where the requested default height actually lives.
+  const LS_KEY = 'aa-mobile-nav-height';
+  const DEFAULT_H = 230;
+  function applyStoredOrDefaultHeight() {
+    if (!isMobile() || dragging) return;
+    let saved = null;
+    try { saved = localStorage.getItem(LS_KEY); } catch { /* ignore */ }
+    const h = saved ? parseInt(saved, 10) : DEFAULT_H;
+    navPanel.style.maxHeight = (Number.isFinite(h) && h > 0 ? h : DEFAULT_H) + 'px';
+  }
+  applyStoredOrDefaultHeight();
+  window.addEventListener('resize', applyStoredOrDefaultHeight);
+
   function onStart(clientY) {
     if (!isMobile()) return;
     dragging = true;
@@ -8302,6 +8335,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     dragging = false;
     handle.classList.remove('dragging');
     document.body.style.userSelect = '';
+    try { localStorage.setItem(LS_KEY, String(navPanel.offsetHeight)); } catch { /* ignore */ }
   }
 
   // Mouse events (desktop/emulated)
@@ -9359,16 +9393,9 @@ let _navSearchActivate = null;
     _showNormal();
   }
 
-  // Ctrl+F (Windows/Linux) / Cmd+F (Mac) always jumps to the terms/case
-  // search box instead of the browser's native find-in-page. Deliberate
-  // trade-off scoped to this SPA page only (courts/ussc/index.html) —
-  // every other page on the site keeps native find.
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'f') {
-      e.preventDefault();
-      openNavSearch();
-    }
-  });
+  // Ctrl+F (Windows/Linux) / Cmd+F (Mac) is handled by topbar.js instead (it
+  // also runs on the home page, which needs to redirect into this search
+  // rather than open it in place) — see window._openTermsSearch below.
 
   navSearchBtn.addEventListener('click', () => {
     if (navSearchRow.hidden) openNavSearch(); else closeNavSearch();
@@ -9428,6 +9455,8 @@ let _navSearchActivate = null;
     navSearchInput.value = findQuery;
     runNavSearch(findQuery);
   };
+  // Exposed for the topbar menu's "Search …" shortcut (a separate script).
+  window._openTermsSearch = openNavSearch;
 })();
 
 // ── Random case picker ───────────────────────────────────────────────────────
@@ -10912,5 +10941,6 @@ window._restoreFavorites        = restoreFavorites;
 window._clearFavorites          = clearFavorites;
 
 _loadEditsFromStorage();
+_refreshEditsNav();
 _updateEditModeMenu();
 init();

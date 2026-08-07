@@ -48,6 +48,8 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
 
 `oyez_href` is normally a single URL string, but for a case consolidated from multiple Oyez case pages (e.g. `1971-176`) it's an array of URL strings instead — both forms are handled by `explorer.js` and `import_oyez.js`.
 
+`argument_consolidation` (optional) is a comma-separated docket number(s) of every case (this one included) — each a separately tracked case object (own `id`/`title`/`decision`) — heard in the same argument session, distinct from a joint `number` (one case filed under several dockets). Every case in the group carries the exact same value.
+
 ```json
 {
   "id": "2024-123",
@@ -56,6 +58,7 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
   "oyez_href": "https://www.oyez.org/cases/2024/24-1260",
   "questions": "Plain-text questions presented",
   "questions_href": "https://…/pdf",
+  "argument_consolidation": "24-1260,24-1261",
   "argument": "YYYY-MM-DD",
   "decision": "YYYY-MM-DD",
   "usCite": "601 U.S. 1",

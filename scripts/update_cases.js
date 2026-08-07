@@ -2388,6 +2388,70 @@ function checkDuplicateNumbers(term, cases) {
     return keys.length;
 }
 
+// Verify "argument_consolidation" (see schema.js) is internally consistent:
+// it must (a) include this case's own number, (b) name only cases that
+// actually exist, (c) read identically on every case in the group (it's
+// meant to be one shared, canonical value — not a pairwise back-reference),
+// and (d) every case in the group must share the exact same events — same
+// dates/types, with the same advocates in each — since the whole point of
+// the field is that these separately tracked case objects were really one
+// shared argument session. Read-only; returns the number of problems found
+// (each printed as it's found).
+function checkArgumentConsolidation(term, cases) {
+    const numberToCase = new Map();
+    for (const c of cases) {
+        for (const n of _splitNumbers(c.number)) numberToCase.set(n, c);
+    }
+    const eventKey = (ev) => `${ev.date || ''}|${ev.type || ''}`;
+    const advocateKey = (a) => `${a.name || ''} ${a.title || ''} ${a.role || ''}`;
+    const advocatesEqual = (a, b) => {
+        const as = (a || []).map(advocateKey).sort();
+        const bs = (b || []).map(advocateKey).sort();
+        return as.length === bs.length && as.every((v, i) => v === bs[i]);
+    };
+
+    let problems = 0;
+    for (const c of cases) {
+        if (!c.argument_consolidation) continue;
+        const label = `${term}/${c.number || c.id} (${firstTitle(c.title) || c.id})`;
+        const ownNumbers = new Set(_splitNumbers(c.number));
+        const groupNumbers = _splitNumbers(c.argument_consolidation);
+
+        if (!groupNumbers.some(n => ownNumbers.has(n))) {
+            console.log(`  WARNING: ${label}: argument_consolidation "${c.argument_consolidation}" does not include this case's own number`);
+            problems++;
+        }
+
+        for (const otherNum of groupNumbers) {
+            if ([...ownNumbers].includes(otherNum)) continue;
+            const other = numberToCase.get(otherNum);
+            if (!other) {
+                console.log(`  WARNING: ${label}: argument_consolidation references unknown case number "${otherNum}"`);
+                problems++;
+                continue;
+            }
+            if (other.argument_consolidation !== c.argument_consolidation) {
+                console.log(`  WARNING: ${label}: argument_consolidation "${c.argument_consolidation}" does not match "${otherNum}" (${firstTitle(other.title) || other.id})'s own value "${other.argument_consolidation || ''}"`);
+                problems++;
+            }
+
+            const cEvents = new Map((c.events || []).map(ev => [eventKey(ev), ev]));
+            const oEvents = new Map((other.events || []).map(ev => [eventKey(ev), ev]));
+            for (const k of new Set([...cEvents.keys(), ...oEvents.keys()])) {
+                const ce = cEvents.get(k), oe = oEvents.get(k);
+                if (!ce || !oe) {
+                    console.log(`  WARNING: ${label}: argument_consolidation with "${otherNum}" — event ${k.replace('|', ' ')} present on only one side`);
+                    problems++;
+                } else if (!advocatesEqual(ce.advocates, oe.advocates)) {
+                    console.log(`  WARNING: ${label}: argument_consolidation with "${otherNum}" — advocates differ for event ${k.replace('|', ' ')}`);
+                    problems++;
+                }
+            }
+        }
+    }
+    return problems;
+}
+
 function fixTextHrefs(term, cases, casesDir, dryRun) {
     let updated = 0, warned = 0;
     for (const c of cases) {
@@ -3179,6 +3243,7 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
                  argDatesFixed: 0, eventTypesFixed: 0, mergedCount: 0, usscRedundant: 0 };
     }
     const dupCount = (checkDups && !sortOnly) ? checkDuplicateNumbers(term, cases) : 0;
+    const argConsolidationProblems = !sortOnly ? checkArgumentConsolidation(term, cases) : 0;
     // Normalize date fields and compute *_days labels before fixKeyOrder so the
     // new keys are present when key ordering runs and land in the right positions.
     const argDatesFixed   = !sortOnly ? fixArgumentDates(term, cases, dryRun) : 0;
@@ -12195,71 +12260,102 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
         console.error(`ERROR: ${term}: case "${caseArg}" not found`);
         process.exit(1);
     }
-    const label = c.number || c.id || '?';
 
-    // The case's argument/reargument date field(s) are the source of truth
-    // for whether this case was actually argued on --date — refuse to
-    // fabricate an event for a date the case itself doesn't already record.
-    const knownArgDates   = new Set(_parseDateField(c.argument   || ''));
-    const knownReargDates = new Set(_parseDateField(c.reargument || ''));
-    if (!knownArgDates.has(date) && !knownReargDates.has(date)) {
-        console.error(`ERROR: ${term}/${label}: ${date} is not among this case's argument/reargument date(s) `
-            + `(argument=${JSON.stringify(c.argument || '')}, reargument=${JSON.stringify(c.reargument || '')})`);
-        process.exit(1);
+    // A case's "argument_consolidation" (see schema.js) means every case it
+    // names was really the same shared argument session — a journal-page /
+    // advocate backfill for one of them applies identically to the rest, so
+    // apply this same update to every case in the group, not just the one
+    // named on the command line.
+    const targets = [c];
+    if (c.argument_consolidation) {
+        const ownNumbers = new Set((c.number || '').split(',').map(s => s.trim()).filter(Boolean));
+        for (const num of _splitNumbers(c.argument_consolidation)) {
+            if (ownNumbers.has(num)) continue;
+            const other = cases.find(x => x && (x.number || '').split(',').map(s => s.trim()).includes(num));
+            if (other && !targets.includes(other)) targets.push(other);
+        }
     }
 
-    if (!Array.isArray(c.events)) c.events = [];
+    let anyChanged = false;
+    const changedLabels = [];
+    for (const target of targets) {
+        const label = target.number || target.id || '?';
 
-    let event = c.events.find(e => e && e.date === date);
-    let createdEvent = false;
-    if (!event) {
-        const type = knownReargDates.has(date) ? 'reargument' : 'argument';
-        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
-        const dateLabel = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
-        event = reorderEvent({
-            source: 'journal',
-            type,
-            date,
-            title: type === 'reargument' ? `Oral Reargument on ${dateLabel}` : `Oral Argument on ${dateLabel}`,
-            journal_ref: journalRef,
-            advocates: [],
-        });
-        // Insert in chronological order rather than blindly appending, so a
-        // backfilled early day doesn't land after later days already present.
-        const insertAt = c.events.findIndex(e => e && e.date && e.date > date);
-        if (insertAt === -1) c.events.push(event);
-        else c.events.splice(insertAt, 0, event);
-        createdEvent = true;
-    } else if (!Array.isArray(event.advocates)) {
-        event.advocates = [];
+        // The case's argument/reargument date field(s) are the source of
+        // truth for whether this case was actually argued on --date —
+        // refuse to fabricate an event for a date the case itself doesn't
+        // already record. For a consolidated group member (not the case
+        // named on the command line) this is a warning, not a hard error,
+        // since the rest of the group may still need the update applied.
+        const knownArgDates   = new Set(_parseDateField(target.argument   || ''));
+        const knownReargDates = new Set(_parseDateField(target.reargument || ''));
+        if (!knownArgDates.has(date) && !knownReargDates.has(date)) {
+            const msg = `${term}/${label}: ${date} is not among this case's argument/reargument date(s) `
+                + `(argument=${JSON.stringify(target.argument || '')}, reargument=${JSON.stringify(target.reargument || '')})`;
+            if (target === c) { console.error(`ERROR: ${msg}`); process.exit(1); }
+            console.log(`  WARNING: ${msg} — skipped`);
+            continue;
+        }
+
+        if (!Array.isArray(target.events)) target.events = [];
+
+        let event = target.events.find(e => e && e.date === date);
+        let createdEvent = false;
+        if (!event) {
+            const type = knownReargDates.has(date) ? 'reargument' : 'argument';
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+            const dateLabel = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
+            event = reorderEvent({
+                source: 'journal',
+                type,
+                date,
+                title: type === 'reargument' ? `Oral Reargument on ${dateLabel}` : `Oral Argument on ${dateLabel}`,
+                journal_ref: journalRef,
+                advocates: [],
+            });
+            // Insert in chronological order rather than blindly appending, so a
+            // backfilled early day doesn't land after later days already present.
+            const insertAt = target.events.findIndex(e => e && e.date && e.date > date);
+            if (insertAt === -1) target.events.push(event);
+            else target.events.splice(insertAt, 0, event);
+            createdEvent = true;
+        } else if (!Array.isArray(event.advocates)) {
+            event.advocates = [];
+        }
+
+        const existingNames = new Set(event.advocates.map(a => String(a?.name || '').toUpperCase()));
+        const added = [];
+        for (const adv of advocatesToAdd) {
+            if (existingNames.has(adv.name)) continue;
+            event.advocates.push(adv);
+            existingNames.add(adv.name);
+            added.push(adv.name);
+        }
+
+        if (!added.length) {
+            console.log(`${term}/${label}: all specified advocate(s) already present on ${date}; nothing to do.`);
+            continue;
+        }
+
+        console.log(`  ${term}/${label}: ${createdEvent ? '+event, ' : ''}+advocate(s) [${added.join(', ')}] on ${date}`);
+        anyChanged = true;
+        changedLabels.push(label);
+
+        if (!dryRun) {
+            const reordered = reorderCase(target);
+            for (const k of Object.keys(target)) delete target[k];
+            Object.assign(target, reordered);
+        }
     }
 
-    const existingNames = new Set(event.advocates.map(a => String(a?.name || '').toUpperCase()));
-    const added = [];
-    for (const adv of advocatesToAdd) {
-        if (existingNames.has(adv.name)) continue;
-        event.advocates.push(adv);
-        existingNames.add(adv.name);
-        added.push(adv.name);
-    }
-
-    if (!added.length) {
-        console.log(`${term}/${label}: all specified advocate(s) already present on ${date}; nothing to do.`);
-        return;
-    }
-
-    console.log(`  ${term}/${label}: ${createdEvent ? '+event, ' : ''}+advocate(s) [${added.join(', ')}] on ${date}`);
+    if (!anyChanged) return;
     if (dryRun) {
         console.log(`[dry-run] Would update ${path.relative(REPO_ROOT, casesPath)}`);
         return;
     }
 
-    const reordered = reorderCase(c);
-    for (const k of Object.keys(c)) delete c[k];
-    Object.assign(c, reordered);
-
     _writeJson(casesPath, cases);
-    console.log(`Added advocate(s) [${added.join(', ')}] to ${term}/${label} (${date}).`);
+    console.log(`Added advocate(s) [${advocatesToAdd.map(a => a.name).join(', ')}] to ${term}/${changedLabels.join(', ')} (${date}).`);
 }
 
 

@@ -19,11 +19,14 @@
     <button class="menu-item" id="restore-favorites-btn" role="menuitem"><span class="menu-check"></span>Restore Favorites</button>
     <button class="menu-item" id="clear-favorites-btn" role="menuitem"><span class="menu-check"></span>Clear Favorites</button>
     <div class="menu-divider"></div>
+    <div class="menu-section-label">Shortcuts</div>
+    <button class="menu-item" id="search-terms-btn" role="menuitem"><span class="menu-check"></span>Search (Ctrl-F)</button>
+    <div class="menu-divider"></div>
     <div class="menu-section-label">Transcripts</div>
     <button class="menu-item" id="edit-transcripts-btn" role="menuitem" disabled><span class="menu-check"></span>Edit Transcripts</button>
     <button class="menu-item" id="end-editing-btn" role="menuitem" hidden><span class="menu-check"></span>End Edits</button>
-    <button class="menu-item" id="download-edits-btn" role="menuitem"><span class="menu-check"></span>Download Edits</button>
-    <button class="menu-item" id="clear-edits-btn" role="menuitem"><span class="menu-check"></span>Clear Edits</button>
+    <button class="menu-item" id="download-edits-btn" role="menuitem" disabled><span class="menu-check"></span>Download Edits</button>
+    <button class="menu-item" id="clear-edits-btn" role="menuitem" disabled><span class="menu-check"></span>Clear Edits</button>
     <!-- Hidden until this browser actually has local Minutes date edits (see
          terms.js's drag-and-drop editing and storage-actions.js's
          window._downloadDateOverrides) — unlike the always-visible sections

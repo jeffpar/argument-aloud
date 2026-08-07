@@ -12,8 +12,16 @@
  */
 
 export const CASE_KEY_ORDER = [
-    'id', 'title', 'tags', 'number', 'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
+    'id', 'title', 'tags', 'number',
+    'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'docket_href', 'questions', 'questions_href',
+    // Comma-separated docket number(s) of every case (this one included)
+    // heard in the same argument session — distinct from a joint "number"
+    // (one case filed under several dockets); this is for separately
+    // tracked cases (their own id/title/decision) argued together. By
+    // convention every case in the group carries the exact same value, e.g.
+    // cases 880 and 1441 both carry "880,1441".
+    'argument_consolidation',
     'argument', 'argument_day', 'reargument', 'reargument_day', 'decision', 'decision_day',
     // Case-level fallback for the decision's own journal entry, for a case
     // with no decision-type event to hang a per-event journal_ref off of.

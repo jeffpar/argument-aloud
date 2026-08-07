@@ -2335,7 +2335,12 @@ button.term-case-count.sort-active:hover {
 
   #doc-browser {
     width: 100% !important;
-    max-height: 45vh;
+    /* Fixed (not viewport-relative) so the nav tree's top-level sections —
+       Blog, Collections, Topics, Terms, Sources — are all visible below the
+       topbar on first load, before the user drags #h-mobile-resize. Kept in
+       sync with explorer.js's own DEFAULT_H — this is just the pre-JS/no-JS
+       fallback, JS is the actual source of truth once it runs. */
+    max-height: 230px;
   }
 
   #v-resize {

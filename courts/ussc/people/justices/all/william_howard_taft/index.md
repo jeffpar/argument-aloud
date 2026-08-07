@@ -1,9 +1,9 @@
 ---
 title: Chief Justice William Howard Taft
 layout: pane
-case_count: 2
+case_count: 27
 first_argument: April 15, 1890
-last_argument: May 1, 1890
+last_argument: March 9, 1892
 justice_id: william_howard_taft
 wikipedia_url: https://en.wikipedia.org/wiki/William_Howard_Taft
 years_served: 8.6

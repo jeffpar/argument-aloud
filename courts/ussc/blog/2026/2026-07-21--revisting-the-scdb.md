@@ -41,7 +41,7 @@ NOTE: Before we revisit my 2019 blog post on SCDB below, I want to make it clear
 
 But we're working on it. If you look at a case like [Green v. United States (1957)](/courts/ussc/?term=1957-10&case=46), you will now see the following message:
 
-> U.S. Reports indicates argument occurred on October 15, 1957, but the Journal indicates otherwise
+> U.S. Reports indicates argument on October 15, 1957, but the Journal indicates otherwise
 
 For a list of *all* cases where we have noted one or more corrections, check out our newest collection, [Cases with Warnings](/courts/ussc/?collection=audits&id=warnings&sort=decided&o=a&link=/courts/ussc/blog/2026/revisiting-the-scdb/).
 

@@ -5,7 +5,7 @@ justice_id: david_brewer
 wikipedia_url: https://en.wikipedia.org/wiki/David_Brewer
 years_served: 20.2
 days_served: "7,386"
-opinions: 540
+opinions: 539
 lone_dissents: 55
 ---
 <div style="display:flex; gap:1em;">

@@ -353,7 +353,11 @@ const CASE_NUMBER_RE = /^(\d+[AM]\d+|[A-Z]-\d+|\d[\d,\-–—]*)/;
 // letters) changes whether the optional trailing period gets backtracked
 // away in "Misc., ..." — which then falsely trips the day-call-list comma
 // check below and truncates a real case's disposition text mid-sentence.
-const CASE_SUFFIX_RE = /^[.,:;\-–—\s]*(Original|Orig\.?|Misc\.?)\b(?!')/i;
+// A second alternative handles the suffix wrapped in parens instead — e.g.
+// "No. 5 (original).-Title" or "No. 8.—(Original.) Title" — where the
+// closing ")" itself unambiguously ends the token, so no \b/(?!') guard is
+// needed there the way the bare-word alternative needs one.
+const CASE_SUFFIX_RE = /^[.,:;\-–—\s]*(?:\((Original|Orig|Misc)\.?\)|(Original|Orig\.?|Misc\.?)\b(?!'))/i;
 
 /**
  * Parse a "No. ..."/"Nos. ..." case-start line into { number, rest }, where
@@ -374,6 +378,13 @@ function parseCaseStart(line) {
   // isn't part of the number itself either way.
   const hadTrailingComma = /,$/.test(numMatch[0]);
   let number = numMatch[0].replace(/,$/, '');
+  // Likewise a trailing dash: the same alternative's dash allowance exists
+  // for a genuine joint-number range ("1274-1276"), which always has a
+  // digit right after the dash — the regex is greedy, so it only stops
+  // exactly on a dash when nothing digit-like follows, meaning this is
+  // really the usual number-to-title separator dash rendered with no space
+  // ("No. 1164-The United States..."), not part of the number.
+  number = number.replace(/[-–—]$/, '');
 
   // "Nos. X and Y.—Title" / "Nos. W, X, Y, and Z.—Title" — up to three further
   // numbers sharing this one entry, folded into the number attribute
@@ -400,7 +411,9 @@ function parseCaseStart(line) {
 
   const suffixMatch = CASE_SUFFIX_RE.exec(rest);
   if (suffixMatch) {
-    const tag = /orig/i.test(suffixMatch[1]) ? '-Orig' : '-Misc';
+    // Group 1 is the parenthesized form, group 2 the bare-word form — only
+    // one of the two ever actually matches (see CASE_SUFFIX_RE above).
+    const tag = /orig/i.test(suffixMatch[1] || suffixMatch[2]) ? '-Orig' : '-Misc';
     // A joint entry's suffix applies to every one of its numbers individually
     // ("Nos. 6 and 7. Original." -> "6-Orig,7-Orig"), not just the last one.
     number = number.split(',').map(n => n + tag).join(',');
@@ -871,7 +884,12 @@ function parseJournalText(text) {
   };
 
   for (const rawLine of lines) {
-    const line = rawLine.trim();
+    // "☐" is OCR noise from a left-margin mark (a hole-punch, ruled line,
+    // etc.) that recurs at the start of essentially any line on certain
+    // pages, regardless of content — never meaningful, so it's stripped
+    // before any other line handling below (case-start/date-heading
+    // detection would otherwise fail to match right past it).
+    const line = rawLine.trim().replace(/^☐+\s*/, '');
     if (!line) continue;
 
     if (PAGE_NUM_RE.test(line)) {
@@ -1220,7 +1238,12 @@ function runVerifyCaseDates(year) {
     // *any* one of its component docket numbers counts, not just an exact
     // match on the whole joined string (which the journal never records
     // literally; see parseJournalXml() above).
-    const caseNums = c.number.split(',').map(s => s.trim());
+    // "argument_consolidation" (see schema.js), when present, already lists
+    // every case in the group (this one included) — a joint argument is
+    // sometimes recorded in the journal under only one side's number, so any
+    // one of them counts as found. Falls back to this case's own number(s)
+    // when it isn't part of a consolidated-argument group at all.
+    const caseNums = (c.argument_consolidation || c.number).split(',').map(s => s.trim());
     for (const prop of CASE_DATE_PROPS) {
       const raw = c[prop];
       if (!raw) continue;

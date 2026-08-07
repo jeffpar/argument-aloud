@@ -51,6 +51,49 @@ const REPORTS_JSON      = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 /** Return the first pipe-delimited component of a case title for display. */
 const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
 
+// A case's "argument_consolidation" (see schema.js) — an identical,
+// shared value on every case in the group, listing all their numbers
+// (each case included) — names other, separately tracked case object(s)
+// heard in the very same argument session. Each would otherwise contribute
+// its own advocate-list entry for what was really one shared appearance.
+// Returns the Set of non-canonical case objects (every group member except
+// the one update_cases.js's sortCases() would order first: latest of
+// argument/reargument date, then lowest docket number) to skip so an
+// advocate gets exactly one entry per group, not one per case object. Key
+// logic must stay in sync with sortCases() in update_cases.js. Used both
+// when building per-advocate case lists and justice_advocates.json.
+function computeArguedWithSkipSet(cases) {
+    const lastArgDate = (cc) => {
+        const dates = [cc.argument, cc.reargument].filter(Boolean);
+        return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';
+    };
+    const firstDocketNum = (cc) => {
+        const raw = (cc.number || '').split(',')[0].trim();
+        const parts = raw.split('-');
+        return parseInt(parts[parts.length - 1], 10) || 0;
+    };
+    const sortKeyTuple = (cc) => { const d = lastArgDate(cc); return [d ? 0 : 1, d || (cc.decision || '2199-12-31'), firstDocketNum(cc)]; };
+    const cmpSortKey = (a, b) => {
+        for (let i = 0; i < a.length; i++) { if (a[i] < b[i]) return -1; if (a[i] > b[i]) return 1; }
+        return 0;
+    };
+    // Every case in a group carries the exact same value, so grouping by
+    // that raw string directly finds each group with no number lookup needed.
+    const groups = new Map();
+    for (const cc of cases) {
+        if (!cc.argument_consolidation) continue;
+        if (!groups.has(cc.argument_consolidation)) groups.set(cc.argument_consolidation, []);
+        groups.get(cc.argument_consolidation).push(cc);
+    }
+    const skipArguedWith = new Set();
+    for (const group of groups.values()) {
+        if (group.length < 2) continue; // malformed (solo) — nothing to dedupe
+        const canonical = group.reduce((best, g) => cmpSortKey(sortKeyTuple(g), sortKeyTuple(best)) < 0 ? g : best);
+        for (const g of group) if (g !== canonical) skipArguedWith.add(g);
+    }
+    return skipArguedWith;
+}
+
 /**
  * Preferred `case=` URL value for a case — its first docket number when
  * that's unique among its term's sibling cases, else its own id (matching
@@ -564,10 +607,16 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         if (!exists(cf)) continue;
         let cases;
         try { cases = readJson(cf); } catch { continue; }
+        const skipArguedWith = computeArguedWithSkipSet(cases);
 
         for (const c of cases) {
+            if (skipArguedWith.has(c)) continue;
             const events = c.events || [];
-            const number = String(c.number || '').split(',')[0].trim();
+            // A case with no docket number (e.g. an original-jurisdiction "In
+            // re ___" petition) falls back to its own id — same convention as
+            // _jmBuildCaseIndices()'s byKey and the main advocate-list loop's
+            // caseEntry.number below, so the two line up as the same key.
+            const number = String(c.number || '').split(',')[0].trim() || String(c.id || '').trim();
             // Accumulate per-justice, per-type: dates and event indices for this case.
             const accumByJustice = new Map(); // justiceDisp -> {argument:{dates,idxs}, reargument:{dates,idxs}}
 
@@ -657,7 +706,10 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         const existingType = (e) => (e && 'reargument' in e) ? 'reargument' : 'argument';
 
         // Drop existing entries that have no event support (e.g. formerly
-        // added from the README with no transcript evidence).
+        // added from the README with no transcript evidence, or — since
+        // computeArguedWithSkipSet() was added — the non-canonical side of
+        // an argument_consolidation pair/group that's no longer scanned at all).
+        const originalCasesJson = JSON.stringify(group.cases || []);
         const mdSlots = new Set(mdCases.map(mc => slotKey(mc.term, mc.number, mc.type)));
         const existing = (group.cases || []).filter(e =>
             mdSlots.has(slotKey(e.term || '', e.number || '', existingType(e)))
@@ -779,8 +831,14 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
         });
         const after = JSON.stringify(newExisting);
         const annotationsChanged = before !== after;
+        // before/after only ever compare newExisting against itself pre/post
+        // the per-entry normalization loop above, which can never detect an
+        // entry the initial mdSlots filter already dropped entirely (before
+        // newExisting is even built) — compare against the on-disk original
+        // too so a pure removal (no add, no per-entry change) still writes.
+        const entriesRemoved = after !== originalCasesJson;
 
-        if (!toAdd.length && !annotationsChanged) continue;
+        if (!toAdd.length && !annotationsChanged && !entriesRemoved) continue;
 
         group.cases = newExisting;
         totalAdded += toAdd.length;
@@ -1695,7 +1753,10 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             continue;
         }
 
+        const skipArguedWith = computeArguedWithSkipSet(cases);
+
         for (const c of cases) {
+            if (skipArguedWith.has(c)) continue;
             const title       = firstTitle(c.title) || '';
             const numberRaw   = c.number || '';
             const number      = numberRaw;

@@ -81,7 +81,7 @@
     ],
     "scdb_check": "argument,decision",
     "scdb_message": "SCDB argument dates incomplete; SCDB decision date (1891-03-23) incorrect",
-    "audit_message": "U.S. Reports indicates decision occurred on March 23, 1891, but the Journal indicates otherwise"
+    "audit_message": "U.S. Reports indicates decision on March 23, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-275",
@@ -575,7 +575,7 @@
     ],
     "scdb_check": "decision",
     "scdb_message": "SCDB decision date (1891-05-25) incorrect",
-    "audit_message": "U.S. Reports indicates decision occurred on May 25, 1891, but the Journal indicates otherwise"
+    "audit_message": "U.S. Reports indicates decision on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-285",
@@ -659,7 +659,7 @@
     ],
     "scdb_check": "argument,decision",
     "scdb_message": "SCDB argument dates incomplete; SCDB decision date (1891-05-25) incorrect",
-    "audit_message": "U.S. Reports indicates decision occurred on May 25, 1891, but the Journal indicates otherwise"
+    "audit_message": "U.S. Reports indicates decision on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-287",
@@ -1081,7 +1081,14 @@
         "source": "scdb",
         "type": "argument",
         "date": "1890-10-22",
-        "title": "Oral Argument on October 22, 1890"
+        "title": "Oral Argument on October 22, 1890",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       }
     ]
   },
@@ -2678,13 +2685,32 @@
         "source": "scdb",
         "type": "argument",
         "date": "1890-11-10",
-        "title": "Oral Argument on November 10, 1890"
+        "title": "Oral Argument on November 10, 1890",
+        "advocates": [
+          {
+            "name": "LEWIS ABRAHAM",
+            "title": "MR.",
+            "role": "appellant"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1890-11-11",
-        "title": "Oral Argument on November 11, 1890"
+        "title": "Oral Argument on November 11, 1890",
+        "advocates": [
+          {
+            "name": "BENJAMIN F. BUTLER",
+            "title": "MR.",
+            "role": "appellant"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -3548,13 +3574,32 @@
         "source": "scdb",
         "type": "argument",
         "date": "1890-11-19",
-        "title": "Oral Argument on November 19, 1890"
+        "title": "Oral Argument on November 19, 1890",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1890-11-20",
-        "title": "Oral Argument on November 20, 1890"
+        "title": "Oral Argument on November 20, 1890",
+        "advocates": [
+          {
+            "name": "STEPHEN G. CLARKE",
+            "title": "MR.",
+            "role": "defendant"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -3831,19 +3876,43 @@
         "type": "argument",
         "date": "1890-11-21",
         "title": "Oral Argument on November 21, 1890",
-        "journal_ref": "1890.40"
+        "journal_ref": "1890.40",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "appellant"
+          },
+          {
+            "name": "JOSEPH E. MCDONALD",
+            "title": "MR.",
+            "role": "appellee"
+          },
+          {
+            "name": "WILLIAM H.H. MILLER",
+            "title": "MR.,ATTORNEY GENERAL",
+            "role": "appellant"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1890-11-24",
         "title": "Oral Argument on November 24, 1890",
-        "journal_ref": "1890.41"
+        "journal_ref": "1890.41",
+        "advocates": [
+          {
+            "name": "WILLIAM H.H. MILLER",
+            "title": "MR.,ATTORNEY GENERAL",
+            "role": "appellant"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
     "scdb_message": "SCDB argument dates incomplete",
-    "audit_message": "U.S. Reports indicates argument occurred on November 22, 1890, but the Journal indicates otherwise"
+    "audit_message": "U.S. Reports indicates argument on November 22, 1890, but the Journal indicates otherwise"
   },
   {
     "id": "1890-036",
@@ -4383,82 +4452,6 @@
     ]
   },
   {
-    "id": "1890-138",
-    "title": "Lawrence Mfg. Co. v. Janesville Cotton Mills",
-    "number": "102",
-    "files": false,
-    "argument": "1890-12-03,1890-12-04",
-    "argument_day": "Wednesday, December 3, 1890; Thursday, December 4, 1890",
-    "decision": "1891-03-02",
-    "decision_day": "Monday, March 2, 1891",
-    "usCite": "138 U.S. 552",
-    "decision_xml": "/courts/ussc/opinions/xml/us138/us138-0552.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep138/usrep138552/usrep138552.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-138_PDFA.pdf#page=580",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 7,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "none"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "none"
-      }
-    ],
-    "events": [
-      {
-        "source": "journal",
-        "type": "argument",
-        "date": "1890-12-03",
-        "title": "Oral Argument on December 3, 1890",
-        "journal_ref": "1890.50"
-      },
-      {
-        "source": "journal",
-        "type": "argument",
-        "date": "1890-12-04",
-        "title": "Oral Argument on December 4, 1890",
-        "journal_ref": "1890.51"
-      }
-    ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument date (1890-12-02) incorrect; SCDB argument dates incomplete",
-    "audit_message":"U.S. Reports indicates argument occurred on December 2, 3, 1890, but the Journal indicates otherwise"
-  },
-  {
     "id": "1890-137",
     "title": "Lawrence Mfg. Co. v. Tennessee Mfg. Co.",
     "number": "101",
@@ -4545,6 +4538,82 @@
         "title": "Oral Argument on December 3, 1890"
       }
     ]
+  },
+  {
+    "id": "1890-138",
+    "title": "Lawrence Mfg. Co. v. Janesville Cotton Mills",
+    "number": "102",
+    "files": false,
+    "argument": "1890-12-03,1890-12-04",
+    "argument_day": "Wednesday, December 3, 1890; Thursday, December 4, 1890",
+    "decision": "1891-03-02",
+    "decision_day": "Monday, March 2, 1891",
+    "usCite": "138 U.S. 552",
+    "decision_xml": "/courts/ussc/opinions/xml/us138/us138-0552.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep138/usrep138552/usrep138552.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-138_PDFA.pdf#page=580",
+    "result": "affirmed; no favorable disposition for petitioning party apparent",
+    "voteMajority": 7,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "none"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "none"
+      }
+    ],
+    "events": [
+      {
+        "source": "journal",
+        "type": "argument",
+        "date": "1890-12-03",
+        "title": "Oral Argument on December 3, 1890",
+        "journal_ref": "1890.50"
+      },
+      {
+        "source": "journal",
+        "type": "argument",
+        "date": "1890-12-04",
+        "title": "Oral Argument on December 4, 1890",
+        "journal_ref": "1890.51"
+      }
+    ],
+    "scdb_check": "argument",
+    "scdb_message": "SCDB argument date (1890-12-02) incorrect; SCDB argument dates incomplete",
+    "audit_message": "U.S. Reports indicates argument on December 2, 3, 1890, but the Journal indicates otherwise"
   },
   {
     "id": "1890-074",
@@ -5251,13 +5320,42 @@
         "source": "scdb",
         "type": "argument",
         "date": "1890-12-11",
-        "title": "Oral Argument on December 11, 1890"
+        "title": "Oral Argument on December 11, 1890",
+        "advocates": [
+          {
+            "name": "GEORGE R. PECK",
+            "title": "MR.",
+            "role": "plaintiff"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1890-12-12",
-        "title": "Oral Argument on December 12, 1890"
+        "title": "Oral Argument on December 12, 1890",
+        "advocates": [
+          {
+            "name": "GEORGE R. PECK",
+            "title": "MR.",
+            "role": "plaintiff"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          },
+          {
+            "name": "WILLIAM H.H. MILLER",
+            "title": "MR.,ATTORNEY GENERAL",
+            "role": "defendant"
+          },
+          {
+            "name": "JOHN F. DILLON",
+            "title": "MR.",
+            "role": "plaintiff"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -6233,7 +6331,14 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-01-06",
-        "title": "Oral Argument on January 6, 1891"
+        "title": "Oral Argument on January 6, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       }
     ]
   },
@@ -7483,7 +7588,14 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-01-16",
-        "title": "Oral Argument on January 16, 1891"
+        "title": "Oral Argument on January 16, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       }
     ]
   },
@@ -7548,7 +7660,14 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-01-16",
-        "title": "Oral Argument on January 16, 1891"
+        "title": "Oral Argument on January 16, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       }
     ]
   },
@@ -7707,7 +7826,7 @@
     ],
     "scdb_check": "argument,decision",
     "scdb_message": "SCDB argument date missing; SCDB decision date (1891-05-25) incorrect",
-    "audit_message": "U.S. Reports indicates argument occurred on May 25, 1891, but the Journal indicates otherwise"
+    "audit_message": "U.S. Reports indicates argument on May 25, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-165",
@@ -7716,8 +7835,9 @@
     "files": false,
     "argument": "1891-01-20",
     "argument_day": "Tuesday, January 20, 1891",
-    "decision": "1891-03-02",
-    "decision_day": "Monday, March 2, 1891",
+    "decision": "1891-03-16",
+    "decision_day": "Monday, March 16, 1891",
+    "journal_ref": "1890.137",
     "usCite": "139 U.S. 210",
     "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0210.xml",
     "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139210/usrep139210.pdf",
@@ -7772,7 +7892,10 @@
         "date": "1891-01-20",
         "title": "Oral Argument on January 20, 1891"
       }
-    ]
+    ],
+    "scdb_check": "decision",
+    "scdb_message": "SCDB decision date (1891-03-02) incorrect",
+    "audit_message": "U.S. Reports indicates argument on March 2, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-118",
@@ -8388,13 +8511,42 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-01-27",
-        "title": "Oral Argument on January 27, 1891"
+        "title": "Oral Argument on January 27, 1891",
+        "advocates": [
+          {
+            "name": "CALDERON CARLISLE",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "respondent"
+          },
+          {
+            "name": "WILLIAM H.H. MILLER",
+            "title": "MR.,ATTORNEY GENERAL",
+            "role": "respondent"
+          },
+          {
+            "name": "JOSEPH H. CHOATE",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-01-28",
-        "title": "Oral Argument on January 28, 1891"
+        "title": "Oral Argument on January 28, 1891",
+        "advocates": [
+          {
+            "name": "JOSEPH H. CHOATE",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -9462,84 +9614,11 @@
     ]
   },
   {
-    "id": "1890-238",
-    "title": "United States v. Barber",
-    "number": "1164",
-    "files": false,
-    "argument": "1891-03-12",
-    "argument_day": "Thursday, March 12, 1891",
-    "decision": "1891-05-11",
-    "decision_day": "Monday, May 11, 1891",
-    "usCite": "140 U.S. 164",
-    "opCite": [
-      {
-        "id": "1890-235",
-        "title": "United States v. Ewing (1891)",
-        "term": "1890-10",
-        "decision": "1891-05-11",
-        "count": 4
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us140/us140-0164.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep140/usrep140164/usrep140164.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-140_PDFA.pdf#page=190",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      }
-    ],
-    "events": [
-      {
-        "source": "scdb",
-        "type": "argument",
-        "date": "1891-03-12",
-        "title": "Oral Argument on March 12, 1891"
-      }
-    ]
-  },
-  {
     "id": "1890-235",
     "title": "United States v. Ewing",
     "number": "1117",
     "files": false,
+    "argument_consolidation": "1117,1151,1152,1164,1244",
     "argument": "1891-03-12,1891-03-13",
     "argument_day": "Thursday, March 12, 1891; Friday, March 13, 1891",
     "decision": "1891-05-11",
@@ -9619,13 +9698,52 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-12",
-        "title": "Oral Argument on March 12, 1891"
+        "title": "Oral Argument on March 12, 1891",
+        "advocates": [
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "E.J. MCDERMOTT",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "O.B. HALLAM",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "GEORGE A. KING",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-13",
-        "title": "Oral Argument on March 13, 1891"
+        "title": "Oral Argument on March 13, 1891",
+        "advocates": [
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -9636,6 +9754,7 @@
     "title": "United States v. Poinier",
     "number": "1151",
     "files": false,
+    "argument_consolidation": "1117,1151,1152,1164,1244",
     "argument": "1891-03-12,1891-03-13",
     "argument_day": "Thursday, March 12, 1891; Friday, March 13, 1891",
     "decision": "1891-05-11",
@@ -9701,13 +9820,52 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-12",
-        "title": "Oral Argument on March 12, 1891"
+        "title": "Oral Argument on March 12, 1891",
+        "advocates": [
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "E.J. MCDERMOTT",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "O.B. HALLAM",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "GEORGE A. KING",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-13",
-        "title": "Oral Argument on March 13, 1891"
+        "title": "Oral Argument on March 13, 1891",
+        "advocates": [
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -9718,6 +9876,7 @@
     "title": "United States v. McDermott",
     "number": "1152",
     "files": false,
+    "argument_consolidation": "1117,1151,1152,1164,1244",
     "argument": "1891-03-12,1891-03-13",
     "argument_day": "Thursday, March 12, 1891; Friday, March 13, 1891",
     "decision": "1891-05-11",
@@ -9783,13 +9942,175 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-12",
-        "title": "Oral Argument on March 12, 1891"
+        "title": "Oral Argument on March 12, 1891",
+        "advocates": [
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "E.J. MCDERMOTT",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "O.B. HALLAM",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "GEORGE A. KING",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-13",
-        "title": "Oral Argument on March 13, 1891"
+        "title": "Oral Argument on March 13, 1891",
+        "advocates": [
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
+      }
+    ],
+    "scdb_check": "argument",
+    "scdb_message": "SCDB argument dates incomplete"
+  },
+  {
+    "id": "1890-238",
+    "title": "United States v. Barber",
+    "number": "1164",
+    "files": false,
+    "argument_consolidation": "1117,1151,1152,1164,1244",
+    "argument": "1891-03-12,1891-03-13",
+    "argument_day": "Thursday, March 12, 1891; Friday, March 13, 1891",
+    "decision": "1891-05-11",
+    "decision_day": "Monday, May 11, 1891",
+    "usCite": "140 U.S. 164",
+    "opCite": [
+      {
+        "id": "1890-235",
+        "title": "United States v. Ewing (1891)",
+        "term": "1890-10",
+        "decision": "1891-05-11",
+        "count": 4
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us140/us140-0164.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep140/usrep140164/usrep140164.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-140_PDFA.pdf#page=190",
+    "result": "affirmed; no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      }
+    ],
+    "events": [
+      {
+        "source": "scdb",
+        "type": "argument",
+        "date": "1891-03-12",
+        "title": "Oral Argument on March 12, 1891",
+        "advocates": [
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "E.J. MCDERMOTT",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "O.B. HALLAM",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "GEORGE A. KING",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          }
+        ]
+      },
+      {
+        "source": "journal",
+        "type": "argument",
+        "date": "1891-03-13",
+        "title": "Oral Argument on March 13, 1891",
+        "journal_ref": "1890.136",
+        "advocates": [
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -9800,6 +10121,7 @@
     "title": "United States v. Van Duzee",
     "number": "1244",
     "files": false,
+    "argument_consolidation": "1117,1151,1152,1164,1244",
     "argument": "1891-03-12,1891-03-13",
     "argument_day": "Thursday, March 12, 1891; Friday, March 13, 1891",
     "decision": "1891-05-11",
@@ -9856,13 +10178,52 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-12",
-        "title": "Oral Argument on March 12, 1891"
+        "title": "Oral Argument on March 12, 1891",
+        "advocates": [
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          },
+          {
+            "name": "E.J. MCDERMOTT",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "O.B. HALLAM",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "GEORGE A. KING",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-13",
-        "title": "Oral Argument on March 13, 1891"
+        "title": "Oral Argument on March 13, 1891",
+        "advocates": [
+          {
+            "name": "C.C. LANCASTER",
+            "title": "MR.",
+            "role": "respondent"
+          },
+          {
+            "name": "JOHN C. CHANEY",
+            "title": "MR.",
+            "role": "petitioner"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -10003,7 +10364,14 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-13",
-        "title": "Oral Argument on March 13, 1891"
+        "title": "Oral Argument on March 13, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          }
+        ]
       }
     ]
   },
@@ -10930,7 +11298,7 @@
   {
     "id": "1890-195",
     "title": "Union Edge Setter Co. v. Keith",
-    "number": "283",
+    "number": "233",
     "files": false,
     "argument": "1891-03-20,1891-03-23",
     "argument_day": "Friday, March 20, 1891; Monday, March 23, 1891",
@@ -10997,8 +11365,9 @@
         "title": "Oral Argument on March 23, 1891"
       }
     ],
-    "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_check": "number,argument",
+    "scdb_message": "SCDB case number (283) incorrect; SCDB argument dates incomplete",
+    "audit_message": "U.S. Reports indicates case No. 283, but the Minutes and Journal indicate otherwise"
   },
   {
     "id": "1890-304",
@@ -11850,7 +12219,7 @@
   {
     "id": "1890-207",
     "title": "Natal v. Louisiana",
-    "number": "271",
+    "number": "274",
     "files": false,
     "argument": "1891-03-30",
     "argument_day": "Monday, March 30, 1891",
@@ -11910,13 +12279,17 @@
         "date": "1891-03-30",
         "title": "Oral Argument on March 30, 1891"
       }
-    ]
+    ],
+    "scdb_check": "number",
+    "scdb_message": "SCDB case number (271) incorrect",
+    "audit_message": "U.S. Reports indicates case No. 271, but the Minutes and Journal indicate otherwise"
   },
   {
     "id": "1890-205",
     "title": "Magone v. Luckemeyer",
     "number": "880",
     "files": false,
+    "argument_consolidation": "880,1441",
     "argument": "1891-03-30,1891-03-31",
     "argument_day": "Monday, March 30, 1891; Tuesday, March 31, 1891",
     "decision": "1891-04-13",
@@ -11974,13 +12347,42 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-30",
-        "title": "Oral Argument on March 30, 1891"
+        "title": "Oral Argument on March 30, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          },
+          {
+            "name": "FRANCIS L. STETSON",
+            "title": "MR.",
+            "role": "defendant"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-31",
-        "title": "Oral Argument on March 31, 1891"
+        "title": "Oral Argument on March 31, 1891",
+        "advocates": [
+          {
+            "name": "FRANCIS L. STETSON",
+            "title": "MR.",
+            "role": "defendant"
+          },
+          {
+            "name": "PERCY L. SHUMAN",
+            "title": "MR.",
+            "role": "defendant"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -11991,6 +12393,7 @@
     "title": "Seeberger v. Farwell",
     "number": "1441",
     "files": false,
+    "argument_consolidation": "880,1441",
     "argument": "1891-03-30,1891-03-31",
     "argument_day": "Monday, March 30, 1891; Tuesday, March 31, 1891",
     "decision": "1891-04-13",
@@ -12047,13 +12450,42 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-03-30",
-        "title": "Oral Argument on March 30, 1891"
+        "title": "Oral Argument on March 30, 1891",
+        "advocates": [
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          },
+          {
+            "name": "FRANCIS L. STETSON",
+            "title": "MR.",
+            "role": "defendant"
+          }
+        ]
       },
       {
         "source": "ussc",
         "type": "argument",
         "date": "1891-03-31",
-        "title": "Oral Argument on March 31, 1891"
+        "title": "Oral Argument on March 31, 1891",
+        "advocates": [
+          {
+            "name": "FRANCIS L. STETSON",
+            "title": "MR.",
+            "role": "defendant"
+          },
+          {
+            "name": "PERCY L. SHUMAN",
+            "title": "MR.",
+            "role": "defendant"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "plaintiff"
+          }
+        ]
       }
     ],
     "scdb_check": "argument",
@@ -13268,7 +13700,19 @@
         "source": "scdb",
         "type": "argument",
         "date": "1891-04-10",
-        "title": "Oral Argument on April 10, 1891"
+        "title": "Oral Argument on April 10, 1891",
+        "advocates": [
+          {
+            "name": "JOHN E. KENNA",
+            "title": "MR.",
+            "role": "plaintiff"
+          },
+          {
+            "name": "WILLIAM HOWARD TAFT",
+            "title": "MR.,SOLICITOR GENERAL",
+            "role": "defendant"
+          }
+        ]
       }
     ]
   },
@@ -18048,70 +18492,6 @@
     ]
   },
   {
-    "id": "1890-158",
-    "title": "Guaranty Trust & Safe Deposit Co. v. Green Cove Springs & Melrose Railroad Co.",
-    "number": "155",
-    "files": false,
-    "decision": "1891-03-02",
-    "decision_day": "Monday, March 2, 1891",
-    "usCite": "139 U.S. 137",
-    "opCite": [
-      {
-        "id": "1870-016",
-        "title": "Cooper v. Reynolds (1870)",
-        "term": "1870-12",
-        "decision": "1870-12-06",
-        "count": 3
-      }
-    ],
-    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0137.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139137/usrep139137.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=167",
-    "result": "reversed; petitioning party received a favorable disposition",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      }
-    ]
-  },
-  {
     "id": "1890-153",
     "title": "Logan County Nat. Bank v. Townsend",
     "number": "170",
@@ -18428,62 +18808,6 @@
     ]
   },
   {
-    "id": "1890-159",
-    "title": "Stout v. Mastin",
-    "number": "1072",
-    "files": false,
-    "decision": "1891-03-02",
-    "decision_day": "Monday, March 2, 1891",
-    "usCite": "139 U.S. 151",
-    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0151.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139151/usrep139151.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=181",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 8,
-    "voteMinority": 1,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority"
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "minority",
-        "action": "wrote an opinion: dissent"
-      }
-    ]
-  },
-  {
     "id": "1890-128",
     "title": "Clay v. Field",
     "number": "1085",
@@ -18537,6 +18861,66 @@
         "vote": "none"
       }
     ]
+  },
+  {
+    "id": "1890-166",
+    "title": "Northwestern Fuel Co. v. Brock",
+    "number": "1159",
+    "files": false,
+    "decision": "1891-03-02",
+    "decision_day": "Monday, March 2, 1891",
+    "journal_ref": "1890.122",
+    "usCite": "139 U.S. 216",
+    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0216.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139216/usrep139216.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=246",
+    "result": "affirmed; no favorable disposition for petitioning party apparent",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority",
+        "action": "wrote an opinion: regular concurrence"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority"
+      }
+    ],
+    "scdb_check": "decision",
+    "scdb_message": "SCDB decision date (1891-03-16) incorrect",
+    "audit_message": "U.S. Reports indicates decision on March 16, 1891, but the Journal indicates otherwise"
   },
   {
     "id": "1890-145",
@@ -18695,6 +19079,133 @@
     ]
   },
   {
+    "id": "1890-158",
+    "title": "Guaranty Trust & Safe Deposit Co. v. Green Cove Springs & Melrose Railroad Co.",
+    "number": "155",
+    "files": false,
+    "decision": "1891-03-09",
+    "decision_day": "Monday, March 9, 1891",
+    "journal_ref": "1890.129",
+    "usCite": "139 U.S. 137",
+    "opCite": [
+      {
+        "id": "1870-016",
+        "title": "Cooper v. Reynolds (1870)",
+        "term": "1870-12",
+        "decision": "1870-12-06",
+        "count": 3
+      }
+    ],
+    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0137.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139137/usrep139137.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=167",
+    "result": "reversed; petitioning party received a favorable disposition",
+    "voteMajority": 9,
+    "voteMinority": 0,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority"
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      }
+    ],
+    "scdb_check": "decision",
+    "scdb_message": "SCDB decision date (1891-03-02) incorrect",
+    "audit_message": "U.S. Reports indicates decision on March 2, 1891, but the Journal indicates otherwise"
+  },
+  {
+    "id": "1890-159",
+    "title": "Stout v. Mastin",
+    "number": "1072",
+    "files": false,
+    "decision": "1891-03-09",
+    "decision_day": "Monday, March 9, 1891",
+    "usCite": "139 U.S. 151",
+    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0151.xml",
+    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139151/usrep139151.pdf",
+    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=181",
+    "result": "affirmed; no favorable disposition for petitioning party apparent",
+    "voteMajority": 8,
+    "voteMinority": 1,
+    "votes": [
+      {
+        "name": "MELVILLE FULLER",
+        "vote": "majority"
+      },
+      {
+        "name": "STEPHEN FIELD",
+        "vote": "majority"
+      },
+      {
+        "name": "JOSEPH BRADLEY",
+        "vote": "majority"
+      },
+      {
+        "name": "JOHN HARLAN",
+        "vote": "majority"
+      },
+      {
+        "name": "HORACE GRAY",
+        "vote": "majority"
+      },
+      {
+        "name": "SAMUEL BLATCHFORD",
+        "vote": "majority"
+      },
+      {
+        "name": "LUCIUS LAMAR",
+        "vote": "majority"
+      },
+      {
+        "name": "DAVID BREWER",
+        "vote": "majority",
+        "action": "wrote an opinion: majority or plurality",
+        "opinion": true
+      },
+      {
+        "name": "HENRY BROWN",
+        "vote": "minority",
+        "action": "wrote an opinion: dissent"
+      }
+    ],
+    "scdb_check": "decision",
+    "scdb_message": "SCDB decision date (1891-03-02) incorrect",
+    "audit_message": "U.S. Reports indicates decision on March 2, 1891, but the Journal indicates otherwise"
+  },
+  {
     "id": "1890-163",
     "title": "Callan v. Bransford",
     "number": "1271",
@@ -18742,62 +19253,6 @@
       {
         "name": "DAVID BREWER",
         "vote": "majority"
-      },
-      {
-        "name": "HENRY BROWN",
-        "vote": "majority"
-      }
-    ]
-  },
-  {
-    "id": "1890-166",
-    "title": "Northwestern Fuel Co. v. Brock",
-    "number": "1159",
-    "files": false,
-    "decision": "1891-03-16",
-    "decision_day": "Monday, March 16, 1891",
-    "usCite": "139 U.S. 216",
-    "decision_xml": "/courts/ussc/opinions/xml/us139/us139-0216.xml",
-    "decision_loc": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep139/usrep139216/usrep139216.pdf",
-    "decision_rep": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-139_PDFA.pdf#page=246",
-    "result": "affirmed; no favorable disposition for petitioning party apparent",
-    "voteMajority": 9,
-    "voteMinority": 0,
-    "votes": [
-      {
-        "name": "MELVILLE FULLER",
-        "vote": "majority"
-      },
-      {
-        "name": "STEPHEN FIELD",
-        "vote": "majority",
-        "action": "wrote an opinion: majority or plurality",
-        "opinion": true
-      },
-      {
-        "name": "JOSEPH BRADLEY",
-        "vote": "majority"
-      },
-      {
-        "name": "JOHN HARLAN",
-        "vote": "majority"
-      },
-      {
-        "name": "HORACE GRAY",
-        "vote": "majority"
-      },
-      {
-        "name": "SAMUEL BLATCHFORD",
-        "vote": "majority"
-      },
-      {
-        "name": "LUCIUS LAMAR",
-        "vote": "majority"
-      },
-      {
-        "name": "DAVID BREWER",
-        "vote": "majority",
-        "action": "wrote an opinion: regular concurrence"
       },
       {
         "name": "HENRY BROWN",
@@ -21105,6 +21560,7 @@
     "files": false,
     "decision": "1891-05-25",
     "decision_day": "Monday, May 25, 1891",
+    "journal_ref": "1890.213",
     "usCite": "140 U.S. 665",
     "opCite": [
       {

@@ -28,6 +28,17 @@
     menu.setAttribute('aria-hidden', 'true');
   }
 
+  // The Terms search box only exists on the explorer page (courts/ussc/) —
+  // window._openTermsSearch is set there by explorer.js. Anywhere else (e.g.
+  // the home page), there's no search box to open in place, so send the
+  // visitor to the explorer page instead: "?find=?" is the existing shared-
+  // link shorthand explorer.js already recognizes as "open an empty search
+  // box" (see restoreFromURL's ?find= handling), rather than a literal query.
+  function activateTermsSearch() {
+    if (typeof window._openTermsSearch === 'function') window._openTermsSearch();
+    else location.href = '/courts/ussc/?find=%3F';
+  }
+
   // Kept in sync with terms.js's own LS_DATES_KEY constant (the term stats
   // page, where Minutes drag-and-drop edits are made, lives in a same-origin
   // iframe under this topbar rather than sharing this script directly).
@@ -79,8 +90,31 @@
       if (!menu.contains(e.target) && e.target !== menuBtn) closeMenu();
     });
 
+    // The document/page viewer on the right renders its content in an
+    // <iframe> (PDF, image, or pane HTML) — a click inside it fires no
+    // 'click' event on this outer document at all, since it's a separate
+    // browsing context, so the listener above never sees it. Clicking into
+    // an iframe does shift focus there, though, which blurs this window;
+    // catch that instead so the menu still closes.
+    window.addEventListener('blur', function () {
+      if (menu.classList.contains('open') && document.activeElement && document.activeElement.tagName === 'IFRAME') {
+        closeMenu();
+      }
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { closeMenu(); menuBtn.focus(); }
+    });
+
+    // Ctrl+F (Windows/Linux) / Cmd+F (Mac) always jumps to the terms/case
+    // search box instead of the browser's native find-in-page — on every
+    // page this topbar appears on (home page included), not just the
+    // explorer page itself.
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        activateTermsSearch();
+      }
     });
 
     document.querySelectorAll('[data-theme-value]').forEach(function (btn) {
@@ -143,6 +177,14 @@
       clearFavBtn.addEventListener('click', function () {
         closeMenu();
         if (typeof window._clearFavorites === 'function') window._clearFavorites();
+      });
+    }
+
+    var searchTermsBtn = document.getElementById('search-terms-btn');
+    if (searchTermsBtn) {
+      searchTermsBtn.addEventListener('click', function () {
+        closeMenu();
+        activateTermsSearch();
       });
     }
 
