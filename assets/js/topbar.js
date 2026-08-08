@@ -28,6 +28,12 @@
     menu.setAttribute('aria-hidden', 'true');
   }
 
+  // Search tips live in the welcome blog post — shown alongside the search
+  // box (see window._showSearchTipsPage in explorer.js) so a visitor who
+  // reaches for search also sees how to use it. Kept here too since the
+  // home-page redirect below needs the same target as a plain ?link= param.
+  var SEARCH_TIPS_LINK = '/courts/ussc/blog/2026/welcome-to-argument-aloud/#search-tips';
+
   // The Terms search box only exists on the explorer page (courts/ussc/) —
   // window._openTermsSearch is set there by explorer.js. Anywhere else (e.g.
   // the home page), there's no search box to open in place, so send the
@@ -35,8 +41,12 @@
   // link shorthand explorer.js already recognizes as "open an empty search
   // box" (see restoreFromURL's ?find= handling), rather than a literal query.
   function activateTermsSearch() {
-    if (typeof window._openTermsSearch === 'function') window._openTermsSearch();
-    else location.href = '/courts/ussc/?find=%3F';
+    if (typeof window._openTermsSearch === 'function') {
+      window._openTermsSearch();
+      if (typeof window._showSearchTipsPage === 'function') window._showSearchTipsPage();
+    } else {
+      location.href = '/courts/ussc/?find=%3F&link=' + encodeURIComponent(SEARCH_TIPS_LINK);
+    }
   }
 
   // Kept in sync with terms.js's own LS_DATES_KEY constant (the term stats

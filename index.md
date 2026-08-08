@@ -65,7 +65,7 @@ layout: home
   </div>
 
   <div class="hp-card">
-    <a class="hp-card-link" href="/courts/ussc/?term=all&find=%3F" aria-label="Searches"></a>
+    <a class="hp-card-link" href="/courts/ussc/?find=%3F&link=/courts/ussc/blog/2026/welcome-to-argument-aloud/%23search-tips" aria-label="Searches"></a>
     <div class="hp-card-head">
       <div class="hp-icon">🔍</div>
       <div class="hp-card-title">Searches</div>

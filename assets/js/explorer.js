@@ -5067,6 +5067,13 @@ function showPageViewer(url, { pushState = true } = {}) {
   if (isMobile()) setMobileNavVisible(false);
 }
 
+// Shows the "Search Tips" section of the welcome blog post in the page
+// viewer — used by the topbar menu's "Search …" shortcut (see topbar.js)
+// alongside opening the search box, so a visitor who reaches for it also
+// sees how to use it.
+const SEARCH_TIPS_LINK = '/courts/ussc/blog/2026/welcome-to-argument-aloud/#search-tips';
+window._showSearchTipsPage = () => showPageViewer(SEARCH_TIPS_LINK);
+
 // Run `renderFn` (a DOM mutation, e.g. paginating a list by toggling many
 // items' `hidden` state), then adjust #doc-browser's scroll position so that
 // `anchorEl` — a DOM node reused across the mutation, typically the
@@ -9140,23 +9147,31 @@ let _navSearchActivate = null;
     }
 
     // Number mode: query starts with '#' followed by a docket number.
-    // Examples: "#24-1260", "#22-Orig", "#22 orig", "#100".
+    // Examples: "#24-1260", "#22-Orig", "#22 Orig", "#100".
     // Normalisation mirrors processNumberIndex in update_cases.js: lowercase and
-    // replace a hyphen immediately before "orig"/"misc" with a space.
+    // replace a hyphen immediately before "orig"/"misc" with a space (so the
+    // hyphenated and space-separated forms of the same query are equivalent).
     const numberMode = !keywordMode && q.startsWith('#');
     if (numberMode) {
       const numIndex = await _fetchNumberIndex();
       const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
-      // Purely numeric queries (e.g. "#2") must match a whole docket number
-      // exactly -- otherwise "#2" would substring-match "22-1260", "1972-161",
-      // etc. Non-numeric patterns like "orig"/"misc" still substring-match so
-      // "#orig" finds any Orig case number.
-      const numericQuery = normQ !== '' && !/[a-z]/i.test(normQ);
+      // A query naming an actual docket number (i.e. containing a digit) must
+      // match a key exactly -- otherwise "#2" would substring-match
+      // "22-1260", "1972-161", etc., and "#5-orig"/"#5 misc" would likewise
+      // substring-match "15-orig", "25-orig", "125-misc", etc. A purely
+      // alphabetic pattern like "orig"/"misc" (no docket number given) still
+      // substring-matches, browsing every case with that suffix. The bare
+      // word "misc" additionally matches any application-docket number (e.g.
+      // "24A408") -- these carry no literal "Misc" suffix but functionally
+      // belong to the same non-merits-docket bucket.
+      const hasDigit = /\d/.test(normQ);
       let refs = [];
       if (normQ) {
         const seen = new Set();
         for (const [key, val] of Object.entries(numIndex)) {
-          const isMatch = numericQuery ? key === normQ : key.includes(normQ);
+          const isMatch = hasDigit
+            ? key === normQ
+            : (key.includes(normQ) || (normQ === 'misc' && key.includes('a')));
           if (isMatch) { for (const r of val) { if (!seen.has(r)) { seen.add(r); refs.push(r); } } }
         }
       }
@@ -9494,7 +9509,9 @@ let _navSearchActivate = null;
     navSearchInput.value = findQuery;
     runNavSearch(findQuery);
   };
-  // Exposed for the topbar menu's "Search …" shortcut (a separate script).
+  // Exposed for the topbar menu's "Search …" shortcut (a separate script),
+  // which also shows the search-tips page alongside the search box — see
+  // window._showSearchTipsPage below.
   window._openTermsSearch = openNavSearch;
 })();
 
