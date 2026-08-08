@@ -28,9 +28,11 @@ Use the Terms search box (activated by clicking the magnifying glass to the righ
 
   - [Case Title](#case-title)
   - [Case Number](#case-number)
+  - [Case ID (SCDB)](#case-id)
   - [U.S. Reports Citation](#us-reports-citation)
   - [Transcript Text](#transcript-text)
   - [Term](#welcome-to-argument-aloud)
+  - [On This Day](#on-this-day)
 
 #### Case Title
 
@@ -46,6 +48,14 @@ Miscellaneous case numbers, such as "No. 1, Misc.", can be similarly located usi
 
 Starting in October Term 1971, the Court stopped using "Misc." case numbers and began using "A-" prefixes, and then in October Term 1999, the Court switched to a "yyAn" format for applications and "yyMn" format for motions (ie, 2-digit year, followed by 'A' or 'M', followed by a number).  Interestingly, to this day however, they still use "D-" prefixes for disbarment proceedings.
 
+#### Case ID
+
+For users of the [Supreme Court Database (SCDB)](https://scdb.la.psu.edu) who want to search for cases by [SCDB Case ID](https://scdb.la.psu.edu/online-codebook/scdb-case-id/), precede the ID with **#**, just as you would a case number (eg, **#1953-069** will return *Brown v. Board of Education (I)*). Historically, these Case IDs have been permanent, meaning once a case is assigned an ID, it never changes; however, there is no mention or promise of this in the SCDB Codebook, so one can only hope.
+
+Also note that our database is a superset of SCDB, so not every case here will have an ID; such cases always have a case number, which we use as a fallback.  You can see a complete list of such cases in our [Cases Missing SCDB Records](/courts/ussc/?collection=audits&id=missing-scdb-records&sort=decided&o=a) audit.
+
+While on the subject of SCDB and case numbers, we do support searching for cases like *McConnell v. Federal Election Commission* by any of its consolidated case numbers (eg, **#02-1734**) in addition to its leading case number (**#02-1674**), but we are at the mercy of SCDB accurately recording all such numbers -- which, alas, [they do not](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb#consolidated-cases).  This is an ongoing problem which, perhaps, our Journal back-filling project may someday resolve.
+
 #### U.S. Reports Citation
 
 Searching by U.S. Reports citation works exactly as you would expect: type **n U.S. n** or **n US n**(eg, **347 US 483**) and the matching case(s) will be immediately listed.
@@ -58,9 +68,13 @@ Searching for a word or phrase in a transcript is done by using double-quotes, a
 
 #### Term
 
-This isn't really a *search* so much as a *shortcut*: to quickly open and browse a specific term, simply type the year of the term (eg, **1945**) and press Return.
+This isn't a *search* so much as a *shortcut*: to quickly open and browse a specific term, simply type the year of the term (eg, **1945**) and press Return.
 
-In fact, pressing Return after *any* search is handy if you want to bookmark a particular search, or if you just want to be able to return to it using the browser's Back button.
+In fact, pressing Return after *any* search is handy if you want to to be able to return to the search results using the browser's Back button, or to bookmark the search, share it, etc.
+
+#### On This Day
+
+The "[On This Day](/courts/ussc?action=onthisday)" feature isn't part of the search function, but it is another type of case-related search the site can perform.  The link randomly selects a case that was either argued or decided on the current month and day at some previous point in the Court's history.
 
 ## More To Come
 

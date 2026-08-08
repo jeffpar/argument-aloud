@@ -535,7 +535,6 @@ a.jg-item:hover .portrait-photo { opacity: 0.82; }
   margin: 0 0 16px;
 }
 .jb-photo-frame {
-  max-width: 480px;
   margin: 24px auto 16px;
   padding: 8px;
   background: linear-gradient(145deg,#c8a44e 0%,#7c560e 25%,#b8900a 50%,#7c560e 75%,#c8a44e 100%);
@@ -546,6 +545,19 @@ a.jg-item:hover .portrait-photo { opacity: 0.82; }
   width: 100%;
   height: auto;
   display: block;
+}
+.jb-extra-photo {
+  margin: 0 auto 16px;
+  text-align: center;
+}
+.jb-extra-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.jb-extra-photo-desc {
+  font-size: 0.75rem;
+  opacity: 0.7;
 }
 .jb-name-list {
   text-align: center;

@@ -30,28 +30,77 @@
     return String(name || '').replace(/\s*\([^)]*\)\s*$/, '');
   }
 
-  function renderBenchPhoto(bench) {
-    if (!bench.image) return null;
-    var wrap = document.createElement('div');
-    wrap.className = 'jb-photo-frame';
-    var img = document.createElement('img');
-    img.src = bench.image;
-    img.alt = bench.name;
-    img.loading = 'lazy';
-    img.onerror = function () { wrap.remove(); };
-    wrap.appendChild(img);
-    return wrap;
+  // Default caption for any bench photo (see scripts/update_cases.js's
+  // _benchImages) that has no .txt of its own.
+  function benchSeniorityText(bench, justiceMap) {
+    var names = bench.justices.map(function (name) {
+      var j = justiceMap[justiceSlug(name)];
+      return j ? j.name : titleCaseName(name);
+    }).join(', ');
+    return 'In seniority order: ' + names;
+  }
+
+  // Appends `text` to `el` as separate text nodes joined by <br>, so line
+  // breaks written into a bench photo's .txt caption (see scripts/
+  // update_cases.js's _benchImages) survive onto the page — plain
+  // textContent would collapse them to a single line like any other HTML
+  // whitespace.
+  function appendTextWithBreaks(el, text) {
+    String(text || '').split(/\r\n|\r|\n/).forEach(function (line, i) {
+      if (i > 0) el.appendChild(document.createElement('br'));
+      el.appendChild(document.createTextNode(line));
+    });
   }
 
   function renderNameList(bench, justiceMap) {
     var p = document.createElement('p');
     p.className = 'jb-name-list';
-    var names = bench.justices.map(function (name) {
-      var j = justiceMap[justiceSlug(name)];
-      return j ? j.name : titleCaseName(name);
-    }).join(', ');
-    p.textContent = 'In seniority order: ' + names;
+    p.textContent = benchSeniorityText(bench, justiceMap);
     return p;
+  }
+
+  // Every photo in bench.images: the first gets the ornate primary-photo
+  // frame, any additional ones are shown plain — the same fashion as
+  // _includes/generic-image.html, photo then caption underneath. Each
+  // photo's own desc is used when present, else the generic seniority-order
+  // description (see benchSeniorityText) shared by every uncaptioned photo.
+  function renderBenchImages(bench, justiceMap) {
+    if (!bench.images || !bench.images.length) return null;
+    var frag = document.createDocumentFragment();
+    bench.images.forEach(function (image, i) {
+      var desc = image.desc || benchSeniorityText(bench, justiceMap);
+      if (i === 0) {
+        var wrap = document.createElement('div');
+        wrap.className = 'jb-photo-frame';
+        var img = document.createElement('img');
+        img.src = image.path;
+        img.alt = bench.name;
+        img.loading = 'lazy';
+        img.onerror = function () { wrap.remove(); };
+        wrap.appendChild(img);
+        frag.appendChild(wrap);
+        var p = document.createElement('p');
+        p.className = 'jb-name-list';
+        appendTextWithBreaks(p, desc);
+        frag.appendChild(p);
+      } else {
+        var extraP = document.createElement('p');
+        extraP.className = 'jb-extra-photo';
+        var extraImg = document.createElement('img');
+        extraImg.src = image.path;
+        extraImg.alt = desc;
+        extraImg.loading = 'lazy';
+        extraImg.onerror = function () { extraP.remove(); };
+        extraP.appendChild(extraImg);
+        extraP.appendChild(document.createElement('br'));
+        var span = document.createElement('span');
+        span.className = 'jb-extra-photo-desc';
+        appendTextWithBreaks(span, desc);
+        extraP.appendChild(span);
+        frag.appendChild(extraP);
+      }
+    });
+    return frag;
   }
 
   function renderRow(bench, justiceMap) {
@@ -155,9 +204,9 @@
       container.appendChild(titleRow);
       container.appendChild(meta);
       container.appendChild(renderRow(bench, justiceMap));
-      var photo = renderBenchPhoto(bench);
-      if (photo) container.appendChild(photo);
-      container.appendChild(renderNameList(bench, justiceMap));
+      var images = renderBenchImages(bench, justiceMap);
+      if (images) container.appendChild(images);
+      else container.appendChild(renderNameList(bench, justiceMap));
     } else {
       var pageHeader = document.createElement('div');
       pageHeader.className = 'jb-list-header';

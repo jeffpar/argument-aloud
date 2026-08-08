@@ -61,8 +61,10 @@ const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i
 // argument/reargument date, then lowest docket number) to skip so an
 // advocate gets exactly one entry per group, not one per case object. Key
 // logic must stay in sync with sortCases() in update_cases.js. Used both
-// when building per-advocate case lists and justice_advocates.json.
-function computeArguedWithSkipSet(cases) {
+// when building per-advocate case lists and justice_advocates.json — also
+// imported by update_cases.js's own processJusticeAdvocates for the same
+// reason (see there).
+export function computeArguedWithSkipSet(cases) {
     const lastArgDate = (cc) => {
         const dates = [cc.argument, cc.reargument].filter(Boolean);
         return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';

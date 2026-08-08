@@ -9646,14 +9646,14 @@ function _showOnThisDayNotFound(dateParam) {
 // Picks one case argued, reargued, or decided on the same month+day as
 // dateParam (a "YYYY-MM-DD" string — only its "MM-DD" matters, the year is
 // ignored) in *any* year of the Court's history, and navigates to it.
-// dateParam defaults to today (UTC) when absent/malformed. The pick is
-// "random" only in the sense that it isn't the most-relevant/first result —
-// it's fully deterministic for a given (date, seed) pair (seedParam defaults
-// to "1"), via _hashStringToUint32 above, so the same link always resolves
-// to the same case; a different seed picks a different one among that day's
-// candidates without needing a different date. seed=noteworthy is special —
-// see _pickNoteworthyOnThisDay above — restricting the pick to the curated
-// Noteworthy topic set instead of the full index. Backed by
+// dateParam defaults to today (UTC) when absent/malformed. An explicit
+// seedParam picks deterministically via _hashStringToUint32 above, so a link
+// that names one (e.g. "seed=1", or the special "seed=noteworthy" — see
+// _pickNoteworthyOnThisDay, which restricts the pick to the curated
+// Noteworthy topic set instead of the full index) always resolves to the
+// same case, for sharing/bookmarking. Without one, a fresh random seed is
+// drawn per call instead, so a plain "action=onthisday" link (optionally with
+// just a date=) picks a different candidate on every visit. Backed by
 // courts/ussc/indexes/cases/onthisday.json (see scripts/update_cases.js's
 // processOnThisDayIndex) — a "MM-DD" -> [ref, ...] map, same shortened-ref
 // convention (a bare case id for an October Term case whose id starts with
@@ -9662,7 +9662,7 @@ function _showOnThisDayNotFound(dateParam) {
 // when nothing matches, at any step.
 async function _onThisDayThenRestore(dateParam, seedParam) {
   const mmdd = _mmddFor(dateParam);
-  const seed = seedParam || '1';
+  const seed = seedParam || String(crypto.getRandomValues(new Uint32Array(1))[0]);
 
   let pick = null;
   if (seed === 'noteworthy') {

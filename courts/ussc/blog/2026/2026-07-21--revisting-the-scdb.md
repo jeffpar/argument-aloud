@@ -57,7 +57,7 @@ So, regarding the SCDB: does it really meet the "gold standard", and what does t
 
 ## Let Me Count The Ways
 
-### 1. Docket Numbers
+### Docket Numbers
 
 Here are some examples of SCDB docket numbers for [Original Jurisdiction](https://en.wikipedia.org/wiki/Original_jurisdiction_of_the_Supreme_Court_of_the_United_States) cases:
 
@@ -82,7 +82,7 @@ Well, apparently, there's more to it than that.
 
 There's also a small problem with "Miscellaneous" cases; SCDB usually appends a single letter ("M") to the docket number, but sometimes there's a space (eg, "61 M") and sometimes not (eg, "133M").
 
-### 2. Consolidated Cases
+### Consolidated Cases
 
 The U.S. Supreme Court often "consolidates" multiple cases from lower courts into a single case. For example, the docket number of the "lead" case in [McConnell v. Federal Election Commission (540 U.S. 93)](/courts/ussc/?term=2003-10&case=02-1674) is 02-1674. However, the complete list of consolidated cases, by docket number, looks like this:
 
@@ -106,7 +106,7 @@ The SCDB website simply says:
 
 And this isn't a trivial problem. When you look for the transcript for [East Texas Motor Freight System](/courts/ussc/?term=1976-10&case=75-718) on the [Supreme Court's](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1976) website, it's *only* listed as [Teamsters v. Rodriguez, No. 75-651](https://www.supremecourt.gov/pdfs/transcripts/1976/75-651_75-715_75-718_01-10-1977.pdf). Not as 75-715 or 75-718, but as 75-651 -- a docket number which you will *not* find in the SCDB.
 
-### 3. Decision Dates
+### Decision Dates
 
 For a case's [Date of Decision](https://scdb.la.psu.edu/online-codebook/date-of-decision/), the SCDB online codebook says:
 
@@ -196,7 +196,7 @@ Here's a list of all the corrections we've made to *dateDecision* in SCDB thus f
 - Ake v. Oklahoma (470 U.S. 68): [dateDecision](http://scdb.wustl.edu/analysisCaseListing.php?cid=1984-033-01) changed from Wednesday, February 20, 1985 to Tuesday, February 26, 1985 (see [470 U.S. 68](https://cdn.loc.gov/service/ll/usrep/usrep470/usrep470068/usrep470068.pdf))
 - Old Chief v. United States (519 U.S. 172): [dateDecision](http://scdb.wustl.edu/analysisCaseListing.php?cid=1996-013-01) changed from Tuesday, January 14, 1997 to Tuesday, January 7, 1997 (see [519 U.S. 172](https://cdn.loc.gov/service/ll/usrep/usrep519/usrep519172/usrep519172.pdf))
 
-### 4. Argument and Reargument Dates
+### Argument and Reargument Dates
 
 Argument dates are equally prone to error, even in major cases such as [Brown v. Board of Education (347 U.S. 483)](/courts/ussc/?term=1953-10&case=1), which SCDB says was argued on "12/8/1952", but in fact, arguments began on December 9, 1952 and lasted three days.
 
@@ -238,7 +238,7 @@ This is not to say that SCDB doesn't track *any* DIG'ed cases, but merely that i
 
 As an aside, it's also not a simple matter to identify *just* DIG'ed cases. SCDB has a [caseDisposition](https://scdb.la.psu.edu/online-codebook/disposition-of-case/) variable that is generally set to 9 ("petition denied or appeal dismissed") in such cases, but that value is also used in other cases, such as [Schwarz v. National Security Agency (526 U.S. 122)](/courts/ussc/?term=1998-10&case=98-7771), where the case was granted and a *per curiam* opinion was issued denying petitioner's motion.
 
-### 5. Natural Courts
+### Natural Courts
 
 A [Natural Court](https://scdb.la.psu.edu/online-codebook/natural-court/), as the SCDB online codebook explains, is:
 
@@ -273,7 +273,7 @@ And this isn't merely a problem with the natural court dates. Numerous cases are
 
 Look at [Braverman v. United States (317 U.S. 49)](/courts/ussc/?term=1942-10&case=43). It was argued on October 21, 1942 and decided on November 9, 1942, which would put it squarely in SCDB's "Stone 1" natural court. But it's coded in SCDB as being in the "Stone 2" (1202) natural court.
 
-### 6. Terms
+### Terms
 
 How SCDB defines the [Term](https://scdb.la.psu.edu/online-codebook/term-of-court/) in which a case was decided is problematic: it uses a simple number (a year), which is insufficient to properly identify the *actual* term in which a case was decided.
 
@@ -287,7 +287,7 @@ SCDB apologists could argue that, as long as the ambiguity of the **Term** varia
 
 Harold Spaeth's `TERM` variable didn't suffer from this ambiguity, because his "ALLCOURT" database didn't deal with cases before the Warren Court; however, there have also been a number of Special Terms, both before and after the Warren Court, which even the "ALLCOURT" database failed to properly deal with.
 
-### 7. Undocumented Values
+### Undocumented Values
 
 There are some variables, such as [caseOrigin](https://scdb.la.psu.edu/online-codebook/origin-of-case/) containing undocumented values (e.g., 157, 158, 161, etc).
 
@@ -323,13 +323,13 @@ Here's a small subset of the values, to give you a sense of the problems:
 
 There are *lots* of duplicate values, varying only in form, not in substance, as well as *lots* of typos.
 
-### 8. Missing Cases
+### Missing Cases
 
 When cross-referencing the cases in SCDB with other reputable sources (eg, data extracted from the Supreme Court's Case Citation Finder), I've also come across a number of cases which, even though they were considered "cite-worthy", do not appear in SCDB.
 
 I've logged some of those instances on my website (e.g., [missing cases](https://github.com/jeffpar/lonedissent/blob/master/logs/missingCases.csv) and [unknown citations](https://github.com/jeffpar/lonedissent/blob/master/logs/unknownCitations.csv)). I realize there are many "back of the book" cases that don't merit attention (e.g. denials of cert), but that's not true in *all* such cases, so perhaps SCDB should consider creating a second much simpler table of cases that cites all the cases it has deliberately omitted.
 
-### 9. Undocumented Changes
+### Undocumented Changes
 
 This is a broad category, encompassing every field of every record, and it's best illustrated with a simple example.
 
@@ -376,7 +376,7 @@ The assertion that end-users "can perform the differentials just as well as we c
 
 I long ago advocated for greater transparency in what SCDB chooses to add or correct in its database, including change logs with every release. These days, an even better step forward for SCDB would be to do what I've done here, which is to create an open-source repository containing copies of all the data sources being used, along with the scripts used to process them.
 
-Issues like those with [Terms](#6-terms) arose simply because SCDB didn't fully consider the impact of older cases on a design that it inherited from Harold Spaeth's "ALLCOURT" database. Other issues, like those with [Argument and Reargument Dates](#4-argument-and-reargument-dates), have long been acknowledged as limitations, but the only headway we ever made was a vague commitment to consider "database extensions" that would allow groups like Oyez to add more comprehensive oral argument information (e.g., dates, names of advocates, etc). As far as I can tell, that never happened.
+Issues like those with [Terms](#terms) arose simply because SCDB didn't fully consider the impact of older cases on a design that it inherited from Harold Spaeth's "ALLCOURT" database. Other issues, like those with [Argument and Reargument Dates](#argument-and-reargument-dates), have long been acknowledged as limitations, but the only headway we ever made was a vague commitment to consider "database extensions" that would allow groups like Oyez to add more comprehensive oral argument information (e.g., dates, names of advocates, etc). As far as I can tell, that never happened.
 
 In any event, it's never too late to fix problems. Instead of making excuses, justifications, or brushing off good suggestions as "too much work", SCDB should start acknowledging problems and create a roadmap for improving and evolving the database, defining new variables to address old issues and new features, deprecating problematic variables, and above all, adding rigorous data validation rules and cross-checks to eliminate mistakes and prevent future errors.
 

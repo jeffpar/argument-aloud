@@ -74,7 +74,7 @@ import {
     caseKeyOrder, reorderCase, reorderEvent, reorderAdvocate, reorderVote,
 } from './schema.js';
 
-import { syncAdvocates as _syncAdvocatesFromScript } from './update_advocates.js';
+import { syncAdvocates as _syncAdvocatesFromScript, computeArguedWithSkipSet } from './update_advocates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT   = path.resolve(__dirname, '..');
@@ -4550,19 +4550,35 @@ function processVocalJustices(allTerms, dryRun) {
 // composition of the Court.  A new bench is recorded each time the membership
 // changes (a justice joins or departs).  The first bench starts the day after
 // the Court's very first departure.
-// Resolve a bench's group photo: an exact "<id>.jpg" (e.g. "burger1.jpg"), else
-// the chief-justice family's default "<slug>.jpg" (e.g. "burger.jpg", the id
-// with its trailing bench number stripped), else null if neither exists.
+// Every photo for a bench: { path, desc? } — path to a jpg under this dir,
+// desc from a same-named .txt when one exists (omitted otherwise; the front
+// end falls back to its own generic "In seniority order: ..." description
+// for any image lacking one). The primary photo is an exact "<id>.jpg" (e.g.
+// "burger1.jpg"), else the chief-justice family's default "<slug>.jpg" (e.g.
+// "burger.jpg", the id with its trailing bench number stripped); additional
+// photos are "<id><letter>.jpg" (e.g. "chase2b.jpg", "chase2c.jpg" for bench
+// "chase2"), in letter order. Returns [] if no photo exists at all.
 const _BENCH_IMAGES_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'benches');
-function _benchImagePath(benchId) {
-    if (fs.existsSync(path.join(_BENCH_IMAGES_DIR, `${benchId}.jpg`))) {
-        return `/courts/ussc/collections/benches/${benchId}.jpg`;
+function _benchImages(benchId) {
+    const images = [];
+    const addIfExists = (jpgName) => {
+        if (!fs.existsSync(path.join(_BENCH_IMAGES_DIR, jpgName))) return false;
+        const txtPath = path.join(_BENCH_IMAGES_DIR, jpgName.replace(/\.jpg$/, '.txt'));
+        const desc = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8').trim() : '';
+        images.push({ path: `/courts/ussc/collections/benches/${jpgName}`, ...(desc ? { desc } : {}) });
+        return true;
+    };
+    if (!addIfExists(`${benchId}.jpg`)) {
+        const base = benchId.replace(/\d+$/, '');
+        if (base !== benchId) addIfExists(`${base}.jpg`);
     }
-    const base = benchId.replace(/\d+$/, '');
-    if (base !== benchId && fs.existsSync(path.join(_BENCH_IMAGES_DIR, `${base}.jpg`))) {
-        return `/courts/ussc/collections/benches/${base}.jpg`;
-    }
-    return null;
+    let files;
+    try { files = fs.readdirSync(_BENCH_IMAGES_DIR); } catch { files = []; }
+    const extraRe = new RegExp(`^${benchId}([b-z])\\.jpg$`);
+    files.map(f => f.match(extraRe)).filter(Boolean)
+        .sort((a, b) => a[1].localeCompare(b[1]))
+        .forEach(m => addIfExists(m[0]));
+    return images;
 }
 
 function processBenches(dryRun) {
@@ -4808,12 +4824,12 @@ function processBenches(dryRun) {
             benchName = `${lastChiefDisplay} ${n} (${yearRange})`;
         }
 
-        const image = _benchImagePath(benchId);
+        const images = _benchImages(benchId);
         return {
             id: benchId, name: benchName, dateStart, dateStop,
             cases: benchCaseLists[benchIdx].length,
             justices: servingTenures.map(t => t.canonical),
-            ...(image ? { image } : {}),
+            ...(images.length ? { images } : {}),
         };
     });
 
@@ -4921,7 +4937,14 @@ function processJusticeAdvocates(allTerms, dryRun) {
         try { cases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(cases)) continue;
 
+        // Cases argued together under an argument_consolidation group would
+        // otherwise each contribute their own entry below for what was really
+        // one shared appearance — skip every member but the canonical one
+        // (same rule update_advocates.js applies to its own advocate lists).
+        const skipConsolidated = computeArguedWithSkipSet(cases);
+
         for (const c of cases) {
+            if (skipConsolidated.has(c)) continue;
             if (!Array.isArray(c.events)) continue;
             for (let ei = 0; ei < c.events.length; ei++) {
                 const ev = c.events[ei];
@@ -4943,11 +4966,15 @@ function processJusticeAdvocates(allTerms, dryRun) {
 
                     if (!discovered.has(match.canonical)) discovered.set(match.canonical, new Map());
                     const byCase = discovered.get(match.canonical);
-                    const caseKey = `${term}/${String(c.number || '')}`;
+                    // A case with no docket number (e.g. an original-jurisdiction
+                    // "In re ___" petition) falls back to its own id — same
+                    // convention used everywhere else this data is keyed/listed.
+                    const caseNumber = String(c.number || c.id || '');
+                    const caseKey = `${term}/${caseNumber}`;
                     if (!byCase.has(caseKey)) {
                         byCase.set(caseKey, {
                             term,
-                            number: String(c.number || ''),
+                            number: caseNumber,
                             title:  firstTitle(c.title) || String(c.title || ''),
                             decision: c.decision || '',
                             dates: [],
