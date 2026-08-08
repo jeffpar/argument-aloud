@@ -31,7 +31,7 @@ So there are 7 terms (1882 through 1888, aka "The Void") during which, even thou
 
 Look at [Abendroth v. Van Dolsen (No. 229)](/courts/ussc/?term=1888-10&case=229), which U.S. Reports claims was argued "April 12, 13, 1889".  Except that, once again, it turns out April 13, 1889 was a **Saturday**, making the date highly suspect.  And sure enough, when you look at the [Minutes for April 12, 1889](/courts/ussc/?term=1888-10&case=229&file=1889-04-12) and [Minutes for April 15, 1889](/courts/ussc/?term=1888-10&case=229&file=1889-04-15), you can see that the case was argued Friday and Monday, not Friday and Saturday.
 
-{% include generic-image.html src="https://catalog.archives.gov/medialz/dc-metro/rg-267/607809/M215-017/M215-017-0855.jpg" desc="U.S. Supreme Court Minutes from April 12, 1889 (excerpt)" href="https://catalog.archives.gov/id/178846789?objectPage=855" %}
+{% include generic-image.html src="https://catalog.archives.gov/medialz/dc-metro/rg-267/607809/M215-017/M215-017-0855.jpg" desc="U.S. Supreme Court Minutes from April 12, 1889 (excerpt)" href="/courts/ussc/?term=1888-10&case=229&file=1889-04-12" %}
 
 A similar problem existed for a case in 1887, [Mercantile Bank v. New York (No. 1258)](/courts/ussc/?term=1886-10&case=1258), which we have also corrected and recorded the confirming pages in the Minutes.
 
@@ -42,9 +42,9 @@ Just out of curiosity, we checked the Court's [reported](/courts/ussc/?source=us
   - [Chicago & Northwestern Railway Co. v. United States (No. 508), 104 U.S. 680 (1982)](/courts/ussc/?term=1881-10&case=508)
   - [Chicago, Milwaukee & St. Paul Railway Co. v. United States (No. 194), 104 U.S. 687 (1982)](/courts/ussc/?term=1881-10&case=194)
   
-which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](https://argumentaloud.org/courts/ussc/?term=1881-10&case=508&file=1882-01-28) confirmed that they did indeed hear arguments on Saturday.
+which, like the cases above, fell on a Saturday (January 28, 1882).  The [Minutes](/courts/ussc/?term=1881-10&case=508&file=1882-01-28) confirmed that they did indeed hear arguments on Saturday.
 
-{% include generic-image.html src="https://catalog.archives.gov/medialz/dc-metro/rg-267/607809/M215-014/M215-014-0628.jpg" desc="U.S. Supreme Court Minutes from Saturday, January 28, 1882 (excerpt)" href="https://catalog.archives.gov/id/178843742?objectPage=628" %}
+{% include generic-image.html src="https://catalog.archives.gov/medialz/dc-metro/rg-267/607809/M215-014/M215-014-0628.jpg" desc="U.S. Supreme Court Minutes from Saturday, January 28, 1882 (excerpt)" href="/courts/ussc/?term=1881-10&case=508&file=1882-01-28" %}
 
 So for cases covered by the "Dates of Decisions" document with dates falling on a weekend, we generally presume that they are correct.
 
