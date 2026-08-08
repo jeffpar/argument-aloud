@@ -1,6 +1,8 @@
 ---
 title: William Howard Taft
 layout: pane
+case_count: 27
+last_argument: March 9, 1892
 ---
 
 # {{ page.title }}
