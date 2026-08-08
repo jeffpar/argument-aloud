@@ -3060,22 +3060,8 @@ function _setCaseInfoRow2(caseEntry) {
     a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
     a.className = 'date-link';
     a.textContent = text;
-    // The usual behavior (jump to the term page scoped to this date) is what
-    // a click does whenever this date's own Minutes gallery isn't already
-    // the doc viewer's current content. Otherwise (this is genuinely a
-    // second click right after the first opened it) it instead falls
-    // through to that usual navigation \u2014 clearing _activeMinutesGalleryIso
-    // first so a *third* click goes back to showing the gallery, same as a
-    // first one would. Selecting anything else from file-select also resets
-    // _activeMinutesGalleryIso (see its 'change' listener), so this always
-    // reflects "is my own gallery what's actually being shown right now",
-    // not just "was I ever clicked."
-    a.addEventListener('click', async (e) => {
+    a.addEventListener('click', (e) => {
       e.preventDefault();
-      if (_activeMinutesGalleryIso !== firstIso) {
-        if (await _showMinutesGalleryForDate(term, firstIso, 'Minutes for')) return;
-      }
-      _activeMinutesGalleryIso = null;
       navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
       updateEmptyStateForTerm(term, firstIso);
     });
@@ -3742,7 +3728,7 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     rawFiles.push({ type: 'opinion', title: oe.title, href: oe.href, ...(oe.view ? { view: oe.view } : {}) });
   });
 
-  const { entries, hideToggle = false } = opts.computeEntries(rawFiles);
+  const { entries, hideToggle = false } = await opts.computeEntries(rawFiles);
   const makeFileItem = (f) => _makeCaseFileItem(f, caseEntry);
 
   entries.forEach(e => {
@@ -4078,7 +4064,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       const { isEmpty } = await _buildCaseFileList(fileUl, caseEntry, {
         basePath,
         argumentDates: null,
-        computeEntries: (rawFiles) => {
+        computeEntries: async (rawFiles) => {
           const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', reference:'References', media:'Media', other:'Other' };
           const ORDER = ['petitioner','respondent','amicus','briefs','reference','media','other'];
           const MERGE_AMICUS_OTHER = true;
@@ -4110,11 +4096,17 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           // on ..."), plus any relating-to-orders statement ("Statement in
           // ..." — see importRelatingToOrdersCases in scripts/import_ussc.js),
           // gets surfaced under its own "Records" group — arguments first
-          // (chronological), decisions/statements last — appended as the very
-          // last group, after Citations/Consolidations/References (see below).
+          // (chronological), then Journal and Minutes entries (each their own
+          // date order — see loadCaseAsOpinion/loadCase's dropdown, which
+          // offers the same entries), decisions/statements last — appended as
+          // the very last group, after Citations/Consolidations/References
+          // (see below).
           const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+          const { journalFiles, minutesFiles } = await _buildMinutesJournalRecordsFiles(caseEntry, term);
           const recordsFiles = [
             ...(groups.transcript || []).slice().sort(byDate),
+            ...journalFiles,
+            ...minutesFiles,
             ...(groups.opinion || []).slice().sort(byDate),
             ...(groups.statement || []).slice().sort(byDate),
           ];
@@ -5754,7 +5746,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     const { isEmpty, hideToggle } = await _buildCaseFileList(fileUl, caseEntry, {
       basePath,
       argumentDates,
-      computeEntries: (rawFiles) => {
+      computeEntries: async (rawFiles) => {
         // Allowed category labels and their render order.
         const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'References', 'Media', 'Other'];
         const activeCats = ALL_CATS;
@@ -5792,13 +5784,18 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         // Each transcript ("Oral Argument on ..."), decision ("Decision on
         // ..."), and relating-to-orders statement ("Statement in ...") gets
         // pulled out into its own "Records" group instead of being
-        // categorized below — arguments first (chronological), decisions/
-        // statements last — appended as the very last group of all, after
-        // Citations/Consolidations/References.
+        // categorized below — arguments first (chronological), then Journal
+        // and Minutes entries (each their own date order — see
+        // loadCaseAsOpinion/loadCase's dropdown, which offers the same
+        // entries), decisions/statements last — appended as the very last
+        // group of all, after Citations/Consolidations/References.
         const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
         const _isRecordsType = (t) => t === 'transcript' || t === 'opinion' || t === 'statement';
+        const { journalFiles, minutesFiles } = await _buildMinutesJournalRecordsFiles(caseEntry, caseRef.term);
         const recordsFiles = [
           ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript').sort(byDate),
+          ...journalFiles,
+          ...minutesFiles,
           ...rawFiles.filter(f => { const t = (f.type || '').toLowerCase(); return t === 'opinion' || t === 'statement'; }),
         ];
 
@@ -6727,7 +6724,7 @@ function _buildJournalRefOptions(caseEntry, term) {
     if (seen.has(url)) return;
     seen.add(url);
     const value = 'journal:' + refValue;
-    map.set(value, { href: url, title });
+    map.set(value, { href: url, title, date });
     opts.push({ value, title });
   };
   (caseEntry.events || []).forEach(ev => addRef(ev.journal_ref, ev.date));
@@ -6757,10 +6754,52 @@ function _buildMinutesRefOptions(caseEntry) {
     const dateLabel = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title = 'Minutes for ' + dateLabel;
     const value = 'minutes:' + ev.date;
-    map.set(value, { href: ev.minutes_src || ev.minutes_href, title, view: 'pane' });
+    map.set(value, { href: ev.minutes_src || ev.minutes_href, title, view: 'pane', date: ev.date });
     opts.push({ value, title });
   });
   return { map, opts };
+}
+
+// Records-list-shaped file items for the same Minutes/Journal entries offered
+// in the file-select dropdown (see _buildMinutesRefOptions/_buildJournalRefOptions
+// above) — reused by both Records-group builders (term and collection case
+// panes) so a sidebar click lands on the exact same doc-viewer target and
+// restorable file=minutes:.../file=journal:... URL state as picking the same
+// entry from the dropdown. Returns { journalFiles, minutesFiles }, each its
+// own date-ordered array, so the caller can place Journal before Minutes
+// (Records' own display order, distinct from the dropdown's Minutes-first
+// order) among the rest of the Records entries.
+async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
+  const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
+  const { map: mrMap, opts: minutesOpts } = _buildMinutesRefOptions(caseEntry);
+  const { map: jrMap, opts: journalOpts } = _buildJournalRefOptions(caseEntry, term);
+  // The 'file' URL param drops the 'minutes:'/'journal:' sentinel prefix (see
+  // the file-select 'change' handler and _showMinutesFromParam/
+  // _showJournalFromParam, which re-add it before looking the value up) —
+  // strip it here too so a Records-item click round-trips the same way.
+  const journalFiles = journalOpts.map(o => ({ ...jrMap.get(o.value), file: o.value.slice('journal:'.length) })).sort(byDate);
+  const minutesFiles = minutesOpts.map(o => ({ ...mrMap.get(o.value), file: o.value.slice('minutes:'.length) })).sort(byDate);
+  // A case with no per-event minutes_href/minutes_src (most cases with no
+  // events at all — e.g. a decision-only case predating audio/transcripts)
+  // can still have a Minutes gallery for its own argued/reargued/decided
+  // dates in the term's dates.json — see _refreshMinutesGalleryOptions,
+  // which offers the same thing in the file-select dropdown for cases with
+  // no audio. Mirrored here so Records has it too.
+  const seenIsoDates = new Set(minutesFiles.map(f => f.date));
+  const isos = [...new Set(
+    [caseEntry.argument, caseEntry.reargument, caseEntry.decision]
+      .filter(Boolean)
+      .map(field => field.split(',')[0].trim())
+      .filter(Boolean)
+  )].sort();
+  for (const iso of isos) {
+    if (seenIsoDates.has(iso)) continue; // already covered by an event's own minutes_href above
+    const images = await _minutesImagesForDate(term, iso);
+    if (!images) continue;
+    minutesFiles.push({ title: 'Minutes for ' + formatDecisionDate(iso), href: images[0], images, view: 'pane', file: iso, date: iso });
+  }
+  minutesFiles.sort(byDate); // re-sort — a gallery entry may have been appended after the initial sort above
+  return { journalFiles, minutesFiles };
 }
 
 // Display a case in opinion-only mode: no transcript pane (i.e. no synced,
