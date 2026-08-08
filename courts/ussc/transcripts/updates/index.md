@@ -182,4 +182,11 @@ Below is a list of all transcripts updates that have been applied to the server 
       - [Turn 62](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=62): new turn (UNKNOWN JUSTICE)
       - [Turn 63](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=63): new turn (GEORGE R. HODGES)
       - [Turn 64](/courts/ussc/?term=1983-10&case=83-185&event=1&turn=64): new turn (UNKNOWN JUSTICE)
+  - [Alabama v. Bozeman (No. 00-492)](/courts/ussc/?term=2000-10&case=00-492&event=2)
+      - [Turn 63](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=63): ANTHONY KENNEDY -> JOHN PAUL STEVENS
+      - [Turn 65](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=65): ANTHONY KENNEDY -> JOHN PAUL STEVENS
+      - [Turn 67](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=67): ANTHONY KENNEDY -> JOHN PAUL STEVENS
+      - [Turn 69](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=69): ANTHONY KENNEDY -> JOHN PAUL STEVENS
+      - [Turn 71](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=71): ANTHONY KENNEDY -> JOHN PAUL STEVENS
+      - [Turn 118](/courts/ussc/?term=2000-10&case=00-492&event=2&turn=118): "... Anderson v. Yungkau. Those cases ..." -> "... Anderson v. Mt. Clemens Pottery Company. Those cases ..."
 </div>
