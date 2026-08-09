@@ -30,6 +30,14 @@
     return String(name || '').replace(/\s*\([^)]*\)\s*$/, '');
   }
 
+  // Last name for a portrait label — "John Harlan, II" -> "HARLAN", not "II"
+  // (mirrors lastName() in assets/js/explorer.js; duplicated here since this
+  // script runs in its own page, not alongside explorer.js).
+  function lastName(name) {
+    var stripped = String(name || '').replace(/,\s*(JR\.|SR\.|[IV]+)\s*$/i, '').trim();
+    return stripped.split(/\s+/).pop() || name;
+  }
+
   // Default caption for any bench photo (see scripts/update_cases.js's
   // _benchImages) that has no .txt of its own.
   function benchSeniorityText(bench, justiceMap) {
@@ -130,8 +138,7 @@
       var label = document.createElement('div');
       label.className = 'portrait-name jb-name';
       var displayName = j ? j.name : titleCaseName(name);
-      var words = displayName.trim().split(/\s+/);
-      label.textContent = words[words.length - 1].toUpperCase();
+      label.textContent = lastName(displayName).toUpperCase();
 
       el.appendChild(portrait);
       el.appendChild(label);
