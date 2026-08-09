@@ -225,11 +225,31 @@
       pageTitle.className = 'jb-page-title';
       pageTitle.textContent = 'Justice Benches';
 
+      var headerRight = document.createElement('div');
+      headerRight.className = 'jb-header-right';
+
+      // Overview (one bench photo per bench, gallery-page fashion) vs.
+      // Detail (one row of justice portraits per bench, as before).
+      var viewToggle = document.createElement('div');
+      viewToggle.className = 'jb-view-toggle';
+      var overviewBtn = document.createElement('button');
+      overviewBtn.className = 'grid-sort-btn jb-view-btn';
+      overviewBtn.dataset.view = 'overview';
+      overviewBtn.textContent = 'Overview';
+      var detailBtn = document.createElement('button');
+      detailBtn.className = 'grid-sort-btn jb-view-btn';
+      detailBtn.dataset.view = 'detail';
+      detailBtn.textContent = 'Detail';
+      viewToggle.appendChild(overviewBtn);
+      viewToggle.appendChild(detailBtn);
+
       var sortBtn = document.createElement('button');
       sortBtn.className = 'grid-sort-btn jb-sort-btn';
 
+      headerRight.appendChild(viewToggle);
+      headerRight.appendChild(sortBtn);
       pageHeader.appendChild(pageTitle);
-      pageHeader.appendChild(sortBtn);
+      pageHeader.appendChild(headerRight);
       container.appendChild(pageHeader);
 
       var intro = document.getElementById('jb-intro');
@@ -243,6 +263,53 @@
 
       var _bParams    = new URLSearchParams(location.search);
       var activeOrder = _bParams.get('order') === 'oldest' ? 'oldest' : 'newest';
+      var activeView  = _bParams.get('view') === 'detail' ? 'detail' : 'overview';
+
+      function updateViewButtons() {
+        detailBtn.classList.toggle('active', activeView === 'detail');
+        overviewBtn.classList.toggle('active', activeView === 'overview');
+      }
+
+      // One bench photo per bench (its images[0] — see scripts/update_cases.js's
+      // _benchImages), same grid/caption fashion as the Justice Gallery
+      // (.jg-grid/.jg-item) — 2-line caption: bench short name (e.g. "STONE 1"),
+      // then its year range, both already embedded in bench.name. A bench with
+      // no photo is left out rather than shown as a broken image.
+      function renderOverviewGrid(ordered) {
+        var grid = document.createElement('div');
+        grid.className = 'jg-grid';
+        ordered.forEach(function (bench) {
+          if (!bench.images || !bench.images.length) return;
+          var el = document.createElement('a');
+          el.className = 'jg-item';
+          el.href = '/courts/ussc/?collection=benches&id=' + bench.id;
+          el.target = '_top';
+
+          var photo = document.createElement('div');
+          photo.className = 'jb-grid-photo';
+          var img = document.createElement('img');
+          img.src = bench.images[0].path;
+          img.alt = bench.name;
+          img.loading = 'lazy';
+          img.onerror = function () { el.style.display = 'none'; };
+          photo.appendChild(img);
+
+          var nameEl = document.createElement('div');
+          nameEl.className = 'portrait-name jg-name';
+          nameEl.textContent = benchShortLabel(bench.name).toUpperCase();
+
+          var yearsEl = document.createElement('div');
+          yearsEl.className = 'jg-sub';
+          var yearMatch = bench.name.match(/\(([^)]*)\)\s*$/);
+          yearsEl.textContent = yearMatch ? yearMatch[1] : '';
+
+          el.appendChild(photo);
+          el.appendChild(nameEl);
+          el.appendChild(yearsEl);
+          grid.appendChild(el);
+        });
+        listEl.appendChild(grid);
+      }
 
       function renderList() {
         listEl.innerHTML = '';
@@ -252,6 +319,11 @@
           return a.dateStart < b.dateStart ? -1 : a.dateStart > b.dateStart ? 1 : 0;
         });
         if (activeOrder === 'newest') ordered.reverse();
+
+        if (activeView === 'overview') {
+          renderOverviewGrid(ordered);
+          return;
+        }
 
         var grandTotal = 0;
         ordered.forEach(function (bench, i) {
@@ -307,6 +379,19 @@
         renderList();
       });
 
+      viewToggle.addEventListener('click', function (e) {
+        var btn = e.target.closest('.jb-view-btn');
+        if (!btn || btn.dataset.view === activeView) return;
+        activeView = btn.dataset.view;
+        var url = new URL(location.href);
+        if (activeView === 'detail') url.searchParams.set('view', 'detail');
+        else url.searchParams.delete('view');
+        history.replaceState(null, '', url);
+        updateViewButtons();
+        renderList();
+      });
+
+      updateViewButtons();
       renderList();
     }
   });

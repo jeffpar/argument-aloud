@@ -10001,12 +10001,19 @@ async function restoreFromURL() {
     const collEntry = _findAnyCollectionEntry(collectionParam);
     const resolvedLink = linkParam || collEntry?.page || null;
     if (resolvedLink) {
-      const _sortV = params.get('sort');
-      const _sV    = params.get('s');
+      const _sortV  = params.get('sort');
+      const _sV     = params.get('s');
+      const _orderV = params.get('order');
+      const _viewV  = params.get('view');
       let _linkWithSort = resolvedLink;
       const _extra = [];
-      if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
-      if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
+      if (_sortV)  { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
+      if (_sV)     { _extra.push('s=' + encodeURIComponent(_sV)); }
+      // order/view: per-collection-page view state (e.g. benches.js's
+      // Newest/Oldest and Detail/Overview toggles) — forwarded the same way
+      // as sort/s above so a direct/shared link restores it.
+      if (_orderV) { _extra.push('order=' + encodeURIComponent(_orderV)); }
+      if (_viewV)  { _extra.push('view=' + encodeURIComponent(_viewV)); }
       if (_hash)  { _extra.push('anchor=' + encodeURIComponent(_hash)); }
       if (_extra.length) _linkWithSort += '?' + _extra.join('&');
       showPageViewer(_linkWithSort, { pushState: false });
@@ -10407,11 +10414,15 @@ async function restoreFromURL() {
       const _navItemName = navItem.querySelector('.term-label, .terms-label')?.textContent;
       if (_navItemName) setPageMeta(_navItemName + ' | Argument Aloud');
     }
-    const _sortV = params.get('sort');
-    const _sV    = params.get('s');
+    const _sortV  = params.get('sort');
+    const _sV     = params.get('s');
+    const _orderV = params.get('order');
+    const _viewV  = params.get('view');
     const _extra = [];
-    if (_sortV) { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
-    if (_sV)    { _extra.push('s=' + encodeURIComponent(_sV)); }
+    if (_sortV)  { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
+    if (_sV)     { _extra.push('s=' + encodeURIComponent(_sV)); }
+    if (_orderV) { _extra.push('order=' + encodeURIComponent(_orderV)); }
+    if (_viewV)  { _extra.push('view=' + encodeURIComponent(_viewV)); }
     let _linkWithSort = _extra.length ? linkBase + '?' + _extra.join('&') : linkBase;
     // Forward the outer page's own #hash (e.g. #2018-04-23) onto the linked
     // page's URL so the iframe's native browser scroll-to-anchor lands on the

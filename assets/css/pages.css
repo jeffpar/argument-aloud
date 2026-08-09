@@ -451,8 +451,38 @@ a.jg-item:hover .portrait-photo { opacity: 0.82; }
   gap: 8px;
   margin: 0 0 14px;
 }
+.jb-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.jb-view-toggle {
+  display: flex;
+  gap: 4px;
+}
+.jb-view-btn { opacity: 0.45; }
+.jb-view-btn:hover  { opacity: 0.75; }
+.jb-view-btn.active { opacity: 1; }
 .jb-sort-btn { opacity: 0.6; }
 .jb-sort-btn:hover { opacity: 1; }
+/* Overview grid: one bench photo per bench, gallery-page fashion — the
+   photo itself is landscape (a group photo, not a headshot), so it gets its
+   own aspect ratio rather than reusing .portrait-photo's 3:4. */
+.jb-grid-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #ccc;
+}
+html[data-theme="dark"] .jb-grid-photo { background: #3a3c45; }
+.jb-grid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
 .jb-separator {
   border: none;
   border-top: 1px solid currentColor;
