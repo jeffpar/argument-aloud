@@ -39,6 +39,14 @@
   function caseDisplayTitle(c) {
     return (c.title || c.number || c.id || '(unknown)').split('|')[0].trim();
   }
+  // "No. 5" / "Nos. 5, 6-Orig" — mirrors decisionTooltip/argumentTooltip's
+  // own number formatting in assets/js/explorer.js (duplicated here since
+  // this script runs on its own page, not alongside explorer.js).
+  function caseNumberLabel(c) {
+    if (!c.number) return '';
+    var numbers = c.number.split(',').map(function (n) { return n.trim().replace(/-(?=Orig|Misc)/i, ' '); });
+    return (numbers.length > 1 ? 'Nos. ' : 'No. ') + numbers.join(', ');
+  }
   // Preferred `case=` URL value for a case — its first docket number when
   // that's unique among siblingCases, else its own id (matching
   // explorer.js's own _caseUrlId()). siblingCases should be the cases.json
@@ -1734,7 +1742,8 @@
             var a = document.createElement('a');
             var id = caseUrlId(c, cases);
             var linkTerm = c.term || term;
-            a.textContent = caseDisplayTitle(c) + (c.usCite ? ' (' + c.usCite + ')' : '');
+            var numberLabel = caseNumberLabel(c);
+            a.textContent = caseDisplayTitle(c) + (numberLabel ? ' (' + numberLabel + ')' : '');
             a.href = '/courts/ussc/?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id);
             a.addEventListener('click', function (e) {
               e.preventDefault();
