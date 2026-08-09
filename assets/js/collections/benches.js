@@ -35,7 +35,10 @@
   function benchSeniorityText(bench, justiceMap) {
     var names = bench.justices.map(function (name) {
       var j = justiceMap[justiceSlug(name)];
-      return j ? j.name : titleCaseName(name);
+      var display = j ? j.name : titleCaseName(name);
+      // "John Harlan, II" -> "John Harlan II" -- the embedded comma reads as
+      // part of the seniority list's own ", "-separated punctuation.
+      return display.replace(/,\s*(Jr|Sr|II|III|IV)\.?$/i, ' $1');
     }).join(', ');
     return 'In seniority order: ' + names;
   }

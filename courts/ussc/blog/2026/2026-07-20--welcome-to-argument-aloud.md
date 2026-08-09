@@ -29,9 +29,9 @@ Use the Terms search box (activated by clicking the magnifying glass to the righ
   - [Case Title](#case-title)
   - [Case Number](#case-number)
   - [Case ID (SCDB)](#case-id)
-  - [U.S. Reports Citation](#us-reports-citation)
+  - [Citation](#us-reports-citation)
+  - [Term](#term)
   - [Transcript Text](#transcript-text)
-  - [Court Term](#court-term)
   - [On This Day](#on-this-day)
 
 #### Case Title
@@ -56,21 +56,21 @@ Also note that our database is a superset of SCDB, so not every case here will h
 
 While on the subject of SCDB and case numbers, we do support searching for cases like *McConnell v. Federal Election Commission* by any of its consolidated case numbers (eg, **#02-1734**) in addition to its leading case number **#02-1674**, but we are at the mercy of SCDB accurately recording all such numbers -- which, alas, [they do not](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb#consolidated-cases).  This is an ongoing problem which, perhaps, our Journal back-filling project may someday resolve.
 
-#### U.S. Reports Citation
+#### Citation
 
 Searching by U.S. Reports citation works exactly as you would expect: type **n U.S. n** or **n US n** (eg, **347 US 483**) and the matching case(s) will be immediately listed.
 
 Why would there ever be more than one case for a U.S. Reports citation?  Well, those citations are to a particular volume and page, and a single page *can* contain multiple decisions if they are short.  Note that some sites, such as [Justia](https://supreme.justia.com/cases/federal/us/volume/), fail to take that into account, so for any particular citation (eg, [2 U.S. 401](/courts/ussc/?term=all&find=2+us+401)), they will never list more than one case.
 
-#### Transcript Text
-
-Searching for a word or phrase in a transcript is done by using double-quotes, as in **"broccoli"**.  If you want to further restrict the text to a particular speaker, type their last name after the quoted text, as in **"broccoli" scalia**.
-
-#### Court Term
+#### Term
 
 This isn't a *search* so much as a *shortcut*: to quickly open and browse a specific term, simply type the year of the term (eg, **1945**) and press Return.
 
 In fact, pressing Return after *any* search is handy if you want to to be able to return to the search results using the browser's Back button, or to bookmark the search, share it, etc.
+
+#### Transcript Text
+
+Searching for a word or phrase in a transcript is done by using double-quotes, as in **"broccoli"**.  If you want to further restrict the text to a particular speaker, type their last name after the quoted text, as in **"broccoli" scalia**.
 
 #### On This Day
 
