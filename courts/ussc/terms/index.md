@@ -22,22 +22,24 @@ scripts:
           <span id="journal-cover-label">Journal</span>
         </button>
       </div>
-    </div>
-    <div id="date-argued-section" hidden>
-      <h3>Arguments</h3>
-      <ul id="date-argued-list" class="date-case-list"></ul>
-    </div>
-    <div id="date-reargued-section" hidden>
-      <h3>Reargued</h3>
-      <ul id="date-reargued-list" class="date-case-list"></ul>
-    </div>
-    <div id="date-decided-section" hidden>
-      <h3>Decisions</h3>
-      <ul id="date-decided-list" class="date-case-list"></ul>
-    </div>
-    <div id="minutes" hidden>
-      <h3>Minutes</h3>
-      <p id="date-minutes-list" class="date-minutes-list"></p>
+      <div id="date-sections">
+        <div id="date-argued-section" hidden>
+          <h3>Arguments</h3>
+          <ul id="date-argued-list" class="date-case-list"></ul>
+        </div>
+        <div id="date-reargued-section" hidden>
+          <h3>Reargued</h3>
+          <ul id="date-reargued-list" class="date-case-list"></ul>
+        </div>
+        <div id="date-decided-section" hidden>
+          <h3>Decisions</h3>
+          <ul id="date-decided-list" class="date-case-list"></ul>
+        </div>
+        <div id="minutes" hidden>
+          <h3>Minutes</h3>
+          <p id="date-minutes-list" class="date-minutes-list"></p>
+        </div>
+      </div>
     </div>
   </div>
 

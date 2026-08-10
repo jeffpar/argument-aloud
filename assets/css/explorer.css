@@ -1177,11 +1177,13 @@ button.term-case-count.sort-active:hover {
 
 #case-scdb-message, #case-audit-message {
   font-size: 12px;
-  font-weight: bold;
 }
 
 #case-scdb-message, #case-message-sep { color: #c0392b; }
 #case-audit-message                   { color: #27ae60; }
+/* "Warning: " prefix (see _setCaseInfoRow4) always reads in the scdb
+   message's own red, even inside the (otherwise green) audit message. */
+.warning-prefix { color: #c0392b; }
 
 /* Favorite + Tags are grouped into one atomic flex item so a narrow layout
    never wraps them apart from each other — the date spans wrap individually
@@ -1861,6 +1863,14 @@ button.term-case-count.sort-active:hover {
   gap: 8px;
   padding-bottom: 14px;
 }
+#justices-row[hidden] {
+  /* The plain #justices-row rule above (an ID selector) outranks the UA
+     stylesheet's [hidden] { display: none }, which only carries attribute-
+     selector specificity — without this override the row still rendered
+     (as an empty flex box with its own padding) in ordinary Term-mode audio
+     playback, where it's hidden but never populated. */
+  display: none;
+}
 .jr-item {
   flex: 1 1 0;
   min-width: 0;
@@ -1869,6 +1879,12 @@ button.term-case-count.sort-active:hover {
   align-items: center;
   text-decoration: none;
   color: inherit;
+  /* Query container for .jr-name's own font-size below — each item's cqw is
+     its own actual rendered width, which already reflects both viewport
+     width and how many justices are in the row (flex divides it evenly), so
+     the name scales down exactly when an item gets narrow instead of only
+     reacting to viewport breakpoints. */
+  container-type: inline-size;
 }
 .jr-item:hover .jr-photo { opacity: 0.82; }
 .jr-photo {
@@ -1886,7 +1902,7 @@ button.term-case-count.sort-active:hover {
   display: block;
 }
 .jr-name {
-  font-size: 0.62rem;
+  font-size: clamp(0.34rem, 15cqw, 0.62rem);
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.04em;
@@ -2689,6 +2705,7 @@ button.term-case-count.sort-active:hover {
 
   #case-scdb-message, #case-message-sep { color: #ff6b6b; }
   #case-audit-message                   { color: #4cd787; }
+  .warning-prefix { color: #ff6b6b; }
 
   #case-cite        { color: #5eaee0; }
   #case-cite:hover  { color: #7bc8f0; }
@@ -3004,6 +3021,7 @@ html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
 html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-scdb-message, html[data-theme="dark"] #case-message-sep { color: #ff6b6b; }
 html[data-theme="dark"] #case-audit-message                                           { color: #4cd787; }
+html[data-theme="dark"] .warning-prefix                                               { color: #ff6b6b; }
 html[data-theme="dark"] #case-cite        { color: #5eaee0; }
 html[data-theme="dark"] #case-cite:hover  { color: #7bc8f0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }

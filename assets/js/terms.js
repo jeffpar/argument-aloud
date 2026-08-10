@@ -229,6 +229,7 @@
     tr.appendChild(tdDecided);
 
     var tdVote = document.createElement('td');
+    tdVote.className = 'col-vote';
     tdVote.textContent = row.voteText || '—';
     tr.appendChild(tdVote);
 
@@ -1457,12 +1458,16 @@
   titleEl.textContent = '';
   titleEl.appendChild(titleLink);
   if (date) {
-    var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false;
     // The term-wide stat cards (and the audio-availability note below them)
     // don't apply to a single selected date — the date-section above already
-    // shows what's relevant for it (arguments/decisions/minutes).
+    // shows what's relevant for it (arguments/decisions/minutes) — nor to
+    // date=all (see below), which trades them for the full 12-month Court
+    // Calendar instead of a specific date's own info.
     document.getElementById('stats-grid').hidden = true;
     document.getElementById('stats-note').hidden = true;
+    if (date !== 'all') {
+      var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false;
+    }
   }
 
   // Shared, mutable state for this term's dates.json (server data + this
@@ -1713,11 +1718,12 @@
     .then(function (cases) {
 
       // ── Date section ────────────────────────────────────────────────────────
-      if (!date) {
-        // No ?date= yet — the covers row (journal/report/minutes covers) may
-        // still be showing something, but there's nothing day-specific here
-        // yet; point the visitor at the Court Calendar below instead of
-        // leaving this whole area blank.
+      if (!date || date === 'all') {
+        // No ?date= yet (or the special date=all full-calendar view — see
+        // below) — the covers row (journal/report/minutes covers) may still
+        // be showing something, but there's nothing day-specific here yet;
+        // point the visitor at the Court Calendar below instead of leaving
+        // this whole area blank.
         document.getElementById('date-empty-message').hidden = false;
       } else {
         function casesOnDate(field) {
@@ -1876,17 +1882,27 @@
           }
           if (!calArgDaySet.size && !decDaySet.size) return;
 
+          // The special date=all value (see the Court Calendar heading link
+          // below) means "show the full calendar, not scoped to any single
+          // date" — treated the same as no ?date= at all for the grid itself,
+          // it just additionally suppresses the stat cards above (see the
+          // `if (date)` block earlier) since there's no specific date's own
+          // info to show alongside them either.
+          var singleDate = (date && date !== 'all') ? date : null;
+
           var termParts = term.split('-');
           var termStart = { year: parseInt(termParts[0], 10), month: parseInt(termParts[1], 10) - 1 }; // 0-based
-          // A ?date= param jumps the grid's own start to the nearest quarter
-          // (Jan/Apr/Jul/Oct) on or before it, instead of always the term's
-          // own actual first month — never earlier than that, though, since
-          // there's nothing to show before the term itself begins.
+          // A single selected ?date= jumps the grid's own start to the month
+          // before the selected date's own month, so that month always lands
+          // in the middle of the 3-month row — never earlier than the term's
+          // own actual first month, though, since there's nothing to show
+          // before the term itself begins.
           var calStart = termStart;
-          if (date) {
-            var d = date.split('-');
-            var qStart = { year: parseInt(d[0], 10), month: Math.floor((parseInt(d[1], 10) - 1) / 3) * 3 };
-            if (qStart.year * 12 + qStart.month >= termStart.year * 12 + termStart.month) calStart = qStart;
+          if (singleDate) {
+            var d = singleDate.split('-');
+            var selIdx = parseInt(d[0], 10) * 12 + (parseInt(d[1], 10) - 1) - 1; // previous month, 0-based total months
+            var prevStart = { year: Math.floor(selIdx / 12), month: ((selIdx % 12) + 12) % 12 };
+            if (prevStart.year * 12 + prevStart.month >= termStart.year * 12 + termStart.month) calStart = prevStart;
           }
           // Stops the month before the next term begins, however many months
           // that actually is (no 12-month cap) — falls back to a flat 12 when
@@ -1898,10 +1914,30 @@
             var diff = nextStartIdx - (calStart.year * 12 + calStart.month);
             if (diff > 0) monthCount = diff;
           }
-          renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, date || null, monthCount, handleMinutesDrop, calStart);
+          // A single selected ?date= means calStart is already the quarter
+          // (3-month row) containing it (see above) — cap the grid to just
+          // that row instead of running all the way to the next term, so the
+          // view stays consistently scoped to the date the visitor clicked
+          // into. date=all keeps the full, uncapped count instead.
+          if (singleDate) monthCount = Math.min(monthCount, 3);
+          renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, singleDate, monthCount, handleMinutesDrop, calStart);
           calContainer.hidden = false;
           var calHdr = document.getElementById('term-calendar-heading');
-          if (calHdr) calHdr.hidden = false;
+          if (calHdr) {
+            calHdr.hidden = false;
+            // When scoped to a single date, make the heading a link to
+            // date=all — the full 12-month calendar with the stat cards
+            // suppressed (same wireSearchLink/<a>-wrapping pattern as
+            // #stat-term-title's titleLink above).
+            if (singleDate) {
+              var calHdrLink = document.createElement('a');
+              calHdrLink.className = 'calendar-heading-link';
+              calHdrLink.textContent = calHdr.textContent;
+              wireSearchLink(calHdrLink, '?term=' + encodeURIComponent(term) + '&date=all');
+              calHdr.textContent = '';
+              calHdr.appendChild(calHdrLink);
+            }
+          }
 
           applyMinutesHighlight(calContainer, datesData, term);
         });

@@ -44,49 +44,41 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 .stats-title-row h1, .stats-title-row h2 { flex: 1; }
 .stat-term-title-link { color: inherit; text-decoration: none; cursor: pointer; }
 .stat-term-title-link:hover { text-decoration: underline; }
+.calendar-heading-link { color: inherit; text-decoration: none; cursor: pointer; }
+.calendar-heading-link:hover { text-decoration: underline; }
 .stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
 .stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }
 .term-stats h1 { font-size: 28px; font-weight: 700; margin: 0; border: none; padding: 0; }
 .term-stats h2 { font-size: 1.1rem; font-weight: 700; margin: 0; border: none; padding: 0; }
-/* Row pairing the date title/empty-message text against the journal/report/
-   minutes covers — text on the left, covers on the right (justify-content:
-   space-between), row height following the (usually taller) covers. Replaces
-   the old float: right, which let the text get squeezed into an
-   ever-narrower column beside the covers as the page narrowed. #covers-row
-   drops to its own line below the text (flex-wrap) once they no longer both
-   fit, with the text then filling the whole row on its own via the same
-   flex-grow.
-   #date-header-text's flex-basis is pinned to 20ch (not "auto") rather than
-   just a min-width, and deliberately isn't the same thing: flex-wrap decides
-   whether an item fits on the current line using its *hypothetical*
-   (pre-grow/shrink) size, which for flex-basis: auto is the content's own
-   max-content — for #date-empty-message (a full sentence) that's nearly as
-   wide as the whole row by itself, so covers-row would wrap below at nearly
-   every realistic width regardless of any min-width (tried and confirmed
-   this the hard way — see git history). Pinning flex-basis to a small,
-   fixed 20ch instead means the fits-on-this-line check is against roughly
-   #date-header-text's own minimum, not its full unwrapped content — so it
-   reliably stays beside covers-row at ordinary widths — while flex-grow: 1
-   still then expands it into whatever room is actually left on the row
-   (more than the bare 20ch minimum, i.e. "using more of the horizontal
-   space"). No explicit min-width, deliberately: that would set a hard floor
-   *smaller* than #stat-date-title's own content (white-space: nowrap, so
-   its full text — e.g. "Monday, October 11, 1880" — is one unbreakable run
-   usually wider than 20ch), and flex-shrink would then have squeezed the
-   *box* down to 20ch while the nowrap *text* inside it couldn't follow,
-   overflowing out into wherever covers-row had by then been positioned
-   (tried and confirmed this the hard way too — see git history). Left at
-   its default (auto), a flex item's own automatic minimum size is its
-   content's min-content, which already does the right thing for both: the
-   nowrap title's own full width for #stat-date-title, or #date-empty-
-   message's shorter nowrap opening-phrase span for that state — no
-   JS needed for any of this — a previous version tried a flex-grow-toggling
-   class synced via ResizeObserver (see git history) for a related but
-   distinct problem. */
-#date-header-row { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-#date-header-text { flex: 1 1 20ch; }
-#covers-row { display: flex; gap: 8px; align-items: flex-start; flex: 0 0 auto; }
+/* Three-piece grid: date title/empty-message text (top-left), the journal/
+   report/minutes covers (right, spanning both rows), and the Arguments/
+   Reargued/Decisions/Minutes sections (below the title, still the left
+   column) — see courts/ussc/terms/index.md for the three #date-header-row
+   children this addresses by grid-area. #date-section is a size container
+   (not the viewport) so the single-column fallback below triggers off the
+   row's own actual available width — covers alone can range from one image
+   to seven, so a fixed viewport breakpoint would either wrap far too early
+   for a light date or far too late for a heavy one. Below that width, the
+   areas rearrange into title → covers → sections, so on a narrow window the
+   covers land right under today's date rather than after every case list. */
+#date-section { container-type: inline-size; }
+#date-header-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "text covers" "sections covers";
+  column-gap: 1rem;
+  align-items: start;
+}
+#date-header-text { grid-area: text; }
+#covers-row { grid-area: covers; display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+#date-sections { grid-area: sections; }
+@container (max-width: 700px) {
+  #date-header-row {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text" "covers" "sections";
+  }
+}
 #journal-cover-btn { background: none; border: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; }
 #journal-cover-btn[hidden] { display: none; }
 #journal-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
@@ -147,7 +139,7 @@ html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
    the row wrapping #term-calendar-heading (rather than the heading itself)
    so the row's own height — not just the heading text's — sits that far
    below .stats-grid. */
-.calendar-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 2rem; }
+.calendar-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 1rem; }
 #case-listing-heading  { margin-top: 2rem; }
 
 /* ── All-terms progressive Court Calendar (term=all) ────────────────────── */
@@ -191,6 +183,7 @@ html[data-theme="light"] #case-listing-table td a { color: #2672b4; }
    citation so they never wrap mid-value. */
 #case-listing-table th, #case-listing-table td { padding-left: 0; }
 #case-listing-table td.col-date, #case-listing-table td.col-opinion { white-space: nowrap; }
+#case-listing-table td.col-vote { text-align: right; }
 @media (max-width: 600px) {
   #case-listing-table .col-opinion { display: none; }
 }
@@ -208,16 +201,25 @@ html[data-theme="dark"]  { --chart-grid:#2d2f38; --chart-axis:#3a3d47; --chart-l
 html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#666; --chart-tip-bg:#f5f6fa; }
 #history-view { padding: 0.5rem 0 0.25rem; }
 
-/* Date-specific case list */
-.date-section { display: flow-root; margin-bottom: 0.5rem; padding-bottom: 0.75rem; }
+/* Date-specific case list — nested right under #stat-date-title (see
+   courts/ussc/terms/index.md) rather than spanning the full row width below
+   the covers, so a date with only a case or two doesn't burn a big stretch
+   of vertical space getting to the calendar below. */
+.date-section { display: flow-root; margin-bottom: 0.25rem; }
 .date-section[hidden] { display: none; }
-.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 1.1rem 0 0.35rem; }
-/* Same "never break, and let that set this row's own minimum width instead
-   of squeezing to one or two characters per line" treatment as
-   .date-empty-message-nowrap below — the whole title (e.g. "Wednesday,
-   September 20, 1882") is short enough as a single line that it doesn't
-   need just an opening phrase singled out. */
-#stat-date-title { white-space: nowrap; }
+.date-section h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 0.6rem 0 0.2rem; }
+/* Headroom below the date heading itself — #date-header-text and
+   #date-sections are separate grid areas now (see courts/ussc/terms/
+   index.md and #date-header-row below), so this is the entire gap between
+   the date and whichever of Arguments/Reargued/Decisions/Minutes renders
+   first; .date-section h3's own margin-top above still applies between
+   sections, on top of this. */
+/* white-space: nowrap is the same "never break, and let that set this row's
+   own minimum width instead of squeezing to one or two characters per line"
+   treatment as .date-empty-message-nowrap below — the whole title (e.g.
+   "Wednesday, September 20, 1882") is short enough as a single line that it
+   doesn't need just an opening phrase singled out. */
+#stat-date-title { white-space: nowrap; margin-bottom: 0.75rem; }
 /* Color matches h1-h6 (see _layouts/pane.html) rather than the muted
    .date-section h3 labels, since this stands in for a heading (e.g. "Court
    Calendar" below it) rather than a section sub-label. */

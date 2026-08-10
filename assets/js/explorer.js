@@ -23,6 +23,12 @@ let _currentLoadedEntry = null; // the audio entry object currently loaded in lo
 let _currentCaseEntry   = null; // the case object currently loaded
 let _currentDecisionEntries    = []; // decision entries [{value,href,title}] for the active case (file dropdown sentinels)
 let _currentTranscriptEntries  = []; // transcript PDF entries [{value,href,title}] for the active case
+// True while _showCaseVotesView's justices-row view is showing (see there) —
+// audio playback/synced transcript are disabled in this mode, so the
+// file-select 'change' handler redirects an audio/transcript/video pick into
+// Term mode instead of switching it in place. Cleared by loadAudioEntry/
+// loadCaseAsOpinion's own per-case reset, same as #justices-row itself.
+let _inBenchCaseView = false;
 // Pool of persistent PDF iframes keyed by full src URL (including #page fragment).
 // Switching between entries is a pure show/hide — no reload, no about:blank bounce.
 // LRU eviction keeps the pool bounded.
@@ -3059,11 +3065,10 @@ function _setCaseInfoRow2(caseEntry) {
       }).join(',\u00a0');
     }
 
-    el.appendChild(document.createTextNode(prefix + '\u00a0'));
     const a = document.createElement('a');
     a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
     a.className = 'date-link';
-    a.textContent = text;
+    a.textContent = prefix + '\u00a0' + text;
     a.addEventListener('click', (e) => {
       e.preventDefault();
       navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
@@ -3169,19 +3174,16 @@ function _showCaseVotesView(caseEntry) {
   // audio (loadCase would otherwise leave them showing).
   audioControls.hidden = true;
 
-  // Strip every audio/transcript/video option loadCase/loadCaseAsOpinion
-  // just built into the file-select dropdown — bench display mode has no
-  // audio playback or synced transcript, so Oral Argument/Reargument/Opinion
-  // Announcement entries (bare numeric values — see _appendAudioOption,
-  // shared by all three) and transcript-only/On-The-Docket-video sentinels
-  // no longer lead anywhere meaningful. Minutes/Journal/decision/Oyez/
-  // history references are unaffected and stay.
+  // Audio/transcript/video options (bare numeric values — see
+  // _appendAudioOption, shared by Oral Argument/Reargument/Opinion
+  // Announcement — plus transcript-only and On-The-Docket-video sentinels)
+  // stay in the dropdown, but bench display mode has no audio playback or
+  // synced transcript to switch them into in place — the file-select
+  // 'change' handler checks _inBenchCaseView and redirects picking one of
+  // these into Term mode instead (dropping collection/id, adding the
+  // matching event= param) so it plays normally there.
+  _inBenchCaseView = true;
   const fileSelect = document.getElementById('file-select');
-  [...fileSelect.options].forEach(opt => {
-    if (/^\d+$/.test(opt.value) || opt.value.startsWith('transcript:') || opt.value.startsWith('video:')) {
-      opt.remove();
-    }
-  });
 
   const de = _buildPrimaryDecisionEntry(caseEntry);
   if (de) {
@@ -3206,7 +3208,7 @@ function _setCaseInfoRow3(caseEntry) {
     return;
   }
   const majorityVotes = caseEntry.votes.filter(v => v.vote === 'majority');
-  const score = caseEntry.voteMajority + '–' + caseEntry.voteMinority;
+  const score = 'Voted ' + caseEntry.voteMajority + '–' + caseEntry.voteMinority;
   const firstTitle = (caseEntry.title || '').split('|')[0];
   let party;
   if ((caseEntry.result || '').includes('petitioning party received a favorable disposition')) {
@@ -3267,6 +3269,19 @@ function _setCaseInfoRow3(caseEntry) {
   row.hidden = false;
 }
 
+// Fills `span` with a "Warning: " prefix (always the scdb message's own red
+// — see .warning-prefix — even inside the otherwise-green audit message)
+// followed by `msg` in that span's own color. Empty `msg` just clears it.
+function _setWarningMessage(span, msg) {
+  span.textContent = '';
+  if (!msg) return;
+  const prefix = document.createElement('span');
+  prefix.className = 'warning-prefix';
+  prefix.textContent = 'Warning: ';
+  span.appendChild(prefix);
+  span.appendChild(document.createTextNode(msg));
+}
+
 function _setCaseInfoRow4(caseEntry) {
   const row       = document.getElementById('case-info-row4');
   const scdbSpan  = document.getElementById('case-scdb-message');
@@ -3274,8 +3289,8 @@ function _setCaseInfoRow4(caseEntry) {
   const sep       = document.getElementById('case-message-sep');
   const scdbMsg  = caseEntry.scdb_message  || '';
   const auditMsg = caseEntry.audit_message || '';
-  scdbSpan.textContent  = scdbMsg;
-  auditSpan.textContent = auditMsg;
+  _setWarningMessage(scdbSpan, scdbMsg);
+  _setWarningMessage(auditSpan, auditMsg);
   sep.hidden = !(scdbMsg && auditMsg);
   if (!scdbMsg && !auditMsg) {
     row.hidden = true;
@@ -6365,6 +6380,17 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       );
     }
 
+    // After a re-sort, keep whichever case is currently active in view
+    // rather than always snapping back to the first page — same centering
+    // math as groupLi._centerOnItem below. Falls back to _pageStart's
+    // existing value (0, from _applyGroupSortMode's own reset) when nothing
+    // in this group is the active case.
+    function _centerPageOnActiveItem() {
+      const activeIdx = _sortedItems.findIndex(ci => ci.classList.contains('active'));
+      if (activeIdx < 0) return;
+      _pageStart = Math.max(0, Math.min(activeIdx - HALF_PAGE, Math.max(0, _sortedItems.length - PAGE_SIZE)));
+    }
+
     function _applyGroupSortMode(mode, asc, { reversal = false } = {}) {
       const allItems = Array.from(groupUl.querySelectorAll('.case-item'));
       _highlights = allItems.filter(ci => ci.classList.contains('highlight-item'));
@@ -6373,6 +6399,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       if (reversal) {
         // Only direction changed: items are already sorted, just flip them.
         _sortedItems.reverse();
+        _centerPageOnActiveItem();
         _renderGroupPage();
         return;
       }
@@ -6437,6 +6464,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       }
       if (!asc) _sortedItems.reverse();
       groupUl.dataset.sortMode = mode;
+      _centerPageOnActiveItem();
       _renderGroupPage();
     }
 
@@ -6706,6 +6734,7 @@ async function loadAudioEntry(arg, basePath) {
   turnList.innerHTML = '';
   document.getElementById('justices-row').hidden = true;
   transcriptViewer.classList.remove('justices-row-active');
+  _inBenchCaseView = false;
   loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
   activeTurnIdx = -1;
@@ -6992,6 +7021,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   loadingMsg.style.display = 'none';
   document.getElementById('transcript-viewer').classList.remove('justices-row-active');
   document.getElementById('transcript-viewer').classList.add('no-audio');
+  _inBenchCaseView = false;
 
   // Reset doc viewer to hidden so showDocViewer opens it at the new height.
   const docPanel = document.getElementById('doc-viewer');
@@ -7969,6 +7999,35 @@ function _clearDocViewerUrlParams() {
 
 // ── Audio entry dropdown ──────────────────────────────────────────────────
 document.getElementById('file-select').addEventListener('change', async (e) => {
+  // Bench display mode (see _showCaseVotesView) has no player or synced
+  // transcript pane to switch an audio/transcript/video pick into in place —
+  // redirect into Term mode instead, landing on the same event, rather than
+  // falling through to the normal in-place branches below.
+  if (_inBenchCaseView) {
+    const val = e.target.value;
+    let evIdx = null;
+    if (/^\d+$/.test(val)) {
+      const selectedEntry = _currentAudioList[parseInt(val, 10) - 1];
+      if (selectedEntry) evIdx = _currentEvents.indexOf(selectedEntry) + 1;
+    } else if (val.startsWith('transcript:')) {
+      const te = _currentTranscriptEntries.find(t => t.value === val);
+      const ev = te && _currentCaseEntry?.events?.find(ev2 => ev2.transcript_href === te.href);
+      if (ev) evIdx = _currentCaseEntry.events.indexOf(ev) + 1;
+    } else if (val.startsWith('video:')) {
+      const v = _currentVideoEntries[parseInt(val.slice(6), 10)];
+      const ev = v && _currentCaseEntry?.events?.find(ev2 => ev2.video_href === v.href);
+      if (ev) evIdx = _currentCaseEntry.events.indexOf(ev) + 1;
+    }
+    if (evIdx != null && evIdx >= 1 && _currentTerm && _currentCaseEntry) {
+      const url = buildUrlParams(
+        { term: _currentTerm, case: caseId(_currentCaseEntry), event: evIdx },
+        ['collection', 'group', 'id', 'highlight', 'file', 'turn', 'citation'],
+      );
+      navigate(url);
+      restoreFromURL();
+      return;
+    }
+  }
   // Always reset to case-level notes first; audio entry selection below will
   // override with event-specific notes if the chosen entry has any.
   _setCaseNotes(_currentCaseEntry?.notes || '');
@@ -8493,7 +8552,15 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const LS_KEY = 'aa-mobile-nav-height';
   const DEFAULT_H = 230;
   function applyStoredOrDefaultHeight() {
-    if (!isMobile() || dragging) return;
+    if (dragging) return;
+    // Widening back past the mobile breakpoint (e.g. rotating a tablet, or
+    // resizing a desktop window that started narrow) must clear the inline
+    // height a previous mobile-width resize call left behind — otherwise it
+    // silently outlives its own media query and pins #doc-browser to a
+    // stale mobile height even in the desktop layout, which relies on plain
+    // CSS flex stretch (see #doc-browser's desktop rule) with no inline
+    // height of its own.
+    if (!isMobile()) { navPanel.style.maxHeight = ''; return; }
     let saved = null;
     try { saved = localStorage.getItem(LS_KEY); } catch { /* ignore */ }
     const h = saved ? parseInt(saved, 10) : DEFAULT_H;
