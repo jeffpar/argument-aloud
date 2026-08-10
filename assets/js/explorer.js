@@ -1522,7 +1522,11 @@ function argumentTooltip(term, caseRef) {
 }
 
 function toTitleCase(s) {
-  return s.toLowerCase().replace(/(^|')(\S)/g, (_, pre, ch) => pre + ch.toUpperCase());
+  return s.toLowerCase()
+    .replace(/(^|')(\S)/g, (_, pre, ch) => pre + ch.toUpperCase())
+    // "Mcreynolds" -> "McReynolds" -- a name starting with "Mc" gets its
+    // next letter capitalized too, not just the "M".
+    .replace(/\bMc([a-z])/g, (_, c) => 'Mc' + c.toUpperCase());
 }
 
 function lastName(name) {
@@ -3063,7 +3067,12 @@ function _setCaseInfoRow2(caseEntry) {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
-      updateEmptyStateForTerm(term, firstIso);
+      // restoreFromURL's own term-only branch expands/scrolls to the term in
+      // the left pane (and calls updateEmptyStateForTerm itself) — a plain
+      // updateEmptyStateForTerm call here only ever updated the main pane,
+      // leaving the sidebar stuck showing whatever collection (e.g. a bench)
+      // was open when this date link was clicked.
+      restoreFromURL();
     });
     el.appendChild(a);
   }
@@ -3103,6 +3112,91 @@ function _voteName(allCapsName) {
   return toTitleCase(last);
 }
 
+// A case reached via its own bench's page (see the vote-score link in
+// _setCaseInfoRow3) replaces the usual turn-by-turn transcript with one row
+// of every justice in caseEntry.votes — flexed so however many there are,
+// they always exactly fill the row — then opens the decision straight into
+// the doc viewer below. Reset back to the normal transcript view happens in
+// loadAudioEntry/loadCaseAsOpinion's own initial per-case reset (see
+// #justices-row there), so loading any other case via any other path clears
+// this automatically.
+function _showCaseVotesView(caseEntry) {
+  const row = document.getElementById('justices-row');
+  const votes = caseEntry.votes || [];
+  row.innerHTML = '';
+  if (!votes.length) { row.hidden = true; return; }
+  votes.forEach(v => {
+    const jid = _makeAdvocateId(v.name);
+    const displayName = _voteName(v.name);
+    const el = document.createElement('a');
+    el.className = 'jr-item';
+    if (v.vote !== 'majority') el.classList.add('jr-dimmed');
+    el.href = '/courts/ussc/?collection=gallery&id=' + jid;
+
+    const photo = document.createElement('div');
+    photo.className = 'jr-photo';
+    const img = document.createElement('img');
+    img.src = '/courts/ussc/people/justices/all/' + jid + '/portrait.jpg';
+    img.alt = displayName;
+    img.loading = 'lazy';
+    img.onerror = () => { photo.style.background = 'transparent'; img.style.display = 'none'; };
+    photo.appendChild(img);
+
+    const label = document.createElement('div');
+    label.className = 'jr-name';
+    label.textContent = displayName.toUpperCase();
+
+    el.appendChild(photo);
+    el.appendChild(label);
+    row.appendChild(el);
+  });
+  turnList.style.display = 'none';
+  loadingMsg.style.display = 'none';
+  emptyState.style.display = 'none';
+  // A no-audio case's loadCaseAsOpinion tags #transcript-viewer .no-audio,
+  // which CSS collapses to flex:0/padding:0 so the doc viewer can fill the
+  // freed space — exactly wrong here, since #justices-row lives inside that
+  // same container and needs real height to show. .justices-row-active
+  // overrides it back to auto-sized (see explorer.css, which also mirrors
+  // .no-audio/.no-transcript's own "#bottom-bar fills remaining space" rule
+  // for this class); cleared again by loadAudioEntry/loadCaseAsOpinion's own
+  // reset the next time any case loads.
+  transcriptViewer.classList.remove('no-audio', 'no-transcript');
+  transcriptViewer.classList.add('justices-row-active');
+  row.hidden = false;
+  // The audio player controls belong to the argument transcript, which this
+  // view replaces — hidden regardless of whether the case actually has
+  // audio (loadCase would otherwise leave them showing).
+  audioControls.hidden = true;
+
+  // Strip every audio/transcript/video option loadCase/loadCaseAsOpinion
+  // just built into the file-select dropdown — bench display mode has no
+  // audio playback or synced transcript, so Oral Argument/Reargument/Opinion
+  // Announcement entries (bare numeric values — see _appendAudioOption,
+  // shared by all three) and transcript-only/On-The-Docket-video sentinels
+  // no longer lead anywhere meaningful. Minutes/Journal/decision/Oyez/
+  // history references are unaffected and stay.
+  const fileSelect = document.getElementById('file-select');
+  [...fileSelect.options].forEach(opt => {
+    if (/^\d+$/.test(opt.value) || opt.value.startsWith('transcript:') || opt.value.startsWith('video:')) {
+      opt.remove();
+    }
+  });
+
+  const de = _buildPrimaryDecisionEntry(caseEntry);
+  if (de) {
+    // Dropdown now matches whatever decision the doc viewer below shows.
+    fileSelect.value = de.value;
+    // Matches loadCaseAsOpinion's own no-audio full-height convention so
+    // the doc viewer opens generously sized here too, on mobile especially
+    // (see the .justices-row-active CSS for the desktop side of this).
+    const savedHeight = docViewerOpenHeight;
+    docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+    showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
+    docViewerOpenHeight = savedHeight;
+  }
+}
+
 function _setCaseInfoRow3(caseEntry) {
   const row = document.getElementById('case-info-row3');
   const span = document.getElementById('case-vote');
@@ -3138,20 +3232,38 @@ function _setCaseInfoRow3(caseEntry) {
   const opinionId = (opinionVote && term && caseNum) ? _makeAdvocateId(opinionVote.name) : null;
 
   span.textContent = '';
-  span.appendChild(document.createTextNode(score + ' ('));
-  majorityVotes.forEach((v, i) => {
-    if (i > 0) span.appendChild(document.createTextNode(', '));
-    const displayName = _voteName(v.name);
-    if (v.opinion === true && opinionId) {
-      const a = document.createElement('a');
-      a.href = '?' + new URLSearchParams({ collection: 'opinions', id: opinionId, term, case: caseNum });
-      a.textContent = displayName;
-      span.appendChild(a);
-    } else {
-      span.appendChild(document.createTextNode(displayName));
-    }
-  });
-  span.appendChild(document.createTextNode(') in favor of ' + party));
+  // Score links to this case's own bench page (see the `bench` prop —
+  // schema.js/processBenches in update_cases.js), scoped to this specific
+  // case (term+case) so that page shows the case's justices/decision instead
+  // of its usual transcript pane — see the "benches" special-case in
+  // restoreFromURL/loadCase.
+  if (caseEntry.bench) {
+    const scoreLink = document.createElement('a');
+    scoreLink.href = '?' + new URLSearchParams({ collection: 'benches', id: caseEntry.bench, term, case: caseNum });
+    scoreLink.textContent = score;
+    span.appendChild(scoreLink);
+  } else {
+    span.appendChild(document.createTextNode(score));
+  }
+  // A tie or other case with no vote actually tagged "majority" has nothing
+  // to list — skip the parentheses entirely rather than print "()".
+  if (majorityVotes.length) {
+    span.appendChild(document.createTextNode(' ('));
+    majorityVotes.forEach((v, i) => {
+      if (i > 0) span.appendChild(document.createTextNode(', '));
+      const displayName = _voteName(v.name);
+      if (v.opinion === true && opinionId) {
+        const a = document.createElement('a');
+        a.href = '?' + new URLSearchParams({ collection: 'opinions', id: opinionId, term, case: caseNum });
+        a.textContent = displayName;
+        span.appendChild(a);
+      } else {
+        span.appendChild(document.createTextNode(displayName));
+      }
+    });
+    span.appendChild(document.createTextNode(')'));
+  }
+  span.appendChild(document.createTextNode(' in favor of ' + party));
   row.hidden = false;
 }
 
@@ -5645,6 +5757,10 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   ci.dataset.argued  = _firstArgDate(caseRef);
   ci.dataset.decided = caseRef.decision || '';
   if (caseRef.vocal) ci.dataset.vocal = caseRef.vocal;
+  if (caseRef.voteMajority != null && caseRef.voteMinority != null) {
+    ci.dataset.voteMajority = caseRef.voteMajority;
+    ci.dataset.voteMinority = caseRef.voteMinority;
+  }
   const _sortLabel = document.createElement('span');
   _sortLabel.className = 'case-sort-label';
   header.appendChild(_sortLabel);
@@ -5965,7 +6081,9 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     }
     await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn, numberOverride });
     if (fromRestore) trackPageView(location.href);
-    if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
+    if (collId === 'benches') {
+      _showCaseVotesView(caseEntry);
+    } else if (!fromRestore && hasPlayableAudio && hasDecisionHref(caseEntry) &&
         ci.closest('ul')?.dataset.sortMode === 'decided') {
       const de = _buildPrimaryDecisionEntry(caseEntry);
       if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
@@ -6153,6 +6271,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       { mode: 'cases',   label: 'Cases'   },
       { mode: 'argued',  label: 'Argued'  },
       { mode: 'decided', label: 'Decided' },
+      // Only benches' per-case JSON carries voteMajority/voteMinority (see
+      // processBenches in update_cases.js) — other collections' case entries
+      // have nothing to sort by here, so this option is scoped to benches.
+      ...(collId === 'benches' ? [{ mode: 'votes', label: 'Votes' }] : []),
     ];
 
     const PAGE_SIZE = 20;
@@ -6269,6 +6391,9 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
             const s = Math.round(secs);
             lbl.textContent = s + '\u00a0sec';
           }
+        } else if (mode === 'votes') {
+          const vm = ci.dataset.voteMajority, vn = ci.dataset.voteMinority;
+          lbl.textContent = (vm !== undefined && vn !== undefined) ? (vm + '\u2013' + vn) : '';
         } else {
           lbl.textContent = '';
         }
@@ -6286,6 +6411,20 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'hours') {
         _sortedItems.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
+        groupUl.classList.add('coll-sort-date');
+      } else if (mode === 'votes') {
+        // Cases with no known vote (dataset.voteMajority absent) treated as
+        // -1 so they consistently sort to the low end (start when ascending,
+        // end when descending) — same convention as an empty argued/decided
+        // date string sorting first.
+        _sortedItems.sort((a, b) => {
+          const av = a.dataset.voteMajority !== undefined ? +a.dataset.voteMajority : -1;
+          const bv = b.dataset.voteMajority !== undefined ? +b.dataset.voteMajority : -1;
+          return av - bv;
+        });
+        // Reuses the same "hide audio/scales icons, show just the sort
+        // label" treatment as argued/decided/hours (the class name is a
+        // holdover from when only date-like modes did this).
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'cases') {
         // Pre-compute keys once (O(n)) to avoid O(n log n) querySelector calls in the comparator.
@@ -6565,6 +6704,8 @@ async function loadAudioEntry(arg, basePath) {
   _currentLoadedEntry = null;
   turnList.style.display = 'none';
   turnList.innerHTML = '';
+  document.getElementById('justices-row').hidden = true;
+  transcriptViewer.classList.remove('justices-row-active');
   loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
   activeTurnIdx = -1;
@@ -6847,7 +6988,9 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   activeTurnIdx = -1;
   turnList.style.display = 'none';
   turnList.innerHTML = '';
+  document.getElementById('justices-row').hidden = true;
   loadingMsg.style.display = 'none';
+  document.getElementById('transcript-viewer').classList.remove('justices-row-active');
   document.getElementById('transcript-viewer').classList.add('no-audio');
 
   // Reset doc viewer to hidden so showDocViewer opens it at the new height.
@@ -10311,7 +10454,12 @@ async function restoreFromURL() {
       const resolvedKey = matchedCase
         ? termParam + '/' + _caseUrlId(matchedCase, termCases)
         : termParam + '/' + caseParam;
-      const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
+      // Scoped to termLi, not document-wide — a case that's also visible
+      // right now under some other still-open collection/group context
+      // (e.g. its bench) shares this same data-case-key, and a global query
+      // would find that copy instead of this term's own (whichever comes
+      // first in DOM order), scrolling to/activating the wrong one.
+      const caseEl = termLi.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
         const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
 

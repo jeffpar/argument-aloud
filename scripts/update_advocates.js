@@ -129,7 +129,11 @@ function properCase(name) {
         out += (i === 0 || name[i - 1] === ' ' || name[i - 1] === "'")
             ? ch.toUpperCase() : ch.toLowerCase();
     }
-    return out.replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
+    return out
+        // "Mcreynolds" -> "McReynolds" -- a name starting with "Mc" gets its
+        // next letter capitalized too, not just the "M".
+        .replace(/\bMc([a-z])/g, (_, c) => 'Mc' + c.toUpperCase())
+        .replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
 }
 
 /** Template used when auto-creating a featured advocate index.md. */
@@ -1649,6 +1653,7 @@ function syncJusticePages({ verbose = false } = {}) {
             const original = mdText;
 
             // Update frontmatter fields.
+            mdText = setFrontMatterScalar(mdText, 'title', title, 'layout');
             mdText = setFrontMatterScalar(mdText, 'justice_id', id, 'layout');
             if (dateStartIso) mdText = setFrontMatterScalar(mdText, 'date_start', dateStartIso, 'justice_id');
             if (wikiUrl)      mdText = setFrontMatterScalar(mdText, 'wikipedia_url', wikiUrl, dateStartIso ? 'date_start' : 'justice_id');

@@ -1,5 +1,5 @@
 ---
-title: Justice John Mckinley
+title: Justice John McKinley
 layout: pane
 justice_id: john_mckinley
 wikipedia_url: https://en.wikipedia.org/wiki/John_McKinley

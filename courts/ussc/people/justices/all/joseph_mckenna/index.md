@@ -1,5 +1,5 @@
 ---
-title: Justice Joseph Mckenna
+title: Justice Joseph McKenna
 layout: pane
 justice_id: joseph_mckenna
 wikipedia_url: https://en.wikipedia.org/wiki/Joseph_McKenna

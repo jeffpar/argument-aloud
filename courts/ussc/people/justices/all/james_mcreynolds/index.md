@@ -1,5 +1,5 @@
 ---
-title: Justice James Mcreynolds
+title: Justice James McReynolds
 layout: pane
 justice_id: james_mcreynolds
 wikipedia_url: https://en.wikipedia.org/wiki/James_Clark_McReynolds

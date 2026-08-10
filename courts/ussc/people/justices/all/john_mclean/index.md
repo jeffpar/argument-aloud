@@ -1,5 +1,5 @@
 ---
-title: Justice John Mclean
+title: Justice John McLean
 layout: pane
 justice_id: john_mclean
 wikipedia_url: https://en.wikipedia.org/wiki/John_McLean

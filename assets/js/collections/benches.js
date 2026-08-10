@@ -21,8 +21,12 @@
 
   // Title-case a full-caps name (e.g. "WARREN BURGER" -> "Warren Burger"),
   // used as a display fallback when a justice isn't found in justiceMap.
+  // "Mc" surnames (e.g. "MCREYNOLDS") get their next letter capitalized too
+  // (-> "McReynolds"), not just the "M".
   function titleCaseName(name) {
-    return String(name || '').toLowerCase().replace(/\b([a-z])/g, function (_, c) { return c.toUpperCase(); });
+    return String(name || '').toLowerCase()
+      .replace(/\b([a-z])/g, function (_, c) { return c.toUpperCase(); })
+      .replace(/\bMc([a-z])/g, function (_, c) { return 'Mc' + c.toUpperCase(); });
   }
 
   // "Burger 1 (1969–1970)" -> "Burger 1", for compact prev/next nav labels.
@@ -72,14 +76,15 @@
 
   // Every photo in bench.images: the first gets the ornate primary-photo
   // frame, any additional ones are shown plain — the same fashion as
-  // _includes/generic-image.html, photo then caption underneath. Each
-  // photo's own desc is used when present, else the generic seniority-order
-  // description (see benchSeniorityText) shared by every uncaptioned photo.
+  // _includes/generic-image.html, photo then caption underneath. A photo's
+  // own desc (from its .txt — see scripts/update_cases.js's _benchImages) is
+  // shown when present; a photo with no .txt gets no caption at all (no
+  // generic fallback — a photo that needs text already has a way to supply
+  // its own).
   function renderBenchImages(bench, justiceMap) {
     if (!bench.images || !bench.images.length) return null;
     var frag = document.createDocumentFragment();
     bench.images.forEach(function (image, i) {
-      var desc = image.desc || benchSeniorityText(bench, justiceMap);
       if (i === 0) {
         var wrap = document.createElement('div');
         wrap.className = 'jb-photo-frame';
@@ -90,24 +95,28 @@
         img.onerror = function () { wrap.remove(); };
         wrap.appendChild(img);
         frag.appendChild(wrap);
-        var p = document.createElement('p');
-        p.className = 'jb-name-list';
-        appendTextWithBreaks(p, desc);
-        frag.appendChild(p);
+        if (image.desc) {
+          var p = document.createElement('p');
+          p.className = 'jb-name-list';
+          appendTextWithBreaks(p, image.desc);
+          frag.appendChild(p);
+        }
       } else {
         var extraP = document.createElement('p');
         extraP.className = 'jb-extra-photo';
         var extraImg = document.createElement('img');
         extraImg.src = image.path;
-        extraImg.alt = desc;
+        extraImg.alt = image.desc || bench.name;
         extraImg.loading = 'lazy';
         extraImg.onerror = function () { extraP.remove(); };
         extraP.appendChild(extraImg);
-        extraP.appendChild(document.createElement('br'));
-        var span = document.createElement('span');
-        span.className = 'jb-extra-photo-desc';
-        appendTextWithBreaks(span, desc);
-        extraP.appendChild(span);
+        if (image.desc) {
+          extraP.appendChild(document.createElement('br'));
+          var span = document.createElement('span');
+          span.className = 'jb-extra-photo-desc';
+          appendTextWithBreaks(span, image.desc);
+          extraP.appendChild(span);
+        }
         frag.appendChild(extraP);
       }
     });

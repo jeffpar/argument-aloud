@@ -17,9 +17,9 @@ For example, take the case of [Aikens v. Wisconsin (No. 3)](/courts/ussc/?term=1
 
 However, November 7, 1903 was a ***Saturday***, and the Court has not heard many arguments on the weekends over the past 150 years, except under very unusual circumstances. We're aware of only a couple modern instances, both in 1971: [New York Times Company v. United States (Nos. 1873, 1885)](/courts/ussc/?term=1970-10&case=1873) and [The Committee for Nuclear Responsibility, Inc. v. Schlesinger (No. A-483)](/courts/ussc/?term=1971-10&case=A-483).
 
-Anyway, it turns out that the U.S. Reports' argument date is not only wrong but incomplete.  So, to make it clear that *we* did not record the wrong date, we have flagged the case with a warning *and* included a link to the confirming page in the U.S. Supreme Court Journal.  In the top right corner of the case page, click the entry labeled [Journal Entry for October 21, 1903](/courts/ussc/?term=1904-10&case=3&file=1903.18), and you'll see that argument in *Aikens* and the companion cases did indeed commence on October 21 and continue the following day.
+Anyway, it turns out that the U.S. Reports' argument date is not only wrong but incomplete.  So, to make it clear that *we* did not record the wrong date, we have flagged the case with a warning *and* included a link to the confirming page in the U.S. Supreme Court Journal.  In the top right corner of the case page, click the entry labeled [Journal for October 21, 1903](/courts/ussc/?term=1904-10&case=3&file=1903.18), and you'll see that argument in *Aikens* and the companion cases did indeed commence on October 21 and continue the following day.
 
-A similar discrepancy exists for the case's reargument dates, which is why we have also provided [Journal Entry for October 17, 1904](/courts/ussc/?term=1904-10&case=3&file=1904.14), making it as clear where the error lies.
+A similar discrepancy exists for the case's reargument dates, which is why we have also provided [Journal for October 17, 1904](/courts/ussc/?term=1904-10&case=3&file=1904.14), making it as clear where the error lies.
 
 ## The 19th Century Void
 

@@ -3901,10 +3901,13 @@ function _justiceSlug(name) {
 
 // Title-case a canonical UPPER-CASE justice name (e.g. "OLIVER ELLSWORTH" → "Oliver Ellsworth").
 // Roman numeral suffixes after a comma (e.g. ", II") are fully uppercased.
+// "Mc" surnames (e.g. "MCREYNOLDS") get their next letter capitalized too
+// (→ "McReynolds"), not just the "M".
 function _justiceDisplayName(canonical) {
     return String(canonical || '')
         .toLowerCase()
         .replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
+        .replace(/\bMc([a-z])/g, (_, c) => 'Mc' + c.toUpperCase())
         .replace(/,\s+([IVXivx]+)$/, (_, s) => ', ' + s.toUpperCase());
 }
 
@@ -4720,15 +4723,21 @@ function processBenches(dryRun) {
     // Phase 3: drop benches (with a known dateStop) that have no decision dates
     // within their date range — e.g. pure summer-recess or confirmation-gap
     // periods where the court never sat.  Also collect full case metadata here
-    // so Phase 5 can write per-bench case files without a second pass.
+    // so Phase 5 can write per-bench case files without a second pass — each
+    // entry keeps a reference back to its own source case object/term (see
+    // `case`/`term` below, stripped before anything is written) so the bench
+    // assignment computed below can also be written onto the case's own
+    // record (its `bench` prop — see schema.js) without a second file scan.
     const decisionDates = new Set();
     const allCases = [];
+    const termCasesMap = new Map(); // term -> its full (not just decided) cases array, for the bench-writeback pass below
     for (const termName of fs.readdirSync(TERMS_DIR).sort()) {
         if (!/^\d{4}-\d{2}$/.test(termName)) continue;
         const casesPath = path.join(TERMS_DIR, termName, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
         let cases; try { cases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(cases)) continue;
+        termCasesMap.set(termName, cases);
         for (const c of cases) {
             if (!c.decision) continue;
             const dec = c.decision.slice(0, 10);
@@ -4738,6 +4747,13 @@ function processBenches(dryRun) {
             const titled = (baseTitle && decMatch) ? `${baseTitle} (${decMatch[1]})` : baseTitle;
             const meta = { title: titled, term: termName, number: _primaryCaseNumber(c), argument: c.argument || '', decision: dec };
             if (c.files) meta.files = c.files;
+            // Vote tally, when known — lets the per-bench case listing (see
+            // Phase 5) offer the same Vote sort/display other case listings do.
+            if (c.voteMajority != null && c.voteMinority != null) {
+                meta.voteMajority = c.voteMajority;
+                meta.voteMinority = c.voteMinority;
+            }
+            Object.defineProperty(meta, '_src', { value: { case: c, term: termName }, enumerable: false });
             allCases.push(meta);
         }
     }
@@ -4832,6 +4848,37 @@ function processBenches(dryRun) {
             ...(images.length ? { images } : {}),
         };
     });
+
+    // Write each case's own bench assignment back onto its cases.json record
+    // (the `bench` prop — see schema.js, positioned right before
+    // voteMajority) so the case page's vote-score link can point straight at
+    // its bench without needing to fetch/walk benches.json. `m._src.case` is
+    // the very object living inside termCasesMap's own per-term array, so
+    // mutating it here is enough — no re-matching needed, just track which
+    // terms actually changed so each cases.json is rewritten at most once.
+    const changedTerms = new Set();
+    for (let benchIdx = 0; benchIdx < benchCaseLists.length; benchIdx++) {
+        const benchId = benches[benchIdx].id;
+        for (const m of benchCaseLists[benchIdx]) {
+            const { case: c, term: termName } = m._src;
+            if (c.bench === benchId) continue;
+            c.bench = benchId;
+            changedTerms.add(termName);
+        }
+    }
+    let benchPropTermsWritten = 0;
+    for (const termName of changedTerms) {
+        const casesPath = path.join(TERMS_DIR, termName, 'cases.json');
+        const reordered = termCasesMap.get(termName).map(reorderCase);
+        if (_jsonChanged(casesPath, reordered)) {
+            _writeJson(casesPath, reordered);
+            benchPropTermsWritten++;
+        }
+    }
+    if (_VERBOSE || benchPropTermsWritten > 0) {
+        const verb = dryRun ? 'Would update' : 'Updated';
+        console.log(`${verb} bench assignments in ${benchPropTermsWritten} term(s)' cases.json`);
+    }
 
     const changed = _jsonChanged(OUT_FILE, benches);
     if (changed) _writeJson(OUT_FILE, benches);

@@ -1733,6 +1733,15 @@ button.term-case-count.sort-active:hover {
   padding: 0;
 }
 
+/* #justices-row (see _showCaseVotesView) needs real height to show, unlike
+   the empty no-audio/no-transcript cases the rule above collapses away —
+   sized to its own content instead of flexing to fill/collapse. */
+#transcript-viewer.justices-row-active {
+  flex: 0 0 auto;
+  overflow: visible;
+  padding: 14px 20px 0;
+}
+
 /* In no-audio mode the doc viewer should fill all remaining space. Desktop
    only: #main-panel there is a fixed-height flex column, so flex:1 has real
    room to grow into. On mobile #main-panel is auto-height (normal block
@@ -1746,6 +1755,16 @@ button.term-case-count.sort-active:hover {
     flex: 1;
   }
   #transcript-viewer.no-audio:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
+    flex: 1;
+    height: auto !important;
+  }
+  /* #justices-row (see _showCaseVotesView) is a fixed-height row, not empty
+     like the no-audio/no-transcript cases above, but the doc viewer below it
+     still needs the same "fill remaining space" treatment. */
+  #transcript-viewer.justices-row-active:not([hidden]) ~ #bottom-bar {
+    flex: 1;
+  }
+  #transcript-viewer.justices-row-active:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
     flex: 1;
     height: auto !important;
   }
@@ -1830,6 +1849,62 @@ button.term-case-count.sort-active:hover {
 
 #turn-list {
   display: none;
+}
+
+/* ── Justices row (bench-page case view) ─────────────────────────────────
+   Replaces #turn-list when a case is reached via its bench's own page (see
+   the vote-score link in _setCaseInfoRow3 / _showCaseVotesView) — one
+   thumbnail per caseEntry.votes entry, flexed so however many there are,
+   they always exactly fill one row. */
+#justices-row {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 14px;
+}
+.jr-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.jr-item:hover .jr-photo { opacity: 0.82; }
+.jr-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #ccc;
+}
+.jr-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.jr-name {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-top: 5px;
+  word-break: break-word;
+  line-height: 1.2;
+}
+/* Justices whose caseEntry.votes entry isn't "majority" (minority/recused/
+   none/unknown) — greyed and desaturated so the majority stands out. */
+.jr-item.jr-dimmed .jr-photo img {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+.jr-item.jr-dimmed .jr-name {
+  opacity: 0.4;
+}
+.jr-item.jr-dimmed:hover .jr-photo img {
+  opacity: 0.6;
 }
 
 /* ── Individual turns ────────────────────────────────────── */
@@ -2475,6 +2550,7 @@ button.term-case-count.sort-active:hover {
   /* Page viewer iframe and transcript area */
   #page-viewer-frame { background: #1a1c22; }
   #transcript-viewer { background: #1a1c22; }
+  .jr-photo { background: #3a3c45; }
 
   /* Sidebar */
   #doc-browser { background: #1a1c22; }
@@ -2840,6 +2916,7 @@ html[data-theme="dark"] #menu-btn:hover { opacity: 0.85; }
 
 html[data-theme="dark"] #page-viewer-frame { background: #1a1c22; }
 html[data-theme="dark"] #transcript-viewer { background: #1a1c22; }
+html[data-theme="dark"] .jr-photo { background: #3a3c45; }
 
 html[data-theme="dark"] #doc-browser { background: #1a1c22; }
 html[data-theme="dark"] #nav-copyright { color: #555; }
@@ -3062,6 +3139,7 @@ html[data-theme="light"] #menu-btn:hover { opacity: 1; }
 
 html[data-theme="light"] #page-viewer-frame { background: transparent; }
 html[data-theme="light"] #transcript-viewer { background: #fff; }
+html[data-theme="light"] .jr-photo { background: #ccc; }
 
 html[data-theme="light"] #doc-browser { background: #f7f8fa; }
 html[data-theme="light"] #nav-copyright { color: #888; }
