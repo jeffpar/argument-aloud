@@ -46,27 +46,41 @@
  * whichever term's own start date is the latest one on/before that date —
  * as:
  *   { "1889-05-13": [
- *       { "minutes_href": "https://catalog.archives.gov/id/178847707?objectPage=$page",
- *         "minutes_src": ".../M215-018/M215-018-$page:4.jpg",
- *         "minutes_pages": [6, 7] }
+ *       { "type": "minutes",
+ *         "href": "https://catalog.archives.gov/id/178847707?objectPage=$page",
+ *         "src": ".../M215-018/M215-018-$page:4.jpg",
+ *         "pages": "6-7" }
  *     ] }
- * Each date maps to an *array* of source groups rather than a single one,
+ * Each date maps to an *array* of objects, every one of which starts with a
+ * "type" prop identifying what kind it is — "minutes" for a Minutes-scan
+ * group (this script's own concern), or "argument"/"reargument" for a
+ * cross-term case-detail pointer (see update_cases.js's
+ * syncCrossTermCaseDates) — checked everywhere a date's array is read,
+ * rather than inferring the kind from which props happen to be present.
+ * A date maps to an *array* of Minutes groups rather than a single one
  * because a calendar day's minutes occasionally spans two different
  * physical volumes (NARA splits a session's pages across consecutive
  * volumes at whatever point the microfilm roll ends) — grouping by source
- * keeps minutes_href/minutes_src accurate per page instead of one group's
- * template getting wrongly applied to another volume's page numbers. The
- * common case is still just a one-element array. minutes_pages holds the
- * page's 1-based position within ITS volume (matching the `objectPage`
- * query param NARA's own catalog URLs use); minutes_href is that volume's
- * catalog URL with a literal "$page" placeholder, and minutes_src the
- * direct image download URL with a literal "$page:4" placeholder (the ":4"
- * meaning zero-padded to 4 digits, since — unlike the catalog URL's plain
- * query-string page number — the image filename itself embeds the page
- * number that way) — both for the frontend to substitute per page.
- * dates.json is created if missing; existing entries are rewritten in this
- * same {minutes_href, minutes_src, minutes_pages} key order every time
- * they're touched, so older entries (including pre-array-format ones) self-
+ * keeps href/src accurate per page instead of one group's template getting
+ * wrongly applied to another volume's page numbers. The common case is
+ * still just a one-element array. pages holds a "<first>-<last>" range
+ * string of the page's 1-based position(s) within ITS volume (matching the
+ * `objectPage` query param NARA's own catalog URLs use) — every group's own
+ * pages are always a gap-free consecutive run in practice, so this is more
+ * compact than an array while staying just as exact; "" for an empty/
+ * tombstone group (see handleMinutesDrop in terms.js). This script
+ * (loadDatesJson/writeDatesJson/parsePagesRange/formatPagesRange below),
+ * terms.js, and explorer.js each expand it back into a plain array of page
+ * numbers for their own processing, converting back to this string only
+ * when writing/serializing. href is that volume's catalog URL with a
+ * literal "$page" placeholder, and src the direct image download URL with a
+ * literal "$page:4" placeholder (the ":4" meaning zero-padded to 4 digits,
+ * since — unlike the catalog URL's plain query-string page number — the
+ * image filename itself embeds the page number that way) — both for the
+ * frontend to substitute per page.
+ * dates.json is created if missing; existing Minutes-scan entries are
+ * rewritten in this same {type, href, src, pages} key order every time
+ * they're touched, so older entries (including pre-this-shape ones) self-
  * heal into the current shape as new pages come in for the same date. A
  * group written by applying a downloaded overrides file (see below) instead
  * carries a trailing "modified": true — this run's own OCR-derived Pass 3
@@ -87,14 +101,14 @@
  *                 a full volume can be 1000+ pages)
  *   --thumbnails  Separate mode (no volume-url): for every term with a
  *                 dates.json, generate one cover thumbnail per unique
- *                 minutes_src template found in it (i.e. one per physical
+ *                 src template found in it (i.e. one per physical
  *                 roll referenced by that term, not one per date/page) —
  *                 courts/ussc/terms/<term>/m<XXX>-cover.jpg, a 1340px-tall
  *                 proportional resize (via macOS's `sips`) of the first
  *                 page number seen for that template, where <XXX> is the
  *                 3-digit roll number in "M215-XXX". dates.json itself is
  *                 never modified by this mode — the roll number embedded in
- *                 each group's own minutes_src is enough to derive its cover
+ *                 each group's own src is enough to derive its cover
  *                 filename on demand; update_cases.js's syncTermsJson reads
  *                 that back into terms.json's own per-term "minutes" array
  *                 (see there).
@@ -117,7 +131,7 @@
  * scope it to one term instead of every term with a dates.json), this
  * reconciles courts/ussc/minutes/text/<year>/ against dates.json's own,
  * already-resolved dates rather than re-deriving them — dates.json is only
- * ever read here, never rewritten. For every unique minutes_href a term's
+ * ever read here, never rewritten. For every unique href a term's
  * dates.json references (its own "?..." query string stripped back down to
  * a bare volume URL first), and every page number dates.json says belongs to
  * it: if <year>/<basename>.txt already exists where dates.json's own
@@ -271,9 +285,41 @@ function extractFullDate(text, yearRange) {
   return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
+// On disk, a Minutes-scan group's "pages" is a "<first>-<last>" range string
+// (every group's own pages are always a gap-free consecutive run — see the
+// audit behind this format), or "" for an empty/tombstone group (see
+// handleMinutesDrop in terms.js). Every array-based read/mutate site in this
+// script (and terms.js's own drag-and-drop editor) works with the expanded
+// array form instead — these two convert at the read/write boundary
+// (loadDatesJson/writeDatesJson below) so nothing else has to change.
+function parsePagesRange(v) {
+  if (Array.isArray(v)) return v.slice(); // tolerate not-yet-migrated data
+  if (typeof v !== 'string' || !v) return [];
+  const m = /^(\d+)-(\d+)$/.exec(v);
+  if (!m) return [];
+  const first = parseInt(m[1], 10), last = parseInt(m[2], 10);
+  if (last < first) return [];
+  const out = [];
+  for (let p = first; p <= last; p++) out.push(p);
+  return out;
+}
+function formatPagesRange(pages) {
+  if (!Array.isArray(pages) || !pages.length) return '';
+  const sorted = [...new Set(pages)].sort((a, b) => a - b);
+  return `${sorted[0]}-${sorted[sorted.length - 1]}`;
+}
+
 // Loads a term's dates.json, migrating any pre-array-format entry (a bare
-// {minutes_href, minutes_src, minutes_pages} object, from before a date's
-// pages could span more than one source volume) into a one-element array.
+// object, from before a date's pages could span more than one source
+// volume) into a one-element array; self-healing an old-shape Minutes group
+// (minutes_href/minutes_src/minutes_pages, no "type") into the current
+// {type: "minutes", href, src, pages} shape; and expanding every Minutes
+// group's own "pages" range string back into an array (see parsePagesRange
+// above) for this script's own array-based processing. Every dates.json
+// object is identified by its own "type" prop — "minutes" for a Minutes-scan
+// group, "argument"/"reargument" for a cross-term case-detail pointer (see
+// update_cases.js's syncCrossTermCaseDates) — never by which props happen to
+// be present.
 function loadDatesJson(term) {
   const p = join(TERMS_DIR, term, 'dates.json');
   if (!existsSync(p)) return {};
@@ -281,8 +327,37 @@ function loadDatesJson(term) {
   try { data = JSON.parse(readFileSync(p, 'utf8')); } catch { return {}; }
   for (const k of Object.keys(data)) {
     if (!Array.isArray(data[k])) data[k] = [data[k]];
+    for (const g of data[k]) {
+      if (!g || typeof g !== 'object') continue;
+      if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
+        g.type = 'minutes';
+        if ('minutes_href' in g) { g.href = g.minutes_href; delete g.minutes_href; }
+        if ('minutes_src' in g) { g.src = g.minutes_src; delete g.minutes_src; }
+        if ('minutes_pages' in g) { g.pages = g.minutes_pages; delete g.minutes_pages; }
+      }
+      if (g.type === 'minutes') g.pages = parsePagesRange(g.pages);
+    }
   }
   return data;
+}
+
+// Writes a term's full in-memory dates object back to dates.json — sorted by
+// ISO date key, and collapsing every Minutes-scan group's own array-form
+// "pages" (see loadDatesJson above) back into its on-disk "<first>-<last>"
+// range string (formatPagesRange above). The single write path for every
+// mode that touches dates.json, so the array/string conversion boundary
+// only has to live in one place.
+function writeDatesJson(term, dates) {
+  const sorted = {};
+  for (const k of Object.keys(dates).sort()) {
+    const groups = Array.isArray(dates[k]) ? dates[k] : [dates[k]];
+    sorted[k] = groups.map((g) => {
+      if (!g || typeof g !== 'object' || g.type !== 'minutes') return g;
+      return { ...g, pages: formatPagesRange(g.pages) };
+    });
+  }
+  const p = join(TERMS_DIR, term, 'dates.json');
+  writeFileSync(p, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
 }
 
 // Reconciles every page's raw candidate date (records[i].rawDate, possibly
@@ -357,9 +432,9 @@ function smoothDates(records) {
   return resolved;
 }
 
-// One cover thumbnail per unique minutes_src template (i.e. per physical
-// roll), across every term that has a dates.json — see the --thumbnails
-// doc comment at the top of this file for the exact naming/placement rules.
+// One cover thumbnail per unique src template (i.e. per physical roll),
+// across every term that has a dates.json — see the --thumbnails doc
+// comment at the top of this file for the exact naming/placement rules.
 async function runThumbnails(dryRun) {
   const terms = readdirSync(TERMS_DIR)
     .filter(d => /^\d{4}-\d{2}$/.test(d) && existsSync(join(TERMS_DIR, d, 'dates.json')))
@@ -368,20 +443,18 @@ async function runThumbnails(dryRun) {
   let created = 0, existing = 0, failed = 0;
 
   for (const term of terms) {
-    const datesPath = join(TERMS_DIR, term, 'dates.json');
-    let dates;
-    try { dates = JSON.parse(readFileSync(datesPath, 'utf8')); } catch { continue; }
+    const dates = loadDatesJson(term);
 
-    // First page number seen for each unique minutes_src template, walking
-    // dates in sorted (chronological) order so "first" is deterministic.
+    // First page number seen for each unique src template, walking dates in
+    // sorted (chronological) order so "first" is deterministic.
     const firstPageByTemplate = new Map();
     for (const iso of Object.keys(dates).sort()) {
       const groups = dates[iso];
       if (!Array.isArray(groups)) continue;
       for (const g of groups) {
-        if (!g.minutes_src || !Array.isArray(g.minutes_pages) || !g.minutes_pages.length) continue;
-        if (!firstPageByTemplate.has(g.minutes_src)) {
-          firstPageByTemplate.set(g.minutes_src, Math.min(...g.minutes_pages));
+        if (g.type !== 'minutes' || !g.src || !Array.isArray(g.pages) || !g.pages.length) continue;
+        if (!firstPageByTemplate.has(g.src)) {
+          firstPageByTemplate.set(g.src, Math.min(...g.pages));
         }
       }
     }
@@ -430,22 +503,21 @@ async function runThumbnails(dryRun) {
 
 // Normalizes one override value (a single group object, an array of them,
 // possibly hand-edited or from an older format) into the same
-// {minutes_href, minutes_src, minutes_pages} key order the rest of this
-// script writes, plus a trailing `modified: true` — this marks the group as
-// a deliberate, browser-made edit so a later re-run of the normal
-// <volume-url> flow (Pass 3 below) never overwrites it with a fresh
-// OCR-derived result. A downloaded override's own array can also carry a
-// case-detail object (see update_cases.js's syncCrossTermCaseDates) alongside
-// any minutes groups, exported as-is from the browser's own in-memory copy —
-// identified by the absence of minutes_src (the only prop guaranteed never to
-// appear on one) and passed through completely untouched, never coerced into
-// minutes-group shape.
+// {type, href, src, pages} key order the rest of this script writes, plus a
+// trailing `modified: true` — this marks the group as a deliberate,
+// browser-made edit so a later re-run of the normal <volume-url> flow
+// (Pass 3 below) never overwrites it with a fresh OCR-derived result. A
+// downloaded override's own array can also carry a case-detail object (see
+// update_cases.js's syncCrossTermCaseDates) alongside any minutes groups,
+// exported as-is from the browser's own in-memory copy — identified by
+// type !== "minutes" and passed through completely untouched, never coerced
+// into minutes-group shape.
 function normalizeOverrideGroups(val) {
   const groups = Array.isArray(val) ? val : [val];
   return groups.map((g) => {
-    if (!('minutes_src' in g)) return g;
-    const out = { minutes_href: g.minutes_href, minutes_src: g.minutes_src };
-    out.minutes_pages = [...new Set(g.minutes_pages || [])].sort((a, b) => a - b);
+    if (g.type !== 'minutes') return g;
+    const out = { type: 'minutes', href: g.href, src: g.src };
+    out.pages = [...new Set(g.pages || [])].sort((a, b) => a - b);
     out.modified = true;
     return out;
   });
@@ -508,13 +580,7 @@ async function applyDateOverrides(filePath, dryRun) {
   }
 
   if (!dryRun) {
-    for (const term of changedTerms) {
-      const dates = datesByTerm.get(term);
-      const sorted = {};
-      for (const k of Object.keys(dates).sort()) sorted[k] = dates[k];
-      const p = join(TERMS_DIR, term, 'dates.json');
-      writeFileSync(p, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
-    }
+    for (const term of changedTerms) writeDatesJson(term, datesByTerm.get(term));
   }
 
   console.log(`\nOverrides: ${applied} applied across ${changedTerms.size} term(s), ${skipped} already matched, ${unresolvable} unresolvable.`);
@@ -541,17 +607,16 @@ async function syncMinutesText(termFilter, dryRun) {
   // volume right at a term boundary).
   const pagesByHref = new Map();
   for (const term of terms) {
-    let dates;
-    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+    const dates = loadDatesJson(term);
     for (const iso of Object.keys(dates)) {
       const groups = dates[iso];
       if (!Array.isArray(groups)) continue;
       for (const g of groups) {
-        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
-        const baseHref = g.minutes_href.split('?')[0];
+        if (g.type !== 'minutes' || !g.href || !Array.isArray(g.pages)) continue;
+        const baseHref = g.href.split('?')[0];
         if (!pagesByHref.has(baseHref)) pagesByHref.set(baseHref, new Map());
         const pageMap = pagesByHref.get(baseHref);
-        for (const pageNum of g.minutes_pages) pageMap.set(pageNum, iso);
+        for (const pageNum of g.pages) pageMap.set(pageNum, iso);
       }
     }
   }
@@ -636,8 +701,8 @@ async function syncMinutesText(termFilter, dryRun) {
 }
 
 // Smallest/largest of an array without Math.max/min(...arr) — safe even for
-// a pathologically large minutes_pages array, which would risk overflowing
-// the call stack via the spread operator.
+// a pathologically large pages array, which would risk overflowing the call
+// stack via the spread operator.
 function arrMin(arr) { return arr.reduce((m, v) => (v < m ? v : m), Infinity); }
 function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); }
 
@@ -659,7 +724,7 @@ function arrMax(arr) { return arr.reduce((m, v) => (v > m ? v : m), -Infinity); 
 //                 same page number is recorded at multiple dates (see
 //                 verifyMinutesConsistency's own invariant 2).
 //   duplicates  — [{ term, iso, page, href }] for a page number repeated
-//                 within one single group's own minutes_pages array.
+//                 within one single group's own pages array.
 function loadMinutesContexts() {
   const terms = readdirSync(TERMS_DIR)
     .filter(d => /^\d{4}-\d{2}$/.test(d) && existsSync(join(TERMS_DIR, d, 'dates.json')))
@@ -669,24 +734,23 @@ function loadMinutesContexts() {
   const duplicates = [];
 
   for (const term of terms) {
-    let dates;
-    try { dates = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { continue; }
+    const dates = loadDatesJson(term);
 
     for (const iso of Object.keys(dates)) {
       const groups = dates[iso];
       if (!Array.isArray(groups)) continue;
       for (const g of groups) {
-        if (!g.minutes_href || !Array.isArray(g.minutes_pages)) continue;
+        if (g.type !== 'minutes' || !g.href || !Array.isArray(g.pages)) continue;
 
         const seenInGroup = new Set();
-        for (const p of g.minutes_pages) {
-          if (seenInGroup.has(p)) duplicates.push({ term, iso, page: p, href: g.minutes_href });
+        for (const p of g.pages) {
+          if (seenInGroup.has(p)) duplicates.push({ term, iso, page: p, href: g.href });
           seenInGroup.add(p);
         }
         if (!seenInGroup.size) continue; // a tombstone (see handleMinutesDrop in terms.js) — nothing to check
 
-        const ctxKey = `${g.minutes_href}\0${g.minutes_src || ''}`;
-        if (!contexts.has(ctxKey)) contexts.set(ctxKey, { href: g.minutes_href, src: g.minutes_src, pageOwners: new Map() });
+        const ctxKey = `${g.href}\0${g.src || ''}`;
+        if (!contexts.has(ctxKey)) contexts.set(ctxKey, { href: g.href, src: g.src, pageOwners: new Map() });
         const pageOwners = contexts.get(ctxKey).pageOwners;
         for (const p of seenInGroup) {
           if (!pageOwners.has(p)) pageOwners.set(p, []);
@@ -703,8 +767,8 @@ function loadMinutesContexts() {
 // read-only (termFilter, if given, only limits which problems get printed —
 // see loadMinutesContexts above for why every term still has to be read
 // regardless):
-//   1. No single group's own minutes_pages array repeats a page number.
-//   2. For a given context (minutes_href AND minutes_src together — the
+//   1. No single group's own pages array repeats a page number.
+//   2. For a given context (href AND src together — the
 //      same physical volume), a page number never appears at more than one
 //      date, EXCEPT when it appears at exactly two dates that are
 //      immediately adjacent among that context's own dates (no third date
@@ -859,11 +923,7 @@ async function runBackfill(termFilter, dryRun) {
   // since a context's gaps can resolve to any term along its own span.
   const datesByTerm = new Map();
   const getDates = (term) => {
-    if (!datesByTerm.has(term)) {
-      let d;
-      try { d = JSON.parse(readFileSync(join(TERMS_DIR, term, 'dates.json'), 'utf8')); } catch { d = {}; }
-      datesByTerm.set(term, d);
-    }
+    if (!datesByTerm.has(term)) datesByTerm.set(term, loadDatesJson(term));
     return datesByTerm.get(term);
   };
   const changedTerms = new Set();
@@ -959,17 +1019,17 @@ async function runBackfill(termFilter, dryRun) {
       const dates = getDates(targetTerm);
       if (!Array.isArray(dates[targetIso])) dates[targetIso] = [];
       const targetGroups = dates[targetIso];
-      let group = targetGroups.find(g => g.minutes_href === href && g.minutes_src === src);
+      let group = targetGroups.find(g => g.type === 'minutes' && g.href === href && g.src === src);
       if (group && group.modified) {
         console.log(`  ${label}: ${targetTerm}/dates.json[${targetIso}] is marked modified; leaving page ${p} out`);
         unresolved++;
         continue;
       }
       if (!group) {
-        group = { minutes_href: href, minutes_src: src, minutes_pages: [] };
+        group = { type: 'minutes', href, src, pages: [] };
         targetGroups.push(group);
       }
-      group.minutes_pages = [...new Set([...group.minutes_pages, p])].sort((a, b) => a - b);
+      group.pages = [...new Set([...group.pages, p])].sort((a, b) => a - b);
       changedTerms.add(targetTerm);
 
       console.log(`  ${label}: ${isGuess ? 'guessed' : 'resolved'} -> ${targetTerm}/${targetIso}${isGuess ? ' (no extractable date; nearest earlier page)' : ''}`);
@@ -985,10 +1045,7 @@ async function runBackfill(termFilter, dryRun) {
 
   if (!dryRun) {
     for (const term of changedTerms) {
-      const dates = datesByTerm.get(term);
-      const sorted = {};
-      for (const k of Object.keys(dates).sort()) sorted[k] = dates[k];
-      writeFileSync(join(TERMS_DIR, term, 'dates.json'), JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+      writeDatesJson(term, datesByTerm.get(term));
       console.log(`  ${term}: updated dates.json`);
     }
   }
@@ -1199,9 +1256,9 @@ async function main() {
     const groups = Array.isArray(dates[fullDate]) ? dates[fullDate] : [];
     // A date's pages can span more than one physical volume (see the
     // format note above) — the volume this page came from is identified by
-    // its own minutes_href template, so pages from a different volume land
-    // in their own group instead of corrupting an existing group's links.
-    let group = groups.find(g => g.minutes_href === minutesHrefTemplate);
+    // its own href template, so pages from a different volume land in their
+    // own group instead of corrupting an existing group's links.
+    let group = groups.find(g => g.type === 'minutes' && g.href === minutesHrefTemplate);
 
     // A group already carrying modified:true was written by applyDateOverrides
     // above from a downloaded browser edit — a deliberate correction, not an
@@ -1215,27 +1272,29 @@ async function main() {
 
     const isNewGroup = !group;
     if (isNewGroup) {
-      group = { minutes_href: minutesHrefTemplate, minutes_src: minutesSrcTemplate, minutes_pages: [] };
+      group = { type: 'minutes', href: minutesHrefTemplate, src: minutesSrcTemplate, pages: [] };
       groups.push(group);
     }
-    const hadPage = group.minutes_pages.includes(pageNum);
-    const hadSrc  = !!group.minutes_src;
+    const hadPage = group.pages.includes(pageNum);
+    const hadSrc  = !!group.src;
 
     // The group is always rebuilt (rather than mutated in place) so the key
-    // order stays {minutes_href, minutes_src, minutes_pages} even for a
-    // group that predates minutes_src, self-healing it into the current shape.
-    const pages = new Set(group.minutes_pages);
+    // order stays {type, href, src, pages} even for a group that predates
+    // src, self-healing it into the current shape.
+    const pages = new Set(group.pages);
     pages.add(pageNum);
     const newGroup = {
-      minutes_href: group.minutes_href || minutesHrefTemplate,
-      minutes_src: group.minutes_src || minutesSrcTemplate,
-      minutes_pages: [...pages].sort((a, b) => a - b),
+      type: 'minutes',
+      href: group.href || minutesHrefTemplate,
+      src: group.src || minutesSrcTemplate,
+      pages: [...pages].sort((a, b) => a - b),
     };
     groups[groups.indexOf(group)] = newGroup;
     // A date's own array can now also hold a case-detail object (see
-    // update_cases.js's syncCrossTermCaseDates) with no minutes_href at all —
-    // the fallback keeps those sorting to the front rather than throwing.
-    groups.sort((a, b) => (a.minutes_href || '').localeCompare(b.minutes_href || ''));
+    // update_cases.js's syncCrossTermCaseDates) with type "argument"/
+    // "reargument" instead — the fallback keeps those sorting to the front
+    // rather than throwing.
+    groups.sort((a, b) => (a.href || '').localeCompare(b.href || ''));
     dates[fullDate] = groups;
 
     if (isNewGroup || !hadPage || !hadSrc) {
@@ -1245,21 +1304,15 @@ async function main() {
       }
       if (!hadPage) {
         datesAdded++;
-        console.log(`  ${label}: ${term}/dates.json[${fullDate}].minutes_pages += ${pageNum}`);
+        console.log(`  ${label}: ${term}/dates.json[${fullDate}].pages += ${pageNum}`);
       } else if (!hadSrc) {
-        console.log(`  ${label}: ${term}/dates.json[${fullDate}] gained minutes_src`);
+        console.log(`  ${label}: ${term}/dates.json[${fullDate}] gained src`);
       }
     }
   }
 
   if (!dryRun) {
-    for (const term of changedTerms) {
-      const dates = datesByTerm.get(term);
-      const sorted = {};
-      for (const k of Object.keys(dates).sort()) sorted[k] = dates[k];
-      const p = join(TERMS_DIR, term, 'dates.json');
-      writeFileSync(p, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
-    }
+    for (const term of changedTerms) writeDatesJson(term, datesByTerm.get(term));
   }
 
   console.log(`\nText: ${saved} saved, ${cached} already cached, ${skipped} skipped, ${failed} failed.`);

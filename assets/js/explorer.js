@@ -2936,16 +2936,49 @@ function _fetchTermDates(term) {
       ? Promise.resolve(null)
       : fetch('/courts/ussc/terms/' + term + '/dates.json')
         .then(r => r.ok ? r.json() : null)
-        .catch(() => null);
+        .catch(() => null)
+        .then(_expandDatesPages);
     _termDatesCache.set(term, promise);
   }
   return _termDatesCache.get(term);
 }
 
-// Resolves to an ordered array of minutes_src image URLs (one per page,
-// "$page:4" replaced with the zero-padded page number) for `iso` in `term`'s
-// dates.json, across every group recorded for that date — sorted by
-// minutes_src (the same record-group ordering terms.js's own
+// On disk, a Minutes-scan group's own "pages" is a "<first>-<last>" range
+// string (see scripts/parse_minutes.js's own parsePagesRange/
+// formatPagesRange doc comment for why) — _minutesImagesForDate below (this
+// file's only consumer) works with the expanded array form instead, same as
+// terms.js's own drag-and-drop editor does, so every freshly-fetched
+// dates.json payload is normalized through this immediately after fetch,
+// before anything else touches it. Reuses _parsePageRangeString, the same
+// range-string parser files.json's own "pages"-type entries use. Every
+// dates.json object is identified by its own "type" prop — "minutes" for a
+// Minutes-scan group, "argument"/"reargument" for a cross-term case-detail
+// pointer (see update_cases.js's syncCrossTermCaseDates) — never by which
+// props happen to be present.
+function _expandDatesPages(raw) {
+  if (!raw) return raw;
+  for (const groups of Object.values(raw)) {
+    if (!Array.isArray(groups)) continue;
+    for (const g of groups) {
+      if (!g || typeof g !== 'object') continue;
+      // Self-heals an old-shape Minutes group (minutes_href/minutes_src/
+      // minutes_pages, no "type") into the current shape.
+      if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
+        g.type = 'minutes';
+        if ('minutes_href' in g) { g.href = g.minutes_href; delete g.minutes_href; }
+        if ('minutes_src' in g) { g.src = g.minutes_src; delete g.minutes_src; }
+        if ('minutes_pages' in g) { g.pages = g.minutes_pages; delete g.minutes_pages; }
+      }
+      if (g.type === 'minutes') g.pages = _parsePageRangeString(g.pages);
+    }
+  }
+  return raw;
+}
+
+// Resolves to an ordered array of src image URLs (one per page, "$page:4"
+// replaced with the zero-padded page number) for `iso` in `term`'s
+// dates.json, across every type:"minutes" group recorded for that date —
+// sorted by src (the same record-group ordering terms.js's own
 // sortGroupsBySrc uses), so a date spanning two physical volumes reads in
 // the volumes' own physical order rather than a raw page-number sort.
 // Resolves to null if the term has no dates.json, or the date has none.
@@ -2955,11 +2988,12 @@ async function _minutesImagesForDate(term, iso) {
   if (!Array.isArray(groups) || !groups.length) return null;
   const images = [];
   [...groups]
-    .sort((a, b) => (a.minutes_src || '').localeCompare(b.minutes_src || ''))
+    .filter(g => g.type === 'minutes')
+    .sort((a, b) => (a.src || '').localeCompare(b.src || ''))
     .forEach(g => {
-      if (!g.minutes_src) return;
-      [...new Set(g.minutes_pages || [])].sort((a, b) => a - b).forEach(page => {
-        images.push(g.minutes_src.replace('$page:4', String(page).padStart(4, '0')));
+      if (!g.src) return;
+      [...new Set(g.pages || [])].sort((a, b) => a - b).forEach(page => {
+        images.push(g.src.replace('$page:4', String(page).padStart(4, '0')));
       });
     });
   return images.length ? images : null;
@@ -3014,8 +3048,8 @@ async function _showMinutesGalleryFromParam(param) {
 }
 
 // Substitutes a page number into a "$page"/"$page:<width>" URL template —
-// the same placeholder convention dates.json's minutes_href/minutes_src use
-// (see _minutesImagesForDate above), generalized here to read the
+// the same placeholder convention a dates.json type:"minutes" group's own
+// href/src use (see _minutesImagesForDate above), generalized here to read the
 // zero-padding width from the template itself (files.json "pages"-type
 // entries vary it per source, e.g. "$page:3") instead of hardcoding one.
 function _substitutePageInTemplate(template, page) {
@@ -3034,7 +3068,7 @@ function _parsePageRangeBounds(rangeStr) {
 }
 
 // Expands a "pages" range string into an inclusive array of page numbers —
-// the flat-array equivalent of dates.json's own "minutes_pages".
+// the flat-array equivalent of a dates.json type:"minutes" group's own "pages".
 function _parsePageRangeString(rangeStr) {
   const bounds = _parsePageRangeBounds(rangeStr);
   if (!bounds) return [];

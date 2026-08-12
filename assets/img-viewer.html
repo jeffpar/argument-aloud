@@ -245,7 +245,11 @@
     zoomTo(scale * Math.pow(1.0025, -e.deltaY), e.clientX, e.clientY);
   }, { passive: false });
 
-  document.addEventListener('dblclick', function (e) {
+  // Scoped to #stage (not document) so a double-click on a toolbar button —
+  // #toolbar/#nav-toolbar are siblings of #stage, not descendants, so this
+  // excludes them entirely — doesn't also fire this "toggle zoom" gesture on
+  // top of the two ordinary clicks the button itself already handled.
+  stage.addEventListener('dblclick', function (e) {
     if (scale > defaultScale) { zoomTo(defaultScale, e.clientX, e.clientY); }
     else { zoomTo(2, e.clientX, e.clientY); }
   });

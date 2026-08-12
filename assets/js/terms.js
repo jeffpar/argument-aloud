@@ -307,8 +307,8 @@
   // 1880-10's own range. These already show up in the single-date argued/
   // reargued lists (see fillGroup above) but were missing from the Case
   // Listing table entirely, which only ever looked at this term's own
-  // cases.json. A pointer only carries {id, term, number, title, usCite,
-  // type} — not enough to build a full row (no votes/decision/etc.) — so
+  // cases.json. A pointer only carries {type, id, term, number, title,
+  // usCite} — not enough to build a full row (no votes/decision/etc.) — so
   // each one is resolved against its own home term's cases.json (grouped by
   // term first so a term with several cross-term entries is only fetched
   // once), deduped by case id (rare, but the same case could have e.g. both
@@ -323,7 +323,6 @@
     var byId = new Map(); // case id/number -> { pointer, isos: [iso, ...] }
     Object.keys(datesData).forEach(function (iso) {
       (datesData[iso] || []).forEach(function (g) {
-        if ('minutes_src' in g) return;
         if (g.type !== 'argument' && g.type !== 'reargument') return;
         var key = g.id || g.number;
         if (!key) return;
@@ -627,18 +626,18 @@
 
   // A date's own groups array isn't necessarily stored in the record's
   // actual physical/chronological order (e.g. a later drag-and-drop edit can
-  // append a newly created group after an older one) — minutes_src embeds
-  // the roll number directly (".../M215-013/M215-013-$page:4.jpg") in a
-  // reliably, lexicographically-sortable form, unlike minutes_href's opaque
-  // catalog naId, so sorting by it is what actually recovers record-group
-  // order. Shared by every place that combines more than one group's pages
-  // for display, and by handleMinutesDrop below so a date's groups are
-  // written back in this same order — otherwise a wrong in-memory order
-  // could get baked in permanently once scripts/parse_minutes.js applies it
-  // and marks the group "modified" (never resorted again after that).
+  // append a newly created group after an older one) — src embeds the roll
+  // number directly (".../M215-013/M215-013-$page:4.jpg") in a reliably,
+  // lexicographically-sortable form, unlike href's opaque catalog naId, so
+  // sorting by it is what actually recovers record-group order. Shared by
+  // every place that combines more than one group's pages for display, and
+  // by handleMinutesDrop below so a date's groups are written back in this
+  // same order — otherwise a wrong in-memory order could get baked in
+  // permanently once scripts/parse_minutes.js applies it and marks the
+  // group "modified" (never resorted again after that).
   function sortGroupsBySrc(groups) {
     return groups.slice().sort(function (a, b) {
-      return (a.minutes_src || '').localeCompare(b.minutes_src || '');
+      return (a.src || '').localeCompare(b.src || '');
     });
   }
 
@@ -652,8 +651,8 @@
   function formatMinutesTooltip(groups) {
     if (!Array.isArray(groups)) return '';
     var parts = [];
-    sortGroupsBySrc(groups).forEach(function (g) {
-      var pages = Array.from(new Set(g.minutes_pages || [])).sort(function (a, b) { return a - b; });
+    sortGroupsBySrc(groups).filter(function (g) { return g.type === 'minutes'; }).forEach(function (g) {
+      var pages = Array.from(new Set(g.pages || [])).sort(function (a, b) { return a - b; });
       if (!pages.length) return;
       var ranges = [];
       var start = pages[0], prev = pages[0];
@@ -677,7 +676,8 @@
     if (!Array.isArray(groups)) return null;
     var sorted = sortGroupsBySrc(groups);
     for (var i = 0; i < sorted.length; i++) {
-      var pages = sorted[i].minutes_pages;
+      if (sorted[i].type !== 'minutes') continue;
+      var pages = sorted[i].pages;
       if (Array.isArray(pages) && pages.length) return Math.min.apply(null, pages);
     }
     return null;
@@ -709,11 +709,11 @@
   }
 
   // Colors in the day digits (see .cal-minutes in pages.css) for every date
-  // in a term's dates.json that has at least one non-empty minutes_pages
-  // group — applied as a post-render pass (via each day's data-iso, set in
-  // renderTermCalendar above) rather than a renderTermCalendar parameter,
-  // since dates.json is a separate, optional per-term fetch and most terms
-  // don't have one at all.
+  // in a term's dates.json that has at least one non-empty type:"minutes"
+  // group's own pages — applied as a post-render pass (via each day's
+  // data-iso, set in renderTermCalendar above) rather than a
+  // renderTermCalendar parameter, since dates.json is a separate, optional
+  // per-term fetch and most terms don't have one at all.
   function applyMinutesHighlight(calEl, datesData, termId) {
     if (!datesData || !calEl) return;
     Object.keys(datesData).forEach(function (iso) {
@@ -774,9 +774,9 @@
   // ?date= from termDatesData[date] (shared state declared further below,
   // populated once termDatesPromise resolves) — called once then, and again
   // after any drag-and-drop edit (see handleMinutesDrop below) that touches
-  // this date. Every page's own direct image URL (minutes_src, literal
-  // "$page:4" placeholder zero-padded to 4 digits — falling back to the
-  // minutes_href catalog URL for the rare page missing one) is precomputed
+  // this date. Every page's own direct image URL (src, literal "$page:4"
+  // placeholder zero-padded to 4 digits — falling back to the href catalog
+  // URL for the rare page missing one) is precomputed
   // into minutesPageHrefs below and passed as a whole to wireDocLink's
   // images/index params, so clicking any one page opens the doc viewer's
   // image gallery there, with Left/Right able to page through this entire
@@ -798,22 +798,22 @@
     // still sorted ascending (should already be in that order in
     // dates.json, but sorted here defensively).
     var flatPages = [];
-    sortGroupsBySrc(groups).forEach(function (g) {
+    sortGroupsBySrc(groups).filter(function (g) { return g.type === 'minutes'; }).forEach(function (g) {
       // Deduplicated defensively — a page should only ever be listed once
       // for a given date (handleMinutesDrop below guards against creating a
       // duplicate in the first place, but this keeps a stray one, from
       // before that guard existed or a hand-edited dates.json, from ever
       // rendering twice).
-      var pages = Array.from(new Set(g.minutes_pages || [])).sort(function (a, b) { return a - b; });
+      var pages = Array.from(new Set(g.pages || [])).sort(function (a, b) { return a - b; });
       pages.forEach(function (page) {
-        flatPages.push({ page: page, minutes_href: g.minutes_href, minutes_src: g.minutes_src });
+        flatPages.push({ page: page, href: g.href, src: g.src });
       });
     });
     if (!flatPages.length) { section.hidden = true; return; }
     var minutesPageHrefs = flatPages.map(function (fp) {
       var page4 = String(fp.page).padStart(4, '0');
-      var srcHref  = fp.minutes_src  ? fp.minutes_src.replace('$page:4', page4) : null;
-      var hrefHref = fp.minutes_href ? fp.minutes_href.replace('$page', fp.page) : null;
+      var srcHref  = fp.src  ? fp.src.replace('$page:4', page4) : null;
+      var hrefHref = fp.href ? fp.href.replace('$page', fp.page) : null;
       return srcHref || hrefHref;
     });
     // "Page N" for a single page; "Pages N1, N2, N3" for several — saves
@@ -930,16 +930,16 @@
   // date's matching group if the target date is later than the source
   // (continuing right where the source's later pages left off), or appended
   // if the target is earlier (coming right before the source's own
-  // remaining pages). A group is matched across dates by its own
-  // minutes_href (the same physical volume); one is created — with the same
-  // minutes_href/minutes_src as the source, starting empty — if the target
-  // date has no matching group yet. Drops are allowed anywhere within the
-  // term, not just onto a chronologically adjacent date — some terms have
-  // real discontinuities in their own page numbering (a volume's pages
-  // resuming several dates later than where they left off), so restricting
-  // to neighboring dates only made those unreachable by drag-and-drop. If a
-  // move empties the source group, it's kept in place with an empty
-  // minutes_pages rather than removed — a tombstone, so
+  // remaining pages). A group is matched across dates by its own href (the
+  // same physical volume); one is created — with the same type/href/src as
+  // the source, starting empty — if the target date has no matching group
+  // yet. Drops are allowed anywhere within the term, not just onto a
+  // chronologically adjacent date — some terms have real discontinuities in
+  // their own page numbering (a volume's pages resuming several dates later
+  // than where they left off), so restricting to neighboring dates only
+  // made those unreachable by drag-and-drop. If a move empties the source
+  // group, it's kept in place with an empty pages rather than removed — a
+  // tombstone, so
   // scripts/parse_minutes.js's own applyDateOverrides (which tags every
   // group an override touches with "modified": true) can still record that
   // this date+volume was deliberately cleared, and its own OCR-driven Pass 3
@@ -986,42 +986,42 @@
     var groups = termDatesData[sourceIso];
     if (!Array.isArray(groups)) return;
     var srcIdx = groups.findIndex(function (g) {
-      return Array.isArray(g.minutes_pages) && g.minutes_pages.indexOf(sourcePage) !== -1;
+      return g.type === 'minutes' && Array.isArray(g.pages) && g.pages.indexOf(sourcePage) !== -1;
     });
     if (srcIdx === -1) return;
     var srcGroup = groups[srcIdx];
 
-    var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
+    var pages = srcGroup.pages.slice().sort(function (a, b) { return a - b; });
     var split = splitMovingPages(pages, sourcePage, keepSource, targetIso < sourceIso);
     var moving = split.moving, staying = split.staying;
     var newSourceGroups = groups.slice();
-    newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: staying });
+    newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { pages: staying });
     termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
 
-    // Matched by minutes_href AND minutes_src together — the same physical
-    // volume/record group, never just one or the other.
+    // Matched by href AND src together — the same physical volume/record
+    // group, never just one or the other.
     var targetGroups = Array.isArray(termDatesData[targetIso]) ? termDatesData[targetIso].slice() : [];
     var tgtIdx = targetGroups.findIndex(function (g) {
-      return g.minutes_href === srcGroup.minutes_href && g.minutes_src === srcGroup.minutes_src;
+      return g.type === 'minutes' && g.href === srcGroup.href && g.src === srcGroup.src;
     });
     var tgtGroup;
     if (tgtIdx === -1) {
-      tgtGroup = { minutes_href: srcGroup.minutes_href, minutes_src: srcGroup.minutes_src };
-      tgtGroup.minutes_pages = [];
+      tgtGroup = { type: 'minutes', href: srcGroup.href, src: srcGroup.src };
+      tgtGroup.pages = [];
       targetGroups.push(tgtGroup);
       tgtIdx = targetGroups.length - 1;
     } else {
-      tgtGroup = Object.assign({}, targetGroups[tgtIdx], { minutes_pages: (targetGroups[tgtIdx].minutes_pages || []).slice() });
+      tgtGroup = Object.assign({}, targetGroups[tgtIdx], { pages: (targetGroups[tgtIdx].pages || []).slice() });
     }
 
     // A page should only ever be listed once for a given date — drop any
     // page(s) the target already has (e.g. re-doing the same drag a second
     // time) rather than duplicating them. Nothing new to add there is still
     // a complete, valid drop — the source-side change above stands either way.
-    var toAdd = moving.filter(function (p) { return tgtGroup.minutes_pages.indexOf(p) === -1; });
-    tgtGroup.minutes_pages = (targetIso > sourceIso)
-      ? toAdd.concat(tgtGroup.minutes_pages)
-      : tgtGroup.minutes_pages.concat(toAdd);
+    var toAdd = moving.filter(function (p) { return tgtGroup.pages.indexOf(p) === -1; });
+    tgtGroup.pages = (targetIso > sourceIso)
+      ? toAdd.concat(tgtGroup.pages)
+      : tgtGroup.pages.concat(toAdd);
     targetGroups[tgtIdx] = tgtGroup;
     termDatesData[targetIso] = sortGroupsBySrc(targetGroups);
 
@@ -1041,7 +1041,7 @@
   // gesture as wireCalDayDropTarget above but calling
   // handleAdjacentTermMinutesDrop below instead — continuing a page sequence
   // into whichever date at the far edge of the adjacent term already carries
-  // a matching minutes_src, rather than a date within this term.
+  // a matching src, rather than a date within this term.
   function wireAdjacentTermDropTarget(btnEl, direction) {
     btnEl.addEventListener('dragover', function (e) {
       e.preventDefault();
@@ -1071,18 +1071,18 @@
   // splitMovingPages above for the exact moving/staying split this reuses.
   // Unlike handleMinutesDrop, this never invents a new group on the far side
   // of a term boundary: if that edge date's own Minutes aren't the same
-  // volume (matched by minutes_src alone — a term boundary is exactly the
-  // kind of place a volume is expected to end, so requiring an existing
-  // matching group here, rather than href+src together like within a term,
-  // keeps the bar for "same volume" no stricter than necessary), the drop
-  // fails outright with an alert rather than silently starting an unrelated
+  // volume (matched by src alone — a term boundary is exactly the kind of
+  // place a volume is expected to end, so requiring an existing matching
+  // group here, rather than href+src together like within a term, keeps the
+  // bar for "same volume" no stricter than necessary), the drop fails
+  // outright with an alert rather than silently starting an unrelated
   // volume there.
   function handleAdjacentTermMinutesDrop(sourceIso, sourcePage, direction, keepSource) {
     if (!termDatesData) return;
     var groups = termDatesData[sourceIso];
     if (!Array.isArray(groups)) return;
     var srcIdx = groups.findIndex(function (g) {
-      return Array.isArray(g.minutes_pages) && g.minutes_pages.indexOf(sourcePage) !== -1;
+      return g.type === 'minutes' && Array.isArray(g.pages) && g.pages.indexOf(sourcePage) !== -1;
     });
     if (srcIdx === -1) return;
     var srcGroup = groups[srcIdx];
@@ -1100,7 +1100,7 @@
           var adjData = applyDateOverrides(raw);
           var minutesIsos = Object.keys(adjData).filter(function (iso) {
             var g = adjData[iso];
-            return Array.isArray(g) && g.some(function (x) { return 'minutes_src' in x && Array.isArray(x.minutes_pages) && x.minutes_pages.length; });
+            return Array.isArray(g) && g.some(function (x) { return x.type === 'minutes' && Array.isArray(x.pages) && x.pages.length; });
           }).sort();
           if (!minutesIsos.length) {
             alert('Can’t move this page — the ' + directionLabel + ' term (' + termTitle(adjTermId) + ') has no Minutes.');
@@ -1108,24 +1108,24 @@
           }
           var targetIso = direction === 'prev' ? minutesIsos[minutesIsos.length - 1] : minutesIsos[0];
           var targetGroups = adjData[targetIso].slice();
-          var tgtIdx = targetGroups.findIndex(function (g) { return g.minutes_src === srcGroup.minutes_src; });
+          var tgtIdx = targetGroups.findIndex(function (g) { return g.type === 'minutes' && g.src === srcGroup.src; });
           if (tgtIdx === -1) {
             alert('Can’t move this page — the ' + directionLabel + ' term’s ' + (direction === 'prev' ? 'last' : 'first')
               + ' Minutes date (' + targetIso + ') isn’t the same volume.');
             return;
           }
 
-          var pages = srcGroup.minutes_pages.slice().sort(function (a, b) { return a - b; });
+          var pages = srcGroup.pages.slice().sort(function (a, b) { return a - b; });
           var split = splitMovingPages(pages, sourcePage, keepSource, direction === 'prev');
           var newSourceGroups = groups.slice();
-          newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { minutes_pages: split.staying });
+          newSourceGroups[srcIdx] = Object.assign({}, srcGroup, { pages: split.staying });
           termDatesData[sourceIso] = sortGroupsBySrc(newSourceGroups);
 
-          var tgtGroup = Object.assign({}, targetGroups[tgtIdx], { minutes_pages: (targetGroups[tgtIdx].minutes_pages || []).slice() });
-          var toAdd = split.moving.filter(function (p) { return tgtGroup.minutes_pages.indexOf(p) === -1; });
-          tgtGroup.minutes_pages = direction === 'prev'
-            ? tgtGroup.minutes_pages.concat(toAdd)
-            : toAdd.concat(tgtGroup.minutes_pages);
+          var tgtGroup = Object.assign({}, targetGroups[tgtIdx], { pages: (targetGroups[tgtIdx].pages || []).slice() });
+          var toAdd = split.moving.filter(function (p) { return tgtGroup.pages.indexOf(p) === -1; });
+          tgtGroup.pages = direction === 'prev'
+            ? tgtGroup.pages.concat(toAdd)
+            : toAdd.concat(tgtGroup.pages);
           targetGroups[tgtIdx] = tgtGroup;
           adjData[targetIso] = sortGroupsBySrc(targetGroups);
 
@@ -1165,26 +1165,70 @@
   }
 
   // Normalizes a group array purely for equality comparison (never written
-  // back anywhere) — sorted by minutes_src (sortGroupsBySrc above), each
-  // group's own minutes_pages deduplicated and sorted, and any
-  // "modified": true flag dropped (scripts/parse_minutes.js's own
-  // applyDateOverrides stamps that onto every group it writes; this
-  // browser's own copy never has it). Without this, an override that's
-  // otherwise identical to what the server now has — just, say, a stray
-  // duplicate page number left over from before handleMinutesDrop's own
-  // dedup guard existed — would never be recognized as "already applied"
-  // and would keep showing up in "Download Dates" forever.
+  // back anywhere) — sorted by src (sortGroupsBySrc above), each group's own
+  // pages deduplicated and sorted, and any "modified": true flag dropped
+  // (scripts/parse_minutes.js's own applyDateOverrides stamps that onto
+  // every group it writes; this browser's own copy never has it). Without
+  // this, an override that's otherwise identical to what the server now has
+  // — just, say, a stray duplicate page number left over from before
+  // handleMinutesDrop's own dedup guard existed — would never be recognized
+  // as "already applied" and would keep showing up in "Download Dates" forever.
   function canonicalizeGroups(groups) {
     if (!Array.isArray(groups)) return null;
     return sortGroupsBySrc(groups).map(function (g) {
       // A case-detail object (see update_cases.js's syncCrossTermCaseDates) —
       // nothing here applies to it, so it passes through untouched.
-      if (!('minutes_src' in g)) return g;
+      if (g.type !== 'minutes') return g;
       var copy = Object.assign({}, g);
       delete copy.modified;
-      copy.minutes_pages = Array.from(new Set(copy.minutes_pages || [])).sort(function (a, b) { return a - b; });
+      copy.pages = Array.from(new Set(copy.pages || [])).sort(function (a, b) { return a - b; });
       return copy;
     });
+  }
+
+  // On disk, a Minutes-scan group's own "pages" is a "<first>-<last>" range
+  // string (see scripts/parse_minutes.js's own parsePagesRange/
+  // formatPagesRange doc comment for why) — every array-based site in this
+  // file (formatMinutesTooltip, handleMinutesDrop, splitMovingPages, etc.)
+  // works with the expanded array form instead, same as it always has, so a
+  // freshly-fetched dates.json payload is normalized through this
+  // immediately below, before anything else touches it. This browser
+  // session's own local overrides/download (see LS_DATES_KEY) stay in array
+  // form throughout — only the on-disk file itself uses the string. Every
+  // dates.json object is identified by its own "type" prop — "minutes" for
+  // a Minutes-scan group, "argument"/"reargument" for a cross-term
+  // case-detail pointer (see update_cases.js's syncCrossTermCaseDates) —
+  // never by which props happen to be present.
+  function parsePagesRange(v) {
+    if (Array.isArray(v)) return v.slice(); // tolerate not-yet-migrated data
+    if (typeof v !== 'string' || !v) return [];
+    var m = /^(\d+)-(\d+)$/.exec(v);
+    if (!m) return [];
+    var first = parseInt(m[1], 10), last = parseInt(m[2], 10);
+    if (last < first) return [];
+    var out = [];
+    for (var p = first; p <= last; p++) out.push(p);
+    return out;
+  }
+  function expandDatesPages(raw) {
+    if (!raw) return raw;
+    Object.keys(raw).forEach(function (iso) {
+      var groups = raw[iso];
+      if (!Array.isArray(groups)) return;
+      groups.forEach(function (g) {
+        if (!g || typeof g !== 'object') return;
+        // Self-heals an old-shape Minutes group (minutes_href/minutes_src/
+        // minutes_pages, no "type") into the current shape.
+        if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
+          g.type = 'minutes';
+          if ('minutes_href' in g) { g.href = g.minutes_href; delete g.minutes_href; }
+          if ('minutes_src' in g) { g.src = g.minutes_src; delete g.minutes_src; }
+          if ('minutes_pages' in g) { g.pages = g.minutes_pages; delete g.minutes_pages; }
+        }
+        if (g.type === 'minutes') g.pages = parsePagesRange(g.pages);
+      });
+    });
+    return raw;
   }
 
   // Layers this browser's own local date overrides on top of a term's
@@ -1203,6 +1247,7 @@
   // to capture at edit time — otherwise an override from before a case was
   // added there (or after one was later removed) would silently hide it.
   function applyDateOverrides(raw) {
+    raw = expandDatesPages(raw);
     var overrides = loadDateOverrides();
     var keys = Object.keys(overrides);
     if (!keys.length) return raw || {};
@@ -1221,8 +1266,8 @@
       // produces — see loadDateOverrides above) — server case-detail objects
       // still survive that, same as a real override's own minutes groups
       // below, since neither kind of override was ever about them.
-      var serverCaseObjs = (serverVal || []).filter(function (g) { return !('minutes_src' in g); });
-      var minutesGroups = val === null ? [] : val.filter(function (g) { return 'minutes_src' in g; });
+      var serverCaseObjs = (serverVal || []).filter(function (g) { return g.type !== 'minutes'; });
+      var minutesGroups = val === null ? [] : val.filter(function (g) { return g.type === 'minutes'; });
       var combined = minutesGroups.concat(serverCaseObjs);
       if (combined.length) merged[iso] = combined; else delete merged[iso];
     });
@@ -1656,8 +1701,8 @@
   // span more than one physical volume, so one thumbnail is shown per
   // volume, to the left of the journal/U.S. Reports covers above. Each
   // volume's own roll number is parsed back out of its cover filename
-  // ("mXXX-cover.jpg") and matched against dates.json's own minutes_src
-  // templates (which embed the same roll number) to find that volume's
+  // ("mXXX-cover.jpg") and matched against dates.json's own type:"minutes"
+  // src templates (which embed the same roll number) to find that volume's
   // earliest real (non-tombstoned) date/page, which the thumbnail links to.
   // Re-run (not just rendered once) after a drag-and-drop Minutes edit
   // below, since moving pages around can shift which date is first to
@@ -1670,12 +1715,13 @@
       var groups = termDatesData[isos[i]] || [];
       for (var j = 0; j < groups.length; j++) {
         var g = groups[j];
-        var m = /M215-(\d{3})/.exec(g.minutes_src || '');
-        // A tombstone left by handleMinutesDrop above (minutes_pages emptied
-        // out entirely) never counts as this volume's "first occurrence" —
-        // that date no longer actually shows anything for it.
-        if (!m || m[1] !== xxx || !(g.minutes_pages && g.minutes_pages.length)) continue;
-        return { iso: isos[i], page: g.minutes_pages[0], href: g.minutes_href };
+        if (g.type !== 'minutes') continue;
+        var m = /M215-(\d{3})/.exec(g.src || '');
+        // A tombstone left by handleMinutesDrop above (pages emptied out
+        // entirely) never counts as this volume's "first occurrence" — that
+        // date no longer actually shows anything for it.
+        if (!m || m[1] !== xxx || !(g.pages && g.pages.length)) continue;
+        return { iso: isos[i], page: g.pages[0], href: g.href };
       }
     }
     return null;
@@ -1801,8 +1847,8 @@
         // that Minutes page once the list exists for it to find.
         termDatesPromise.then(function (datesData) {
           var crossTermCases = (datesData && datesData[date]) || [];
-          var crossArg   = crossTermCases.filter(function (g) { return !('minutes_src' in g) && g.type === 'argument'; });
-          var crossRearg = crossTermCases.filter(function (g) { return !('minutes_src' in g) && g.type === 'reargument'; });
+          var crossArg   = crossTermCases.filter(function (g) { return g.type === 'argument'; });
+          var crossRearg = crossTermCases.filter(function (g) { return g.type === 'reargument'; });
 
           fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument').concat(crossArg));
           fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument').concat(crossRearg));
@@ -1876,7 +1922,7 @@
           if (datesData) {
             Object.keys(datesData).forEach(function (iso) {
               (datesData[iso] || []).forEach(function (g) {
-                if (!('minutes_src' in g) && (g.type === 'argument' || g.type === 'reargument')) calArgDaySet.add(iso);
+                if (g.type === 'argument' || g.type === 'reargument') calArgDaySet.add(iso);
               });
             });
           }

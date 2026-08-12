@@ -35,11 +35,9 @@ scripts/             Import/update/alignment scripts (Node.js)
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
 
 ### dates.json (optional, per term)
-`courts/ussc/terms/YYYY-MM/dates.json` maps an ISO date to an array of entries, built/maintained by two different scripts:
-- **Minutes-scan groups** — `{minutes_href, minutes_src, minutes_pages, modified?}`, built by `scripts/parse_minutes.js` from NARA's OCR'd Minutes books. See that script's own top-of-file doc comment for the full format.
-- **Cross-term case-detail objects** — `{id, term, number, title, usCite, type}`, added by `update_cases.js`'s `syncCrossTermCaseDates` for a case whose `argument`/`reargument` date falls within an *earlier* term's own date range than the term it's filed under (e.g. a case reargued in the term after the one it was first argued in — `term` here is the case's own term, `type` is `"argument"` or `"reargument"`). The front end adds these to that earlier term's own date-argued/reargued lists and Court Calendar coloring when viewing its page, linking to the case via its own `term`.
-
-Since either kind of object can appear in the same date's array, **any code reading it must check for `minutes_src` before treating an entry as a Minutes group** — never assume every entry is one.
+`courts/ussc/terms/YYYY-MM/dates.json` maps an ISO date to an array of entries, built/maintained by two different scripts. Every entry starts with a `type` prop identifying its own kind — **the only thing any code should ever check** to tell the two kinds apart, never which other props happen to be present:
+- **Minutes-scan groups** — `{type: "minutes", href, src, pages, modified?}`, built by `scripts/parse_minutes.js` from NARA's OCR'd Minutes books. `pages` is a `"<first>-<last>"` range string (every group's own pages are always a gap-free consecutive run), or `""` for an empty/tombstone group. See that script's own top-of-file doc comment for the full format.
+- **Cross-term case-detail objects** — `{type, id, term, number, title, usCite}`, added by `update_cases.js`'s `syncCrossTermCaseDates` for a case whose `argument`/`reargument` date falls within an *earlier* term's own date range than the term it's filed under (e.g. a case reargued in the term after the one it was first argued in — `term` here is the case's own term, `type` is `"argument"` or `"reargument"`). The front end adds these to that earlier term's own date-argued/reargued lists and Court Calendar coloring when viewing its page, linking to the case via its own `term`.
 
 ### Case schema (in `cases.json`)
 Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Always call `reorderCase()` / `reorderEvent()` when writing new objects.
