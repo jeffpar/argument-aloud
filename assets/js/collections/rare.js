@@ -53,7 +53,7 @@
   }
   window.addEventListener('hashchange', applyHashHighlight);
 
-  fetch('/courts/ussc/collections/rare_words.json')
+  fetch('/courts/ussc/collections/rare/rare_words.json')
     .then(function (r) { return r.json(); })
     .then(function (groups) {
       renderList(document.getElementById('rw-list'), groups.filter(function (g) { return g.dictionary !== false; }));

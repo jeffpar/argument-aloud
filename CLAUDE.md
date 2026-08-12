@@ -31,7 +31,7 @@ scripts/             Import/update/alignment scripts (Node.js)
 
 ### Terms
 - Format: `YYYY-MM` (e.g., `2025-10` = October Term 2025, `1793-02` = February Term 1793)
-- `courts/ussc/terms.json` — master list of all terms. Each term object's own `dates` boolean says whether `courts/ussc/terms/YYYY-MM/dates.json` exists (set by `update_cases.js`'s `syncTermsJson`) — the front end (`assets/js/terms.js`, `explorer.js`) checks this before ever fetching it, since most terms don't have one. `minutes` (an array of `{cover}` cover-thumbnail filenames) is independent of this — a term's `dates.json` can exist purely for cross-term case entries (see below) with no Minutes-scan data at all.
+- `courts/ussc/terms/terms.json` — master list of all terms. Each term object's own `dates` boolean says whether `courts/ussc/terms/YYYY-MM/dates.json` exists (set by `update_cases.js`'s `syncTermsJson`) — the front end (`assets/js/terms.js`, `explorer.js`) checks this before ever fetching it, since most terms don't have one. `minutes` (an array of `{cover}` cover-thumbnail filenames) is independent of this — a term's `dates.json` can exist purely for cross-term case entries (see below) with no Minutes-scan data at all.
 - `courts/ussc/terms/YYYY-MM/cases.json` — cases for a term
 
 ### dates.json (optional, per term)
@@ -97,7 +97,7 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
 - Speaker `name` is ALL CAPS last name (or full name); `title` is role: `CHIEF JUSTICE`, `JUSTICE`, `GENERAL` (AG), `MR.`, `MS.`
 - `turn` is 1-based
 
-### Collections (`courts/ussc/collections.json`)
+### Collections (`courts/ussc/collections/collections.json`)
 Array of `{ title, collection (absolute path to JSON), folder?, focus?, sort?, categories? }` — pre-built advocate/justice and curated collections.
 
 ### Podcast feeds (`courts/ussc/feeds/`)

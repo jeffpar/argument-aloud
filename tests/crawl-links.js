@@ -393,7 +393,7 @@ async function fetchJson(pathOrUrl, referrer) {
 async function runPhase2() {
   console.log('Phase 2: data-driven same-origin resource check (terms/cases/collections/topics)');
 
-  const decades = await fetchJson('/courts/ussc/terms.json', OPTS.base + '/courts/ussc/');
+  const decades = await fetchJson('/courts/ussc/terms/terms.json', OPTS.base + '/courts/ussc/');
   if (!decades) { console.log('  ! could not load terms.json -- skipping Phase 2 term/case checks'); }
 
   let termGroups = [];
@@ -435,7 +435,7 @@ async function runPhase2() {
   console.log(`  walked ${termGroups.length} terms / ${casesChecked} cases / ${eventsChecked} events (${filesJsonChecked} with files.json)`);
 
   const collRef = OPTS.base + '/courts/ussc/collections/';
-  const collections = await fetchJson('/courts/ussc/collections.json', collRef);
+  const collections = await fetchJson('/courts/ussc/collections/collections.json', collRef);
   let collFilesChecked = 0;
   if (collections) {
     for (const category of collections) {
@@ -444,7 +444,7 @@ async function runPhase2() {
       }
     }
   }
-  const topics = await fetchJson('/courts/ussc/topics.json', OPTS.base + '/courts/ussc/topics/');
+  const topics = await fetchJson('/courts/ussc/topics/topics.json', OPTS.base + '/courts/ussc/topics/');
   if (topics) {
     for (const t of topics) {
       if (t.file) { checkUrl(t.file, OPTS.base + '/courts/ussc/topics/').catch(() => {}); collFilesChecked++; }

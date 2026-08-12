@@ -42,7 +42,13 @@ test('decade: any click on an open decade row closes it (no selection concept)',
 
 test('collection: label click opens+selects, second label click closes (open + selected)', async (page) => {
   await openCollectionsSection(page);
-  const collItem = page.locator('.term-group[data-collection-url="/courts/ussc/collections/briefs.json"]').first();
+  // "Briefs" lives inside the collapsed "Historical" sub-group container; open that first.
+  const historicalGroup = page.locator('.term-group').filter({ hasText: 'Historical' }).first();
+  if (!(await isOpen(historicalGroup))) {
+    await historicalGroup.locator('.term-header .term-label').first().click();
+    await waitForOpen(historicalGroup, true, 'Historical sub-group should open');
+  }
+  const collItem = page.locator('.term-group[data-collection-url="/courts/ussc/collections/briefs/briefs.json"]').first();
   const collLabel = collItem.locator('.term-label').first();
 
   await collLabel.click();
@@ -161,8 +167,8 @@ async function waitForUrlParam(page, key, expected, message) {
   assert.equal(last, expected, message);
 }
 async function openTermsSection(page) {
-  const termsHeader = page.locator('.terms-group .terms-header').first();
-  const termsLi = page.locator('.terms-group').first();
+  const termsLi = page.locator('.terms-group').filter({ hasText: 'Terms' }).first();
+  const termsHeader = termsLi.locator('.terms-header').first();
   if (!(await isOpen(termsLi))) {
     await termsHeader.click();
     await waitForOpen(termsLi, true, 'Terms section should open');

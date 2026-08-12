@@ -97,7 +97,7 @@
   }
   window.addEventListener('hashchange', scrollToHashTarget);
 
-  fetch('/courts/ussc/collections/orig.json')
+  fetch('/courts/ussc/collections/orig/orig.json')
     .then(function (r) { return r.json(); })
     .then(function (groups) {
       var container = document.getElementById('og-gallery');

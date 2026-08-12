@@ -1241,7 +1241,7 @@
     // dead space here.
     document.getElementById('date-section').hidden = true;
     document.getElementById('stat-term-title').textContent = 'All Terms';
-    fetch('/courts/ussc/terms.json')
+    fetch('/courts/ussc/terms/terms.json')
       .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function(data) {
         // Fill stat boxes from the hidden {name:'All'} container's summary group.
@@ -1552,7 +1552,7 @@
   }
 
   // Load journal cover if available for this term.
-  fetch('/courts/ussc/terms.json')
+  fetch('/courts/ussc/terms/terms.json')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function (decades) {
       var entry = null;
@@ -1835,7 +1835,7 @@
       // update_cases.js's syncCrossTermCaseDates). They're shown immediately
       // so the stat cards never sit on "—", then overwritten with the
       // authoritative cross-term-aware terms.json values in the
-      // fetch('/courts/ussc/terms.json') handler above once it resolves.
+      // fetch('/courts/ussc/terms/terms.json') handler above once it resolves.
       var argEvents = [];
       cases.forEach(function (c) {
         (c.events || []).forEach(function (e) {

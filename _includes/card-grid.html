@@ -1,9 +1,15 @@
 <div class="card-grid">
   {%- for card in include.cards %}
-  <a class="card" href="{{ card.href }}">
+  <div class="card">
+    {%- comment %} A full-card overlay <a> (see .hp-card-link's own comment
+    in style.scss) instead of wrapping the card in one big <a> — card.desc
+    can itself contain <a> tags (e.g. citing an external source), and a
+    nested <a> inside <a> is invalid HTML that browsers "fix" by closing the
+    outer one early, breaking the card layout. {% endcomment %}
+    <a class="card-link" href="{{ card.href }}" aria-label="{{ card.title }}"></a>
     {%- if card.badge %}<span class="card-badge">{{ card.badge }}</span>{% endif %}
     <h2 class="card-title">{{ card.title }}</h2>
     <p class="card-desc">{{ card.desc }}</p>
-  </a>
+  </div>
   {%- endfor %}
 </div>

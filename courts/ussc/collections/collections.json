@@ -128,7 +128,7 @@
       {
         "id": "briefs",
         "name": "Briefs",
-        "file": "/courts/ussc/collections/briefs.json",
+        "file": "/courts/ussc/collections/briefs/briefs.json",
         "search": "cases:title",
         "order": "argument:ascending",
         "groups": [
@@ -141,7 +141,7 @@
       {
         "id": "scgh",
         "name": "Greatest Hits",
-        "file": "/courts/ussc/collections/scgh.json",
+        "file": "/courts/ussc/collections/scgh/scgh.json",
         "page": "/courts/ussc/collections/scgh",
         "groups": [
           {
@@ -201,7 +201,7 @@
       {
         "id": "media",
         "name": "Media Files",
-        "file": "/courts/ussc/collections/media.json",
+        "file": "/courts/ussc/collections/media/media.json",
         "page": "/courts/ussc/collections/media",
         "groups": [
           {
@@ -226,15 +226,16 @@
       {
         "id": "oddities",
         "name": "Oddities",
-        "file": "/courts/ussc/collections/oddities.json",
+        "file": "/courts/ussc/collections/oddities/oddities.json",
         "conditions": [
         ],
-        "order": "decision:ascending,titles:ascending"
+        "order": "decision:ascending,titles:ascending",
+        "hidden": true
       },
       {
         "id": "orig",
         "name": "Original Jurisdiction",
-        "file": "/courts/ussc/collections/orig.json",
+        "file": "/courts/ussc/collections/orig/orig.json",
         "page": "/courts/ussc/collections/orig",
         "scrollToPage": true,
         "groups": [
@@ -248,7 +249,7 @@
       {
         "id": "rare-words",
         "name": "Rare Words",
-        "file": "/courts/ussc/collections/rare_words.json",
+        "file": "/courts/ussc/collections/rare/rare_words.json",
         "page": "/courts/ussc/collections/rare",
         "search": "name",
         "scrollLabel": "words"
@@ -256,14 +257,14 @@
       {
         "id": "top_cites",
         "name": "Top Cites",
-        "file": "/courts/ussc/collections/top_cites.json",
+        "file": "/courts/ussc/collections/cites/top_cites.json",
         "search": "name",
         "scrollLabel": "opinions"
       },
       {
         "id": "transcripts",
         "name": "Transcripts",
-        "file": "/courts/ussc/collections/transcripts.json",
+        "file": "/courts/ussc/collections/transcripts/transcripts.json",
         "search": "cases:title",
         "order": "argument:ascending",
         "groups": [
@@ -285,7 +286,8 @@
   },
   {
     "name": "Audits",
-    "file": "/courts/ussc/collections/audits.json",
+    "file": "/courts/ussc/collections/audits/audits.json",
+    "page": "/courts/ussc/collections/audits",
     "groups": [
       {
         "id": "missing-audio",
@@ -341,8 +343,8 @@
         "order": "decision:ascending,titles:ascending"
       },
       {
-        "id": "scdb-errors",
-        "name": "Cases with SCDB Errors",
+        "id": "incorrect-scdb-records",
+        "name": "Cases with Incorrect SCDB Records",
         "conditions": [
           [
             "scdb_check contains 'argument'",
@@ -359,9 +361,9 @@
         "order": "decision:ascending,titles:ascending"
       },
       {
-        "id": "warnings",
+        "id": "all-warnings",
         "name": "Cases with Warnings",
-        "page": "/courts/ussc/collections/warnings",
+        "page": "/courts/ussc/collections/audits/warnings",
         "conditions": [
           [
             "scdb_message != undefined"

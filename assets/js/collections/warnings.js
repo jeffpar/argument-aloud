@@ -46,7 +46,7 @@
     return li;
   }
 
-  fetch('/courts/ussc/collections/audits.json')
+  fetch('/courts/ussc/collections/audits/audits.json')
     .then(function (r) { return r.json(); })
     .then(function (groups) {
       var group = null;

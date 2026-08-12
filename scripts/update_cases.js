@@ -550,7 +550,7 @@ const _DATE_DEC_PARSE_RE = new RegExp(
   + 'October|November|December)\\s+(\\d{1,2}),\\s+(\\d{4})$'
 );
 
-const TERMS_JSON   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms.json');
+const TERMS_JSON   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', 'terms.json');
 const REPORTS_JSON = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 const TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const PDFS_DIR     = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'pdfs');
@@ -5122,9 +5122,9 @@ function processJusticeAdvocates(allTerms, dryRun) {
 // =====================================================================
 
 const _COLLECTIONS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'collections');
-const _COLLECTIONS_REGISTRY = path.join(REPO_ROOT, 'courts', 'ussc', 'collections.json');
+const _COLLECTIONS_REGISTRY = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'collections.json');
 const _INDEX_JSON            = path.join(REPO_ROOT, 'courts', 'ussc', 'index.json');
-const _AUDITS_PATH           = path.join(_COLLECTIONS_DIR, 'audits.json');
+const _AUDITS_PATH           = path.join(_COLLECTIONS_DIR, 'audits', 'audits.json');
 
 function _firstDate(s) {
     if (!s) return '';
@@ -7511,7 +7511,7 @@ function _selectRarestSpread(candidates, count) {
     return selected;
 }
 
-// Build courts/ussc/collections/rare_words.json (an ordinary embedded-format
+// Build courts/ussc/collections/rare/rare_words.json (an ordinary embedded-format
 // collection: [{ name: <word>, cases: [...] }, ...], browsable the same way
 // as e.g. orig.json) — two lists of RARE_WORD_COUNT words each, back to back:
 // the rarest words that are real dictionary words (any case count, even a
@@ -7578,11 +7578,11 @@ function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
 
     const rareWords = [...dictGroups, ...nonDictGroups];
 
-    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'rare_words.json');
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'rare', 'rare_words.json');
     const jsonWritten = writeIfChanged(jsonPath, JSON.stringify(rareWords, null, 2) + '\n');
 
     if (jsonWritten || _VERBOSE) {
-        console.log(`Rare words: wrote ${dictGroups.length} dictionary word(s) + ${nonDictGroups.length} non-dictionary word(s) → courts/ussc/collections/rare_words.json`);
+        console.log(`Rare words: wrote ${dictGroups.length} dictionary word(s) + ${nonDictGroups.length} non-dictionary word(s) → courts/ussc/collections/rare/rare_words.json`);
     }
 }
 
@@ -8964,7 +8964,7 @@ async function runScdb(opts) {
     // reason to hide unargued cases on a page that only ever documents, never
     // inserts, them) pass regardless of opts.update/opts.backfill/opts.all, so
     // this never risks adding these cases to cases.json — they're deliberately
-    // excluded from courts/ussc/collections/audits.json for that reason (see
+    // excluded from courts/ussc/collections/audits/audits.json for that reason (see
     // courts/ussc/collections.json's "ignored-scdb-records" Audits group).
     if (!opts.term && !opts.caseFilter && !opts.add) {
         const notIncluded = [];
@@ -10003,7 +10003,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js --minutes [--dry-run]              # backfill missing minutes_src values
        node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
        node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
-       node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/top_cites.json
+       node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/cites/top_cites.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
        node update_cases.js --feeds [--verbose]                # rebuild courts/ussc/feeds/ (podcast RSS)
@@ -11007,7 +11007,7 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// --top-cites: build courts/ussc/collections/top_cites.json — an ordinary
+// --top-cites: build courts/ussc/collections/cites/top_cites.json — an ordinary
 // embedded-format collection (like rare_words.json/oral_dissents.json:
 // [{ name, link, cases: [...] }, ...]) of the most-cited opinions across
 // every term, ranked by how many *other* cases' opCite array references them
@@ -11080,18 +11080,18 @@ function runTopCites(dryRun) {
         .sort((a, b) => b.cases.length - a.cases.length || a.name.localeCompare(b.name))
         .slice(0, TOP_CITES_COUNT);
 
-    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'top_cites.json');
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'cites', 'top_cites.json');
     const content = JSON.stringify(ranked, null, 2) + '\n';
 
     if (dryRun) {
-        console.log(`[dry-run] Would write ${ranked.length} opinion(s) to courts/ussc/collections/top_cites.json`);
+        console.log(`[dry-run] Would write ${ranked.length} opinion(s) to courts/ussc/collections/cites/top_cites.json`);
         return;
     }
 
     let changed = true;
     try { changed = fs.readFileSync(jsonPath, 'utf8') !== content; } catch { /* new file */ }
     if (changed) fs.writeFileSync(jsonPath, content, 'utf8');
-    console.log(`Top cites: wrote ${ranked.length} opinion(s) → courts/ussc/collections/top_cites.json`);
+    console.log(`Top cites: wrote ${ranked.length} opinion(s) → courts/ussc/collections/cites/top_cites.json`);
 }
 
 
@@ -13613,7 +13613,7 @@ function runGenerateSitemap(dryRun) {
         urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?collection=${encodeURIComponent(id)}`, lastmod: buildDate });
     }
     let topicDefs = [];
-    try { topicDefs = _readJson(path.join(REPO_ROOT, 'courts', 'ussc', 'topics.json')); } catch {}
+    try { topicDefs = _readJson(path.join(REPO_ROOT, 'courts', 'ussc', 'topics', 'topics.json')); } catch {}
     for (const id of _collectSitemapCollectionIds(topicDefs)) {
         urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}`, lastmod: buildDate });
     }

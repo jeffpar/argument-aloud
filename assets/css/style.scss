@@ -26,6 +26,16 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
 }
+/* Makes the whole card a real, crawlable/copyable link (browsers show its href
+   on hover, and "copy link"/open-in-new-tab work), while any <a> tags inside
+   .card-desc still resolve to their own href — those sit above this full-card
+   overlay via z-index, everything else falls through to it. Same pattern as
+   .hp-card-link below. */
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 .card-title {
   margin: 0 0 6px;
   font-size: 1rem;
@@ -34,10 +44,20 @@
   border: none;
 }
 .card-desc {
+  position: relative;
   margin: 0;
   font-size: 0.82rem;
   opacity: 0.75;
   line-height: 1.4;
+}
+.card-desc a {
+  position: relative;
+  z-index: 1;
+  color: #2672b4;
+  text-decoration: none;
+}
+.card-desc a:hover {
+  text-decoration: underline;
 }
 .card-badge {
   position: absolute;
@@ -52,11 +72,14 @@
 @media (prefers-color-scheme: dark) {
   .card { background: #21242c; border-color: #2d2f38; }
   .card:hover { background: #262a34; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+  .card-desc a { color: #5eaee0; }
 }
 html[data-theme="dark"]  .card { background: #21242c; border-color: #2d2f38; }
 html[data-theme="dark"]  .card:hover { background: #262a34; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+html[data-theme="dark"]  .card-desc a { color: #5eaee0; }
 html[data-theme="light"] .card { background: #f5f6fa; border-color: #e0e0e0; }
 html[data-theme="light"] .card:hover { background: #eef1f8; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+html[data-theme="light"] .card-desc a { color: #2672b4; }
 
 /* ── Site homepage hero cards (index.md) ─────────────────────────────────── */
 .hp-hero {

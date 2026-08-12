@@ -9,7 +9,7 @@ title: "Topics"
 
 <script>
 (function () {
-  fetch('/courts/ussc/topics.json')
+  fetch('/courts/ussc/topics/topics.json')
     .then(function (r) { return r.json(); })
     .then(function (topics) {
       var grid = document.getElementById('topics-card-grid');

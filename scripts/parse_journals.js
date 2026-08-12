@@ -84,7 +84,7 @@ import { reorderEvent, reorderAdvocate } from './schema.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const TERMS_PATH = join(ROOT, 'courts/ussc/terms.json');
+const TERMS_PATH = join(ROOT, 'courts/ussc/terms/terms.json');
 const PDF_DIR = join(ROOT, 'courts/ussc/journals/pdfs');
 const TEXT_DIR = join(ROOT, 'courts/ussc/journals/text');
 const XML_DIR = join(ROOT, 'courts/ussc/journals/xml');

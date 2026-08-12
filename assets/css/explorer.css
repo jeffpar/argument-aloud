@@ -1178,9 +1178,10 @@ button.term-case-count.sort-active:hover {
 #case-scdb-message, #case-audit-message {
   font-size: 12px;
 }
+#case-scdb-message:empty, #case-audit-message:empty { display: none; }
 
-#case-scdb-message, #case-message-sep { color: #c0392b; }
-#case-audit-message                   { color: #27ae60; }
+#case-scdb-message { color: #c0392b; }
+#case-audit-message { color: #27ae60; }
 /* "Warning: " prefix (see _setCaseInfoRow4) always reads in the scdb
    message's own red, even inside the (otherwise green) audit message. */
 .warning-prefix { color: #c0392b; }
@@ -2703,8 +2704,8 @@ button.term-case-count.sort-active:hover {
   #case-vote a       { color: #5eaee0; }
   #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 
-  #case-scdb-message, #case-message-sep { color: #ff6b6b; }
-  #case-audit-message                   { color: #4cd787; }
+  #case-scdb-message  { color: #ff6b6b; }
+  #case-audit-message { color: #4cd787; }
   .warning-prefix { color: #ff6b6b; }
 
   #case-cite        { color: #5eaee0; }
@@ -3019,9 +3020,9 @@ html[data-theme="dark"] #case-argued .date-link, html[data-theme="dark"] #case-r
 html[data-theme="dark"] #case-argued .date-link:hover, html[data-theme="dark"] #case-reargued .date-link:hover, html[data-theme="dark"] #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
 html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
-html[data-theme="dark"] #case-scdb-message, html[data-theme="dark"] #case-message-sep { color: #ff6b6b; }
-html[data-theme="dark"] #case-audit-message                                           { color: #4cd787; }
-html[data-theme="dark"] .warning-prefix                                               { color: #ff6b6b; }
+html[data-theme="dark"] #case-scdb-message  { color: #ff6b6b; }
+html[data-theme="dark"] #case-audit-message { color: #4cd787; }
+html[data-theme="dark"] .warning-prefix     { color: #ff6b6b; }
 html[data-theme="dark"] #case-cite        { color: #5eaee0; }
 html[data-theme="dark"] #case-cite:hover  { color: #7bc8f0; }
 html[data-theme="dark"] #tags-btn         { color: #6c7280; }

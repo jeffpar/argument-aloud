@@ -3269,9 +3269,8 @@ function _setCaseInfoRow3(caseEntry) {
   row.hidden = false;
 }
 
-// Fills `span` with a "Warning: " prefix (always the scdb message's own red
-// — see .warning-prefix — even inside the otherwise-green audit message)
-// followed by `msg` in that span's own color. Empty `msg` just clears it.
+// Fills `span` with a "Warning: " prefix (in .warning-prefix's red) followed
+// by `msg` in that span's own color. Empty `msg` just clears it.
 function _setWarningMessage(span, msg) {
   span.textContent = '';
   if (!msg) return;
@@ -3286,12 +3285,13 @@ function _setCaseInfoRow4(caseEntry) {
   const row       = document.getElementById('case-info-row4');
   const scdbSpan  = document.getElementById('case-scdb-message');
   const auditSpan = document.getElementById('case-audit-message');
-  const sep       = document.getElementById('case-message-sep');
   const scdbMsg  = caseEntry.scdb_message  || '';
   const auditMsg = caseEntry.audit_message || '';
+  // scdb_message is an actual warning (red) and keeps the "Warning: "
+  // prefix; audit_message is informational (green) and is just its own
+  // text, on its own line below scdb_message (if any).
   _setWarningMessage(scdbSpan, scdbMsg);
-  _setWarningMessage(auditSpan, auditMsg);
-  sep.hidden = !(scdbMsg && auditMsg);
+  auditSpan.textContent = auditMsg;
   if (!scdbMsg && !auditMsg) {
     row.hidden = true;
     return;
