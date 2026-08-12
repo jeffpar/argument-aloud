@@ -75,7 +75,7 @@
 </div>
 <div id="toolbar">
   <button class="zoom-btn" id="zoom-out" title="Zoom out" aria-label="Zoom out">&minus;</button>
-  <button id="zoom-pct" title="Reset zoom" aria-label="Reset zoom">100%</button>
+  <button id="zoom-pct" title="Toggle full width / full height" aria-label="Toggle full width / full height">100%</button>
   <button class="zoom-btn" id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
 </div>
 <script>
@@ -115,7 +115,11 @@
     navPrev.disabled = index === 0;
     navNext.disabled = index === images.length - 1;
     // A fresh page starts back at "fit" rather than carrying over whatever
-    // zoom/pan the previous page was left at.
+    // zoom/pan the previous page was left at — except when the visitor was
+    // zoomed all the way out (stickyMinZoom, set below), in which case
+    // layoutBase re-pins scale to the new page's own floor once it loads,
+    // so "fully zoomed out" itself persists across pages even though the
+    // exact scale value (each page's floor can differ) doesn't.
     scale = defaultScale; panX = 0; panY = 0;
     // Lets the parent (explorer.js's showDocViewer) relay this gallery's own
     // current page down into the page-viewer iframe, if it opened this
@@ -147,6 +151,13 @@
   // seeing the whole page height at once instead of being stuck cropped.
   var scale = 1, defaultScale = 1, minScale = 1, maxScale = 8;
   var panX = 0, panY = 0; // screen-pixel offset applied on top of the base fit, at the current scale
+  // True whenever the visitor's own most recent zoom action left them
+  // exactly at the current page's floor — kept in sync at the bottom of
+  // every place that changes scale (zoomTo, pinch, Reset). layoutBase
+  // reapplies it as the *new* page's own floor (which can differ page to
+  // page) every time a fresh page loads, so "zoomed all the way out" itself
+  // sticks across Left/Right navigation even though the exact scale doesn't.
+  var stickyMinZoom = false;
 
   // showImage's own scale/panX/panY reset needs those to already exist, so
   // the very first image is shown only once they're declared above.
@@ -184,7 +195,8 @@
     // "fit the whole page height too" — floored so an extremely tall scan
     // doesn't shrink to illegibility.
     minScale = baseHeight > vh ? Math.max(0.2, vh / baseHeight) : defaultScale;
-    if (scale < minScale) scale = minScale;
+    if (stickyMinZoom) scale = minScale;
+    else if (scale < minScale) scale = minScale;
     // Re-center (a fresh page, or the viewport/image dimensions changing on
     // resize) whenever not zoomed in past the default fit.
     if (scale <= defaultScale) { panX = centeredPanX(scale); panY = 0; }
@@ -215,6 +227,7 @@
       panX = screenX - baseLeft - localX * scale;
       panY = screenY - baseTop - localY * scale;
     }
+    stickyMinZoom = (scale === minScale);
     render();
   }
 
@@ -233,8 +246,15 @@
     var c = stageCenter();
     zoomTo(scale / 1.4, c.x, c.y);
   });
+  // Toggles between the two "fit" anchors: defaultScale (100%, full width)
+  // and minScale (this page's own zoomed-all-the-way-out floor, "full
+  // height" for a page taller than the viewport). Anything else (zoomed in,
+  // or an in-between level from wheel/pinch) counts as "not at the floor"
+  // and goes to the floor first, same as clicking it twice from 100% would.
   zoomPct.addEventListener('click', function () {
-    scale = defaultScale; panX = 0; panY = 0; render();
+    var target = scale === minScale ? defaultScale : minScale;
+    var c = stageCenter();
+    zoomTo(target, c.x, c.y);
   });
 
   // Wheel = zoom (there's nothing else on this page to scroll), anchored at
@@ -302,6 +322,7 @@
         panX = m.x - baseLeft - pinchAnchorLocalX * scale;
         panY = m.y - baseTop - pinchAnchorLocalY * scale;
       }
+      stickyMinZoom = (scale === minScale);
       render();
     } else if (e.touches.length === 1 && dragging) {
       var t = e.touches[0];

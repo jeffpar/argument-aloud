@@ -1245,16 +1245,14 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
             for (const a of (c.events || [])) {
                 if (a.transcript_href) audioTranscriptHrefs.add(a.transcript_href);
             }
-            let nextFileId = files.reduce((m, f) => (typeof f.file === 'number' && f.file > m ? f.file : m), 0) + 1;
             let added = 0;
             for (const p of proceedings) {
                 if (audioTranscriptHrefs.has(p.href)) continue;
                 if (existingHrefs.has(p.href)) continue;
-                const entry = { file: nextFileId, title: p.title, date: p.date, href: p.href };
+                const entry = { title: p.title, date: p.date, href: p.href };
                 if (p.type) entry.type = p.type;
                 files.push(entry);
                 existingHrefs.add(p.href);
-                nextFileId++;
                 added++;
             }
             if (added) {
@@ -2381,7 +2379,6 @@ async function importRelatingToOrdersCases(casesPath, term) {
         const filesPath = path.join(caseDir, 'files.json');
         let files = exists(filesPath) ? readJson(filesPath) : [];
         const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
-        let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         let added = 0;
         let replaced = 0;
 
@@ -2420,7 +2417,7 @@ async function importRelatingToOrdersCases(casesPath, term) {
             // case's actual decision and auto-populate decision_ussc from it.
             // No 'group' set, so explorer.js's Records grouping picks it up
             // via its type-based fallback rather than the usual "Other" bucket.
-            const entry = { file: ++maxId, type: 'statement', title };
+            const entry = { type: 'statement', title };
             if (row.date)   entry.date   = row.date;
             if (row.author) entry.author = row.author;
             entry.href = row.href;
@@ -2711,9 +2708,7 @@ async function importMediaFiles(termsRoot) {
         // Skip if an entry with the same href already exists
         if (files.some(f => f.href === fileHref)) continue;
 
-        const maxId  = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         const newEntry = {
-            file:  maxId + 1,
             type:  fileType,
             group: 'media',
             title: fileTitle,
@@ -2792,7 +2787,6 @@ async function importCitedUrls(casesPath, term) {
         let files = exists(filesPath) ? readJson(filesPath) : [];
         const allByHref      = new Map(files.filter(f => f.href).map(f => [f.href, f]));
         const existingByHref = new Map(files.filter(f => f.href && f.group === 'reference').map(f => [f.href, f]));
-        let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
         let added = 0;
 
         for (const { href, source } of items) {
@@ -2808,7 +2802,7 @@ async function importCitedUrls(casesPath, term) {
                 if (other.group === 'media' && correctSource && other.source !== correctSource) { other.source = correctSource; added++; }
                 continue;
             }
-            const newEntry = { file: ++maxId, type: 'url', group: 'reference', title: correctTitle };
+            const newEntry = { type: 'url', group: 'reference', title: correctTitle };
             if (decisionDate) newEntry.date = decisionDate;
             newEntry.href = href;
             if (correctSource) newEntry.source = correctSource;
@@ -2888,12 +2882,11 @@ async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase
     let files = exists(filesPath) ? readJson(filesPath) : [];
 
     const existingHrefs = new Set(files.filter(f => f.href).map(f => f.href));
-    let maxId = files.reduce((m, f) => Math.max(m, f.file || 0), 0);
     let added = 0;
 
     for (const { title, date, href } of items) {
         if (existingHrefs.has(href)) continue;
-        const entry = { file: ++maxId, type: 'other', group: 'other', title: filePrefix ? `${filePrefix}${title}` : title };
+        const entry = { type: 'other', group: 'other', title: filePrefix ? `${filePrefix}${title}` : title };
         if (date) entry.date = date;
         entry.href = href;
         files.push(entry);

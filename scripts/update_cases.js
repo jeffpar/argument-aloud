@@ -403,12 +403,7 @@ export async function checkOpinionForCase(filesPath, caseNumber, term, printHead
 
     if (data.some(e => e?.type === 'opinion')) return;
 
-    let maxId = 0;
-    for (const e of data) {
-        if (typeof e?.file === 'number' && e.file > maxId) maxId = e.file;
-    }
     const newEntry = {
-        file:   maxId + 1,
         type:   'opinion',
         group:  'other',
         title:  'Opinion in ' + opinion.name,
@@ -1110,23 +1105,14 @@ function removeRedundantTranscriptFiles(casesPath) {
                 audioTranscripts.add(`${a.transcript_href}\u0000${a.date}`);
             }
         }
-        const toRemove = files.filter(f =>
+        const isRedundant = f =>
             f?.type === 'transcript'
-            && audioTranscripts.has(`${f.href || ''}\u0000${f.date || ''}`));
-        if (toRemove.length === 0) continue;
+            && audioTranscripts.has(`${f.href || ''}\u0000${f.date || ''}`);
+        if (!files.some(isRedundant)) continue;
 
-        const removeIds = new Set(toRemove.filter(f => 'file' in f).map(f => f.file));
-        const newFiles = [];
-        let gap = 0;
-        for (const f of files) {
-            const fid = f.file;
-            if (fid !== undefined && removeIds.has(fid)) { gap++; continue; }
-            if (gap && fid !== undefined) {
-                newFiles.push({ ...f, file: fid - gap });
-            } else {
-                newFiles.push(f);
-            }
-        }
+        // Dropping an array element automatically shifts every later entry's
+        // own implicit (position-based) id down — no gap-closing math needed.
+        const newFiles = files.filter(f => !isRedundant(f));
         if (newFiles.length) {
             _writeJson(filesPath, newFiles);
         } else {
@@ -1360,14 +1346,10 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
                 console.log(`  WARNING: ${folderName}: untracked file '${fname}' may need to be added to files.json`);
                 continue;
             }
-            let maxId = 0;
-            for (const e of filesData) {
-                if (typeof e.file === 'number' && e.file > maxId) maxId = e.file;
-            }
             const localHref = `/courts/ussc/terms/${term}/${relCase}/${fname}`;
             const rawType = _fileTypeFromName(fname);
             const [ftype, fgroup] = _fileTypeGroup(rawType);
-            const newEntry = { file: maxId + 1, type: ftype, group: fgroup, title: _titleFromFilename(fname), href: localHref };
+            const newEntry = { type: ftype, group: fgroup, title: _titleFromFilename(fname), href: localHref };
             filesData.push(newEntry);
             tracked.add(fname);
             filesModified = true;
@@ -1412,8 +1394,8 @@ function _canonicalGroup(type, group) {
 }
 
 // Return a normalized copy of a files.json entry with property order:
-// file → type → group → (remaining keys in original order). "group" is
-// omitted for type "reference" entries.
+// type → group → (remaining keys in original order). "group" is omitted for
+// type "reference" entries.
 // If the entry already has valid type+group values, they are preserved as-is
 // (subject to _canonicalGroup); otherwise the legacy type is mapped via _fileTypeGroup().
 function _normalizeFileEntry(entry) {
@@ -1426,11 +1408,10 @@ function _normalizeFileEntry(entry) {
         [newType, newGroup] = _fileTypeGroup(entry.type || null);
     }
     const rebuilt = {};
-    if ('file' in entry) rebuilt.file = entry.file;
     rebuilt.type = newType;
     if (newGroup != null) rebuilt.group = newGroup;
     for (const [k, v] of Object.entries(entry)) {
-        if (k !== 'file' && k !== 'type' && k !== 'group') rebuilt[k] = v;
+        if (k !== 'type' && k !== 'group') rebuilt[k] = v;
     }
     return rebuilt;
 }
@@ -1440,9 +1421,8 @@ function _fileEntryIsNormalized(entry) {
     if (!entry || typeof entry !== 'object') return true;
     if (!_FILE_TYPES.has(entry.type)) return false;
     const keys = Object.keys(entry);
-    const fi = keys.indexOf('file');
     const ti = keys.indexOf('type');
-    if (ti < 0 || ti !== fi + 1) return false;
+    if (ti !== 0) return false;
     if (entry.type === 'reference') return !('group' in entry);
     if (!_FILE_GROUPS.has(entry.group)) return false;
     if (entry.group !== _canonicalGroup(entry.type, entry.group)) return false;
@@ -1451,7 +1431,7 @@ function _fileEntryIsNormalized(entry) {
 }
 
 // Normalize every file entry in files.json across all cases in the given term(s).
-// Property-order rule: file → type → group → (rest).
+// Property-order rule: type → group → (rest).
 // Type-mapping rules: see _fileTypeGroup().
 function cleanupFilesJson(termFilter, caseFilter, dryRun = false) {
     const termsDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
@@ -1889,9 +1869,9 @@ async function verifyFilesJson(filesPath, caseDir, checkUrls, printHeader, opini
     if (!checkUrls || opinionsOnly) return;
 
     let modified = false;
-    for (const entry of data) {
+    for (const [i, entry] of data.entries()) {
         const href = entry.href || '';
-        const fileNum = entry.file ?? '?';
+        const fileNum = i + 1;
         if (!/^https?:\/\//.test(href)) continue;
         if (entry.source) {
             if (printHeader) printHeader();
@@ -2083,13 +2063,10 @@ function deduplicateCases(casesPath) {
                     try { compFiles = JSON.parse(fs.readFileSync(compFilesPath, 'utf8')); } catch {}
                 }
                 const existingHrefs = new Set(compFiles.map(f => f.href));
-                let nextId = compFiles.reduce((m, f) => Math.max(m, f.file || 0), 0) + 1;
                 let added = 0;
                 for (const sf of stubFiles) {
                     if (!existingHrefs.has(sf.href)) {
-                        const entry = { ...sf, file: nextId };
-                        nextId++;
-                        compFiles.push(entry);
+                        compFiles.push({ ...sf });
                         existingHrefs.add(sf.href);
                         added++;
                     }
@@ -5159,6 +5136,9 @@ const _CASE_ENTRY_FIELDS = new Set(
 // the thumbnail grid on courts/ussc/collections/orig/index.md. Recomputed
 // fresh on every rebuild from files.json — matching thumbnails are generated
 // separately via `download.js --thumbs` (courts/ussc/collections/orig/<term>/<case>/<file>.jpg).
+// "<file id>" is the entry's own 1-based array position (files.json entries
+// no longer carry an explicit "file" prop) — must match the thumbnail
+// filenames on disk, which are numbered the same way.
 function _buildOrigGallery(c, term) {
     if (!c.files) return null;
     if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) return null;
@@ -5169,8 +5149,9 @@ function _buildOrigGallery(c, term) {
     try { entries = _readJson(filesPath); } catch { return null; }
     if (!Array.isArray(entries)) return null;
     const gallery = entries
-        .filter(f => f.href && f.file != null)
-        .map(f => `${f.file}|${f.href}|${f.title || ''}`);
+        .map((f, i) => ({ f, id: i + 1 }))
+        .filter(({ f }) => f.href)
+        .map(({ f, id }) => `${id}|${f.href}|${f.title || ''}`);
     return gallery.length ? gallery : null;
 }
 
@@ -10645,12 +10626,11 @@ function _addReferenceEntries(term, c, refEntries) {
     if (!Array.isArray(files)) files = [];
 
     const existingTitles = new Set(files.filter(f => f?.type === 'reference').map(f => f.title));
-    let maxId = files.reduce((mx, f) => Math.max(mx, f.file || 0), 0);
     let added = 0;
 
     for (const r of refEntries) {
         if (existingTitles.has(r.title)) continue;
-        files.push({ file: ++maxId, type: 'reference', title: r.title, href: r.href, refs: r.refs });
+        files.push({ type: 'reference', title: r.title, href: r.href, refs: r.refs });
         existingTitles.add(r.title);
         added++;
         console.log(`  [ref] added "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
@@ -10961,12 +10941,12 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
             const existingTitles = new Set(refFiles.map(f => f.title));
 
             let fileChanged = false;
-            const staleFileIds = new Set();
+            const staleFiles = new Set(); // object refs — same entries as in `files`
             for (const f of refFiles) {
                 const freshEntry = freshByTitle.get(f.title);
                 const oldRefsStr = JSON.stringify(f.refs);
                 if (!freshEntry) {
-                    staleFileIds.add(f.file);
+                    staleFiles.add(f);
                     removed++;
                     fileChanged = true;
                     console.log(`${dryRun ? '[dry-run] Would remove' : '[prune] Removing'} "${f.title}" `
@@ -10990,10 +10970,9 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
             affectedFiles++;
 
             if (!dryRun) {
-                let kept = files.filter(f => !(f?.type === 'reference' && staleFileIds.has(f.file)));
-                let maxId = kept.reduce((mx, f) => Math.max(mx, f.file || 0), 0);
+                let kept = files.filter(f => !(f?.type === 'reference' && staleFiles.has(f)));
                 for (const r of toAdd) {
-                    kept.push({ file: ++maxId, type: 'reference', title: r.title, href: r.href, refs: r.refs });
+                    kept.push({ type: 'reference', title: r.title, href: r.href, refs: r.refs });
                 }
                 _writeJson(filesPath, kept);
             }

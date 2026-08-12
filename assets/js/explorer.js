@@ -1690,11 +1690,23 @@ function findCurrentTurn(t) {
 
 // ── Links helpers ──────────────────────────────────────────────────────────
 
+// files.json entries no longer carry an explicit "file" id on disk — each
+// entry's own 1-based position in the array (the order this script writes
+// them in, never reshuffled elsewhere) *is* its id, matching every URL
+// (file=<n>) and data-file-id reference already in this file. Injected here,
+// the single fetch point, so every other reader keeps working unchanged.
+// (g.file == null guard: harmless no-op once no on-disk file ever has one,
+// but keeps this idempotent/self-healing against a stray not-yet-migrated
+// entry in the meantime.)
 async function loadFiles(url) {
   try {
     const res = await fetch(url, { cache: 'reload' });
     if (!res.ok) return [];
-    return await res.json();
+    const data = await res.json();
+    if (Array.isArray(data)) {
+      data.forEach((f, i) => { if (f && f.file == null) f.file = i + 1; });
+    }
+    return data;
   } catch (e) {
     console.warn('[files] fetch failed:', e);
     return [];
@@ -2240,24 +2252,39 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   _docViewerRelayIndexToPageFrame = false;
   const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
-  const isPdf   = /\.pdf(#|\?|$)/i.test(link.href);
-  const isMp4   = /\.mp4(#|\?|$)/i.test(link.href);
-  const isMp3   = /\.mp3(#|\?|$)/i.test(link.href);
-  const isImage = /\.(jpe?g|png|gif|webp|bmp|tiff?)(#|\?|$)/i.test(link.href);
+  // A file entry may carry both a "src" (the actual document/image to show
+  // in the viewer — e.g. a direct PDF/image URL) and an "href" (a catalog/
+  // gallery page about it, meant for the "open externally" icon rather than
+  // embedding — same src/href split files.json's "pages" type already uses,
+  // generalized here to a plain single-document file too). displayHref is
+  // what actually gets shown; link.href alone (see externalHref below)
+  // always drives the external-open affordances, falling back to
+  // displayHref only when no distinct src was given.
+  const displayHref = link.src || link.href;
+  const isPdf   = /\.pdf(#|\?|$)/i.test(displayHref);
+  const isMp4   = /\.mp4(#|\?|$)/i.test(displayHref);
+  const isMp3   = /\.mp3(#|\?|$)/i.test(displayHref);
+  const isImage = /\.(jpe?g|png|gif|webp|bmp|tiff?)(#|\?|$)/i.test(displayHref);
   const inPane  = isPdf || isMp4 || isMp3 || isImage || link.view === 'pane';
 
   // Build the effective href, appending #page=N if applicable
   const effectiveHref = (() => {
-    if (page == null || link.href.includes('#')) return link.href;
-    return isPdf ? link.href + '#page=' + page + '&pagemode=none'
-                 : link.href + '#page=' + page;
+    if (page == null || displayHref.includes('#')) return displayHref;
+    return isPdf ? displayHref + '#page=' + page + '&pagemode=none'
+                 : displayHref + '#page=' + page;
   })();
+  // Only meaningfully different from effectiveHref when link.src is present
+  // (see displayHref above) — otherwise identical, so every other caller's
+  // existing "open externally" behavior (including any #page=N fragment) is
+  // unaffected.
+  const externalHref = link.src ? link.href : effectiveHref;
   // A bare image URL, loaded directly as an iframe's src, renders at native
   // resolution with no way for us to style it (a cross-origin document we
   // can't inject CSS into) — routed through our own same-origin wrapper
   // page instead, which fits it to the frame. Only the iframe itself uses
   // this; the "open externally"/new-tab link below still points at
-  // effectiveHref (the real image), never this wrapper. link.images, when
+  // externalHref (the real image, or the catalog page — see above), never
+  // this wrapper. link.images, when
   // given (e.g. every Minutes page image for one date — see
   // _minutesImagesForDate), lets the wrapper's own prev/next controls page
   // through all of them instead of showing just the one (link.href/
@@ -2285,7 +2312,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   }
 
   const urlEl = document.getElementById('doc-viewer-url');
-  const absHref = new URL(effectiveHref, location.href).href;
+  const absHref = new URL(externalHref, location.href).href;
   urlEl.href = absHref;
   urlEl.title = absHref;
   urlEl.replaceChildren(
@@ -2349,7 +2376,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     document.getElementById('doc-viewer-card-title').textContent = link.title || getRefTexts(link)[0] || '';
     document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
     const anchor = document.getElementById('doc-viewer-card-link');
-    anchor.href = effectiveHref;
+    anchor.href = externalHref;
   }
 
   if (panel.hidden) {
@@ -7253,7 +7280,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
         const images = _pagesEntryImages(f);
         return { value: 'file:' + f.file, href: images[0] || f.href, images, title: f.title || '', view: 'pane', rawFile: f };
       }
-      return { value: 'file:' + f.file, href: f.href, title: f.title || '' };
+      return { value: 'file:' + f.file, href: f.href, src: f.src, title: f.title || '' };
     });
   // Last-resort fallback entries for the same chain, below — a case with
   // none of transcript/decision/file (most Minutes-era cases with no
@@ -7377,7 +7404,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-    showDocViewer({ href: _primaryEntry.href, images: _primaryEntry.images, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
+    showDocViewer({ href: _primaryEntry.href, src: _primaryEntry.src, images: _primaryEntry.images, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
     // Track a "pages"-type default entry the same way an explicit click
     // would, so paging through it (with no prior file=/page= click at all)
@@ -8325,7 +8352,7 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
       const [caseTerm, caseNum] = (_currentCaseKey || '').split('/');
       _activePagesGallery = { file, term: caseTerm || '', case: caseNum || '' };
     } else if (file?.href) {
-      showDocViewer({ href: file.href, title: file.title || '' }, { force: true });
+      showDocViewer({ href: file.href, src: file.src, title: file.title || '' }, { force: true });
     }
     if (file) _revealReferenceFileItem(file);
     // "file" is set before "page" so the two always appear in that order in
