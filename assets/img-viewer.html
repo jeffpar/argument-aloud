@@ -116,7 +116,7 @@
     navNext.disabled = index === images.length - 1;
     // A fresh page starts back at "fit" rather than carrying over whatever
     // zoom/pan the previous page was left at.
-    scale = minScale; panX = 0; panY = 0;
+    scale = defaultScale; panX = 0; panY = 0;
     // Lets the parent (explorer.js's showDocViewer) relay this gallery's own
     // current page down into the page-viewer iframe, if it opened this
     // gallery — see terms.js's Minutes Pages list, which keeps its own
@@ -140,20 +140,34 @@
   // absolutely positioned (so its own transform-origin can anchor zoom at
   // an arbitrary point) rather than laid out via flexbox.
   var baseLeft = 0, baseTop = 0, baseWidth = 0, baseHeight = 0;
-  var scale = 1, minScale = 1, maxScale = 8;
+  // defaultScale (always 1, "fit width") is where every page starts and what
+  // double-click/Reset return to; minScale is the actual zoom-out floor,
+  // recomputed per page in layoutBase below — it drops under defaultScale
+  // for a page taller than the viewport, so zooming out can trade width for
+  // seeing the whole page height at once instead of being stuck cropped.
+  var scale = 1, defaultScale = 1, minScale = 1, maxScale = 8;
   var panX = 0, panY = 0; // screen-pixel offset applied on top of the base fit, at the current scale
 
   // showImage's own scale/panX/panY reset needs those to already exist, so
   // the very first image is shown only once they're declared above.
   if (images.length) showImage(index);
 
+  // Below defaultScale the image no longer fills the viewport's width, so
+  // center it horizontally (blank space on both sides) rather than leaving
+  // it hugging the left edge — still top-anchored, though (see layoutBase's
+  // own doc comment on why); used by every place that snaps back to a
+  // fit-or-wider view: layoutBase itself, zoomTo, and pinch-zoom.
+  function centeredPanX(atScale) {
+    return (window.innerWidth - baseWidth * atScale) / 2;
+  }
+
   // Fits to the viewport's full width (rather than shrinking to also fit the
   // whole image within the viewport's height) and anchors the top edge —
   // these are scanned document pages, and the top is what a reader wants to
   // land on by default. #stage's own overflow:hidden simply crops whatever
-  // of a taller-than-viewport page runs past the bottom at this, the
-  // viewer's most-zoomed-out state — reachable by dragging up (see the
-  // "pannable" cursor below).
+  // of a taller-than-viewport page runs past the bottom at defaultScale;
+  // zooming out further (down to minScale, recomputed below) trades that
+  // full width for seeing more/all of the page's height at once instead.
   function layoutBase() {
     var vw = window.innerWidth, vh = window.innerHeight;
     var iw = img.naturalWidth || vw, ih = img.naturalHeight || vh;
@@ -166,17 +180,25 @@
     img.style.height = baseHeight + 'px';
     img.style.left = baseLeft + 'px';
     img.style.top = baseTop + 'px';
+    // A page taller than the viewport can zoom out past "fit width" down to
+    // "fit the whole page height too" — floored so an extremely tall scan
+    // doesn't shrink to illegibility.
+    minScale = baseHeight > vh ? Math.max(0.2, vh / baseHeight) : defaultScale;
+    if (scale < minScale) scale = minScale;
+    // Re-center (a fresh page, or the viewport/image dimensions changing on
+    // resize) whenever not zoomed in past the default fit.
+    if (scale <= defaultScale) { panX = centeredPanX(scale); panY = 0; }
     render();
   }
 
   function render() {
     img.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     zoomPct.textContent = Math.round(scale * 100) + '%';
-    // Grab cursor whenever there's anything to drag to — either zoomed in,
-    // or (now that layoutBase fits to width rather than the whole page) a
-    // page tall enough that fitting the width alone already runs its bottom
-    // past the viewport at scale 1.
-    stage.classList.toggle('pannable', scale > minScale || baseHeight * scale > window.innerHeight);
+    // Grab cursor whenever there's anything to drag to — either zoomed in
+    // past the default fit, or (now that layoutBase fits to width rather
+    // than the whole page) a page tall enough that fitting the width alone
+    // already runs its bottom past the viewport at the current scale.
+    stage.classList.toggle('pannable', scale > defaultScale || baseHeight * scale > window.innerHeight);
   }
 
   // Changes scale while keeping the point at (screenX, screenY) visually
@@ -187,8 +209,8 @@
     var localX = (screenX - baseLeft - panX) / scale;
     var localY = (screenY - baseTop - panY) / scale;
     scale = newScale;
-    if (scale <= minScale) {
-      panX = 0; panY = 0; // snap back to the base top-anchored, full-width "fit" view
+    if (scale <= defaultScale) {
+      panX = centeredPanX(scale); panY = 0; // snap back to the centered, top-anchored view at/below the default "fit width"
     } else {
       panX = screenX - baseLeft - localX * scale;
       panY = screenY - baseTop - localY * scale;
@@ -212,7 +234,7 @@
     zoomTo(scale / 1.4, c.x, c.y);
   });
   zoomPct.addEventListener('click', function () {
-    scale = minScale; panX = 0; panY = 0; render();
+    scale = defaultScale; panX = 0; panY = 0; render();
   });
 
   // Wheel = zoom (there's nothing else on this page to scroll), anchored at
@@ -224,7 +246,7 @@
   }, { passive: false });
 
   document.addEventListener('dblclick', function (e) {
-    if (scale > minScale) { zoomTo(minScale, e.clientX, e.clientY); }
+    if (scale > defaultScale) { zoomTo(defaultScale, e.clientX, e.clientY); }
     else { zoomTo(2, e.clientX, e.clientY); }
   });
 
@@ -271,7 +293,7 @@
       var m = mid(e.touches[0], e.touches[1]);
       var newScale = Math.max(minScale, Math.min(maxScale, pinchStartScale * (d / pinchStartDist)));
       scale = newScale;
-      if (scale <= minScale) { panX = 0; panY = 0; }
+      if (scale <= defaultScale) { panX = centeredPanX(scale); panY = 0; }
       else {
         panX = m.x - baseLeft - pinchAnchorLocalX * scale;
         panY = m.y - baseTop - pinchAnchorLocalY * scale;

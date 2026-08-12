@@ -97,6 +97,14 @@ let _currentMinutesGalleryRefs = new Map();
 // entry (that handler resets this to null before doing anything else).
 let _activeMinutesGalleryIso = null;
 let _currentFiles       = [];        // files.json entries for the active case (used by file: dropdown options)
+// The files.json "pages"-type entry (plus the term/case it belongs to)
+// currently open in the doc viewer's image gallery, if any — set wherever
+// such an entry is opened (see _makeCaseFileItem, the file-select "file:"
+// handler, and loadCaseAsOpinion's own default-entry display) and read by
+// the 'ussc-gallery-index' message handler below to keep the URL's "page="
+// param in sync as the visitor pages through the gallery. Cleared (null)
+// whenever anything else is shown instead.
+let _activePagesGallery = null;
 let _collectionsSectionLi = null; // top-level Collections <li>
 let _topicsSectionLi      = null; // top-level Topics <li>
 const _sectionLiById      = new Map(); // entry.id → top-level section <li>
@@ -556,6 +564,21 @@ function _collectTagGroupDefs() {
   return out;
 }
 
+// A collections.json group name may contain "$first_decision_year"/
+// "$last_decision_year" placeholders (see _expandGroupName in
+// update_cases.js) that are substituted with real years in the generated
+// file. Build a matcher that treats those placeholders as \d+ wildcards so a
+// template name (from collections.json) still matches its expanded form (in
+// the fetched groups array) instead of only an exact string.
+function _groupNameMatcher(template) {
+  const escaped = template.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = escaped
+    .replace(/\\\$first_decision_year/g, '\\d+')
+    .replace(/\\\$last_decision_year/g, '\\d+');
+  const re = new RegExp('^' + pattern + '$');
+  return (name) => re.test(name);
+}
+
 // Resolve one of a case's own tags to a { isTopic, id, groupId, groupIdx }
 // navigation target within collections.json/topics.json, or null when the
 // tag doesn't correspond to any collection/topic. A statically-declared
@@ -572,7 +595,8 @@ async function _resolveTagTarget(tag, caseTags) {
   if (direct) {
     if (direct.groupId != null) return { isTopic: direct.isTopic, id: direct.id, groupId: direct.groupId, groupIdx: null };
     const groups = await _fetchCollectionGroups(direct.fileUrl);
-    const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === direct.groupName) : -1;
+    const matchesName = _groupNameMatcher(direct.groupName);
+    const idx = Array.isArray(groups) ? groups.findIndex(g => matchesName(g.name)) : -1;
     return { isTopic: direct.isTopic, id: direct.id, groupId: null, groupIdx: idx >= 0 ? idx + 1 : null };
   }
   // Fan-out root match: tag is the fan-out's own required tag — link to the
@@ -1843,6 +1867,10 @@ function buildUrlParams(updates, deletes = []) {
   // 'collection' and 'topic' are mutually exclusive nav params — deleting one removes the other.
   if (deletes.includes('collection')) url.searchParams.delete('topic');
   if (deletes.includes('topic'))      url.searchParams.delete('collection');
+  // 'page' only means anything alongside a 'file' param for a "pages"-type
+  // files.json entry (see _pagesEntryPageForIndex/_activePagesGallery) —
+  // dropping 'file' always makes any leftover 'page' meaningless too.
+  if (deletes.includes('file')) url.searchParams.delete('page');
   // Always remove 'link' and 'find' when navigating — they are only meaningful
   // on keyword-search result URLs and are re-added explicitly by callers.
   url.searchParams.delete('link');
@@ -2985,6 +3013,76 @@ async function _showMinutesGalleryFromParam(param) {
   return _showMinutesGalleryForDate(term, param, 'Minutes for');
 }
 
+// Substitutes a page number into a "$page"/"$page:<width>" URL template —
+// the same placeholder convention dates.json's minutes_href/minutes_src use
+// (see _minutesImagesForDate above), generalized here to read the
+// zero-padding width from the template itself (files.json "pages"-type
+// entries vary it per source, e.g. "$page:3") instead of hardcoding one.
+function _substitutePageInTemplate(template, page) {
+  return template.replace(/\$page(?::(\d+))?/, (_, width) =>
+    width ? String(page).padStart(parseInt(width, 10), '0') : String(page));
+}
+
+// Parses a files.json "pages"-type entry's "pages" range string
+// ("<first page>-<last page>", e.g. "1-463") into its { first, last }
+// bounds, or null when malformed/empty.
+function _parsePageRangeBounds(rangeStr) {
+  const m = /^\s*(\d+)\s*-\s*(\d+)\s*$/.exec(rangeStr || '');
+  if (!m) return null;
+  const first = parseInt(m[1], 10), last = parseInt(m[2], 10);
+  return last >= first ? { first, last } : null;
+}
+
+// Expands a "pages" range string into an inclusive array of page numbers —
+// the flat-array equivalent of dates.json's own "minutes_pages".
+function _parsePageRangeString(rangeStr) {
+  const bounds = _parsePageRangeBounds(rangeStr);
+  if (!bounds) return [];
+  const pages = [];
+  for (let p = bounds.first; p <= bounds.last; p++) pages.push(p);
+  return pages;
+}
+
+// Builds the ordered array of page-image URLs for a files.json "pages"-type
+// entry (e.g. a NARA case-file image series) from its "src" template and
+// "pages" range string — the files.json equivalent of _minutesImagesForDate.
+function _pagesEntryImages(f) {
+  if (!f || !f.src || !f.pages) return [];
+  return _parsePageRangeString(f.pages).map(page => _substitutePageInTemplate(f.src, page));
+}
+
+// A "pages" entry's own page numbers and its images[] array share one order
+// (both built from the same "first..last" range) — these convert between a
+// 0-based images[] index and the page number a visitor actually sees/types
+// (used to keep the "page=<n>" URL param — see _activePagesGallery below —
+// meaningful across a reload rather than an opaque array position).
+function _pagesEntryPageForIndex(f, index) {
+  const bounds = _parsePageRangeBounds(f?.pages);
+  return bounds ? bounds.first + index : null;
+}
+function _pagesEntryIndexForPage(f, pageNumber) {
+  const bounds = _parsePageRangeBounds(f?.pages);
+  if (!bounds || pageNumber < bounds.first || pageNumber > bounds.last) return 0;
+  return pageNumber - bounds.first;
+}
+
+// Overrides the doc viewer's "open in new tab" icon for a files.json
+// "pages"-type entry so it links to the entry's own catalog page (its
+// "href" template, e.g. "https://catalog.archives.gov/id/597553?objectPage=$page")
+// for whichever page is currently shown, rather than showDocViewer's own
+// default of the raw per-page image URL (built from "src") — called
+// wherever such an entry is opened, and again from the 'ussc-gallery-index'
+// handler as the visitor pages through it, since paging never re-invokes
+// showDocViewer itself (the gallery pages entirely inside its own iframe).
+function _updatePagesExternalLink(f, pageNumber) {
+  if (!f?.href || pageNumber == null) return;
+  const urlEl = document.getElementById('doc-viewer-url');
+  if (!urlEl) return;
+  const absHref = new URL(_substitutePageInTemplate(f.href, pageNumber), location.href).href;
+  urlEl.href = absHref;
+  urlEl.title = absHref;
+}
+
 // Adds a "Minutes for <date>" file-select option for each of the case's
 // own argued/reargued/decided dates that has a Minutes gallery in the term's
 // dates.json — called once per case load (see loadCase) so a visitor can
@@ -3741,6 +3839,10 @@ function _makeCaseFileItem(f, caseEntry) {
     ++_fileClickSeq; // invalidate any in-flight async citation lookup
     document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
     fi.classList.add('active');
+    const isPages = (f.type || '').toLowerCase() === 'pages';
+    let startIndex = 0;
+    let pageNumber = null;
+    _activePagesGallery = null;
     {
       const fileKey = f.file != null ? String(f.file)
         : f.href ? f.href.split('/').pop() : null;
@@ -3755,9 +3857,29 @@ function _makeCaseFileItem(f, caseEntry) {
         const urlMatches = !fileTerm || !fileCase
           || (url.searchParams.get('term') === fileTerm
               && url.searchParams.get('case') === fileCase);
+        if (isPages) {
+          // Reloading/sharing "file=<id>&page=<n>" reopens on that exact
+          // page — see the 'ussc-gallery-index' message handler, which
+          // keeps "page" in sync as the gallery is paged through. Only
+          // trusted when this file was already the one encoded in the URL
+          // (only meaningful when urlMatches, since otherwise we're not
+          // about to write "file" there either); clicking into a different
+          // (or not-yet-open) pages entry always starts at its own first page.
+          const wasAlreadyThisFile = urlMatches && url.searchParams.get('file') === fileKey;
+          const existingPage = wasAlreadyThisFile ? parseInt(url.searchParams.get('page'), 10) : NaN;
+          startIndex = Number.isFinite(existingPage) ? _pagesEntryIndexForPage(f, existingPage) : 0;
+          pageNumber = _pagesEntryPageForIndex(f, startIndex);
+          if (urlMatches) _activePagesGallery = { file: f, term: fileTerm, case: fileCase };
+        }
         if (urlMatches) {
+          // "file" is set before "page" so the two always appear in that
+          // order in the address bar — URLSearchParams.set() only appends at
+          // the end when the key is new, so setting "page" first (when it
+          // wasn't already present) would otherwise leave it ahead of "file".
           url.searchParams.set('file', fileKey);
           url.searchParams.delete('citation');
+          if (pageNumber != null) url.searchParams.set('page', String(pageNumber));
+          else url.searchParams.delete('page');
           history.replaceState(null, '', url);
         }
       }
@@ -3767,7 +3889,13 @@ function _makeCaseFileItem(f, caseEntry) {
     if (!caseEntry.events?.length) {
       docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
     }
-    showDocViewer(f, { autoScroll: true });
+    if (isPages) {
+      const images = _pagesEntryImages(f);
+      showDocViewer({ href: images[startIndex] || images[0] || f.href, images, index: startIndex, title: f.title, view: 'pane' }, { autoScroll: true });
+      _updatePagesExternalLink(f, pageNumber);
+    } else {
+      showDocViewer(f, { autoScroll: true });
+    }
     if (!caseEntry.events?.length) {
       docViewerOpenHeight = savedHeight;
     }
@@ -4192,14 +4320,16 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         basePath,
         argumentDates: null,
         computeEntries: async (rawFiles) => {
-          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', reference:'References', media:'Media', other:'Other' };
-          const ORDER = ['petitioner','respondent','amicus','briefs','reference','media','other'];
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', collections:'Collections', reference:'References', media:'Media', other:'Other' };
+          const ORDER = ['petitioner','respondent','amicus','briefs','collections','reference','media','other'];
           const MERGE_AMICUS_OTHER = true;
-          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','reference','media','other','transcript','opinion','statement']);
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','collections','reference','media','other','transcript','opinion','statement','records']);
           const groups = {};
           rawFiles.forEach(f => {
             let key = (f.group || '').toLowerCase();
             if (key === 'brief') key = 'briefs';
+            if (key === 'collection') key = 'collections';
+            if (key === 'record') key = 'records';
             if (!_TERM_GROUP_KEYS.has(key)) {
               // Fallback for synthetic entries (virtual transcripts, injected opinions) that have no group.
               key = (f.type || '').toLowerCase();
@@ -4223,15 +4353,19 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           // on ..."), plus any relating-to-orders statement ("Statement in
           // ..." — see importRelatingToOrdersCases in scripts/import_ussc.js),
           // gets surfaced under its own "Records" group — arguments first
-          // (chronological), then Journal and Minutes entries (each their own
-          // date order — see loadCaseAsOpinion/loadCase's dropdown, which
-          // offers the same entries), decisions/statements last — appended as
-          // the very last group, after Citations/Consolidations/References
+          // (chronological), then any other file explicitly tagged
+          // group:"records" (e.g. a full case-file PDF — kept ahead of
+          // Journal/Minutes/decisions so it reads as the case's own primary
+          // record), then Journal and Minutes entries (each their own date
+          // order — see loadCaseAsOpinion/loadCase's dropdown, which offers
+          // the same entries), decisions/statements last — appended as the
+          // very last group, after Citations/Consolidations/References
           // (see below).
           const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
           const { journalFiles, minutesFiles } = await _buildMinutesJournalRecordsFiles(caseEntry, term);
           const recordsFiles = [
             ...(groups.transcript || []).slice().sort(byDate),
+            ...(groups.records || []).slice().sort(byDate),
             ...journalFiles,
             ...minutesFiles,
             ...(groups.opinion || []).slice().sort(byDate),
@@ -4240,6 +4374,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           delete groups.statement;
           delete groups.transcript;
           delete groups.opinion;
+          delete groups.records;
           const referenceFiles = groups.reference || [];
           delete groups.reference;
           const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'reference');
@@ -5886,12 +6021,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       argumentDates,
       computeEntries: async (rawFiles) => {
         // Allowed category labels and their render order.
-        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'References', 'Media', 'Other'];
+        const ALL_CATS = ['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Collections', 'References', 'Media', 'Other'];
         const activeCats = ALL_CATS;
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
-        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','brief','briefs']);
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','brief','briefs','collection','collections']);
         function resolveCategory(f) {
           // Prefer the explicit group property when it carries a known semantic key.
           let sem = (f.group || '').toLowerCase();
@@ -5910,6 +6045,8 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
             briefs:     ['Briefs', 'Other'],
+            collection: ['Collections', 'Other'],
+            collections:['Collections', 'Other'],
             other:      ['Other'],
           };
           const candidates = prefs[sem] || ['Other'];
@@ -5922,16 +6059,24 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         // Each transcript ("Oral Argument on ..."), decision ("Decision on
         // ..."), and relating-to-orders statement ("Statement in ...") gets
         // pulled out into its own "Records" group instead of being
-        // categorized below — arguments first (chronological), then Journal
-        // and Minutes entries (each their own date order — see
-        // loadCaseAsOpinion/loadCase's dropdown, which offers the same
-        // entries), decisions/statements last — appended as the very last
-        // group of all, after Citations/Consolidations/References.
+        // categorized below — arguments first (chronological), then any
+        // other file explicitly tagged group:"records" (e.g. a full
+        // case-file PDF — kept ahead of Journal/Minutes/decisions so it reads
+        // as the case's own primary record), then Journal and Minutes
+        // entries (each their own date order — see loadCaseAsOpinion/
+        // loadCase's dropdown, which offers the same entries), decisions/
+        // statements last — appended as the very last group of all, after
+        // Citations/Consolidations/References.
         const byDate = (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0;
-        const _isRecordsType = (t) => t === 'transcript' || t === 'opinion' || t === 'statement';
+        const _isRecordsGroup = (g) => g === 'record' || g === 'records';
+        const _isRecordsEntry = (f) => {
+          const t = (f.type || '').toLowerCase();
+          return t === 'transcript' || t === 'opinion' || t === 'statement' || _isRecordsGroup((f.group || '').toLowerCase());
+        };
         const { journalFiles, minutesFiles } = await _buildMinutesJournalRecordsFiles(caseEntry, caseRef.term);
         const recordsFiles = [
           ...rawFiles.filter(f => (f.type || '').toLowerCase() === 'transcript').sort(byDate),
+          ...rawFiles.filter(f => (f.type || '').toLowerCase() !== 'transcript' && _isRecordsGroup((f.group || '').toLowerCase())).sort(byDate),
           ...journalFiles,
           ...minutesFiles,
           ...rawFiles.filter(f => { const t = (f.type || '').toLowerCase(); return t === 'opinion' || t === 'statement'; }),
@@ -5940,8 +6085,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         const groups = {};
         let totalFiles = 0;
         rawFiles.forEach(f => {
-          const fType = (f.type || '').toLowerCase();
-          if (_isRecordsType(fType)) return;
+          if (_isRecordsEntry(f)) return;
           totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
@@ -7070,7 +7214,13 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       return true;
     })
     .filter(f => f.href)
-    .map(f => ({ value: 'file:' + f.file, href: f.href, title: f.title || '' }));
+    .map(f => {
+      if ((f.type || '').toLowerCase() === 'pages') {
+        const images = _pagesEntryImages(f);
+        return { value: 'file:' + f.file, href: images[0] || f.href, images, title: f.title || '', view: 'pane', rawFile: f };
+      }
+      return { value: 'file:' + f.file, href: f.href, title: f.title || '' };
+    });
   // Last-resort fallback entries for the same chain, below — a case with
   // none of transcript/decision/file (most Minutes-era cases with no
   // decision document on file) still has a dropdown option selected by
@@ -7193,8 +7343,13 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
-    showDocViewer({ href: _primaryEntry.href, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
+    showDocViewer({ href: _primaryEntry.href, images: _primaryEntry.images, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
+    // Track a "pages"-type default entry the same way an explicit click
+    // would, so paging through it (with no prior file=/page= click at all)
+    // still starts populating the URL — see the 'ussc-gallery-index' handler.
+    _activePagesGallery = _primaryEntry.rawFile ? { file: _primaryEntry.rawFile, term, case: caseId(caseEntry) } : null;
+    if (_primaryEntry.rawFile) _updatePagesExternalLink(_primaryEntry.rawFile, _pagesEntryPageForIndex(_primaryEntry.rawFile, 0));
   }
 
   if (isMobile()) {
@@ -8120,11 +8275,31 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
   if (e.target.value.startsWith('file:')) {
     const fileNum = parseInt(e.target.value.slice(5), 10);
     const file = _currentFiles.find(f => f.file === fileNum);
-    if (file?.href) showDocViewer({ href: file.href, title: file.title || '' }, { force: true });
-    if (file) _revealReferenceFileItem(file);
     const url = new URL(location.href);
+    _activePagesGallery = null;
+    let pageNumber = null;
+    if (file && (file.type || '').toLowerCase() === 'pages') {
+      const images = _pagesEntryImages(file);
+      // See the matching comment in _makeCaseFileItem's click handler — only
+      // honor an existing "page=" param when this same file was already open.
+      const wasAlreadyThisFile = url.searchParams.get('file') === String(fileNum);
+      const existingPage = wasAlreadyThisFile ? parseInt(url.searchParams.get('page'), 10) : NaN;
+      const startIndex = Number.isFinite(existingPage) ? _pagesEntryIndexForPage(file, existingPage) : 0;
+      pageNumber = _pagesEntryPageForIndex(file, startIndex);
+      showDocViewer({ href: images[startIndex] || images[0] || file.href, images, index: startIndex, title: file.title || '', view: 'pane' }, { force: true });
+      _updatePagesExternalLink(file, pageNumber);
+      const [caseTerm, caseNum] = (_currentCaseKey || '').split('/');
+      _activePagesGallery = { file, term: caseTerm || '', case: caseNum || '' };
+    } else if (file?.href) {
+      showDocViewer({ href: file.href, title: file.title || '' }, { force: true });
+    }
+    if (file) _revealReferenceFileItem(file);
+    // "file" is set before "page" so the two always appear in that order in
+    // the address bar — see the matching comment in _makeCaseFileItem.
     url.searchParams.set('file', String(fileNum));
     url.searchParams.delete('citation');
+    if (pageNumber != null) url.searchParams.set('page', String(pageNumber));
+    else url.searchParams.delete('page');
     history.replaceState(null, '', url);
     return;
   }
@@ -8359,9 +8534,11 @@ document.getElementById('doc-viewer-close').addEventListener('click', (e) => {
   e.stopPropagation();
   hideDocViewerFully();
   _docViewerAutoOpenSuppressed = true;
+  _activePagesGallery = null;
   const url = new URL(location.href);
   url.searchParams.delete('file');
   url.searchParams.delete('citation');
+  url.searchParams.delete('page');
   history.replaceState(null, '', url);
 });
 
@@ -10710,6 +10887,27 @@ window.addEventListener('message', async (e) => {
     // itself opened (see the 'ussc-open-doc' branch above).
     if (_docViewerRelayIndexToPageFrame) {
       document.getElementById('page-viewer-frame')?.contentWindow?.postMessage({ type: 'ussc-minutes-index', index: e.data.index }, location.origin);
+    }
+    // Keeps a case's own "pages"-type files.json entry's "page=<n>" URL
+    // param in sync with the gallery as the visitor pages through it — see
+    // _activePagesGallery (set wherever such an entry is opened) and
+    // _pagesEntryPageForIndex. Guarded the same way file-item clicks guard
+    // their own URL writes: only while still viewing the entry's own case.
+    if (_activePagesGallery) {
+      const pageNumber = _pagesEntryPageForIndex(_activePagesGallery.file, e.data.index);
+      // The "open externally" icon always reflects whatever the doc viewer
+      // is actually showing, regardless of the URL-match guard below (which
+      // only gates whether the address bar's own "page" gets updated).
+      _updatePagesExternalLink(_activePagesGallery.file, pageNumber);
+      const url = new URL(location.href);
+      const urlMatches = !_activePagesGallery.term || !_activePagesGallery.case
+        || (url.searchParams.get('term') === _activePagesGallery.term
+            && url.searchParams.get('case') === _activePagesGallery.case);
+      if (urlMatches && pageNumber != null) {
+        url.searchParams.set('file', String(_activePagesGallery.file.file));
+        url.searchParams.set('page', String(pageNumber));
+        history.replaceState(null, '', url);
+      }
     }
   } else if (e.data?.type === 'ussc-update-sort' && e.data.sort) {
     const newUrl = new URL(location.href);
