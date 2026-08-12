@@ -2484,6 +2484,14 @@ button.term-case-count.sort-active:hover {
     display: none;
   }
 
+  /* #h-resize is hidden above, so the header itself is the drag target for
+     resizing the doc viewer on mobile — see the resize IIFE in explorer.js.
+     touch-action: none stops the browser treating the drag as a page-scroll
+     gesture partway through, before our own touchmove takes over. */
+  #doc-viewer:not(.collapsed) #doc-viewer-header {
+    touch-action: none;
+  }
+
   #case-info {
     cursor: default;
     /* Become the flex container so we can order children across row1/row2 */
@@ -2501,6 +2509,18 @@ button.term-case-count.sort-active:hover {
 
   /* 1st: title (grows to fill); right padding makes room for the back button */
   #case-title-label  { order: 1; flex-basis: 100%; padding-right: 28px; }
+
+  /* While the doc-browser nav is expanded to fill the screen (see
+     _expandMobileNavHeight in explorer.js), cap the title to at most 4 lines
+     so an unusually long one can't claim so much of the shared space that
+     case-info-row2 always ends up hidden behind #bottom-bar. */
+  body.mobile-nav-expanded #case-title-label {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+  }
 
   /* 2nd: decision label (file dropdown moved below the vote line — see order: 5) */
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }

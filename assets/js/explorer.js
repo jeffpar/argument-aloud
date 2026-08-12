@@ -14,6 +14,13 @@ let activeBottomLinkText = null; // text key of the currently shown bottom link
 // never blocks an explicit click (a ref-mark or a file-list item).
 let _docViewerAutoOpenSuppressed = false;
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
+// Mobile only: px height applied to whichever content element (pdf iframe/
+// video/audio) is currently shown, set by dragging #doc-viewer-header (see
+// the resize IIFE near the bottom of this file). Persists across switching
+// files within an already-open doc viewer, where showDocViewer's own
+// open-animation height logic doesn't run — null means fall back to the
+// CSS default (45vh).
+let docViewerContentHeight = null;
 let _fileClickSeq = 0; // bumped on every file/citation click so a stale async citation
                         // lookup can't clobber a URL change made by a later click
 let _currentAudioList = [];    // sorted audio entries for the active case
@@ -2097,7 +2104,14 @@ function _revealReferenceFileItem(link) {
   fileEl.closest('.file-type-group')?.classList.add('open');
   document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
   fileEl.classList.add('active');
-  requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+  // On mobile #doc-browser is deliberately scrolled out of view while reading/
+  // viewing a case (see mobile-back-btn) — scrollIntoView on an item inside it
+  // would fight that by scrolling the whole page to reveal it, dragging the
+  // sidebar back on screen every time a file is picked. Desktop has no such
+  // hidden state, so it keeps following the active item as before.
+  if (!isMobile()) {
+    requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+  }
 }
 
 function checkLinksForActiveTurn(idx, autoScroll = false) {
@@ -2147,7 +2161,11 @@ function hideDocViewerFully() {
     panel.style.height = '';
     panel.hidden = true;
   } else {
-    docViewerOpenHeight = panel.offsetHeight;
+    // Deliberately doesn't touch docViewerOpenHeight here — on mobile its
+    // truthiness also flags the opinion-only/full-viewport layout branch in
+    // showDocViewer (see the comment there), so overwriting it with this
+    // panel's just-closed height would wrongly turn an ordinary case's next
+    // reopen into that layout instead of the normal in-context peek.
     panel.style.height = panel.offsetHeight + 'px';
     panel.offsetHeight; // force reflow
     panel.style.height = '0px';
@@ -2377,6 +2395,14 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
     const anchor = document.getElementById('doc-viewer-card-link');
     anchor.href = externalHref;
+  }
+
+  // Re-apply a user's drag-resized height (mobile only) to whichever content
+  // element just became active — this branch is skipped on file switches
+  // where the panel was already open, so it's the only place that runs then.
+  if (isMobile() && docViewerContentHeight) {
+    const contentEl = activePdfIframe || (isMp4 ? videoEl : isMp3 ? audioEl : null);
+    if (contentEl) contentEl.style.height = docViewerContentHeight + 'px';
   }
 
   if (panel.hidden) {
@@ -8580,13 +8606,49 @@ function setMobileNavVisible(visible) {
   mobileBackBtn.setAttribute('aria-label', visible ? 'Back to transcript' : 'Back to case list');
 }
 
+// Set by the mobile nav-resize IIFE below (it owns #doc-browser's stored/
+// default height); restores that height when mobileBackBtn hides the nav
+// again after _expandMobileNavHeight temporarily grew it.
+let _restoreMobileNavHeight = () => {};
+
+// Mobile only: grow #doc-browser to fill nearly the whole screen when its nav
+// is revealed, instead of leaving it capped at its normal ~230px \u2014 sized so
+// case-info's title (and decision label, if any) still land right below it,
+// while row2 onward (dates/vote/messages/notes/questions) and the transcript
+// end up pushed down far enough to sit behind the sticky #bottom-bar (audio-
+// controls/doc-viewer), same as transcript content normally scrolls under it.
+//
+// #case-info-row1 itself renders as `display: contents` on mobile (see the
+// mobile media query) \u2014 it never has a layout box of its own, so its
+// offsetHeight is always 0. Its two visible children \u2014 the title and the
+// decision label \u2014 are measured directly instead. The 'mobile-nav-expanded'
+// body class (added below, removed by mobileBackBtn's hide branch) caps the
+// title at 4 lines so an unusually long one can't claim so much of the
+// shared space that row2 always ends up hidden behind #bottom-bar anyway.
+function _expandMobileNavHeight() {
+  document.body.classList.add('mobile-nav-expanded');
+  const navPanel = document.getElementById('doc-browser');
+  const handle = document.getElementById('h-mobile-resize');
+  const titleLabel = document.getElementById('case-title-label');
+  const decisionLabel = document.getElementById('decision-date-label');
+  const row2 = document.getElementById('case-info-row2');
+  const bottomBar = document.getElementById('bottom-bar');
+  const availableBelow = window.innerHeight - navPanel.getBoundingClientRect().top;
+  const reserved = handle.offsetHeight + titleLabel.offsetHeight + decisionLabel.offsetHeight
+    + row2.offsetHeight + bottomBar.offsetHeight;
+  navPanel.style.maxHeight = Math.max(120, availableBelow - reserved) + 'px';
+}
+
 mobileBackBtn.addEventListener('click', () => {
   if (_mobileNavVisible) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
     setMobileNavVisible(false);
+    document.body.classList.remove('mobile-nav-expanded');
+    _restoreMobileNavHeight();
   } else {
     window.scrollTo({ top: 0, behavior: 'instant' });
     setMobileNavVisible(true);
+    _expandMobileNavHeight();
   }
 });
 
@@ -8805,7 +8867,14 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     navPanel.style.maxHeight = (Number.isFinite(h) && h > 0 ? h : DEFAULT_H) + 'px';
   }
   applyStoredOrDefaultHeight();
-  window.addEventListener('resize', applyStoredOrDefaultHeight);
+  _restoreMobileNavHeight = applyStoredOrDefaultHeight;
+  // While the nav is revealed (mobileBackBtn), an orientation change/resize
+  // should keep it filling the screen rather than snapping back to the
+  // stored/default height.
+  window.addEventListener('resize', () => {
+    if (_mobileNavVisible) _expandMobileNavHeight();
+    else applyStoredOrDefaultHeight();
+  });
 
   function onStart(clientY) {
     if (!isMobile()) return;
@@ -8839,6 +8908,64 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   // Touch events
   handle.addEventListener('touchstart', e => { onStart(e.touches[0].clientY); }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (dragging) { onMove(e.touches[0].clientY); e.preventDefault(); }
+  }, { passive: false });
+  document.addEventListener('touchend', onEnd);
+})();
+
+// ── Mobile: drag #doc-viewer-header to resize the document viewer ───────────
+// On mobile #h-resize (the desktop row-resize strip) is hidden, and there's
+// otherwise no way to see more of a tall PDF/image than the fixed 45vh
+// default — so the header itself (full-width, 30px tall) doubles as a much
+// easier drag target. Only active when expanded (collapsed already toggles
+// open on tap — see the header's plain 'click' listener above) and only
+// when the drag doesn't start on one of the header's own buttons/link.
+(function() {
+  const header = document.getElementById('doc-viewer-header');
+  const panel  = document.getElementById('doc-viewer');
+  let dragging = false, startY = 0, startH = 0, contentEl = null;
+
+  function activeContentEl() {
+    const entry = _activeDocViewerEntry();
+    if (entry) return entry.el;
+    const video = document.getElementById('doc-viewer-video');
+    if (video.style.display === 'block') return video;
+    const audio = document.getElementById('doc-viewer-audio');
+    if (audio.style.display === 'block') return audio;
+    return null;
+  }
+
+  function onStart(clientY, target) {
+    if (!isMobile() || panel.classList.contains('collapsed')) return;
+    if (target.closest('button, a')) return; // let taps on controls through
+    contentEl = activeContentEl();
+    if (!contentEl) return; // e.g. the "open externally" card has nothing to resize
+    dragging = true;
+    startY = clientY;
+    startH = contentEl.getBoundingClientRect().height;
+  }
+
+  function onMove(clientY) {
+    if (!dragging) return;
+    // Dragging up (negative delta) grows the content area.
+    const maxH = Math.round(window.innerHeight * 0.85);
+    const h = Math.max(150, Math.min(maxH, startH - (clientY - startY)));
+    contentEl.style.height = h + 'px';
+    docViewerContentHeight = h;
+  }
+
+  function onEnd() {
+    if (!dragging) return;
+    dragging = false;
+    contentEl = null;
+  }
+
+  header.addEventListener('mousedown', e => onStart(e.clientY, e.target));
+  document.addEventListener('mousemove', e => { if (dragging) onMove(e.clientY); });
+  document.addEventListener('mouseup', onEnd);
+
+  header.addEventListener('touchstart', e => onStart(e.touches[0].clientY, e.target), { passive: true });
   document.addEventListener('touchmove', e => {
     if (dragging) { onMove(e.touches[0].clientY); e.preventDefault(); }
   }, { passive: false });
