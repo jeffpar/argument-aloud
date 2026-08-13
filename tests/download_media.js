@@ -14,7 +14,7 @@
  * --thumbs mode (Original Jurisdiction Archive cover thumbnails):
  *   For every case tagged "Original Jurisdiction Archive", renders page 1 of
  *   each files.json PDF (via pdftoppm) as a JPEG scaled to 400px tall, saved
- *   as courts/ussc/collections/orig/<term>/<case>/<file>.jpg — <file> is the
+ *   as courts/ussc/collections/historical/orig/<term>/<case>/<file>.jpg — <file> is the
  *   entry's "file" id, matching the existing hand-curated thumbnails in that
  *   collection. Self-sufficient: downloads/caches the source PDF on demand
  *   (same as --files) if it isn't already cached, so this is the only step
@@ -61,7 +61,7 @@ const REPO_ROOT      = path.resolve(__dirname, '..');
 const TERMS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const CACHE_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
 const OPINIONS_HTML  = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');
-const ORIG_COLLECTION_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'orig');
+const ORIG_COLLECTION_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'historical', 'orig');
 const _execFile = promisify(execFile);
 const PW_PROFILE_DIR = path.join(REPO_ROOT, '.playwright-profile');
 const JUSTIA_BASE    = 'https://supreme.justia.com';
@@ -420,8 +420,8 @@ async function processTermFilesMode(term, caseFilter, opts) {
 //
 // For every case tagged "Original Jurisdiction Archive", render page 1 of each
 // cached files.json PDF as a JPEG (height 400px, width proportional — matching
-// the existing hand-curated thumbnails under courts/ussc/collections/orig/),
-// stored at courts/ussc/collections/orig/<term>/<caseId>/<file>.jpg, where
+// the existing hand-curated thumbnails under courts/ussc/collections/historical/orig/),
+// stored at courts/ussc/collections/historical/orig/<term>/<caseId>/<file>.jpg, where
 // <file> is the entry's "file" id from files.json (not derived from the URL).
 
 async function _generateThumbnail(pdfPath, outputJpgPath) {

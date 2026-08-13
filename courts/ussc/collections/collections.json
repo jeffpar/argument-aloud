@@ -6,7 +6,7 @@
         "id": "gallery",
         "name": "Gallery",
         "file": "/courts/ussc/people/justices/gallery.json",
-        "page": "/courts/ussc/collections/gallery",
+        "page": "/courts/ussc/collections/justices/gallery",
         "search": "name"
       },
       {
@@ -14,7 +14,7 @@
         "name": "Benches",
         "file": "/courts/ussc/people/justices/benches.json",
         "folder": "/courts/ussc/people/justices/benches",
-        "page": "/courts/ussc/collections/benches",
+        "page": "/courts/ussc/collections/justices/benches",
         "order": "decision:ascending",
         "search": "name"
       },
@@ -23,7 +23,7 @@
         "name": "Opinions",
         "file": "/courts/ussc/people/justices/opinions.json",
         "folder": "/courts/ussc/people/justices/opinions",
-        "page": "/courts/ussc/collections/opinions",
+        "page": "/courts/ussc/collections/justices/opinions",
         "order": "decision:ascending",
         "search": "name",
         "scrollLabel": "justices"
@@ -33,7 +33,7 @@
         "name": "Lone Dissents",
         "file": "/courts/ussc/people/justices/lone_dissents.json",
         "folder": "/courts/ussc/people/justices/lone",
-        "page": "/courts/ussc/collections/lone",
+        "page": "/courts/ussc/collections/justices/lone",
         "order": "decision:ascending",
         "search": "name",
         "scrollLabel": "justices"
@@ -50,7 +50,7 @@
         "name": "Vocal Justices",
         "file": "/courts/ussc/people/justices/vocal_justices.json",
         "folder": "/courts/ussc/people/justices/vocal",
-        "page": "/courts/ussc/collections/vocal",
+        "page": "/courts/ussc/collections/justices/vocal",
         "order": "hours:descending",
         "search": "name",
         "scrollLabel": "justices"
@@ -128,7 +128,7 @@
       {
         "id": "briefs",
         "name": "Briefs",
-        "file": "/courts/ussc/collections/briefs/briefs.json",
+        "file": "/courts/ussc/collections/historical/briefs/briefs.json",
         "search": "cases:title",
         "order": "argument:ascending",
         "groups": [
@@ -141,8 +141,8 @@
       {
         "id": "scgh",
         "name": "Greatest Hits",
-        "file": "/courts/ussc/collections/scgh/scgh.json",
-        "page": "/courts/ussc/collections/scgh",
+        "file": "/courts/ussc/collections/historical/scgh/scgh.json",
+        "page": "/courts/ussc/collections/historical/scgh",
         "groups": [
           {
             "name": "Commerce",
@@ -201,8 +201,8 @@
       {
         "id": "media",
         "name": "Media Files",
-        "file": "/courts/ussc/collections/media/media.json",
-        "page": "/courts/ussc/collections/media",
+        "file": "/courts/ussc/collections/historical/media/media.json",
+        "page": "/courts/ussc/collections/historical/media",
         "groups": [
           {
             "id": "audio-files",
@@ -226,7 +226,7 @@
       {
         "id": "oddities",
         "name": "Oddities",
-        "file": "/courts/ussc/collections/oddities/oddities.json",
+        "file": "/courts/ussc/collections/historical/oddities/oddities.json",
         "conditions": [
         ],
         "order": "decision:ascending,titles:ascending",
@@ -235,8 +235,8 @@
       {
         "id": "orig",
         "name": "Original Jurisdiction",
-        "file": "/courts/ussc/collections/orig/orig.json",
-        "page": "/courts/ussc/collections/orig",
+        "file": "/courts/ussc/collections/historical/orig/orig.json",
+        "page": "/courts/ussc/collections/historical/orig",
         "scrollToPage": true,
         "groups": [
           {
@@ -249,28 +249,28 @@
       {
         "id": "rare-words",
         "name": "Rare Words",
-        "file": "/courts/ussc/collections/rare/rare_words.json",
-        "page": "/courts/ussc/collections/rare",
+        "file": "/courts/ussc/collections/historical/rare/rare_words.json",
+        "page": "/courts/ussc/collections/historical/rare",
         "search": "name",
         "scrollLabel": "words"
       },
       {
         "id": "top_cites",
         "name": "Top Cites",
-        "file": "/courts/ussc/collections/cites/top_cites.json",
+        "file": "/courts/ussc/collections/historical/cites/top_cites.json",
         "search": "name",
         "scrollLabel": "opinions"
       },
       {
         "id": "transcripts",
         "name": "Transcripts",
-        "file": "/courts/ussc/collections/transcripts/transcripts.json",
+        "file": "/courts/ussc/collections/historical/transcripts/transcripts.json",
         "search": "cases:title",
         "order": "argument:ascending",
         "groups": [
           {
             "name": "Opinions",
-            "page": "/courts/ussc/collections/oddities/transcripts",
+            "page": "/courts/ussc/collections/historical/oddities/transcripts",
             "conditions": [
               "event.source == 'ussc' && event.type == 'opinion'"
             ],
@@ -401,7 +401,7 @@
       {
         "id": "ignored-scdb-records",
         "name": "Cases Not Included from SCDB",
-        "page": "/courts/ussc/collections/scdb",
+        "page": "/courts/ussc/collections/audits/scdb",
         "enabled": false
       }
     ],

@@ -11,25 +11,25 @@ Allow: /
 # the fact. Every one of these rules was checked against the actual directory
 # contents so real data files (JSON/images/PDFs the SPA fetches directly,
 # e.g. courts/ussc/collections/*.json, courts/ussc/terms/YYYY-MM/cases.json,
-# courts/ussc/collections/orig/'s case thumbnails) stay crawlable — pages
+# courts/ussc/collections/historical/orig/'s case thumbnails) stay crawlable — pages
 # sharing a directory with such files are blocked by exact path ("$", not a
 # trailing wildcard); dedicated pane-only subtrees are blocked recursively.
 
 Disallow: /courts/ussc/blog/$
 Disallow: /courts/ussc/blog/20*/
 Disallow: /courts/ussc/collections/$
-Disallow: /courts/ussc/collections/benches/$
-Disallow: /courts/ussc/collections/gallery/
-Disallow: /courts/ussc/collections/lone/
-Disallow: /courts/ussc/collections/media/
-Disallow: /courts/ussc/collections/oddities/
-Disallow: /courts/ussc/collections/opinions/
-Disallow: /courts/ussc/collections/orig/$
-Disallow: /courts/ussc/collections/rare/
-Disallow: /courts/ussc/collections/scdb/
-Disallow: /courts/ussc/collections/scgh/$
-Disallow: /courts/ussc/collections/vocal/
-Disallow: /courts/ussc/collections/warnings/
+Disallow: /courts/ussc/collections/justices/benches/$
+Disallow: /courts/ussc/collections/justices/gallery/
+Disallow: /courts/ussc/collections/justices/lone/
+Disallow: /courts/ussc/collections/historical/media/
+Disallow: /courts/ussc/collections/historical/oddities/
+Disallow: /courts/ussc/collections/justices/opinions/
+Disallow: /courts/ussc/collections/historical/orig/$
+Disallow: /courts/ussc/collections/historical/rare/
+Disallow: /courts/ussc/collections/audits/scdb/
+Disallow: /courts/ussc/collections/historical/scgh/$
+Disallow: /courts/ussc/collections/justices/vocal/
+Disallow: /courts/ussc/collections/audits/warnings/
 Disallow: /courts/ussc/sources/$
 Disallow: /courts/ussc/sources/docket/
 Disallow: /courts/ussc/sources/reports/$

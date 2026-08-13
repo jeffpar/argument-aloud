@@ -48,7 +48,7 @@ test('collection: label click opens+selects, second label click closes (open + s
     await historicalGroup.locator('.term-header .term-label').first().click();
     await waitForOpen(historicalGroup, true, 'Historical sub-group should open');
   }
-  const collItem = page.locator('.term-group[data-collection-url="/courts/ussc/collections/briefs/briefs.json"]').first();
+  const collItem = page.locator('.term-group[data-collection-url="/courts/ussc/collections/historical/briefs/briefs.json"]').first();
   const collLabel = collItem.locator('.term-label').first();
 
   await collLabel.click();
@@ -59,7 +59,7 @@ test('collection: label click opens+selects, second label click closes (open + s
 });
 
 test('collection with a page: closing then reopening does not reload the page-viewer iframe', async (page) => {
-  // Regression for a flicker bug: /courts/ussc/collections/benches redirects (adds a
+  // Regression for a flicker bug: /courts/ussc/collections/justices/benches redirects (adds a
   // trailing slash), so the iframe's post-load location never literally matched a
   // freshly-built target href, causing a needless reload every time the page-viewer
   // pane was re-shown for a collection that was already displaying it.

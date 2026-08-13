@@ -97,7 +97,7 @@
   }
   window.addEventListener('hashchange', scrollToHashTarget);
 
-  fetch('/courts/ussc/collections/orig/orig.json')
+  fetch('/courts/ussc/collections/historical/orig/orig.json')
     .then(function (r) { return r.json(); })
     .then(function (groups) {
       var container = document.getElementById('og-gallery');
@@ -129,7 +129,7 @@
 
             var img = document.createElement('img');
             img.loading = 'lazy';
-            img.src = '/courts/ussc/collections/orig/' + c.term + '/' + encodeURIComponent(id) + '/' + pdf.file + '.jpg';
+            img.src = '/courts/ussc/collections/historical/orig/' + c.term + '/' + encodeURIComponent(id) + '/' + pdf.file + '.jpg';
             img.alt = docTitle;
             watchThumbnailFit(img);
 

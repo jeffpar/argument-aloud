@@ -1702,7 +1702,7 @@ function syncJusticePages({ verbose = false } = {}) {
         console.log('Justice pages: all up to date');
     }
 
-    // Rebuild the Justice Gallery index (courts/ussc/collections/gallery/index.md
+    // Rebuild the Justice Gallery index (courts/ussc/collections/justices/gallery/index.md
     // fetches this directly) so it stays in sync with opinions/lone-dissent/vocal
     // stats instead of drifting stale.
     galleryEntries.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);

@@ -21,7 +21,7 @@ Note that, unlike the Court's website, any files associated with these cases are
 
 As an aside, here's a handy table from the Court's [website](https://www.supremecourt.gov/filingandrules/rules_guidance.aspx) that explains the cover colors you'll see below:
 
-[![Booklet Format Chart](/courts/ussc/collections/orig/booklets.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
+[![Booklet Format Chart](/courts/ussc/collections/historical/orig/booklets.jpg)](https://www.supremecourt.gov/casehand/BookletFormatSpecificChart2026.pdf)
 <div class="og-heading">
   <h2>Case Gallery</h2>
 </div>

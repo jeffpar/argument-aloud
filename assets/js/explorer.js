@@ -5270,7 +5270,7 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
 // initial HTML, same-origin) even before any navigation, so location.replace()
 // works from the very first call — pf.src is kept only as a last-resort
 // fallback for the unexpected case where contentWindow isn't available at all.
-// Directory-style permalinks (e.g. /collections/benches) get redirected by the
+// Directory-style permalinks (e.g. /collections/justices/benches) get redirected by the
 // server to add a trailing slash, so the iframe's post-load location never
 // matches a freshly-built target href literally. Compare with trailing
 // slashes stripped so re-requesting the same page is recognized as a no-op
@@ -6237,7 +6237,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // Gallery-style collections (e.g. Original Jurisdiction) show their cases
     // as a single hand-built page rather than the normal case viewer — clicking
     // a case here just scrolls that page to the matching "<term>--<number>" id
-    // instead of loading the case. See courts/ussc/collections/orig/index.md.
+    // instead of loading the case. See courts/ussc/collections/historical/orig/index.md.
     if (collEntry?.scrollToPage && collEntry.page) {
       markCaseItemActive(ci);
       if (!fromRestore) {
@@ -6251,7 +6251,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         navigate(url);
       }
       const anchorId = caseRef.term + '--' + caseRef.number.split(',')[0].trim();
-      // Directory-style permalinks (e.g. /collections/orig) 301-redirect to add
+      // Directory-style permalinks (e.g. /collections/historical/orig) 301-redirect to add
       // a trailing slash. Without it here, every click would force the iframe
       // through a full server round-trip + reload instead of a same-document
       // fragment jump — a visible flash back to the top before landing on the
@@ -10208,7 +10208,7 @@ async function _pickNoteworthyOnThisDay(mmdd) {
 // showPageViewer's own pushState logic (replaceState here instead, so the
 // dead-end action= URL doesn't linger as a back-button target).
 function _showOnThisDayNotFound(dateParam) {
-  const target = '/courts/ussc/collections/onthisday/' + (dateParam ? ('?date=' + encodeURIComponent(dateParam)) : '');
+  const target = '/courts/ussc/collections/historical/onthisday/' + (dateParam ? ('?date=' + encodeURIComponent(dateParam)) : '');
   const url = new URL(location.href);
   url.search = '';
   url.searchParams.set('link', target);

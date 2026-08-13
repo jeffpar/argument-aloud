@@ -3397,7 +3397,7 @@ const _SCDB_LEGACY_CSV  = path.join(_SCDB_CURRENT_DIR, 'legacy.csv');
 const _SCDB_CACHE_DIR   = path.join(_SCDB_DATA_DIR, 'cache');
 const _SCDB_CACHE_PATH  = path.join(_SCDB_CACHE_DIR, 'scdb.json');
 const _SCDB_CORRECTIONS_PATH = path.join(REPO_ROOT, 'data', 'scdb', 'corrections.json');
-const _SCDB_NOT_INCLUDED_PAGE = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'scdb', 'index.md');
+const _SCDB_NOT_INCLUDED_PAGE = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'audits', 'scdb', 'index.md');
 
 const _US_CITE_RE       = /^(\d+)\s+U\.S\.\s+(\d+)$/i;
 const _SCDB_ISO_RE      = /^\d{4}-\d{2}-\d{2}$/;
@@ -4538,14 +4538,14 @@ function processVocalJustices(allTerms, dryRun) {
 // "burger.jpg", the id with its trailing bench number stripped); additional
 // photos are "<id><letter>.jpg" (e.g. "chase2b.jpg", "chase2c.jpg" for bench
 // "chase2"), in letter order. Returns [] if no photo exists at all.
-const _BENCH_IMAGES_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'benches');
+const _BENCH_IMAGES_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'justices', 'benches');
 function _benchImages(benchId) {
     const images = [];
     const addIfExists = (jpgName) => {
         if (!fs.existsSync(path.join(_BENCH_IMAGES_DIR, jpgName))) return false;
         const txtPath = path.join(_BENCH_IMAGES_DIR, jpgName.replace(/\.jpg$/, '.txt'));
         const desc = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8').trim() : '';
-        images.push({ path: `/courts/ussc/collections/benches/${jpgName}`, ...(desc ? { desc } : {}) });
+        images.push({ path: `/courts/ussc/collections/justices/benches/${jpgName}`, ...(desc ? { desc } : {}) });
         return true;
     };
     if (!addIfExists(`${benchId}.jpg`)) {
@@ -4883,7 +4883,7 @@ function processBenches(dryRun) {
                 }
             } catch { /* ignore */ }
         }
-        const details = { page: `/courts/ussc/collections/benches/?id=${bench.id}` };
+        const details = { page: `/courts/ussc/collections/justices/benches/?id=${bench.id}` };
         const output = { details, highlights, cases: benchCases };
         if (_jsonChanged(file, output)) { _writeJson(file, output); benchFilesWritten++; }
     }
@@ -5133,9 +5133,9 @@ const _CASE_ENTRY_FIELDS = new Set(
 
 // For a case tagged "Original Jurisdiction Archive", build the orig.json
 // "gallery" array ("<file id>|<href>|<title>" per files.json entry) driving
-// the thumbnail grid on courts/ussc/collections/orig/index.md. Recomputed
+// the thumbnail grid on courts/ussc/collections/historical/orig/index.md. Recomputed
 // fresh on every rebuild from files.json — matching thumbnails are generated
-// separately via `download.js --thumbs` (courts/ussc/collections/orig/<term>/<case>/<file>.jpg).
+// separately via `download.js --thumbs` (courts/ussc/collections/historical/orig/<term>/<case>/<file>.jpg).
 // "<file id>" is the entry's own 1-based array position (files.json entries
 // no longer carry an explicit "file" prop) — must match the thumbnail
 // filenames on disk, which are numbered the same way.
@@ -7491,7 +7491,7 @@ function _selectRarestSpread(candidates, count) {
     return selected;
 }
 
-// Build courts/ussc/collections/rare/rare_words.json (an ordinary embedded-format
+// Build courts/ussc/collections/historical/rare/rare_words.json (an ordinary embedded-format
 // collection: [{ name: <word>, cases: [...] }, ...], browsable the same way
 // as e.g. orig.json) — two lists of RARE_WORD_COUNT words each, back to back:
 // the rarest words that are real dictionary words (any case count, even a
@@ -7500,7 +7500,7 @@ function _selectRarestSpread(candidates, count) {
 // false), which are mostly one-off transcription typos/ASR artifacts (e.g. a
 // stutter transcribed as "aaainst") but occasionally legal/technical terms or
 // other oddities the dictionary doesn't cover.
-// courts/ussc/collections/rare/index.md renders this file client-side
+// courts/ussc/collections/historical/rare/index.md renders this file client-side
 // (fetch + DOM) as two labeled lists, rather than being regenerated here, so
 // hand edits to that page's prose/markup are never overwritten.
 function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
@@ -7558,11 +7558,11 @@ function _writeRareWordsCollection(wordLocs, caseByRef, writeIfChanged) {
 
     const rareWords = [...dictGroups, ...nonDictGroups];
 
-    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'rare', 'rare_words.json');
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'historical', 'rare', 'rare_words.json');
     const jsonWritten = writeIfChanged(jsonPath, JSON.stringify(rareWords, null, 2) + '\n');
 
     if (jsonWritten || _VERBOSE) {
-        console.log(`Rare words: wrote ${dictGroups.length} dictionary word(s) + ${nonDictGroups.length} non-dictionary word(s) → courts/ussc/collections/rare/rare_words.json`);
+        console.log(`Rare words: wrote ${dictGroups.length} dictionary word(s) + ${nonDictGroups.length} non-dictionary word(s) → courts/ussc/collections/historical/rare/rare_words.json`);
     }
 }
 
@@ -8124,7 +8124,7 @@ function _scdbNotIncludedLine(c) {
     return line;
 }
 
-// Regenerates courts/ussc/collections/scdb/index.md's case list from scratch —
+// Regenerates courts/ussc/collections/audits/scdb/index.md's case list from scratch —
 // front matter (title/layout) is preserved as-is; only the body is replaced.
 // `cases` is the list of built case objects for every SCDB caseId (argued or
 // not) with no corresponding entry anywhere in courts/ussc/terms/*/cases.json
@@ -9983,7 +9983,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js --minutes [--dry-run]              # backfill missing minutes_src values
        node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
        node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
-       node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/cites/top_cites.json
+       node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/historical/cites/top_cites.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
        node update_cases.js --feeds [--verbose]                # rebuild courts/ussc/feeds/ (podcast RSS)
@@ -10985,7 +10985,7 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// --top-cites: build courts/ussc/collections/cites/top_cites.json — an ordinary
+// --top-cites: build courts/ussc/collections/historical/cites/top_cites.json — an ordinary
 // embedded-format collection (like rare_words.json/oral_dissents.json:
 // [{ name, link, cases: [...] }, ...]) of the most-cited opinions across
 // every term, ranked by how many *other* cases' opCite array references them
@@ -11058,18 +11058,18 @@ function runTopCites(dryRun) {
         .sort((a, b) => b.cases.length - a.cases.length || a.name.localeCompare(b.name))
         .slice(0, TOP_CITES_COUNT);
 
-    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'cites', 'top_cites.json');
+    const jsonPath = path.join(REPO_ROOT, 'courts', 'ussc', 'collections', 'historical', 'cites', 'top_cites.json');
     const content = JSON.stringify(ranked, null, 2) + '\n';
 
     if (dryRun) {
-        console.log(`[dry-run] Would write ${ranked.length} opinion(s) to courts/ussc/collections/cites/top_cites.json`);
+        console.log(`[dry-run] Would write ${ranked.length} opinion(s) to courts/ussc/collections/historical/cites/top_cites.json`);
         return;
     }
 
     let changed = true;
     try { changed = fs.readFileSync(jsonPath, 'utf8') !== content; } catch { /* new file */ }
     if (changed) fs.writeFileSync(jsonPath, content, 'utf8');
-    console.log(`Top cites: wrote ${ranked.length} opinion(s) → courts/ussc/collections/cites/top_cites.json`);
+    console.log(`Top cites: wrote ${ranked.length} opinion(s) → courts/ussc/collections/historical/cites/top_cites.json`);
 }
 
 

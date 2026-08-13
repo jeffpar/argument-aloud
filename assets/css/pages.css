@@ -374,7 +374,7 @@ html[data-theme="dark"] .portrait-photo { background: #3a3c45; }
   transition: opacity 0.15s;
 }
 
-/* ── Collections: Justice Gallery — courts/ussc/collections/gallery/ ───── */
+/* ── Collections: Justice Gallery — courts/ussc/collections/justices/gallery/ ───── */
 
 .jg-header {
   display: flex;
@@ -440,7 +440,7 @@ a.jg-item:hover .portrait-photo { opacity: 0.82; }
   animation: jg-jiggle 1.4s ease-in-out 1;
 }
 
-/* ── Collections: Justice Benches — courts/ussc/collections/benches/ ────── */
+/* ── Collections: Justice Benches — courts/ussc/collections/justices/benches/ ────── */
 
 .jb-page-title {
   margin: 0;
@@ -602,7 +602,7 @@ html[data-theme="dark"] .jb-grid-photo { background: #3a3c45; }
   margin: 0 0 18px;
 }
 
-/* ── Collections: Rarest Spoken Words — courts/ussc/collections/rare/ ───── */
+/* ── Collections: Rarest Spoken Words — courts/ussc/collections/historical/rare/ ───── */
 
 #rw-list, #rw-list-nondict, #rw-list ul, #rw-list-nondict ul {
   list-style: none;
@@ -632,7 +632,7 @@ html[data-theme="light"] .rw-word { color: #212529; }
 html[data-theme="dark"] .rw-highlight { background: #3a2e00; }
 html[data-theme="light"] .rw-highlight { background: #fff3cd; }
 
-/* ── Collections: Original Jurisdiction Records & Briefs — courts/ussc/collections/orig/ ── */
+/* ── Collections: Original Jurisdiction Records & Briefs — courts/ussc/collections/historical/orig/ ── */
 
 .og-heading {
   display: flex;
@@ -721,7 +721,7 @@ html[data-theme="dark"] #og-preview-caption {
 
 .footnote-label { font-size: 0.67em; font-weight: bold; margin: 0 0 20px; }
 
-/* ── Cases with Warnings — courts/ussc/collections/warnings/ ────────────── */
+/* ── Cases with Warnings — courts/ussc/collections/audits/warnings/ ────────────── */
 
 /* Each term is a native <details> — collapsed by default, expanding to
    reveal that term's cases. Reuses .date-section/.date-case-list for the
