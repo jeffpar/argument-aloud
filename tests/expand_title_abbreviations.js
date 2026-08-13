@@ -492,7 +492,6 @@ for (const { term, casesPath, cases } of termsData) {
                 const r = resolveRun(words, slots, prevAnchor, nextAnchor, runScdbTokens, runScdbAbbrevFlags);
                 if (r) {
                     if (r.confidence === 'medium') {
-                        const label = slots.map((slotIdx, s) => `${words[slotIdx]} -> ${properCase(r.candidates[s])}?`).join(', ');
                         // Same repeat-idiom collapse as the real applied
                         // change below ("S. S." -> one "Steamship", not
                         // "Steamship Steamship") — otherwise the preview
@@ -504,8 +503,14 @@ for (const { term, casesPath, cases } of termsData) {
                             if (s > 0 && r.candidates[s] === r.candidates[s - 1]) continue;
                             previewWords.push(properCase(r.candidates[s]));
                         }
+                        // A link to the actual opinion, so the visitor can
+                        // check the party's real name before answering —
+                        // decision_rep (S. Ct. Reports PDF) as a fallback
+                        // for the (usually more direct) decision_loc scan.
+                        const decisionLink = c.decision_loc || c.decision_rep;
                         const accepted = await confirmMedium(
-                            `\n${term}  ${c.id}\n  "${part}"\n  ${label}\n  -> "${previewWords.join(' ')}"`
+                            `\n${term}  ${c.id}\n   ${part}\n-> ${previewWords.join(' ')}`
+                            + (decisionLink ? `\n   ${decisionLink}` : '')
                         );
                         if (accepted) {
                             for (let s = 0; s < slots.length; s++) resolved[slots[s]] = r.candidates[s];
@@ -599,7 +604,7 @@ if (WRITE) {
 
 console.log(`${highChanges.length} high-confidence title change(s) found${WRITE ? ', applying...' : ' (dry run — pass --write to apply):'}\n`);
 for (const { term, id, oldTitle, newTitle } of highChanges) {
-    console.log(`  ${term}  ${id}`);
+    console.log(`  ${term}  ${id}  ${caseById.get(id)?.decision_loc || ''}`);
     console.log(`    - ${oldTitle}`);
     console.log(`    + ${newTitle}`);
 }

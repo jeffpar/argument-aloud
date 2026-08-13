@@ -2318,7 +2318,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // externalHref (the real image, or the catalog page — see above), never
   // this wrapper. link.images, when
   // given (e.g. every Minutes page image for one date — see
-  // _minutesImagesForDate), lets the wrapper's own prev/next controls page
+  // _minutesGalleryForCaseDate), lets the wrapper's own prev/next controls page
   // through all of them instead of showing just the one (link.href/
   // effectiveHref) image — passed via a sessionStorage entry (shared with
   // this same-origin iframe) rather than a URL param, since a few dozen
@@ -3012,9 +3012,9 @@ function _fetchTermDates(term) {
 
 // On disk, a Minutes-scan group's own "pages" is a "<first>-<last>" range
 // string (see scripts/parse_minutes.js's own parsePagesRange/
-// formatPagesRange doc comment for why) — _minutesImagesForDate below (this
-// file's only consumer) works with the expanded array form instead, same as
-// terms.js's own drag-and-drop editor does, so every freshly-fetched
+// formatPagesRange doc comment for why) — _minutesImagesFromGroups below
+// (this file's only consumer) works with the expanded array form instead,
+// same as terms.js's own drag-and-drop editor does, so every freshly-fetched
 // dates.json payload is normalized through this immediately after fetch,
 // before anything else touches it. Reuses _parsePageRangeString, the same
 // range-string parser files.json's own "pages"-type entries use. Every
@@ -3042,19 +3042,18 @@ function _expandDatesPages(raw) {
   return raw;
 }
 
-// Resolves to an ordered array of { src, href } pairs — src the direct page
-// image URL ("$page:4" replaced with the zero-padded page number), href the
-// group's own catalog-page URL (its "$page"/"$page:N" template substituted
-// the same way, via _substitutePageInTemplate below; null if the group
-// carries no href) — for `iso` in `term`'s dates.json, across every
-// type:"minutes" group recorded for that date — sorted by src (the same
+// Expands one date's dates.json groups into an ordered array of
+// { page, src, href } — src the direct page image URL ("$page:4" replaced
+// with the zero-padded page number), href the group's own catalog-page URL
+// (its "$page"/"$page:N" template substituted the same way, via
+// _substitutePageInTemplate below; null if the group carries no href) —
+// across every type:"minutes" group in `groups`, sorted by src (the same
 // record-group ordering terms.js's own sortGroupsBySrc uses), so a date
 // spanning two physical volumes reads in the volumes' own physical order
-// rather than a raw page-number sort. Resolves to null if the term has no
-// dates.json, or the date has none.
-async function _minutesImagesForDate(term, iso) {
-  const datesData = await _fetchTermDates(term);
-  const groups = datesData && datesData[iso];
+// rather than a raw page-number sort. Resolves to null if `groups` has no
+// Minutes group. Shared by _minutesGalleryForCaseDate below, both for a
+// date's own group and, on fallback, an earlier date's.
+function _minutesImagesFromGroups(groups) {
   if (!Array.isArray(groups) || !groups.length) return null;
   const pages = [];
   [...groups]
@@ -3064,6 +3063,7 @@ async function _minutesImagesForDate(term, iso) {
       if (!g.src) return;
       [...new Set(g.pages || [])].sort((a, b) => a - b).forEach(page => {
         pages.push({
+          page,
           src: g.src.replace('$page:4', String(page).padStart(4, '0')),
           href: g.href ? _substitutePageInTemplate(g.href, page) : null,
         });
@@ -3072,23 +3072,61 @@ async function _minutesImagesForDate(term, iso) {
   return pages.length ? pages : null;
 }
 
+// Resolves the Minutes gallery to show for a case's own argument/reargument/
+// decision date `iso`, plus which page within it to open to.
+//  - `minutesRef` (an event's own minutes_ref) pins this case's specific
+//    page within iso's own range — shared by every other case heard that
+//    same day — used instead of the range's first page whenever it actually
+//    resolves to a page in that range.
+//  - When `iso` itself has no Minutes group at all (its business apparently
+//    got recorded under a different court day's pages), falls back to the
+//    nearest earlier date that does have one, opened to its first page —
+//    minutesRef only pins a page within iso's own range, so it's ignored
+//    once a fallback date is in play.
+// Returns { pages, index } (see _minutesImagesFromGroups for `pages`' own
+// shape), or null if no Minutes group exists at or before iso.
+async function _minutesGalleryForCaseDate(term, iso, minutesRef) {
+  const datesData = await _fetchTermDates(term);
+  let pages = _minutesImagesFromGroups(datesData && datesData[iso]);
+  let index = 0;
+  if (pages) {
+    if (minutesRef != null) {
+      const refNum = parseInt(minutesRef, 10);
+      const found = pages.findIndex(p => p.page === refNum);
+      if (found !== -1) index = found;
+    }
+  } else {
+    let bestDate = null;
+    for (const date of Object.keys(datesData || {})) {
+      if (date > iso) continue;
+      if (!_minutesImagesFromGroups(datesData[date])) continue;
+      if (!bestDate || date > bestDate) bestDate = date;
+    }
+    if (bestDate) pages = _minutesImagesFromGroups(datesData[bestDate]);
+  }
+  return pages ? { pages, index } : null;
+}
+
 // Shows `iso`'s Minutes gallery in the doc viewer, syncs the file-select
 // dropdown to match (adding the option if this is the first time this exact
 // date has come up for the current case), and records a "file=<iso>" URL
 // param — the single shared implementation behind a case-info date link's
 // first click (_setDateLinks below), manually picking the option from
 // file-select, and restoring one from a URL (_showMinutesGalleryFromParam).
-// Returns whether a gallery was actually found and shown.
-async function _showMinutesGalleryForDate(term, iso, label) {
-  const pages = await _minutesImagesForDate(term, iso);
-  if (!pages || !pages.length) return false;
+// `minutesRef`, when given, pins the initial page shown (see
+// _minutesGalleryForCaseDate). Returns whether a gallery was actually found
+// and shown.
+async function _showMinutesGalleryForDate(term, iso, label, minutesRef) {
+  const result = await _minutesGalleryForCaseDate(term, iso, minutesRef);
+  if (!result) return false;
+  const { pages, index } = result;
   const images = pages.map(p => p.src);
   const hrefs  = pages.map(p => p.href || p.src);
   const key = 'minutes-date:' + iso;
   const title = label + ' ' + formatDecisionDate(iso);
-  _currentMinutesGalleryRefs.set(key, { images, hrefs, title });
+  _currentMinutesGalleryRefs.set(key, { images, hrefs, title, index });
   _activeMinutesGalleryIso = iso;
-  showDocViewer({ href: hrefs[0], src: images[0], hrefs, images, title, view: 'pane' }, { autoScroll: true });
+  showDocViewer({ href: hrefs[index], src: images[index], hrefs, images, index, title, view: 'pane' }, { autoScroll: true });
   const fileSelect = document.getElementById('file-select');
   if (fileSelect && !fileSelect.hidden) {
     if (!fileSelect.querySelector(`option[value="${CSS.escape(key)}"]`)) {
@@ -3119,12 +3157,13 @@ async function _showMinutesGalleryForDate(term, iso, label) {
 async function _showMinutesGalleryFromParam(param) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
   if (!term || !param) return false;
-  return _showMinutesGalleryForDate(term, param, 'Minutes for');
+  const minutesRef = _currentCaseEntry?.events?.find(e => e.date === param)?.minutes_ref ?? null;
+  return _showMinutesGalleryForDate(term, param, 'Minutes for', minutesRef);
 }
 
 // Substitutes a page number into a "$page"/"$page:<width>" URL template —
 // the same placeholder convention a dates.json type:"minutes" group's own
-// href/src use (see _minutesImagesForDate above), generalized here to read the
+// href/src use (see _minutesImagesFromGroups above), generalized here to read the
 // zero-padding width from the template itself (files.json "pages"-type
 // entries vary it per source, e.g. "$page:3") instead of hardcoding one.
 function _substitutePageInTemplate(template, page) {
@@ -3154,7 +3193,7 @@ function _parsePageRangeString(rangeStr) {
 
 // Builds the ordered array of page-image URLs for a files.json "pages"-type
 // entry (e.g. a NARA case-file image series) from its "src" template and
-// "pages" range string — the files.json equivalent of _minutesImagesForDate.
+// "pages" range string — the files.json equivalent of _minutesImagesFromGroups.
 function _pagesEntryImages(f) {
   if (!f || !f.src || !f.pages) return [];
   return _parsePageRangeString(f.pages).map(page => _substitutePageInTemplate(f.src, page));
@@ -3215,13 +3254,15 @@ async function _refreshMinutesGalleryOptions(term, caseEntry) {
       .filter(Boolean)
   )].sort();
   for (const iso of isos) {
-    const pages = await _minutesImagesForDate(term, iso);
-    if (!pages) continue;
+    const minutesRef = caseEntry.events?.find(e => e.date === iso)?.minutes_ref ?? null;
+    const result = await _minutesGalleryForCaseDate(term, iso, minutesRef);
+    if (!result) continue;
+    const { pages, index } = result;
     const images = pages.map(p => p.src);
     const hrefs  = pages.map(p => p.href || p.src);
     const key = 'minutes-date:' + iso;
     const title = 'Minutes for ' + formatDecisionDate(iso);
-    _currentMinutesGalleryRefs.set(key, { images, hrefs, title });
+    _currentMinutesGalleryRefs.set(key, { images, hrefs, title, index });
     const opt = document.createElement('option');
     opt.value = key;
     opt.textContent = title;
@@ -7234,11 +7275,13 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
   )].sort();
   for (const iso of isos) {
     if (seenIsoDates.has(iso)) continue; // already covered by an event's own minutes_href above
-    const pages = await _minutesImagesForDate(term, iso);
-    if (!pages) continue;
+    const minutesRef = caseEntry.events?.find(e => e.date === iso)?.minutes_ref ?? null;
+    const result = await _minutesGalleryForCaseDate(term, iso, minutesRef);
+    if (!result) continue;
+    const { pages, index } = result;
     const images = pages.map(p => p.src);
     const hrefs  = pages.map(p => p.href || p.src);
-    minutesFiles.push({ title: 'Minutes for ' + formatDecisionDate(iso), href: hrefs[0], src: images[0], hrefs, images, view: 'pane', file: iso, date: iso });
+    minutesFiles.push({ title: 'Minutes for ' + formatDecisionDate(iso), href: hrefs[index], src: images[index], hrefs, images, index, view: 'pane', file: iso, date: iso });
   }
   minutesFiles.sort(byDate); // re-sort — a gallery entry may have been appended after the initial sort above
   return { journalFiles, minutesFiles };
@@ -8385,7 +8428,8 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     const entry = _currentMinutesGalleryRefs.get(e.target.value);
     if (entry) {
       _activeMinutesGalleryIso = iso;
-      showDocViewer({ href: (entry.hrefs || entry.images)[0], src: entry.images[0], hrefs: entry.hrefs, images: entry.images, title: entry.title, view: 'pane' }, { force: true });
+      const idx = entry.index || 0;
+      showDocViewer({ href: (entry.hrefs || entry.images)[idx], src: entry.images[idx], hrefs: entry.hrefs, images: entry.images, index: idx, title: entry.title, view: 'pane' }, { force: true });
     }
     const url = new URL(location.href);
     url.searchParams.set('file', iso);
