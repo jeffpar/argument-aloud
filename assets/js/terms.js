@@ -147,8 +147,15 @@
   // instead of a single static image — see the Minutes page links below,
   // whose whole date's worth of pages are passed this way so the doc
   // viewer's own Left/Right arrow keys can page through them without
-  // reopening it.
-  function wireDocLink(a, href, title, view, altHref, images, index) {
+  // reopening it. `src` (optional) is the actual image shown when `href`
+  // itself is a catalog page rather than the image directly — same src/href
+  // split showDocViewer's own `link.src`/`link.href` use, so the doc
+  // viewer's "open in new tab" icon links to the catalog page instead of the
+  // raw image. `hrefs` (optional) is `images`' own per-page catalog-href
+  // counterpart, so that icon keeps tracking the right page as the visitor
+  // pages Left/Right through the gallery (see explorer.js's
+  // _activeGalleryHrefs).
+  function wireDocLink(a, href, title, view, altHref, images, index, src, hrefs) {
     a.href = href;
     a.addEventListener('click', function (e) {
       e.preventDefault();
@@ -158,7 +165,12 @@
       }
       if (window.parent !== window) {
         var msg = { type: 'ussc-open-doc', href: href, title: title, view: view };
-        if (Array.isArray(images) && images.length > 1) { msg.images = images; msg.index = index; }
+        if (src) msg.src = src;
+        if (Array.isArray(images) && images.length > 1) {
+          msg.images = images;
+          msg.index = index;
+          if (Array.isArray(hrefs) && hrefs.length > 1) msg.hrefs = hrefs;
+        }
         window.parent.postMessage(msg, location.origin);
       } else {
         _openInNewTab(href);
@@ -775,13 +787,15 @@
   // populated once termDatesPromise resolves) — called once then, and again
   // after any drag-and-drop edit (see handleMinutesDrop below) that touches
   // this date. Every page's own direct image URL (src, literal "$page:4"
-  // placeholder zero-padded to 4 digits — falling back to the href catalog
-  // URL for the rare page missing one) is precomputed
-  // into minutesPageHrefs below and passed as a whole to wireDocLink's
-  // images/index params, so clicking any one page opens the doc viewer's
-  // image gallery there, with Left/Right able to page through this entire
-  // date's Minutes without reopening it — Shift-click instead opens just
-  // that one page's image in a new tab (wireDocLink's usual convention).
+  // placeholder zero-padded to 4 digits) and its own NARA catalog-page URL
+  // (href, "$page" substituted) are precomputed into the parallel
+  // minutesPageSrcs/minutesPageHrefs arrays below and passed as a whole to
+  // wireDocLink's images/hrefs params, so clicking any one page opens the
+  // doc viewer's image gallery there (showing src), with Left/Right able to
+  // page through this entire date's Minutes without reopening it, and the
+  // doc viewer's own "open in new tab" icon tracking each page's own href —
+  // Shift-click instead opens just that one page's href in a new tab
+  // directly (wireDocLink's usual convention).
   function renderMinutesPagesList() {
     var container = document.getElementById('date-minutes-list');
     var section = document.getElementById('minutes');
@@ -810,11 +824,16 @@
       });
     });
     if (!flatPages.length) { section.hidden = true; return; }
-    var minutesPageHrefs = flatPages.map(function (fp) {
+    // Kept as two parallel arrays (rather than collapsed into one, src
+    // preferred) so the doc viewer can display the image (src) while its
+    // "open in new tab" icon still links to the NARA catalog page (href) —
+    // see wireDocLink's own src/hrefs params.
+    var minutesPageSrcs = flatPages.map(function (fp) {
       var page4 = String(fp.page).padStart(4, '0');
-      var srcHref  = fp.src  ? fp.src.replace('$page:4', page4) : null;
-      var hrefHref = fp.href ? fp.href.replace('$page', fp.page) : null;
-      return srcHref || hrefHref;
+      return fp.src ? fp.src.replace('$page:4', page4) : null;
+    });
+    var minutesPageHrefs = flatPages.map(function (fp) {
+      return fp.href ? fp.href.replace('$page', fp.page) : null;
     });
     // "Page N" for a single page; "Pages N1, N2, N3" for several — saves
     // repeating "Page" once per link when there's more than one.
@@ -840,7 +859,8 @@
         + 'or onto the « / » term nav buttons to continue it into the adjacent term’s own last/first Minutes date; '
         + 'Shift+Drag to also leave this page behind at its own date. '
         + 'Later pages move along too if the target is later, earlier pages if the target is earlier.';
-      var href = minutesPageHrefs[i];
+      var src  = minutesPageSrcs[i];
+      var href = minutesPageHrefs[i] || src;
       // Toggle off: clicking the already-selected page again reverts to the
       // unshown state (clears ?page=, unhighlights, hides the doc viewer)
       // instead of reopening it. Registered ahead of wireDocLink's own click
@@ -853,7 +873,7 @@
         selectMinutesPage(null);
         clearUrlPageParam();
       });
-      wireDocLink(a, href, termTitle(term) + ' Minutes, p. ' + page, 'pane', href, minutesPageHrefs, i);
+      wireDocLink(a, href, termTitle(term) + ' Minutes, p. ' + page, 'pane', href, minutesPageSrcs, i, src, minutesPageHrefs);
       a.addEventListener('click', function (e) {
         selectMinutesPage(a);
         // Shift-click opens in a new tab (wireDocLink above) rather than this

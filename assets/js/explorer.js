@@ -2266,8 +2266,18 @@ function _stashImageGallery(images) {
 // own case-level Minutes viewer (_showMinutesGalleryForDate below).
 let _docViewerRelayIndexToPageFrame = false;
 
+// Per-page "open in new tab" hrefs for the image gallery currently shown in
+// the doc viewer (if any) — e.g. a Minutes gallery's own catalog-page URLs,
+// one per image, parallel to link.images/link.hrefs below. Consulted by the
+// 'ussc-gallery-index' message handler as the visitor pages Left/Right, since
+// paging never re-invokes showDocViewer (the gallery pages entirely inside
+// its own iframe) — reset at the top of every showDocViewer call, same
+// staleness guard as _docViewerRelayIndexToPageFrame above.
+let _activeGalleryHrefs = null;
+
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {
   _docViewerRelayIndexToPageFrame = false;
+  _activeGalleryHrefs = Array.isArray(link.hrefs) && link.hrefs.length > 1 ? link.hrefs : null;
   const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   // A file entry may carry both a "src" (the actual document/image to show
@@ -2294,8 +2304,12 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // Only meaningfully different from effectiveHref when link.src is present
   // (see displayHref above) — otherwise identical, so every other caller's
   // existing "open externally" behavior (including any #page=N fragment) is
-  // unaffected.
-  const externalHref = link.src ? link.href : effectiveHref;
+  // unaffected. link.hrefs (a multi-image gallery's own per-page hrefs, e.g.
+  // a Minutes gallery — see _activeGalleryHrefs above) takes priority when
+  // present, so the icon reflects whichever page is actually shown first
+  // (link.index), not just the gallery's first page.
+  const externalHref = (Array.isArray(link.hrefs) && link.hrefs[link.index || 0])
+    || (link.src ? link.href : effectiveHref);
   // A bare image URL, loaded directly as an iframe's src, renders at native
   // resolution with no way for us to style it (a cross-origin document we
   // can't inject CSS into) — routed through our own same-origin wrapper
@@ -2856,7 +2870,7 @@ function _showMinutesFromParam(param) {
   const key   = 'minutes:' + param;
   const entry = _currentMinutesRefs.get(key);
   if (!entry) return false;
-  showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { autoScroll: true });
+  showDocViewer({ href: entry.href, src: entry.src, title: entry.title, view: entry.view }, { autoScroll: true });
   const fileSelect = document.getElementById('file-select');
   if (fileSelect && !fileSelect.hidden) fileSelect.value = key;
   return true;
@@ -3028,28 +3042,34 @@ function _expandDatesPages(raw) {
   return raw;
 }
 
-// Resolves to an ordered array of src image URLs (one per page, "$page:4"
-// replaced with the zero-padded page number) for `iso` in `term`'s
-// dates.json, across every type:"minutes" group recorded for that date —
-// sorted by src (the same record-group ordering terms.js's own
-// sortGroupsBySrc uses), so a date spanning two physical volumes reads in
-// the volumes' own physical order rather than a raw page-number sort.
-// Resolves to null if the term has no dates.json, or the date has none.
+// Resolves to an ordered array of { src, href } pairs — src the direct page
+// image URL ("$page:4" replaced with the zero-padded page number), href the
+// group's own catalog-page URL (its "$page"/"$page:N" template substituted
+// the same way, via _substitutePageInTemplate below; null if the group
+// carries no href) — for `iso` in `term`'s dates.json, across every
+// type:"minutes" group recorded for that date — sorted by src (the same
+// record-group ordering terms.js's own sortGroupsBySrc uses), so a date
+// spanning two physical volumes reads in the volumes' own physical order
+// rather than a raw page-number sort. Resolves to null if the term has no
+// dates.json, or the date has none.
 async function _minutesImagesForDate(term, iso) {
   const datesData = await _fetchTermDates(term);
   const groups = datesData && datesData[iso];
   if (!Array.isArray(groups) || !groups.length) return null;
-  const images = [];
+  const pages = [];
   [...groups]
     .filter(g => g.type === 'minutes')
     .sort((a, b) => (a.src || '').localeCompare(b.src || ''))
     .forEach(g => {
       if (!g.src) return;
       [...new Set(g.pages || [])].sort((a, b) => a - b).forEach(page => {
-        images.push(g.src.replace('$page:4', String(page).padStart(4, '0')));
+        pages.push({
+          src: g.src.replace('$page:4', String(page).padStart(4, '0')),
+          href: g.href ? _substitutePageInTemplate(g.href, page) : null,
+        });
       });
     });
-  return images.length ? images : null;
+  return pages.length ? pages : null;
 }
 
 // Shows `iso`'s Minutes gallery in the doc viewer, syncs the file-select
@@ -3060,13 +3080,15 @@ async function _minutesImagesForDate(term, iso) {
 // file-select, and restoring one from a URL (_showMinutesGalleryFromParam).
 // Returns whether a gallery was actually found and shown.
 async function _showMinutesGalleryForDate(term, iso, label) {
-  const images = await _minutesImagesForDate(term, iso);
-  if (!images || !images.length) return false;
+  const pages = await _minutesImagesForDate(term, iso);
+  if (!pages || !pages.length) return false;
+  const images = pages.map(p => p.src);
+  const hrefs  = pages.map(p => p.href || p.src);
   const key = 'minutes-date:' + iso;
   const title = label + ' ' + formatDecisionDate(iso);
-  _currentMinutesGalleryRefs.set(key, { images, title });
+  _currentMinutesGalleryRefs.set(key, { images, hrefs, title });
   _activeMinutesGalleryIso = iso;
-  showDocViewer({ href: images[0], images, title, view: 'pane' }, { autoScroll: true });
+  showDocViewer({ href: hrefs[0], src: images[0], hrefs, images, title, view: 'pane' }, { autoScroll: true });
   const fileSelect = document.getElementById('file-select');
   if (fileSelect && !fileSelect.hidden) {
     if (!fileSelect.querySelector(`option[value="${CSS.escape(key)}"]`)) {
@@ -3183,18 +3205,23 @@ async function _refreshMinutesGalleryOptions(term, caseEntry) {
 
   // Sorted oldest-first regardless of which field each came from (normally
   // already argument < reargument < decision, but this doesn't assume it).
+  // Every comma-separated date in a field counts, not just the first — a
+  // case argued over several days (e.g. "1864-03-23,1864-03-24") can have
+  // Minutes recorded for only one of them.
   const isos = [...new Set(
     [caseEntry.argument, caseEntry.reargument, caseEntry.decision]
       .filter(Boolean)
-      .map(field => field.split(',')[0].trim())
+      .flatMap(field => field.split(',').map(d => d.trim()))
       .filter(Boolean)
   )].sort();
   for (const iso of isos) {
-    const images = await _minutesImagesForDate(term, iso);
-    if (!images) continue;
+    const pages = await _minutesImagesForDate(term, iso);
+    if (!pages) continue;
+    const images = pages.map(p => p.src);
+    const hrefs  = pages.map(p => p.href || p.src);
     const key = 'minutes-date:' + iso;
     const title = 'Minutes for ' + formatDecisionDate(iso);
-    _currentMinutesGalleryRefs.set(key, { images, title });
+    _currentMinutesGalleryRefs.set(key, { images, hrefs, title });
     const opt = document.createElement('option');
     opt.value = key;
     opt.textContent = title;
@@ -7145,11 +7172,14 @@ function _buildJournalRefOptions(caseEntry, term) {
 
 // Build the minutes-href Map and options array shared by loadCaseAsOpinion and loadCase.
 // Unlike journal_ref, minutes_href is already a direct, per-event URL — no
-// term-level lookup or page-offset math needed. Prefers the event's own
-// minutes_src (a direct page-image URL) over minutes_href (the NARA catalog
-// page wrapped around it) when present, opening straight to the scan itself
-// — falls back to minutes_href for older events that predate minutes_src.
-// Returns { map: Map<value, {href, title}>, opts: Array<{value, title}> }.
+// term-level lookup or page-offset math needed. Displays the event's own
+// minutes_src (a direct page-image URL) when present, opening straight to
+// the scan itself, but keeps minutes_href (the NARA catalog page wrapped
+// around it) as its own href — see showDocViewer's src/href split — so the
+// doc viewer's "open in new tab" icon still links to the catalog page
+// instead of the raw image. Falls back to minutes_href alone (as both href
+// and src) for older events that predate minutes_src.
+// Returns { map: Map<value, {href, src, title}>, opts: Array<{value, title}> }.
 function _buildMinutesRefOptions(caseEntry) {
   const map  = new Map();
   const opts = [];
@@ -7162,7 +7192,7 @@ function _buildMinutesRefOptions(caseEntry) {
     const dateLabel = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title = 'Minutes for ' + dateLabel;
     const value = 'minutes:' + ev.date;
-    map.set(value, { href: ev.minutes_src || ev.minutes_href, title, view: 'pane', date: ev.date });
+    map.set(value, { href: ev.minutes_href, src: ev.minutes_src, title, view: 'pane', date: ev.date });
     opts.push({ value, title });
   });
   return { map, opts };
@@ -7194,17 +7224,21 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
   // which offers the same thing in the file-select dropdown for cases with
   // no audio. Mirrored here so Records has it too.
   const seenIsoDates = new Set(minutesFiles.map(f => f.date));
+  // Every comma-separated date in a field counts, not just the first — see
+  // _refreshMinutesGalleryOptions's own identical note.
   const isos = [...new Set(
     [caseEntry.argument, caseEntry.reargument, caseEntry.decision]
       .filter(Boolean)
-      .map(field => field.split(',')[0].trim())
+      .flatMap(field => field.split(',').map(d => d.trim()))
       .filter(Boolean)
   )].sort();
   for (const iso of isos) {
     if (seenIsoDates.has(iso)) continue; // already covered by an event's own minutes_href above
-    const images = await _minutesImagesForDate(term, iso);
-    if (!images) continue;
-    minutesFiles.push({ title: 'Minutes for ' + formatDecisionDate(iso), href: images[0], images, view: 'pane', file: iso, date: iso });
+    const pages = await _minutesImagesForDate(term, iso);
+    if (!pages) continue;
+    const images = pages.map(p => p.src);
+    const hrefs  = pages.map(p => p.href || p.src);
+    minutesFiles.push({ title: 'Minutes for ' + formatDecisionDate(iso), href: hrefs[0], src: images[0], hrefs, images, view: 'pane', file: iso, date: iso });
   }
   minutesFiles.sort(byDate); // re-sort — a gallery entry may have been appended after the initial sort above
   return { journalFiles, minutesFiles };
@@ -8338,7 +8372,7 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
   if (typeof e.target.value === 'string' && e.target.value.startsWith('minutes:')) {
     const entry = _currentMinutesRefs.get(e.target.value);
     if (entry) {
-      showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+      showDocViewer({ href: entry.href, src: entry.src, title: entry.title, view: entry.view }, { force: true });
     }
     const url = new URL(location.href);
     url.searchParams.set('file', e.target.value.slice('minutes:'.length));
@@ -8351,7 +8385,7 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     const entry = _currentMinutesGalleryRefs.get(e.target.value);
     if (entry) {
       _activeMinutesGalleryIso = iso;
-      showDocViewer({ href: entry.images[0], images: entry.images, title: entry.title, view: 'pane' }, { force: true });
+      showDocViewer({ href: (entry.hrefs || entry.images)[0], src: entry.images[0], hrefs: entry.hrefs, images: entry.images, title: entry.title, view: 'pane' }, { force: true });
     }
     const url = new URL(location.href);
     url.searchParams.set('file', iso);
@@ -10206,12 +10240,25 @@ async function _pickNoteworthyOnThisDay(mmdd) {
 // at the "no case found" page, then shows it — same replace-then-show shape
 // as the successful path below, just with nothing to redirect to. Mirrors
 // showPageViewer's own pushState logic (replaceState here instead, so the
-// dead-end action= URL doesn't linger as a back-button target).
+// dead-end action= URL doesn't linger as a back-button target). The explicit
+// notfound=1 flag (rather than just checking for a date= param) is what
+// tells onthisday.js to show its apology message — a bare "action=onthisday"
+// miss for today's date carries no date= at all, which would otherwise be
+// indistinguishable from a visitor landing on the page directly.
 function _showOnThisDayNotFound(dateParam) {
-  const target = '/courts/ussc/collections/historical/onthisday/' + (dateParam ? ('?date=' + encodeURIComponent(dateParam)) : '');
+  const linkBase = '/courts/ussc/collections/historical/onthisday/';
+  const extra = ['notfound=1'];
+  if (dateParam) extra.push('date=' + encodeURIComponent(dateParam));
+  const target = linkBase + '?' + extra.join('&');
+  // link= itself stays the bare path — notfound/date ride alongside it as
+  // plain top-level siblings (see restoreFromURL's own forwarding of them,
+  // and onthisday.js) so the address bar reads /?link=...&date=... instead
+  // of URL-encoding the query inside link='s own value.
   const url = new URL(location.href);
   url.search = '';
-  url.searchParams.set('link', target);
+  url.searchParams.set('link', linkBase);
+  url.searchParams.set('notfound', '1');
+  if (dateParam) url.searchParams.set('date', dateParam);
   url.search = url.search.replace(/%2F/gi, '/');
   history.replaceState(null, '', url);
   showPageViewer(target, { pushState: false });
@@ -10998,11 +11045,18 @@ async function restoreFromURL() {
     const _sV     = params.get('s');
     const _orderV = params.get('order');
     const _viewV  = params.get('view');
+    const _notfoundV = params.get('notfound');
     const _extra = [];
     if (_sortV)  { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
     if (_sV)     { _extra.push('s=' + encodeURIComponent(_sV)); }
     if (_orderV) { _extra.push('order=' + encodeURIComponent(_orderV)); }
     if (_viewV)  { _extra.push('view=' + encodeURIComponent(_viewV)); }
+    // Forwarded as a plain top-level sibling of link= (like sort/s/order/view
+    // above) rather than URL-encoded inside link='s own value, so the address
+    // bar stays readable (e.g. onthisday's own "date" pending-selection —
+    // see assets/js/collections/onthisday.js and _showOnThisDayNotFound).
+    if (dateParam)    { _extra.push('date=' + encodeURIComponent(dateParam)); }
+    if (_notfoundV)   { _extra.push('notfound=' + encodeURIComponent(_notfoundV)); }
     let _linkWithSort = _extra.length ? linkBase + '?' + _extra.join('&') : linkBase;
     // Forward the outer page's own #hash (e.g. #2018-04-23) onto the linked
     // page's URL so the iframe's native browser scroll-to-anchor lands on the
@@ -11062,7 +11116,7 @@ window.addEventListener('message', async (e) => {
     navigate(url);
     await restoreFromURL();
   } else if (e.data?.type === 'ussc-open-doc' && e.data.href) {
-    showDocViewer({ href: e.data.href, images: e.data.images, index: e.data.index, title: e.data.title || '', view: e.data.view });
+    showDocViewer({ href: e.data.href, src: e.data.src, hrefs: e.data.hrefs, images: e.data.images, index: e.data.index, title: e.data.title || '', view: e.data.view });
     // Opt into relaying this gallery's own Left/Right navigation back down —
     // must come after showDocViewer, which unconditionally resets this to
     // false at its own top (see _docViewerRelayIndexToPageFrame above).
@@ -11075,6 +11129,17 @@ window.addEventListener('message', async (e) => {
     // itself opened (see the 'ussc-open-doc' branch above).
     if (_docViewerRelayIndexToPageFrame) {
       document.getElementById('page-viewer-frame')?.contentWindow?.postMessage({ type: 'ussc-minutes-index', index: e.data.index }, location.origin);
+    }
+    // Same "open externally" icon update as _updatePagesExternalLink below,
+    // for a gallery that came with its own precomputed per-page hrefs
+    // instead of a single href template (see _activeGalleryHrefs above).
+    if (_activeGalleryHrefs && _activeGalleryHrefs[e.data.index]) {
+      const urlEl = document.getElementById('doc-viewer-url');
+      if (urlEl) {
+        const absHref = new URL(_activeGalleryHrefs[e.data.index], location.href).href;
+        urlEl.href = absHref;
+        urlEl.title = absHref;
+      }
     }
     // Keeps a case's own "pages"-type files.json entry's "page=<n>" URL
     // param in sync with the gallery as the visitor pages through it — see

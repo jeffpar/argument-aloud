@@ -115,7 +115,7 @@ layout: home
       <div class="hp-icon">🎲</div>
       <div class="hp-card-title">Surprise!</div>
     </div>
-    <p class="hp-card-desc">Roll the dice to see a random case, or view a case from <a href="/courts/ussc/?action=onthisday">On This Day</a>. It's a fun way to stumble across something you might never have searched for.</p>
+    <p class="hp-card-desc">Roll the dice to see a random case, or view a case from <a href="/courts/ussc/?link=/courts/ussc/collections/historical/onthisday/">On This Day</a>. It's a fun way to stumble across something you might never have searched for.</p>
   </div>
 
 </div>

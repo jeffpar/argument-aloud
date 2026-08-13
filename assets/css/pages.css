@@ -775,3 +775,68 @@ html[data-theme="dark"]  .corr-scdb-message  { color: #ff6b6b; }
 html[data-theme="dark"]  .corr-audit-message { color: #4cd787; }
 html[data-theme="light"] .corr-scdb-message  { color: #c0392b; }
 html[data-theme="light"] .corr-audit-message { color: #27ae60; }
+
+/* ── On This Day — courts/ussc/collections/historical/onthisday/ ─────────── */
+.otd-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 0.9rem; margin: 1.1rem 0; }
+.otd-field { display: flex; flex-direction: column; gap: 0.25rem; }
+.otd-field label {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: #888;
+}
+@media (prefers-color-scheme: dark) { .otd-field label { color: #9da5b4; } }
+html[data-theme="dark"]  .otd-field label { color: #9da5b4; }
+html[data-theme="light"] .otd-field label { color: #888; }
+.otd-field select {
+  font: inherit; font-size: 0.85rem; padding: 0.3rem 0.5rem;
+  border-radius: 4px; border: 1px solid #ccc; background: #fff; color: #333;
+}
+@media (prefers-color-scheme: dark) { .otd-field select { border-color: #3a3d47; background: #21242c; color: #d0d3dc; } }
+html[data-theme="dark"]  .otd-field select { border-color: #3a3d47; background: #21242c; color: #d0d3dc; }
+html[data-theme="light"] .otd-field select { border-color: #ccc; background: #fff; color: #333; }
+.otd-field-checkbox { flex-direction: row; align-items: center; padding-bottom: 0.35rem; }
+.otd-field-checkbox label {
+  display: flex; align-items: center; gap: 0.35rem;
+  font-size: 0.82rem; text-transform: none; letter-spacing: normal; color: inherit;
+}
+.otd-field-checkbox input { margin: 0; }
+#otd-go {
+  font: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.35rem 1.1rem;
+  border-radius: 4px; border: 1px solid #2672b4; background: #2672b4; color: #fff;
+  cursor: pointer;
+}
+#otd-go:hover:not(:disabled) { background: #1a5090; border-color: #1a5090; }
+#otd-go:disabled { opacity: 0.5; cursor: default; }
+@media (prefers-color-scheme: dark) {
+  #otd-go { border-color: #5eaee0; background: #5eaee0; color: #1a1c22; }
+  #otd-go:hover:not(:disabled) { background: #7bc8f0; border-color: #7bc8f0; }
+}
+html[data-theme="dark"]  #otd-go { border-color: #5eaee0; background: #5eaee0; color: #1a1c22; }
+html[data-theme="dark"]  #otd-go:hover:not(:disabled) { background: #7bc8f0; border-color: #7bc8f0; }
+html[data-theme="light"] #otd-go { border-color: #2672b4; background: #2672b4; color: #fff; }
+html[data-theme="light"] #otd-go:hover:not(:disabled) { background: #1a5090; border-color: #1a5090; }
+.otd-result { margin-top: 1rem; font-size: 0.85rem; font-style: italic; color: #d97070; }
+/* Single large month, shown once a specific Year is picked — reuses the
+   term page's own .cal-dow/.cal-days/.cal-day(+variants) classes (see the
+   "Term calendar" section above) so it matches that calendar's look
+   exactly, just scaled up since it's the only month on the page rather than
+   one of a dozen packed into .term-calendar's 3-column grid. The month
+   title lives in .otd-cal-nav (styled like .cal-month-hdr) instead of
+   inside the calendar body, so it shares a line with the prev/next arrows. */
+.otd-calendar-section { margin: 1.5rem auto 0; max-width: 480px; }
+.otd-cal-nav { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem; }
+.otd-cal-nav-arrow {
+  font-size: 1.15rem; line-height: 1; color: inherit; text-decoration: none;
+  opacity: 0.6; padding: 0 0.3rem; flex-shrink: 0;
+}
+.otd-cal-nav-arrow:hover { opacity: 1; color: #4a9eff; }
+.otd-cal-nav-arrow.otd-cal-nav-disabled { visibility: hidden; }
+.otd-cal-title {
+  flex: 1; text-align: center; font-size: 0.85rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: inherit; text-decoration: none; cursor: pointer;
+}
+.otd-cal-title:hover { text-decoration: underline; color: #4a9eff; }
+.otd-calendar-large .cal-dow { font-size: 0.8rem; margin-bottom: 0.3rem; }
+.otd-calendar-large .cal-day { font-size: 0.95rem; line-height: 2.6; border-radius: 4px; }
+.otd-calendar-large .cal-day.cal-clickable { cursor: pointer; }
+.otd-calendar-large .cal-day.cal-clickable:hover { box-shadow: inset 0 0 0 2px #4a9eff; }
