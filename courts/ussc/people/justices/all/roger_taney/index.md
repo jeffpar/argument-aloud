@@ -5,7 +5,7 @@ justice_id: roger_taney
 wikipedia_url: https://en.wikipedia.org/wiki/Roger_Taney
 years_served: 28.5
 days_served: "10,426"
-opinions: 278
+opinions: 277
 lone_dissents: 3
 ---
 <div style="display:flex; gap:1em;">

@@ -316,8 +316,8 @@
   // a case filed under a *later* term whose argument/reargument date
   // actually falls within this term's own calendar window, e.g. Davis v.
   // Gaines (filed under 1881-10) argued Jan 27 1881, which is within
-  // 1880-10's own range. These already show up in the single-date argued/
-  // reargued lists (see fillGroup above) but were missing from the Case
+  // 1880-10's own range. These already show up in the single-date
+  // arguments list (see fillGroup above) but were missing from the Case
   // Listing table entirely, which only ever looked at this term's own
   // cases.json. A pointer only carries {type, id, term, number, title,
   // usCite} — not enough to build a full row (no votes/decision/etc.) — so
@@ -1117,7 +1117,16 @@
         .then(function (r) { return r.ok ? r.json() : null; })
         .catch(function () { return null; })
         .then(function (raw) {
-          var adjData = applyDateOverrides(raw);
+          // adjTermId here, NOT the source term (see applyDateOverrides'
+          // own termId/termStarts doc comment) — this is the one call site
+          // that merges local overrides onto a term other than whichever
+          // one the visitor is actually viewing, so without this guard a
+          // still-pending override for some *other* date the visitor was
+          // mid-editing elsewhere (in this same term or a third one) could
+          // get mistaken for a genuinely new date within adjTermId, sorting
+          // in ahead of its real first/last Minutes date below and quietly
+          // stealing the dragged page(s) into the wrong term entirely.
+          var adjData = applyDateOverrides(raw, adjTermId, termStarts);
           var minutesIsos = Object.keys(adjData).filter(function (iso) {
             var g = adjData[iso];
             return Array.isArray(g) && g.some(function (x) { return x.type === 'minutes' && Array.isArray(x.pages) && x.pages.length; });
@@ -1266,7 +1275,21 @@
   // case-detail objects, not whatever the override's own snapshot happened
   // to capture at edit time — otherwise an override from before a case was
   // added there (or after one was later removed) would silently hide it.
-  function applyDateOverrides(raw) {
+  //
+  // overrides is a single FLAT map spanning every term the visitor has ever
+  // edited in this browser, not just `raw`'s own term — so an override whose
+  // ISO date isn't already a key in `raw` is ambiguous on its own; it might
+  // genuinely be a brand-new date within this term, or it might belong to a
+  // completely different term the visitor is also mid-edit on elsewhere
+  // (handleAdjacentTermMinutesDrop below merges onto a *different* term's own
+  // freshly-fetched data for exactly this reason). termId/termStarts, when
+  // given, resolve that ambiguity via termForDate above — the same rule
+  // scripts/parse_minutes.js's own applyDateOverrides uses server-side — and
+  // any such foreign-term override is skipped rather than injected as a
+  // fabricated new date. Both optional so every other call site (which only
+  // ever merges onto its own current term, where any "not yet in raw" key
+  // clearly belongs there) keeps working unchanged.
+  function applyDateOverrides(raw, termId, starts) {
     raw = expandDatesPages(raw);
     var overrides = loadDateOverrides();
     var keys = Object.keys(overrides);
@@ -1276,6 +1299,7 @@
     keys.forEach(function (iso) {
       var val = overrides[iso];
       var serverVal = (raw && raw[iso]) || null;
+      if (serverVal == null && termId && starts && termForDate(iso, starts) !== termId) return;
       if (JSON.stringify(canonicalizeGroups(val)) === JSON.stringify(canonicalizeGroups(serverVal))) {
         delete overrides[iso];
         pruned = true;
@@ -1452,7 +1476,7 @@
               (s.dates ? fetch('/courts/ussc/terms/' + termId + '/dates.json')
                 .then(function(r) { return r.ok ? r.json() : null; })
                 .catch(function() { return null; }) : Promise.resolve(null))
-                .then(function (raw) { return applyDateOverrides(raw); }),
+                .then(function (raw) { return applyDateOverrides(raw, termId, termStarts); }),
             ])
               .then(function(results) {
                 var cases = results[0], datesData = results[1];
@@ -1578,9 +1602,30 @@
   var _resolvePrevTermIdPromise;
   var prevTermIdPromise = new Promise(function (resolve) { _resolvePrevTermIdPromise = resolve; });
 
+  // Every known term's own id + start date ("<YYYY>-<MM>-01"), sorted
+  // chronologically ascending — filled in once the terms.json fetch below
+  // builds allTerms, stays null until then (every consumer already tolerates
+  // that — see applyDateOverrides' own termId/termStarts guard). Lets
+  // applyDateOverrides (and termForDate just below) tell whether a given ISO
+  // date genuinely belongs to the term whose data it's being merged onto,
+  // the same "latest term starting on/before this date" rule
+  // scripts/parse_minutes.js's own termForDate uses server-side.
+  var termStarts = null;
+
+  // Mirrors scripts/parse_minutes.js's own termForDate exactly, so a date is
+  // never attributed to a different term client-side than the script would
+  // resolve it to once a downloaded override actually gets applied.
+  function termForDate(dateStr, starts) {
+    var found = null;
+    for (var i = 0; i < starts.length; i++) {
+      if (starts[i].start <= dateStr) found = starts[i].term; else break;
+    }
+    return found;
+  }
+
   function _resolveTermDates(hasDates) {
     if (hasDates === false) {
-      termDatesData = applyDateOverrides(null);
+      termDatesData = applyDateOverrides(null, term, termStarts);
       _resolveTermDatesPromise(termDatesData);
       return;
     }
@@ -1588,7 +1633,7 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .catch(function () { return null; })
       .then(function (raw) {
-        termDatesData = applyDateOverrides(raw);
+        termDatesData = applyDateOverrides(raw, term, termStarts);
         _resolveTermDatesPromise(termDatesData);
       });
   }
@@ -1632,6 +1677,7 @@
       // terms.json stores decades/terms newest-first; reverse so "prev"/"next"
       // below mean chronologically older/newer regardless of storage order.
       allTerms.reverse();
+      termStarts = allTerms.map(function (t) { return { term: t.id, start: t.id.slice(0, 4) + '-' + t.id.slice(5, 7) + '-01' }; });
       var idx = allTerms.findIndex(function (t) { return t.id === term; });
       // Refines the title text set above (termTitle(term)'s own guess) —
       // updates the link's own textContent, not #stat-term-title's, so the
@@ -1860,19 +1906,23 @@
         // renderMinutesPagesList below. It can also hold a case-detail object
         // (see update_cases.js's syncCrossTermCaseDates) — a later term's own
         // case actually argued/reargued on this earlier term's own date —
-        // which joins the argued/reargued lists below alongside this term's
-        // own cases, same as any of them (their own "term" field, not this
+        // which joins the arguments list below alongside this term's own
+        // cases, same as any of them (their own "term" field, not this
         // page's, is what fillGroup's link above uses). A ?page= param (see
         // openMinutesPageFromUrl's own doc comment) then opens straight to
         // that Minutes page once the list exists for it to find.
         termDatesPromise.then(function (datesData) {
           var crossTermCases = (datesData && datesData[date]) || [];
-          var crossArg   = crossTermCases.filter(function (g) { return g.type === 'argument'; });
-          var crossRearg = crossTermCases.filter(function (g) { return g.type === 'reargument'; });
+          var crossArg = crossTermCases.filter(function (g) { return g.type === 'argument' || g.type === 'reargument'; });
 
-          fillGroup('date-argued-section',   'date-argued-list',   casesOnDate('argument').concat(crossArg));
-          fillGroup('date-reargued-section', 'date-reargued-list', casesOnDate('reargument').concat(crossRearg));
-          fillGroup('date-decided-section',  'date-decided-list',  casesOnDate('decision'));
+          // Arguments and reargument dates share a single section/list now —
+          // a case argued and reargued on the very same date (never actually
+          // happens, but cheap to guard) would otherwise appear twice.
+          var argued = casesOnDate('argument').concat(casesOnDate('reargument'));
+          argued = argued.filter(function (c, i) { return argued.indexOf(c) === i; });
+
+          fillGroup('date-argued-section',  'date-argued-list',  argued.concat(crossArg));
+          fillGroup('date-decided-section', 'date-decided-list', casesOnDate('decision'));
 
           renderMinutesPagesList();
           openMinutesPageFromUrl();
