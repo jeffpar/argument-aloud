@@ -1962,7 +1962,7 @@ function _navigateToSectionAll(id) {
 // sort = mode name; o = 'a' (ascending) | 'd' (descending, default when omitted is ascending).
 function _parseSortParam(sortStr, orderStr) {
   if (!sortStr) return null;
-  if (!['cases', 'argued', 'decided', 'votes', 'hours', 'none'].includes(sortStr)) return null;
+  if (!['cases', 'argued', 'decided', 'votes', 'citation', 'hours', 'none'].includes(sortStr)) return null;
   return { mode: sortStr, asc: orderStr !== 'd' };
 }
 
@@ -4318,9 +4318,10 @@ const _SORT_MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep',
 function _sortModeLabel(mode, count, asc = true) {
   const arrow = asc ? '\u00a0\u2191' : '\u00a0\u2193'; // ↑ / ↓
   if (mode === 'cases') return count + '\u00a0Cases' + arrow;
-  if (mode === 'argued')  return 'Argued' + arrow;
-  if (mode === 'decided') return 'Decided' + arrow;
-  if (mode === 'votes')   return 'Votes' + arrow;
+  if (mode === 'argued')   return 'Argued' + arrow;
+  if (mode === 'decided')  return 'Decided' + arrow;
+  if (mode === 'votes')    return 'Votes' + arrow;
+  if (mode === 'citation') return 'Citations' + arrow;
   return '';
 }
 
@@ -4358,6 +4359,24 @@ function _firstArgDate(c) {
   return dates.length ? dates.reduce((a, b) => a < b ? a : b) : '';
 }
 
+// Parse a usCite string ("N U.S. N", with an optional trailing footnote "n",
+// or a roman-numeral front-matter page like "N U.S. cxxv") into numeric
+// {vol, page, roman} sort keys, or null if unparseable — a missing usCite or
+// an unassigned-page placeholder ("N U.S. ___") both return null, and such
+// cases always sort to the end regardless of direction (see 'citation' mode
+// in buildTermCasesSorted).
+function _citationSortKey(usCite) {
+  const s = (usCite || '').trim();
+  let m = /^(\d+)\s+U\.S\.?\s+(\d+)n?$/.exec(s);
+  if (m) return { vol: parseInt(m[1], 10), page: parseInt(m[2], 10), roman: false };
+  m = /^(\d+)\s+U\.S\.?\s+([ivxlcdmIVXLCDM]+)$/.exec(s);
+  if (m) {
+    const page = _parseRomanNumeral(m[2]);
+    if (isFinite(page)) return { vol: parseInt(m[1], 10), page, roman: true };
+  }
+  return null;
+}
+
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
@@ -4390,10 +4409,24 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       if (an_ !== bn_) return an_ - bn_;
       return caseTitle(a.title || '').localeCompare(caseTitle(b.title || ''));
     });
+  } else if (mode === 'citation') {
+    // Cases with no usCite (or an unparseable/placeholder one) always sort
+    // to the end regardless of direction, like undecided cases in 'decided'.
+    const cited   = visible.filter(c => _citationSortKey(c.usCite));
+    const uncited = visible.filter(c => !_citationSortKey(c.usCite));
+    cited.sort((a, b) => {
+      const ka = _citationSortKey(a.usCite), kb = _citationSortKey(b.usCite);
+      if (ka.vol !== kb.vol) return ka.vol - kb.vol;
+      if (ka.roman !== kb.roman) return ka.roman ? -1 : 1;
+      return ka.page - kb.page;
+    });
+    uncited.sort((a, b) => caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
+    if (!asc) cited.reverse();
+    sorted = [...cited, ...uncited];
   } else {
     sorted = [...visible].sort((a, b) => caseTitle(a.title || '').localeCompare(caseTitle(b.title || '')));
   }
-  if (mode !== 'decided' && !asc) sorted.reverse();
+  if (mode !== 'decided' && mode !== 'citation' && !asc) sorted.reverse();
 
   ul.innerHTML = '';
 
@@ -4431,6 +4464,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       voteLbl.className = 'case-sort-label';
       voteLbl.textContent = (maj != null && min != null) ? maj + '\u2013' + min : '';
       header.appendChild(voteLbl);
+    } else if (mode === 'citation') {
+      const citeLbl = document.createElement('span');
+      citeLbl.className = 'case-sort-label';
+      citeLbl.textContent = caseEntry.usCite || '';
+      header.appendChild(citeLbl);
     } else {
       // Default mode: normal icons
       _attachAudioIcon(header, {
@@ -4599,7 +4637,13 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       }
       await loadCase(term, caseEntry, audioIdx, { ...(initialTurn != null ? { initialTurn } : {}), numberOverride });
       if (fromRestore) trackPageView(location.href);
-      if (!fromRestore && mode === 'decided' && caseEntry.events?.some(a => a.audio_href) && hasDecisionHref(caseEntry)) {
+      // 'decided' also auto-opens the decision doc, but only alongside playable
+      // audio (otherwise loadCase's own default view already suffices); 'citation'
+      // always does, since browsing by citation is specifically about the opinions.
+      const _shouldAutoOpenDecision = !fromRestore && hasDecisionHref(caseEntry) && (
+        mode === 'citation' || (mode === 'decided' && caseEntry.events?.some(a => a.audio_href))
+      );
+      if (_shouldAutoOpenDecision) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
         if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
       }
@@ -4811,10 +4855,11 @@ function buildNav(title = 'Terms', id = '') {
       let _casesCache = null; // cached after first fetch
 
       const _SORT_OPTIONS = [
-        { mode: 'cases',   label: 'Cases'   },
-        { mode: 'argued',  label: 'Argued'  },
-        { mode: 'decided', label: 'Decided' },
-        { mode: 'votes',   label: 'Votes'   },
+        { mode: 'cases',    label: 'Cases'     },
+        { mode: 'citation', label: 'Citations' },
+        { mode: 'argued',   label: 'Argued'    },
+        { mode: 'decided',  label: 'Decided'   },
+        { mode: 'votes',    label: 'Votes'     },
       ];
 
       // Show/hide a small sort dropdown anchored to termCount.
