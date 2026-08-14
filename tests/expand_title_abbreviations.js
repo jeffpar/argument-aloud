@@ -269,11 +269,12 @@ function findAll(scdbTokens, forms) {
 }
 
 // Resolves a single anchor (whichever side it's on) by taking the
-// `slotsLen` SCDB words immediately after it (prev-side) or before it
-// (next-side, reversed back into reading order) — only when that anchor
-// itself has exactly one match, so there's no ambiguity about *which*
-// occurrence to count from. Shared by resolveRun's own single-sided
-// fallback below, whichever side ends up needing it.
+// `slotsLen` SCDB words immediately after it (prev-side) or immediately
+// before it (next-side) — only when that anchor itself has exactly one
+// match, so there's no ambiguity about *which* occurrence to count from.
+// Either way `slice()` already returns those words in left-to-right reading
+// order, matching the slots' own order. Shared by resolveRun's own
+// single-sided fallback below, whichever side ends up needing it.
 function resolveSingleAnchor(anchor, isPrevSide, slotsLen, scdbTokens, scdbAbbrevFlags) {
     if (!anchor) return null;
     const hits = findAll(scdbTokens, anchor);
@@ -281,7 +282,7 @@ function resolveSingleAnchor(anchor, isPrevSide, slotsLen, scdbTokens, scdbAbbre
     const k = hits[0];
     return isPrevSide
         ? { gapWords: scdbTokens.slice(k + 1, k + 1 + slotsLen), gapAbbrev: scdbAbbrevFlags.slice(k + 1, k + 1 + slotsLen) }
-        : { gapWords: scdbTokens.slice(Math.max(0, k - slotsLen), k).reverse(), gapAbbrev: scdbAbbrevFlags.slice(Math.max(0, k - slotsLen), k).reverse() };
+        : { gapWords: scdbTokens.slice(Math.max(0, k - slotsLen), k), gapAbbrev: scdbAbbrevFlags.slice(Math.max(0, k - slotsLen), k) };
 }
 
 // A "run" is a maximal stretch of tokens that are each either a single-letter
