@@ -27,7 +27,7 @@ export const CASE_KEY_ORDER = [
     // with no decision-type event to hang a per-event journal_ref off of.
     'journal_ref',
     'usCite', 'volume', 'page', 'opCite',
-    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_rep',
+    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_vol',
     'result', 'disposition',
     // The id (see processBenches in update_cases.js) of the Court composition
     // seated on this case's decision date — lets the case page's vote-score
@@ -68,7 +68,7 @@ function _reorder(obj, order) {
     return out;
 }
 
-const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_rep'];
+const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_ussc', 'decision_ussc_bad', 'decision_vol'];
 
 // When usCite is absent, decision href keys belong right after decision_day (or decision).
 export function caseKeyOrder(obj) {

@@ -2699,7 +2699,7 @@ function formatDecisionDate(iso) {
 }
 
 function hasDecisionHref(c) {
-  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_rep));
+  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_vol));
 }
 
 // Convert a roman numeral string (e.g. "cxxv") to an integer, or NaN if the
@@ -2769,14 +2769,14 @@ function _buildDecisionEntries(caseEntry) {
   if (caseEntry.decision_ussc)
     entries.push({ value: 'decision_ussc',    href: caseEntry.decision_ussc,
                    title: dateLabel + '\u00a0(USSC)' });
-  if (caseEntry.decision_rep) {
-    let href = caseEntry.decision_rep;
+  if (caseEntry.decision_vol) {
+    let href = caseEntry.decision_vol;
     if (!href.includes('#page=')) {
       const termEntry = TERMS.find(t => t.term === _currentTerm);
       const pdfPage = _reportPdfPage(caseEntry.usCite, termEntry);
       if (pdfPage != null) href = href + '#page=' + pdfPage;
     }
-    entries.push({ value: 'decision_rep', href,
+    entries.push({ value: 'decision_vol', href,
                    title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
   }
   return entries;
@@ -2784,7 +2784,7 @@ function _buildDecisionEntries(caseEntry) {
 
 // Returns the single best decision entry {value, href, title} for contexts
 // that show just one decision link (case file list, scales-icon quick-open):
-// prefer decision_loc, then decision_ussc, then decision_rep — same
+// prefer decision_loc, then decision_ussc, then decision_vol — same
 // priority order as _buildDecisionEntries, whose href/page-anchor computation
 // this reuses. Unlike the dropdown, the title always uses the usCite rather
 // than a (LOC)/(USSC) source suffix.
@@ -2798,7 +2798,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 }
 
 // Returns [{value, href, title, view?}] for every opinion-text source this
-// case has \u2014 LOC, USSC, Volume (decision_rep), and XML (decision_xml), in
+// case has \u2014 LOC, USSC, Volume (decision_vol), and XML (decision_xml), in
 // that order, each included only when the corresponding prop exists \u2014 titled
 // "Decision on <full date> (XXX)". This is the shared source list behind both
 // the top-right document dropdown (_currentDecisionEntries) and the
@@ -2808,7 +2808,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
   const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
-  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_rep: 'VOL' };
+  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_vol: 'VOL' };
   const entries = _buildDecisionEntries(caseEntry).map(e => ({ ...e, title: dateLabel + '\u00a0(' + SUFFIX[e.value] + ')' }));
   if (caseEntry.decision_xml) {
     entries.push({
@@ -2826,7 +2826,7 @@ function _buildOpinionEntries(caseEntry) {
 // _setCaseInfoRow2) \u2014 "Decision (LOC)" etc., as opposed to that same list's
 // own `title`, which is what the doc viewer's title bar shows once opened.
 function _buildCiteMenuEntries(caseEntry) {
-  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_rep: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
+  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_vol: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
   return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
 }
 
@@ -2834,8 +2834,8 @@ function _buildCiteMenuEntries(caseEntry) {
 // values and the short values used for the URL 'file' param, so a selected
 // decision source round-trips through the URL (?file=loc|ussc|vol|xml) and
 // can be restored on load.
-const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_rep: 'vol', decision_xml: 'xml' };
-const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_rep', xml: 'decision_xml' };
+const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_vol: 'vol', decision_xml: 'xml' };
+const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_vol', xml: 'decision_xml' };
 
 // If `param` (a URL 'file' value) names a decision source present in the
 // current case's _currentDecisionEntries, show it in the doc viewer and sync
@@ -3901,11 +3901,11 @@ function findCitationItem(param) {
 }
 
 // Look up a cited case's own decision link (decision_loc, else decision_ussc,
-// else decision_rep) by loading its term's cases.json and matching on id.
+// else decision_vol) by loading its term's cases.json and matching on id.
 async function _resolveCitationHref(term, id) {
   const cases = await fetchTermCases(term);
   const c = Array.isArray(cases) ? cases.find(x => x?.id === id) : null;
-  return c ? (c.decision_loc || c.decision_ussc || c.decision_rep || null) : null;
+  return c ? (c.decision_loc || c.decision_ussc || c.decision_vol || null) : null;
 }
 
 // Build a single <li class="file-item"> with the standard click handler.
@@ -10403,7 +10403,7 @@ async function init() {
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {
-        TERMS_GROUPED = [...data].filter(d => !d.hidden).reverse().map(d => ({ ...d, groups: [...(d.groups || [])].reverse() }));
+        TERMS_GROUPED = data.filter(d => !d.hidden);
         // Build flat TERMS array for lookups (term derived from cases URL).
         TERMS = data.flatMap(decade => {
           if (decade.hidden) return [];
@@ -10558,7 +10558,7 @@ async function restoreFromURL() {
 
   const linkParam       = params.get('link');
   let termParam         = params.get('term');
-  if (termParam === 'current') termParam = TERMS[0]?.term ?? termParam;
+  if (termParam === 'current') termParam = TERMS[TERMS.length - 1]?.term ?? termParam;
   const dateParam       = params.get('date') ?? null;
   const pageParam       = params.get('page') ?? null;
   const hashParam       = location.hash ? location.hash.slice(1) : null;

@@ -298,7 +298,7 @@
       decIso: decIso,
       voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
       opinionText: opinionText,
-      decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_rep || '') : '',
+      decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_vol || '') : '',
       decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
         + (opinionText ? ' (' + opinionText + ')' : ''),
       sortValues: {
@@ -1359,9 +1359,6 @@
             if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays, un: g.unanimous });
           });
         });
-        // terms.json stores decades/terms newest-first; the chart should always
-        // read oldest-to-newest left-to-right regardless of storage order.
-        chartData.reverse();
         if (chartData.length) {
           var histView = document.getElementById('history-view');
           histView.hidden = false;
@@ -1383,9 +1380,6 @@
             if (m) allCalTerms.push({ id: m[1], name: g.name || termTitle(m[1]), dates: g.dates });
           });
         });
-        // terms.json stores decades/terms newest-first; the calendar list
-        // reads oldest-to-newest top-to-bottom, like the chart.
-        allCalTerms.reverse();
 
         if (allCalTerms.length) {
           document.getElementById('all-terms-calendar-heading').hidden = false;
@@ -1674,9 +1668,6 @@
           if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
         });
       });
-      // terms.json stores decades/terms newest-first; reverse so "prev"/"next"
-      // below mean chronologically older/newer regardless of storage order.
-      allTerms.reverse();
       termStarts = allTerms.map(function (t) { return { term: t.id, start: t.id.slice(0, 4) + '-' + t.id.slice(5, 7) + '-01' }; });
       var idx = allTerms.findIndex(function (t) { return t.id === term; });
       // Refines the title text set above (termTitle(term)'s own guess) —

@@ -5,6 +5,9 @@
  *
  * Usage:
  *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
+ *   node update_cases.js [TERM] --audit-decision-vol   # strip decision_vol #page= anchors that agree with reports[]; log the rest as mismatches
+ *   node update_cases.js --use-decision-rep N          # extend reports.json's pages mapping for volume N from its decision_vol mismatches
+ *   node update_cases.js --use-decision-vol N          # trust the mapping over decision_vol for volume N; strip its stale #page= anchors
  *   node update_cases.js TERM CASE --votes win|loss [VOTE_STRING [AUTHOR]] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
  *   node update_cases.js [TERM [CASE]] --scdb [--add] [--nocache] [--verbose]
  *   node update_cases.js [TERM [CASE]] --dates [--verbose]
@@ -474,7 +477,7 @@ export function syncOpinionHrefFromFiles(casesPath) {
     let modified = false;
 
     for (const c of data) {
-        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_rep;
+        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_vol;
         const needsHref     = !hasDecisionHref;
         const needsDecision = !c.decision;
         if (!needsHref && !needsDecision) continue;
@@ -1227,7 +1230,7 @@ function checkArgumentsHaveVotes(casesPath, term) {
         const argued = !!(c.argument || c.reargument);
         if (!argued && !_VERBOSE) continue;
         const label = c.number || c.id || '?';
-        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_rep || '';
+        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_vol || '';
         const suffix = decisionUrl ? ` (see ${decisionUrl})` : '';
         console.log(`WARNING: ${term}/${label}: has decision but no votes${suffix}`);
     }
@@ -1248,7 +1251,7 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
         for (const [hrefKey, badKey, tag] of [
             ['decision_loc',  'decision_loc_bad',  'loc'],
             ['decision_ussc', 'decision_ussc_bad', 'ussc'],
-            ['decision_rep', null,              'rpt'],
+            ['decision_vol', null,              'rpt'],
         ]) {
             const oh = c[hrefKey] || '';
             if (!oh || !/^https?:\/\//.test(oh)) continue;
@@ -1609,7 +1612,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
 }
 
 function _hasDecisionHref(c) {
-    return !!(c.decision_loc || c.decision_ussc || c.decision_rep);
+    return !!(c.decision_loc || c.decision_ussc || c.decision_vol);
 }
 
 function warnMissingOpinionHref(casesPath, term) {
@@ -1722,10 +1725,18 @@ function _reportsDbPages(entry) {
     return undefined;
 }
 
-// Build/update the decision_rep field on each case whose usCite contains
-// "<volume> U.S. <page>" and whose volume matches an entry in the term's reports
-// array. The value is reports[].href + "#page=<pdfPage>" where pdfPage is
-// derived from the report's pages breakpoints.
+// Build/update the decision_vol field on each case whose usCite contains
+// "<volume> U.S. <page>" and whose volume matches an entry in the term's
+// reports array. The value is just reports[].href — no "#page=<pdfPage>"
+// anchor — because _reportPdfPage/_buildDecisionEntries in explorer.js
+// computes that page live from the same reports[] mapping (cheap string
+// parsing, no network), so baking it in here would just go stale the next
+// time reports.json's mapping is corrected (as happened once already; see
+// auditDecisionReportPages). A decision_vol that already carries an explicit
+// #page=N is left untouched either way: auditDecisionReportPages strips one
+// once it's confirmed to agree with the current mapping, and one left behind
+// after an audit mismatch needs human review, not to be silently overwritten
+// here.
 function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
@@ -1741,8 +1752,8 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
     let modified = false;
     for (const c of data) {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
-        // If decision_rep already carries an explicit #page=N, leave it alone.
-        if (/#page=\d+$/.test(c.decision_rep || '')) continue;
+        // If decision_vol already carries an explicit #page=N, leave it alone.
+        if (/#page=\d+$/.test(c.decision_vol || '')) continue;
         const usCite = (c.usCite || '').trim();
         if (!usCite) continue;
         const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
@@ -1750,21 +1761,256 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         const vol    = parseInt(m[1], 10);
         const report = byVolume.get(vol);
         if (!report?.href) continue;
-        const roman = !/^\d+$/.test(m[2]);
-        const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
-        let url = report.href;
-        if (isFinite(page) && report.pages) {
-            const pdfPage = _pdfPageFor(_parsePages(report.pages), page, roman);
-            if (pdfPage != null) url += `#page=${pdfPage}`;
-        }
-        if (c.decision_rep === url) continue;
-        c.decision_rep = url;
+        const url = report.href;
+        if (c.decision_vol === url) continue;
+        c.decision_vol = url;
         const reordered = reorderCase(c);
         for (const k of Object.keys(c)) delete c[k];
         Object.assign(c, reordered);
         modified = true;
     }
     if (modified) _writeJson(casesPath, data);
+}
+
+// Audit every decision_vol value that carries an explicit "#page=N" anchor
+// against the PDF page terms.json's reports[] mapping would compute for the
+// case's own usCite (same algorithm as addDecisionReports/_reportPdfPage in
+// explorer.js). Where they agree, the anchor is redundant — strip it back to
+// the bare report href so the front end computes it live, which is cheap
+// (string-parse only, no network) and keeps decision_vol from silently going
+// stale the next time reports.json's mapping is corrected, as happened here.
+// Where they disagree, decision_vol is left untouched and logged for manual
+// review: the mismatch may mean the mapping itself still needs a fix, or the
+// anchor was hand-verified for a non-standard case.
+function auditDecisionReportPages(termFilter) {
+    let tj;
+    try { tj = _readJson(TERMS_JSON); } catch { return; }
+    if (!Array.isArray(tj)) return;
+
+    let agreeCount = 0;
+    const mismatches = [];
+
+    for (const decade of tj) {
+        for (const page of (decade.groups || [])) {
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!m) continue;
+            const term = m[1];
+            if (termFilter && term !== termFilter) continue;
+            const reports = page.reports || [];
+            if (!reports.length) continue;
+            const byVolume = new Map();
+            for (const r of reports) if (r.volume != null) byVolume.set(Number(r.volume), r);
+
+            const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+            if (!fs.existsSync(casesPath)) continue;
+            const data = _readJson(casesPath);
+            if (!Array.isArray(data)) continue;
+
+            let modified = false;
+            for (const c of data) {
+                const rep = c.decision_vol || '';
+                const anchorMatch = /^(.*)#page=(\d+)$/.exec(rep);
+                if (!anchorMatch) continue;
+                const [, baseHref, storedStr] = anchorMatch;
+                const stored = parseInt(storedStr, 10);
+
+                const usCite = (c.usCite || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                if (!cm) continue;
+                const vol    = parseInt(cm[1], 10);
+                const roman  = !/^\d+$/.test(cm[2]);
+                const cpage  = roman ? _parseRomanNumeral(cm[2]) : parseInt(cm[2], 10);
+                const report = byVolume.get(vol);
+                if (!report?.href || !report.pages || !isFinite(cpage)) continue;
+                const expected = _pdfPageFor(_parsePages(report.pages), cpage, roman);
+                const computedUrl = report.href + (expected != null ? `#page=${expected}` : '');
+                if (report.href !== baseHref) {
+                    mismatches.push({ term, id: c.id, title: c.title, usCite, rep, computedUrl });
+                    continue;
+                }
+                if (expected == null) continue;
+                if (expected === stored) {
+                    agreeCount++;
+                    c.decision_vol = baseHref;
+                    const reordered = reorderCase(c);
+                    for (const k of Object.keys(c)) delete c[k];
+                    Object.assign(c, reordered);
+                    modified = true;
+                } else {
+                    mismatches.push({ term, id: c.id, title: c.title, usCite, rep, computedUrl });
+                }
+            }
+            if (modified) _writeJson(casesPath, data);
+        }
+    }
+
+    const verb = _DRY_RUN ? 'would strip' : 'stripped';
+    console.log(`Audited decision_vol anchors: ${agreeCount} agreed with reports[] mapping (${verb}), ${mismatches.length} mismatched.`);
+    if (mismatches.length) {
+        console.log('Mismatches (left untouched — needs manual review):');
+        for (const mm of mismatches) {
+            console.log(`  ${mm.term} ${mm.id} "${mm.title}" (${mm.usCite})`);
+            console.log(`    decision_vol: ${mm.rep}`);
+            console.log(`    computed:     ${mm.computedUrl}`);
+            console.log('');
+        }
+    }
+}
+
+// Extend reports.json's pages mapping for one volume using decision_vol as
+// ground truth, on the theory that a decision_vol #page=N anchor was set
+// from the actual PDF at some point and is more trustworthy than an
+// incomplete auto-detected mapping (see auditDecisionReportPages). Collects
+// every case citing this volume whose decision_vol still carries an explicit
+// #page=N — an anchor already stripped down to a bare href by a prior audit
+// pass agreed with the mapping and carries no new information, so those are
+// naturally excluded — sorts them by usCite page ascending, and walks them
+// in order: a candidate becomes a new breakpoint only if the mapping as
+// built up so far (starting from reports.json's existing breakpoints)
+// doesn't already reproduce its stored #page value, i.e. only where the
+// offset actually changes. Does not touch cases.json or terms.json — run
+// --reports to propagate the result into terms.json, then
+// --audit-decision-vol to strip anchors that now agree.
+function useDecisionRepForVolume(vol) {
+    if (!isFinite(vol)) { console.log('--use-decision-rep requires a volume number'); return; }
+    const volKey = `v${String(vol).padStart(3, '0')}`;
+
+    let reportsDb = {};
+    try { const raw = _readJson(REPORTS_JSON); if (raw && !Array.isArray(raw)) reportsDb = raw; } catch {}
+    const dbEntry   = reportsDb[volKey] || {};
+    const basePages = _reportsDbPages(dbEntry) || '';
+
+    let tj;
+    try { tj = _readJson(TERMS_JSON); } catch { console.log('Could not read terms.json'); return; }
+    if (!Array.isArray(tj)) return;
+
+    // Collect every case citing this volume whose decision_vol still carries
+    // an explicit #page=N.
+    const candidates = [];
+    for (const decade of tj) {
+        for (const page of (decade.groups || [])) {
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const tm = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!tm) continue;
+            const term = tm[1];
+            if (!(page.reports || []).some(r => Number(r.volume) === vol)) continue;
+            const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+            if (!fs.existsSync(casesPath)) continue;
+            let data;
+            try { data = _readJson(casesPath); } catch { continue; }
+            if (!Array.isArray(data)) continue;
+            for (const c of data) {
+                const am = /^(.*)#page=(\d+)$/.exec(c.decision_vol || '');
+                if (!am) continue;
+                const usCite = (c.usCite || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                if (!cm || parseInt(cm[1], 10) !== vol) continue;
+                const roman = !/^\d+$/.test(cm[2]);
+                const cpage = roman ? _parseRomanNumeral(cm[2]) : parseInt(cm[2], 10);
+                if (!isFinite(cpage)) continue;
+                candidates.push({
+                    term, id: c.id, title: c.title, usCite,
+                    roman, cpage, startStr: cm[2], stored: parseInt(am[2], 10),
+                });
+            }
+        }
+    }
+
+    if (!candidates.length) {
+        console.log(`${volKey}: no decision_vol #page= anchors found for volume ${vol}.`);
+        return;
+    }
+    candidates.sort((a, b) => a.cpage - b.cpage);
+
+    const bps = _parsePages(basePages);
+    const added = [];
+    for (const cand of candidates) {
+        const computed = _pdfPageFor(bps, cand.cpage, cand.roman);
+        if (computed === cand.stored) continue;
+        const dup = bps.find(b => !!b.roman === cand.roman && b.start === cand.cpage);
+        if (dup) {
+            console.log(`  ! ${volKey}: conflicting decision_vol at page ${cand.startStr} — already added `
+                + `${dup.pdfPage}, but ${cand.term} ${cand.id} has ${cand.stored}; leaving as ${dup.pdfPage}`);
+            continue;
+        }
+        bps.push(cand.roman
+            ? { start: cand.cpage, pdfPage: cand.stored, roman: true, startStr: cand.startStr }
+            : { start: cand.cpage, pdfPage: cand.stored });
+        bps.sort((a, b) => (!!a.roman !== !!b.roman) ? (a.roman ? 1 : -1) : a.start - b.start);
+        added.push({ ...cand, computed });
+    }
+
+    if (!added.length) {
+        console.log(`${volKey}: ${candidates.length} decision_vol anchor(s) checked; mapping already accounts for all of them.`);
+        return;
+    }
+
+    const newPages = bps.map(b => `${b.roman ? b.startStr : b.start}:${b.pdfPage}`).join(',');
+    console.log(`${volKey}: pages ${basePages || '(none)'} → ${newPages}`);
+    for (const a of added) {
+        console.log(`  + ${a.startStr}:${a.stored}  (${a.term} ${a.id} "${a.title}", ${a.usCite}, `
+            + `mapping was computing ${a.computed == null ? '(nothing)' : a.computed})`);
+    }
+
+    reportsDb[volKey] = { ...dbEntry, pages: newPages };
+    _writeJson(REPORTS_JSON, reportsDb);
+    console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} ${path.relative(REPO_ROOT, REPORTS_JSON)}. `
+        + `Run --reports then --audit-decision-vol to propagate and clean up.`);
+}
+
+// Strip the #page=N anchor from decision_vol for every case citing the given
+// volume, regardless of whether it agrees with reports[]'s computed mapping.
+// Unlike auditDecisionReportPages (which only strips anchors already proven
+// to agree), this is for the opposite situation: you've looked at a volume's
+// mismatches, decided the freshly computed mapping is the one that's
+// actually right, and just want decision_vol's stale anchors gone so the
+// front end computes the page live instead.
+function useDecisionVolForVolume(vol) {
+    if (!isFinite(vol)) { console.log('--use-decision-vol requires a volume number'); return; }
+    const volKey = `v${String(vol).padStart(3, '0')}`;
+
+    let tj;
+    try { tj = _readJson(TERMS_JSON); } catch { console.log('Could not read terms.json'); return; }
+    if (!Array.isArray(tj)) return;
+
+    let strippedCount = 0;
+    for (const decade of tj) {
+        for (const page of (decade.groups || [])) {
+            const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+            const tm = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+            if (!tm) continue;
+            const term = tm[1];
+            if (!(page.reports || []).some(r => Number(r.volume) === vol)) continue;
+            const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+            if (!fs.existsSync(casesPath)) continue;
+            let data;
+            try { data = _readJson(casesPath); } catch { continue; }
+            if (!Array.isArray(data)) continue;
+
+            let modified = false;
+            for (const c of data) {
+                const am = /^(.*)#page=(\d+)$/.exec(c.decision_vol || '');
+                if (!am) continue;
+                const usCite = (c.usCite || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                if (!cm || parseInt(cm[1], 10) !== vol) continue;
+                c.decision_vol = am[1];
+                const reordered = reorderCase(c);
+                for (const k of Object.keys(c)) delete c[k];
+                Object.assign(c, reordered);
+                modified = true;
+                strippedCount++;
+            }
+            if (modified) _writeJson(casesPath, data);
+        }
+    }
+
+    if (!strippedCount) {
+        console.log(`${volKey}: no decision_vol #page= anchors found for volume ${vol}.`);
+        return;
+    }
+    console.log(`${volKey}: ${_DRY_RUN ? 'would strip' : 'stripped'} #page= anchor from ${strippedCount} decision_vol value(s).`);
 }
 
 // Remove decision_loc links that reference a US Reports page in the second (or
@@ -5927,7 +6173,6 @@ async function syncTermsReports(termFilter, volFilter = null) {
         if (raw && typeof raw === 'object' && !Array.isArray(raw)) reportsDb = raw;
     } catch { /* file may not exist yet */ }
     const needsPhase3b = new Set();
-    const needsPhase3bVerify = new Set();
     for (const [key, val] of Object.entries(reportsDb)) {
         const pn = _reportsDbPages(val);
         if (pn === undefined) continue;
@@ -5936,17 +6181,11 @@ async function syncTermsReports(termFilter, volFilter = null) {
             needsPhase3b.add(key);
         } else {
             _PAGE_OFFSET_CACHE.set(path.join(PDFS_DIR, key + '.pdf'), pn);
-            if (typeof pn === 'string' && !pn.endsWith(',') && _parsePages(pn).length === 2) {
-                // Two-breakpoint entry — re-verify the second breakpoint start with the
-                // current algorithm (binary search + backward scan) in case it was set
-                // by an older version that may have landed on the wrong page.
-                needsPhase3bVerify.add(key);
-            }
         }
     }
 
     // Pre-pass: propagate any manual reports.json edits into terms.json pages.
-    // decision_rep recomputation is handled by the standard update_cases.js flow.
+    // decision_vol recomputation is handled by the standard update_cases.js flow.
     {
         let tjModified = false;
         for (const decade of tj) {
@@ -6002,11 +6241,9 @@ async function syncTermsReports(termFilter, volFilter = null) {
     if (_VERBOSE)
         console.log(`  Found ${localVols.size} local PDFs (v${Math.min(...localVols)}–v${Math.max(...localVols)})`);
 
-    // terms.json stores decades/terms newest-first; the "earliest term wins"
-    // registry-building below needs chronological (oldest-first) order, so
-    // iterate a reversed copy. The page objects inside are the same references
-    // as in `tj`, so in-place mutations below still land in `tj` correctly.
-    const tjAscending = tj.slice().reverse().map(d => ({ ...d, groups: (d.groups || []).slice().reverse() }));
+    // terms.json stores decades/terms in chronological (oldest-first) order,
+    // which is what the "earliest term wins" registry-building below needs.
+    const tjAscending = tj;
 
     // Pre-pass: (1) build a registry of the earliest term where each volume's
     // cover image already exists on disk; (2) collect the best-known href for
@@ -6187,28 +6424,6 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     _setReportsEntry(pages);
                     _writeReportsDb();
                     needsPhase3b.delete(volKey);
-                }
-
-                // Re-verify existing two-breakpoint mappings using the current algorithm
-                // (backward scan may correct a second breakpoint that was set too late).
-                if (needsPhase3bVerify.has(volKey) && typeof pages === 'string' &&
-                        _parsePages(pages).filter(e => !e.roman).length === 2) {
-                    const bps = _parsePages(pages).filter(e => !e.roman);
-                    const initialOffset = bps[0].pdfPage - bps[0].start;
-                    if (_VERBOSE) console.log(`  ${term}: re-verifying phase3 for v${volStr} ...`);
-                    const { breakpoints } = await _detectPhase3(pdfPath, initialOffset);
-                    if (breakpoints.length === 2) {
-                        const verified = breakpoints.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                        const arabicPages = bps.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                        if (verified !== arabicPages) {
-                            console.log(`  ${term}: v${volStr} corrected pages: ${arabicPages} → ${verified}`);
-                            pages = verified; // roman bps reattached by post-process below
-                            _setReportsEntry(verified);
-                            _writeReportsDb();
-                            _deleteStaleCover();
-                        }
-                    }
-                    needsPhase3bVerify.delete(volKey);
                 }
 
                 // Re-attach any roman bps from the original terms.json entry that may
@@ -7678,7 +7893,7 @@ function _scdbFieldPresent(c, key) {
 }
 
 function _scdbHasImportedOpinion(c) {
-    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_rep']) {
+    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_vol']) {
         if (_scdbFieldPresent(c, k)) return true;
     }
     return false;
@@ -9124,7 +9339,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             if (discrepancy) {
                 totalDiscrepancies++;
                 if (update) {
-                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_rep || '(no decision href)'}`);
+                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_vol || '(no decision href)'}`);
                     console.log();
                     const answer = await _ask('  Change to CSV date? (y/N) ');
                     if (answer.toLowerCase() === 'y') {
@@ -9966,6 +10181,9 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
        node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
+       node update_cases.js [TERM] --audit-decision-vol         # strip decision_vol #page= anchors that agree with reports[]; log the rest
+       node update_cases.js --use-decision-rep N                # extend reports.json's pages mapping for volume N from its decision_vol mismatches
+       node update_cases.js --use-decision-vol N                # trust the mapping over decision_vol for volume N; strip its stale #page= anchors
        node update_cases.js TERM CASE --votes win|loss [VOTE_STRING [AUTHOR]] [--minority NAMES...] [--recused NAMES...] [--dissent NAMES...] [--result STRING]
        node update_cases.js TERM CASE --minority NAMES...    # partial: change minority votes
        node update_cases.js TERM CASE --recused NAMES...     # partial: mark justices recused
@@ -10576,7 +10794,7 @@ function _loadCaseByRef(term, id) {
 // For each opCite entry, search the case's own argument transcript(s) for
 // mentions of its parties, returning { title, href, refs } for every entry
 // that's actually discussed by name (href comes from the cited case's own
-// decision_loc / decision_ussc / decision_rep, in that preference order).
+// decision_loc / decision_ussc / decision_vol, in that preference order).
 function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
     if (!opCite.length || !Array.isArray(c.events)) return [];
 
@@ -10600,7 +10818,7 @@ function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
         if (!matches.size) continue;
 
         const cited = _loadCaseByRef(entry.term, entry.id);
-        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_rep || null;
+        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_vol || null;
         if (!href) {
             if (verbose) console.log(`  [ref-skip] "${entry.title}" matched but has no decision href`);
             continue;
@@ -11139,14 +11357,12 @@ async function runDissentCheck(termFilter) {
         }
     } catch {}
 
-    // Collect all terms in chronological (oldest-first) order — terms.json
-    // itself stores decades/terms newest-first, so this output's per-term
-    // group order (and the "group=" URL param it defines) doesn't depend on
-    // that file's storage order.
+    // Collect all terms in chronological (oldest-first) order — matches
+    // terms.json's own storage order.
     let allTerms = [];
     try {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-        allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
@@ -11654,7 +11870,7 @@ async function processOneTerm(term, opts) {
             });
             if (_termEntry?.reports?.length) {
                 // Patch pages from reports.json (may have been manually updated
-                // since the last --reports run) so decision_rep uses current values.
+                // since the last --reports run) so decision_vol uses current values.
                 let _reportsDb = {};
                 try { const raw = _readJson(REPORTS_JSON); if (raw && !Array.isArray(raw)) _reportsDb = raw; } catch {}
                 let _tjModified = false;
@@ -12167,7 +12383,7 @@ async function runAddCase(term, title, argv, dryRun) {
                 const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
                 const pdfPage = _pdfPageFor(_parsePages(report.pages), page);
                 if (report && pdfPage != null) {
-                    entry.decision_rep = report.href + '#page=' + pdfPage;
+                    entry.decision_vol = report.href + '#page=' + pdfPage;
                 }
             }
         } catch {}
@@ -13643,7 +13859,7 @@ async function main() {
             } else {
                 const key = a.slice(2);
                 // Flags that take a value
-                if (['case', 'import', 'add', 'volume', 'tag'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
+                if (['case', 'import', 'add', 'volume', 'tag', 'use-decision-rep', 'use-decision-vol'].includes(key) && i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
                     flagValues[key] = argv[++i];
                 } else {
                     boolFlags.add(key);
@@ -13877,12 +14093,11 @@ async function main() {
         let allTerms = [];
         try {
             const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
-            // terms.json stores decades/terms newest-first (for display); reverse to
-            // chronological (oldest-first) order to match the full-run allTerms below —
-            // collection builds use insertion order as a tie-break when cases share a
-            // sort key (e.g. two undated-argument cases), so this must stay consistent
-            // regardless of which code path computed allTerms.
-            allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
+            // Chronological (oldest-first) order, matching terms.json's own storage
+            // order — collection builds use insertion order as a tie-break when cases
+            // share a sort key (e.g. two undated-argument cases), so this must stay
+            // consistent regardless of which code path computed allTerms.
+            allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
                 if (page.term) return page.term;
                 const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
                 return m ? m[1] : null;
@@ -13905,6 +14120,21 @@ async function main() {
     if (flags.has('--reports')) {
         const volFilter = flagValues.volume ? parseInt(flagValues.volume, 10) : null;
         await syncTermsReports(positional[0] || null, volFilter);
+        return;
+    }
+
+    if (flags.has('--audit-decision-vol')) {
+        auditDecisionReportPages(positional[0] || null);
+        return;
+    }
+
+    if (flagValues['use-decision-rep']) {
+        useDecisionRepForVolume(parseInt(flagValues['use-decision-rep'], 10));
+        return;
+    }
+
+    if (flagValues['use-decision-vol']) {
+        useDecisionVolForVolume(parseInt(flagValues['use-decision-vol'], 10));
         return;
     }
 
@@ -13949,11 +14179,11 @@ async function main() {
         const tj = JSON.parse(fs.readFileSync(TERMS_JSON, 'utf8'));
         // terms.json is decade-grouped: [{title, pages:[{title, file, cases(count), term?},...]}]
         // Derive the term key from the file URL: /courts/ussc/terms/YYYY-MM/cases.json
-        // terms.json itself stores decades/terms newest-first (for display), so
-        // reverse to chronological (oldest-first) order — the term-processing
-        // loop and downstream aggregations (vocal justices, lone dissents, etc.)
-        // depend on this order, including as an insertion-order tie-break.
-        allTerms = tj.slice().reverse().flatMap(decade => (decade.groups || []).slice().reverse().map(page => {
+        // Chronological (oldest-first) order, matching terms.json's own storage
+        // order — the term-processing loop and downstream aggregations (vocal
+        // justices, lone dissents, etc.) depend on this order, including as an
+        // insertion-order tie-break.
+        allTerms = tj.flatMap(decade => (decade.groups || []).map(page => {
             if (page.term) return page.term;
             const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
             return m ? m[1] : null;
