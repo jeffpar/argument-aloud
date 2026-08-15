@@ -110,7 +110,7 @@ layout: home
   </div>
 
   <div class="hp-card">
-    <a class="hp-card-link" href="/courts/ussc/?action=randomize&start=1955-10" aria-label="Surprise!"></a>
+    <a class="hp-card-link" href="/courts/ussc/?action=randomize&start=1955-10&filter=audio" aria-label="Surprise!"></a>
     <div class="hp-card-head">
       <div class="hp-icon">🎲</div>
       <div class="hp-card-title">Surprise!</div>

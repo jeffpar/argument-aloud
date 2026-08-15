@@ -10472,7 +10472,9 @@ let _navSearchActivate = null;
 // ── Random case picker ───────────────────────────────────────────────────────
 // Pick a random case within a term range and navigate to it.
 // startTerm / stopTerm are optional YYYY-MM strings (inclusive, lexicographic).
-async function _randomizeThenRestore(startTerm, stopTerm) {
+// filter, if 'audio', restricts the pick to a case with at least one playable
+// audio_href, so the case opens with something ready to play.
+async function _randomizeThenRestore(startTerm, stopTerm, filter) {
   // Filter the flat TERMS list to eligible pages in the requested range.
   const eligible = TERMS.filter(p => {
     if (!p.term || typeof p.cases !== 'number' || p.cases <= 0) return false;
@@ -10483,14 +10485,26 @@ async function _randomizeThenRestore(startTerm, stopTerm) {
   });
   if (!eligible.length) return;
 
-  // Pick a uniformly random page, then a uniformly random case within it.
-  const page    = eligible[Math.floor(Math.random() * eligible.length)];
-  const caseIdx = Math.floor(Math.random() * page.cases);
-  const term    = page.term;
+  const wantsAudio = filter === 'audio';
 
-  const cases = await fetchTermCases(term);
-  if (!cases?.length) return;
-  const caseEntry = cases[Math.min(caseIdx, cases.length - 1)];
+  // Pick a uniformly random page, then a uniformly random case within it —
+  // when filtering for audio, a page whose fetched cases turn up none with
+  // audio is dropped from the pool and another page is tried instead.
+  const pool = eligible.slice();
+  let term = null, cases = null, caseEntry = null;
+  while (pool.length && !caseEntry) {
+    const pageIdx = Math.floor(Math.random() * pool.length);
+    const page    = pool[pageIdx];
+    const fetchedCases = await fetchTermCases(page.term);
+    if (!fetchedCases?.length) { pool.splice(pageIdx, 1); continue; }
+    const candidates = wantsAudio
+      ? fetchedCases.filter(c => c.events?.some(a => a.audio_href))
+      : fetchedCases;
+    if (!candidates.length) { pool.splice(pageIdx, 1); continue; }
+    term      = page.term;
+    cases     = fetchedCases;
+    caseEntry = candidates[Math.floor(Math.random() * candidates.length)];
+  }
   if (!caseEntry) return;
 
   // Replace the current URL (so the action= URL is not in history) with the
@@ -10498,7 +10512,7 @@ async function _randomizeThenRestore(startTerm, stopTerm) {
   const caseId = _caseUrlId(caseEntry, cases);
   const url = buildUrlParams(
     { term, case: caseId },
-    ['action', 'start', 'stop', 'collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
+    ['action', 'start', 'stop', 'filter', 'collection', 'group', 'id', 'highlight', 'event', 'file', 'turn'],
   );
   history.replaceState(null, '', url);
 
@@ -10678,9 +10692,10 @@ async function pickRandomCase() {
     // rather than hardcoding a second copy here — otherwise the two drift
     // apart, as they had (href said start=1955-10; this used to say 1950-10).
     const hrefParams = btn ? new URL(btn.href, location.origin).searchParams : null;
-    const startTerm  = hrefParams?.get('start') || null;
-    const stopTerm   = hrefParams?.get('stop')  || null;
-    await _randomizeThenRestore(startTerm, stopTerm);
+    const startTerm  = hrefParams?.get('start')  || null;
+    const stopTerm   = hrefParams?.get('stop')   || null;
+    const filter     = hrefParams?.get('filter') || null;
+    await _randomizeThenRestore(startTerm, stopTerm, filter);
   } finally {
     if (btn) btn.disabled = false;
   }
@@ -10830,9 +10845,10 @@ async function restoreFromURL() {
   // ── action=randomize ─────────────────────────────────────────────────────
   // Redirect to a random case in the given term range before doing anything else.
   if (params.get('action') === 'randomize') {
-    const startParam = params.get('start') || null;
-    const stopParam  = params.get('stop')  || null;
-    await _randomizeThenRestore(startParam, stopParam);
+    const startParam  = params.get('start')  || null;
+    const stopParam   = params.get('stop')   || null;
+    const filterParam = params.get('filter') || null;
+    await _randomizeThenRestore(startParam, stopParam, filterParam);
     return;
   }
 
