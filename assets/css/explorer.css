@@ -198,9 +198,9 @@ body {
   padding: 16px 12px;
 }
 
+#nav-filter-btn,
 #nav-search-btn {
   flex-shrink: 0;
-  margin-left: auto;
   background: none;
   border: none;
   cursor: pointer;
@@ -212,6 +212,14 @@ body {
   transition: background 0.1s, color 0.1s;
 }
 
+#nav-filter-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+#nav-filter-btn:hover,
+#nav-filter-btn.active,
 #nav-search-btn:hover,
 #nav-search-btn.active {
   background: #eef3f8;
@@ -591,6 +599,45 @@ button.term-case-count.sort-active:hover {
   font-weight: 700;
   color: #2672b4;
 }
+
+/* Filter panel (Terms nav Filter button) — checkbox list, stays open across clicks */
+.term-filter-menu {
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  padding: 4px 0;
+  margin: 0;
+  list-style: none;
+  min-width: 100px;
+  font-size: 12px;
+}
+.term-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  color: #222;
+  white-space: nowrap;
+}
+.term-filter-option:hover {
+  background: #f0f4ff;
+}
+.term-filter-option input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Terms nav Filter button: decade/term visibility for whichever options are
+   active is computed in JS against each element's precomputed [data-has-*]
+   attributes (see buildNav/_applyActiveFilters) and reduced to this one
+   class — the case-list level is filtered separately in JS (see
+   _visibleTermCases). */
+.decade-group.filter-hidden,
+.term-group.filter-hidden { display: none; }
 
 /* Inline label shown instead of icons in sorted modes */
 .case-sort-label {
@@ -2594,6 +2641,8 @@ button.term-case-count.sort-active:hover {
   #nav-copyright { color: #555; }
   #nav-copyright a { color: #555; }
 
+  #nav-filter-btn:hover,
+  #nav-filter-btn.active,
   #nav-search-btn:hover,
   #nav-search-btn.active {
     background: #252a35;
@@ -2653,6 +2702,10 @@ button.term-case-count.sort-active:hover {
   .term-sort-option    { color: #c8ccd8; }
   .term-sort-option:hover   { background: #252a3a; }
   .term-sort-option.active  { color: #7bc8f0; }
+
+  .term-filter-menu   { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 3px 10px rgba(0,0,0,0.4); }
+  .term-filter-option { color: #c8ccd8; }
+  .term-filter-option:hover { background: #252a3a; }
 
   .case-sort-label     { color: #6c7280; }
 
@@ -2959,6 +3012,8 @@ html[data-theme="dark"] .jr-photo { background: #3a3c45; }
 html[data-theme="dark"] #doc-browser { background: #1a1c22; }
 html[data-theme="dark"] #nav-copyright { color: #555; }
 html[data-theme="dark"] #nav-copyright a { color: #555; }
+html[data-theme="dark"] #nav-filter-btn:hover,
+html[data-theme="dark"] #nav-filter-btn.active,
 html[data-theme="dark"] #nav-search-btn:hover,
 html[data-theme="dark"] #nav-search-btn.active { background: #252a35; color: #5eaee0; }
 html[data-theme="dark"] #nav-search-input { border-color: #404450; background: #252830; color: #d0d3dc; }
@@ -2994,6 +3049,9 @@ html[data-theme="dark"] .term-sort-menu      { background: #1e2130; border-color
 html[data-theme="dark"] .term-sort-option    { color: #c8ccd8; }
 html[data-theme="dark"] .term-sort-option:hover   { background: #252a3a; }
 html[data-theme="dark"] .term-sort-option.active  { color: #7bc8f0; }
+html[data-theme="dark"] .term-filter-menu   { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 3px 10px rgba(0,0,0,0.4); }
+html[data-theme="dark"] .term-filter-option { color: #c8ccd8; }
+html[data-theme="dark"] .term-filter-option:hover { background: #252a3a; }
 html[data-theme="dark"] .case-sort-label     { color: #6c7280; }
 html[data-theme="dark"] .fav-header-btn      { color: #6c7280; }
 html[data-theme="dark"] .fav-header-btn:hover { color: #c8cdd8; }
@@ -3183,6 +3241,8 @@ html[data-theme="light"] .jr-photo { background: #ccc; }
 html[data-theme="light"] #doc-browser { background: #f7f8fa; }
 html[data-theme="light"] #nav-copyright { color: #888; }
 html[data-theme="light"] #nav-copyright a { color: #888; }
+html[data-theme="light"] #nav-filter-btn:hover,
+html[data-theme="light"] #nav-filter-btn.active,
 html[data-theme="light"] #nav-search-btn:hover,
 html[data-theme="light"] #nav-search-btn.active { background: #eef3f8; color: #2672b4; }
 html[data-theme="light"] #nav-search-input { border-color: #ccc; background: #fff; color: #333; }
@@ -3218,6 +3278,9 @@ html[data-theme="light"] .term-sort-menu      { background: #fff; border-color: 
 html[data-theme="light"] .term-sort-option    { color: #222; }
 html[data-theme="light"] .term-sort-option:hover   { background: #f0f4ff; }
 html[data-theme="light"] .term-sort-option.active  { color: #2672b4; }
+html[data-theme="light"] .term-filter-menu   { background: #fff; border-color: #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+html[data-theme="light"] .term-filter-option { color: #222; }
+html[data-theme="light"] .term-filter-option:hover { background: #f0f4ff; }
 html[data-theme="light"] .case-sort-label     { color: #888; }
 html[data-theme="light"] .fav-header-btn      { color: #aaa; }
 html[data-theme="light"] .fav-header-btn:hover { color: #333; }

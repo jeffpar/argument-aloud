@@ -4,7 +4,9 @@
  * by default. Pass --dry-run to suppress all file writes.
  *
  * Usage:
- *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
+ *   node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N] [--scan]] [--verbose] [--dry-run]
+ *   node update_cases.js --reports              # propagate reports.json pages into terms.json (fast — no PDF access)
+ *   node update_cases.js --reports --scan        # ...also detect new/missing breakpoints and (re)generate covers from local PDFs (slow)
  *   node update_cases.js [TERM] --audit-decision-vol   # strip decision_vol #page= anchors that agree with reports[]; log the rest as mismatches
  *   node update_cases.js --use-decision-rep N          # extend reports.json's pages mapping for volume N from its decision_vol mismatches
  *   node update_cases.js --use-decision-vol N          # trust the mapping over decision_vol for volume N; strip its stale #page= anchors
@@ -1663,16 +1665,24 @@ function _parsePages(str) {
         if (!t) continue;
         const colon = t.indexOf(':');
         if (colon < 0) continue;
-        const startStr = t.slice(0, colon).trim();
-        const pdfPage  = Number(t.slice(colon + 1).trim());
+        const startStr  = t.slice(0, colon).trim();
+        let   pdfPageStr = t.slice(colon + 1).trim();
+        // A trailing "*" is a hand-added marker for an "orders mapping"
+        // breakpoint that doesn't already fit the ×00+1-above-800 pattern
+        // (see isOrdersBreakpoint) — strip it for numeric parsing but record
+        // it as `marked` so callers that reserialize breakpoints back into a
+        // pages string (see reportsPagesString) can put it back.
+        const marked = pdfPageStr.endsWith('*');
+        if (marked) pdfPageStr = pdfPageStr.slice(0, -1).trim();
+        const pdfPage = Number(pdfPageStr);
         if (!Number.isFinite(pdfPage) || pdfPage <= 0) continue;
         const startNum = Number(startStr);
         if (Number.isFinite(startNum) && startNum > 0) {
-            entries.push({ start: startNum, pdfPage });
+            entries.push({ start: startNum, pdfPage, ...(marked ? { marked: true } : {}) });
         } else {
             const romanVal = _parseRomanNumeral(startStr);
             if (Number.isFinite(romanVal) && romanVal > 0) {
-                entries.push({ start: romanVal, pdfPage, roman: true, startStr });
+                entries.push({ start: romanVal, pdfPage, roman: true, startStr, ...(marked ? { marked: true } : {}) });
             }
         }
     }
@@ -1681,6 +1691,42 @@ function _parsePages(str) {
         if (!!a.roman !== !!b.roman) return a.roman ? 1 : -1;
         return a.start - b.start;
     });
+}
+
+// True if a breakpoint marks the start of an "orders mapping" section — the
+// front-matter-style Orders Lists/orders-of-the-court section some volumes
+// carry, either because its start is a hundred-plus-one above 800 (801, 901,
+// 1001, ...) or because it was hand-flagged with a trailing "*" in
+// reports.json for a volume where the orders section starts somewhere else
+// (see _parsePages's `marked`).
+function isOrdersBreakpoint(bp) {
+    return !!bp.marked || (bp.start > 800 && bp.start % 100 === 1);
+}
+
+// Reserialize parsed breakpoints back into a "pages" string, restoring the
+// "*" marker on any breakpoint that had one (see _parsePages/isOrdersBreakpoint).
+function reportsPagesString(bps) {
+    return bps.map(b => `${b.roman ? b.startStr : b.start}:${b.pdfPage}${b.marked ? '*' : ''}`).join(',');
+}
+
+// True if a case's own usCite lands in an "orders mapping" section of its
+// volume (see isOrdersBreakpoint) — a roman-numeral page (front matter)
+// always qualifies; an arabic page qualifies if the breakpoint segment it
+// falls into (same "latest breakpoint with start <= page" resolution as
+// _pdfPageFor) is itself an orders mapping. termReports is the citing term's
+// own reports[] array (termEntry.reports in terms.json).
+function _isOrdersCase(usCite, termReports) {
+    const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec((usCite || '').trim());
+    if (!m) return false;
+    if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
+    const vol  = parseInt(m[1], 10);
+    const page = parseInt(m[2], 10);
+    const report = (termReports || []).find(r => Number(r.volume) === vol);
+    if (!report?.pages) return false;
+    const bps = _parsePages(report.pages).filter(e => !e.roman);
+    let match = null;
+    for (const bp of bps) { if (bp.start <= page) match = bp; else break; }
+    return !!match && isOrdersBreakpoint(match);
 }
 
 // Given parsed pages breakpoints and a US Reports page number, return
@@ -1946,7 +1992,7 @@ function useDecisionRepForVolume(vol) {
         return;
     }
 
-    const newPages = bps.map(b => `${b.roman ? b.startStr : b.start}:${b.pdfPage}`).join(',');
+    const newPages = reportsPagesString(bps);
     console.log(`${volKey}: pages ${basePages || '(none)'} → ${newPages}`);
     for (const a of added) {
         console.log(`  + ${a.startStr}:${a.stored}  (${a.term} ${a.id} "${a.title}", ${a.usCite}, `
@@ -5569,7 +5615,10 @@ function _findCaseInList(cases, row) {
     return null;
 }
 
-const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'dates', 'minutes', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'decided', 'argued', 'argDays', 'audio', 'unanimous'];
+// The count props at the tail (everything after "reports") are kept
+// alphabetical — "cases" is a count too, but stays up near "file" instead
+// since it's not part of that group.
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'dates', 'minutes', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'argDays', 'argued', 'audio', 'decided', 'digs', 'dismissals', 'orders', 'unanimous'];
 
 // One { cover } object per unique minutes cover thumbnail (courts/ussc/terms/
 // <term>/m<XXX>-cover.jpg, generated by parse_minutes.js --thumbnails) a
@@ -5660,7 +5709,7 @@ function syncTermsJson() {
             const datesPath = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', termId, 'dates.json');
             const hasDates = fs.existsSync(datesPath);
             const minutesCovers = _minutesCoversForTerm(datesPath);
-            let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0, unanimous = 0;
+            let count = 0, decided = 0, argued = 0, argDays = 0, audio = 0, unanimous = 0, orders = 0, digs = 0, dismissals = 0;
             const data = casesByTerm.get(termId);
             if (Array.isArray(data)) {
                 count   = data.length;
@@ -5672,6 +5721,12 @@ function syncTermsJson() {
                 decided = arguedData.filter(c => c.decision || c.dateDecision).length;
                 unanimous = arguedData.filter(c => c.voteMinority === 0).length;
                 ({ argued, argDays, audio } = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm));
+                orders = data.filter(c => _isOrdersCase(c.usCite, page.reports)).length;
+                // "digs" is a subset of "dismissals" — a case dismissed as
+                // improvidently granted is still just "dismissed" too — so
+                // every dig case is counted in both.
+                dismissals = data.filter(c => /dismissed/i.test(c.result || '')).length;
+                digs       = data.filter(c => /dismissed as improvidently granted/i.test(c.result || '')).length;
             }
             totalDecided   += decided;
             totalArgued    += argued;
@@ -5693,6 +5748,9 @@ function syncTermsJson() {
                 if (k === 'argDays') { newPage.argDays = argDays; continue; }
                 if (k === 'audio')   { newPage.audio   = audio;   continue; }
                 if (k === 'unanimous') { newPage.unanimous = unanimous; continue; }
+                if (k === 'orders')     { if (orders)     newPage.orders     = orders;     continue; }
+                if (k === 'digs')       { if (digs)       newPage.digs       = digs;       continue; }
+                if (k === 'dismissals') { if (dismissals) newPage.dismissals = dismissals; continue; }
                 if (Object.prototype.hasOwnProperty.call(page, k)) newPage[k] = page[k];
             }
             // Preserve extra keys not in the canonical order.
@@ -6156,7 +6214,7 @@ async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
 // listed on USReports.aspx, and build/maintain the "reports" array on
 // each term group entry. Cover images are generated via pdftoppm if absent;
 // pages values are computed via pdftotext if absent.
-async function syncTermsReports(termFilter, volFilter = null) {
+async function syncTermsReports(termFilter, volFilter = null, scanPdfs = false) {
     let tj;
     try { tj = _readJson(TERMS_JSON); } catch { return; }
     if (!Array.isArray(tj)) return;
@@ -6208,11 +6266,9 @@ async function syncTermsReports(termFilter, volFilter = null) {
                     const dbBps = _parsePages(dbPages || '').filter(e => !e.roman);
                     const tjBps = _parsePages(r.pages || '').filter(e => !e.roman);
                     const arabicMatch = dbBps.length === tjBps.length &&
-                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage
+                            && !!tjBps[i]?.marked === !!bp.marked);
                     if (arabicMatch) continue;
-                    const tjExtends = tjBps.length > dbBps.length &&
-                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                    if (tjExtends) continue;
 
                     console.log(`  ${term}: vol ${r.volume} pages: ${r.pages ?? '(none)'} → ${dbPages}`);
                     r.pages = dbPages;
@@ -6223,7 +6279,21 @@ async function syncTermsReports(termFilter, volFilter = null) {
         if (tjModified) {
             if (!_DRY_RUN) _writeJson(TERMS_JSON, tj);
             console.log(`${_DRY_RUN ? 'Would update' : 'Updated'} terms.json (propagated reports.json pages)`);
+        } else if (_VERBOSE) {
+            console.log('terms.json: pages already match reports.json.');
         }
+    }
+
+    // Everything below here touches the local PDFs — cover generation and
+    // _detectPages/_detectPhase3 text-scanning for volumes reports.json
+    // doesn't have a full mapping for yet. Both are slow (PDF text
+    // extraction, pdftoppm rendering) and unnecessary for the common case of
+    // hand-editing an *existing* volume's breakpoints in reports.json, which
+    // the pre-pass above already propagates on its own — skip unless
+    // explicitly asked for via --scan.
+    if (!scanPdfs) {
+        console.log('Skipping PDF scan/cover generation (pass --scan to force it).');
+        return;
     }
 
     // Build a set of locally available volumes from the PDFs directory.
@@ -6326,14 +6396,13 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
                 // Resolve pages before computing the cover page.
                 // Priority (highest to lowest):
-                //   1. terms.json value that extends reports.json (user-added breakpoints):
-                //      if terms.json has all of reports.json's breakpoints plus more, treat
-                //      terms.json as authoritative and update reports.json to match.
-                //   2. reports.json value (definitive for everything else).
-                //   3. Phase 3b check for single-breakpoint volumes (needsPhase3b): run
+                //   1. reports.json value — definitive for arabic breakpoints. Always
+                //      wins over terms.json when the two differ (reports.json is the
+                //      hand-maintained source of truth; terms.json is just a mirror).
+                //   2. Phase 3b check for single-breakpoint volumes (needsPhase3b): run
                 //      _detectPhase3 to find any secondary breakpoint, then write the
                 //      result (possibly with trailing comma sentinel) to reports.json.
-                //   4. Full detection for new volumes not yet in reports.json.
+                //   3. Full detection for new volumes not yet in reports.json.
                 const volKey = `v${volStr}`;
                 let pages = existingByVol.get(vol)?.pages ?? null;
                 // Save any roman bps from the original terms.json entry; they must
@@ -6357,30 +6426,22 @@ async function syncTermsReports(termFilter, volFilter = null) {
 
                 if (dbPages !== undefined) {
                     if (pages !== null && pages !== dbPages) {
-                        // Compare arabic-only bps; roman bps are user metadata and never
-                        // written to reports.json.
+                        // Compare arabic-only bps, including each one's `marked` (the
+                        // hand-added "*" orders-mapping annotation — see _parsePages);
+                        // roman bps are user metadata and never written to reports.json.
                         const dbBps = _parsePages(dbPages || '').filter(e => !e.roman);
                         const tjBps = _parsePages(pages || '').filter(e => !e.roman);
                         const arabicMatch = dbBps.length === tjBps.length &&
-                            dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                        const tjExtends = tjBps.length > dbBps.length &&
-                            dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                        if (tjExtends) {
-                            // terms.json has more arabic breakpoints; write arabic-only to
-                            // reports.json and keep pages (with roman bps) for terms.json.
-                            const arabicOnly = tjBps.map(b => `${b.start}:${b.pdfPage}`).join(',');
-                            _setReportsEntry(arabicOnly);
-                            _writeReportsDb();
-                            needsPhase3b.delete(volKey);
-                            console.log(`  ${term}: v${volStr} pages extended to ${arabicOnly} (from terms.json)`);
-                        } else if (arabicMatch) {
-                            // Same arabic bps; keep terms.json value (may have roman bps or
-                            // trailing-comma difference). pages stays as-is.
-                        } else {
+                            dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage
+                                && !!tjBps[i]?.marked === !!bp.marked);
+                        if (!arabicMatch) {
                             // reports.json wins for arabic bps; cover may need regeneration.
                             pages = dbPages;
                             _deleteStaleCover();
                         }
+                        // else: same arabic bps; keep terms.json value as-is (may carry
+                        // roman bps or a trailing-comma difference that doesn't affect
+                        // the parsed breakpoints).
                     } else {
                         pages = dbPages;
                     }
@@ -6484,8 +6545,8 @@ async function syncTermsReports(termFilter, volFilter = null) {
                 console.log(`  ${term}: updated reports (volumes ${reports.map(r => r.volume).join(', ')})`);
             } else {
                 // page.reports may already equal mergedReports textually, but
-                // pages could have been updated in-memory above (Phase 3b
-                // or tjExtends). Ensure page.reports reflects the latest values.
+                // pages could have been updated in-memory above (reports.json
+                // override or Phase 3b). Ensure page.reports reflects the latest values.
                 page.reports = mergedReports;
             }
 
@@ -10180,7 +10241,9 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const USAGE = `Usage: node update_cases.js                                # update all terms
-       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N]] [--verbose] [--dry-run]
+       node update_cases.js [TERM [CASE]] [--checkurls] [--opinions] [--roles] [--speakers] [--reports [--volume N] [--scan]] [--verbose] [--dry-run]
+       node update_cases.js --reports                           # propagate reports.json pages into terms.json (fast — no PDF access)
+       node update_cases.js --reports --scan                    # ...also detect new/missing breakpoints and (re)generate covers from local PDFs (slow)
        node update_cases.js [TERM] --audit-decision-vol         # strip decision_vol #page= anchors that agree with reports[]; log the rest
        node update_cases.js --use-decision-rep N                # extend reports.json's pages mapping for volume N from its decision_vol mismatches
        node update_cases.js --use-decision-vol N                # trust the mapping over decision_vol for volume N; strip its stale #page= anchors
@@ -11882,10 +11945,9 @@ async function processOneTerm(term, opts) {
                     const dbBps = _parsePages(dbPn).filter(e => !e.roman);
                     const tjBps = _parsePages(r.pages || '').filter(e => !e.roman);
                     const same = dbBps.length === tjBps.length &&
-                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                    const tjExt = !same && tjBps.length > dbBps.length &&
-                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage);
-                    if (!same && !tjExt) { r.pages = dbPn; _tjModified = true; }
+                        dbBps.every((bp, i) => tjBps[i]?.start === bp.start && tjBps[i]?.pdfPage === bp.pdfPage
+                            && !!tjBps[i]?.marked === !!bp.marked);
+                    if (!same) { r.pages = dbPn; _tjModified = true; }
                 }
                 if (_tjModified) _writeJson(TERMS_JSON, _tj);
                 addDecisionReports(casesPath, _termEntry, caseFilter || '');
@@ -14119,7 +14181,7 @@ async function main() {
 
     if (flags.has('--reports')) {
         const volFilter = flagValues.volume ? parseInt(flagValues.volume, 10) : null;
-        await syncTermsReports(positional[0] || null, volFilter);
+        await syncTermsReports(positional[0] || null, volFilter, flags.has('--scan'));
         return;
     }
 

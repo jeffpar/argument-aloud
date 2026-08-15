@@ -1723,6 +1723,47 @@ async function loadFiles(url) {
 // ── Lazy term loading ────────────────────────────────────────────────────────
 let TERMS = [];         // flat array {name, file, cases(count), term(derived), journal_*} built from terms.json in init()
 let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
+
+// Filter options for the Terms nav's Filter button — extensible: each is a
+// checkbox, and multiple can be active at once (unlike sort, which is
+// single-select); a case matching ANY active filter stays visible (OR, not
+// AND — see _visibleTermCases). A term/decade qualifies for one when its
+// precomputed terms.json count (same key name — "orders", "digs",
+// "dismissals") is > 0; a case list is additionally filtered case-by-case
+// once actually fetched, via _FILTER_CASE_TEST below.
+const _FILTER_OPTIONS = [
+  { key: 'digs',       label: 'DIGs' },
+  { key: 'dismissals', label: 'Dismissals' },
+  { key: 'orders',     label: 'Orders' },
+];
+// Per-case test backing each filter option, applied once a term's cases.json
+// has actually been fetched (see _visibleTermCases). "digs" is a subset of
+// "dismissals" — dismissed-as-improvidently-granted cases are still just
+// "dismissed" too — matching how both are counted server-side in
+// syncTermsJson (scripts/update_cases.js).
+const _FILTER_CASE_TEST = {
+  orders:     (c, termEntry) => _isOrdersCase(c.usCite, termEntry),
+  dismissals: (c) => /dismissed/i.test(c.result || ''),
+  digs:       (c) => /dismissed as improvidently granted/i.test(c.result || ''),
+};
+// True if `c` matches at least one active Filter panel option, or none are
+// active at all — shared by _visibleTermCases (term case lists) and nav
+// search (title/keyword/number/citation modes, see runNavSearch) so a
+// search made while filtered stays scoped to the same cases. termEntry is
+// the citing term's own TERMS[] entry (carries reports[], needed only by
+// the 'orders' test) — pass null when no filters are active, since none of
+// the tests get called in that case.
+function _caseMatchesActiveFilters(c, termEntry) {
+  if (!_activeFilters.size) return true;
+  return [..._activeFilters].some(key => _FILTER_CASE_TEST[key]?.(c, termEntry));
+}
+const _FILTER_KEYS = new Set(_FILTER_OPTIONS.map(o => o.key));
+// filter=a+b in the URL — URLSearchParams decodes a literal "+" back to a
+// space (form-encoding convention), and a "," from an older shared link is
+// accepted too, so split on either.
+let _activeFilters = new Set(
+  (new URLSearchParams(location.search).get('filter') || '').split(/[\s,]+/).filter(k => _FILTER_KEYS.has(k)),
+);
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
 // Old collection ids, mapped forward to their current value, so
@@ -2725,16 +2766,48 @@ function _parsePnBps(pn) {
     const colon = seg.indexOf(':');
     if (colon < 0) return null;
     const startStr = seg.slice(0, colon).trim();
-    const pdfPage  = parseInt(seg.slice(colon + 1).trim(), 10);
+    let pdfPageStr = seg.slice(colon + 1).trim();
+    // A trailing "*" hand-marks an "orders mapping" breakpoint that doesn't
+    // already fit the ×00+1-above-800 pattern — see isOrdersBreakpoint.
+    const marked = pdfPageStr.endsWith('*');
+    if (marked) pdfPageStr = pdfPageStr.slice(0, -1).trim();
+    const pdfPage = parseInt(pdfPageStr, 10);
     if (!isFinite(pdfPage)) return null;
     const start = parseInt(startStr, 10);
-    if (isFinite(start)) return { start, pdfPage };
+    if (isFinite(start)) return { start, pdfPage, ...(marked ? { marked: true } : {}) };
     const romanVal = _parseRomanNumeral(startStr);
-    return isFinite(romanVal) ? { start: romanVal, pdfPage, roman: true, startStr } : null;
+    return isFinite(romanVal) ? { start: romanVal, pdfPage, roman: true, startStr, ...(marked ? { marked: true } : {}) } : null;
   }).filter(Boolean).sort((a, b) => {
     if (!!a.roman !== !!b.roman) return a.roman ? 1 : -1;
     return a.start - b.start;
   });
+}
+
+// True if a breakpoint marks the start of an "orders mapping" section — see
+// isOrdersBreakpoint in scripts/update_cases.js (kept in sync by hand; no
+// shared module between the two runtimes).
+function _isOrdersBreakpoint(bp) {
+  return !!bp.marked || (bp.start > 800 && bp.start % 100 === 1);
+}
+
+// True if a case's own usCite lands in an "orders mapping" section of its
+// volume — see _isOrdersBreakpoint. A roman-numeral page (front matter)
+// always qualifies; an arabic page qualifies if the breakpoint segment it
+// falls into is itself an orders mapping. termEntry is the citing term's own
+// TERMS[] entry (carries reports[]) — kept in sync with _isOrdersCase in
+// scripts/update_cases.js by hand; no shared module between the two runtimes.
+function _isOrdersCase(usCite, termEntry) {
+  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite.trim());
+  if (!m) return false;
+  if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
+  const vol  = parseInt(m[1], 10);
+  const page = parseInt(m[2], 10);
+  const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
+  if (!report?.pages) return false;
+  const bps = _parsePnBps(report.pages).filter(bp => !bp.roman);
+  let match = null;
+  for (const bp of bps) { if (bp.start <= page) match = bp; else break; }
+  return !!match && _isOrdersBreakpoint(match);
 }
 
 // Compute the PDF page for a given US Reports logical page using the term's
@@ -4377,10 +4450,40 @@ function _citationSortKey(usCite) {
   return null;
 }
 
+// Cheap, synchronous stand-in for _visibleTermCases(term, cases).length,
+// used for a term's case-count badge before its cases.json has actually been
+// fetched (or while collapsed) — reads only terms.json's own precomputed
+// per-term counts, no network call. Exact when zero or one filter is active,
+// since terms.json already carries each as an exact count (not just a
+// boolean). With two or more active at once, an exact union count would need
+// the real cases (filters overlap — e.g. every 'digs' case is also a
+// 'dismissals' case — so the counts can't just be summed), so this uses the
+// largest individual active count as a lower-bound estimate instead: never
+// the full unfiltered total, and exact whenever one active filter's cases
+// are a subset of another's (as digs/dismissals always are). Self-corrects
+// to the real count the moment the term is actually opened (see ensureBuilt).
+function _visibleTermCaseCount(page) {
+  if (!_activeFilters.size) return typeof page.cases === 'number' ? page.cases : 0;
+  return Math.max(...[..._activeFilters].map(key => page[key] || 0));
+}
+
+// Returns the case.json entries visible in `term`'s sidebar list — has
+// audio/transcript events, a decision link, or files — further narrowed by
+// whatever Filter panel options are currently active: a case matching ANY
+// active filter (OR, not AND) stays visible (see _activeFilters/_FILTER_CASE_TEST).
+function _visibleTermCases(term, cases) {
+  let visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+  if (_activeFilters.size) {
+    const termEntry = TERMS.find(t => t.term === term);
+    visible = visible.filter(c => _caseMatchesActiveFilters(c, termEntry));
+  }
+  return visible;
+}
+
 // Build (or rebuild) a term's case list under `ul` using the given sort mode.
 // Does not rebuild if mode hasn't changed (idempotent).
 function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
-  const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+  const visible = _visibleTermCases(term, cases);
 
   // Precompute URL ids for all cases in the term (not just visible) so the
   // uniqueness check is accurate and stable across sort modes.
@@ -4700,6 +4803,75 @@ function _buildSortMenu(anchorEl, options, getState, onPick) {
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
+// Checkbox-list popover for the Terms nav's Filter button. Unlike
+// _buildSortMenu (single-select, closes as soon as you pick), each option
+// here toggles independently and the menu stays open so several filters
+// can be flipped in one visit — it closes only on an outside click.
+function _buildFilterMenu(anchorEl, options, activeSet, onToggle) {
+  document.querySelectorAll('.term-filter-menu').forEach(m => m.remove());
+  const menu = document.createElement('ul');
+  menu.className = 'term-filter-menu';
+  for (const opt of options) {
+    const item = document.createElement('li');
+    item.className = 'term-filter-option';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = activeSet.has(opt.key);
+    const label = document.createElement('span');
+    label.textContent = opt.label;
+    item.appendChild(checkbox);
+    item.appendChild(label);
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (e.target !== checkbox) checkbox.checked = !checkbox.checked;
+      onToggle(opt.key, checkbox.checked);
+    });
+    menu.appendChild(item);
+  }
+  document.body.appendChild(menu);
+  const rect = anchorEl.getBoundingClientRect();
+  menu.style.top  = (rect.bottom + window.scrollY) + 'px';
+  menu.style.left = (rect.left   + window.scrollX) + 'px';
+  const close = (e) => {
+    if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
+  };
+  setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+}
+
+// "orders" -> "hasOrders" — the dataset property name (see buildNav) backing
+// a decade/term's [data-has-<key>] precomputed-filter attribute.
+function _filterDataKey(key) {
+  return 'has' + key.charAt(0).toUpperCase() + key.slice(1);
+}
+
+// Applies the current _activeFilters state to decade/term visibility: a
+// decade or term stays visible if no filters are active, or if it qualifies
+// for at least one of them (OR, not AND — see _filterDataKey's [data-has-*]
+// attributes, set once in buildNav from terms.json's own precomputed
+// counts). Also persists the set to the URL's filter= param, and re-applies
+// to every term's own case list (only already-built ones actually rebuild —
+// see termLi._applyFilterState).
+function _applyActiveFilters() {
+  const termListEl = document.getElementById('term-list');
+  if (termListEl) {
+    const keys = [..._activeFilters];
+    termListEl.querySelectorAll('.decade-group, .term-group').forEach(el => {
+      const hidden = keys.length > 0 && !keys.some(key => el.dataset[_filterDataKey(key)] === '1');
+      el.classList.toggle('filter-hidden', hidden);
+    });
+  }
+  // Written by hand rather than via url.searchParams.set, which would
+  // percent-encode a literal "+" as "%2B" — same reason it's read back with
+  // a regex above instead of assuming "+" survives unescaped.
+  const filterStr = [..._activeFilters].join('+');
+  const url = new URL(location.href);
+  url.searchParams.delete('filter');
+  const base = url.toString();
+  const next = filterStr ? base + (base.includes('?') ? '&' : '?') + 'filter=' + filterStr : base;
+  history.replaceState(null, '', next);
+  document.querySelectorAll('.term-group').forEach(el => el._applyFilterState?.());
+}
+
 // Wires a collapsible sidebar row (term, collection, group, top-level section, ...)
 // so a click anywhere on it — from the triangle through the end of the label —
 // behaves consistently:
@@ -4753,6 +4925,20 @@ function buildNav(title = 'Terms', id = '') {
   termsLabel.textContent = title;
   termsHeader.appendChild(termsTog);
   termsHeader.appendChild(termsLabel);
+  const _navFilterBtn = document.getElementById('nav-filter-btn');
+  if (_navFilterBtn) {
+    _navFilterBtn.removeAttribute('hidden');
+    termsHeader.appendChild(_navFilterBtn);
+    _navFilterBtn.classList.toggle('active', _activeFilters.size > 0);
+    _navFilterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      _buildFilterMenu(_navFilterBtn, _FILTER_OPTIONS, _activeFilters, (key, checked) => {
+        if (checked) _activeFilters.add(key); else _activeFilters.delete(key);
+        _navFilterBtn.classList.toggle('active', _activeFilters.size > 0);
+        _applyActiveFilters();
+      });
+    });
+  }
   const _navSearchBtn = document.getElementById('nav-search-btn');
   if (_navSearchBtn) { _navSearchBtn.removeAttribute('hidden'); termsHeader.appendChild(_navSearchBtn); }
   _wireAccordionHeader(termsHeader, {
@@ -4777,6 +4963,13 @@ function buildNav(title = 'Terms', id = '') {
   for (const decade of TERMS_GROUPED) {
     const decLi = document.createElement('li');
     decLi.className = 'decade-group';
+    // Precomputed from terms.json's own per-term filter counts (orders,
+    // digs, dismissals — see syncTermsJson in update_cases.js) — lets the
+    // Filter panel hide non-qualifying decades/terms without a per-term case
+    // fetch (see _applyActiveFilters/_filterDataKey).
+    for (const opt of _FILTER_OPTIONS) {
+      if ((decade.groups || []).some(page => page[opt.key] > 0)) decLi.dataset[_filterDataKey(opt.key)] = '1';
+    }
 
     const decHeader = document.createElement('div');
     decHeader.className = 'decade-header';
@@ -4815,6 +5008,9 @@ function buildNav(title = 'Terms', id = '') {
       const termLi = document.createElement('li');
       termLi.className = 'term-group';
       termLi.dataset.term = term;
+      for (const opt of _FILTER_OPTIONS) {
+        if (page[opt.key] > 0) termLi.dataset[_filterDataKey(opt.key)] = '1';
+      }
 
       const termHeader = document.createElement('div');
       termHeader.className = 'term-header';
@@ -4834,7 +5030,7 @@ function buildNav(title = 'Terms', id = '') {
       termCount.className = 'term-case-count';
       termCount.type = 'button';
       if (typeof page.cases === 'number') {
-        termCount.textContent = page.cases + '\u00a0Cases';
+        termCount.textContent = _visibleTermCaseCount(page) + '\u00a0Cases';
       }
       termHeader.appendChild(termCount);
 
@@ -4872,7 +5068,7 @@ function buildNav(title = 'Terms', id = '') {
             _sortMode = mode;
             _sortAsc  = asc;
             history.replaceState(null, '', buildUrlParams({ sort: _sortMode, o: _sortAsc ? 'a' : 'd' }, []));
-            const visible = _casesCache ? _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files) : null;
+            const visible = _casesCache ? _visibleTermCases(term, _casesCache) : null;
             const count = visible ? visible.length : null;
             termCount.textContent = _sortModeLabel(_sortMode, count, _sortAsc);
             termCount.classList.add('sort-active');
@@ -4906,7 +5102,7 @@ function buildNav(title = 'Terms', id = '') {
         const cases = await fetchTermCases(term);
         _casesCache = cases;
         buildTermCasesSorted(term, cases, ul, _sortMode, _sortAsc);
-        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+        const visible = _visibleTermCases(term, cases);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
@@ -4914,14 +5110,14 @@ function buildNav(title = 'Terms', id = '') {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
         _casesCache = cases;
-        const visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+        const visible = _visibleTermCases(term, cases);
         termCount.textContent = visible.length + '\u00a0Cases';
       };
       termLi._ensureBuilt = ensureBuilt;
       termLi._ensureCount = ensureCount;
       termLi._showSortLabel = () => {
         if (!_casesCache) return;
-        const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+        const visible = _visibleTermCases(term, _casesCache);
         termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
         termCount.classList.add('sort-active');
       };
@@ -4930,10 +5126,26 @@ function buildNav(title = 'Terms', id = '') {
         _sortAsc  = asc;
         if (_casesCache) {
           buildTermCasesSorted(term, _casesCache, ul, _sortMode, _sortAsc);
-          const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+          const visible = _visibleTermCases(term, _casesCache);
           termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
           termCount.classList.add('sort-active');
         }
+      };
+      // Re-applies the current Filter panel state (see _activeFilters) —
+      // called on every .term-group whenever a filter is toggled (see
+      // _applyActiveFilters). If cases.json hasn't been fetched yet (term
+      // never opened/counted), falls back to the cheap precomputed badge
+      // count instead of leaving the stale pre-toggle text in place.
+      termLi._applyFilterState = () => {
+        if (!_casesCache) {
+          termCount.textContent = _visibleTermCaseCount(page) + ' Cases';
+          return;
+        }
+        buildTermCasesSorted(term, _casesCache, ul, _sortMode, _sortAsc);
+        const visible = _visibleTermCases(term, _casesCache);
+        termCount.textContent = termLi.classList.contains('open')
+          ? _sortModeLabel(_sortMode, visible.length, _sortAsc)
+          : visible.length + ' Cases';
       };
 
       _wireAccordionHeader(termHeader, {
@@ -4944,7 +5156,7 @@ function buildNav(title = 'Terms', id = '') {
           termCount.classList.remove('sort-active');
           // Reset to plain count label when collapsed
           if (_casesCache) {
-            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+            const visible = _visibleTermCases(term, _casesCache);
             termCount.textContent = visible.length + '\u00a0Cases';
           }
           updateEmptyStateForTerm(null);
@@ -4957,7 +5169,7 @@ function buildNav(title = 'Terms', id = '') {
           await ensureBuilt();
           termCount.classList.add('sort-active');
           if (_casesCache) {
-            const visible = _casesCache.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+            const visible = _visibleTermCases(term, _casesCache);
             termCount.textContent = _sortModeLabel(_sortMode, visible.length, _sortAsc);
           }
           updateEmptyStateForTerm(term);
@@ -4981,6 +5193,12 @@ function buildNav(title = 'Terms', id = '') {
     decLi.appendChild(decUl);
     termsUl.appendChild(decLi);
   }
+
+  // Apply any filter state restored from the URL (see _activeFilters' own
+  // initializer). Harmless to call in full here even though no term case
+  // lists exist yet — _applyFilterState's fallback branch just recomputes
+  // the same badge text _visibleTermCaseCount already set at creation above.
+  if (_activeFilters.size) _applyActiveFilters();
 }
 
 // ── Collections nav ──────────────────────────────────────────────────────────
@@ -9784,8 +10002,9 @@ let _navSearchActivate = null;
       await Promise.all([...byTerm].map(async ([term, idData]) => {
         const cases = await fetchTermCases(term);
         const idSet = new Set(idData);
+        const termEntry = _activeFilters.size ? TERMS.find(t => t.term === term) : null;
         for (const c of cases) {
-          if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+          if ((idSet.has(c.id) || idSet.has(c.number)) && _caseMatchesActiveFilters(c, termEntry)) results.push({ term, c });
         }
       }));
       results.sort((a, b) =>
@@ -10028,15 +10247,16 @@ let _navSearchActivate = null;
     const results = []; // { term, c, loc?, count? }
     await Promise.all([...byTerm].map(async ([term, idData]) => {
       const cases = await fetchTermCases(term);
+      const termEntry = _activeFilters.size ? TERMS.find(t => t.term === term) : null;
       if (keywordMode) {
         for (const c of cases) {
           const loc = idData.has(c.id) ? idData.get(c.id) : idData.has(c.number) ? idData.get(c.number) : undefined;
-          if (loc !== undefined) results.push({ term, c, loc, count: loc ? (loc.length % 4 === 0 ? loc.length / 4 : (loc[2] || 0)) : 0 });
+          if (loc !== undefined && _caseMatchesActiveFilters(c, termEntry)) results.push({ term, c, loc, count: loc ? (loc.length % 4 === 0 ? loc.length / 4 : (loc[2] || 0)) : 0 });
         }
       } else {
         const idSet = new Set(idData);
         for (const c of cases) {
-          if (idSet.has(c.id) || idSet.has(c.number)) results.push({ term, c });
+          if ((idSet.has(c.id) || idSet.has(c.number)) && _caseMatchesActiveFilters(c, termEntry)) results.push({ term, c });
         }
       }
     }));
