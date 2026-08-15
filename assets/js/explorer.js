@@ -2740,7 +2740,7 @@ function formatDecisionDate(iso) {
 }
 
 function hasDecisionHref(c) {
-  return !!(c && (c.decision_loc || c.decision_ussc || c.decision_vol));
+  return !!(c && (c.decision_loc || c.decision_gov || c.decision_vol));
 }
 
 // Convert a roman numeral string (e.g. "cxxv") to an integer, or NaN if the
@@ -2828,9 +2828,9 @@ function _reportPdfPage(usCite, termEntry) {
   return page + (match.pdfPage - match.start);
 }
 
-// Returns [{value, href, title}] in display order: LOC, USSC, US Reports.
+// Returns [{value, href, title}] in display order: LOC, GOV, US Reports.
 // Used by the case-page document dropdown, which lists every available
-// decision source with its own (LOC)/(USSC)/(usCite) suffix.
+// decision source with its own (LOC)/(GOV)/(usCite) suffix.
 function _buildDecisionEntries(caseEntry) {
   if (!caseEntry) return [];
   const dateStr  = caseEntry.decision || '';
@@ -2839,9 +2839,9 @@ function _buildDecisionEntries(caseEntry) {
   if (caseEntry.decision_loc)
     entries.push({ value: 'decision_loc',     href: caseEntry.decision_loc,
                    title: dateLabel + '\u00a0(LOC)' });
-  if (caseEntry.decision_ussc)
-    entries.push({ value: 'decision_ussc',    href: caseEntry.decision_ussc,
-                   title: dateLabel + '\u00a0(USSC)' });
+  if (caseEntry.decision_gov)
+    entries.push({ value: 'decision_gov',    href: caseEntry.decision_gov,
+                   title: dateLabel + '\u00a0(GOV)' });
   if (caseEntry.decision_vol) {
     let href = caseEntry.decision_vol;
     if (!href.includes('#page=')) {
@@ -2857,10 +2857,10 @@ function _buildDecisionEntries(caseEntry) {
 
 // Returns the single best decision entry {value, href, title} for contexts
 // that show just one decision link (case file list, scales-icon quick-open):
-// prefer decision_loc, then decision_ussc, then decision_vol — same
+// prefer decision_loc, then decision_gov, then decision_vol — same
 // priority order as _buildDecisionEntries, whose href/page-anchor computation
 // this reuses. Unlike the dropdown, the title always uses the usCite rather
-// than a (LOC)/(USSC) source suffix.
+// than a (LOC)/(GOV) source suffix.
 function _buildPrimaryDecisionEntry(caseEntry) {
   const first = _buildDecisionEntries(caseEntry)[0];
   if (!first) return null;
@@ -2871,7 +2871,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 }
 
 // Returns [{value, href, title, view?}] for every opinion-text source this
-// case has \u2014 LOC, USSC, Volume (decision_vol), and XML (decision_xml), in
+// case has \u2014 LOC, GOV, Volume (decision_vol), and XML (decision_xml), in
 // that order, each included only when the corresponding prop exists \u2014 titled
 // "Decision on <full date> (XXX)". This is the shared source list behind both
 // the top-right document dropdown (_currentDecisionEntries) and the
@@ -2881,7 +2881,7 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
   const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
-  const SUFFIX = { decision_loc: 'LOC', decision_ussc: 'USSC', decision_vol: 'VOL' };
+  const SUFFIX = { decision_loc: 'LOC', decision_gov: 'GOV', decision_vol: 'VOL' };
   const entries = _buildDecisionEntries(caseEntry).map(e => ({ ...e, title: dateLabel + '\u00a0(' + SUFFIX[e.value] + ')' }));
   if (caseEntry.decision_xml) {
     entries.push({
@@ -2899,16 +2899,20 @@ function _buildOpinionEntries(caseEntry) {
 // _setCaseInfoRow2) \u2014 "Decision (LOC)" etc., as opposed to that same list's
 // own `title`, which is what the doc viewer's title bar shows once opened.
 function _buildCiteMenuEntries(caseEntry) {
-  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_ussc: 'Decision (USSC)', decision_vol: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
+  const MENU_LABELS = { decision_loc: 'Decision (LOC)', decision_gov: 'Decision (GOV)', decision_vol: 'Decision (VOL)', decision_xml: 'Decision (XML)' };
   return _buildOpinionEntries(caseEntry).map(e => ({ ...e, menuLabel: MENU_LABELS[e.value] }));
 }
 
 // Bidirectional mapping between the file-select dropdown's decision_* option
 // values and the short values used for the URL 'file' param, so a selected
-// decision source round-trips through the URL (?file=loc|ussc|vol|xml) and
-// can be restored on load.
-const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_ussc: 'ussc', decision_vol: 'vol', decision_xml: 'xml' };
-const DECISION_PARAM_KEYS  = { loc: 'decision_loc', ussc: 'decision_ussc', vol: 'decision_vol', xml: 'decision_xml' };
+// decision source round-trips through the URL (?file=loc|gov|vol|xml) and
+// can be restored on load. DECISION_PARAM_KEYS also still accepts the old
+// "ussc" code (pre decision_ussc->decision_gov rename) so links shared
+// before that rename keep resolving — DECISION_FILE_PARAMS (the write
+// direction, choosing what a fresh selection puts in the URL) only ever
+// produces the current "gov" code.
+const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_gov: 'gov', decision_vol: 'vol', decision_xml: 'xml' };
+const DECISION_PARAM_KEYS  = { loc: 'decision_loc', gov: 'decision_gov', ussc: 'decision_gov', vol: 'decision_vol', xml: 'decision_xml' };
 
 // If `param` (a URL 'file' value) names a decision source present in the
 // current case's _currentDecisionEntries, show it in the doc viewer and sync
@@ -2970,7 +2974,7 @@ function _showHistoryFromParam(param) {
 }
 
 // Popup menu for #case-cite: lets the user pick which opinion-text source to
-// open in the doc viewer, when one or more of LOC/USSC/Volume/XML is
+// open in the doc viewer, when one or more of LOC/GOV/Volume/XML is
 // available. Reuses the same generic dropdown look as the term/collection
 // sort menus (see _buildSortMenu), just with plain (non-toggling) options.
 function _buildCiteMenu(anchorEl, entries) {
@@ -2985,6 +2989,13 @@ function _buildCiteMenu(anchorEl, entries) {
       e.stopPropagation();
       menu.remove();
       showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+      const fileSelect = document.getElementById('file-select');
+      if (fileSelect && !fileSelect.hidden) fileSelect.value = entry.value;
+      const url = new URL(location.href);
+      const fileVal = DECISION_FILE_PARAMS[entry.value];
+      if (fileVal) url.searchParams.set('file', fileVal); else url.searchParams.delete('file');
+      url.searchParams.delete('citation');
+      history.replaceState(null, '', url);
     });
     menu.appendChild(item);
   }
@@ -3427,7 +3438,7 @@ function _setCaseInfoRow2(caseEntry) {
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
   // "(367 U.S. 203)" — click opens a small menu of every opinion-text source
-  // this case has (LOC/USSC/Volume/XML), each opening in the doc viewer.
+  // this case has (LOC/GOV/Volume/XML), each opening in the doc viewer.
   const citeEl = document.getElementById('case-cite');
   const citeEntries = _buildCiteMenuEntries(caseEntry);
   if (citeEntries.length && caseEntry.usCite) {
@@ -3988,12 +3999,12 @@ function findCitationItem(param) {
   return document.querySelector(`.file-item-citation[data-citation-idx="${CSS.escape(String(param))}"]`);
 }
 
-// Look up a cited case's own decision link (decision_loc, else decision_ussc,
+// Look up a cited case's own decision link (decision_loc, else decision_gov,
 // else decision_vol) by loading its term's cases.json and matching on id.
 async function _resolveCitationHref(term, id) {
   const cases = await fetchTermCases(term);
   const c = Array.isArray(cases) ? cases.find(x => x?.id === id) : null;
-  return c ? (c.decision_loc || c.decision_ussc || c.decision_vol || null) : null;
+  return c ? (c.decision_loc || c.decision_gov || c.decision_vol || null) : null;
 }
 
 // Build a single <li class="file-item"> with the standard click handler.
@@ -4219,7 +4230,7 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
     });
   }
 
-  // Append one "Decision on <Date> (LOC/USSC/VOL/XML)" entry per available
+  // Append one "Decision on <Date> (LOC/GOV/VOL/XML)" entry per available
   // decision source \u2014 the same set the top-right document dropdown offers
   // (see _buildOpinionEntries) \u2014 rather than just the single primary one.
   _opinionEntries.forEach(oe => {
@@ -7661,7 +7672,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   const _opFileEntries = _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || ''))
     .filter(f => {
       const t = (f.type || '').toLowerCase();
-      if (t === 'opinion' && caseEntry.decision_ussc) return false;
+      if (t === 'opinion' && caseEntry.decision_gov) return false;
       if (t === 'reference') return false;
       return true;
     })
@@ -7703,7 +7714,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       fileSelect.appendChild(opt);
     });
     _opRawFiles.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '')).forEach(f => {
-      if ((f.type || '').toLowerCase() === 'opinion' && caseEntry.decision_ussc) return;
+      if ((f.type || '').toLowerCase() === 'opinion' && caseEntry.decision_gov) return;
       if ((f.type || '').toLowerCase() === 'reference') return;
       const opt = document.createElement('option');
       opt.value = 'file:' + f.file;
@@ -8023,7 +8034,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     fileSelect.appendChild(opt);
   });
   sortedAudio.filter(a => a.type === 'decision').forEach(_appendAudioOption);
-  // Append sentinel options linking to decision PDFs, in order: LOC, USSC, US Reports.
+  // Append sentinel options linking to decision PDFs, in order: LOC, GOV, US Reports.
   _currentDecisionEntries.forEach(de => {
     const sentinelOpt = document.createElement('option');
     sentinelOpt.value = de.value;

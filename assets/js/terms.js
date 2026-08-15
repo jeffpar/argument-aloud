@@ -298,7 +298,7 @@
       decIso: decIso,
       voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
       opinionText: opinionText,
-      decisionHref: opinionText ? (c.decision_loc || c.decision_ussc || c.decision_vol || '') : '',
+      decisionHref: opinionText ? (c.decision_loc || c.decision_gov || c.decision_vol || '') : '',
       decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
         + (opinionText ? ' (' + opinionText + ')' : ''),
       sortValues: {

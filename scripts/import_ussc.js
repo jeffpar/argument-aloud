@@ -981,7 +981,7 @@ async function fetchDocketInfo(number, termYear = '') {
         return {};
     }
     const { questionsHref, opinionHref, proceedings } = parseDocket(html, url);
-    return { questions_href: questionsHref, decision_ussc: opinionHref, proceedings };
+    return { questions_href: questionsHref, decision_gov: opinionHref, proceedings };
 }
 
 // ── cases.json updates ─────────────────────────────────────────────────────
@@ -2221,7 +2221,7 @@ async function importOpinionCases(casesPath, term) {
         const newCaseObj = { title: opinion.name, number };
         if (opinion.date)  newCaseObj.decision     = opinion.date;
         if (cite)          newCaseObj.usCite        = cite;
-        if (opinion.href)  newCaseObj.decision_ussc  = opinion.href;
+        if (opinion.href)  newCaseObj.decision_gov  = opinion.href;
 
         data.push(reorderCase(newCaseObj));
         existingLower.add(docketKey);
@@ -2414,7 +2414,7 @@ async function importRelatingToOrdersCases(casesPath, term) {
             // type: 'statement' (not 'opinion') so update_cases.js's
             // syncOpinionHrefFromFiles/checkOpinionForCase — which only look
             // for type === 'opinion' — never mistake one of these for the
-            // case's actual decision and auto-populate decision_ussc from it.
+            // case's actual decision and auto-populate decision_gov from it.
             // No 'group' set, so explorer.js's Records grouping picks it up
             // via its type-based fallback rather than the usual "Other" bucket.
             const entry = { type: 'statement', title };
@@ -2447,7 +2447,7 @@ async function importRelatingToOrdersCases(casesPath, term) {
     }
 }
 
-// ── Step 7: decision_ussc / decision_loc maintenance ──────────────────────
+// ── Step 7: decision_gov / decision_loc maintenance ──────────────────────
 
 async function upgradeDeadOpinionHrefs(casesPath) {
     const data = readJson(casesPath);
@@ -2461,13 +2461,13 @@ async function upgradeDeadOpinionHrefs(casesPath) {
 
     const baseUrls = new Set();
     for (const c of data) {
-        const href = c.decision_ussc || '';
+        const href = c.decision_gov || '';
         if (href && !href.startsWith('https://web.archive.org/')) {
             baseUrls.add(href.split('#')[0]);
         }
     }
     if (!baseUrls.size) {
-        vprint('No live decision_ussc values to verify.');
+        vprint('No live decision_gov values to verify.');
     } else {
         const replacements = new Map();
         for (const base of [...baseUrls].sort()) {
@@ -2482,13 +2482,13 @@ async function upgradeDeadOpinionHrefs(casesPath) {
             }
         }
         for (const c of data) {
-            const href = c.decision_ussc || '';
+            const href = c.decision_gov || '';
             if (!href || href.startsWith('https://web.archive.org/')) continue;
             const base = href.split('#')[0];
             const frag = href.slice(base.length);
             const wb   = replacements.get(base) || '';
             if (wb) {
-                c.decision_ussc = wb + frag;
+                c.decision_gov = wb + frag;
                 casesModified = true;
             }
         }
@@ -2534,7 +2534,7 @@ async function backfillOpinionHrefs(casesPath, term) {
         let href = opinion.href;
         const cite = _formatUsCite(opinion.cite || '');
         const date = opinion.date || '';
-        const existingHref = c.decision_ussc || '';
+        const existingHref = c.decision_gov || '';
         const existingCite = c.usCite || '';
         const existingDate = c.decision || '';
 
@@ -2545,15 +2545,15 @@ async function backfillOpinionHrefs(casesPath, term) {
         if (href && href.includes('/preliminaryprint/')) {
             const termYear = term.split('-')[0];
             const docketInfo = await fetchDocketInfo(number, termYear);
-            if (docketInfo.decision_ussc) {
+            if (docketInfo.decision_gov) {
                 vprint(`  ${number}: replacing preliminaryprint href with docket opinion PDF`);
-                href = docketInfo.decision_ussc;
+                href = docketInfo.decision_gov;
             }
         }
 
         const updateHref = (
             !existingHref.startsWith('https://web.archive.org/')
-            && !c.decision_ussc_bad
+            && !c.decision_gov_bad
             && existingHref !== href
         );
         const updateCite = _shouldUpdateUsCite(existingCite, cite);
@@ -2564,15 +2564,15 @@ async function backfillOpinionHrefs(casesPath, term) {
         const updated = { ...c };
         if (updateDate) updated.decision      = date;
         if (updateCite) updated.usCite        = cite;
-        if (updateHref) updated.decision_ussc = href;
+        if (updateHref) updated.decision_gov = href;
         // Strip fields being removed (updateX but value is falsy)
-        if (updateHref && !href) delete updated.decision_ussc;
+        if (updateHref && !href) delete updated.decision_gov;
 
         const reordered = reorderCase(updated);
         for (const k of Object.keys(c)) delete c[k];
         Object.assign(c, reordered);
         casesModified = true;
-        if (updateHref) console.log(`  ${number}: decision_ussc → ${href}`);
+        if (updateHref) console.log(`  ${number}: decision_gov → ${href}`);
         if (updateCite) console.log(`  ${number}: usCite → ${cite}`);
         if (updateDate) console.log(`  ${number}: decision → ${date}`);
 
@@ -2583,9 +2583,9 @@ async function backfillOpinionHrefs(casesPath, term) {
     }
     if (casesModified) {
         writeJson(casesPath, data);
-        reportChange('Updated cases.json with decision_ussc entries.');
+        reportChange('Updated cases.json with decision_gov entries.');
     } else {
-        vprint('decision_ussc values already up to date.');
+        vprint('decision_gov values already up to date.');
     }
 }
 

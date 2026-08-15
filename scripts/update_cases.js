@@ -467,7 +467,7 @@ export function syncFilesCount(casesPath) {
 
 function _classifyDecisionHref(url) {
     if ((url || '').includes('tile.loc.gov')) return 'decision_loc';
-    return 'decision_ussc';
+    return 'decision_gov';
 }
 
 export function syncOpinionHrefFromFiles(casesPath) {
@@ -479,7 +479,7 @@ export function syncOpinionHrefFromFiles(casesPath) {
     let modified = false;
 
     for (const c of data) {
-        const hasDecisionHref = c.decision_loc || c.decision_ussc || c.decision_vol;
+        const hasDecisionHref = c.decision_loc || c.decision_gov || c.decision_vol;
         const needsHref     = !hasDecisionHref;
         const needsDecision = !c.decision;
         if (!needsHref && !needsDecision) continue;
@@ -1232,7 +1232,7 @@ function checkArgumentsHaveVotes(casesPath, term) {
         const argued = !!(c.argument || c.reargument);
         if (!argued && !_VERBOSE) continue;
         const label = c.number || c.id || '?';
-        const decisionUrl = c.decision_loc || c.decision_ussc || c.decision_vol || '';
+        const decisionUrl = c.decision_loc || c.decision_gov || c.decision_vol || '';
         const suffix = decisionUrl ? ` (see ${decisionUrl})` : '';
         console.log(`WARNING: ${term}/${label}: has decision but no votes${suffix}`);
     }
@@ -1252,7 +1252,7 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
 
         for (const [hrefKey, badKey, tag] of [
             ['decision_loc',  'decision_loc_bad',  'loc'],
-            ['decision_ussc', 'decision_ussc_bad', 'ussc'],
+            ['decision_gov',  'decision_gov_bad',  'gov'],
             ['decision_vol', null,              'rpt'],
         ]) {
             const oh = c[hrefKey] || '';
@@ -1614,7 +1614,7 @@ function checkAudioDates(casesPath, term, dryRun = false) {
 }
 
 function _hasDecisionHref(c) {
-    return !!(c.decision_loc || c.decision_ussc || c.decision_vol);
+    return !!(c.decision_loc || c.decision_gov || c.decision_vol);
 }
 
 function warnMissingOpinionHref(casesPath, term) {
@@ -7954,7 +7954,7 @@ function _scdbFieldPresent(c, key) {
 }
 
 function _scdbHasImportedOpinion(c) {
-    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_ussc','decision_vol']) {
+    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_gov','decision_vol']) {
         if (_scdbFieldPresent(c, k)) return true;
     }
     return false;
@@ -8770,7 +8770,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             );
             const pushErr = (field, msg) => {
                 if (ignored.has(field)) return;
-                if (verbose) msg += `\n${' '.repeat(21)}${c.decision_loc || c.decision_ussc || ''}\n`;
+                if (verbose) msg += `\n${' '.repeat(21)}${c.decision_loc || c.decision_gov || ''}\n`;
                 caseErrors.push(msg);
             };
 
@@ -9400,7 +9400,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             if (discrepancy) {
                 totalDiscrepancies++;
                 if (update) {
-                    console.log(`                  ${c.decision_loc || c.decision_ussc || c.decision_vol || '(no decision href)'}`);
+                    console.log(`                  ${c.decision_loc || c.decision_gov || c.decision_vol || '(no decision href)'}`);
                     console.log();
                     const answer = await _ask('  Change to CSV date? (y/N) ');
                     if (answer.toLowerCase() === 'y') {
@@ -10857,7 +10857,7 @@ function _loadCaseByRef(term, id) {
 // For each opCite entry, search the case's own argument transcript(s) for
 // mentions of its parties, returning { title, href, refs } for every entry
 // that's actually discussed by name (href comes from the cited case's own
-// decision_loc / decision_ussc / decision_vol, in that preference order).
+// decision_loc / decision_gov / decision_vol, in that preference order).
 function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
     if (!opCite.length || !Array.isArray(c.events)) return [];
 
@@ -10881,7 +10881,7 @@ function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
         if (!matches.size) continue;
 
         const cited = _loadCaseByRef(entry.term, entry.id);
-        const href = cited?.decision_loc || cited?.decision_ussc || cited?.decision_vol || null;
+        const href = cited?.decision_loc || cited?.decision_gov || cited?.decision_vol || null;
         if (!href) {
             if (verbose) console.log(`  [ref-skip] "${entry.title}" matched but has no decision href`);
             continue;
@@ -12061,7 +12061,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
             entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
         }
     }
-    entry.decision_ussc = opinion.href;
+    entry.decision_gov = opinion.href;
     entry.files        = false;
 
     const ordered = reorderCase(entry);
