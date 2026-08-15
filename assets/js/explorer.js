@@ -3034,6 +3034,21 @@ function _buildOyezEntries(caseEntry) {
   });
 }
 
+// A ringed audio icon (see oyezCircleData) means Oyez-sourced argument
+// audio, which very likely has a matching oyez_href — if so, returns a
+// click handler for _attachAudioIcon that opens it in the doc viewer, embedded
+// (view: 'pane') the same way the file-select dropdown's own "Description
+// from The Oyez Project" option does (see the 'oyez:' branch in its change
+// handler); else null (no click behavior).
+function _oyezAudioIconClick(caseEntry, ring) {
+  if (!ring || !caseEntry?.oyez_href) return null;
+  return (e) => {
+    e.stopPropagation();
+    const entries = _buildOyezEntries(caseEntry);
+    if (entries.length) showDocViewer({ href: entries[0].href, title: entries[0].title, view: 'pane' }, { force: true });
+  };
+}
+
 // Reference-type files.json entries (the same ones grouped under "References"
 // in the sidebar) get pulled out of #file-select's alphabetized file list and
 // appended as their own block at the very end (after decisions/video), each
@@ -4287,7 +4302,7 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 //   ring           {fraction, orange}? — render an oyez progress ring instead of ♫
 //   deficit        'missing' | 'partial' | null — wrap icon in a colored circle
 //                  to flag missing/incomplete oyez audio
-function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
+function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit, onClick }) {
   let icon = null;
   const audioTooltip = (ring ? ring.orange : !hasTranscript)
     ? (ring?.usscOnly ? 'Argument audio available with generated transcript' : 'Argument audio available without aligned transcript')
@@ -4296,6 +4311,13 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit }) {
     if (ring) {
       icon = makeAudioRingSvg(ring.fraction, ring.orange);
       icon.setAttribute('title', audioTooltip);
+      // onClick (see _oyezAudioIconClick) is only ever passed alongside a
+      // ring — a ringed icon means Oyez-sourced argument audio, so there's
+      // very likely an oyez_href to open.
+      if (onClick) {
+        icon.style.cursor = 'pointer';
+        icon.addEventListener('click', onClick);
+      }
     } else {
       icon = document.createElement('span');
       icon.className = 'case-decided-icon case-audio-icon';
@@ -4574,10 +4596,12 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       header.appendChild(citeLbl);
     } else {
       // Default mode: normal icons
+      const audioRing = hasAudio ? oyezCircleData(caseEntry) : null;
       _attachAudioIcon(header, {
         hasAudio, hasTranscript,
-        ring: hasAudio ? oyezCircleData(caseEntry) : null,
+        ring: audioRing,
         deficit: oyezDeficitClass(caseEntry),
+        onClick: _oyezAudioIconClick(caseEntry, audioRing),
       });
       if (hasOpinion || caseEntry.events?.length || hasFiles) {
         // Green ring is the lowest-priority signal — only drawn when there's
@@ -6403,6 +6427,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           hasTranscript: !!caseRef.transcript,
           ring,
           deficit,
+          onClick: _oyezAudioIconClick(caseEntry, ring),
         });
         if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
           header.insertBefore(_audioIconNode, nextSibling);
