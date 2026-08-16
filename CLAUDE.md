@@ -82,6 +82,27 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
 }
 ```
 
+### reports.json (`data/ussc/reports.json`)
+Object keyed by `"vNNN"` (or `"vNNN-P"` for a not-yet-bound volume split into parts, e.g. `"v592-2"`), one entry per U.S. Reports volume, matching `courts/ussc/opinions/{pdfs,text}/vNNN.{pdf,txt}`. Each entry:
+```json
+{
+  "href": "https://www.supremecourt.gov/pdfs/USReports/USREPORTS-126_PDFA.pdf",
+  "pages": "1:13,",
+  "alt_citation": "2 Dallas",
+  "ephemera": [
+    { "text": "THE TELEPHONE CASES", "page": "1", "note": "This is the only volume of U.S. Reports dedicated to a single opinion." }
+  ]
+}
+```
+- `pages` — comma-separated `<reportPage>:<pdfPage>` breakpoints (optionally roman, e.g. `vi:490`; optionally `*`-marked as an "orders mapping" section start, see `isOrdersBreakpoint` in `scripts/update_cases.js`) mapping a printed U.S. Reports page to its PDF page. `_pdfPageFor`/`_parsePages` (`scripts/update_cases.js`) and `_reportPdfPage`/`_parsePnBps` (`assets/js/explorer.js`, kept in sync by hand) walk these breakpoints to resolve a case's `usCite` to a `#page=N` PDF link (`decision_vol`).
+- `alt_citation` (optional) — the volume's nominative-reporter name (e.g. early volumes cited as `"2 Dallas"` before the `"N U.S."` convention).
+- `ephemera` (optional) — array flagging notable non-opinion content in the volume (dedications, addresses, in-memoriam notices, patent diagrams, unbound inserts, etc.). Each entry carries `page` (the U.S. Reports page, as a string, may include a letter suffix) plus exactly one of:
+  - `text` — a short all-caps label describing referenced text (e.g. `"THE TELEPHONE CASES"`)
+  - `image` — a short description of a referenced picture/diagram/plate
+  - `insert` — a short description of an unnumbered insert; `page` here is the page the insert *follows*, not the insert's own page (it has none)
+
+  plus an optional `note` freeform aside on any of the three.
+
 ### Transcript envelope format (`courts/ussc/terms/YYYY-MM/cases/CASE/YYYY-MM-DD.json`)
 ```json
 {

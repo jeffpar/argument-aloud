@@ -1916,6 +1916,24 @@ async function _fetchJusticeNids() {
   return _justiceNidPromise;
 }
 
+// benches.json id -> {name, ...} lookup, used to label the justices-row view
+// (see _showCaseVotesView) with the bench's own display name/link.
+let _benchesById = null;
+let _benchesPromise = null;
+
+async function _fetchBenches() {
+  if (_benchesById) return _benchesById;
+  if (_benchesPromise) return _benchesPromise;
+  _benchesPromise = fetch('/courts/ussc/people/justices/benches.json')
+    .then(r => r.ok ? r.json() : [])
+    .catch(() => [])
+    .then(list => {
+      _benchesById = new Map(list.map(b => [b.id, b]));
+      return _benchesById;
+    });
+  return _benchesPromise;
+}
+
 // Called when nav search opens: loads all not-yet-built term case lists.
 // ── URL param helper ─────────────────────────────────────────────────────────
 // Rebuilds URLSearchParams so that 'collection'/'topic' is always first, and 'group' or 'id' is second.
@@ -3479,9 +3497,29 @@ function _voteName(allCapsName) {
 // this automatically.
 function _showCaseVotesView(caseEntry) {
   const row = document.getElementById('justices-row');
+  const titleEl = document.getElementById('justices-row-title');
   const votes = caseEntry.votes || [];
   row.innerHTML = '';
-  if (!votes.length) { row.hidden = true; return; }
+  if (!votes.length) { row.hidden = true; titleEl.hidden = true; return; }
+  // Bench name/link above the thumbnails (e.g. "Taney 19 (1863–1864)" linking
+  // to that bench's own page) — fetched async from benches.json since the
+  // row itself renders synchronously from caseEntry.votes alone.
+  titleEl.innerHTML = '';
+  titleEl.hidden = true;
+  if (caseEntry.bench) {
+    const benchId = caseEntry.bench;
+    _fetchBenches().then(byId => {
+      // Stale response from a since-abandoned case/bench — ignore it.
+      if (_currentCaseEntry !== caseEntry) return;
+      const bench = byId.get(benchId);
+      if (!bench) return;
+      const a = document.createElement('a');
+      a.href = '?' + new URLSearchParams({ collection: 'benches', id: benchId });
+      a.textContent = bench.name;
+      titleEl.appendChild(a);
+      titleEl.hidden = false;
+    });
+  }
   votes.forEach(v => {
     const jid = _makeAdvocateId(v.name);
     const displayName = _voteName(v.name);

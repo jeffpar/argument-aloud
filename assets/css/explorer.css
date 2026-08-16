@@ -1906,6 +1906,25 @@ button.term-case-count.sort-active:hover {
    the vote-score link in _setCaseInfoRow3 / _showCaseVotesView) — one
    thumbnail per caseEntry.votes entry, flexed so however many there are,
    they always exactly fill one row. */
+#justices-row-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+#justices-row-title a {
+  color: #2672b4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+#justices-row-title a:hover {
+  color: #4a9eff;
+  text-decoration-color: #4a9eff;
+}
+#justices-row-title[hidden] {
+  display: none;
+}
 #justices-row {
   display: flex;
   gap: 8px;
@@ -2777,6 +2796,9 @@ button.term-case-count.sort-active:hover {
   #case-vote a       { color: #5eaee0; }
   #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 
+  #justices-row-title a       { color: #5eaee0; }
+  #justices-row-title a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+
   #case-scdb-message  { color: #ff6b6b; }
   #case-audit-message { color: #4cd787; }
   .warning-prefix { color: #ff6b6b; }
@@ -3098,6 +3120,8 @@ html[data-theme="dark"] #case-argued .date-link, html[data-theme="dark"] #case-r
 html[data-theme="dark"] #case-argued .date-link:hover, html[data-theme="dark"] #case-reargued .date-link:hover, html[data-theme="dark"] #case-decided .date-link:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-vote a       { color: #5eaee0; }
 html[data-theme="dark"] #case-vote a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
+html[data-theme="dark"] #justices-row-title a       { color: #5eaee0; }
+html[data-theme="dark"] #justices-row-title a:hover { color: #7bc8f0; text-decoration-color: #7bc8f0; }
 html[data-theme="dark"] #case-scdb-message  { color: #ff6b6b; }
 html[data-theme="dark"] #case-audit-message { color: #4cd787; }
 html[data-theme="dark"] .warning-prefix     { color: #ff6b6b; }
