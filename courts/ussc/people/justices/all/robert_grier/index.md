@@ -5,7 +5,7 @@ justice_id: robert_grier
 wikipedia_url: https://en.wikipedia.org/wiki/Robert_Cooper_Grier
 years_served: 23.5
 days_served: "8,576"
-opinions: 204
+opinions: 202
 lone_dissents: 14
 ---
 <div style="display:flex; gap:1em;">
