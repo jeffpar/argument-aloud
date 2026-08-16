@@ -512,15 +512,45 @@ async function runThumbnails(dryRun) {
 // exported as-is from the browser's own in-memory copy — identified by
 // type !== "minutes" and passed through completely untouched, never coerced
 // into minutes-group shape.
+//
+// A single minutes group's own "pages" is split here into one output group
+// per gap-free consecutive run, rather than trusting the override's array to
+// already be one contiguous run — terms.js's own drag-and-drop editing can
+// legitimately leave a *merged* group non-contiguous (e.g. a middle chunk of
+// pages dragged away on one day, then a separate, non-adjacent chunk dragged
+// back onto the same date on another day), and writeDatesJson's own
+// formatPagesRange can only ever store a single "<first>-<last>" range
+// string per group. Left unsplit, that silent min–max collapse would smear
+// over the gap and re-absorb pages that already legitimately belong to other
+// dates elsewhere in the same file — and since loadDatesJson expands that
+// collapsed string back into the *full* contiguous array on the next run,
+// the comparison in applyDateOverrides below would never converge: every
+// re-run of the very same, unchanged download would keep reporting this
+// date as "updated" forever.
 function normalizeOverrideGroups(val) {
   const groups = Array.isArray(val) ? val : [val];
-  return groups.map((g) => {
-    if (g.type !== 'minutes') return g;
-    const out = { type: 'minutes', href: g.href, src: g.src };
-    out.pages = [...new Set(g.pages || [])].sort((a, b) => a - b);
-    out.modified = true;
-    return out;
-  });
+  const out = [];
+  for (const g of groups) {
+    if (g.type !== 'minutes') { out.push(g); continue; }
+    const pages = [...new Set(g.pages || [])].sort((a, b) => a - b);
+    if (!pages.length) {
+      out.push({ type: 'minutes', href: g.href, src: g.src, pages: [], modified: true });
+      continue;
+    }
+    let runStart = pages[0], prev = pages[0];
+    const flushRun = (first, last) => {
+      const runPages = [];
+      for (let p = first; p <= last; p++) runPages.push(p);
+      out.push({ type: 'minutes', href: g.href, src: g.src, pages: runPages, modified: true });
+    };
+    for (let i = 1; i < pages.length; i++) {
+      if (pages[i] === prev + 1) { prev = pages[i]; continue; }
+      flushRun(runStart, prev);
+      runStart = pages[i]; prev = pages[i];
+    }
+    flushRun(runStart, prev);
+  }
+  return out;
 }
 
 // Applies a downloaded date-overrides file (see the doc comment at the top

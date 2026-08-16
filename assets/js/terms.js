@@ -1195,7 +1195,12 @@
 
   // Normalizes a group array purely for equality comparison (never written
   // back anywhere) — sorted by src (sortGroupsBySrc above), each group's own
-  // pages deduplicated and sorted, and any "modified": true flag dropped
+  // pages deduplicated, sorted, and split into one entry per gap-free
+  // consecutive run (mirrors scripts/parse_minutes.js's own
+  // normalizeOverrideGroups, kept in sync by hand — see its doc comment for
+  // why a merged group's pages aren't guaranteed contiguous, and why
+  // comparing them unsplit against the server's own always-split-on-write
+  // groups would never converge), and any "modified": true flag dropped
   // (scripts/parse_minutes.js's own applyDateOverrides stamps that onto
   // every group it writes; this browser's own copy never has it). Without
   // this, an override that's otherwise identical to what the server now has
@@ -1204,15 +1209,30 @@
   // as "already applied" and would keep showing up in "Download Dates" forever.
   function canonicalizeGroups(groups) {
     if (!Array.isArray(groups)) return null;
-    return sortGroupsBySrc(groups).map(function (g) {
+    var expanded = [];
+    groups.forEach(function (g) {
       // A case-detail object (see update_cases.js's syncCrossTermCaseDates) —
       // nothing here applies to it, so it passes through untouched.
-      if (g.type !== 'minutes') return g;
-      var copy = Object.assign({}, g);
-      delete copy.modified;
-      copy.pages = Array.from(new Set(copy.pages || [])).sort(function (a, b) { return a - b; });
-      return copy;
+      if (g.type !== 'minutes') { expanded.push(g); return; }
+      var pages = Array.from(new Set(g.pages || [])).sort(function (a, b) { return a - b; });
+      var flushRun = function (first, last) {
+        var runPages = [];
+        for (var p = first; p <= last; p++) runPages.push(p);
+        var copy = Object.assign({}, g);
+        delete copy.modified;
+        copy.pages = runPages;
+        expanded.push(copy);
+      };
+      if (!pages.length) { flushRun(0, -1); return; } // empty tombstone — one zero-page run
+      var runStart = pages[0], prev = pages[0];
+      for (var i = 1; i < pages.length; i++) {
+        if (pages[i] === prev + 1) { prev = pages[i]; continue; }
+        flushRun(runStart, prev);
+        runStart = pages[i]; prev = pages[i];
+      }
+      flushRun(runStart, prev);
     });
+    return sortGroupsBySrc(expanded);
   }
 
   // On disk, a Minutes-scan group's own "pages" is a "<first>-<last>" range

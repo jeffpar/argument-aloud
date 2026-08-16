@@ -73,6 +73,158 @@
     if (clearBtn) clearBtn.hidden = !has;
   }
 
+  // Auto-prunes any local Minutes date edit that scripts/parse_minutes.js
+  // has already applied server-side — run once per page load, not just when
+  // the visitor happens to revisit the affected term's own stats page (where
+  // terms.js's own applyDateOverrides does the same pruning as a side effect
+  // of loading that term's dates.json, see its doc comment). Without this, a
+  // batch of edits spanning several terms would leave "Download Dates"
+  // showing indefinitely for any term the visitor never specifically
+  // revisits after the batch was applied upstream — this topbar loads on
+  // every page, so it's the one place that can catch all of them regardless
+  // of which page the visitor actually lands on next.
+  //
+  // Mirrors terms.js's own termForDate/canonicalizeGroups/parsePagesRange/
+  // expandDatesPages by hand (see the LS_DATES_KEY comment above for why
+  // this script doesn't share code with the term-stats iframe directly) —
+  // just the "already matches the server" half of applyDateOverrides there;
+  // the merge-onto-server-data half doesn't apply here since nothing is ever
+  // displayed from this pruning pass, only localStorage itself is trimmed.
+  function termForDate(dateStr, starts) {
+    var found = null;
+    for (var i = 0; i < starts.length; i++) {
+      if (starts[i].start <= dateStr) found = starts[i].term; else break;
+    }
+    return found;
+  }
+
+  function parsePagesRange(v) {
+    if (Array.isArray(v)) return v.slice();
+    if (typeof v !== 'string' || !v) return [];
+    var m = /^(\d+)-(\d+)$/.exec(v);
+    if (!m) return [];
+    var first = parseInt(m[1], 10), last = parseInt(m[2], 10);
+    if (last < first) return [];
+    var out = [];
+    for (var p = first; p <= last; p++) out.push(p);
+    return out;
+  }
+
+  function expandDatesPages(raw) {
+    if (!raw) return raw;
+    Object.keys(raw).forEach(function (iso) {
+      var groups = raw[iso];
+      if (!Array.isArray(groups)) return;
+      groups.forEach(function (g) {
+        if (!g || typeof g !== 'object') return;
+        if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
+          g.type = 'minutes';
+          if ('minutes_href' in g) { g.href = g.minutes_href; delete g.minutes_href; }
+          if ('minutes_src' in g) { g.src = g.minutes_src; delete g.minutes_src; }
+          if ('minutes_pages' in g) { g.pages = g.minutes_pages; delete g.minutes_pages; }
+        }
+        if (g.type === 'minutes') g.pages = parsePagesRange(g.pages);
+      });
+    });
+    return raw;
+  }
+
+  function sortGroupsBySrc(groups) {
+    return groups.slice().sort(function (a, b) {
+      return (a.src || '').localeCompare(b.src || '');
+    });
+  }
+
+  // Splits each minutes group's own pages into one entry per gap-free
+  // consecutive run before comparing — a merged group's pages aren't
+  // guaranteed contiguous (see scripts/parse_minutes.js's own
+  // normalizeOverrideGroups doc comment), and the server always writes one
+  // range string per contiguous run, so comparing unsplit would never match.
+  function canonicalizeGroups(groups) {
+    if (!Array.isArray(groups)) return null;
+    var expanded = [];
+    groups.forEach(function (g) {
+      if (g.type !== 'minutes') { expanded.push(g); return; }
+      var pages = Array.from(new Set(g.pages || [])).sort(function (a, b) { return a - b; });
+      var flushRun = function (first, last) {
+        var runPages = [];
+        for (var p = first; p <= last; p++) runPages.push(p);
+        var copy = Object.assign({}, g);
+        delete copy.modified;
+        copy.pages = runPages;
+        expanded.push(copy);
+      };
+      if (!pages.length) { flushRun(0, -1); return; }
+      var runStart = pages[0], prev = pages[0];
+      for (var i = 1; i < pages.length; i++) {
+        if (pages[i] === prev + 1) { prev = pages[i]; continue; }
+        flushRun(runStart, prev);
+        runStart = pages[i]; prev = pages[i];
+      }
+      flushRun(runStart, prev);
+    });
+    return sortGroupsBySrc(expanded);
+  }
+
+  function pruneDateOverrides() {
+    var raw;
+    try { raw = JSON.parse(localStorage.getItem(LS_DATES_KEY) || 'null'); } catch (e) { raw = null; }
+    if (!raw || typeof raw !== 'object' || !Object.keys(raw).length) return;
+
+    fetch('/courts/ussc/terms/terms.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (decades) {
+        if (!decades) return;
+        var termStarts = [];
+        decades.forEach(function (d) {
+          (d.groups || []).forEach(function (g) {
+            var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
+            if (m) termStarts.push({ term: m[1], start: m[1].slice(0, 4) + '-' + m[1].slice(5, 7) + '-01' });
+          });
+        });
+        termStarts.sort(function (a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
+
+        // Group the overrides' own ISO dates by resolved term, so each
+        // implicated term's dates.json is fetched exactly once.
+        var byTerm = {};
+        Object.keys(raw).forEach(function (iso) {
+          var term = termForDate(iso, termStarts);
+          if (term) (byTerm[term] = byTerm[term] || []).push(iso);
+        });
+        var termIds = Object.keys(byTerm);
+        if (!termIds.length) return;
+
+        Promise.all(termIds.map(function (term) {
+          return fetch('/courts/ussc/terms/' + term + '/dates.json')
+            .then(function (r) { return r.ok ? r.json() : {}; })
+            .catch(function () { return {}; })
+            .then(function (dates) { return { term: term, dates: expandDatesPages(dates || {}) }; });
+        })).then(function (results) {
+          // Re-read rather than reuse the earlier `raw` — the iframe could
+          // have written a newer value while these fetches were in flight.
+          var current;
+          try { current = JSON.parse(localStorage.getItem(LS_DATES_KEY) || 'null'); } catch (e) { current = null; }
+          if (!current) return;
+          var pruned = false;
+          results.forEach(function (result) {
+            (byTerm[result.term] || []).forEach(function (iso) {
+              if (!(iso in current)) return;
+              var serverVal = result.dates[iso] || null;
+              if (JSON.stringify(canonicalizeGroups(current[iso])) === JSON.stringify(canonicalizeGroups(serverVal))) {
+                delete current[iso];
+                pruned = true;
+              }
+            });
+          });
+          if (!pruned) return;
+          if (Object.keys(current).length) localStorage.setItem(LS_DATES_KEY, JSON.stringify(current));
+          else localStorage.removeItem(LS_DATES_KEY);
+          updateCustomizationsMenu();
+        });
+      })
+      .catch(function () { /* offline/blocked — next page load retries */ });
+  }
+
   window.addEventListener('storage', function (e) {
     if (e.key === LS_DATES_KEY) updateCustomizationsMenu();
   });
@@ -213,5 +365,6 @@
       });
     }
     updateCustomizationsMenu();
+    pruneDateOverrides();
   });
 }());
