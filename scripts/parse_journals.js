@@ -1311,16 +1311,17 @@ const ADVOCATE_NAME_RE = new RegExp(
 // appellants". Captures the whole names block (group 1) and the role text
 // (group 2); the names block is re-split with ADVOCATE_NAME_RE afterward.
 // The role text stops not just at punctuation but also before a bare "and
-// continued/concluded/commenced/by..." or "and Mr./Gen./etc." — that "and"
-// starts a new clause of the same sentence ("...for the appellant and
-// continued by Mr. X...", "...for the appellant and Mr. Y for..."), not
-// more of the role, and without this the greedy(-ish) role capture would
-// otherwise run right on into the next clause.
+// continued/concluded/commenced/submitted/by..." or "and Mr./Gen./etc." —
+// that "and" starts a new clause of the same sentence ("...for the
+// appellant and continued by Mr. X...", "...for the appellant and Mr. Y
+// for...", "...for the appellant and submitted by Mr. Y..."), not more of
+// the role, and without this the greedy(-ish) role capture would otherwise
+// run right on into the next clause.
 const ADVOCATE_GROUP_RE = new RegExp(
   `((?:(?:${ADVOCATE_TITLE_RE})\\.?\\s+[A-Z][A-Za-z.'-]*(?:\\s+[A-Z][A-Za-z.'-]*){0,4}(?:,\\s*(?:and\\s+)?|\\s+and\\s+))*` +
   `(?:${ADVOCATE_TITLE_RE})\\.?\\s+[A-Z][A-Za-z.'-]*(?:\\s+[A-Z][A-Za-z.'-]*){0,4})` +
   `,?\\s+for\\s+(?:the[\\s-]+)?([a-zA-Z][a-zA-Z\\s'-]*?)` +
-  `(?=[,.;]|\\s+and\\s+(?:continued|concluded|commenced|by|${ADVOCATE_TITLE_RE})|$)`,
+  `(?=[,.;]|\\s+and\\s+(?:continued|concluded|commenced|submitted|by|${ADVOCATE_TITLE_RE})|$)`,
   'g'
 );
 
@@ -1333,8 +1334,9 @@ const ADVOCATE_GROUP_RE = new RegExp(
  * their last name-token matches (case-insensitively) *and* their role
  * matches exactly; whichever was extracted first is kept.
  */
+const lastName = (name) => name.trim().split(/\s+/).pop().toUpperCase();
+
 function dedupeAdvocates(advocates) {
-  const lastName = (name) => name.trim().split(/\s+/).pop().toUpperCase();
   const seen = [];
   return advocates.filter(a => {
     const key = { lastName: lastName(a.name), role: a.role.toLowerCase() };
@@ -1344,19 +1346,68 @@ function dedupeAdvocates(advocates) {
   });
 }
 
+// Verbs that signal counsel actually took part in an oral argument session
+// ("argued"/"reargued"/"argument commenced/continued/concluded") versus one
+// that was merely "submitted" (decided on the papers, no oral argument) —
+// used by extractAdvocates() to drop submitted-only counsel from the
+// extracted advocate list. Matched word-by-word rather than as full phrases
+// since "argument commenced by Mr. X ... and continued by Mr. Y" only
+// repeats the verb, not "argument", for each later clause.
+const ADVOCATE_ACTION_VERB_RE = /\b(?:re)?argu(?:ed|ment)\b|\bcommenced\b|\bcontinued\b|\bconcluded\b|\bsubmitted\b/gi;
+
+// Catches an argument-verb clause whose counsel never reaches ADVOCATE_GROUP_RE
+// at all, e.g. "Argument commenced by Mr. Richard De Gray and continued by Mr.
+// Grover Cleveland, for Peake et al." — "for Peake et al." is grammatically
+// shared by both, but ADVOCATE_GROUP_RE's namesBlock only joins mentions
+// directly via a comma/"and" (see its own doc comment), so a verb word
+// ("continued by") between two mentions breaks that join and De Gray never
+// gets a role attached to him. Used only as a fallback for names
+// ADVOCATE_GROUP_RE's pass missed — see extractAdvocates() — so a name it did
+// capture (with a role) is never overwritten by a roleless duplicate here.
+// Note: no 'i' flag — that would also case-fold the [A-Z] name-capture
+// below, letting it swallow a following lowercase word (e.g. "...Richard De
+// Gray and continued by...") into the name. The verb alternatives are
+// hand-cased instead, matching either a sentence-initial capital ("Argument
+// commenced") or a mid-sentence lowercase one ("...and continued by...").
+const ADVOCATE_VERB_BY_NAME_RE = new RegExp(
+  `\\b(?:[Rr]e[Aa]rgu(?:ed|ment)|[Aa]rgu(?:ed|ment)|[Cc]ommenced|[Cc]ontinued|[Cc]oncluded)\\s+by` +
+  `\\s+(${ADVOCATE_TITLE_RE})\\.?\\s+([A-Z][A-Za-z.'-]*(?:\\s+[A-Z][A-Za-z.'-]*){0,4})`,
+  'g'
+);
+
 /**
  * Best-effort extraction of {title, name, role} for each advocate mentioned
  * in a disposition text — a diagnostic, not a validated parse: real-world
  * phrasing (unusual name formats, a role clause covering names from an
  * earlier sentence, etc.) can and will defeat it. That's the point of
  * --verify-journal-dates: to see, printed out, how well it's actually doing.
+ *
+ * Counsel introduced by "submitted" rather than an actual argument verb
+ * (argued/reargued/commenced/continued/concluded) are excluded — submitting
+ * a case on the papers isn't an oral argument appearance. Counsel named only
+ * in an argument-verb clause that ADVOCATE_GROUP_RE couldn't attach a role
+ * to (see ADVOCATE_VERB_BY_NAME_RE) are still included, with role left "".
  */
 function extractAdvocates(text) {
   const results = [];
-  for (const [, namesBlock, role] of text.matchAll(ADVOCATE_GROUP_RE)) {
+  const verbs = [...text.matchAll(ADVOCATE_ACTION_VERB_RE)];
+  for (const match of text.matchAll(ADVOCATE_GROUP_RE)) {
+    const [, namesBlock, role] = match;
+    let verb = null;
+    for (const v of verbs) {
+      if (v.index > match.index) break;
+      verb = v[0];
+    }
+    if (verb && /^submitted$/i.test(verb)) continue;
     for (const [, title, name] of namesBlock.matchAll(ADVOCATE_NAME_RE)) {
       results.push({ title: title.trim(), name: name.trim(), role: role.trim() });
     }
+  }
+  const found = new Set(results.map(a => lastName(a.name)));
+  for (const [, title, name] of text.matchAll(ADVOCATE_VERB_BY_NAME_RE)) {
+    if (found.has(lastName(name))) continue;
+    found.add(lastName(name));
+    results.push({ title: title.trim(), name: name.trim(), role: '' });
   }
   return dedupeAdvocates(results);
 }
@@ -1420,28 +1471,55 @@ function splitAdvocateTitle(rawTitle) {
   return m ? ['MR.', m[1].toUpperCase()] : [rawTitle.trim().toUpperCase()];
 }
 
+// The docket-role families this script will actually record a role for.
+// A case's disposition sentence sometimes substitutes a party's own name (or
+// a shorthand for it) for its procedural role — "for Peake et al.", "for the
+// receiver and the bank", "for the city of New Orleans" have all shown up in
+// real 1890s journal text where "for the appellee"/"for the defendant" would
+// otherwise be — and that free text isn't a role, so buildAdvocateRecord()
+// drops it rather than storing it as one. Folds in the same appellant/
+// plaintiff abbreviations expandTitleAbbreviations() already treats as
+// canonical (appt/app't/appts/app'ts, plff/pl'ff/plffs/pl'ffs), plus the "in
+// error" qualifier routinely paired with plaintiff/defendant in this era.
+const RECOGNIZED_ROLE_RE = new RegExp(
+  "^(?:the\\s+)?(?:" +
+    "appellants?|app['’]?ts?" +
+    "|appellees?" +
+    "|(?:plaintiffs?|pl['’]?ffs?)(?:\\s+in\\s+error)?" +
+    "|defendants?(?:\\s+in\\s+error)?" +
+    "|respondents?" +
+    "|petitioners?" +
+  ")$",
+  'i'
+);
+
 // Builds the {name, title, role} record — in cases.json's own field order
 // (see CLAUDE.md's case schema / schema.js's ADVOCATE_KEY_ORDER) — for one
 // extracted advocate: the shared basis for both the printed preview line
 // and (with --prompt) what actually gets written into an event's advocates
 // array, so the two never drift apart. A compound title (see
 // splitAdvocateTitle()) is comma-joined into the one title field rather
-// than kept as separate segments.
+// than kept as separate segments. An advocate with no extracted role (see
+// ADVOCATE_VERB_BY_NAME_RE) or an unrecognized one (see RECOGNIZED_ROLE_RE)
+// gets no "role" key at all, rather than one set to "" or to free text —
+// there's no existing cases.json advocate with an empty role string.
 function buildAdvocateRecord(term, advocate) {
   const resolved = resolveAdvocateName(term, advocate.name);
   const name = expandAdvocateAbbreviations(joinConsecutiveInitials(resolved).toUpperCase());
-  return reorderAdvocate({
+  const record = {
     name,
     title: splitAdvocateTitle(advocate.title).join(','),
-    role: advocate.role.toLowerCase(),
-  });
+  };
+  if (advocate.role && RECOGNIZED_ROLE_RE.test(advocate.role.trim())) record.role = advocate.role.toLowerCase();
+  return reorderAdvocate(record);
 }
 
-// The formal <name>|<title>|<role> preview line — exactly what --prompt
-// would write into cases.json, pipe-joined for easy scanning/grepping.
+// The formal <name>|<title>[|<role>] preview line — exactly what --prompt
+// would write into cases.json, pipe-joined for easy scanning/grepping. No
+// trailing "|" when there's no role to show (see buildAdvocateRecord()).
 function formatAdvocateLine(term, advocate) {
   const rec = buildAdvocateRecord(term, advocate);
-  return [rec.name, rec.title, rec.role].join('|');
+  return [rec.name, rec.title, rec.role].filter(Boolean).join('|');
 }
 
 // True if an event's existing advocates array (if any) already holds
@@ -1522,6 +1600,7 @@ async function runVerifyJournalDates(year, { promptMode = false } = {}) {
   const cases = JSON.parse(readFileSync(casesPath, 'utf8'));
   const caseByNumber = new Map();
   for (const c of cases) {
+    if (!c.number) continue;
     for (const n of c.number.split(',').map(s => s.trim())) caseByNumber.set(n, c);
   }
   const saveCases = () => writeFileSync(casesPath, JSON.stringify(cases, null, 2) + '\n', 'utf8');
