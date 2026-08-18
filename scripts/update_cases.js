@@ -10784,6 +10784,7 @@ const _OPCITE_REF_COMMON_WORDS = new Set([
     'inc', 'reform', 'equality', 'foster', 'family', 'families',
     'international', 'district', 'general', 'services', 'service',
     'authority', 'agency', 'bureau', 'office', 'council', 'group', 'system',
+    'school', 'schools', 'educ', 'education', 'educational',
 ]);
 
 // Split a "Party v. Party (YEAR)" opCite title into its two party names.
