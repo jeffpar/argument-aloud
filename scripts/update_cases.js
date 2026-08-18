@@ -8715,7 +8715,10 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 }
                 if (!cand) {
                     const errs = String(c.scdb_check || '').split(',').map(s => s.trim());
-                    if (!c.disposition && !errs.includes('missing')) {
+                    // A case resolved without argument (cert denial, GVR,
+                    // summary disposition) is expected to be missing from
+                    // SCDB, so don't warn about those.
+                    if ((c.argument || c.reargument) && !errs.includes('missing')) {
                         const label = firstTitle(c.title) || '(untitled)';
                         const arg = Array.isArray(c.argument) ? c.argument[0] : c.argument;
                         const dec = c.decision || '';
@@ -9533,8 +9536,8 @@ function runUnargued(termFilter, caseFilter) {
             if (caseFilter && c.id !== caseFilter
                     && !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
 
-            // Skip cases with a disposition — they were resolved without argument (GVRs, DIGs, etc.).
-            if (c.disposition) continue;
+            // Skip cases resolved without argument (cert denials, GVRs, summary dispositions, etc.).
+            if (!c.argument && !c.reargument) continue;
 
             const title = (firstTitle(c.title) || '').slice(0, 60);
             const label = `${term}/${number}`;

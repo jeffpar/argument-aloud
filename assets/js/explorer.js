@@ -3609,32 +3609,58 @@ function _setCaseInfoRow3(caseEntry) {
     return;
   }
   const majorityVotes = caseEntry.votes.filter(v => v.vote === 'majority');
-  const score = 'Voted ' + caseEntry.voteMajority + '–' + caseEntry.voteMinority;
+  const result = caseEntry.result || '';
+  // Only the segment before the first semicolon ever describes the case's
+  // own disposition (e.g. "dismissed as improvidently granted; no favorable
+  // disposition for petitioning party apparent" or, for a consolidated
+  // case, "affirmed; …; Foo v. Bar (No. …) dismissed as improvidently
+  // granted") — anything after that is either the petitioning-party-outcome
+  // phrase or prose about a different case entirely.
+  const firstSegment = result.split(';')[0].trim();
   const firstTitle = (caseEntry.title || '').split('|')[0];
   let party;
-  if ((caseEntry.result || '').includes('petitioning party received a favorable disposition')) {
+  if (result.includes('petitioning party received a favorable disposition')) {
     party = firstTitle.split(' v. ')[0].trim();
   } else {
     const parts = firstTitle.split(' v. ');
     party = (parts[1] || parts[0]).trim();
   }
 
-  const result = caseEntry.result || '';
-  if (caseEntry.voteMinority === 0 && /^dismissed/i.test(result)) {
-    span.textContent = '';
-    const label = result.charAt(0).toUpperCase() + result.slice(1);
-    span.appendChild(document.createTextNode(label + ' in favor of ' + party));
+  const term = _currentCaseKey ? _currentCaseKey.split('/')[0] : '';
+  const caseNum = new URLSearchParams(location.search).get('case') || caseId(caseEntry);
+
+  span.textContent = '';
+  // A withdrawn case (petition withdrawn, e.g. under Rule 46) never actually
+  // reached a vote, so there's no tally to show — just link the word itself
+  // to the bench page (see below) and state who it favored.
+  if (/^withdrawn\b/i.test(firstSegment)) {
+    if (caseEntry.bench) {
+      const link = document.createElement('a');
+      link.href = '?' + new URLSearchParams({ collection: 'benches', id: caseEntry.bench, term, case: caseNum });
+      link.textContent = 'Withdrawn';
+      span.appendChild(link);
+    } else {
+      span.appendChild(document.createTextNode('Withdrawn'));
+    }
+    span.appendChild(document.createTextNode(' in favor of ' + party));
     row.hidden = false;
     return;
   }
 
   // Determine opinion author link params if a justice has opinion:true.
   const opinionVote = majorityVotes.find(v => v.opinion === true);
-  const term = _currentCaseKey ? _currentCaseKey.split('/')[0] : '';
-  const caseNum = new URLSearchParams(location.search).get('case') || caseId(caseEntry);
   const opinionId = (opinionVote && term && caseNum) ? _makeAdvocateId(opinionVote.name) : null;
 
-  span.textContent = '';
+  // A dismissal keeps whatever qualifier follows "dismissed" in the result
+  // text (e.g. "as improvidently granted", "for want of jurisdiction") —
+  // "Voted" reads oddly for these. Like Withdrawn, a unanimous dismissal
+  // (voteMinority 0) drops the numeric tally too — only a genuinely split
+  // dismissal (rare, but possible) keeps it.
+  const dismissMatch = /^dismissed\b(.*)$/i.exec(firstSegment);
+  const scoreLabel = dismissMatch ? 'Dismissed' + dismissMatch[1] : 'Voted';
+  const showTally = !dismissMatch || caseEntry.voteMinority !== 0;
+  const score = showTally ? scoreLabel + ' ' + caseEntry.voteMajority + '–' + caseEntry.voteMinority : scoreLabel;
+
   // Score links to this case's own bench page (see the `bench` prop —
   // schema.js/processBenches in update_cases.js), scoped to this specific
   // case (term+case) so that page shows the case's justices/decision instead
@@ -3648,9 +3674,21 @@ function _setCaseInfoRow3(caseEntry) {
   } else {
     span.appendChild(document.createTextNode(score));
   }
-  // A tie or other case with no vote actually tagged "majority" has nothing
-  // to list — skip the parentheses entirely rather than print "()".
-  if (majorityVotes.length) {
+  if (caseEntry.voteMinority === 0) {
+    // Unanimous — listing every justice by name is just noise. Name the
+    // opinion author alone ("Scalia for the Court") if we have one to link
+    // to; otherwise skip the parenthetical entirely.
+    if (opinionVote && opinionId) {
+      span.appendChild(document.createTextNode(' ('));
+      const a = document.createElement('a');
+      a.href = '?' + new URLSearchParams({ collection: 'opinions', id: opinionId, term, case: caseNum });
+      a.textContent = _voteName(opinionVote.name);
+      span.appendChild(a);
+      span.appendChild(document.createTextNode(' for the Court)'));
+    }
+  } else if (majorityVotes.length) {
+    // A tie or other case with no vote actually tagged "majority" has
+    // nothing to list — skip the parentheses entirely rather than print "()".
     span.appendChild(document.createTextNode(' ('));
     majorityVotes.forEach((v, i) => {
       if (i > 0) span.appendChild(document.createTextNode(', '));

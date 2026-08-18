@@ -28,7 +28,7 @@ export const CASE_KEY_ORDER = [
     'journal_ref',
     'usCite', 'volume', 'page', 'opCite',
     'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol',
-    'result', 'disposition',
+    'result',
     // The id (see processBenches in update_cases.js) of the Court composition
     // seated on this case's decision date — lets the case page's vote-score
     // link straight to that bench's page without walking benches.json.
