@@ -3867,10 +3867,10 @@ function _scdbNormalizeDate(s) {
 
 // audit_message is a single free-text string, multiple notes joined by "; "
 // (the same convention assets/js/collections/warnings.js's messageParts()
-// splits on). These two keep the "Case missing from SCDB" note in sync
+// splits on). These two keep the "SCDB missing case" note in sync
 // with whether the case currently has an SCDB-matched `id`, without
 // disturbing any other note already recorded there.
-const SCDB_MISSING_MESSAGE = 'Case missing from SCDB';
+const SCDB_MISSING_MESSAGE = 'SCDB missing case';
 function _addAuditMessage(c, msg) {
     const parts = String(c.audit_message || '').split('; ').map(s => s.trim()).filter(Boolean);
     if (parts.includes(msg)) return false;
