@@ -3537,6 +3537,17 @@ function _showCaseVotesView(caseEntry) {
     img.onerror = () => { photo.style.background = 'transparent'; img.style.display = 'none'; };
     photo.appendChild(img);
 
+    // Opinion authorship (majority/dissent/concurrence — anything, per
+    // schema.js's vote.action convention of always starting with "wrote an
+    // opinion") gets a pencil mark in the corner, mirrored so it reads as
+    // writing left-to-right despite the mark's own glyph facing that way.
+    if ((v.action || '').startsWith('wrote an opinion')) {
+      const mark = document.createElement('div');
+      mark.className = 'jr-opinion-mark';
+      mark.textContent = '✏️';
+      photo.appendChild(mark);
+    }
+
     const label = document.createElement('div');
     label.className = 'jr-name';
     label.textContent = displayName.toUpperCase();

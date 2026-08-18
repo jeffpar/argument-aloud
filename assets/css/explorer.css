@@ -1955,11 +1955,24 @@ button.term-case-count.sort-active:hover {
 }
 .jr-item:hover .jr-photo { opacity: 0.82; }
 .jr-photo {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 6px;
   background: #ccc;
+}
+/* Opinion-authorship mark (see explorer.js's jr.action check) — reversed so
+   the pencil's own drawn direction points the same way as the text it's
+   marking, rather than the glyph's native left-facing orientation. */
+.jr-opinion-mark {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  font-size: clamp(0.9rem, 33cqw, 1.65rem);
+  line-height: 1;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
 }
 .jr-photo img {
   width: 100%;
