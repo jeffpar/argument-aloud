@@ -3012,6 +3012,28 @@ function _showHistoryFromParam(param) {
 // open in the doc viewer, when one or more of LOC/GOV/Volume/XML is
 // available. Reuses the same generic dropdown look as the term/collection
 // sort menus (see _buildSortMenu), just with plain (non-toggling) options.
+// Opens `entry` (one of #case-cite's opinion-text sources) in the doc viewer
+// and syncs #file-select — shared by _buildCiteMenu's per-item click and by
+// #case-cite's own onclick when there's only one source to pick, so a
+// single-source case opens straight from that click instead of showing a
+// one-item menu first. `entries` is the full source list #case-cite offers
+// (only its [0] is ever a #file-select option — see _appendDecisionOption).
+function _activateCiteEntry(entry, entries) {
+  showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+  // The dropdown only ever lists the single preferred decision_* source
+  // (see _appendDecisionOption) — picking any other source here still
+  // just resyncs the dropdown's displayed label to that preferred entry
+  // rather than actually selecting/activating it, so it never overrides
+  // this cite-menu pick with a different doc-viewer load.
+  const fileSelect = document.getElementById('file-select');
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = entries[0].value;
+  const url = new URL(location.href);
+  const fileVal = DECISION_FILE_PARAMS[entry.value];
+  if (fileVal) url.searchParams.set('file', fileVal); else url.searchParams.delete('file');
+  url.searchParams.delete('citation');
+  history.replaceState(null, '', url);
+}
+
 function _buildCiteMenu(anchorEl, entries) {
   document.querySelectorAll('.term-sort-menu').forEach(m => m.remove());
   const menu = document.createElement('ul');
@@ -3023,19 +3045,7 @@ function _buildCiteMenu(anchorEl, entries) {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
       menu.remove();
-      showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
-      // The dropdown only ever lists the single preferred decision_* source
-      // (see _appendDecisionOption) — picking any other source here still
-      // just resyncs the dropdown's displayed label to that preferred entry
-      // rather than actually selecting/activating it, so it never overrides
-      // this cite-menu pick with a different doc-viewer load.
-      const fileSelect = document.getElementById('file-select');
-      if (fileSelect && !fileSelect.hidden) fileSelect.value = entries[0].value;
-      const url = new URL(location.href);
-      const fileVal = DECISION_FILE_PARAMS[entry.value];
-      if (fileVal) url.searchParams.set('file', fileVal); else url.searchParams.delete('file');
-      url.searchParams.delete('citation');
-      history.replaceState(null, '', url);
+      _activateCiteEntry(entry, entries);
     });
     menu.appendChild(item);
   }
@@ -3478,7 +3488,9 @@ function _setCaseInfoRow2(caseEntry) {
   _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
   // "(367 U.S. 203)" — click opens a small menu of every opinion-text source
-  // this case has (LOC/GOV/Volume/XML), each opening in the doc viewer.
+  // this case has (LOC/GOV/Volume/XML), each opening in the doc viewer. With
+  // only one source there's nothing to choose between, so the click opens it
+  // directly rather than showing a one-item menu first.
   const citeEl = document.getElementById('case-cite');
   const citeEntries = _buildCiteMenuEntries(caseEntry);
   if (citeEntries.length && caseEntry.usCite) {
@@ -3488,7 +3500,8 @@ function _setCaseInfoRow2(caseEntry) {
     citeEl.onclick = (e) => {
       e.preventDefault();
       e.stopPropagation();
-      _buildCiteMenu(citeEl, citeEntries);
+      if (citeEntries.length === 1) _activateCiteEntry(citeEntries[0], citeEntries);
+      else _buildCiteMenu(citeEl, citeEntries);
     };
   } else {
     citeEl.hidden = true;

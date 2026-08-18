@@ -97,7 +97,7 @@ layout: home
       <div class="hp-icon">🏛️</div>
       <div class="hp-card-title">Sources</div>
     </div>
-    <p class="hp-card-desc">Trust the data, because we start with primary sources, like the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/nara">National Archives</a>, and the <a href="/courts/ussc/?source=oyez">Oyez Project</a>, and then <a href="/courts/ussc/?collection=audits">fix</a> the mistakes.</p>
+    <p class="hp-card-desc">Trust the data, because we start with primary sources, like the <a href="/courts/ussc/?source=ussc">U.S. Supreme Court</a>, the <a href="/courts/ussc/?link=/sources/nara">National Archives</a>, and the <a href="/courts/ussc/?source=oyez">Oyez Project</a>, and then <a href="/courts/ussc/?collection=audits">fix</a> the mistakes.</p>
   </div>
 
   <div class="hp-card">

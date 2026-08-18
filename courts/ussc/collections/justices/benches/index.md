@@ -8,7 +8,7 @@ scripts:
 ---
 <div id="jb-intro" markdown="1">
 
-This page lists all the unique groups of Justices that have decided cases.  Every time a new Justice joins or an existing Justice leaves, that event forms what we call a **Bench**.  Others may refer to these groups as "Natural Courts", and some will even make distinctions between "weak" and "strong" natural courts, which Harold Spaeth [described](/scdb/archive/2003-12-11/allcourt/sctcode.pdf#page=35):
+This page lists all the unique groups of Justices that have decided cases.  Every time a new Justice joins or an existing Justice leaves, that event forms what we call a **Bench**.  Others may refer to these groups as "Natural Courts", and some will even make distinctions between "weak" and "strong" natural courts, which Harold Spaeth [described](/sources/scdb/archive/2003-12-11/allcourt/sctcode.pdf#page=35):
 
 > A strong court is delineated by the addition of a new justice or the departure of an incumbent.  A weak court, by comparison, is any group of nine justices even if lengthy vacancies occurred.
 

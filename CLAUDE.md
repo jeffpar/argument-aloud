@@ -227,7 +227,7 @@ The main interactive page is a large vanilla JS single-page app in `assets/js/ex
 ## Pitfalls
 
 - **Never edit `_site/`** — it's Jekyll build output, overwritten on every build.
-- **`_config.yml` excludes `scripts/` and `sources/`** — changes there won't affect the built site.
+- **`_config.yml` excludes `scripts/`** — changes there won't affect the built site. `sources/` is *not* excluded as a whole: `sources/nara/` and `sources/scdb/archive/` are real `pane`-layout pages reachable via `?link=`, while only `sources/scdb/cache|current|justices/` (raw downloads/caches) are excluded.
 - **`data/` is Jekyll's data dir** — eg, files in `data/ussc/` are accessible as `site.data.ussc.*` in templates.
 - **Audio timing uses frames** — `HH:MM:SS.FF` where `.FF` is frame number treated as decimal; `parseTime()` handles this correctly.
 - **`courts/ussc/index.html` is the SPA entry point**, not `index.md` — it uses `layout: argument`.

@@ -120,7 +120,7 @@ There is also another, subtler problem with cases listed in the "Dates of Suprem
 
 Unfortunately, SCDB appears to have morphed such dates into the first day of the first month of the term, resulting in a date (e.g., February 1, 1809) that appears to be precise but is almost certainly incorrect.
 
-NOTE: As a public service, I have extracted all the decision dates *and* argument dates from the Supreme Court's [Dates of Supreme Court Decisions and Arguments](/courts/ussc/sources/reports/Dates_of_Decisions_and_Arguments-2018-12-26.pdf) and produced an easy-to-use
+NOTE: As a public service, I have extracted all the decision dates *and* argument dates from the Supreme Court's [Dates of Supreme Court Decisions and Arguments](/sources/ussc/Dates_of_Decisions_and_Arguments-2018-12-26.pdf) and produced an easy-to-use
 [spreadsheet](/data/ussc/dates.csv). I recommend using this file instead of the one on the [Free Law](https://free.law/2011/05/25/updated-scotus-dates/) website, because the last time I checked, the dates in their file were badly scrambled, and it didn't include any argument dates. The dates on the first few lines of their file:
 
     2 U.S. 401|West v. Barnes|2|401|1791-08-17
@@ -128,7 +128,7 @@ NOTE: As a public service, I have extracted all the decision dates *and* argumen
     2 U.S. 401|Oswald v. New York|2|401|1792-02-14
     ...
 
-clearly do not match those provided in the Court's [PDF](/courts/ussc/sources/reports/Dates_of_Decisions_and_Arguments-2018-12-26.pdf).
+clearly do not match those provided in the Court's [PDF](/sources/ussc/Dates_of_Decisions_and_Arguments-2018-12-26.pdf).
 
 Here's a list of all the corrections we've made to *dateDecision* in SCDB thus far, with links to the source material used, so that they can all be verified. This is a degree of transparency that you will not find on the SCDB website.
 

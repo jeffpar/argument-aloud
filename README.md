@@ -18,7 +18,7 @@ We rely only on "authoritative" sources, starting with [The U.S. Supreme Court](
 
   - The transcript for [Batson v. Kentucky (No. 84-6263)](https://www.supremecourt.gov/pdfs/transcripts/1985/84-6263_12-02-1985.pdf) is incorrectly dated [12/2/1985](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1985); the correct date is December 12, 1985.
 
-Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/nara/audit#the-supreme-court-database-revisited), has been a great way of flushing out mistakes, on all sides.
+Data from [The Oyez Project](https://www.oyez.org) is slightly more problematic, as we've [noted](https://argumentaloud.org/courts/ussc/?link=/sources/nara/audit), but being able to compare multiple data sources, including [The Supreme Court Database](https://argumentaloud.org/courts/ussc/?link=/sources/nara/audit#the-supreme-court-database-revisited), has been a great way of flushing out mistakes, on all sides.
 
 And make no mistake: these are all simple, minor mistakes, so we don't mean to blow them out of proportion, but they do create problems when trying to connect all the pieces for all the cases.  We make corrections here as we find them, but without the ability to feed those corrections back to their source, disconnects will persist.
 

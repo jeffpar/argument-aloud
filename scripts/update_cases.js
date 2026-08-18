@@ -3557,10 +3557,10 @@ function processTerm(term, dryRun, checkDups, allTerms, sortOnly = false) {
 // ═════════════════════════════════
 //
 // For each SCDB download named in config.json under "scdb" (modern/legacy),
-// reads the corresponding raw CSV from scdb/, converts MM/DD/YYYY date values
-// to YYYY-MM-DD, removes unused columns, and writes <key>.csv (e.g.
-// modern.csv / legacy.csv) into scdb/current/. The original SCDB_*.csv file
-// is deleted on success.
+// reads the corresponding raw CSV from sources/scdb/, converts MM/DD/YYYY date
+// values to YYYY-MM-DD, removes unused columns, and writes <key>.csv (e.g.
+// modern.csv / legacy.csv) into sources/scdb/current/. The original SCDB_*.csv
+// file is deleted on success.
 
 const _SCDB_DROP_COLS = new Set([
     'sctCite', 'ledCite', 'lexisCite', 'docketId', 'caseIssuesId', 'voteId',
@@ -3655,7 +3655,7 @@ function processScdbDownloads(verbose) {
         return;
     }
     const scdb = cfg?.scdb || {};
-    const dataDir = path.join(REPO_ROOT, 'scdb');
+    const dataDir = path.join(REPO_ROOT, 'sources', 'scdb');
     if (!fs.existsSync(_SCDB_CURRENT_DIR)) fs.mkdirSync(_SCDB_CURRENT_DIR, { recursive: true });
     let any = false;
     for (const [key, basename] of Object.entries(scdb)) {
@@ -3674,10 +3674,11 @@ function processScdbDownloads(verbose) {
 // SCDB cases.json verification
 // ════════════════════════════
 
-const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'scdb');
+const _SCDB_DATA_DIR    = path.join(REPO_ROOT, 'sources', 'scdb');
 // The processed/current SCDB export (modern.csv, legacy.csv, naturalCourts.csv,
-// vars.json) lives in scdb/current/, separate from the raw SCDB_*.csv downloads
-// (still dropped directly in scdb/) and the scdb/cache/ derived cache.
+// vars.json) lives in sources/scdb/current/, separate from the raw SCDB_*.csv
+// downloads (still dropped directly in sources/scdb/) and the
+// sources/scdb/cache/ derived cache.
 const _SCDB_CURRENT_DIR = path.join(_SCDB_DATA_DIR, 'current');
 const _SCDB_TERMS_DIR   = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const _LD_CITES_PATH    = path.join(REPO_ROOT, 'data', 'ussc', 'citations.csv');
@@ -13772,9 +13773,9 @@ function _collectSitemapBlogUrls(buildDate) {
 }
 
 // Every other "pane"-layout page on the site — courts/ussc/collections/*,
-// courts/ussc/sources/*, courts/ussc/terms/index.md, the individual
-// justice/advocate bio pages under courts/ussc/people/**, nara/*, the
-// scdb/archive/* snapshots, etc. — is reachable only via
+// courts/ussc/pages/*, courts/ussc/terms/index.md, the individual
+// justice/advocate bio pages under courts/ussc/people/**, sources/nara/*, the
+// sources/scdb/archive/* snapshots, etc. — is reachable only via
 // /courts/ussc/?link=<path> and has its own bare URL blocked in robots.txt,
 // exactly like a blog post, but isn't part of any JSON registry the sitemap
 // already walks (collections.json/topics.json cover the ?collection=/
@@ -13789,7 +13790,7 @@ const SITEMAP_PANE_SKIP_DIRS = new Set([
     'courts/ussc/blog', // handled separately, by _collectSitemapBlogUrls
     'courts/ussc/cache', 'courts/ussc/indexes', 'courts/ussc/journals', 'courts/ussc/opinions',
     'courts/ussc/transcripts/pdfs', 'courts/ussc/transcripts/text',
-    'scdb/cache', 'scdb/current',
+    'sources/scdb/cache', 'sources/scdb/current',
 ].map(p => p.split('/').join(path.sep)));
 
 function _collectSitemapPaneUrls(buildDate) {
