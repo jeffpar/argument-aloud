@@ -1859,7 +1859,20 @@
         // c.term (only ever set on a cross-term case-detail object — see
         // below) links to that case's own term instead of this page's, since
         // it isn't actually part of this term's own docket.
-        function fillGroup(sectionId, listId, group) {
+        // Preference order matches explorer.js's own _buildDecisionEntries/
+        // DECISION_FILE_PARAMS — the case's default decision doc source.
+        function decisionFileParam(c) {
+          if (c.decision_loc) return 'loc';
+          if (c.decision_gov) return 'gov';
+          if (c.decision_vol) return 'vol';
+          return null;
+        }
+
+        // isDecision (Decisions group only) makes the link open straight to
+        // the case's own decision doc — via explorer.js's ?file= restore —
+        // instead of its default oral-argument audio, since that's what
+        // brought this case to this date's attention in the first place.
+        function fillGroup(sectionId, listId, group, isDecision) {
           if (!group.length) return;
           var ul = document.getElementById(listId);
           var sorted = group.slice().sort(function (a, b) {
@@ -1872,14 +1885,17 @@
             var id = caseUrlId(c, cases);
             var linkTerm = c.term || term;
             var numberLabel = caseNumberLabel(c);
+            var fileParam = isDecision ? decisionFileParam(c) : null;
+            var search = '?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id) +
+              (fileParam ? '&file=' + fileParam : '');
             a.textContent = caseDisplayTitle(c) + (numberLabel ? ' (' + numberLabel + ')' : '');
-            a.href = '/courts/ussc/?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id);
+            a.href = '/courts/ussc/' + search;
             a.addEventListener('click', function (e) {
               e.preventDefault();
               if (window.parent !== window) {
                 window.parent.postMessage({
                   type: 'ussc-navigate',
-                  search: '?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id)
+                  search: search
                 }, location.origin);
               } else {
                 location.href = a.href;
@@ -1933,7 +1949,7 @@
           argued = argued.filter(function (c, i) { return argued.indexOf(c) === i; });
 
           fillGroup('date-argued-section',  'date-argued-list',  argued.concat(crossArg));
-          fillGroup('date-decided-section', 'date-decided-list', casesOnDate('decision'));
+          fillGroup('date-decided-section', 'date-decided-list', casesOnDate('decision'), true);
 
           renderMinutesPagesList();
           openMinutesPageFromUrl();

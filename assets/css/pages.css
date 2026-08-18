@@ -233,9 +233,9 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
    rather than squeezing this down to one or two characters per line. */
 .date-empty-message-nowrap { white-space: nowrap; }
 /* Same red/blue/green as an argued/decided/Minutes-bearing calendar day's own
-   background/digits (.cal-arg / .cal-dec / .cal-day.cal-minutes) — "argued"
-   also matches #date-argued-list a's own red, and "green" a selected Minutes
-   Pages link's (#date-minutes-list a.minutes-page-selected). */
+   background/digits (.cal-arg / .cal-dec / .cal-day.cal-minutes) — "green"
+   also matches a selected Minutes Pages link's (#date-minutes-list
+   a.minutes-page-selected). */
 .date-empty-message-red   { color: #d97070; }
 .date-empty-message-blue  { color: #6090cc; }
 .date-empty-message-green { color: #00e676; }
@@ -246,11 +246,11 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 .date-minutes-list { margin: 0; padding: 0 0 0 1rem; font-size: 0.85rem; }
 .date-minutes-list a { color: #2672b4; text-decoration: none; }
 .date-minutes-list a:hover { text-decoration: underline; color: #4a9eff; }
-/* ID selectors so these win over the .date-case-list/.date-minutes-list
-   color rules above (and their dark-mode variants) regardless of source
-   order — matching the same reddish-pink/green used for argument days and
-   minutes-book digits on the term calendar (.cal-arg / .cal-day.cal-minutes). */
-#date-argued-list a { color: #d97070; }
+/* ID selector so this wins over the .date-minutes-list color rule above
+   (and its dark-mode variant) regardless of source order — matching the
+   same green used for minutes-book digits on the term calendar
+   (.cal-day.cal-minutes). #date-argued-list a is left unstyled here so it
+   falls through to .date-case-list a's own blue, same as #date-decided-list. */
 #date-minutes-list, #date-minutes-list a { color: rgb(46, 139, 87); }
 #date-minutes-list a { cursor: grab; }
 /* Extra class so the brighter calendar green wins over the rgb(46, 139, 87)

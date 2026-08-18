@@ -91,7 +91,7 @@ scripts:
   </div>
   <div id="term-calendar" hidden></div>
 
-  <h2 id="case-listing-heading" hidden>Court Case Listing</h2>
+  <h2 id="case-listing-heading" hidden>Court Cases</h2>
   <div class="table-scroll">
     <table id="case-listing-table" hidden>
       <thead>
