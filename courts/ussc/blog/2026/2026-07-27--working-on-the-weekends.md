@@ -50,7 +50,7 @@ So for cases covered by the "Dates of Decisions" document with dates falling on 
 
 ## Cases Missing from "Dates of Decisions"
 
-We had originally assumed that the Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it seems more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
+We had originally assumed that the Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it's more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
 
 Case in point: [Gibbs v. Diekma (No. 88)](/courts/ussc/?term=1880-10&case=88). It was decided on December 13, 1880, which means it *should* have appeared in one of those early volumes, but it did not.  When Volume 131 was published in 1889, it contained this note in its appendix (p. lxiv):
 
