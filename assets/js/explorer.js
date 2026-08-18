@@ -2892,10 +2892,11 @@ function _buildPrimaryDecisionEntry(caseEntry) {
 // case has \u2014 LOC, GOV, Volume (decision_vol), and XML (decision_xml), in
 // that order, each included only when the corresponding prop exists \u2014 titled
 // "Decision on <full date> (XXX)". This is the shared source list behind both
-// the top-right document dropdown (_currentDecisionEntries) and the
-// #case-cite click menu (_buildCiteMenuEntries derives its own shorter
-// "Decision (XXX)" button labels from it), so both list the same sources in
-// the same order and stay in sync automatically.
+// #case-cite's click menu (_buildCiteMenuEntries derives its own shorter
+// "Decision (XXX)" button labels from it) and the top-right document dropdown
+// (_currentDecisionEntries), though the dropdown itself only ever surfaces
+// entries[0] \u2014 the single preferred source \u2014 via _appendDecisionOption;
+// every source stays reachable through #case-cite regardless.
 function _buildOpinionEntries(caseEntry) {
   if (!caseEntry?.decision) return [];
   const dateLabel = 'Decision\u00a0on\u00a0' + formatDecisionDate(caseEntry.decision);
@@ -2932,6 +2933,19 @@ function _buildCiteMenuEntries(caseEntry) {
 const DECISION_FILE_PARAMS = { decision_loc: 'loc', decision_gov: 'gov', decision_vol: 'vol', decision_xml: 'xml' };
 const DECISION_PARAM_KEYS  = { loc: 'decision_loc', gov: 'decision_gov', ussc: 'decision_gov', vol: 'decision_vol', xml: 'decision_xml' };
 
+// Appends only `entries[0]` — the single preferred decision_* source (LOC,
+// else GOV, else VOL, else XML) — to the file-select dropdown as one
+// "Decision on <date>" option, rather than one option per available source.
+// Every source is still reachable via #case-cite's own click menu (see
+// _buildCiteMenuEntries), which lists all of `entries`.
+function _appendDecisionOption(fileSelect, entries) {
+  if (!entries.length) return;
+  const opt = document.createElement('option');
+  opt.value = entries[0].value;
+  opt.textContent = entries[0].title.replace(/ \([A-Z]+\)$/, '');
+  fileSelect.appendChild(opt);
+}
+
 // If `param` (a URL 'file' value) names a decision source present in the
 // current case's _currentDecisionEntries, show it in the doc viewer and sync
 // the file-select dropdown to match. Returns whether it was handled.
@@ -2940,8 +2954,11 @@ function _showDecisionFromParam(param) {
   const de  = key && _currentDecisionEntries.find(d => d.value === key);
   if (!de) return false;
   showDocViewer({ href: de.href, title: de.title, view: de.view }, { autoScroll: true });
+  // The dropdown only ever offers the single preferred decision_* source
+  // (see _appendDecisionOption) — sync it to that entry rather than `key`,
+  // which may name a non-preferred source with no matching <option>.
   const fileSelect = document.getElementById('file-select');
-  if (fileSelect && !fileSelect.hidden) fileSelect.value = key;
+  if (fileSelect && !fileSelect.hidden) fileSelect.value = _currentDecisionEntries[0].value;
   return true;
 }
 
@@ -3007,8 +3024,13 @@ function _buildCiteMenu(anchorEl, entries) {
       e.stopPropagation();
       menu.remove();
       showDocViewer({ href: entry.href, title: entry.title, view: entry.view }, { force: true });
+      // The dropdown only ever lists the single preferred decision_* source
+      // (see _appendDecisionOption) — picking any other source here still
+      // just resyncs the dropdown's displayed label to that preferred entry
+      // rather than actually selecting/activating it, so it never overrides
+      // this cite-menu pick with a different doc-viewer load.
       const fileSelect = document.getElementById('file-select');
-      if (fileSelect && !fileSelect.hidden) fileSelect.value = entry.value;
+      if (fileSelect && !fileSelect.hidden) fileSelect.value = entries[0].value;
       const url = new URL(location.href);
       const fileVal = DECISION_FILE_PARAMS[entry.value];
       if (fileVal) url.searchParams.set('file', fileVal); else url.searchParams.delete('file');
@@ -7815,12 +7837,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       opt.textContent = te.title;
       fileSelect.appendChild(opt);
     });
-    _currentDecisionEntries.forEach(de => {
-      const opt = document.createElement('option');
-      opt.value = de.value;
-      opt.textContent = de.title;
-      fileSelect.appendChild(opt);
-    });
+    _appendDecisionOption(fileSelect, _currentDecisionEntries);
     _currentVideoEntries.forEach((v, i) => {
       const opt = document.createElement('option');
       opt.value = 'video:' + i;
@@ -8121,13 +8138,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     fileSelect.appendChild(opt);
   });
   sortedAudio.filter(a => a.type === 'decision').forEach(_appendAudioOption);
-  // Append sentinel options linking to decision PDFs, in order: LOC, GOV, US Reports.
-  _currentDecisionEntries.forEach(de => {
-    const sentinelOpt = document.createElement('option');
-    sentinelOpt.value = de.value;
-    sentinelOpt.textContent = de.title;
-    fileSelect.appendChild(sentinelOpt);
-  });
+  // Append a sentinel option for the single preferred decision source (LOC,
+  // else GOV, else US Reports, else XML) — every source stays available via
+  // #case-cite's own click menu (see _appendDecisionOption).
+  _appendDecisionOption(fileSelect, _currentDecisionEntries);
   // Append sentinel option(s) linking to the Oyez case page(s), if available.
   _currentOyezEntries.forEach(oe => {
     const oyezOpt = document.createElement('option');
