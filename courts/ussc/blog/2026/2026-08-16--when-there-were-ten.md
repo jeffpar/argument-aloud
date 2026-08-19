@@ -7,9 +7,11 @@ permalink: /courts/ussc/blog/2026/when-there-were-ten/
 
 # When There Were Ten
 
+*or, “When The Tenth Justice Was Booted”*
+
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-As a result of the [Tenth Circuit Act of 1863](https://en.wikipedia.org/wiki/Tenth_Circuit_Act_of_1863), there was a roughly two-year period when there were 10 Justices on the U.S. Supreme Court.  On Wednesday, May 20, 1863, when Justice [Stephen Field](/courts/ussc/?collection=gallery&id=stephen_field) joined the Court, the [Taney 19 (1863–1864)](/courts/ussc/?collection=benches&id=taney19) bench was formed.
+As a result of the [Tenth Circuit Act of 1863](https://en.wikipedia.org/wiki/Tenth_Circuit_Act_of_1863), there was a roughly two-year period when there were 10 Justices on the U.S. Supreme Court.  On Wednesday, May 20, 1863, when Justice [Stephen Field](/courts/ussc/?collection=gallery&id=stephen_field) joined the Court, the 10-Justice [Taney 19 (1863–1864)](/courts/ussc/?collection=benches&id=taney19) bench was formed.
 
 Then on Wednesday, October 12, 1864, when Chief Justice [Roger Taney](/courts/ussc/?collection=gallery&id=roger_taney) died, there were again only nine Justices.  For the next two months, there was little Court activity, except for a handful of arguments, until Thursday, December 15, 1864, when Chief Justice [Salmon Chase](/courts/ussc/?collection=gallery&id=salmon_chase) began serving, and the 10-Justice [Chase 1 (1864–1865)](/courts/ussc/?collection=benches&id=chase1) bench was formed.
 
@@ -29,4 +31,6 @@ By a vote of 9-1, the Supreme Court held that the withdrawal and simultaneous re
 
 This was not the first time Godfrey and Eames had appeared before the Court over the infamous "boot tree."  Just a few months earlier, in [Eames v. Godfrey](/courts/ussc/?collection=benches&id=taney19&term=1863-12&case=1863-017&sort=cases&o=a), Eames was defending himself against a claim that *his* boot tree infringed Godfrey's patent.  Eames won his case, but apparently that wasn't a sufficient victory, because he then tried (and failed) to invalidate Godfrey's patent.
 
-Finally, to give you a sense of boot tree innovation at the time, here is a [patent application](https://patentimages.storage.googleapis.com/d5/b0/c7/d85ba3ceb3fcb5/US19508.pdf) that was also granted on March 2, 1858.
+Finally, to give you a sense of boot tree innovation at the time, here is a [patent application](https://patents.google.com/patent/US19508A/en?oq=US19508) that was also granted on March 2, 1858.
+
+[![US19508](/assets/img/uspto/US19508.jpg)](https://patentimages.storage.googleapis.com/d5/b0/c7/d85ba3ceb3fcb5/US19508.pdf)

@@ -5037,10 +5037,16 @@ function _filterDataKey(key) {
 // to every term's own case list (only already-built ones actually rebuild —
 // see termLi._applyFilterState).
 function _applyActiveFilters() {
-  const termListEl = document.getElementById('term-list');
-  if (termListEl) {
+  // Scoped to the Terms section specifically (not #term-list as a whole) —
+  // .term-group is a generic class shared by Blog/Collections/Favorites/Edits
+  // items too, none of which carry the [data-has-*] attributes this filter
+  // keys off of, so querying the whole nav tree would hide all of those
+  // whenever a filter is active (see conversation: blog posts vanishing when
+  // toggling the DIGs checkbox).
+  const termsSectionEl = document.querySelector('[data-section="terms"]');
+  if (termsSectionEl) {
     const keys = [..._activeFilters];
-    termListEl.querySelectorAll('.decade-group, .term-group').forEach(el => {
+    termsSectionEl.querySelectorAll('.decade-group, .term-group').forEach(el => {
       const hidden = keys.length > 0 && !keys.some(key => el.dataset[_filterDataKey(key)] === '1');
       el.classList.toggle('filter-hidden', hidden);
     });
