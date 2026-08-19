@@ -14,13 +14,13 @@
  * corrections ledger, layered onto freshly generated XML at write time.
  *
  * Usage:
- *   node tests/fix_encodings.js [--dry-run] [--verbose]
+ *   node scripts/tests/fix_encodings.js [--dry-run] [--verbose]
  */
 import {
     listAllCaseFiles, buildCitationIndex, convertCase,
     addCorrection, getCorrectionEntry,
     addReviewEntry, resetReview,
-} from '../scripts/update_opinions.js';
+} from '../update_opinions.js';
 
 const MARK = '�';
 const STRIP_TAG_RE = /<[^>]+>/g;

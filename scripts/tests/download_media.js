@@ -24,9 +24,9 @@
  * At the end, reports which URLs are no longer reachable.
  *
  * Usage:
- *   node tests/download_media.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
- *   node tests/download_media.js [TERM [CASE]] --thumbs [--dry-run] [--refetch] [--verbose]
- *   node tests/download_media.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
+ *   node scripts/tests/download_media.js [TERM [CASE]] [--files] [--dry-run] [--refetch] [--verbose]
+ *   node scripts/tests/download_media.js [TERM [CASE]] --thumbs [--dry-run] [--refetch] [--verbose]
+ *   node scripts/tests/download_media.js [VOLUME] --justia [--dry-run] [--refetch] [--verbose]
  *
  * Options:
  *   TERM       Term in YYYY-10 format (default: all terms)
@@ -57,7 +57,7 @@ import { execFile }      from 'node:child_process';
 import { promisify }     from 'node:util';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT      = path.resolve(__dirname, '..');
+const REPO_ROOT      = path.resolve(__dirname, '..', '..');
 const TERMS_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const CACHE_DIR      = path.join(REPO_ROOT, 'courts', 'ussc', 'cache', 'terms');
 const OPINIONS_HTML  = path.join(REPO_ROOT, 'courts', 'ussc', 'opinions', 'html');

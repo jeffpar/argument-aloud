@@ -27,21 +27,21 @@
 // real on-page <a href> (e.g. a "See also: Wikipedia" link) ARE checked,
 // HEAD-only, no recursion -- pass --no-external to skip even those.
 //
-// Successful checks are cached to disk (tests/.crawl-cache.json by default) and
+// Successful checks are cached to disk (scripts/tests/.crawl-cache.json by default) and
 // trusted for --cache-ttl seconds (default 1 day) on the next run, so repeat
 // runs only pay for what's new or previously broken -- failures are never
 // served from cache, they're always re-verified. Pass --no-cache to disable.
 //
 // Usage:
-//   node tests/crawl-links.js [--base URL] [--concurrency N] [--timeout MS]
+//   node scripts/tests/crawl-links.js [--base URL] [--concurrency N] [--timeout MS]
 //                              [--no-external] [--no-data] [--limit N] [--out FILE]
 //                              [--cache FILE] [--no-cache] [--cache-ttl SECONDS]
 //
 // Examples:
-//   node tests/crawl-links.js                          # full exhaustive run against production
-//   node tests/crawl-links.js --limit 5                # quick smoke test (5 terms' worth of cases)
-//   node tests/crawl-links.js --base http://localhost:4008 --no-external
-//   node tests/crawl-links.js --no-cache                # force a fully fresh re-check of everything
+//   node scripts/tests/crawl-links.js                          # full exhaustive run against production
+//   node scripts/tests/crawl-links.js --limit 5                # quick smoke test (5 terms' worth of cases)
+//   node scripts/tests/crawl-links.js --base http://localhost:4008 --no-external
+//   node scripts/tests/crawl-links.js --no-cache                # force a fully fresh re-check of everything
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -49,7 +49,7 @@ import { fileURLToPath } from 'node:url';
 import { parse as parseHtml } from 'node-html-parser';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 // ── CLI args ──────────────────────────────────────────────────────────────
 

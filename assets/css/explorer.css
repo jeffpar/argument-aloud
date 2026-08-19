@@ -1233,6 +1233,20 @@ button.term-case-count.sort-active:hover {
    message's own red, even inside the (otherwise green) audit message. */
 .warning-prefix { color: #c0392b; }
 
+/* SCDB/Oyez links inside a warning message (see _appendLinkedWarningText)
+   read in the message's own color, not link-blue, and only underline on
+   hover (matching #case-argued/#case-vote's .date-link convention above). */
+#case-scdb-message a, #case-audit-message a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s;
+}
+#case-scdb-message a:hover, #case-audit-message a:hover {
+  text-decoration-color: currentColor;
+}
+
 /* Favorite + Tags are grouped into one atomic flex item so a narrow layout
    never wraps them apart from each other — the date spans wrap individually
    instead, as needed, since they aren't part of this group. */

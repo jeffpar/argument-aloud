@@ -34,7 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { pipeline }      from 'node:stream/promises';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT   = path.resolve(__dirname, '..');
+const REPO_ROOT   = path.resolve(__dirname, '..', '..');
 const PRIVATE_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'people', 'justices', 'all', 'harry_blackmun', '_private');
 const BASE_URL    = 'http://blackmun.wustl.edu/';
 

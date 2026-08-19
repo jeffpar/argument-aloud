@@ -3743,6 +3743,28 @@ function _setCaseInfoRow3(caseEntry) {
   row.hidden = false;
 }
 
+// Case/audit warning text links "SCDB" and "Oyez" to their own sites.
+const WARNING_LINK_TARGETS = { SCDB: 'https://scdb.la.psu.edu', Oyez: 'https://www.oyez.org' };
+
+// Appends `text` to `container`, wrapping each whole-word occurrence of
+// "SCDB" or "Oyez" in a link to that site.
+function _appendLinkedWarningText(container, text) {
+  text.split(/\b(SCDB|Oyez)\b/).forEach(part => {
+    if (!part) return;
+    const url = WARNING_LINK_TARGETS[part];
+    if (url) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = part;
+      container.appendChild(a);
+    } else {
+      container.appendChild(document.createTextNode(part));
+    }
+  });
+}
+
 // Fills `span` with a "Warning: " prefix (in .warning-prefix's red) followed
 // by `msg` in that span's own color. Empty `msg` just clears it.
 function _setWarningMessage(span, msg) {
@@ -3752,7 +3774,7 @@ function _setWarningMessage(span, msg) {
   prefix.className = 'warning-prefix';
   prefix.textContent = 'Warning: ';
   span.appendChild(prefix);
-  span.appendChild(document.createTextNode(msg));
+  _appendLinkedWarningText(span, msg);
 }
 
 function _setCaseInfoRow4(caseEntry) {
@@ -3765,7 +3787,8 @@ function _setCaseInfoRow4(caseEntry) {
   // prefix; audit_message is informational (green) and is just its own
   // text, on its own line below scdb_message (if any).
   _setWarningMessage(scdbSpan, scdbMsg);
-  auditSpan.textContent = auditMsg;
+  auditSpan.textContent = '';
+  _appendLinkedWarningText(auditSpan, auditMsg);
   if (!scdbMsg && !auditMsg) {
     row.hidden = true;
     return;

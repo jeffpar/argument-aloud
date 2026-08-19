@@ -54,7 +54,7 @@
 // Run with --apply to write changes; without it, this only reports.
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { reorderCase } from '../scripts/schema.js';
+import { reorderCase } from '../schema.js';
 
 const APPLY = process.argv.includes('--apply');
 const ROOT = new URL('..', import.meta.url).pathname;
