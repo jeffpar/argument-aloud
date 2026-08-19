@@ -27,7 +27,7 @@ For example, the Paper lists [Wolf v. Weinstein (1963)](/courts/ussc/?term=1962-
 
 Admittedly, it's also a stretch to say that SCDB "got it right"; it would be more accurate to say that SCDB simply lacks the precision to say otherwise.
 
-Other cases that involved multiple issues, only one of which was DIG'ed, include:
+Other cases that involved multiple issues or cases and were not *fully* DIG'ed include:
 
 - [Mishkin v. New York (1966)](/courts/ussc/?term=1965-10&case=49)
 - [Whitus v. Georgia (1967)](/courts/ussc/?term=1966-10&case=650)
@@ -57,4 +57,4 @@ And then we have cases like these, the "dregs of the DIGs", which were "dismisse
 
 These cases are not included in our collection because they were not argued *and* no opinions or dissents were reported, making these cases barely distinguishable from outright denials.  These cases may have enjoyed some additional briefing, but again, even denied cases are "briefed" to some extent in their initial petition.
 
-It's worth mentioning that in at least one of those examples, *N.Y. State Parole Bd. v. Coralluzzo*, it was noted that Justices White and Rehnquist dissented from the dismissal, but since no further explanation was provided, we are again left with a case which, for better or worse, provides no useful information.
+It's worth mentioning that in at least one of those examples, *N.Y. State Parole Bd. v. Coralluzzo*, it was noted that Justices White and Rehnquist dissented from the dismissal, but since no further explanation was provided, we are again left with a case with no useful information.
