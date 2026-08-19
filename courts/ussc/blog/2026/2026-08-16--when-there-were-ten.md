@@ -17,6 +17,8 @@ That lasted until Tuesday, May 30, 1865, when Justice [John Catron](/courts/ussc
 
 ## Highlights of "The Court of Ten"
 
+#### The Case of the Untimely Patent Application
+
 [Godfrey v. Eames](/courts/ussc/?collection=benches&id=taney19&term=1863-12&case=1863-066&sort=cases&o=a) involved a "boot tree" patent, which Godfrey had originally applied for on January 31, 1855.  The patent application was rejected on May 17, 1855.  Almost two years later, on April 24, 1857, Godfrey withdrew his application and simultaneously filed a new one, applying the $20 withdrawal fee to the $30 new application fee, and this time a patent was granted on March 2, 1858.
 
 Eames contended that Godfrey's patent application date was 1857, more than two years after Godfrey had begun selling his "boot tree," and therefore the patent was invalid, since the Patent Act of 1839 said:
@@ -27,4 +29,4 @@ By a vote of 9-1, the Supreme Court held that the withdrawal and simultaneous re
 
 This was not the first time Godfrey and Eames had appeared before the Court over the infamous "boot tree."  Just a few months earlier, in [Eames v. Godfrey](/courts/ussc/?collection=benches&id=taney19&term=1863-12&case=1863-017&sort=cases&o=a), Eames was defending himself against a claim that *his* boot tree infringed Godfrey's patent.  Eames won his case, but apparently that wasn't a sufficient victory, because he then tried (and failed) to invalidate Godfrey's patent.
 
-This [Boot Tree](https://patentimages.storage.googleapis.com/d5/b0/c7/d85ba3ceb3fcb5/US19508.pdf) patent application, granted on March 2, 1858, *could* be the patent at issue in this case, because the date and location are correct; however, the named inventor is Lewis, not Godfrey.  At any rate, it gives you a sense of boot tree innovation at the time.
+Finally, to give you a sense of boot tree innovation at the time, here is a [patent application](https://patentimages.storage.googleapis.com/d5/b0/c7/d85ba3ceb3fcb5/US19508.pdf) that was also granted on March 2, 1858.

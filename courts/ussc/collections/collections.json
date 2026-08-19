@@ -269,16 +269,16 @@
         "order": "argument:ascending",
         "groups": [
           {
+            "name": "Arguments ($first_decision_year-$last_decision_year)",
+            "tags": ["Historical Transcripts"]
+          },
+          {
             "name": "Opinions",
             "page": "/courts/ussc/collections/historical/oddities/transcripts",
             "conditions": [
               "event.source == 'ussc' && event.type == 'opinion'"
             ],
             "order": "decision:ascending,titles:ascending"
-          },
-          {
-            "name": "Arguments ($first_decision_year-$last_decision_year)",
-            "tags": ["Historical Transcripts"]
           }
         ]
       }

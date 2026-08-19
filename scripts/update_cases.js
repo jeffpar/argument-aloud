@@ -13773,9 +13773,9 @@ function _collectSitemapBlogUrls(buildDate) {
 }
 
 // Every other "pane"-layout page on the site — courts/ussc/collections/*,
-// courts/ussc/pages/*, courts/ussc/terms/index.md, the individual
-// justice/advocate bio pages under courts/ussc/people/**, sources/nara/*, the
-// sources/scdb/archive/* snapshots, etc. — is reachable only via
+// courts/ussc/terms/index.md, the individual justice/advocate bio pages
+// under courts/ussc/people/**, sources/nara/*, the sources/scdb/archive/*
+// snapshots, sources/ussc/*, etc. — is reachable only via
 // /courts/ussc/?link=<path> and has its own bare URL blocked in robots.txt,
 // exactly like a blog post, but isn't part of any JSON registry the sitemap
 // already walks (collections.json/topics.json cover the ?collection=/

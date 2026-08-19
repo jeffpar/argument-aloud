@@ -23,7 +23,7 @@ On this site, under Collections, you'll find a group named [Audits](/courts/ussc
 
 This is an automatically-generated list of all cases where we have flagged an issue with one more of the dates that SCDB has recorded for those cases; specifically, their *dateArgument*, *dateRearg*, and *dateDecision* fields.
 
-Since we rely on the U.S. Supreme Court's own meticulous research, "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)", for all cases decided from 1791 through 1882, any deviations from that research are suspect. And there are numerous SCDB deviations. For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=audits&id=incorrect-scdb-records&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
+Since we rely on the U.S. Supreme Court's own meticulous research, "[Dates of Supreme Court Decisions and Arguments](/courts/ussc/?source=ussc&id=reports)", for all cases decided from 1791 through 1882, any deviations from that research are suspect. And there are numerous SCDB deviations. For example, [Miller v. Kerr (1821)](/courts/ussc/?collection=audits&id=incorrect-scdb-records&term=1821-02&case=1822-019&sort=decided&o=a) is documented by the Court as being argued on March 13, 1821 and decided two days later on March 15, 1821.
 
 SCDB claims that it, too, is relying on the Court's research; regarding *dateDecision*, it says:
 
@@ -108,11 +108,7 @@ And this isn't a trivial problem. When you look for the transcript for [East Tex
 
 ### Decision Dates
 
-For a case's [Date of Decision](https://scdb.la.psu.edu/online-codebook/date-of-decision/), the SCDB online codebook says:
-
-> This variable contains the year, month, and day that the Court announced its decision in the case. For volumes 2-107 of the U.S. Reports (1791-1882), we relied on [Dates of Supreme Court Decisions and Arguments](http://www.supremecourt.gov/opinions/datesofdecisions.pdf), prepared by Anne Ashmore of the Library of the Supreme Court, because many early reporters do not list the date of decision.
-
-Importing dates from a Supreme Court document should have been an error-free process, yet it wasn't. Take the case of [United States v. McDowell (8 U.S. 316)](/courts/ussc/?term=1808-02&case=1807-025). SCDB claims it was decided on March 7, 1807, but the Supreme Court's "Dates of Supreme Court Decisions and Arguments" document -- which SCDB says it relied upon -- indicates March 7, 1808. I have found dozens of similar mistakes.
+Importing decision dates from existing data files should have been a straight-forward process, yet somehow it wasn't. Take the case of [United States v. McDowell (8 U.S. 316)](/courts/ussc/?term=1808-02&case=1807-025). SCDB claims it was decided on March 7, 1807, but the Supreme Court's "Dates of Supreme Court Decisions and Arguments" document -- which SCDB says it relied upon -- indicates March 7, 1808. I have found dozens of similar mistakes.
 
 And these kinds of mistakes aren't just limited to those older cases. Look at [Perry v. Leeke (488 U.S. 272)](/courts/ussc/?term=1988-10&case=87-6325). It was decided January 10, 1989, but SCDB lists the decision date as "1/1/1989".
 
@@ -120,7 +116,7 @@ There is also another, subtler problem with cases listed in the "Dates of Suprem
 
 Unfortunately, SCDB appears to have morphed such dates into the first day of the first month of the term, resulting in a date (e.g., February 1, 1809) that appears to be precise but is almost certainly incorrect.
 
-NOTE: As a public service, I have extracted all the decision dates *and* argument dates from the Supreme Court's [Dates of Supreme Court Decisions and Arguments](/sources/ussc/Dates_of_Decisions_and_Arguments-2018-12-26.pdf) and produced an easy-to-use
+NOTE: As a public service, I have extracted all the decision dates *and* argument dates from the Supreme Court's "[Dates of Supreme Court Decisions and Arguments](/sources/ussc/reports/Dates_of_Decisions_and_Arguments-2018-12-26.pdf)" and produced an easy-to-use
 [spreadsheet](/data/ussc/dates.csv). I recommend using this file instead of the one on the [Free Law](https://free.law/2011/05/25/updated-scotus-dates/) website, because the last time I checked, the dates in their file were badly scrambled, and it didn't include any argument dates. The dates on the first few lines of their file:
 
     2 U.S. 401|West v. Barnes|2|401|1791-08-17
@@ -128,7 +124,7 @@ NOTE: As a public service, I have extracted all the decision dates *and* argumen
     2 U.S. 401|Oswald v. New York|2|401|1792-02-14
     ...
 
-clearly do not match those provided in the Court's [PDF](/sources/ussc/Dates_of_Decisions_and_Arguments-2018-12-26.pdf).
+clearly do not match those provided in the Court's [document](/sources/ussc/reports/Dates_of_Decisions_and_Arguments-2018-12-26.pdf).
 
 Here's a list of all the corrections we've made to *dateDecision* in SCDB thus far, with links to the source material used, so that they can all be verified. This is a degree of transparency that you will not find on the SCDB website.
 

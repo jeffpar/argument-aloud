@@ -11,7 +11,7 @@ permalink: /courts/ussc/blog/2026/supreme-court-library/
 
 *Originally posted on March 2, 2019 on [lonedissent.org](https://lonedissent.org/blog/2019/03/02/) and reproduced below with some minor changes and link updates*
 
-In March 2005, on my first (and last) visit to the U.S. Supreme Court Library, with librarian Brian Stiglmeier's help, I was able to browse their small collection of early transcripts and duplicate a few of them.  All the copies I made are available under [Historical Transcripts](/courts/ussc/?collection=transcripts&group=2).
+In March 2005, on my first (and last) visit to the U.S. Supreme Court Library, with librarian Brian Stiglmeier's help, I was able to browse their small collection of early transcripts and duplicate a few of them.  All the copies I made are available under [Historical Transcripts](/courts/ussc/?collection=transcripts&group=1).
 
 In addition, the Library gave me a document titled "[Oral Arguments Available in the U.S. Supreme Court Library Prior to the 1968 Term]({{ site.indexes_base_url }}/courts/ussc/transcripts/misc/SCOTUS_Library_Oral_Arguments_Prior_To_1968.pdf)" (the handwritten notations are mine). A list of the cases in that 2005 document have been reproduced [below](#oral-arguments-available-in-the-us-supreme-court-library-prior-to-the-1968-term).
 
@@ -19,15 +19,17 @@ Sadly, shortly after my visit in 2005, the Supreme Court Library closed for remo
 
 ![Supreme Court Library](/assets/img/ussc/library1.jpg)
 
-In recent years, the Supreme Court Library has [posted](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1968) all its transcripts from the 1968 Term onward, as well as historical copies of the [Journal of the Supreme Court of the United States](https://www.supremecourt.gov/orders/scannedjournals.aspx). They haven't yet added any of the [pre-1968 transcripts](/courts/ussc/?collection=transcripts&group=2) in their possession, but this is a welcome trend.
+In recent years, the Supreme Court Library has [posted](https://www.supremecourt.gov/oral_arguments/archived_transcripts/1968) all its transcripts from the 1968 Term onward, as well as historical copies of the [Journal of the Supreme Court of the United States](https://www.supremecourt.gov/orders/scannedjournals.aspx). They haven't yet added any of the [pre-1968 transcripts](/courts/ussc/?collection=transcripts&group=1) in their possession, but this is a welcome trend.
 
-However, I suspect these digitization efforts are primarily an attempt to deflect any criticism of the Library's "closed door" policy, because the more materials they can claim are available either on their website or at other public institutions, the more they probably think their restrictive policy is somehow defensible.  In my humble opinion, it is not.
+I suspect these digitization efforts are also an attempt to deflect criticism of the Library's "closed door" policy, because as more materials become available either on their website or at other public institutions, it becomes easier to deny in-person requests.  As of 2026, the Court's [website](https://www.supremecourt.gov/about/faq_documents.aspx) says only this regarding "Who can access the Supreme Court Library":
 
----
+> Supreme Court Rule 2.1 states, “The Court’s Library is available for use by appropriate personnel of this Court, members of the Bar of this Court, Members of Congress and their legal staffs, and attorneys for the United States and for federal departments and agencies.” The Supreme Court Library’s main mission is to assist the Justices in fulfilling their constitutional responsibilities with the best reference and research support in the most efficient, ethical and economic manner.
 
-NOTE: According to the Supreme Court Historical Society website, "By special written arrangement with the Librarian of the Court, access to the Library is also available to visiting scholars in need of materials uniquely available in the Library's collection."
+According to the [Supreme Court Historical Society](https://supremecourthistory.org/how-the-court-works/library-support/):
 
-In other words, if you jump through a series of undefined hoops *and* can demonstrate that whatever you're looking for is *not* available anywhere else, then maybe, just maybe, you'll be allowed to visit the library -- or at least be permitted to wait at the door while someone else looks for you.
+> By special written arrangement with the Librarian of the Court, access to the Library is also available to visiting scholars in need of materials uniquely available in the Library's collection.
+
+However, it is a very limited arrangement, since it relates only to "materials uniquely available", and it's unclear when the arrangement was made, if it only applies to the Supreme Court Historical Society, or if it is even still in effect; there is no mention of it anywhere on the Court's own website.
 
 ## Oral Arguments Available in the U.S. Supreme Court Library Prior to the 1968 Term
 

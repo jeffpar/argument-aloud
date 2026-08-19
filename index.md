@@ -43,7 +43,7 @@ layout: home
       <div class="hp-icon">✏️</div>
       <div class="hp-card-title">Transcripts</div>
     </div>
-    <p class="hp-card-desc">Read through <a href="/courts/ussc/?collection=transcripts&group=1">Historical</a> transcripts, or follow along in recorded <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Arguments</a>. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
+    <p class="hp-card-desc">Read through historical <a href="/courts/ussc/?collection=transcripts">Transcripts</a> or follow along in recorded <a href="/courts/ussc/?term=2025-10&case=24-1260&turn=369">Arguments</a>. Correct speakers or text directly in the browser (see <strong>Transcripts</strong> in the menu above).</p>
   </div>
 
   <div class="hp-card">
@@ -52,7 +52,7 @@ layout: home
       <div class="hp-icon">📚</div>
       <div class="hp-card-title">Collections</div>
     </div>
-    <p class="hp-card-desc">Sift through historical <a href="/courts/ussc/?collection=briefs&group=1">Briefs</a>, <a href="/courts/ussc/?collection=transcripts&group=1">Transcripts</a>, and <a href="/courts/ussc/?collection=orig&group=1">Original Jurisdiction Cases</a>, or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
+    <p class="hp-card-desc">Sift through historical <a href="/courts/ussc/?collection=briefs">Briefs</a>, <a href="/courts/ussc/?collection=transcripts">Transcripts</a>, and <a href="/courts/ussc/?collection=orig">Original Jurisdiction Cases</a>, or peruse third-party collections, like the <a href="/courts/ussc/?collection=scgh">Supreme Court's Greatest Hits</a>.</p>
   </div>
 
   <div class="hp-card">
@@ -61,7 +61,7 @@ layout: home
       <div class="hp-icon">🗂️</div>
       <div class="hp-card-title">Topics</div>
     </div>
-    <p class="hp-card-desc">Explore cases by topic, such as <a href="/courts/ussc/?topic=nlra&group=1">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial&group=1">Segregation</a>, or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
+    <p class="hp-card-desc">Explore cases by topic, such as <a href="/courts/ussc/?topic=nlra">The National Labor Relations Act</a> or <a href="/courts/ussc/?topic=racial">Segregation</a>, or view <a href="/courts/ussc/?topic=noteworthy">Noteworthy</a> cases by constitutional provisions and more.</p>
   </div>
 
   <div class="hp-card">

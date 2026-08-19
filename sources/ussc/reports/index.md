@@ -7,7 +7,7 @@ title: "U.S. Reports"
 
 ## Dates of Decisions and Arguments
 
-The Court's <a href="https://www.supremecourt.gov/opinions/USReports.aspx" target="_blank">U.S. Reports</a> page also mentions a document entitled "DATES OF SUPREME COURT DECISIONS AND ARGUMENTS":
+The Court's <a href="https://www.supremecourt.gov/opinions/USReports.aspx" target="_blank">U.S. Reports</a> page also mentions a document entitled "Dates of Supreme Court Decisions and Arguments":
 
 > Explanatory material on the dates of early Supreme Court decisions and arguments from 1791-1882 is available <a href="https://www.supremecourt.gov/opinions/datesofdecisions.pdf" target="_blank">here</a>.
 

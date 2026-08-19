@@ -23,7 +23,7 @@ A similar discrepancy exists for the case's reargument dates, which is why we ha
 
 ## The 19th Century Void
 
-As we noted in "[Revisiting The Supreme Court Database](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb)", we rely on the U.S. Supreme Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" for argument and decision dates of all cases decided from 1791 through 1882.
+As we noted in "[Revisiting The Supreme Court Database](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb)", we rely on the U.S. Supreme Court's "[Dates of Supreme Court Decisions and Arguments](/courts/ussc/?source=ussc&id=reports)" for argument and decision dates of all cases decided from 1791 through 1882.
 
 Unfortunately, that document ends in the middle of October Term 1882 (more precisely, it ends with volume 107 of U.S. Reports, because volumes after that began reporting dates), and the Court's Journals don't start until October Term 1889.
 
@@ -37,7 +37,7 @@ A similar problem existed for a case in 1887, [Mercantile Bank v. New York (No. 
 
 ## Spot-Checking Pre-Void Cases
 
-Just out of curiosity, we checked the Court's [reported](/courts/ussc/?source=ussc&group=9) argument dates for a few cases in 1882:
+Just out of curiosity, we checked the Court's [reported](/courts/ussc/?source=ussc&id=reports) argument dates for a few cases in 1882:
 
   - [Chicago & Northwestern Railway Co. v. United States (No. 508), 104 U.S. 680 (1982)](/courts/ussc/?term=1881-10&case=508)
   - [Chicago, Milwaukee & St. Paul Railway Co. v. United States (No. 194), 104 U.S. 687 (1982)](/courts/ussc/?term=1881-10&case=194)
@@ -50,7 +50,7 @@ So for cases covered by the "Dates of Decisions" document with dates falling on 
 
 ## Cases Missing from "Dates of Decisions"
 
-We had originally assumed that the Court's "[DATES OF SUPREME COURT DECISIONS AND ARGUMENTS](/courts/ussc/?source=ussc&group=9)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it's more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
+We had originally assumed that the Court's "[Dates of Supreme Court Decisions and Arguments](/courts/ussc/?source=ussc&id=reports)" was both a definitive *and* complete list of all cases decided from 1791 through 1882.  However, it's more accurate to say that it's a complete list of cases ***reported*** in Volumes 2 through 107 of U.S. Reports, which means that the list is ***missing*** cases that were also missing from those Reports.
 
 Case in point: [Gibbs v. Diekma (No. 88)](/courts/ussc/?term=1880-10&case=88). It was decided on December 13, 1880, which means it *should* have appeared in one of those early volumes, but it did not.  When Volume 131 was published in 1889, it contained this note in its appendix (p. lxiv):
 
