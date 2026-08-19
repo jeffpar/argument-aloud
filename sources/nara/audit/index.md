@@ -84,9 +84,11 @@ Working backwards before 1955, we will lose the benefit of any Oyez or NARA audi
   - [Library of Congress: United States Reports](https://www.loc.gov/collections/united-states-reports/)
   - [The Supreme Court Database](https://scdb.la.psu.edu)
 
-## The Supreme Court Database Revisited
+## The Supreme Court Database
 
-As luck would have it, the very first case in this initial audit, [Texas v. New Mexico (No. 9 Orig.)](/courts/ussc/?term=1956-10&case=9-Orig), was missing from SCDB, because even though it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party."  This was reported on p.166 of the 1956 Journal and in the decision at [352 U.S. 991](/courts/ussc/?term=1956-10&case=9-Orig&file=usrep352decisions.pdf%23page%3D191).
+We also compared NARA's holdings to the records of the [Supreme Court Database](https://scdb.la.psu.edu) (SCDB), and we found some omissions in SCDB as well.
+
+In fact, the very first case in this initial audit, [Texas v. New Mexico (No. 9 Orig.)](/courts/ussc/?term=1956-10&case=9-Orig), was missing from SCDB, because even though it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party."  This was reported on p.166 of the 1956 Journal and in the decision at [352 U.S. 991](/courts/ussc/?term=1956-10&case=9-Orig&file=usrep352decisions.pdf%23page%3D191).
 
 This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed for want of a substantial federal question, 3) dismissed ("affirmed") by an equally divided Court, 4) dismissed pursuant to Rule 60 due to some mistake or omission in the lower court, or 5) dismissed for any other reason, as in the case above.
 

@@ -228,6 +228,8 @@ Then there's the problem of multiple rearguments. Once again, the Spaeth "ALLCOU
 
 The limitation here is even worse than before, because not only can a reargument span multiple days, but there can also be *multiple* rearguments. Take a look at [Boyle v. Landry (401 U.S. 77)](/courts/ussc/?term=1970-10&case=4). The second reargument on November 16, 1970 is nowhere to be found in SCDB.
 
+### Dismissals
+
 SCDB also doesn't comprehensively list cases that were granted, argued, and then dismissed without an opinion. This can happen when the Court "DIGs" (dismisses as improvidently granted) a case, or when it dismisses a case that has later become moot. To be clear, I'm referring to cases that were fully briefed and argued and *then* dismissed, which makes them significantly different from the many petitions that are routinely denied, as well as the occasional petition that is granted and then dismissed before argument.
 
 This is not to say that SCDB doesn't track *any* DIG'ed cases, but merely that its recording of them is haphazard. For example, [Stiles v. United States (393 U.S. 219)](/courts/ussc/?term=1968-10&case=74), argued November 20, 1968, is not listed in SCDB, while [Ford Motor Co. v. McCauley (537 U.S. 1)](/courts/ussc/?term=2002-10&case=01-896), argued October 7, 2000, is listed. The failure to record all such cases frustrates a variety of research, such as the accurate tracking of oral argument activity, the frequency of DIGs, etc.
