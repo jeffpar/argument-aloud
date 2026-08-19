@@ -4960,12 +4960,18 @@ function _buildSortMenu(anchorEl, options, getState, onPick) {
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
+// Tracks the Filter popover while it's open, so the trigger button's own
+// click handler can toggle it closed (like the Search button) instead of
+// relying solely on the outside-click listener below — see _closeFilterMenu.
+let _openFilterMenu = null; // {menu, anchorEl, close} or null
+
 // Checkbox-list popover for the Terms nav's Filter button. Unlike
 // _buildSortMenu (single-select, closes as soon as you pick), each option
 // here toggles independently and the menu stays open so several filters
-// can be flipped in one visit — it closes only on an outside click.
+// can be flipped in one visit — it closes only on an outside click or a
+// second click on anchorEl (handled by the caller via _openFilterMenu).
 function _buildFilterMenu(anchorEl, options, activeSet, onToggle) {
-  document.querySelectorAll('.term-filter-menu').forEach(m => m.remove());
+  _closeFilterMenu();
   const menu = document.createElement('ul');
   menu.className = 'term-filter-menu';
   for (const opt of options) {
@@ -4987,12 +4993,34 @@ function _buildFilterMenu(anchorEl, options, activeSet, onToggle) {
   }
   document.body.appendChild(menu);
   const rect = anchorEl.getBoundingClientRect();
+  // Clamp inside #doc-browser (the nav sidebar) rather than just anchoring to
+  // the button's own left edge — the Filter button sits flush against the
+  // sidebar's right edge (margin-left: auto in .terms-header), so a menu
+  // wider than the leftover space would otherwise spill out into the doc
+  // viewer beside it.
+  const browserRect = document.getElementById('doc-browser')?.getBoundingClientRect();
+  let left = rect.left;
+  if (browserRect) {
+    left = Math.min(left, browserRect.right - menu.offsetWidth);
+    left = Math.max(left, browserRect.left);
+  }
   menu.style.top  = (rect.bottom + window.scrollY) + 'px';
-  menu.style.left = (rect.left   + window.scrollX) + 'px';
+  menu.style.left = (left + window.scrollX) + 'px';
   const close = (e) => {
-    if (!menu.contains(e.target)) { menu.remove(); document.removeEventListener('mousedown', close, true); }
+    // anchorEl.contains, not === — a click on the button's own <svg> icon
+    // targets that child element, not the <button> itself.
+    if (menu.contains(e.target) || anchorEl.contains(e.target)) return;
+    _closeFilterMenu();
   };
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
+  _openFilterMenu = { menu, anchorEl, close };
+}
+
+function _closeFilterMenu() {
+  if (!_openFilterMenu) return;
+  _openFilterMenu.menu.remove();
+  document.removeEventListener('mousedown', _openFilterMenu.close, true);
+  _openFilterMenu = null;
 }
 
 // "orders" -> "hasOrders" — the dataset property name (see buildNav) backing
@@ -5089,6 +5117,10 @@ function buildNav(title = 'Terms', id = '') {
     _navFilterBtn.classList.toggle('active', _activeFilters.size > 0);
     _navFilterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      // Toggle: a second click on the button while its own popover is open
+      // closes it, matching the Search button's open/close click behavior,
+      // rather than tearing it down and immediately rebuilding it.
+      if (_openFilterMenu?.anchorEl === _navFilterBtn) { _closeFilterMenu(); return; }
       _buildFilterMenu(_navFilterBtn, _FILTER_OPTIONS, _activeFilters, (key, checked) => {
         if (checked) _activeFilters.add(key); else _activeFilters.delete(key);
         _navFilterBtn.classList.toggle('active', _activeFilters.size > 0);

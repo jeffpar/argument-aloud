@@ -1,4 +1,4 @@
-# Argument Aloud
+# [Argument Aloud](https://argumentaloud.org)
 
 ## For The Sake of Argument
 
@@ -6,9 +6,9 @@ Every U.S. Supreme Court case ends in a decision, but it starts with arguments, 
 
 Unfortunately, all those pieces tend to be scattered.  Even the Supreme Court's own [website](https://www.supremecourt.gov) directs you to different pages for *every* one of those pieces.  Other essential pieces of information, such as copies of statutes, records from the lower courts, etc, can usually be found in the briefs or elsewhere, but you have to know where to look.
 
-So we've created this "hub" to help connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
+So we've created [Argument Aloud](https://argumentaloud.org), a "hub" built from data files in this repository that helps connect those pieces.  Here's an example: an excerpt from the March 23, 2026 argument in [Watson v. RNC (No. 24-1260)](https://argumentaloud.org/courts/ussc/?term=2025-10&case=24-1260&turn=369), with links to documents that activate automatically as the argument progresses.
 
-This website barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
+[Argument Aloud](https://argumentaloud.org) barely scratches the surface of what is possible, but hopefully it will give you sense of what a modern UI can accomplish, and maybe it will even inspire others to "follow suit."
 
 ## For The Sake of Accuracy
 
@@ -38,7 +38,7 @@ There is still more work to do in terms of producing a complete and accurate lis
 
 #### Regarding Dates of Decisions
 
-As we mention [here](https://argumentaloud.org/courts/ussc/?source=ussc&group=9), the Court published what we generally consider the "definitive" list of all (early) "Dates of Supreme Court Decisions and Arguments" for decisions in 1791 through 1882.  Unfortunately, it turns out they may have missed a few.
+As we mention [here](https://argumentaloud.org/courts/ussc/?source=ussc&id=reports), the Court published what we generally consider the "definitive" list of all (early) "Dates of Supreme Court Decisions and Arguments" for decisions in 1791 through 1882.  Unfortunately, it is definitive only for cases reported in Volumes 2 through 107 of U.S. Reports, missing cases that were reported in later volumes.
 
 For example, in U.S. Reports [Volume 154](https://www.supremecourt.gov/pdfs/USReports/USREPORTS-154_PDFA.pdf#page=553), there is a section titled "SOME CASES NOT HITHERTO REPORTED IN FULL" which includes this preamble:
 
