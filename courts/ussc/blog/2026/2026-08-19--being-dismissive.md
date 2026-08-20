@@ -21,15 +21,15 @@ In general, this site's interest in DIGs is limited to cases that were argued an
 
 However, if a DIG'ed case was neither argued nor discussed, then it will likely not appear here, as it is virtually indistinguishable from the thousands of cases that are denied outright every year.
 
-As previously discussed [here](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb#dismissals) and [here](/courts/ussc/?link=/sources/nara/audit#the-supreme-court-database), the Supreme Court Database (SCDB) could be doing a better job tracking dismissals, including DIGs, at least where the case was argued and/or where one or more of the justices wrote an opinion (which are the only DIGs we care about as well).  At the moment, the database is somewhat under-inclusive on that score (ie, it is missing cases).
+As previously discussed [here](/courts/ussc/?link=/courts/ussc/blog/2026/revisiting-the-scdb#dismissals) and [here](/courts/ussc/?link=/sources/nara/audit#the-supreme-court-database), the Supreme Court Database (SCDB) could be doing a better job tracking dismissals, including DIGs, at least where the case was argued and/or where one or more of the justices wrote an opinion (which are the only DIGs we care about as well).  At the moment, the database is somewhat under-inclusive on that score (it's missing cases).
 
 As an aside, there has been some excellent research into DIGs, such as the 2006 paper "[The Supreme Court and The DIG: An Empirical and Institutional Analysis](/sources/misc/dig/The Supreme Court and the DIG (2006).pdf)", written by Michael E. Solimine amd Rafael Gely.  It contains a list of all the DIG'ed cases they identified in the 1954 through 2004 terms; however, we feel their list may be somewhat over-inclusive.
 
-For example, they list [Wolf v. Weinstein (1963)](/courts/ussc/?term=1962-10&case=70) as a DIG, but only one of the orders at issue in that case "presented no federal question of substance".  At best, we would consider that case a "Partial DIG".
+For example, they list [Wolf v. Weinstein (1963)](/courts/ussc/?term=1962-10&case=70) as a DIG, but only one of the orders at issue in that case "presented no federal question of substance".  At best, we would consider that case a "partial DIG".
 
-We prefer to hold the "DIG" line at cases where there was no decision on any merits whatsoever, because that line is clearer and easier to draw.  Any attempt to do more than that would require parsing every opinion, and not simply for the magic words "dismissed as improvidently granted", but for any language indicating that one or more (but not all) of the questions presented had been declined.
+We prefer to hold the DIG line at cases where there was no decision on any merits whatsoever, because that line is clearer and easier to draw.  Any attempt to do more than that would require parsing every opinion, and not simply for the magic words "dismissed as improvidently granted", but for any language indicating that one or more (but not all) of the questions presented had been declined.
 
-Other cases the 2006 paper cites that we consider only *partially* DIG'ed include:
+With that in mind, these are all the cases the 2006 paper cites that we do not consider DIGs:
 
 - [Mishkin v. New York (1966)](/courts/ussc/?term=1965-10&case=49)
 - [Whitus v. Georgia (1967)](/courts/ussc/?term=1966-10&case=650)
@@ -69,7 +69,7 @@ In the *McWilliams v. Dunn* dissent, other DIGs are cited, including yet another
 
 - Visa, Inc. v. Osborn (2016), 580 U.S. 993
 
-But what does make *Visa v. Osborn* mildly more interesting is that, while its terse dismissal still ends with "dismissed as improvidently granted", it begins with an admonishment:
+But what does make *Visa v. Osborn* slightly more interesting is that, while its terse dismissal still ends with "dismissed as improvidently granted", it begins with an admonishment:
 
 > These cases were granted to resolve “[w]hether allegations that members of a business association agreed to adhere to the association's rules and possess governance rights in the association, without more, are sufficient to plead the element of conspiracy in violation of Section 1 of the Sherman Act.... After “[h]aving persuaded us to grant certiorari” on this issue, however, petitioners “chose to rely on a different argument” in their merits briefing.  *City and County of San Francisco v. Sheehan*, 575 U. S. 600, 608 (2015). The Court, therefore, orders that the writs in these cases be dismissed as improvidently granted.
 
