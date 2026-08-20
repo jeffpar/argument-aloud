@@ -32,9 +32,14 @@
 // runs only pay for what's new or previously broken -- failures are never
 // served from cache, they're always re-verified. Pass --no-cache to disable.
 //
+// The full JSON report is written to scripts/tests/output/crawl-report.json
+// by default (that whole directory is gitignored, and shared with
+// stress.js's own violation output) -- pass --out FILE for a different
+// path, or --no-out to skip writing one.
+//
 // Usage:
 //   node scripts/tests/crawl-links.js [--base URL] [--concurrency N] [--timeout MS]
-//                              [--no-external] [--no-data] [--limit N] [--out FILE]
+//                              [--no-external] [--no-data] [--limit N] [--out FILE] [--no-out]
 //                              [--cache FILE] [--no-cache] [--cache-ttl SECONDS]
 //
 // Examples:
@@ -61,7 +66,7 @@ function parseArgs(argv) {
     external: true,
     data: true,
     limit: null,   // cap on number of terms walked in Phase 2, for quick runs
-    out: null,
+    out: path.join(__dirname, 'output', 'crawl-report.json'),
     cache: path.join(__dirname, '.crawl-cache.json'),
     cacheTtlMs: 24 * 60 * 60 * 1000, // successful checks are trusted for 1 day
   };
@@ -74,6 +79,7 @@ function parseArgs(argv) {
     else if (a === '--no-data') opts.data = false;
     else if (a === '--limit') opts.limit = parseInt(argv[++i], 10);
     else if (a === '--out') opts.out = argv[++i];
+    else if (a === '--no-out') opts.out = null;
     else if (a === '--cache') opts.cache = argv[++i];
     else if (a === '--no-cache') opts.cache = null;
     else if (a === '--cache-ttl') opts.cacheTtlMs = parseInt(argv[++i], 10) * 1000;
@@ -499,6 +505,7 @@ function printReport() {
     // every term's cases.json) for anything checked with needBody, which bloats
     // the report from KBs to hundreds of MBs for no benefit.
     const slim = all.map(({ body, ...rest }) => rest);
+    fs.mkdirSync(path.dirname(OPTS.out), { recursive: true });
     fs.writeFileSync(OPTS.out, JSON.stringify({ base: OPTS.base, checked: all.length, broken: broken.length, results: slim }, null, 2));
     console.log(`Full JSON report written to ${OPTS.out}`);
   }

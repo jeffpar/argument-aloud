@@ -15,7 +15,8 @@
   "type": "module",
   "main": "index.md",
   "scripts": {
-    "test": "node scripts/tests/nav.spec.js"
+    "test": "node scripts/tests/nav.spec.js",
+    "stress": "node scripts/tests/stress.js"
   },
   "dependencies": {
     "node-html-parser": "^7.1.0",
