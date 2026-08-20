@@ -21,8 +21,24 @@ let docViewerOpenHeight = null;  // px height for next animated open (null = use
 // open-animation height logic doesn't run — null means fall back to the
 // CSS default (45vh).
 let docViewerContentHeight = null;
+// True when the doc viewer is currently open showing loadCaseAsOpinion's own
+// full-height (85vh) "primary entry" — i.e. the visitor is on a no-audio case
+// and hasn't touched the file dropdown since. Consulted by loadCaseAsOpinion
+// itself: back-to-back no-audio cases (e.g. clicking through several upcoming-
+// term cases with no argument yet) all target this same height, so there's no
+// need to force the panel through a hide/reopen animation between them — the
+// PDF iframe swap alone (see showDocViewer's already-open branch) is enough,
+// and skipping the animation avoids a visible flicker on every click. Cleared
+// by loadCase's own audio-case path, so a later no-audio case after an audio
+// one still gets the normal reset (the panel was last at a different height).
+let _docViewerOpinionModeOpen = false;
 let _fileClickSeq = 0; // bumped on every file/citation click so a stale async citation
                         // lookup can't clobber a URL change made by a later click
+let _caseLoadSeq = 0;   // bumped on every loadCase/loadCaseAsOpinion call so a stale async
+                        // load (e.g. a slow files.json/transcript fetch from a case the
+                        // visitor already clicked past) can't clobber a newer case's DOM
+                        // state/doc-viewer content after the fact — see loadCase,
+                        // loadCaseAsOpinion, and loadAudioEntry's own _mySeq guards below
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentEvents    = [];    // unsorted events[] for the active case (URL `event` indexes into this)
 let _currentBasePath  = '';    // base URL path for the active case
@@ -41,6 +57,12 @@ let _inBenchCaseView = false;
 // LRU eviction keeps the pool bounded.
 const _pdfIframePool = new Map();   // src → <iframe>  (insertion order == LRU)
 const _PDF_POOL_MAX  = 5;
+// src of the pane iframe showDocViewer most recently asked to become visible —
+// checked by a brand-new iframe's deferred 'load' handler (see showDocViewer)
+// before it actually swaps display:block, so a second case click that lands
+// while the first PDF is still loading can't have the first one's handler
+// fire later and yank a since-superseded document back onto the screen.
+let _pendingPaneReveal = null;
 
 // Propagates the top-level document's current dark/light theme into a same-
 // origin framed document (e.g. a PDF viewer's own UI, or an embedded "pane"
@@ -1705,19 +1727,31 @@ function findCurrentTurn(t) {
 // (g.file == null guard: harmless no-op once no on-disk file ever has one,
 // but keeps this idempotent/self-healing against a stray not-yet-migrated
 // entry in the meantime.)
+// Cached by URL (inflight Promise, then the resolved parsed JSON) — same
+// pattern as fetchTermCases/_fetchTitleIndex below. Without this, opening a
+// case fetches its files.json twice: once for the sidebar file list
+// (_buildCaseFileList) and again for the file-select dropdown/doc-viewer
+// default (loadCase/loadCaseAsOpinion), back to back, doubling that case's
+// load time for no benefit within a single session.
+const _filesFetchCache = new Map(); // url → inflight Promise or resolved parsed JSON
+
 async function loadFiles(url) {
-  try {
-    const res = await fetch(url, { cache: 'reload' });
-    if (!res.ok) return [];
-    const data = await res.json();
-    if (Array.isArray(data)) {
-      data.forEach((f, i) => { if (f && f.file == null) f.file = i + 1; });
-    }
-    return data;
-  } catch (e) {
-    console.warn('[files] fetch failed:', e);
-    return [];
+  if (!_filesFetchCache.has(url)) {
+    const p = fetch(url, { cache: 'reload' })
+      .then(res => res.ok ? res.json() : [])
+      .catch(e => { console.warn('[files] fetch failed:', e); return []; });
+    _filesFetchCache.set(url, p);
+    _filesFetchCache.set(url, await p);
   }
+  const data = await _filesFetchCache.get(url);
+  // Callers (_buildCaseFileList, loadCase, loadCaseAsOpinion) each mutate what
+  // they get back in place (splice/inject/normalize titles) — hand every
+  // caller its own shallow copy of both the array and its entry objects so
+  // those mutations can't leak into another caller sharing this cached fetch.
+  if (!Array.isArray(data)) return data;
+  const copy = data.map(f => (f && typeof f === 'object') ? { ...f } : f);
+  copy.forEach((f, i) => { if (f && f.file == null) f.file = i + 1; });
+  return copy;
 }
 
 // ── Lazy term loading ────────────────────────────────────────────────────────
@@ -2446,17 +2480,39 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
         : (effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none');
       const isNew = !_pdfIframePool.has(src);
       const iframe = _getOrCreatePdfIframe(src);
-      // Show only this iframe; others stay hidden but alive — no reload needed on return.
-      for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
-      // Non-PDF "pane" documents (e.g. an external HTML transcript) can be
-      // navigated away from by the visitor clicking a link inside them —
-      // since that content is cross-origin, we have no way to detect or
-      // reset that short of reassigning src, so always reload these fresh
-      // rather than reusing a pooled iframe that may show a different page
-      // by now. True PDFs keep the "no reload needed on return" behavior,
-      // since reloading them would lose the reader's scroll position for
-      // no benefit (a PDF viewer doesn't navigate away like this).
-      if (isNew || !isPdf) iframe.src = src;
+      _pendingPaneReveal = src;
+      if (isNew && isPdf) {
+        // A brand-new PDF: the browser's own native PDF viewer paints a
+        // blank/loading placeholder for a beat before the document itself
+        // renders — swapping display:block immediately (as the plain 'else'
+        // branch below does for an already-pooled or non-PDF src) would
+        // flash that placeholder in over top of whatever was showing before.
+        // Instead, keep the previous content up until this iframe's own
+        // 'load' fires, then swap straight from old to new with nothing
+        // blank in between. The 4s timeout is a safety net in case 'load'
+        // never fires (blocked/errored fetch) so a broken PDF doesn't leave
+        // the *previous* case's document stuck on screen forever.
+        iframe.src = src;
+        const _reveal = () => {
+          clearTimeout(_revealTimer);
+          if (_pendingPaneReveal !== src) return; // superseded by a later showDocViewer call — leave hidden
+          for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
+        };
+        const _revealTimer = setTimeout(_reveal, 4000);
+        iframe.addEventListener('load', _reveal, { once: true });
+      } else {
+        // Show only this iframe; others stay hidden but alive — no reload needed on return.
+        for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
+        // Non-PDF "pane" documents (e.g. an external HTML transcript) can be
+        // navigated away from by the visitor clicking a link inside them —
+        // since that content is cross-origin, we have no way to detect or
+        // reset that short of reassigning src, so always reload these fresh
+        // rather than reusing a pooled iframe that may show a different page
+        // by now. True PDFs keep the "no reload needed on return" behavior,
+        // since reloading them would lose the reader's scroll position for
+        // no benefit (a PDF viewer doesn't navigate away like this).
+        if (!isPdf) iframe.src = src;
+      }
       activePdfIframe = iframe;
     }
   } else {
@@ -3095,14 +3151,15 @@ function _buildOyezEntries(caseEntry) {
   });
 }
 
-// A ringed audio icon (see oyezCircleData) means Oyez-sourced argument
-// audio, which very likely has a matching oyez_href — if so, returns a
-// click handler for _attachAudioIcon that opens it in the doc viewer, embedded
-// (view: 'pane') the same way the file-select dropdown's own "Description
-// from The Oyez Project" option does (see the 'oyez:' branch in its change
-// handler); else null (no click behavior).
-function _oyezAudioIconClick(caseEntry, ring) {
-  if (!ring || !caseEntry?.oyez_href) return null;
+// A ringed (or oyez-pending, see _attachAudioIcon) audio icon means the case
+// very likely has a matching oyez_href — if so, returns a click handler for
+// _attachAudioIcon that opens it in the doc viewer, embedded (view: 'pane')
+// the same way the file-select dropdown's own "Description from The Oyez
+// Project" option does (see the 'oyez:' branch in its change handler); else
+// null (no click behavior). Callers only pass this alongside a ring/
+// oyezPending icon — see buildTermCasesSorted.
+function _oyezAudioIconClick(caseEntry) {
+  if (!caseEntry?.oyez_href) return null;
   return (e) => {
     e.stopPropagation();
     const entries = _buildOyezEntries(caseEntry);
@@ -3947,6 +4004,28 @@ function makeAudioRingSvg(fraction, orange) {
   return svg;
 }
 
+// Plain, unlabeled blue ring for a case with an oyez_href but no audio events
+// posted yet (e.g. an upcoming-term case awaiting argument) — same size/color
+// as makeAudioRingSvg's blue ring, but with no note-glyph or dash progress,
+// since there's no audio yet to represent a fraction of.
+function makeOyezPendingRingSvg() {
+  const size = 22, cx = 11, cy = 11, r = 9;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', size);
+  svg.setAttribute('height', size);
+  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.setAttribute('class', 'case-decided-icon case-audio-icon case-audio-ring');
+  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', cx);
+  circle.setAttribute('cy', cy);
+  circle.setAttribute('r', r);
+  circle.setAttribute('fill', 'none');
+  circle.setAttribute('stroke', '#3778A6');
+  circle.setAttribute('stroke-width', '1.5');
+  svg.appendChild(circle);
+  return svg;
+}
+
 // Builds the SVG ring icon used around the scales icon when opinion audio exists.
 // blue=true → blue ring (all opinion events titled "Opinion…"); false → purple.
 
@@ -3978,6 +4057,19 @@ function makeScalesSvg() {
   const g = _svgEl('g', { stroke: 'currentColor', 'stroke-width': '1.15', fill: 'none', 'stroke-linecap': 'round' });
   _appendScalesPaths(g);
   svg.appendChild(g);
+  return svg;
+}
+
+// Plain, unlabeled ring (no scales glyph inside) for a case that isn't
+// decided yet but does have file resources worth flagging (see
+// buildTermCasesSorted) — themed via currentColor, like the plain (non-ring)
+// scales icon, since there's no colored status (audio/video/citations) to
+// convey yet, just "there's something here, but no decision."
+function makeEmptyRingSvg() {
+  const size = 22, cx = 11, cy = 11, r = 9;
+  const svg = _svgEl('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
+  svg.setAttribute('class', 'case-decided-icon case-scales-ring case-scales-ring-empty');
+  svg.appendChild(_svgEl('circle', { cx, cy, r, fill: 'none', stroke: 'currentColor', 'stroke-width': '1.5' }));
   return svg;
 }
 
@@ -4459,9 +4551,12 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 //   hasAudio       boolean — case has playable audio (♫ or oyez ring)
 //   hasTranscript  boolean — case has printed transcript only (✏)
 //   ring           {fraction, orange}? — render an oyez progress ring instead of ♫
+//   oyezPending    boolean — case has an oyez_href but no audio events yet
+//                  (e.g. an upcoming-term case) — render a plain blue ring,
+//                  no note-glyph, that opens oyez_href when clicked
 //   deficit        'missing' | 'partial' | null — wrap icon in a colored circle
 //                  to flag missing/incomplete oyez audio
-function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit, onClick }) {
+function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, oyezPending, deficit, onClick }) {
   let icon = null;
   const audioTooltip = (ring ? ring.orange : !hasTranscript)
     ? (ring?.usscOnly ? 'Argument audio available with generated transcript' : 'Argument audio available without aligned transcript')
@@ -4482,6 +4577,13 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit, onCl
       icon.className = 'case-decided-icon case-audio-icon';
       icon.textContent = '\u266b';
       icon.title = audioTooltip;
+    }
+  } else if (oyezPending) {
+    icon = makeOyezPendingRingSvg();
+    icon.setAttribute('title', 'Oyez case page available (no argument audio yet)');
+    if (onClick) {
+      icon.style.cursor = 'pointer';
+      icon.addEventListener('click', onClick);
     }
   } else if (hasTranscript) {
     icon = document.createElement('span');
@@ -4519,13 +4621,19 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, deficit, onCl
 
 // Append the scales icon to the header. When `onClick` is supplied the icon
 // is rendered active and clickable (tooltip + cursor + 'decided' class on ci);
-// otherwise it is rendered as an invisible placeholder so the row layout
-// stays consistent across cases with and without an opinion link.
-// When `ring` is supplied (from opinionCircleData), the icon is drawn as an
-// SVG with a colored circle. Returns the created icon node.
+// with no onClick and no ring it's rendered as an invisible placeholder so
+// the row layout stays consistent across cases with and without an opinion
+// link. When `ring` is supplied (from opinionCircleData), the icon is drawn
+// as an SVG with a colored circle; `ring.empty` (see buildTermCasesSorted)
+// draws just the ring with no scales glyph inside, for an undecided case
+// that still has file resources worth flagging — callers should omit this
+// call entirely (no placeholder at all) for an undecided case with nothing
+// on file. Returns the created icon node.
 function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   let icon;
-  if (ring) {
+  if (ring?.empty) {
+    icon = makeEmptyRingSvg();
+  } else if (ring) {
     icon = makeScalesRingSvg(ring.blue, ring.filled, ring.orange, ring.green);
   } else {
     icon = makeScalesSvg();
@@ -4556,6 +4664,13 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     icon.style.cursor = 'pointer';
     ci.classList.add('decided');
     icon.addEventListener('click', onClick);
+  } else if (ring?.empty) {
+    // Chrome doesn't show title tooltips on SVG elements; wrap in a layout-transparent HTML span.
+    const tip = document.createElement('span');
+    tip.title = 'No decision yet';
+    tip.style.display = 'contents';
+    tip.appendChild(icon);
+    node = tip;
   } else if (!ring) {
     icon.style.opacity = '0';
     icon.style.pointerEvents = 'none';
@@ -4720,7 +4835,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
     const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'decision');
     const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'decision');
-    const hasOpinion    = hasDecisionHref(caseEntry);
+    // A decision_* href is sufficient but not necessary — a decision date
+    // alone (e.g. a cert-denial/DIG order with no separate opinion document)
+    // still warrants the scales icon.
+    const hasOpinion    = !!caseEntry.decision || hasDecisionHref(caseEntry);
     const hasFiles      = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
@@ -4756,25 +4874,32 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     } else {
       // Default mode: normal icons
       const audioRing = hasAudio ? oyezCircleData(caseEntry) : null;
+      // A case with an oyez_href but no argument audio yet (e.g. an upcoming-
+      // term case awaiting oral argument) gets a plain blue ring instead of
+      // nothing at all — see _attachAudioIcon's oyezPending option.
+      const oyezPending = !hasAudio && !!caseEntry.oyez_href;
       _attachAudioIcon(header, {
         hasAudio, hasTranscript,
         ring: audioRing,
+        oyezPending,
         deficit: oyezDeficitClass(caseEntry),
-        onClick: _oyezAudioIconClick(caseEntry, audioRing),
+        onClick: (audioRing || oyezPending) ? _oyezAudioIconClick(caseEntry) : null,
       });
-      if (hasOpinion || caseEntry.events?.length || hasFiles) {
+      if (hasOpinion) {
         // Green ring is the lowest-priority signal — only drawn when there's
         // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
         _attachScalesIcon(ci, header, {
           ring: opinionCircleData(caseEntry) || (hasFiles ? { green: true } : null),
-          onClick: hasOpinion ? (e) => {
+          onClick: (e) => {
             e.stopPropagation();
             const _firstDecision = _buildPrimaryDecisionEntry(caseEntry);
             const opinionFile = _firstDecision
               ? { href: _firstDecision.href, title: _firstDecision.title }
               : null;
-            if (!opinionFile) return;
-            if (caseEntry.events?.length) {
+            // A decision date with no linked document (e.g. a cert-denial/DIG
+            // order — see hasOpinion above) has nothing to open in the doc
+            // viewer, so just navigate to the case itself instead of no-oping.
+            if (opinionFile && caseEntry.events?.length) {
               document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
               showDocViewer(opinionFile, { autoScroll: true });
             } else {
@@ -4786,8 +4911,14 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
               navigate(url);
               loadCase(term, caseEntry, 0);
             }
-          } : null,
+          },
         });
+      } else if (hasFiles) {
+        // Not decided yet, but there's still something on file — a plain
+        // empty ring (no scales glyph, since there's no opinion) instead of
+        // showing nothing, or a misleading scales icon that implies a
+        // decision exists.
+        _attachScalesIcon(ci, header, { ring: { empty: true } });
       }
     }
 
@@ -6624,7 +6755,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           hasTranscript: !!caseRef.transcript,
           ring,
           deficit,
-          onClick: _oyezAudioIconClick(caseEntry, ring),
+          onClick: ring ? _oyezAudioIconClick(caseEntry) : null,
         });
         if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
           header.insertBefore(_audioIconNode, nextSibling);
@@ -7493,7 +7624,13 @@ function withTranscriptFallback(arg, events) {
 }
 
 // Load (or switch to) a specific audio entry within the already-set-up case.
-async function loadAudioEntry(arg, basePath) {
+// _caseSeq, when passed by loadCase, is that load's own _caseLoadSeq token —
+// checked after the transcript fetch below so a slow fetch from a case the
+// visitor already clicked past can't land after, and stomp, a newer case's
+// content (see _caseLoadSeq's own declaration). Callers switching entries
+// within the *same* already-loaded case (e.g. the file-select dropdown) omit
+// it, since there's no case-switch race to guard against there.
+async function loadAudioEntry(arg, basePath, _caseSeq = null) {
   // text_href values are relative to the term's cases/ directory (one level up
   // from basePath, which points to the individual case folder).
   const casesPath = basePath.replace(/[^/]+\/$/, '');
@@ -7533,6 +7670,7 @@ async function loadAudioEntry(arg, basePath) {
       transcriptData = await res.json();
       isEnvelope = !Array.isArray(transcriptData);
     }
+    if (_caseSeq !== null && _caseSeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
 
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
@@ -7779,7 +7917,7 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
 // any, falling back to the opinion. Used for historical cases without
 // playable audio, and when a collection click forces no-audio display
 // (forceNoAudio: true).
-async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
+async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq = ++_caseLoadSeq) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
 
@@ -7816,11 +7954,19 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   document.getElementById('transcript-viewer').classList.add('no-audio');
   _inBenchCaseView = false;
 
-  // Reset doc viewer to hidden so showDocViewer opens it at the new height.
+  // Reset doc viewer to hidden so showDocViewer opens it at the new height —
+  // unless it's already open at that same height (see _docViewerOpinionModeOpen),
+  // in which case leave it alone: showDocViewer's own already-open branch below
+  // swaps the PDF iframe in place with no hide/reopen animation, so clicking
+  // through several no-audio cases in a row (e.g. upcoming-term cases with no
+  // argument yet) doesn't flicker the panel closed and open again each time.
   const docPanel = document.getElementById('doc-viewer');
-  docPanel.classList.remove('collapsed');
-  docPanel.style.height = '';
-  docPanel.hidden = true;
+  const _skipDocPanelReset = _docViewerOpinionModeOpen && !docPanel.hidden && !docPanel.classList.contains('collapsed');
+  if (!_skipDocPanelReset) {
+    docPanel.classList.remove('collapsed');
+    docPanel.style.height = '';
+    docPanel.hidden = true;
+  }
   activeBottomLinkText = null;
   _docViewerAutoOpenSuppressed = false;
 
@@ -7851,6 +7997,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
+  if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _currentFiles = _opRawFiles;
   // Same filter+sort as the "file:" options built into the dropdown below —
   // reused so the transcript/decision/file fallback chain (see _defaultEntry
@@ -7884,7 +8031,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // below is reserved for a decided case with no document source at all
   // (decisionText set but every decision_* href missing); a visitor who
   // wants a new tab already has the doc viewer's own "open in new tab" button.
-  if (caseEntry.history_href || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length) {
+  if (caseEntry.history_href || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length || _currentOyezEntries.length) {
     decisionLabel.hidden = true;
     fileSelect.innerHTML = '';
     minutesOpts.forEach(mn => {
@@ -7915,6 +8062,14 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
       fileSelect.appendChild(opt);
     });
     _appendDecisionOption(fileSelect, _currentDecisionEntries);
+    // Append sentinel option(s) linking to the Oyez case page(s), if available
+    // (see the matching block in loadCase, for the with-audio path).
+    _currentOyezEntries.forEach(oe => {
+      const oyezOpt = document.createElement('option');
+      oyezOpt.value = oe.value;
+      oyezOpt.textContent = oe.title;
+      fileSelect.appendChild(oyezOpt);
+    });
     _currentVideoEntries.forEach((v, i) => {
       const opt = document.createElement('option');
       opt.value = 'video:' + i;
@@ -7942,6 +8097,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
     // (as opposed to loadCase's own copy of this same call) is for cases
     // with no playable audio — most Minutes-era cases, historically.
     await _refreshMinutesGalleryOptions(term, caseEntry);
+    if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
     _setFileSelectHidden(false);
   } else {
     _setFileSelectHidden(true);
@@ -7984,6 +8140,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
   // Journal when there's no transcript source. Use a local override so this
   // large height doesn't persist for the next audio case.
   const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
+  _docViewerOpinionModeOpen = !!_primaryEntry;
   if (_primaryEntry) {
     const savedHeight = docViewerOpenHeight;
     docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
@@ -8003,6 +8160,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null) {
 }
 
 async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, numberOverride = null } = {}) {
+  // See _caseLoadSeq's own declaration — every await below re-checks this
+  // against the live counter and bails out the instant it goes stale, so
+  // clicking through several cases in quick succession can't leave a slower
+  // case's fetches to land after a faster/later one and flicker the doc
+  // viewer/transcript back to the wrong case.
+  const _mySeq = ++_caseLoadSeq;
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
   _currentTerm    = term;
@@ -8016,12 +8179,16 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // loadCaseAsOpinion which handles the simpler opinion-only display path.
   const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_href);
   if (!hasPlayableAudio) {
-    return loadCaseAsOpinion(term, caseEntry, numberOverride);
+    return loadCaseAsOpinion(term, caseEntry, numberOverride, _mySeq);
   }
 
   // Restore file-select visibility for normal audio cases.
   // Reset height so the doc viewer reopens at the default 45vh, not any
   // full-height value left over from a previous no-audio (historical) case.
+  // Also clears the opinion-mode skip-reset flag (see its own declaration) so
+  // a later no-audio case, after this audio one, gets the normal hide/reopen
+  // treatment rather than wrongly assuming the panel's already at 85vh.
+  _docViewerOpinionModeOpen = false;
   document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
   _setFileSelectHidden(false);
   document.getElementById('decision-date-label').hidden = true;
@@ -8261,6 +8428,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // for how a case-info date link's own first click shows the same gallery
   // without needing the visitor to find it here first.
   await _refreshMinutesGalleryOptions(term, caseEntry);
+  if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
 
   // Update nav highlight now that resolvedOptionValue is known.
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
@@ -8390,6 +8558,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   }
 
   const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
+  if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _currentFiles = rawFiles;
   links = rawFiles.filter(f => f.refs);
   const _fileSel = document.getElementById('file-select');
@@ -8416,7 +8585,8 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const _entryForLoad = (Number.isInteger(initialTurn) && initialTurn > 0)
     ? { ...withTranscriptFallback(_initialEntry, _currentEvents), turn: initialTurn }
     : withTranscriptFallback(_initialEntry, _currentEvents);
-  await loadAudioEntry(_entryForLoad, basePath);
+  await loadAudioEntry(_entryForLoad, basePath, _mySeq);
+  if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _setCaseNotes(_initialEntry?.notes || caseEntry.notes || '');
 
   if (isMobile()) {
