@@ -3431,13 +3431,16 @@ function _setCaseInfoRow2(caseEntry) {
   // clickable <a> spanning every date, navigating to the first one.
   // e.g. "1890-11-21,1890-11-24"  \u2192 "November 21, 24, 1890"
   //      "1890-11-30,1890-12-01"  \u2192 "November 30, December 1, 1890"
-  function _setDateLinks(el, prefix, dateStr) {
+  function _setDateLinks(el, prefix, dateStr, futurePrefix) {
     while (el.firstChild) el.removeChild(el.firstChild);
     if (!dateStr) { el.hidden = true; return; }
     const dates = dateStr.split(',').map(d => d.trim()).filter(Boolean);
     if (!dates.length) { el.hidden = true; return; }
     el.hidden = false;
     const firstIso = dates[0];
+    const now = new Date();
+    const todayIso = now.getUTCFullYear() + '-' + String(now.getUTCMonth() + 1).padStart(2, '0') + '-' + String(now.getUTCDate()).padStart(2, '0');
+    if (futurePrefix && firstIso >= todayIso) prefix = futurePrefix;
 
     let text;
     if (dates.length === 1) {
@@ -3484,8 +3487,8 @@ function _setCaseInfoRow2(caseEntry) {
     el.appendChild(a);
   }
 
-  _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument);
-  _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument);
+  _setDateLinks(document.getElementById('case-argued'),   'Argued',   caseEntry.argument,   'Arguing');
+  _setDateLinks(document.getElementById('case-reargued'), 'Reargued', caseEntry.reargument, 'Rearguing');
   _setDateLinks(document.getElementById('case-decided'),  'Decided',  caseEntry.decision);
   // "(367 U.S. 203)" — click opens a small menu of every opinion-text source
   // this case has (LOC/GOV/Volume/XML), each opening in the doc viewer. With

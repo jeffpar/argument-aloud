@@ -5690,6 +5690,55 @@ function syncTermsJson() {
     let modified = false;
     let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0, totalUnanimous = 0;
 
+    // Auto-discover any term directory on disk (courts/ussc/terms/YYYY-MM/
+    // cases.json) not yet listed in terms.json at all — e.g. a prospective
+    // term added by `import_ussc.js TERM --prospective` ahead of its own
+    // October — and insert a minimal new page for it into whichever decade
+    // group's numeric year range covers it (the open-ended "-Present"
+    // decade catches anything past its own start year). The main loop below
+    // then fills in its stats/dates/minutes normally, same as any other page.
+    {
+        const knownIds = new Set();
+        for (const decade of tj) {
+            for (const page of (decade.groups || [])) {
+                const fileUrl = page.file || (typeof page.cases === 'string' ? page.cases : '');
+                const m = /\/terms\/([^/]+)\/cases\.json$/.exec(fileUrl);
+                if (m) knownIds.add(m[1]);
+            }
+        }
+        for (const { term: termId } of termStarts) {
+            if (knownIds.has(termId)) continue;
+            const ym = /^(\d{4})-(\d{2})$/.exec(termId);
+            if (!ym) continue;
+            const year = parseInt(ym[1], 10);
+            const monthName = _MONTHS[parseInt(ym[2], 10) - 1] || ym[2];
+            const decade = tj.find(d => {
+                const rm = /^(\d{4})-(\d{4}|Present)$/.exec(d.name || '');
+                if (!rm) return false;
+                const start = parseInt(rm[1], 10);
+                const end = rm[2] === 'Present' ? Infinity : parseInt(rm[2], 10);
+                return year >= start && year <= end;
+            });
+            if (!decade) {
+                console.log(`  WARNING: no decade group in terms.json covers ${termId}; skipping auto-add`);
+                continue;
+            }
+            decade.groups = decade.groups || [];
+            let insertAt = decade.groups.length;
+            for (let i = 0; i < decade.groups.length; i++) {
+                if ((decade.groups[i].id || '') > termId) { insertAt = i; break; }
+            }
+            decade.groups.splice(insertAt, 0, {
+                id: termId,
+                name: `${monthName} Term ${year}`,
+                file: `/courts/ussc/terms/${termId}/cases.json`,
+            });
+            knownIds.add(termId);
+            console.log(`Added new term to terms.json: ${termId} (${monthName} Term ${year})`);
+            modified = true;
+        }
+    }
+
     for (const decade of tj) {
         for (let i = 0; i < (decade.groups || []).length; i++) {
             const page = decade.groups[i];

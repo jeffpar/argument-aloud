@@ -6,12 +6,13 @@
  *
  * Usage:
  *   node scripts/import_ussc.js TERM [CASE]
- *     [--docket] [--reparse] [--verbose] [--cases] [--checkurls] [--prompt]
+ *     [--docket] [--reparse] [--verbose] [--cases] [--checkurls] [--prompt] [--prospective]
  *
  * Examples:
  *   node scripts/import_ussc.js 2025-10
  *   node scripts/import_ussc.js 2024-10 --docket
  *   node scripts/import_ussc.js 2010-10 09-5801
+ *   node scripts/import_ussc.js 2026-10 --prospective
  *
  * JS port of scripts/import_ussc.py — see that file (and copilot-instructions.md)
  * for full step-by-step documentation.
@@ -962,16 +963,20 @@ async function fetchTranscriptsFromUrl(url, yearStr = '') {
     return parseTranscriptListing(html, url);
 }
 
-async function fetchDocketInfo(number, termYear = '') {
+function _docketUrl(number, termYear = '') {
     const primary = number.split(',')[0].trim();
     const internal = _docketNumber(primary, termYear);
     const yearInt = /^\d+$/.test(termYear) ? parseInt(termYear, 10) : 0;
     const isOrig  = ORIG_RE.test(primary);
-    const url = yearInt >= 2017 && !isOrig
+    return yearInt >= 2017 && !isOrig
         ? `${BASE_URL}/docket/docketfiles/html/public/${internal}.html`
         : yearInt >= 2017
         ? `${BASE_URL}/search.aspx?filename=/docket/docketfiles/html/public/${internal}.html`
         : `${BASE_URL}/search.aspx?filename=/docketfiles/${internal}.htm`;
+}
+
+async function fetchDocketInfo(number, termYear = '') {
+    const url = _docketUrl(number, termYear);
     vprint(`  ${url}`);
     let html;
     try {
@@ -982,6 +987,180 @@ async function fetchDocketInfo(number, termYear = '') {
     }
     const { questionsHref, opinionHref, proceedings } = parseDocket(html, url);
     return { questions_href: questionsHref, decision_gov: opinionHref, proceedings };
+}
+
+// ── Step 0: prospective (not-yet-argued) term import ───────────────────────
+//
+// A future term (e.g. 2026-10) has no argument_audio/transcript listing yet,
+// but supremecourt.gov/oral_arguments/calendarsandlists.aspx starts posting
+// that term's "Monthly Argument Calendar" PDFs — one per upcoming sitting —
+// months ahead of the first argument. Each lists the docket number and case
+// name for every case assigned an argument day, in a two-column layout (this
+// month's sittings on the left, next month's on the right). We only pull the
+// docket numbers back out of that PDF (see _CALENDAR_NUMBER_RE) — title and
+// argument date come from each case's own docket page instead, which is far
+// more reliable than reconstructing the PDF's two-column day/date structure
+// from pdftotext -layout output.
+
+const _CALENDAR_NUMBER_RE = /(?:^|\s{2,})(\d{2}-\d{1,6})\s+[A-Z(]/gm;
+
+// Finds the term's own "October Term YYYY" accordion in the Argument
+// Calendars section of calendarsandlists.aspx and returns every PDF href in
+// it (empty once the term has no calendars posted yet).
+async function fetchArgumentCalendarUrls(yearStr) {
+    const pageUrl = `${BASE_URL}/oral_arguments/calendarsandlists.aspx`;
+    vprint(`  ${pageUrl}`);
+    const html = await fetchHtml(pageUrl);
+    const root = parseHtml(html);
+    const section = root.querySelector(`#ArgCal${yearStr}`);
+    if (!section) return [];
+    const urls = [];
+    for (const a of section.querySelectorAll('a')) {
+        const href = a.getAttribute('href');
+        if (href && href.toLowerCase().endsWith('.pdf')) {
+            const resolved = _resolveHref(href, pageUrl);
+            if (resolved) urls.push(resolved);
+        }
+    }
+    return urls;
+}
+
+// Downloads one Monthly Argument Calendar PDF and returns the docket numbers
+// found in it, in reading order (left column, top to bottom, then right).
+async function fetchCalendarNumbers(pdfUrl) {
+    const tmpPath = path.join(os.tmpdir(),
+        `import_ussc-cal-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`);
+    try {
+        await downloadFile(pdfUrl, tmpPath);
+        const text = _pdfToText(tmpPath);
+        const numbers = [];
+        const seen = new Set();
+        for (const m of text.matchAll(_CALENDAR_NUMBER_RE)) {
+            if (!seen.has(m[1])) { seen.add(m[1]); numbers.push(m[1]); }
+        }
+        return numbers;
+    } finally {
+        unlinkSafe(tmpPath);
+    }
+}
+
+function _decodeEntities(s) {
+    return (s || '')
+        .replace(/&amp;/g, '&').replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+}
+
+// Strips a docket META party string down to just the party name, e.g.
+// "Suncor Energy (U.S.A.) Inc., et al., Petitioners" -> "Suncor Energy
+// (U.S.A.) Inc." (order matters: the role suffix comes after "et al." in
+// the source, so it has to be stripped first).
+function _cleanPartyName(raw) {
+    return _decodeEntities(raw)
+        .replace(/,?\s*Petitioners?$/i, '').replace(/,?\s*Respondents?$/i, '')
+        .replace(/,?\s*Appellants?$/i, '').replace(/,?\s*Appellees?$/i, '')
+        .replace(/,?\s*et al\.?$/i, '')
+        .trim();
+}
+
+// A "SET FOR ARGUMENT on <Weekday>, <Month> <Day>, <Year>." proceedings
+// entry is added to a docket once the Court assigns it an argument day —
+// the same information the calendar PDF carries, but attached to a specific
+// docket number instead of needing calendar day/column parsing. Docket pages
+// don't wrap this in a link (unlike the entries parseDocket() looks for), so
+// it's matched directly against the raw HTML; a case argued only once this
+// term should have at most one, but take the last if a reschedule adds another.
+const _SET_FOR_ARGUMENT_RE = /SET FOR ARGUMENT on [A-Za-z]+,\s+([A-Za-z]+)\s+(\d{1,2}),\s+(\d{4})/gi;
+
+// Extracts the case title (from the docket's own Petitioner/Respondent meta
+// tags) and its scheduled argument date, straight from a docket page's HTML.
+function _parseDocketBasics(html) {
+    const petM = /<META name='Petitioner' content='([^']*)'>/i.exec(html);
+    const resM = /<META name='Respondent' content='([^']*)'>/i.exec(html);
+    const title = (petM && resM) ? `${_cleanPartyName(petM[1])} v. ${_cleanPartyName(resM[1])}` : null;
+
+    let argumentDate = null;
+    let m, last = null;
+    while ((m = _SET_FOR_ARGUMENT_RE.exec(html))) last = m;
+    if (last) {
+        const monthKey = last[1].slice(0, 3);
+        const month = MONTH_MAP[monthKey.charAt(0).toUpperCase() + monthKey.slice(1).toLowerCase()];
+        if (month) argumentDate = `${last[3]}-${month}-${last[2].padStart(2, '0')}`;
+    }
+    return { title, argumentDate };
+}
+
+// Builds (or extends) a term's cases.json entirely from its docket numbers:
+// pulls every docket number off that term's posted argument calendar PDFs,
+// then fetches each one's own docket page for its title and "SET FOR
+// ARGUMENT" date. Skips numbers already present. Newly added cases get run
+// through updateDocketInfo() afterward for questions_href/decision_gov/
+// proceedings, same as a newly-scraped current-term case would.
+async function importProspectiveCases(casesPath, yearStr) {
+    console.log(`Checking argument calendars for October Term ${yearStr} ...`);
+    const calendarUrls = await fetchArgumentCalendarUrls(yearStr);
+    if (!calendarUrls.length) {
+        console.log(`No argument calendar PDFs posted yet for October Term ${yearStr}.`);
+        return;
+    }
+    console.log(`Found ${calendarUrls.length} argument calendar PDF(s).`);
+
+    const numbers = [];
+    const seen = new Set();
+    for (const url of calendarUrls) {
+        vprint(`  ${url}`);
+        for (const n of await fetchCalendarNumbers(url)) {
+            if (!seen.has(n)) { seen.add(n); numbers.push(n); }
+        }
+        await sleep(300);
+    }
+    console.log(`Extracted ${numbers.length} docket number(s): ${numbers.join(', ')}`);
+
+    if (!exists(casesPath)) ensureDir(path.dirname(casesPath));
+    const existing = exists(casesPath) ? readJson(casesPath) : [];
+    const existingNumbers = new Set();
+    for (const c of existing) {
+        for (const part of (c.number || '').split(',')) existingNumbers.add(part.trim());
+    }
+
+    const added = [];
+    for (const number of numbers) {
+        if (existingNumbers.has(number)) {
+            vprint(`Skipping ${number} (already in cases.json)`);
+            continue;
+        }
+        process.stdout.write(`Fetching docket details for ${number} ... `);
+        const url = _docketUrl(number, yearStr);
+        let html;
+        try {
+            html = await fetchHtml(url);
+        } catch (exc) {
+            console.log(`failed (${exc.message || exc})`);
+            continue;
+        }
+        const { title, argumentDate } = _parseDocketBasics(html);
+        if (!title) {
+            console.log('no title found on docket page, skipping');
+            continue;
+        }
+        console.log(argumentDate ? `${title} (${argumentDate})` : `${title} (no argument date set yet)`);
+
+        const events = argumentDate
+            ? [{ source: 'ussc', type: 'argument', date: argumentDate, title: _usscAudioTitle('argument', argumentDate) }]
+            : [];
+        existing.push({ title, number, events });
+        existingNumbers.add(number);
+        added.push(number);
+        await sleep(300);
+    }
+
+    if (added.length) {
+        writeJson(casesPath, existing);
+        reportChange(`\nAdded ${added.length} prospective case(s) to ${casesPath}.`);
+        console.log('Fetching additional docket info (questions, opinions, proceedings) ...');
+        await updateDocketInfo(casesPath, yearStr, new Set(added));
+    } else {
+        vprint('No new prospective cases to add.');
+    }
 }
 
 // ── cases.json updates ─────────────────────────────────────────────────────
@@ -2976,8 +3155,9 @@ async function importAllMissingOriginalJurisdictionFiles() {
 
 function _printUsage() {
     console.log('Usage: node scripts/import_ussc.js TERM [CASE]');
-    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig [SOURCE] --prefix "TEXT"');
+    console.log('  Flags: --docket --reparse --verbose --cases --checkurls --prompt --cited-urls --orig [SOURCE] --prefix "TEXT" --prospective');
     console.log('  node scripts/import_ussc.js --orig   (no TERM/CASE: fetch documents for every "Original Jurisdiction Archive"-tagged case that is still missing them)');
+    console.log('  node scripts/import_ussc.js 2026-10 --prospective   (build/extend cases.json from posted argument calendars, ahead of the term itself starting)');
 }
 
 async function main() {
@@ -3012,6 +3192,7 @@ async function main() {
     const forceReparse  = flags.has('--reparse');
     const citedUrlsOnly = flags.has('--cited-urls');
     const origOnly      = flags.has('--orig');
+    const prospective   = flags.has('--prospective');
     VERBOSE     = flags.has('--verbose');
     ADD_CASES   = flags.has('--cases');
     CHECK_URLS  = flags.has('--checkurls');
@@ -3062,6 +3243,13 @@ async function main() {
         console.log(`Importing original jurisdiction documents for ${term} / ${origLabel} ...`);
         await importOriginalJurisdictionFiles(casesPath, caseFilter, origSource, filePrefix);
         syncFilesCount(casesPath);
+        if (!_anyChanges) console.log('Nothing added/updated.');
+        if (_rl) _rl.close();
+        return;
+    }
+
+    if (prospective) {
+        await importProspectiveCases(casesPath, yearStr);
         if (!_anyChanges) console.log('Nothing added/updated.');
         if (_rl) _rl.close();
         return;
