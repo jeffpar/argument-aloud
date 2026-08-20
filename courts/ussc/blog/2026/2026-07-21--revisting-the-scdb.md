@@ -194,9 +194,9 @@ Here's a list of all the corrections we've made to *dateDecision* in SCDB thus f
 
 ### Argument and Reargument Dates
 
-Argument dates are equally prone to error, even in major cases such as [Brown v. Board of Education (347 U.S. 483)](/courts/ussc/?term=1953-10&case=1), which SCDB says was argued on "12/8/1952", but in fact, arguments began on December 9, 1952 and lasted three days.
+Argument dates are equally prone to error, even in major cases such as [Brown v. Board of Education (347 U.S. 483)](/courts/ussc/?term=1953-10&case=1), which SCDB says was argued on "12/8/1952", but arguments actually began on December 9, 1952 and lasted three days.
 
-In fact, many cases have been argued over a period of multiple days (and not necessarily consecutive days). An early example of this is [Talbot v. Janson (3 U.S. 133)](/courts/ussc/?term=1795-08&case=1795-006), which was argued over the course of ten days:
+In fact, many cases have been argued over a period of multiple days -- and not necessarily consecutive days. An early example of this is [Talbot v. Janson (3 U.S. 133)](/courts/ussc/?term=1795-08&case=1795-006), which was argued over the course of ten days:
 
     Thursday, August 6, 1795
     Friday, August 7, 1795
@@ -216,7 +216,7 @@ This also occurs with some regularity in the "modern" era. See [American Truckin
 
 However, recording all the dates of an oral argument (or even just the *number* of argument days) didn't seem to interest Harold Spaeth much, because his "ALLCOURT" database (SCDB's predecessor) provided only an `ORAL` field for the first date of argument.
 
-Despite my best efforts ten years ago to convince SCDB to consider broader research interests and to at least *enable* the coding of all argument dates for a case, all they did was rename Spaeth's variable to [dateArgument](https://scdb.la.psu.edu/online-codebook/date-of-oral-argument/) and continue the old practice, without justification:
+Despite my best efforts ten years ago to convince SCDB to consider broader research interests and to at least *enable* the coding of all argument dates for a case, all they did was rename Spaeth's variable to [dateArgument](https://scdb.la.psu.edu/online-codebook/date-of-oral-argument/) and continue the old incomplete practice:
 
 > On some occasions, oral argument extended over more than a single day. In such cases, only the first date is specified.
 
@@ -232,7 +232,7 @@ The limitation here is even worse than before, because not only can a reargument
 
 SCDB also doesn't comprehensively list cases that were granted, argued, and then dismissed without an opinion. This can happen when the Court "DIGs" (dismisses as improvidently granted) a case, or when it dismisses a case that has later become moot. To be clear, I'm referring to cases that were fully briefed and argued and *then* dismissed, which makes them significantly different from the many petitions that are routinely denied, as well as the occasional petition that is granted and then dismissed before argument.
 
-This is not to say that SCDB doesn't track *any* DIG'ed cases, but merely that its recording of them is haphazard. For example, [Stiles v. United States (393 U.S. 219)](/courts/ussc/?term=1968-10&case=74), argued November 20, 1968, is not listed in SCDB, while [Ford Motor Co. v. McCauley (537 U.S. 1)](/courts/ussc/?term=2002-10&case=01-896), argued October 7, 2000, is listed. The failure to record all such cases frustrates a variety of research, such as the accurate tracking of oral argument activity, the frequency of DIGs, etc.
+This is not to say that SCDB doesn't track *any* DIG'ed cases, merely that its recording of them is haphazard. For example, [Stiles v. United States (393 U.S. 219)](/courts/ussc/?term=1968-10&case=74), argued November 20, 1968, is not listed in SCDB, while [Ford Motor Co. v. McCauley (537 U.S. 1)](/courts/ussc/?term=2002-10&case=01-896), argued October 7, 2000, is listed. The failure to record all such cases frustrates a variety of research, such as the accurate tracking of oral argument activity, the frequency of DIGs, etc.
 
 As an aside, it's also not a simple matter to identify *just* DIG'ed cases. SCDB has a [caseDisposition](https://scdb.la.psu.edu/online-codebook/disposition-of-case/) variable that is generally set to 9 ("petition denied or appeal dismissed") in such cases, but that value is also used in other cases, such as [Schwarz v. National Security Agency (526 U.S. 122)](/courts/ussc/?term=1998-10&case=98-7771), where the case was granted and a *per curiam* opinion was issued denying petitioner's motion.
 
@@ -368,7 +368,7 @@ It's a bit sad to see that, even today, the release notes regarding any changes 
 
     Minor corrections
 
-The assertion that end-users "can perform the differentials just as well as we can" is absolutely true *and* absolutely beside the point, because it isn't just the "differentials" we care about, but also *where* new data came from. Without that, future researchers run the risk of tripping over the same discredited data, misunderstanding how old voting data was collected or interpreted, and so on.
+The assertion that end-users "can perform the differentials just as well as we can" is absolutely true *and* absolutely beside the point, because it isn't just the "differentials" we care about, but also *where* new or modified data came from. Without that, future researchers run the risk of tripping over the same discredited data, misunderstanding how old voting data was collected or interpreted, and so on.
 
 ## Epilogue
 

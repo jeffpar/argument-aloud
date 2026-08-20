@@ -4641,7 +4641,9 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
   let node = icon;
   if (onClick) {
     let tooltipText;
-    if (!ring) {
+    if (ring?.empty) {
+      tooltipText = 'No decision yet';
+    } else if (!ring) {
       tooltipText = 'Opinion issued';
     } else if (ring.green) {
       tooltipText = 'Opinion issued; citations or references available';
@@ -4917,8 +4919,21 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         // Not decided yet, but there's still something on file — a plain
         // empty ring (no scales glyph, since there's no opinion) instead of
         // showing nothing, or a misleading scales icon that implies a
-        // decision exists.
-        _attachScalesIcon(ci, header, { ring: { empty: true } });
+        // decision exists. Still clickable, same as the scales icon itself —
+        // navigates to the case (there's no decision doc to open directly).
+        _attachScalesIcon(ci, header, {
+          ring: { empty: true },
+          onClick: (e) => {
+            e.stopPropagation();
+            markCaseItemActive(ci);
+            const url = buildUrlParams(
+              { term, case: urlId },
+              ['collection', 'event', 'file', 'turn'],
+            );
+            navigate(url);
+            loadCase(term, caseEntry, 0);
+          },
+        });
       }
     }
 
