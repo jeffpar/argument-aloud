@@ -5052,17 +5052,32 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           history.replaceState(null, '', url);
         }
       }
-      await loadCase(term, caseEntry, audioIdx, { ...(initialTurn != null ? { initialTurn } : {}), numberOverride });
-      if (fromRestore) trackPageView(location.href);
       // 'decided' also auto-opens the decision doc, but only alongside playable
       // audio (otherwise loadCase's own default view already suffices); 'citation'
       // always does, since browsing by citation is specifically about the opinions.
+      // Computed up front (every ingredient here is already known, independent
+      // of loadCase's own result) so it can also tell loadCase/loadAudioEntry
+      // not to bother minimizing the doc viewer first — see suppressDocCollapse
+      // below and its own comment in loadAudioEntry.
       const _shouldAutoOpenDecision = !fromRestore && hasDecisionHref(caseEntry) && (
         mode === 'citation' || (mode === 'decided' && caseEntry.events?.some(a => a.audio_href))
       );
+      await loadCase(term, caseEntry, audioIdx, {
+        ...(initialTurn != null ? { initialTurn } : {}),
+        numberOverride,
+        suppressDocCollapse: _shouldAutoOpenDecision,
+      });
+      if (fromRestore) trackPageView(location.href);
       if (_shouldAutoOpenDecision) {
         const de = _buildPrimaryDecisionEntry(caseEntry);
-        if (de) showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
+        if (de) {
+          showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
+          // Keep the file-select dropdown in sync with what's actually shown —
+          // loadCase's own default always lands on an audio entry, which would
+          // otherwise silently disagree with the decision now on screen.
+          const _fs = document.getElementById('file-select');
+          if (_fs && !_fs.hidden && _currentDecisionEntries[0]) _fs.value = _currentDecisionEntries[0].value;
+        }
       }
       const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_href);
       if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !(await _showMinutesGalleryFromParam(fileRestore)) && !_showHistoryFromParam(fileRestore)) {
@@ -7630,7 +7645,12 @@ function withTranscriptFallback(arg, events) {
 // content (see _caseLoadSeq's own declaration). Callers switching entries
 // within the *same* already-loaded case (e.g. the file-select dropdown) omit
 // it, since there's no case-switch race to guard against there.
-async function loadAudioEntry(arg, basePath, _caseSeq = null) {
+// _suppressCollapse, when passed by loadCase, means the caller already knows
+// it's about to show a decision doc for the new case right after this call
+// returns (see _shouldAutoOpenDecision) — skip minimizing the doc viewer here
+// only to have that immediately re-expand it, which otherwise plays as a
+// visible flicker on every citation/decided-mode case switch.
+async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse = false) {
   // text_href values are relative to the term's cases/ directory (one level up
   // from basePath, which points to the individual case folder).
   const casesPath = basePath.replace(/[^/]+\/$/, '');
@@ -7726,7 +7746,7 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null) {
       .classList.toggle('no-transcript', turns.length === 0);
     _updateEditModeMenu();
     const docPanel = document.getElementById('doc-viewer');
-    if (!docPanel.hidden && !docPanel.classList.contains('collapsed')) {
+    if (!_suppressCollapse && !docPanel.hidden && !docPanel.classList.contains('collapsed')) {
       collapseDocViewer();
     }
     activeBottomLinkText = null;
@@ -8159,7 +8179,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   }
 }
 
-async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, numberOverride = null } = {}) {
+async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, numberOverride = null, suppressDocCollapse = false } = {}) {
   // See _caseLoadSeq's own declaration — every await below re-checks this
   // against the live counter and bails out the instant it goes stale, so
   // clicking through several cases in quick succession can't leave a slower
@@ -8585,7 +8605,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const _entryForLoad = (Number.isInteger(initialTurn) && initialTurn > 0)
     ? { ...withTranscriptFallback(_initialEntry, _currentEvents), turn: initialTurn }
     : withTranscriptFallback(_initialEntry, _currentEvents);
-  await loadAudioEntry(_entryForLoad, basePath, _mySeq);
+  await loadAudioEntry(_entryForLoad, basePath, _mySeq, suppressDocCollapse);
   if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _setCaseNotes(_initialEntry?.notes || caseEntry.notes || '');
 
