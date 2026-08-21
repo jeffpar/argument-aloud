@@ -55,7 +55,7 @@ export const ADVOCATE_KEY_ORDER = [
 ];
 
 export const VOTE_KEY_ORDER = [
-    'name', 'vote', 'action', 'opinion', 'dissent',
+    'name', 'side', 'action', 'opinion', 'dissent',
 ];
 
 export const CITES_KEY_ORDER = [

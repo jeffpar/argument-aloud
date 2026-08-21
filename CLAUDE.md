@@ -65,7 +65,7 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
   "oyez_url": "https://www.oyez.org/cases/2024/24-1260",
   "result": "affirmed|reversed|vacated|…",
   "score": "5-3",
-  "votes": [{"name": "JOHN ROBERTS", "vote": "majority"}],
+  "votes": [{"name": "JOHN ROBERTS", "side": "majority"}],
   "events": [
     {
       "source": "ussc|oyez|nara",

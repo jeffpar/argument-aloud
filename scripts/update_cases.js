@@ -4407,7 +4407,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
         if (!Array.isArray(cases)) continue;
         for (const c of cases) {
             if (!Array.isArray(c.votes) || !c.votes.length) continue;
-            const minorityVotes = c.votes.filter(v => v && v.vote === 'minority');
+            const minorityVotes = c.votes.filter(v => v && v.side === 'minority');
             if (minorityVotes.length !== 1) continue;
             const canonical = _scdbCanonName(minorityVotes[0].name);
             if (!canonical) continue;
@@ -7926,27 +7926,27 @@ function _scdbVotesSubset(row) {
         const voteRaw     = (j.vote     || '').trim().toLowerCase();
         const opinionRaw  = (j.opinion  || '').trim().toLowerCase();
 
-        // Derive our vote value from the SCDB majority field (codes: 2=majority, 1=dissent).
-        let vote;
+        // Derive our side value from the SCDB majority field (codes: 2=majority, 1=dissent).
+        let side;
         if (majorityRaw === 'majority' || majorityRaw === '2') {
-            vote = 'majority';
+            side = 'majority';
         } else if (majorityRaw === 'dissent' || majorityRaw === '1') {
-            vote = 'minority';
+            side = 'minority';
         } else {
             // majority is blank — expect vote code 8 (equally divided) or blank (none)
             if (voteRaw === 'justice participated in an equally divided vote' || voteRaw === '8') {
-                vote = 'unknown';
+                side = 'unknown';
             } else if (!voteRaw) {
-                vote = 'none';
+                side = 'none';
             } else if (_SCDB_MIN_VOTE_TYPES.has(voteRaw) || voteRaw.startsWith('dissent from')) {
-                vote = 'minority';
+                side = 'minority';
             } else {
                 console.log(`WARNING: ${name}: majority field is blank but vote="${j.vote}" (expected blank or equally-divided)`);
-                vote = 'unknown';
+                side = 'unknown';
             }
         }
 
-        const entry = { name, vote };
+        const entry = { name, side };
 
         // Derive action from the SCDB opinion field (codes: 2=wrote, 3=co-authored).
         const voteLabel = j.vote.trim().replace(/^voted with majority or plurality$/i, 'majority or plurality');
@@ -7980,26 +7980,26 @@ function _scdbOurVotesSubset(c) {
     for (const v of c.votes) {
         if (!v || typeof v !== 'object') continue;
         const name = (v.name || '').trim().toUpperCase();
-        const raw  = (v.vote || '').trim().toLowerCase();
+        const raw  = (v.side || '').trim().toLowerCase();
         if (!name) continue;
-        // Accept the four canonical vote values directly.
+        // Accept the four canonical side values directly.
         if (raw === 'majority' || raw === 'minority' || raw === 'unknown' || raw === 'none') {
-            out.push({ name, vote: raw });
+            out.push({ name, side: raw });
             continue;
         }
-        // Normalize legacy vote strings for comparison with SCDB-derived data.
-        const vote = _scdbVoteTypeToMajority(raw) || _scdbVoteToOurs(raw);
-        if (vote === 'majority' || vote === 'minority') out.push({ name, vote });
+        // Normalize legacy side strings for comparison with SCDB-derived data.
+        const side = _scdbVoteTypeToMajority(raw) || _scdbVoteToOurs(raw);
+        if (side === 'majority' || side === 'minority') out.push({ name, side });
     }
     return out;
 }
 function _scdbVotesSorted(votes) {
-    return [...votes].sort((a, b) => a.name.localeCompare(b.name) || a.vote.localeCompare(b.vote));
+    return [...votes].sort((a, b) => a.name.localeCompare(b.name) || a.side.localeCompare(b.side));
 }
 function _scdbVotesEqual(a, b) {
     if (a.length !== b.length) return false;
     for (let i = 0; i < a.length; i++) {
-        if (a[i].name !== b[i].name || a[i].vote !== b[i].vote) return false;
+        if (a[i].name !== b[i].name || a[i].side !== b[i].side) return false;
     }
     return true;
 }
@@ -8037,15 +8037,15 @@ function _scdbMergeVotes(existing, fromScdb) {
     const seen = new Set();
     for (const v of list) {
         if (v && typeof v === 'object' && v.name) {
-            seen.add(`${String(v.name).trim().toUpperCase()}\u0000${String(v.vote || '').trim().toLowerCase()}`);
+            seen.add(`${String(v.name).trim().toUpperCase()}\u0000${String(v.side || '').trim().toLowerCase()}`);
         }
     }
     let added = 0;
     for (const v of fromScdb) {
-        const key = `${v.name}\u0000${v.vote}`;
+        const key = `${v.name}\u0000${v.side}`;
         if (seen.has(key)) continue;
         seen.add(key);
-        list.push({ name: v.name, vote: v.vote });
+        list.push({ name: v.name, side: v.side });
         added++;
     }
     return { votes: list, added };
@@ -8208,14 +8208,14 @@ function _scdbApplyXUpdate(c, row, mm) {
         for (const sv of votesToApply) {
             const idx = idxByName.get(sv.name);
             if (idx !== undefined) {
-                if (list[idx].vote !== sv.vote) { list[idx].vote = sv.vote; changed = true; }
+                if (list[idx].side !== sv.side) { list[idx].side = sv.side; changed = true; }
                 if (sv.action && list[idx].action !== sv.action) { list[idx].action = sv.action; changed = true; }
                 if (!sv.action && list[idx].action !== undefined) { delete list[idx].action; changed = true; }
                 const _reorderedEntry = reorderVote(list[idx]);
                 if (Object.keys(_reorderedEntry).join() !== Object.keys(list[idx]).join()) changed = true;
                 list[idx] = _reorderedEntry;
             } else {
-                const entry = { name: sv.name, vote: sv.vote };
+                const entry = { name: sv.name, side: sv.side };
                 if (sv.action) entry.action = sv.action;
                 list.push(reorderVote(entry));
                 idxByName.set(sv.name, list.length - 1);
@@ -8980,8 +8980,8 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                     mm.missingVotes = sV.filter(v => !oNames.has(v.name));
                     let msg = `${prefix}: votes subset mismatch (name+vote).`;
                     if (verbose) {
-                        const sSet = new Set(sV.map(v => `${v.name}\u0000${v.vote}`));
-                        const oSet = new Set(oV.map(v => `${v.name}\u0000${v.vote}`));
+                        const sSet = new Set(sV.map(v => `${v.name}\u0000${v.side}`));
+                        const oSet = new Set(oV.map(v => `${v.name}\u0000${v.side}`));
                         const onlyScdb = [...sSet].filter(x => !oSet.has(x)).sort();
                         const onlyOurs = [...oSet].filter(x => !sSet.has(x)).sort();
                         const lines = [msg];
@@ -12274,32 +12274,32 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         const dissentSet  = new Set(dissentCanonical);
 
         for (const c of minorityCanonical) {
-            if (voteMap.has(c)) voteMap.get(c).vote = 'minority';
-            else voteMap.set(c, { name: c, vote: 'minority' });
+            if (voteMap.has(c)) voteMap.get(c).side = 'minority';
+            else voteMap.set(c, { name: c, side: 'minority' });
         }
         for (const c of recusedCanonical) {
-            if (voteMap.has(c)) voteMap.get(c).vote = 'none';
-            else voteMap.set(c, { name: c, vote: 'none' });
+            if (voteMap.has(c)) voteMap.get(c).side = 'none';
+            else voteMap.set(c, { name: c, side: 'none' });
         }
         for (const c of dissentCanonical) {
             const entry = voteMap.get(c);
             if (!entry) { console.error(`ERROR: Dissent author ${_justiceDisplayName(c)} not found in votes`); process.exit(1); }
-            if (entry.vote !== 'minority') { console.error(`ERROR: Dissent author ${_justiceDisplayName(c)} must be in the minority`); process.exit(1); }
+            if (entry.side !== 'minority') { console.error(`ERROR: Dissent author ${_justiceDisplayName(c)} must be in the minority`); process.exit(1); }
             entry.dissent = true;
         }
         // Ensure all serving justices have an entry (default majority).
         for (const c of servingJustices) {
-            if (!voteMap.has(c)) voteMap.set(c, { name: c, vote: 'majority' });
+            if (!voteMap.has(c)) voteMap.set(c, { name: c, side: 'majority' });
         }
 
         theCase.votes = _scdbSortVotesBySeniority(
             Array.from(voteMap.values()).map(v => reorderVote(v)),
             decisionDate
         );
-        const newMajority = theCase.votes.filter(v => v.vote === 'majority').length;
-        const newMinority = theCase.votes.filter(v => v.vote === 'minority').length;
+        const newMajority = theCase.votes.filter(v => v.side === 'majority').length;
+        const newMinority = theCase.votes.filter(v => v.side === 'minority').length;
         theCase.score     = `${newMajority}-${newMinority}`;
-        const noneCount    = theCase.votes.filter(v => v.vote === 'none').length;
+        const noneCount    = theCase.votes.filter(v => v.side === 'none').length;
 
         console.log(`\nUpdated vote breakdown:`);
         console.log(`  Majority: ${newMajority}`);
@@ -12359,17 +12359,17 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         const dissentSet  = new Set(dissentCanonical);
 
         const voteEntries = servingJustices.map(c => {
-            const vote = recusedSet.has(c) ? 'none' : minoritySet.has(c) ? 'minority' : 'majority';
-            const entry = { name: c, vote };
-            if (authorCanonical && c === authorCanonical && vote === 'majority') entry.opinion = true;
-            if (dissentSet.has(c) && vote === 'minority') entry.dissent = true;
+            const side = recusedSet.has(c) ? 'none' : minoritySet.has(c) ? 'minority' : 'majority';
+            const entry = { name: c, side };
+            if (authorCanonical && c === authorCanonical && side === 'majority') entry.opinion = true;
+            if (dissentSet.has(c) && side === 'minority') entry.dissent = true;
             return reorderVote(entry);
         });
 
         const sorted = _scdbSortVotesBySeniority(voteEntries, decisionDate);
-        const majorityCount = sorted.filter(v => v.vote === 'majority').length;
-        const minorityCount = sorted.filter(v => v.vote === 'minority').length;
-        const noneCount     = sorted.filter(v => v.vote === 'none').length;
+        const majorityCount = sorted.filter(v => v.side === 'majority').length;
+        const minorityCount = sorted.filter(v => v.side === 'minority').length;
+        const noneCount     = sorted.filter(v => v.side === 'none').length;
 
         if (majorityCount !== votes.majority) {
             console.error(`ERROR: Expected ${votes.majority} majority votes, got ${majorityCount}`);

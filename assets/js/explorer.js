@@ -3621,7 +3621,7 @@ function _showCaseVotesView(caseEntry) {
     const displayName = _voteName(v.name);
     const el = document.createElement('a');
     el.className = 'jr-item';
-    if (v.vote !== 'majority') el.classList.add('jr-dimmed');
+    if (v.side !== 'majority') el.classList.add('jr-dimmed');
     el.href = '/courts/ussc/?collection=gallery&id=' + jid;
 
     const photo = document.createElement('div');
@@ -3707,7 +3707,7 @@ function _setCaseInfoRow3(caseEntry) {
     row.hidden = true;
     return;
   }
-  const majorityVotes = caseEntry.votes.filter(v => v.vote === 'majority');
+  const majorityVotes = caseEntry.votes.filter(v => v.side === 'majority');
   const result = caseEntry.result || '';
   // Only the segment before the first semicolon ever describes the case's
   // own disposition (e.g. "dismissed as improvidently granted; no favorable
