@@ -423,16 +423,16 @@ async function runPhase2() {
       let caseDir = null;
       for (const ev of c.events || []) {
         eventsChecked++;
-        if (ev.text_href) {
-          caseDir = caseDir || ev.text_href.split('/')[0];
-          checkUrl(`${termDir}/cases/${ev.text_href}`, caseRef).catch(() => {});
+        if (ev.text_file) {
+          caseDir = caseDir || ev.text_file.split('/')[0];
+          checkUrl(`${termDir}/cases/${ev.text_file}`, caseRef).catch(() => {});
         }
       }
       if (c.files || c.references) {
         filesJsonChecked++;
         // files.json always lives under the *first* docket's directory (matching
         // import_oyez.js's convention), even for a consolidated case whose transcript
-        // events point at a different docket's text_href -- don't reuse caseDir here.
+        // events point at a different docket's text_file -- don't reuse caseDir here.
         const dir = (c.number || '').split(',')[0].trim() || caseDir || c.id;
         if (dir) checkUrl(`${termDir}/cases/${dir}/files.json`, caseRef).catch(() => {});
       }

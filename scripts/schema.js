@@ -13,8 +13,8 @@
 
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number',
-    'files', 'references', 'oyez_href', 'oyez_alt', 'previouslyFiled',
-    'docket_href', 'questions', 'questions_href',
+    'files', 'references', 'oyez_url', 'oyez_alt', 'previouslyFiled',
+    'docket_url', 'questions', 'questions_url',
     // Comma-separated docket number(s) of every case (this one included)
     // heard in the same argument session — distinct from a joint "number"
     // (one case filed under several dockets); this is for separately
@@ -36,14 +36,14 @@ export const CASE_KEY_ORDER = [
     // "N-M" (majority-minority), e.g. "5-3" — replaces the old separate
     // voteMajority/voteMinority integer fields.
     'score', 'votes',
-    'events', 'history_href', 'scdb_check', 'scdb_message',
+    'events', 'history_url', 'scdb_check', 'scdb_message',
     'note', 'audit_message',
 ];
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'audio_href', 'bad_audio_href', 'video_href', 'length', 'size', 'bitrate', 'offset', 'transcript_href', 'text_href',
-    'journal_ref', 'minutes_ref', 'minutes_href', 'minutes_src',
+    'audio_url', 'bad_audio_url', 'video_url', 'length', 'size', 'bitrate', 'offset', 'transcript_url', 'text_file',
+    'journal_ref', 'minutes_ref', 'minutes_url', 'minutes_src',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view'
 ];
 

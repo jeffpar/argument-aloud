@@ -312,7 +312,7 @@ function formatPagesRange(pages) {
 // Loads a term's dates.json, migrating any pre-array-format entry (a bare
 // object, from before a date's pages could span more than one source
 // volume) into a one-element array; self-healing an old-shape Minutes group
-// (minutes_href/minutes_src/minutes_pages, no "type") into the current
+// (minutes_url/minutes_src/minutes_pages, no "type") into the current
 // {type: "minutes", href, src, pages} shape; and expanding every Minutes
 // group's own "pages" range string back into an array (see parsePagesRange
 // above) for this script's own array-based processing. Every dates.json
@@ -329,9 +329,9 @@ function loadDatesJson(term) {
     if (!Array.isArray(data[k])) data[k] = [data[k]];
     for (const g of data[k]) {
       if (!g || typeof g !== 'object') continue;
-      if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
+      if (g.type == null && ('minutes_url' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
         g.type = 'minutes';
-        if ('minutes_href' in g) { g.href = g.minutes_href; delete g.minutes_href; }
+        if ('minutes_url' in g) { g.href = g.minutes_url; delete g.minutes_url; }
         if ('minutes_src' in g) { g.src = g.minutes_src; delete g.minutes_src; }
         if ('minutes_pages' in g) { g.pages = g.minutes_pages; delete g.minutes_pages; }
       }

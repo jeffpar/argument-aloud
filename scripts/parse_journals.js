@@ -93,7 +93,7 @@ const DAYS = ['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUN
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
-/** Extract the journal year from a journal_href URL. */
+/** Extract the journal year from a journal_url URL. */
 function yearFromHref(href) {
   // Old scanned journals: .../YYYY_journal.pdf
   let m = href.match(/(\d{4})_journal\.pdf/i);
@@ -257,7 +257,7 @@ function firstBreakpointOffset(str) {
 
 /**
  * Return a new term object with journal_pages set (offset > 0) or removed
- * (offset === 0), inserted right after the journal_href key. Any additional
+ * (offset === 0), inserted right after the journal_url key. Any additional
  * comma-separated breakpoints already present past the first are carried
  * over unchanged — this script only ever detects/updates the first one.
  */
@@ -270,7 +270,7 @@ function applyOffset(term, offset) {
   for (const [k, v] of Object.entries(term)) {
     if (k === 'journal_pages') continue; // drop old value
     result[k] = v;
-    if (k === 'journal_href') {
+    if (k === 'journal_url') {
       if (newValue) {
         result.journal_pages = newValue;
         placed = true;
@@ -1073,8 +1073,8 @@ function runPagesMode({ dryRun, verbose, yearFilter }) {
   const termsByYear = new Map();
   for (const group of data) {
     for (const term of (group.groups || [])) {
-      if (!term.journal_href) continue;
-      const year = yearFromHref(term.journal_href);
+      if (!term.journal_url) continue;
+      const year = yearFromHref(term.journal_url);
       if (!year) continue;
       if (yearFilter && year !== parseInt(yearFilter, 10)) continue;
       if (!termsByYear.has(year)) termsByYear.set(year, []);

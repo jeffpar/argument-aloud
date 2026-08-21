@@ -1267,7 +1267,7 @@
       if (!Array.isArray(groups)) return;
       groups.forEach(function (g) {
         if (!g || typeof g !== 'object') return;
-        // Self-heals an old-shape Minutes group (minutes_href/minutes_src/
+        // Self-heals an old-shape Minutes group (minutes_url/minutes_src/
         // minutes_pages, no "type") into the current shape.
         if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
           g.type = 'minutes';
@@ -1738,15 +1738,15 @@
       if (entry.argDays != null) document.getElementById('stat-argument-days').textContent = entry.argDays || '—';
       if (entry.audio   != null) { document.getElementById('stat-with-audio').textContent = entry.audio || '—'; revealAudioStat('stat-with-audio', entry.audio > 0); }
       termMinutesCovers = entry.minutes || [];
-      if (entry.journal_cover && entry.journal_href) {
+      if (entry.journal_cover && entry.journal_url) {
         var coverUrl = '/courts/ussc/terms/' + term + '/' + entry.journal_cover;
-        var journalHref = resolveIndexesUrl(entry.journal_href);
+        var journalUrl = resolveIndexesUrl(entry.journal_url);
         var btn = document.getElementById('journal-cover-btn');
         var img = document.getElementById('journal-cover-img');
         img.src = coverUrl;
         btn.title = 'Open ' + term.split('-')[0] + ' Journal';
         btn.hidden = false;
-        wireCoverClick(btn, journalHref, termTitle(term) + ' Journal');
+        wireCoverClick(btn, journalUrl, termTitle(term) + ' Journal');
       }
       var coversRow = document.getElementById('covers-row');
       (entry.reports || []).forEach(function (report) {
@@ -2094,15 +2094,15 @@
 
       // Only counts cases that were actually argued (see the "decided" note
       // below) — a case with no argument shouldn't count here even if it
-      // somehow carried an audio_href (e.g. a decision-announcement recording).
-      var withAudio   = cases.filter(function (c) { return (c.argument || c.reargument) && (c.events || []).some(function (e) { return e.audio_href; }); }).length;
-      // "Fully aligned" = cases with oyez events that have audio, text_href, and aligned:true
+      // somehow carried an audio_url (e.g. a decision-announcement recording).
+      var withAudio   = cases.filter(function (c) { return (c.argument || c.reargument) && (c.events || []).some(function (e) { return e.audio_url; }); }).length;
+      // "Fully aligned" = cases with oyez events that have audio, text_file, and aligned:true
       // (only oyez provides aligned transcripts; ussc never does)
       var withTx = cases.filter(function (c) {
         var oyezArgEvs = (c.events || []).filter(function (e) {
-          return e.source === 'oyez' && e.audio_href && (e.type === 'argument' || e.type === 'reargument');
+          return e.source === 'oyez' && e.audio_url && (e.type === 'argument' || e.type === 'reargument');
         });
-        return oyezArgEvs.length > 0 && oyezArgEvs.every(function (e) { return e.text_href && e.aligned; });
+        return oyezArgEvs.length > 0 && oyezArgEvs.every(function (e) { return e.text_file && e.aligned; });
       }).length;
       // Only counts cases that were actually argued — a case resolved
       // without argument (cert denial, GVR, summary disposition) still
@@ -2141,7 +2141,7 @@
       var opEventCount = 0;
       cases.forEach(function (c) {
         var caseOpEvents = (c.events || []).filter(function (e) {
-          return e.type === 'decision' && e.audio_href && e.length;
+          return e.type === 'decision' && e.audio_url && e.length;
         });
         var seenOpTitles = new Set();
         caseOpEvents.forEach(function (e) {

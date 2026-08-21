@@ -177,8 +177,8 @@
     Object.keys(store).forEach(function (caseKey) {
       var caseData = store[caseKey];
       var events = [];
-      Object.keys(caseData.eventEdits || {}).forEach(function (textHref) {
-        var turnsObj = caseData.eventEdits[textHref];
+      Object.keys(caseData.eventEdits || {}).forEach(function (textFile) {
+        var turnsObj = caseData.eventEdits[textFile];
         var turnEntries = Object.keys(turnsObj).map(function (idx) { return turnsObj[idx]; });
         if (!turnEntries.length) return;
         var turnsOut = turnEntries.map(function (e) {
@@ -192,7 +192,7 @@
           if (e.time !== undefined) out.time = e.time;
           return out;
         }).sort(function (a, b) { return a.turn - b.turn; });
-        events.push({ text_href: textHref, turns: turnsOut });
+        events.push({ text_file: textFile, turns: turnsOut });
       });
       if (!events.length) return;
       var obj = { title: caseData.title };
@@ -219,11 +219,11 @@
       var caseData = raw[caseKey];
       var term = caseData.term;
       var eventEdits = caseData.eventEdits || {};
-      for (var textHref in eventEdits) {
-        var turnsObj = eventEdits[textHref];
+      for (var textFile in eventEdits) {
+        var turnsObj = eventEdits[textFile];
         var serverTurns;
         try {
-          var resp = await fetch('/courts/ussc/terms/' + term + '/cases/' + textHref);
+          var resp = await fetch('/courts/ussc/terms/' + term + '/cases/' + textFile);
           if (!resp.ok) continue;
           var data = await resp.json();
           serverTurns = Array.isArray(data) ? data : (data.turns || []);
@@ -239,7 +239,7 @@
           var textApplied = edit.text === undefined || edit.text === serverTurn.text;
           if (nameApplied && textApplied) delete turnsObj[idxStr];
         }
-        if (!Object.keys(turnsObj).length) delete eventEdits[textHref];
+        if (!Object.keys(turnsObj).length) delete eventEdits[textFile];
       }
       if (!Object.keys(eventEdits).length) delete raw[caseKey];
     }

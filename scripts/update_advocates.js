@@ -7,7 +7,7 @@
  * transcript files.
  *
  * For every case in every cases.json under courts/ussc/terms/, follows each
- * audio entry's text_href to its transcript file, extracts speakers whose role
+ * audio entry's text_file to its transcript file, extracts speakers whose role
  * is "advocate", and records which case/date they appeared in.
  *
  * Usage:
@@ -641,8 +641,8 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                 }
 
                 // Fall back to transcript speakers when the advocates list is empty.
-                if (!matchedJustices.size && ev.text_href) {
-                    const tp = path.join(termDir, 'cases', ev.text_href);
+                if (!matchedJustices.size && ev.text_file) {
+                    const tp = path.join(termDir, 'cases', ev.text_file);
                     if (exists(tp)) {
                         try {
                             const tj = readJson(tp);
@@ -673,7 +673,7 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
                     const { dates, idxs } = byType[type];
                     if (!dates.length) continue;
                     const aligned   = idxs.filter(i => events[i].aligned);
-                    const withAudio = idxs.filter(i => events[i].audio_href);
+                    const withAudio = idxs.filter(i => events[i].audio_url);
                     const bestIdx   = (aligned[0] ?? withAudio[0] ?? idxs[0]) + 1;
                     if (!mdCasesByJustice.has(jDisp)) mdCasesByJustice.set(jDisp, []);
                     mdCasesByJustice.get(jDisp).push({
@@ -1013,8 +1013,8 @@ function applyReplace(term, oldName, newName) {
                 if (typeof adv === 'object') adv.name = newUpper;
                 else ev.advocates[ai] = newUpper;
                 count++;
-                if (ev.text_href) {
-                    const tp = path.join(termDir, 'cases', ev.text_href);
+                if (ev.text_file) {
+                    const tp = path.join(termDir, 'cases', ev.text_file);
                     if (exists(tp)) {
                         try {
                             const t = readJson(tp);
@@ -1175,8 +1175,8 @@ async function checkAndFixSingleNames(term, { verbose = false } = {}) {
             casesModified = true;
 
             // Apply in associated transcript
-            if (ev.text_href) {
-                const tp = path.join(termDir, 'cases', ev.text_href);
+            if (ev.text_file) {
+                const tp = path.join(termDir, 'cases', ev.text_file);
                 if (exists(tp)) {
                     try {
                         const t = readJson(tp);
@@ -1241,13 +1241,13 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
 
     for (const c of cases) {
         for (const ev of c.events || []) {
-            if (!ev.text_href) continue;
+            if (!ev.text_file) continue;
             const advNames = new Set(
                 (ev.advocates || [])
                     .map(a => ((typeof a === 'object' ? a.name : a) || '').toUpperCase())
                     .filter(Boolean)
             );
-            const tp = path.join(termDir, 'cases', ev.text_href);
+            const tp = path.join(termDir, 'cases', ev.text_file);
             if (!exists(tp)) continue;
             let t;
             try { t = readJson(tp); } catch { continue; }
@@ -1272,8 +1272,8 @@ function checkAndFixTranscriptSpeakers(term, { verbose = false } = {}) {
                     for (const oe of c.events || []) {
                         if (oe.source !== 'oyez') continue;
                         if (oe.date) oyezDatesForCase.add(oe.date);
-                        if (!oe.text_href) continue;
-                        const op = path.join(termDir, 'cases', oe.text_href);
+                        if (!oe.text_file) continue;
+                        const op = path.join(termDir, 'cases', oe.text_file);
                         if (!exists(op)) continue;
                         try {
                             const ot = readJson(op);
@@ -1729,9 +1729,9 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
     const recordedDates = new Map();
     /** key: name|title|term|number  -> Set<date string> */
     const allAppearanceDates = new Map();
-    /** `${nameKey}||${audio_href}` -> caseId of first recording — prevents
+    /** `${nameKey}||${audio_url}` -> caseId of first recording — prevents
      *  duplicate case entries when two separate cases share the same
-     *  consolidated argument audio. Intra-case duplicates (same audio_href
+     *  consolidated argument audio. Intra-case duplicates (same audio_url
      *  appearing twice within a single case) are intentional and are allowed. */
     const seenAdvAudio = new Map();
     /** key: name|title|term|number -> bool */
@@ -1809,7 +1809,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             const oyezDates = new Set();
             if (isEarlyTerm) {
                 for (const a of audioEntries) {
-                    if (a.source === 'oyez' && a.text_href) {
+                    if (a.source === 'oyez' && a.text_file) {
                         const d = a.date || c.argument || '';
                         if (d) oyezDates.add(`${d}|${eventSubDocket(a)}`);
                     }
@@ -1835,7 +1835,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const n = normalizeNameSuffix((rawName || '').trim()).split(/\s+/).filter(Boolean).join(' ');
                     if (n) names.add(n.toUpperCase());
                 }
-                const preText = preAudio.text_href;
+                const preText = preAudio.text_file;
                 const preDate = preAudio.date || c.argument || '';
                 const skipUsscPre = isEarlyTerm && preAudio.source === 'ussc' && oyezCovers(preAudio, preDate);
                 const hasExplicitPreAdvocates = (preAudio.advocates || []).length > 0;
@@ -1871,7 +1871,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             for (const [d, idxs] of dateToIdxs) {
                 if (idxs.length <= 1) continue;
                 const aligned   = idxs.filter(i => audioEntries[i].aligned);
-                const withAudio = idxs.filter(i => audioEntries[i].audio_href);
+                const withAudio = idxs.filter(i => audioEntries[i].audio_url);
                 const bestI     = ([...aligned, ...withAudio, ...idxs])[0];
                 bestOrigIdxForDate.set(d, bestI);
             }
@@ -1884,14 +1884,14 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const cands = idxs.filter(i => (audioEntryAdvocates.get(i) || new Set()).has(adv));
                     if (!cands.length) continue;
                     const aligned   = cands.filter(i => audioEntries[i].aligned);
-                    const withAudio = cands.filter(i => audioEntries[i].audio_href);
+                    const withAudio = cands.filter(i => audioEntries[i].audio_url);
                     let best = aligned[0] ?? withAudio[0] ?? cands[0];
-                    // If the best candidate has no audio_href, prefer a sibling
-                    // that has audio_href but no text_href (e.g. an Oyez entry
+                    // If the best candidate has no audio_url, prefer a sibling
+                    // that has audio_url but no text_file (e.g. an Oyez entry
                     // added for audio coverage before a transcript is available).
-                    if (!audioEntries[best].audio_href) {
+                    if (!audioEntries[best].audio_url) {
                         const audioOnlySibling = idxs.find(
-                            i => audioEntries[i].audio_href && !audioEntries[i].text_href,
+                            i => audioEntries[i].audio_url && !audioEntries[i].text_file,
                         );
                         if (audioOnlySibling != null) best = audioOnlySibling;
                     }
@@ -2028,19 +2028,19 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const summarized = summarizeResult(c.result, advRole);
                     if (summarized) caseEntry.result = summarized;
                     const sameDateEntries = (dateToIdxs.get(audioDate) || []).map(i => audioEntries[i]);
-                    if (sameDateEntries.some(e => e.transcript_href)) caseEntry.transcript = true;
-                    if (resolvedAudio.audio_href || resolvedAudio.transcript_href) {
+                    if (sameDateEntries.some(e => e.transcript_url)) caseEntry.transcript = true;
+                    if (resolvedAudio.audio_url || resolvedAudio.transcript_url) {
                         caseEntry.event = resolvedOrigIdx + 1;
                     }
                     if (c.files) caseEntry.files = true;
                     if (c.references) caseEntry.references = true;
-                    // De-dup: two separate cases sharing the same audio_href
+                    // De-dup: two separate cases sharing the same audio_url
                     // represent a single consolidated argument; record it once
-                    // per advocate. Intra-case duplicates (same audio_href used
+                    // per advocate. Intra-case duplicates (same audio_url used
                     // twice within one case to denote separate sub-arguments)
                     // are intentional and are NOT suppressed.
-                    const _advAudioKey = resolvedAudio.audio_href
-                        ? `${nameKey}||${resolvedAudio.audio_href}` : null;
+                    const _advAudioKey = resolvedAudio.audio_url
+                        ? `${nameKey}||${resolvedAudio.audio_url}` : null;
                     if (_advAudioKey) {
                         const _firstCaseId = seenAdvAudio.get(_advAudioKey);
                         if (_firstCaseId !== undefined && _firstCaseId !== c.id) return;
@@ -2078,10 +2078,10 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                 }
 
                 // Transcript-based speakers
-                const textHref = audio.text_href;
+                const textFile = audio.text_file;
                 const hasExplicitAdvocates = (audio.advocates || []).length > 0;
-                if (!textHref || !audioDate || skipUsscTranscript || hasExplicitAdvocates) continue;
-                const transcriptPath = path.join(termDir, 'cases', textHref);
+                if (!textFile || !audioDate || skipUsscTranscript || hasExplicitAdvocates) continue;
+                const transcriptPath = path.join(termDir, 'cases', textFile);
                 if (!exists(transcriptPath)) continue;
 
                 let transcript;

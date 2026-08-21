@@ -4,8 +4,8 @@
  *
  * Default mode (cases.json assets):
  *   - decision_loc / decision_gov / decision_vol  → PDF opinion
- *   - audio_href    → MP3 audio (from each event)
- *   - transcript_href → PDF transcript (from each event)
+ *   - audio_url    → MP3 audio (from each event)
+ *   - transcript_url → PDF transcript (from each event)
  *
  * --files mode (files.json assets):
  *   Scans every terms/<term>/cases/<case>/files.json and downloads the href
@@ -293,10 +293,10 @@ async function processCase(term, c, folderKey, opts) {
     if (c.decision_gov)    tasks.push({ url: c.decision_gov });
     if (c.decision_vol) tasks.push({ url: c.decision_vol });
 
-    // event assets: audio_href, transcript_href
+    // event assets: audio_url, transcript_url
     for (const ev of c.events || []) {
-        if (ev.audio_href)      tasks.push({ url: ev.audio_href });
-        if (ev.transcript_href) tasks.push({ url: ev.transcript_href });
+        if (ev.audio_url)      tasks.push({ url: ev.audio_url });
+        if (ev.transcript_url) tasks.push({ url: ev.transcript_url });
     }
 
     if (!tasks.length) return;

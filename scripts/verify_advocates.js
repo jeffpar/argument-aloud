@@ -816,13 +816,13 @@ function main() {
             if (seenCaseIds.has(caseId)) continue;
             seenCaseIds.add(caseId);
 
-            // Count audio_href and transcript_href files across argument/reargument events.
+            // Count audio_url and transcript_url files across argument/reargument events.
             const audioHrefs      = new Set();
             const transcriptHrefs = new Set();
             for (const ev of caseEntry.events || []) {
                 if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
-                if (ev.audio_href)      audioHrefs.add(ev.audio_href);
-                if (ev.transcript_href) transcriptHrefs.add(ev.transcript_href);
+                if (ev.audio_url)      audioHrefs.add(ev.audio_url);
+                if (ev.transcript_url) transcriptHrefs.add(ev.transcript_url);
             }
             if (audioHrefs.size > 1 || transcriptHrefs.size > 1) {
                 multiAudioCases.push({

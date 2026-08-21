@@ -8,7 +8,7 @@ details:
 highlights:
   - title: "Recognition of Edwin Kneedler's 160 Arguments"
     date: "2025-04-23"
-    audio_href: "/courts/ussc/people/advocates/featured/edwin_s_kneedler/2025-04-23--Recognition.mp3"
+    audio_url: "/courts/ussc/people/advocates/featured/edwin_s_kneedler/2025-04-23--Recognition.mp3"
 ---
 
 # {{ page.title }}

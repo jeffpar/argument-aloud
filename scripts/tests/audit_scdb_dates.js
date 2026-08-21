@@ -46,7 +46,7 @@
 // schema.js) — none of which mean a date or event is actually missing.
 //
 // Source re-tagging is scoped the same way: only bare, audio-less citation
-// entries (scdb/journal/minutes/ussc/etc. with no audio_href/video_href and
+// entries (scdb/journal/minutes/ussc/etc. with no audio_url/video_url and
 // not redundant) are eligible. An oyez/nara/otd event's "source" records
 // where its actual audio/video came from, not "what backs up this date" —
 // touching those would be wrong even if the date happens to equal SCDB's.
@@ -128,15 +128,15 @@ for (const termDir of termDirs) {
       // no transcript in any form, no advocate list) has a "source" that
       // really just means "which record backs up this date". Anything with
       // real content keeps its own provenance regardless of what SCDB says —
-      // including an Oyez entry with an *empty* audio_href (audio missing but
+      // including an Oyez entry with an *empty* audio_url (audio missing but
       // still a genuine aligned transcript, e.g. 2019-016) — and a redundant
       // duplicate is never the canonical record for its date either way.
       // Same bare-citation set is used for the date/event count check below:
       // an audio-or-transcript-bearing case has too many legitimate reasons
       // (Oyez multi-part splits, one event per consolidated docket, etc.) for
       // its raw event count to differ from its date count.
-      const isBareCitation = (e) => !e.redundant && !e.audio_href && !e.video_href
-        && !e.text_href && !e.transcript_href && !e.advocates && !e.aligned;
+      const isBareCitation = (e) => !e.redundant && !e.audio_url && !e.video_url
+        && !e.text_file && !e.transcript_url && !e.advocates && !e.aligned;
       const eligibleEvents = propEvents.filter(isBareCitation);
       const hasContentEvents = propEvents.some(e => !isBareCitation(e));
       const ourDates = String(c[prop] || '').split(',').map(s => s.trim()).filter(Boolean);

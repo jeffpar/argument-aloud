@@ -13,7 +13,7 @@
  *   TYPE    Event type:   argument | decision | reargument
  *
  * Batch mode (CASE = -):
- *   Processes every case in the term that has a SOURCE/TYPE event with a text_href
+ *   Processes every case in the term that has a SOURCE/TYPE event with a text_file
  *   that is not yet aligned and not redundant, provided no oyez event of the same
  *   type is already aligned for that case.
  *
@@ -24,7 +24,7 @@
  *   --beam-size N      Whisper beam size (default: 5; higher = slower but more accurate, e.g. 10)
  *   --no-vad           Disable Whisper VAD filter (use when VAD cuts off audio early, e.g. at ~60 min)
  *   --dry-run          Print what would change without writing files
- *   --organize         Move misplaced text_href files to the folder matching the audio_href
+ *   --organize         Move misplaced text_file files to the folder matching the audio_url
  *                      basename number, then strip redundant numeric suffixes where all dates
  *                      in a folder are unique. Use --dry-run to preview without writing.
  *                      (use CASE = - to process all cases in the term)
@@ -577,18 +577,18 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
         console.error(`No ${source}/${type} event found for case ${caseObj.number}`);
         return false;
     }
-    if (!event.text_href) {
-        console.error(`Event ${source}/${type} has no text_href for case ${caseObj.number}`);
+    if (!event.text_file) {
+        console.error(`Event ${source}/${type} has no text_file for case ${caseObj.number}`);
         return false;
     }
-    if (!event.audio_href) {
-        console.error(`Event ${source}/${type} has no audio_href for case ${caseObj.number}`);
+    if (!event.audio_url) {
+        console.error(`Event ${source}/${type} has no audio_url for case ${caseObj.number}`);
         return false;
     }
 
     // ── Load transcript ────────────────────────────────────────────────────
     const casesDir = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases');
-    const transcriptPath = path.join(casesDir, event.text_href);
+    const transcriptPath = path.join(casesDir, event.text_file);
     if (!exists(transcriptPath)) {
         console.error(`Transcript not found: ${transcriptPath}`);
         return false;
@@ -651,12 +651,12 @@ async function processCase(term, caseObj, source, type, cases, casesPath, opts) 
         }
 
         // Download audio to a temp file.
-        const audioExt  = path.extname(new URL(event.audio_href).pathname) || '.mp3';
+        const audioExt  = path.extname(new URL(event.audio_url).pathname) || '.mp3';
         const audioPath = path.join(os.tmpdir(), `update_transcripts_audio_${process.pid}${audioExt}`);
 
-        console.log(`Downloading audio: ${event.audio_href}`);
+        console.log(`Downloading audio: ${event.audio_url}`);
         try {
-            await downloadFile(event.audio_href, audioPath);
+            await downloadFile(event.audio_url, audioPath);
         } catch (err) {
             console.error(`Failed to download audio: ${err.message}`);
             return false;
@@ -874,10 +874,10 @@ async function applyEditsFromFile(filePath) {
         }
 
         for (const eventEdit of eventEdits) {
-            const { text_href, turns: turnEdits } = eventEdit;
-            if (!text_href || !Array.isArray(turnEdits) || !turnEdits.length) continue;
+            const { text_file, turns: turnEdits } = eventEdit;
+            if (!text_file || !Array.isArray(turnEdits) || !turnEdits.length) continue;
 
-            const transcriptPath = path.join(TERMS_DIR, term, 'cases', text_href);
+            const transcriptPath = path.join(TERMS_DIR, term, 'cases', text_file);
             if (!exists(transcriptPath)) {
                 console.warn(`Transcript not found: ${path.relative(REPO_ROOT, transcriptPath)}`);
                 continue;
@@ -926,7 +926,7 @@ async function applyEditsFromFile(filePath) {
                     // applied: the turn that used to be `edit.prev` has
                     // already moved to `edit.turn` — nothing left to do.
                     if (!turns.some(t => t.turn === edit.turn)) {
-                        console.warn(`  Turn ${edit.prev} (renumbering to ${edit.turn}) not found in ${text_href}`);
+                        console.warn(`  Turn ${edit.prev} (renumbering to ${edit.turn}) not found in ${text_file}`);
                     }
                     continue;
                 }
@@ -1024,7 +1024,7 @@ async function applyEditsFromFile(filePath) {
                     (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef))
                 );
                 if (caseEntry?.events) {
-                    const idx = caseEntry.events.findIndex(e => e.text_href === text_href);
+                    const idx = caseEntry.events.findIndex(e => e.text_file === text_file);
                     if (idx >= 0) eventIdx = idx + 1;
                 }
             }
@@ -1134,11 +1134,11 @@ const TRANSCRIPT_FOLDER_RE = /^(\d{2})-(\d+)/;
 // "11-Orig" → "11orig", "1-Misc" → "1misc" — matches how audio filenames encode these suffixes.
 const toAudioNum = (s) => s.replace(/-([A-Za-z]+)$/, (_, suffix) => suffix.toLowerCase());
 
-// Returns the expected text_href folder number encoded in a ussc transcript_href basename.
+// Returns the expected text_file folder number encoded in a ussc transcript_url basename.
 // Pre-1971 terms store transcripts as "YY-NNN_date.pdf" but the folder is just NNN;
 // 1971+ terms use "YY-NNN" as the actual docket number so the full form is the folder.
-function _transcriptFolder(transcriptHref, termYear) {
-    const base = (transcriptHref || '').split('/').pop().split('?')[0];
+function _transcriptFolder(transcriptUrl, termYear) {
+    const base = (transcriptUrl || '').split('/').pop().split('?')[0];
     const m = TRANSCRIPT_FOLDER_RE.exec(base);
     if (!m) return null;
     return termYear >= 1971 ? `${m[1]}-${m[2]}` : m[2];
@@ -1147,14 +1147,14 @@ function _transcriptFolder(transcriptHref, termYear) {
 // Extracts the media number and source kind from an event, for folder-consistency checks.
 // Returns { mediaNum, kind } or null if the event has no checkable media reference.
 function _mediaInfo(ev, termYear) {
-    if (ev.audio_href) {
-        const basename = ev.audio_href.split('/').pop().split('?')[0];
+    if (ev.audio_url) {
+        const basename = ev.audio_url.split('/').pop().split('?')[0];
         const m = AUDIO_ORGANIZE_RE.exec(basename);
         if (!m) return null;
         return { mediaNum: m[2], dateStr: m[1], kind: 'audio basename' };
     }
-    if (ev.source === 'ussc' && ev.transcript_href) {
-        const mediaNum = _transcriptFolder(ev.transcript_href, termYear);
+    if (ev.source === 'ussc' && ev.transcript_url) {
+        const mediaNum = _transcriptFolder(ev.transcript_url, termYear);
         if (!mediaNum) return null;
         return { mediaNum, dateStr: null, kind: 'transcript' };
     }
@@ -1178,12 +1178,12 @@ function organizeCheck(term, caseNumber, cases) {
         const label = c.number || c.id || '?';
 
         for (const ev of (c.events || [])) {
-            if (!ev.text_href) continue;
+            if (!ev.text_file) continue;
             const info = _mediaInfo(ev, termYear);
             if (!info) continue;
 
             const { mediaNum, dateStr, kind } = info;
-            const folder       = ev.text_href.split('/')[0];
+            const folder       = ev.text_file.split('/')[0];
             const eventDateStr = (ev.date || '').replace(/-/g, '');
 
             if (dateStr && dateStr !== eventDateStr) {
@@ -1196,7 +1196,7 @@ function organizeCheck(term, caseNumber, cases) {
                 continue; // folder mismatch is not meaningful when the media doesn't belong to this case
             }
             if (toAudioNum(folder) !== mediaNum) {
-                console.log(`  ${label} [${ev.date}]: text_href folder '${folder}' does not match ${kind} number '${mediaNum}'`);
+                console.log(`  ${label} [${ev.date}]: text_file folder '${folder}' does not match ${kind} number '${mediaNum}'`);
                 issues++;
             }
         }
@@ -1230,11 +1230,11 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
         // ── Find misplaced events ──────────────────────────────────────────
         const toMove = [];
         for (const ev of (c.events || [])) {
-            if (!ev.text_href) continue;
+            if (!ev.text_file) continue;
             const info = _mediaInfo(ev, termYear);
             if (!info) continue;
             const { mediaNum, kind } = info;
-            const folder = ev.text_href.split('/')[0];
+            const folder = ev.text_file.split('/')[0];
             if (toAudioNum(folder) !== mediaNum) {
                 const targetFolder = mediaNumToFolder.get(mediaNum) || mediaNum;
                 toMove.push({ ev, mediaNum, kind, targetFolder, currentFolder: folder });
@@ -1264,25 +1264,25 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
 
         // ── Move files ────────────────────────────────────────────────────
         for (const { ev, targetFolder, currentFolder } of toMove) {
-            const filename  = ev.text_href.split('/')[1];
+            const filename  = ev.text_file.split('/')[1];
             const srcPath   = path.join(casesDir, currentFolder, filename);
             const dstDir    = path.join(casesDir, targetFolder);
             const dstPath   = path.join(dstDir, filename);
             const newHref   = `${targetFolder}/${filename}`;
-            console.log(`  ${label}: ${dryRun ? '[dry-run] would move' : 'move'} ${ev.text_href} → ${newHref}`);
+            console.log(`  ${label}: ${dryRun ? '[dry-run] would move' : 'move'} ${ev.text_file} → ${newHref}`);
             if (!dryRun) {
                 if (!exists(dstDir)) fs.mkdirSync(dstDir);
                 fs.renameSync(srcPath, dstPath);
             }
-            ev.text_href = newHref; // update in memory (for cleanup pass below)
+            ev.text_file = newHref; // update in memory (for cleanup pass below)
         }
 
         // ── Cleanup: strip redundant numeric suffixes ─────────────────────
-        // Group text_href files by folder across all events in the case.
+        // Group text_file files by folder across all events in the case.
         const folderEntries = new Map(); // folder → [{ ev, filename, date }]
         for (const ev of (c.events || [])) {
-            if (!ev.text_href) continue;
-            const [folder, filename] = ev.text_href.split('/');
+            if (!ev.text_file) continue;
+            const [folder, filename] = ev.text_file.split('/');
             const dm = /^(\d{4}-\d{2}-\d{2})/.exec(filename);
             if (!dm) continue;
             if (!folderEntries.has(folder)) folderEntries.set(folder, []);
@@ -1297,9 +1297,9 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
                 const srcPath = path.join(casesDir, folder, filename);
                 const dstPath = path.join(casesDir, folder, newFilename);
                 const newHref = `${folder}/${newFilename}`;
-                console.log(`  ${label}: ${dryRun ? '[dry-run] would rename' : 'rename'} ${ev.text_href} → ${newHref}`);
+                console.log(`  ${label}: ${dryRun ? '[dry-run] would rename' : 'rename'} ${ev.text_file} → ${newHref}`);
                 if (!dryRun) fs.renameSync(srcPath, dstPath);
-                ev.text_href = newHref;
+                ev.text_file = newHref;
             }
         }
 
@@ -1387,11 +1387,11 @@ async function main() {
     if (caseNumber === '-') {
         // ── Batch mode ─────────────────────────────────────────────────────
         // Process every case in the term that has a matching SOURCE/TYPE event
-        // with a text_href that is not yet aligned and not redundant, provided
+        // with a text_file that is not yet aligned and not redundant, provided
         // no oyez event of the same type is already aligned for that case.
         const eligible = cases.filter(c => {
             const ev = (c.events || []).find(e => e.source === source && e.type === type);
-            if (!ev || !ev.text_href || ev.redundant || ev.aligned || !ev.audio_href) return false;
+            if (!ev || !ev.text_file || ev.redundant || ev.aligned || !ev.audio_url) return false;
             const hasAlignedOyez = (c.events || []).some(
                 e => e.source === 'oyez' && e.type === type && e.aligned
             );

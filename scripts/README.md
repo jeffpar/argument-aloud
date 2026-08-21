@@ -58,7 +58,7 @@ node scripts/import_ussc.js TERM [CASE] [--docket] [--reparse] [--verbose]
 ## import_oyez.js
 
 Downloads oral argument and opinion announcement audio (and aligned transcripts)
-from the Oyez API for a term, adding `audio_href` and `text_href` entries to
+from the Oyez API for a term, adding `audio_url` and `text_file` entries to
 each case's event list.
 
 ```
@@ -136,7 +136,7 @@ apply fixes automatically.
 ## update_advocates.js
 
 Rebuilds the advocate profile index from all transcript files. Scans every
-`text_href` transcript across all terms, extracts advocate speakers, and writes:
+`text_file` transcript across all terms, extracts advocate speakers, and writes:
 
 - `courts/ussc/people/advocates/all_advocates.json` — full index
 - `courts/ussc/people/advocates/top/top100_advocates.json` — top 100 by case count

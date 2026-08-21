@@ -109,13 +109,13 @@ function _clearPdfIframePool() {
 }
 let _currentOyezEntries = []; // Oyez case-description entries for the active case [{value,href,title}]
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
-let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
+let _currentTranscriptPdfUrl = null; // resolved transcript_url for the active audio entry
 let _currentJournalRefs = new Map(); // sentinel value -> { href, title } for journal_ref dropdown options
-let _currentMinutesRefs = new Map(); // sentinel value -> { href, title } for minutes_href dropdown options
+let _currentMinutesRefs = new Map(); // sentinel value -> { href, title } for minutes_url dropdown options
 // 'minutes-date:' + iso -> { images, title } — dropdown options for the case's
 // own argued/reargued/decided dates that also have a Minutes gallery in the
 // term's dates.json (distinct from _currentMinutesRefs above, which is the
-// per-event minutes_href/minutes_src pair, not this term-dates-driven, multi-
+// per-event minutes_url/minutes_src pair, not this term-dates-driven, multi-
 // page gallery). See _refreshMinutesGalleryOptions and _showMinutesGalleryForDate.
 let _currentMinutesGalleryRefs = new Map();
 // ISO date whose Minutes gallery is the doc viewer's *current* content, or
@@ -149,9 +149,9 @@ let _editMode = false;
 // isConnected alone can't tell a real user blur apart from this one. This
 // flag is set explicitly around that kind of programmatic teardown instead.
 let _suppressTurnBlurSave = false;
-// caseKey -> { title, number?, id?, eventEdits: Map<text_href, Map<turnIdx, {turnNum,name,text?}>> }
+// caseKey -> { title, number?, id?, eventEdits: Map<text_file, Map<turnIdx, {turnNum,name,text?}>> }
 let _transcriptEdits = new Map();
-let _currentTextHref = ''; // text_href of the currently loaded transcript
+let _currentTextHref = ''; // text_file of the currently loaded transcript
 let _currentCaseKey  = ''; // caseKey of the currently loaded case
 let _currentTerm     = ''; // term of the currently loaded case
 const _caseSessionState = new Map(); // caseKey -> { eventIdx, turnNum } — session memory, cleared on reload
@@ -169,10 +169,10 @@ function _persistEditsToStorage() {
   const obj = {};
   for (const [caseKey, caseData] of _transcriptEdits) {
     const eventEditsObj = {};
-    for (const [textHref, turnEdits] of caseData.eventEdits) {
+    for (const [textFile, turnEdits] of caseData.eventEdits) {
       const turnsObj = {};
       for (const [turnIdx, turnEdit] of turnEdits) turnsObj[turnIdx] = turnEdit;
-      eventEditsObj[textHref] = turnsObj;
+      eventEditsObj[textFile] = turnsObj;
     }
     obj[caseKey] = {
       title: caseData.title,
@@ -197,14 +197,14 @@ function _loadEditsFromStorage() {
   for (const [caseKey, caseData] of Object.entries(obj)) {
     if (!caseData || typeof caseData !== 'object') continue;
     const eventEditsMap = new Map();
-    for (const [textHref, turnsObj] of Object.entries(caseData.eventEdits || {})) {
+    for (const [textFile, turnsObj] of Object.entries(caseData.eventEdits || {})) {
       if (!turnsObj || typeof turnsObj !== 'object') continue;
       const turnEditsMap = new Map();
       for (const [idxStr, edit] of Object.entries(turnsObj)) {
         const idx = parseInt(idxStr, 10);
         if (!isNaN(idx) && edit && typeof edit === 'object') turnEditsMap.set(idx, edit);
       }
-      if (turnEditsMap.size) eventEditsMap.set(textHref, turnEditsMap);
+      if (turnEditsMap.size) eventEditsMap.set(textFile, turnEditsMap);
     }
     if (eventEditsMap.size) {
       _transcriptEdits.set(caseKey, {
@@ -411,8 +411,8 @@ function _buildGroupCaseRefFromEntry(caseEntry, term) {
   if (caseEntry.files)      ref.files      = caseEntry.files;
   if (caseEntry.references) ref.references = caseEntry.references;
   const events = Array.isArray(caseEntry.events) ? caseEntry.events : [];
-  if (events.some(e => e.audio_href)) ref.event      = true;
-  if (events.some(e => e.text_href))  ref.transcript = true;
+  if (events.some(e => e.audio_url)) ref.event      = true;
+  if (events.some(e => e.text_file))  ref.transcript = true;
   return ref;
 }
 
@@ -1316,11 +1316,11 @@ function _rebuildEditsItems() {
 
       // Find the event+turn of the earliest (smallest turnNum) edit across all events.
       let bestTurnNum  = Infinity;
-      let bestTextHref = null;
-      for (const [textHref, turnEdits] of caseData.eventEdits) {
+      let bestTextFile = null;
+      for (const [textFile, turnEdits] of caseData.eventEdits) {
         for (const [, edit] of turnEdits) {
           const tn = edit.turnNum ?? Infinity;
-          if (tn < bestTurnNum) { bestTurnNum = tn; bestTextHref = textHref; }
+          if (tn < bestTurnNum) { bestTurnNum = tn; bestTextFile = textFile; }
         }
       }
 
@@ -1355,19 +1355,19 @@ function _rebuildEditsItems() {
           navigate(buildUrlParams(params, deletions));
         }
 
-        const hasPlayableAudio = (entry.events || []).some(a => a.audio_href);
+        const hasPlayableAudio = (entry.events || []).some(a => a.audio_url);
         loadCase(caseData.term, entry, audioIdx || 0, { forceNoAudio: !hasPlayableAudio, initialTurn });
       });
 
-      // Async: resolve textHref -> 1-based event index via the term's case data.
-      if (bestTextHref) {
+      // Async: resolve textFile -> 1-based event index via the term's case data.
+      if (bestTextFile) {
         fetchTermCases(caseData.term).then(cases => {
           const entry = cases.find(c =>
             (caseData.id     && c.id     === caseData.id)     ||
             (caseData.number && c.number === caseData.number)
           );
           if (!entry) return;
-          const evIdx = (entry.events || []).findIndex(ev => ev.text_href === bestTextHref);
+          const evIdx = (entry.events || []).findIndex(ev => ev.text_file === bestTextFile);
           resolvedEventIdx = evIdx >= 0 ? evIdx + 1 : 0;
         });
       }
@@ -3046,7 +3046,7 @@ function _showMinutesFromParam(param) {
 }
 
 // "Historical Article from <domain>" — the file-select label and doc-viewer
-// title for a case's history_href, e.g. "https://www.supremecourt.gov/..."
+// title for a case's history_url, e.g. "https://www.supremecourt.gov/..."
 // → "Historical Article from supremecourt.gov".
 function _historyEntryTitle(href) {
   let host = '';
@@ -3055,11 +3055,11 @@ function _historyEntryTitle(href) {
 }
 
 // If `param` (a URL 'file' value) is "history" and the current case has a
-// history_href, show it in the doc viewer and sync the file-select dropdown
+// history_url, show it in the doc viewer and sync the file-select dropdown
 // to match. Returns whether it was handled.
 function _showHistoryFromParam(param) {
-  if (param !== 'history' || !_currentCaseEntry?.history_href) return false;
-  showDocViewer({ href: _currentCaseEntry.history_href, title: _historyEntryTitle(_currentCaseEntry.history_href), view: 'pane' }, { autoScroll: true });
+  if (param !== 'history' || !_currentCaseEntry?.history_url) return false;
+  showDocViewer({ href: _currentCaseEntry.history_url, title: _historyEntryTitle(_currentCaseEntry.history_url), view: 'pane' }, { autoScroll: true });
   const fileSelect = document.getElementById('file-select');
   if (fileSelect && !fileSelect.hidden) fileSelect.value = 'history-page';
   return true;
@@ -3117,7 +3117,7 @@ function _buildCiteMenu(anchorEl, entries) {
   setTimeout(() => document.addEventListener('mousedown', close, true), 0);
 }
 
-// Returns [{value, href, title}] for each unique transcript_href across events, date-sorted.
+// Returns [{value, href, title}] for each unique transcript_url across events, date-sorted.
 function _buildTranscriptEntries(caseEntry) {
   const entries = [];
   const seen = new Set();
@@ -3125,9 +3125,9 @@ function _buildTranscriptEntries(caseEntry) {
     (a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0
   );
   for (const a of sorted) {
-    if (!a.transcript_href || seen.has(a.transcript_href)) continue;
-    seen.add(a.transcript_href);
-    entries.push({ value: 'transcript:' + entries.length, href: a.transcript_href,
+    if (!a.transcript_url || seen.has(a.transcript_url)) continue;
+    seen.add(a.transcript_url);
+    entries.push({ value: 'transcript:' + entries.length, href: a.transcript_url,
                    title: 'Transcript\u00a0of\u00a0' + (a.title || ''),
                    ...(a.view ? { view: a.view } : {}) });
   }
@@ -3135,10 +3135,10 @@ function _buildTranscriptEntries(caseEntry) {
 }
 
 // Returns [{value, href, title}] for the Oyez case-description link(s).
-// oyez_href is normally a single URL string, but for a case consolidated
+// oyez_url is normally a single URL string, but for a case consolidated
 // from multiple Oyez case pages it's an array of URL strings instead.
 function _buildOyezEntries(caseEntry) {
-  const raw = caseEntry?.oyez_href;
+  const raw = caseEntry?.oyez_url;
   if (!raw) return [];
   const urls = Array.isArray(raw) ? raw : [raw];
   const label = 'Description from The Oyez Project';
@@ -3153,14 +3153,14 @@ function _buildOyezEntries(caseEntry) {
 }
 
 // A ringed (or oyez-pending, see _attachAudioIcon) audio icon means the case
-// very likely has a matching oyez_href — if so, returns a click handler for
+// very likely has a matching oyez_url — if so, returns a click handler for
 // _attachAudioIcon that opens it in the doc viewer, embedded (view: 'pane')
 // the same way the file-select dropdown's own "Description from The Oyez
 // Project" option does (see the 'oyez:' branch in its change handler); else
 // null (no click behavior). Callers only pass this alongside a ring/
 // oyezPending icon — see buildTermCasesSorted.
 function _oyezAudioIconClick(caseEntry) {
-  if (!caseEntry?.oyez_href) return null;
+  if (!caseEntry?.oyez_url) return null;
   return (e) => {
     e.stopPropagation();
     const entries = _buildOyezEntries(caseEntry);
@@ -3235,7 +3235,7 @@ function _expandDatesPages(raw) {
     if (!Array.isArray(groups)) continue;
     for (const g of groups) {
       if (!g || typeof g !== 'object') continue;
-      // Self-heals an old-shape Minutes group (minutes_href/minutes_src/
+      // Self-heals an old-shape Minutes group (minutes_url/minutes_src/
       // minutes_pages, no "type") into the current shape.
       if (g.type == null && ('minutes_href' in g || 'minutes_src' in g || 'minutes_pages' in g)) {
         g.type = 'minutes';
@@ -3908,7 +3908,7 @@ function oyezDeficitClass(caseEntry) {
   const dates = [caseEntry.argument, caseEntry.reargument].filter(Boolean);
   if (!dates.length) return null;
   const oyezAudio = (caseEntry.events || []).filter(
-    e => e.source === 'oyez' && e.audio_href &&
+    e => e.source === 'oyez' && e.audio_url &&
          (e.type === 'argument' || e.type === 'reargument'),
   );
   if (!oyezAudio.length) return 'missing';
@@ -3918,7 +3918,7 @@ function oyezDeficitClass(caseEntry) {
 
 // Returns {fraction, orange} if the case's argument/reargument dates are fully
 // covered by oyez events (qualifying it for a ring around the audio icon), or
-// null if not. fraction = fraction of those events that have audio_href (0–1);
+// null if not. fraction = fraction of those events that have audio_url (0–1);
 // orange = true if any audio event is missing an aligned transcript.
 function oyezCircleData(caseEntry) {
   const dates = [caseEntry.argument, caseEntry.reargument]
@@ -3937,7 +3937,7 @@ function oyezCircleData(caseEntry) {
   const relevant = oyezEvents.filter(e => dates.includes(e.date));
   if (!relevant.length) return null;
 
-  const withAudio = relevant.filter(e => e.audio_href);
+  const withAudio = relevant.filter(e => e.audio_url);
   const fraction = withAudio.length / relevant.length;
   // Orange when any audio event date lacks a human-aligned transcript.
   // usscOnly = true when the orange events all have a ussc (generated) aligned
@@ -3960,9 +3960,9 @@ function oyezCircleData(caseEntry) {
 // filled=true → case has ≥1 OTD video event (purple filled circle)
 function opinionCircleData(caseEntry) {
   const opinionEvents = (caseEntry.events || []).filter(
-    e => e.type === 'decision' && e.audio_href,
+    e => e.type === 'decision' && e.audio_url,
   );
-  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'decision' && e.video_href);
+  const hasOtd = (caseEntry.events || []).some(e => e.source === 'otd' && e.type === 'decision' && e.video_url);
   if (!opinionEvents.length && !hasOtd) return null;
   const hasOpinionAudio = opinionEvents.length > 0;
   const blue   = hasOpinionAudio && opinionEvents.every(e => (e.title || '').startsWith('Opinion'));
@@ -4008,7 +4008,7 @@ function makeAudioRingSvg(fraction, orange) {
   return svg;
 }
 
-// Plain, unlabeled blue ring for a case with an oyez_href but no audio events
+// Plain, unlabeled blue ring for a case with an oyez_url but no audio events
 // posted yet (e.g. an upcoming-term case awaiting argument) — same size/color
 // as makeAudioRingSvg's blue ring, but with no note-glyph or dash progress,
 // since there's no audio yet to represent a fraction of.
@@ -4165,8 +4165,8 @@ function markCaseItemActive(ci) {
 function _applyTranscriptViews(rawFiles, caseEntry) {
   const transcriptViewByHref = new Map();
   (caseEntry.events || []).forEach(a => {
-    if (a?.transcript_href && a?.view) {
-      transcriptViewByHref.set(a.transcript_href, a.view);
+    if (a?.transcript_url && a?.view) {
+      transcriptViewByHref.set(a.transcript_url, a.view);
     }
   });
   rawFiles.forEach(f => {
@@ -4175,7 +4175,7 @@ function _applyTranscriptViews(rawFiles, caseEntry) {
   });
 }
 
-// For each event whose transcript_href has no corresponding file entry, inject a
+// For each event whose transcript_url has no corresponding file entry, inject a
 // virtual transcript file at the end of rawFiles. When `argumentDates` is non-null
 // (collection mode), restrict injection to events whose date is in that list.
 function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
@@ -4183,16 +4183,16 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
   const audioByDate = [...(caseEntry.events || [])]
     .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
   audioByDate.forEach(a => {
-    if (argumentDates && !a.transcript_href && a.date && !argumentDates.includes(a.date)) return;
-    if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
+    if (argumentDates && !a.transcript_url && a.date && !argumentDates.includes(a.date)) return;
+    if (a.transcript_url && !existingHrefs.has(a.transcript_url)) {
       rawFiles.push({
         type:  'transcript',
         title: 'Transcript from ' + formatDecisionDate(a.date || ''),
         date:  a.date || '',
-        href:  a.transcript_href,
+        href:  a.transcript_url,
         ...(a.view ? { view: a.view } : {}),
       });
-      existingHrefs.add(a.transcript_href);
+      existingHrefs.add(a.transcript_url);
     }
   });
 }
@@ -4555,9 +4555,9 @@ function _buildCaseItemShell({ caseKey, title, tooltip, audioDate, eventIdx, has
 //   hasAudio       boolean — case has playable audio (♫ or oyez ring)
 //   hasTranscript  boolean — case has printed transcript only (✏)
 //   ring           {fraction, orange}? — render an oyez progress ring instead of ♫
-//   oyezPending    boolean — case has an oyez_href but no audio events yet
+//   oyezPending    boolean — case has an oyez_url but no audio events yet
 //                  (e.g. an upcoming-term case) — render a plain blue ring,
-//                  no note-glyph, that opens oyez_href when clicked
+//                  no note-glyph, that opens oyez_url when clicked
 //   deficit        'missing' | 'partial' | null — wrap icon in a colored circle
 //                  to flag missing/incomplete oyez audio
 function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, oyezPending, deficit, onClick }) {
@@ -4571,7 +4571,7 @@ function _attachAudioIcon(header, { hasAudio, hasTranscript, ring, oyezPending, 
       icon.setAttribute('title', audioTooltip);
       // onClick (see _oyezAudioIconClick) is only ever passed alongside a
       // ring — a ringed icon means Oyez-sourced argument audio, so there's
-      // very likely an oyez_href to open.
+      // very likely an oyez_url to open.
       if (onClick) {
         icon.style.cursor = 'pointer';
         icon.addEventListener('click', onClick);
@@ -4840,8 +4840,8 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const urlId = urlIdOf(caseEntry);
     const caseKey = term + '/' + urlId;
     const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
-    const hasAudio      = !!caseEntry.events?.some(a => a.audio_href      && a.type !== 'decision');
-    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_href && a.type !== 'decision');
+    const hasAudio      = !!caseEntry.events?.some(a => a.audio_url      && a.type !== 'decision');
+    const hasTranscript = !!caseEntry.events?.some(a => a.transcript_url && a.type !== 'decision');
     // A decision_* href is sufficient but not necessary — a decision date
     // alone (e.g. a cert-denial/DIG order with no separate opinion document)
     // still warrants the scales icon.
@@ -4885,10 +4885,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     } else {
       // Default mode: normal icons
       const audioRing = hasAudio ? oyezCircleData(caseEntry) : null;
-      // A case with an oyez_href but no argument audio yet (e.g. an upcoming-
+      // A case with an oyez_url but no argument audio yet (e.g. an upcoming-
       // term case awaiting oral argument) gets a plain blue ring instead of
       // nothing at all — see _attachAudioIcon's oyezPending option.
-      const oyezPending = !hasAudio && !!caseEntry.oyez_href;
+      const oyezPending = !hasAudio && !!caseEntry.oyez_url;
       _attachAudioIcon(header, {
         hasAudio, hasTranscript,
         ring: audioRing,
@@ -5087,7 +5087,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       // not to bother minimizing the doc viewer first — see suppressDocCollapse
       // below and its own comment in loadAudioEntry.
       const _shouldAutoOpenDecision = !fromRestore && hasDecisionHref(caseEntry) && (
-        mode === 'citation' || (mode === 'decided' && caseEntry.events?.some(a => a.audio_href))
+        mode === 'citation' || (mode === 'decided' && caseEntry.events?.some(a => a.audio_url))
       );
       await loadCase(term, caseEntry, audioIdx, {
         ...(initialTurn != null ? { initialTurn } : {}),
@@ -5106,7 +5106,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           if (_fs && !_fs.hidden && _currentDecisionEntries[0]) _fs.value = _currentDecisionEntries[0].value;
         }
       }
-      const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_href);
+      const _hasPlayableAudio = caseEntry.events?.some(a => a.audio_url);
       if (fileRestore != null && !_hasPlayableAudio && !_showDecisionFromParam(fileRestore) && !_showJournalFromParam(fileRestore) && !_showMinutesFromParam(fileRestore) && !(await _showMinutesGalleryFromParam(fileRestore)) && !_showHistoryFromParam(fileRestore)) {
         const fileEl = findFileItem(fileRestore);
         if (fileEl) { fileEl.closest('.file-type-group')?.classList.add('open'); fileEl.click(); }
@@ -6635,12 +6635,12 @@ async function loadHighlight(highlight) {
   activeTurnIdx = -1;
 
   // Build a synthetic audio entry reusing loadAudioEntry machinery.
-  // Set text_href if the highlight has one; set noTranscriptProbe to suppress
+  // Set text_file if the highlight has one; set noTranscriptProbe to suppress
   // the automatic oyez fallback fetch when there is no designated transcript.
   const syntheticArg = {
-    audio_href: highlight.audio_href,
+    audio_url: highlight.audio_url,
     date: highlight.date || null,
-    ...(highlight.text_href ? { text_href: highlight.text_href } : { noTranscriptProbe: true }),
+    ...(highlight.text_file ? { text_file: highlight.text_file } : { noTranscriptProbe: true }),
   };
 
   playerSection.hidden = false;
@@ -7028,11 +7028,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     await ensureCollFileListBuilt(caseEntry);
 
     // Determine whether the case has any playable audio. Audio/transcript is
-    // preferred over the opinion whenever the case exposes an audio_href on
+    // preferred over the opinion whenever the case exposes an audio_url on
     // any event — even if the specifically-indexed entry is a transcript-only
     // placeholder (loadCase will pick the audio-bearing sibling and update
     // the dropdown selection accordingly).
-    const hasPlayableAudio = sortedAudio.some(a => a.audio_href);
+    const hasPlayableAudio = sortedAudio.some(a => a.audio_url);
     if (!fromRestore) {
       const groupOrId = groupId != null ? { id: groupId } : { group: groupNumber };
       const deleteOther = groupId != null ? ['group'] : ['id'];
@@ -7063,7 +7063,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     }
     // For no-audio cases, transcriptloaded never fires; restore file selection here.
     // Use !hasPlayableAudio rather than !events?.length so cases with transcript-only
-    // events (no audio_href) are also covered. A genuine (non-restore) click with no
+    // events (no audio_url) are also covered. A genuine (non-restore) click with no
     // fileRestore of its own falls back to the group's own openFile value (see above)
     // so e.g. "Cases Linked to Minutes" opens its Minutes file without the visitor
     // having to find it in the file dropdown themselves — but an actual restore
@@ -7112,7 +7112,7 @@ async function _loadCaseFromGroupLink(link) {
     (c.number && c.number.split(',').map(n => n.trim()).includes(linkCase)) ||
     (!c.number && c.id === linkCase));
   if (!caseEntry) return;
-  const hasPlayableAudio = (caseEntry.events || []).some(a => a.audio_href);
+  const hasPlayableAudio = (caseEntry.events || []).some(a => a.audio_url);
   await loadCase(linkTerm, caseEntry, 0, { forceNoAudio: !hasPlayableAudio });
 }
 
@@ -7653,17 +7653,17 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
 
 // ── Load a case ─────────────────────────────────────────────────────────────
 
-// If `arg` has no text_href, borrow one from another event in `events` that
+// If `arg` has no text_file, borrow one from another event in `events` that
 // shares the same date and type (e.g. a NARA audio entry paired with a USSC
 // transcript-only entry for the same argument date). Aligned transcripts are
 // not borrowed — they are specific to their own audio source.
 function withTranscriptFallback(arg, events) {
-  if (arg.text_href || !events?.length) return arg;
-  const donor = events.find(e => e !== arg && e.date === arg.date && e.type === arg.type && e.text_href && !e.aligned);
+  if (arg.text_file || !events?.length) return arg;
+  const donor = events.find(e => e !== arg && e.date === arg.date && e.type === arg.type && e.text_file && !e.aligned);
   if (!donor) return arg;
   const result = Object.assign({}, arg);
-  result.text_href = donor.text_href;
-  if (!result.transcript_href && donor.transcript_href) result.transcript_href = donor.transcript_href;
+  result.text_file = donor.text_file;
+  if (!result.transcript_url && donor.transcript_url) result.transcript_url = donor.transcript_url;
   return result;
 }
 
@@ -7680,17 +7680,17 @@ function withTranscriptFallback(arg, events) {
 // only to have that immediately re-expand it, which otherwise plays as a
 // visible flicker on every citation/decided-mode case switch.
 async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse = false) {
-  // text_href values are relative to the term's cases/ directory (one level up
+  // text_file values are relative to the term's cases/ directory (one level up
   // from basePath, which points to the individual case folder).
   const casesPath = basePath.replace(/[^/]+\/$/, '');
-  const transcriptUrl = arg.text_href
-    ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (casesPath + arg.text_href))
+  const transcriptUrl = arg.text_file
+    ? (/^https?:\/\//i.test(arg.text_file) ? arg.text_file : (casesPath + arg.text_file))
     : null;
-  const audioUrl = arg.audio_href
-    ? (/^https?:\/\//i.test(arg.audio_href) || arg.audio_href.startsWith('/') ? arg.audio_href : (basePath + arg.audio_href))
+  const audioUrl = arg.audio_url
+    ? (/^https?:\/\//i.test(arg.audio_url) || arg.audio_url.startsWith('/') ? arg.audio_url : (basePath + arg.audio_url))
     : (arg.audio != null ? (basePath + arg.audio) : null);
-  _currentTranscriptPdfUrl = arg.transcript_href
-    ? (/^https?:\/\//i.test(arg.transcript_href) ? arg.transcript_href : (basePath + arg.transcript_href))
+  _currentTranscriptPdfUrl = arg.transcript_url
+    ? (/^https?:\/\//i.test(arg.transcript_url) ? arg.transcript_url : (basePath + arg.transcript_url))
     : null;
 
   // Reset transcript area.
@@ -7732,8 +7732,8 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
       turnTimes = turnTimes.map(t => t + offsetSecs);
     }
 
-    // Always prefer the event's audio_href; fall back to media.url in the
-    // transcript envelope only when the event has no audio_href of its own.
+    // Always prefer the event's audio_url; fall back to media.url in the
+    // transcript envelope only when the event has no audio_url of its own.
     const resolvedAudioUrl = audioUrl || (isEnvelope && transcriptData.media?.url) || null;
     if (resolvedAudioUrl) {
       audio.src = resolvedAudioUrl;
@@ -7765,7 +7765,7 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
     document.getElementById('next-turn-btn').disabled = !turns.length;
     document.getElementById('next-speaker-btn').disabled = !turns.length;
 
-    _currentTextHref = arg.text_href || '';
+    _currentTextHref = arg.text_file || '';
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
       ? transcriptData.media.speakers
       : [...new Map(turns.map(t => [t.name, { name: t.name }])).values()];
@@ -7858,8 +7858,8 @@ function _buildJournalRefOptions(caseEntry, term) {
     const refTerm  = m[1] + '-10';
     const page     = m[2];
     const refTermEntry = TERMS.find(t => t.term === refTerm);
-    const journalHref  = _resolveIndexesUrl(refTermEntry?.journal_href);
-    if (!journalHref) return;
+    const journalUrl  = _resolveIndexesUrl(refTermEntry?.journal_url);
+    if (!journalUrl) return;
     const pageNum  = parseInt(page, 10);
     const bps      = _parsePnBps(refTermEntry?.journal_pages).filter(bp => !bp.roman);
     let pdfPage    = null;
@@ -7868,7 +7868,7 @@ function _buildJournalRefOptions(caseEntry, term) {
     const [y, mo, d] = date.split('-');
     const dateLabel  = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title      = 'Journal for ' + dateLabel;
-    const url        = journalHref + '#page=' + encodeURIComponent(pageAnchor);
+    const url        = journalUrl + '#page=' + encodeURIComponent(pageAnchor);
     if (seen.has(url)) return;
     seen.add(url);
     const value = 'journal:' + refValue;
@@ -7884,13 +7884,13 @@ function _buildJournalRefOptions(caseEntry, term) {
 }
 
 // Build the minutes-href Map and options array shared by loadCaseAsOpinion and loadCase.
-// Unlike journal_ref, minutes_href is already a direct, per-event URL — no
+// Unlike journal_ref, minutes_url is already a direct, per-event URL — no
 // term-level lookup or page-offset math needed. Displays the event's own
 // minutes_src (a direct page-image URL) when present, opening straight to
-// the scan itself, but keeps minutes_href (the NARA catalog page wrapped
+// the scan itself, but keeps minutes_url (the NARA catalog page wrapped
 // around it) as its own href — see showDocViewer's src/href split — so the
 // doc viewer's "open in new tab" icon still links to the catalog page
-// instead of the raw image. Falls back to minutes_href alone (as both href
+// instead of the raw image. Falls back to minutes_url alone (as both href
 // and src) for older events that predate minutes_src.
 // Returns { map: Map<value, {href, src, title}>, opts: Array<{value, title}> }.
 function _buildMinutesRefOptions(caseEntry) {
@@ -7898,14 +7898,14 @@ function _buildMinutesRefOptions(caseEntry) {
   const opts = [];
   const seen = new Set();
   (caseEntry.events || []).forEach((ev) => {
-    if (!ev.minutes_href || !ev.date) return;
-    if (seen.has(ev.minutes_href)) return;
-    seen.add(ev.minutes_href);
+    if (!ev.minutes_url || !ev.date) return;
+    if (seen.has(ev.minutes_url)) return;
+    seen.add(ev.minutes_url);
     const [y, mo, d] = ev.date.split('-');
     const dateLabel = (MONTHS[parseInt(mo, 10) - 1] || mo) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
     const title = 'Minutes for ' + dateLabel;
     const value = 'minutes:' + ev.date;
-    map.set(value, { href: ev.minutes_href, src: ev.minutes_src, title, view: 'pane', date: ev.date });
+    map.set(value, { href: ev.minutes_url, src: ev.minutes_src, title, view: 'pane', date: ev.date });
     opts.push({ value, title });
   });
   return { map, opts };
@@ -7930,7 +7930,7 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
   // strip it here too so a Records-item click round-trips the same way.
   const journalFiles = journalOpts.map(o => ({ ...jrMap.get(o.value), file: o.value.slice('journal:'.length) })).sort(byDate);
   const minutesFiles = minutesOpts.map(o => ({ ...mrMap.get(o.value), file: o.value.slice('minutes:'.length) })).sort(byDate);
-  // A case with no per-event minutes_href/minutes_src (most cases with no
+  // A case with no per-event minutes_url/minutes_src (most cases with no
   // events at all — e.g. a decision-only case predating audio/transcripts)
   // can still have a Minutes gallery for its own argued/reargued/decided
   // dates in the term's dates.json — see _refreshMinutesGalleryOptions,
@@ -7946,7 +7946,7 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
       .filter(Boolean)
   )].sort();
   for (const iso of isos) {
-    if (seenIsoDates.has(iso)) continue; // already covered by an event's own minutes_href above
+    if (seenIsoDates.has(iso)) continue; // already covered by an event's own minutes_url above
     const minutesRef = caseEntry.events?.find(e => e.date === iso)?.minutes_ref ?? null;
     const result = await _minutesGalleryForCaseDate(term, iso, minutesRef);
     if (!result) continue;
@@ -8043,7 +8043,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezEntries = _buildOyezEntries(caseEntry);
-  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
+  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_url).map(e => ({ href: e.video_url, title: e.title || 'Video' }));
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = (caseEntry.files || caseEntry.references) ? await loadFiles(_opBasePath + 'files.json') : [];
   if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
@@ -8080,7 +8080,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   // below is reserved for a decided case with no document source at all
   // (decisionText set but every decision_* href missing); a visitor who
   // wants a new tab already has the doc viewer's own "open in new tab" button.
-  if (caseEntry.history_href || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length || _currentOyezEntries.length) {
+  if (caseEntry.history_url || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length || _currentOyezEntries.length) {
     decisionLabel.hidden = true;
     fileSelect.innerHTML = '';
     minutesOpts.forEach(mn => {
@@ -8127,10 +8127,10 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
     });
     _buildReferenceOptions(_opRawFiles).forEach(opt => fileSelect.appendChild(opt));
     // Historical Article appears last, at the bottom of the list.
-    if (caseEntry.history_href) {
+    if (caseEntry.history_url) {
       const historyOpt = document.createElement('option');
       historyOpt.value = 'history-page';
-      historyOpt.textContent = _historyEntryTitle(caseEntry.history_href);
+      historyOpt.textContent = _historyEntryTitle(caseEntry.history_url);
       fileSelect.appendChild(historyOpt);
     }
     // Default to the first oral-argument transcript when present (matches a
@@ -8224,9 +8224,9 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   setTopbarTerm(term);
 
   // Treat as no-audio when forceNoAudio is set OR when no audio entry has a
-  // playable audio_href (e.g. transcript-only placeholder entries). Defer to
+  // playable audio_url (e.g. transcript-only placeholder entries). Defer to
   // loadCaseAsOpinion which handles the simpler opinion-only display path.
-  const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_href);
+  const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_url);
   if (!hasPlayableAudio) {
     return loadCaseAsOpinion(term, caseEntry, numberOverride, _mySeq);
   }
@@ -8245,7 +8245,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   _currentDecisionEntries   = _buildOpinionEntries(caseEntry);
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezEntries = _buildOyezEntries(caseEntry);
-  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
+  _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_url).map(e => ({ href: e.video_url, title: e.title || 'Video' }));
   docViewerOpenHeight = null;
 
   // Pick the best single source: prefer the source with the most aligned entries,
@@ -8253,7 +8253,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const SOURCE_PREF = ['oyez', 'ussc', 'nara'];
   const sourceGroups = new Map(); // source -> {alignedCount, entries[]}
   for (const a of caseEntry.events) {
-    if (!a.audio_href) continue; // transcript-only entries don't belong in the dropdown
+    if (!a.audio_url) continue; // transcript-only entries don't belong in the dropdown
     const src = a.source || 'unknown';
     if (!sourceGroups.has(src)) sourceGroups.set(src, { alignedCount: 0, entries: [] });
     const g = sourceGroups.get(src);
@@ -8295,8 +8295,8 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
         // If the existing covered entry for this (date,type) is transcript-only,
         // prefer a playable replacement from another source (e.g. NARA).
         const existing = coveredEntryByKey.get(k);
-        const existingHasAudio = !!existing?.audio_href;
-        const candidateHasAudio = !!a.audio_href;
+        const existingHasAudio = !!existing?.audio_url;
+        const candidateHasAudio = !!a.audio_url;
         if (!existingHasAudio && candidateHasAudio) {
           const idx = best.indexOf(existing);
           if (idx !== -1) best[idx] = a;
@@ -8323,7 +8323,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     // preference filter — otherwise the user's explicit choice would be hidden
     // from the dropdown. Only force-include if it actually has audio.
     const _requestedEv = (audioIdx >= 1 && caseEntry.events?.[audioIdx - 1]) || null;
-    if (_requestedEv && _requestedEv.audio_href && !best.includes(_requestedEv)) best.push(_requestedEv);
+    if (_requestedEv && _requestedEv.audio_url && !best.includes(_requestedEv)) best.push(_requestedEv);
 
     // Group by date. For each date group that contains at least one aligned
     // entry, keep only the aligned ones; otherwise keep all entries for that
@@ -8385,7 +8385,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const fileSelect = document.getElementById('file-select');
   fileSelect.innerHTML = '';
   // Docket Search appears first when available.
-  if (caseEntry.docket_href) {
+  if (caseEntry.docket_url) {
     const docketOpt = document.createElement('option');
     docketOpt.value = 'docket-page';
     docketOpt.textContent = 'Docket Search';
@@ -8450,10 +8450,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     fileSelect.appendChild(opt);
   });
   // Historical Article appears last, at the bottom of the list.
-  if (caseEntry.history_href) {
+  if (caseEntry.history_url) {
     const historyOpt = document.createElement('option');
     historyOpt.value = 'history-page';
-    historyOpt.textContent = _historyEntryTitle(caseEntry.history_href);
+    historyOpt.textContent = _historyEntryTitle(caseEntry.history_url);
     fileSelect.appendChild(historyOpt);
   }
   // Resolve audioIdx (1-based into caseEntry.events, or 0 = default) to a dropdown
@@ -8469,7 +8469,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const _requestedAllAudioPos = _requestedEvent ? allAudio.indexOf(_requestedEvent) + 1 : 0;
   const resolvedOptionValue = (_requestedAllAudioPos >= 1 && _dropdownValues.includes(_requestedAllAudioPos))
     ? _requestedAllAudioPos
-    : (_dropdownValues.find(v => allAudio[v - 1]?.audio_href) ?? _dropdownValues[0] ?? 1);
+    : (_dropdownValues.find(v => allAudio[v - 1]?.audio_url) ?? _dropdownValues[0] ?? 1);
   fileSelect.value = String(resolvedOptionValue);
 
   // Adds "Minutes for <date>" options (if any) for this case's own argued/
@@ -8502,7 +8502,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const _resolvedDate = allAudio[resolvedOptionValue - 1]?.date || null;
   const _resolvedEventIdx = caseEntry.events.indexOf(allAudio[resolvedOptionValue - 1]) + 1; // 1-based, 0 if not found
   // The requested event isn't always the one that ends up playing — e.g. a
-  // collection recorded a transcript-only event (no audio_href), so the
+  // collection recorded a transcript-only event (no audio_url), so the
   // dropdown-resolution above fell back to a different, playable one. When
   // that happens none of a key's candidates will match _resolvedDate/
   // _resolvedEventIdx exactly; activate every candidate for that key rather
@@ -9026,11 +9026,11 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
       if (selectedEntry) evIdx = _currentEvents.indexOf(selectedEntry) + 1;
     } else if (val.startsWith('transcript:')) {
       const te = _currentTranscriptEntries.find(t => t.value === val);
-      const ev = te && _currentCaseEntry?.events?.find(ev2 => ev2.transcript_href === te.href);
+      const ev = te && _currentCaseEntry?.events?.find(ev2 => ev2.transcript_url === te.href);
       if (ev) evIdx = _currentCaseEntry.events.indexOf(ev) + 1;
     } else if (val.startsWith('video:')) {
       const v = _currentVideoEntries[parseInt(val.slice(6), 10)];
-      const ev = v && _currentCaseEntry?.events?.find(ev2 => ev2.video_href === v.href);
+      const ev = v && _currentCaseEntry?.events?.find(ev2 => ev2.video_url === v.href);
       if (ev) evIdx = _currentCaseEntry.events.indexOf(ev) + 1;
     }
     if (evIdx != null && evIdx >= 1 && _currentTerm && _currentCaseEntry) {
@@ -9052,15 +9052,15 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
   // what was actually picked, same as clicking that link would.
   _activeMinutesGalleryIso = null;
   if (e.target.value === 'docket-page') {
-    if (_currentCaseEntry?.docket_href) {
-      showDocViewer({ href: _currentCaseEntry.docket_href, title: 'Docket Search', view: 'pane' }, { force: true });
+    if (_currentCaseEntry?.docket_url) {
+      showDocViewer({ href: _currentCaseEntry.docket_url, title: 'Docket Search', view: 'pane' }, { force: true });
     }
     _clearDocViewerUrlParams();
     return;
   }
   if (e.target.value === 'history-page') {
-    if (_currentCaseEntry?.history_href) {
-      showDocViewer({ href: _currentCaseEntry.history_href, title: _historyEntryTitle(_currentCaseEntry.history_href), view: 'pane' }, { force: true });
+    if (_currentCaseEntry?.history_url) {
+      showDocViewer({ href: _currentCaseEntry.history_url, title: _historyEntryTitle(_currentCaseEntry.history_url), view: 'pane' }, { force: true });
     }
     const url = new URL(location.href);
     url.searchParams.set('file', 'history');
@@ -10352,7 +10352,7 @@ let _navSearchActivate = null;
         if (gen !== _verifyGen) return;
         const { term, c, lbl } = queue.shift();
         const casesPath = '/courts/ussc/terms/' + term + '/cases/';
-        const hrefs = (c.events || []).map(e => e.text_href).filter(h => h && !/^https?:\/\//i.test(h));
+        const hrefs = (c.events || []).map(e => e.text_file).filter(h => h && !/^https?:\/\//i.test(h));
         if (!hrefs.length) continue; // no local transcript — leave "? matches"
         let count = 0;
         for (const href of hrefs) {
@@ -10870,7 +10870,7 @@ let _navSearchActivate = null;
 // Pick a random case within a term range and navigate to it.
 // startTerm / stopTerm are optional YYYY-MM strings (inclusive, lexicographic).
 // filter, if 'audio', restricts the pick to a case with at least one playable
-// audio_href, so the case opens with something ready to play.
+// audio_url, so the case opens with something ready to play.
 async function _randomizeThenRestore(startTerm, stopTerm, filter) {
   // Filter the flat TERMS list to eligible pages in the requested range.
   const eligible = TERMS.filter(p => {
@@ -10895,7 +10895,7 @@ async function _randomizeThenRestore(startTerm, stopTerm, filter) {
     const fetchedCases = await fetchTermCases(page.term);
     if (!fetchedCases?.length) { pool.splice(pageIdx, 1); continue; }
     const candidates = wantsAudio
-      ? fetchedCases.filter(c => c.events?.some(a => a.audio_href))
+      ? fetchedCases.filter(c => c.events?.some(a => a.audio_url))
       : fetchedCases;
     if (!candidates.length) { pool.splice(pageIdx, 1); continue; }
     term      = page.term;
@@ -11581,7 +11581,7 @@ async function restoreFromURL() {
         markCaseItemActive(ci);
         ci.closest('.month-group')?.classList.add('open');
         if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
-        const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
+        const _hasAudio = matchedCase?.events?.some(a => a.audio_url);
         if ((fileParam != null || citationParam != null || turnParam != null) && _hasAudio) {
           document.addEventListener('transcriptloaded', async () => {
             if (turnParam != null) {
@@ -11698,7 +11698,7 @@ async function restoreFromURL() {
       // first in DOM order), scrolling to/activating the wrong one.
       const caseEl = termLi.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
-        const _hasAudio = matchedCase?.events?.some(a => a.audio_href);
+        const _hasAudio = matchedCase?.events?.some(a => a.audio_url);
 
         // When 'case' named one specific *secondary* docket number within a
         // consolidated case (not its primary/first number, which needs no
@@ -12188,10 +12188,10 @@ function _generateEditsJson() {
   for (const [, caseData] of _transcriptEdits) {
     if (!caseData.eventEdits.size) continue;
     const events = [];
-    for (const [textHref, turnEdits] of caseData.eventEdits) {
+    for (const [textFile, turnEdits] of caseData.eventEdits) {
       if (!turnEdits.size) continue;
       events.push({
-        text_href: textHref,
+        text_file: textFile,
         turns: [...turnEdits.values()]
           .map(e => ({
             ...(e.prevTurnNum !== undefined ? { prev: e.prevTurnNum } : {}),
@@ -12260,10 +12260,10 @@ async function downloadTranscriptEdits() {
   // Remove any that have already been applied on the server.
   for (const [caseKey, caseData] of _transcriptEdits) {
     const term = caseData.term;
-    for (const [textHref, turnEdits] of caseData.eventEdits) {
+    for (const [textFile, turnEdits] of caseData.eventEdits) {
       let serverTurns;
       try {
-        const resp = await fetch(`/courts/ussc/terms/${term}/cases/${textHref}`);
+        const resp = await fetch(`/courts/ussc/terms/${term}/cases/${textFile}`);
         if (!resp.ok) continue;
         const data = await resp.json();
         serverTurns = Array.isArray(data) ? data : (data.turns ?? []);
@@ -12282,7 +12282,7 @@ async function downloadTranscriptEdits() {
         const textApplied = edit.text === undefined || edit.text === serverTurn.text;
         if (nameApplied && textApplied) turnEdits.delete(turnIdx);
       }
-      if (!turnEdits.size) caseData.eventEdits.delete(textHref);
+      if (!turnEdits.size) caseData.eventEdits.delete(textFile);
     }
     if (!caseData.eventEdits.size) _transcriptEdits.delete(caseKey);
   }

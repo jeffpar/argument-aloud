@@ -16,8 +16,8 @@
  *   node update_cases.js [TERM [CASE]] --unargued
  *   node update_cases.js --audits                      # regenerate auto-computed groups in audits.json
  *   node update_cases.js --feeds                      # rebuild podcast feeds under courts/ussc/feeds/
- *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_href to cases.json
- *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_href
+ *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_url to cases.json
+ *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_url
  *   node update_cases.js [TERM] --docket --old        # write old-format URLs (no probe); defaults to terms ≤ 2015-10
  *   node update_cases.js [TERM] --docket --new        # write new-format URLs (no probe); defaults to terms ≥ 2017-10
  *
@@ -676,8 +676,8 @@ function _termDateRange(term, allTerms) {
 
 // ── Source/type detection ─────────────────────────────────────────────────
 
-function _detectSourceType(audioHref) {
-    const lower = String(audioHref || '').toLowerCase();
+function _detectSourceType(audioUrl) {
+    const lower = String(audioUrl || '').toLowerCase();
     let source;
     if (lower.includes('supremecourt.gov')) source = 'ussc';
     else if (lower.includes('nara'))        source = 'nara';
@@ -1017,16 +1017,16 @@ function verifyCasesJsonArguments(casesPath, term = '', dryRun = false) {
         const events = c.events || [];
         for (let i = 0; i < events.length; i++) {
             const arg = events[i];
-            const audioHref = arg.audio_href || '';
-            if (!audioHref) continue;
-            const [srcInferred, typeInferred] = _detectSourceType(audioHref);
+            const audioUrl = arg.audio_url || '';
+            if (!audioUrl) continue;
+            const [srcInferred, typeInferred] = _detectSourceType(audioUrl);
             const source   = arg.source || srcInferred;
             let typeVal    = arg.type   || typeInferred;
             if (typeVal === 'misc') typeVal = 'journal';
 
-            const textHref = arg.text_href || '';
-            const isAligned = !!(textHref
-                && _isTranscriptAligned(path.join(termDir, 'cases', textHref)));
+            const textFile = arg.text_file || '';
+            const isAligned = !!(textFile
+                && _isTranscriptAligned(path.join(termDir, 'cases', textFile)));
 
             const currentAligned = ('aligned' in arg) ? arg.aligned : null;
             const desiredAligned = isAligned ? true : null;
@@ -1079,16 +1079,16 @@ function removeRedundantTranscriptFiles(casesPath) {
             if (!tfHref || !tfDate) continue;
             const matched = audioList.find(a => a.date === tfDate);
             if (matched) {
-                if (!matched.transcript_href) {
+                if (!matched.transcript_url) {
                     const rawTitle = tf.title || '';
                     const argTitle = rawTitle.replace(/^Transcript of\s+/, '').trim() || rawTitle;
                     const rebuilt = {};
                     for (const [k, v] of Object.entries(matched)) rebuilt[k] = v;
                     if (!matched.title && argTitle) rebuilt.title = argTitle;
-                    rebuilt.transcript_href = tfHref;
+                    rebuilt.transcript_url = tfHref;
                     for (const k of Object.keys(matched)) delete matched[k];
                     Object.assign(matched, rebuilt);
-                    console.log(`  ${label} (${tfDate}): added transcript_href to existing audio object`);
+                    console.log(`  ${label} (${tfDate}): added transcript_url to existing audio object`);
                     audioModified = true;
                 } else if (!matched.title) {
                     const rawTitle = tf.title || '';
@@ -1110,14 +1110,14 @@ function removeRedundantTranscriptFiles(casesPath) {
                 const argTitle = rawTitle.replace(/^Transcript of\s+/, '').trim() || rawTitle;
                 const newAudio = {
                     source: 'ussc', type: 'argument',
-                    title: argTitle, date: tfDate, transcript_href: tfHref,
+                    title: argTitle, date: tfDate, transcript_url: tfHref,
                 };
                 audioList.push(newAudio);
                 c.events = [...audioList].sort((a, b) =>
                     (a.date || '') < (b.date || '') ? -1 :
                     (a.date || '') > (b.date || '') ? 1 : 0);
                 audioList = c.events;
-                console.log(`  ${label} (${tfDate}): created audio object with transcript_href`);
+                console.log(`  ${label} (${tfDate}): created audio object with transcript_url`);
                 audioModified = true;
             }
         }
@@ -1125,8 +1125,8 @@ function removeRedundantTranscriptFiles(casesPath) {
 
         const audioTranscripts = new Set();
         for (const a of audioList) {
-            if (a.transcript_href && a.date) {
-                audioTranscripts.add(`${a.transcript_href}\u0000${a.date}`);
+            if (a.transcript_url && a.date) {
+                audioTranscripts.add(`${a.transcript_url}\u0000${a.date}`);
             }
         }
         const isRedundant = f =>
@@ -1296,9 +1296,9 @@ async function checkCaseHrefs(casesPath, term, opinionsOnly = false) {
         }
 
         if (opinionsOnly) continue;
-        const tagMap = { audio_href: 'a', transcript_href: 't' };
+        const tagMap = { audio_url: 'a', transcript_url: 't' };
         for (const entry of c.events || []) {
-            for (const key of ['audio_href', 'transcript_href']) {
+            for (const key of ['audio_url', 'transcript_url']) {
                 const href = entry[key] || '';
                 if (!href || !/^https?:\/\//.test(href)) continue;
                 printHeader();
@@ -2243,7 +2243,7 @@ function deduplicateCases(casesPath) {
 
     const isStub = (c) => {
         if (c.id || c.votes) return false;
-        return (c.events || []).every(a => !a.audio_href && a.transcript_href);
+        return (c.events || []).every(a => !a.audio_url && a.transcript_url);
     };
 
     const compToIdx = {};
@@ -2296,7 +2296,7 @@ function deduplicateCases(casesPath) {
             try { stubFiles = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
             if (Array.isArray(stubFiles)) {
                 const audioTHrefs = new Set(
-                    (stub.events || []).filter(a => a.transcript_href).map(a => a.transcript_href));
+                    (stub.events || []).filter(a => a.transcript_url).map(a => a.transcript_url));
                 const cleaned = stubFiles.filter(f => !(
                     f?.type === 'transcript' && audioTHrefs.has(f.href || '')));
                 if (cleaned.length < stubFiles.length) {
@@ -2315,21 +2315,21 @@ function deduplicateCases(casesPath) {
         const compAudio = complete.events;
         for (const stubAudio of stub.events || []) {
             const date = stubAudio.date;
-            const transcriptHref = stubAudio.transcript_href;
+            const transcriptUrl = stubAudio.transcript_url;
             const matchedComp = compAudio.find(a => a.date === date) || null;
             if (matchedComp !== null) {
-                if (transcriptHref && !matchedComp.transcript_href) {
-                    matchedComp.transcript_href = transcriptHref;
-                    console.log(`  ${label} (${date}): merged transcript_href from stub ${stubNum}`);
-                } else if (transcriptHref && matchedComp.transcript_href !== transcriptHref) {
+                if (transcriptUrl && !matchedComp.transcript_url) {
+                    matchedComp.transcript_url = transcriptUrl;
+                    console.log(`  ${label} (${date}): merged transcript_url from stub ${stubNum}`);
+                } else if (transcriptUrl && matchedComp.transcript_url !== transcriptUrl) {
                     const entry = { ...stubAudio };
-                    if (!entry.title && transcriptHref) {
+                    if (!entry.title && transcriptUrl) {
                         let stubFilesNow = [];
                         if (fs.existsSync(stubFilesPath)) {
                             try { stubFilesNow = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
                         }
                         const tfm = (Array.isArray(stubFilesNow) ? stubFilesNow : []).find(
-                            f => f?.type === 'transcript' && f.href === transcriptHref);
+                            f => f?.type === 'transcript' && f.href === transcriptUrl);
                         if (tfm) {
                             const rawT = tfm.title || '';
                             entry.title = rawT.replace(/^Transcript of\s+/, '').trim() || rawT;
@@ -2340,13 +2340,13 @@ function deduplicateCases(casesPath) {
                 }
             } else {
                 const entry = { ...stubAudio };
-                if (!entry.title && transcriptHref) {
+                if (!entry.title && transcriptUrl) {
                     let stubFilesNow = [];
                     if (fs.existsSync(stubFilesPath)) {
                         try { stubFilesNow = JSON.parse(fs.readFileSync(stubFilesPath, 'utf8')); } catch {}
                     }
                     const tfm = (Array.isArray(stubFilesNow) ? stubFilesNow : []).find(
-                        f => f?.type === 'transcript' && f.href === transcriptHref);
+                        f => f?.type === 'transcript' && f.href === transcriptUrl);
                     if (tfm) {
                         const rawT = tfm.title || '';
                         entry.title = rawT.replace(/^Transcript of\s+/, '').trim() || rawT;
@@ -2459,14 +2459,14 @@ function checkDuplicateAudioHrefs(termDir) {
         const seen = {};
         const events = c.events || [];
         for (let i = 0; i < events.length; i++) {
-            const href = events[i].audio_href || '';
+            const href = events[i].audio_url || '';
             if (!href) continue;
             const turn   = 'turn'   in events[i] ? events[i].turn   : undefined;
             const offset = 'offset' in events[i] ? events[i].offset : undefined;
             const key = `${href}\0${turn}`;
             if (key in seen) {
                 if (seen[key].offset === offset) {
-                    console.log(`WARNING: ${number}: duplicate audio_href at audio[${seen[key].i}] and audio[${i}]: '${href}'`);
+                    console.log(`WARNING: ${number}: duplicate audio_url at audio[${seen[key].i}] and audio[${i}]: '${href}'`);
                 }
             } else {
                 seen[key] = { i, offset };
@@ -2504,12 +2504,12 @@ function checkCasesSync(termDir, verbose = false) {
         if (!diskFolders.has(folder)) {
             // A case folder is only required when there's something to put in
             // it — either `files: true` or `references: true` (i.e. a non-
-            // empty files.json) or an event with a local text_href that
-            // resolves into THIS folder. text_hrefs that point at another
+            // empty files.json) or an event with a local text_file that
+            // resolves into THIS folder. text_files that point at another
             // case folder (e.g. consolidated cases share a transcript file)
             // don't require a folder here.
             const hasLocalText = (c.events || []).some(a => {
-                const href = a.text_href;
+                const href = a.text_file;
                 if (!href || href.startsWith('http')) return false;
                 const slash = href.indexOf('/');
                 if (slash < 0) return true; // bare filename → lives in this folder
@@ -2533,14 +2533,14 @@ function checkCasesSync(termDir, verbose = false) {
     for (const c of cases) {
         const ownFolder = _caseFolder(c.number || '');
         for (const audio of c.events || []) {
-            const th = audio.text_href || '';
+            const th = audio.text_file || '';
             if (!th || /^https?:\/\//.test(th)) continue;
             const relPath = th.includes('/') ? th : `${ownFolder}/${th}`;
             allReferenced.add(relPath);
         }
     }
     // 2: orphan folders — only warn about files inside that aren't referenced
-    // by any case's text_href; skip entirely if all transcripts are referenced.
+    // by any case's text_file; skip entirely if all transcripts are referenced.
     for (const folder of _sortStr(diskFolders)) {
         if (folder in jsonFolders) continue;
         const caseDir = path.join(casesDir, folder);
@@ -2559,7 +2559,7 @@ function checkCasesSync(termDir, verbose = false) {
         const caseDir = path.join(casesDir, folder);
         const referenced = new Set();
         for (const audio of c.events || []) {
-            const th = audio.text_href || '';
+            const th = audio.text_file || '';
             if (!th || /^https?:\/\//.test(th)) continue;
             const relPath = th.includes('/') ? th : `${folder}/${th}`;
             referenced.add(relPath);
@@ -2569,7 +2569,7 @@ function checkCasesSync(termDir, verbose = false) {
                 const fm = partFileRe.exec(th);
                 const actual = fm ? fm[1] : null;
                 if (actual !== expected) {
-                    console.log(`WARNING: ${term}: ${number}: title says Part ${expected} but text_href '${th}' has suffix -${actual || 'none'}`);
+                    console.log(`WARNING: ${term}: ${number}: title says Part ${expected} but text_file '${th}' has suffix -${actual || 'none'}`);
                 }
             }
         }
@@ -2579,7 +2579,7 @@ function checkCasesSync(termDir, verbose = false) {
             ).map(f => `${folder}/${f}`))
             : new Set();
         for (const rel of _sortStr([...referenced].filter(x => !fs.existsSync(path.join(casesDir, x))))) {
-            console.log(`WARNING: ${term}: ${number}: audio text_href '${rel}' not found on disk`);
+            console.log(`WARNING: ${term}: ${number}: audio text_file '${rel}' not found on disk`);
         }
         for (const rel of _sortStr([...onDisk].filter(x => !allReferenced.has(x)))) {
             console.log(`WARNING: ${term}: ${number}: ${rel} on disk but not referenced in any case's events`);
@@ -2747,7 +2747,7 @@ function fixTextHrefs(term, cases, casesDir, dryRun) {
         const numberField = c.number || '';
         const numbers = _splitNumbers(numberField);
         for (const audio of c.events || []) {
-            const th = audio.text_href || '';
+            const th = audio.text_file || '';
             if (!th || th.startsWith('http') || th.includes('/')) continue;
             const foundNum = numbers.find(num => fs.existsSync(path.join(casesDir, num, th))) || null;
             if (foundNum === null) {
@@ -2757,7 +2757,7 @@ function fixTextHrefs(term, cases, casesDir, dryRun) {
             }
             const newHref = `${foundNum}/${th}`;
             if (dryRun) console.log(`  MIGRATE ${term}/${numberField}: '${th}' -> '${newHref}'`);
-            audio.text_href = newHref;
+            audio.text_file = newHref;
             updated++;
         }
     }
@@ -2766,11 +2766,11 @@ function fixTextHrefs(term, cases, casesDir, dryRun) {
 
 // ── Redundant USSC transcript detection ───────────────────────────────────
 //
-// For each USSC argument/reargument event that has a text_href, check whether
+// For each USSC argument/reargument event that has a text_file, check whether
 // the non-justice advocates it lists are a subset of the advocates in the
 // corresponding Oyez event (same date). If so, the USSC transcript contains
 // no information beyond what Oyez already provides; delete the file, clear
-// text_href, and set redundant: true.
+// text_file, and set redundant: true.
 //
 // This mirrors the logic in import_ussc.js's _compareSingleUsscEvent /
 // compareUsscOyezSpeakers, but is called from the regular update_cases run so
@@ -2884,10 +2884,10 @@ function _rdtSpeakersSubset(usscSpk, oyezSpk) {
 }
 
 /**
- * For each USSC argument/reargument event with a text_href, checks whether
+ * For each USSC argument/reargument event with a text_file, checks whether
  * the same date has a matching Oyez event whose advocate set is a superset.
  * If so, marks the USSC event redundant: deletes the transcript file, clears
- * text_href, and sets redundant: true.
+ * text_file, and sets redundant: true.
  *
  * Returns the number of events newly marked redundant.
  */
@@ -2899,12 +2899,12 @@ function markRedundantUsscEvents(term, cases, casesDir, dryRun = false) {
             if (ev.source !== 'ussc') continue;
             if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
             if (ev.redundant) continue;
-            if (!ev.text_href) continue;
+            if (!ev.text_file) continue;
 
             const date = ev.date || '';
             // Find all Oyez events on the same date with a transcript.
             const oyezEvs = (c.events || []).filter(o =>
-                o.source === 'oyez' && o.date === date && o.text_href);
+                o.source === 'oyez' && o.date === date && o.text_file);
             if (!oyezEvs.length) continue;
 
             // Prefer the Oyez event whose title matches the same docket number.
@@ -2914,8 +2914,8 @@ function markRedundantUsscEvents(term, cases, casesDir, dryRun = false) {
                 ? (oyezEvs.find(o => (o.title || '').includes(docketNum)) || oyezEvs[0])
                 : oyezEvs[0];
 
-            const usscPath = path.join(casesDir, ev.text_href);
-            const oyezPath = path.join(casesDir, oyezEv.text_href);
+            const usscPath = path.join(casesDir, ev.text_file);
+            const oyezPath = path.join(casesDir, oyezEv.text_file);
 
             const usscSpk = _rdtNonJusticeSpeakers(usscPath);
             const oyezSpk = _rdtNonJusticeSpeakers(oyezPath);
@@ -2928,7 +2928,7 @@ function markRedundantUsscEvents(term, cases, casesDir, dryRun = false) {
                     if (fs.existsSync(usscPath)) {
                         fs.unlinkSync(usscPath);
                     }
-                    delete ev.text_href;
+                    delete ev.text_file;
                     ev.redundant = true;
                     console.log(`  REDUNDANT: ${term}/${label} (${date}): ussc transcript deleted (redundant with oyez)`);
                 }
@@ -2944,15 +2944,15 @@ function checkMissingTextHrefs(term, cases, casesDir, dryRun = false) {
     for (const c of cases) {
         const numberField = c.number || '';
         for (const audio of c.events || []) {
-            const th = audio.text_href || '';
+            const th = audio.text_file || '';
             if (!th || th.startsWith('http') || !th.includes('/')) continue;
             if (!fs.existsSync(path.join(casesDir, th))) {
                 if (audio.redundant) {
-                    if (dryRun) console.log(`  WOULD FIX: ${term}/${numberField}: removing stale text_href '${th}' from redundant event`);
-                    else { console.log(`  FIX: ${term}/${numberField}: removed stale text_href '${th}' from redundant event`); delete audio.text_href; }
+                    if (dryRun) console.log(`  WOULD FIX: ${term}/${numberField}: removing stale text_file '${th}' from redundant event`);
+                    else { console.log(`  FIX: ${term}/${numberField}: removed stale text_file '${th}' from redundant event`); delete audio.text_file; }
                     fixed++;
                 } else {
-                    console.log(`  MISSING: ${term}/${numberField}: text_href '${th}' does not exist on disk`);
+                    console.log(`  MISSING: ${term}/${numberField}: text_file '${th}' does not exist on disk`);
                     missing++;
                 }
             }
@@ -2965,7 +2965,7 @@ function checkOrphanedTranscripts(term, cases, casesDir) {
     const referenced = new Set();
     for (const c of cases) {
         for (const a of c.events || []) {
-            const th = a.text_href || '';
+            const th = a.text_file || '';
             if (th && th.includes('/') && !th.startsWith('http')) referenced.add(th);
         }
     }
@@ -2973,7 +2973,7 @@ function checkOrphanedTranscripts(term, cases, casesDir) {
     for (const c of cases) {
         const components = _splitNumbers(c.number || '');
         for (const e of c.events || []) {
-            const th = e.transcript_href || '';
+            const th = e.transcript_url || '';
             const date = e.date || '';
             if (!th || !date) continue;
             for (const comp of components) {
@@ -3009,10 +3009,10 @@ function checkDuplicateTextHrefs(term, cases) {
     for (const c of cases) {
         const numberField = c.number || '';
         for (const a of c.events || []) {
-            const th = a.text_href || '';
+            const th = a.text_file || '';
             if (!th || th.startsWith('http') || !th.includes('/')) continue;
             if (th in seen) {
-                console.log(`  DUPE:    ${term}/${numberField}: text_href '${th}' already used by ${seen[th]}`);
+                console.log(`  DUPE:    ${term}/${numberField}: text_file '${th}' already used by ${seen[th]}`);
                 dupes++;
             } else {
                 seen[th] = numberField;
@@ -3029,15 +3029,15 @@ function fixOyezTranscriptHrefs(term, cases, dryRun) {
         const usscHrefs = new Set();
         for (const a of c.events || []) {
             const src = a.source || 'ussc';
-            if (src === 'ussc' && a.transcript_href) usscHrefs.add(a.transcript_href);
+            if (src === 'ussc' && a.transcript_url) usscHrefs.add(a.transcript_url);
         }
         if (!usscHrefs.size) continue;
         for (const a of c.events || []) {
             if (a.source !== 'oyez') continue;
-            const th = a.transcript_href || '';
+            const th = a.transcript_url || '';
             if (th && usscHrefs.has(th)) {
-                if (dryRun) console.log(`  STRIP transcript_href ${term}/${numberField} [oyez ${a.date || '?'}]: '${th}'`);
-                else delete a.transcript_href;
+                if (dryRun) console.log(`  STRIP transcript_url ${term}/${numberField} [oyez ${a.date || '?'}]: '${th}'`);
+                else delete a.transcript_url;
                 stripped++;
             }
         }
@@ -3046,7 +3046,7 @@ function fixOyezTranscriptHrefs(term, cases, dryRun) {
 }
 
 function checkDuplicateMediaHrefs(termsToCheck) {
-    const seen = { audio_href: {}, transcript_href: {} };
+    const seen = { audio_url: {}, transcript_url: {} };
     const caseLookup = {};
     for (const term of termsToCheck) {
         const cp = path.join(REPO_ROOT, 'courts', 'ussc', 'terms', term, 'cases.json');
@@ -3059,7 +3059,7 @@ function checkDuplicateMediaHrefs(termsToCheck) {
             for (const e of c.events || []) {
                 const date = e.date || '', source = e.source || '';
                 const turn = (e.turn === undefined || e.turn === null) ? '' : String(e.turn);
-                for (const field of ['audio_href', 'transcript_href']) {
+                for (const field of ['audio_url', 'transcript_url']) {
                     const url = e[field] || '';
                     if (url) {
                         (seen[field][url] = seen[field][url] || []).push([term, number, date, source, turn, e.type || '', e.offset !== undefined ? String(e.offset) : '']);
@@ -3084,10 +3084,10 @@ function checkDuplicateMediaHrefs(termsToCheck) {
                 const distinct = new Set(turns).size === turns.length;
                 if (hasExplicit && distinct) continue;
             }
-            // Same case, same audio_href, all events are type=opinion, same
+            // Same case, same audio_url, all events are type=opinion, same
             // date, each with a distinct offset or turn → these are intentional split
             // events. Not a duplicate.
-            if (field === 'audio_href' && tcSet.size === 1) {
+            if (field === 'audio_url' && tcSet.size === 1) {
                 const allOpinion = locs.every(l => l[5] === 'decision');
                 if (allOpinion) {
                     const dates = locs.map(l => l[2]);
@@ -3351,12 +3351,12 @@ function fixTranscriptSuffixes(term, cases, casesDir, dryRun) {
         }
     }
 
-    // Update text_href references in cases for every renamed file.
+    // Update text_file references in cases for every renamed file.
     if (!dryRun && renameMap.size > 0) {
         for (const c of cases) {
             for (const ev of c.events || []) {
-                if (ev.text_href && renameMap.has(ev.text_href)) {
-                    ev.text_href = renameMap.get(ev.text_href);
+                if (ev.text_file && renameMap.has(ev.text_file)) {
+                    ev.text_file = renameMap.get(ev.text_file);
                 }
             }
         }
@@ -3453,7 +3453,7 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
     }
     if (!laterCaseMap.size) return 0;
 
-    const eventId = (ev) => ev.audio_href || `${ev.date || ''}|${ev.source || ''}|${ev.type || ''}`;
+    const eventId = (ev) => ev.audio_url || `${ev.date || ''}|${ev.source || ''}|${ev.type || ''}`;
 
     const mergedTermsWritten = new Set();
     const casesToRemove = [];
@@ -3474,7 +3474,7 @@ function mergeRefiledCases(term, cases, allTerms, dryRun) {
             const oldCasesDir = path.join(TERMS_DIR, term,      'cases');
             const newCasesDir = path.join(TERMS_DIR, laterTerm, 'cases');
             for (const ev of eventsToMove) {
-                const th = ev.text_href || '';
+                const th = ev.text_file || '';
                 if (th && !th.startsWith('http') && th.includes('/')) {
                     const src = path.join(oldCasesDir, th);
                     const dst = path.join(newCasesDir, th);
@@ -4223,7 +4223,7 @@ function _getServingJusticesSorted(isoDate) {
 }
 
 // For each case (optionally filtered to `caseFilter`) in cases.json, open every
-// text_href transcript and ensure every justice serving on the argument date is
+// text_file transcript and ensure every justice serving on the argument date is
 // listed in media.speakers (as JUSTICE or CHIEF JUSTICE). Missing justices are
 // inserted in seniority order (Chief first, then by dateStart). Non-justice
 // speakers retain their original positions, appended after the justice block.
@@ -4243,7 +4243,7 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
             !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
 
         for (const ev of c.events || []) {
-            const th = ev.text_href || '';
+            const th = ev.text_file || '';
             if (!th || /^https?:\/\//.test(th)) continue;
 
             const relPath = th.includes('/') ? th : `${folder}/${th}`;
@@ -4647,7 +4647,7 @@ function _formatTimeSecs(secs) {
     return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(ws).padStart(2, '0')}.${String(nn).padStart(2, '0')}`;
 }
 
-// Scan every term's cases.json, open every time-aligned text_href transcript,
+// Scan every term's cases.json, open every time-aligned text_file transcript,
 // compute how long each justice spoke (sum of turn durations), and write:
 //   courts/ussc/people/justices/vocal_justices.json          — index sorted by total desc
 //   courts/ussc/people/justices/vocal/<id>.json     — per-justice, cases sorted by vocal desc
@@ -4693,7 +4693,7 @@ function processVocalJustices(allTerms, dryRun) {
                 eventIdx++;
                 const evType = ev.type || 'argument';
                 if (evType !== 'argument' && evType !== 'reargument') continue;
-                const th = ev.text_href || '';
+                const th = ev.text_file || '';
                 if (!th || /^https?:\/\//.test(th)) continue;
 
                 const relPath = th.includes('/') ? th : `${folder}/${th}`;
@@ -5488,8 +5488,8 @@ function _setCaseEntry(c, term, extra = null, fields = null) {
     if (c.files)      entry.files      = c.files;
     if (c.references) entry.references = c.references;
     const events = Array.isArray(c.events) ? c.events : [];
-    if (events.some(e => e.audio_href))  entry.event      = true;
-    if (events.some(e => e.text_href))   entry.transcript = true;
+    if (events.some(e => e.audio_url))  entry.event      = true;
+    if (events.some(e => e.text_file))   entry.transcript = true;
     if (fields) for (const name of fields) if (c[name] != null) entry[name] = c[name];
     if (extra) Object.assign(entry, extra);
     const gallery = _buildOrigGallery(c, term);
@@ -5641,7 +5641,7 @@ function _findCaseInList(cases, row) {
 // The count props at the tail (everything after "reports") are kept
 // alphabetical — "cases" is a count too, but stays up near "file" instead
 // since it's not part of that group.
-const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'dates', 'minutes', 'journal_cover', 'journal_href', 'journal_pages', 'reports', 'argDays', 'argued', 'audio', 'decided', 'digs', 'dismissals', 'orders', 'unanimous'];
+const _PAGE_KEY_ORDER = ['id', 'name', 'term', 'file', 'cases', 'dates', 'minutes', 'journal_cover', 'journal_url', 'journal_pages', 'reports', 'argDays', 'argued', 'audio', 'decided', 'digs', 'dismissals', 'orders', 'unanimous'];
 
 // One { cover } object per unique minutes cover thumbnail (courts/ussc/terms/
 // <term>/m<XXX>-cover.jpg, generated by parse_minutes.js --thumbnails) a
@@ -5918,14 +5918,14 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
         }
         // "audio" only counts cases that were actually argued — a case
         // resolved without argument (cert denial, GVR, summary disposition)
-        // shouldn't count here even if it somehow carried an audio_href (e.g.
+        // shouldn't count here even if it somehow carried an audio_url (e.g.
         // a decision-announcement recording). A decision-type (or other)
         // audio event otherwise always counts toward this term, same as
         // before — only an argument/reargument event whose own date resolves
         // elsewhere is excluded (its earlier term picks it up below via the
         // cross-term pointer instead).
         const hasQualifyingAudio = (c.argument || c.reargument) && (c.events || []).some(e => {
-            if (!e.audio_href) return false;
+            if (!e.audio_url) return false;
             if ((e.type === 'argument' || e.type === 'reargument') && e.date && _termForDate(e.date, termStarts) !== termId) return false;
             return true;
         });
@@ -5938,7 +5938,7 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
         if (caseKey) argCaseIds.add(caseKey);
 
         const srcCase = (casesByTerm.get(obj.term) || []).find(c => (c.id || c.number) === caseKey);
-        if (caseKey && srcCase && (srcCase.events || []).some(e => e.type === obj.type && e.audio_href)) {
+        if (caseKey && srcCase && (srcCase.events || []).some(e => e.type === obj.type && e.audio_url)) {
             audioCaseIds.add(caseKey);
         }
     }
@@ -6657,8 +6657,8 @@ function _collectTaggedLeafEntries(entries) {
 //   property != undefined        e.g.  id != undefined  (property present)
 //   property contains 'v'        e.g.  scdb_check contains 'argument'
 //   !property contains 'v'       e.g.  !scdb_check contains 'argument'
-//   COUNT(event.prop) op value   e.g.  COUNT(event.audio_href) == 0
-//   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_href && !event.aligned
+//   COUNT(event.prop) op value   e.g.  COUNT(event.audio_url) == 0
+//   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_url && !event.aligned
 //   COUNT(file.prop == 'v') op n e.g.  COUNT(file.type == 'mp3') > 0
 const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
 const _COND_UNDEF_RE       = /^(\w+)\s*(==|!=)\s*undefined$/;
@@ -6670,9 +6670,9 @@ const _COND_EV_PROP_RE     = /^event\.(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(
 const _COND_EV_TRUTHY_RE   = /^event\.(\w+)$/;
 const _COND_EV_FALSY_RE    = /^!event\.(\w+)$/;
 // event.fileProp.singular.itemProp contains 'value'
-// e.g. event.text_href.turn.name contains 'UNKNOWN'
+// e.g. event.text_file.turn.name contains 'UNKNOWN'
 // COUNT(event.fileProp.singular.itemProp contains 'value') op number
-// e.g. COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100
+// e.g. COUNT(event.text_file.turn.name contains 'UNKNOWN') >= 100
 const _COND_EV_FILE_RE       = /^event\.(\w+)\.(\w+)\.(\w+)\s+contains\s+'([^']*)'$/;
 const _COND_EV_FILE_COUNT_RE = /^COUNT\(event\.(\w+)\.(\w+)\.(\w+)\s+contains\s+'([^']*)'\)\s*(>=|<=|!=|==|>|<)\s*(\d+(?:\.\d+)?)$/;
 
@@ -7617,42 +7617,42 @@ function processKeywordIndex(allTerms, dryRun) {
 
             // Dates that have an oyez transcript — used to skip redundant ussc transcripts.
             const oyezDates = new Set(
-                c.events.filter(e => e.source === 'oyez' && e.text_href).map(e => e.date)
+                c.events.filter(e => e.source === 'oyez' && e.text_file).map(e => e.date)
             );
 
             // word → Array of [eventIdx, turnNum, wordPos, nid] — one per occurrence.
             const caseWordOccurrences = new Map();
-            // text_href -> parsed transcript (or null) — several events can share
+            // text_file -> parsed transcript (or null) — several events can share
             // the same transcript (e.g. "Oral Announcement by Justice X" events
             // pointing at the same file as the main opinion event), so cache the
             // parse per case instead of re-reading/re-parsing it for each one.
             const txCache = new Map();
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
-                if (!ev.text_href) continue;
+                if (!ev.text_file) continue;
                 // Only index oyez transcripts (the default/primary source) plus titled
                 // non-oyez transcripts that have no oyez counterpart on the same date.
                 if (ev.source !== 'oyez') {
                     if (!ev.title || oyezDates.has(ev.date)) continue;
                 }
-                let tx = txCache.get(ev.text_href);
+                let tx = txCache.get(ev.text_file);
                 if (tx === undefined) {
-                    const txPath = path.join(TERMS_DIR, term, 'cases', ev.text_href);
+                    const txPath = path.join(TERMS_DIR, term, 'cases', ev.text_file);
                     try { tx = fs.existsSync(txPath) ? _readJson(txPath) : null; } catch { tx = null; }
-                    txCache.set(ev.text_href, tx);
+                    txCache.set(ev.text_file, tx);
                 }
                 if (!tx || !Array.isArray(tx.turns)) continue;
                 // Normally this transcript's words are indexed under this event's own
-                // position. But when this event has no audio_href, the front end's
+                // position. But when this event has no audio_url, the front end's
                 // dropdown (see sortedAudio in explorer.js) excludes it from the
                 // selectable list in favor of a same-date/type sibling that borrows
-                // this text_href via withTranscriptFallback() — so ?event=<this index>
+                // this text_file via withTranscriptFallback() — so ?event=<this index>
                 // never actually resolves to this transcript. Index the words under
                 // that sibling's position instead, since that's the only reachable one.
                 let effectiveEvIdx = evIdx;
-                if (!ev.audio_href) {
+                if (!ev.audio_url) {
                     const siblingIdx = c.events.findIndex(sib =>
-                        sib !== ev && sib.date === ev.date && sib.type === ev.type && !sib.text_href && sib.audio_href
+                        sib !== ev && sib.date === ev.date && sib.type === ev.type && !sib.text_file && sib.audio_url
                     );
                     if (siblingIdx !== -1) effectiveEvIdx = siblingIdx;
                 }
@@ -9630,7 +9630,7 @@ function runUnargued(termFilter, caseFilter) {
             for (const ev of argEvents) {
                 const date = ev.date || '';
                 if (!date) continue;
-                const hasMedia = !!(ev.audio_href || ev.transcript_href || ev.text_href);
+                const hasMedia = !!(ev.audio_url || ev.transcript_url || ev.text_file);
                 if (!hasMedia) continue;
                 const expectedSet = ev.type === 'reargument' ? reargDates : argDates;
                 if (!expectedSet.has(date)) {
@@ -9654,8 +9654,8 @@ function runUnargued(termFilter, caseFilter) {
                     total++;
                     continue;
                 }
-                const hasAudio      = eventsForDate.some(e => !!e.audio_href);
-                const hasTranscript = eventsForDate.some(e => !!(e.transcript_href || e.text_href));
+                const hasAudio      = eventsForDate.some(e => !!e.audio_url);
+                const hasTranscript = eventsForDate.some(e => !!(e.transcript_url || e.text_file));
                 if (!hasAudio && !hasTranscript) {
                     console.log(`MISSING   ${label}  ${title}  [${fieldName} ${date}: no audio or transcript]`);
                     total++;
@@ -9720,9 +9720,9 @@ async function runSplitCheck(termFilter, caseFilter, update) {
             const casesDir = path.join(termsDir, term, 'cases');
 
             for (const ev of c.events) {
-                if (ev.type !== 'decision' || ev.offset === undefined || !ev.text_href) continue;
+                if (ev.type !== 'decision' || ev.offset === undefined || !ev.text_file) continue;
 
-                const transcriptPath = path.join(casesDir, ev.text_href);
+                const transcriptPath = path.join(casesDir, ev.text_file);
                 if (!fs.existsSync(transcriptPath)) continue;
 
                 let transcript;
@@ -9812,9 +9812,9 @@ async function runSplitCheck(termFilter, caseFilter, update) {
             const casesDir = path.join(termsDir, term, 'cases');
 
             for (const ev of c.events) {
-                if (ev.type !== 'decision' || !ev.text_href) continue;
+                if (ev.type !== 'decision' || !ev.text_file) continue;
 
-                const transcriptPath = path.join(casesDir, ev.text_href);
+                const transcriptPath = path.join(casesDir, ev.text_file);
                 if (!fs.existsSync(transcriptPath)) continue;
 
                 let transcript;
@@ -9883,9 +9883,9 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
             for (let evIdx = 0; evIdx < c.events.length; evIdx++) {
                 const ev = c.events[evIdx];
-                if (ev.type !== 'decision' || !ev.text_href) continue;
+                if (ev.type !== 'decision' || !ev.text_file) continue;
 
-                const transcriptPath = path.join(casesDir, ev.text_href);
+                const transcriptPath = path.join(casesDir, ev.text_file);
                 if (!fs.existsSync(transcriptPath)) continue;
 
                 let transcript;
@@ -9961,14 +9961,14 @@ async function runSplitCheck(termFilter, caseFilter, update) {
                 const alreadySplit = c.events.some((e, i) =>
                     i > evIdx &&
                     e.type === 'decision' &&
-                    e.text_href === ev.text_href &&
+                    e.text_file === ev.text_file &&
                     (e.turn !== undefined || e.offset !== undefined)
                 );
                 if (alreadySplit) continue;
 
                 totalFound++;
                 const label = `${term}/${c.id} (${firstTitle(c.title) || c.id})`;
-                console.log(`  ${label}: ${ev.text_href} — ${additionalSpeakers.length} additional speaker(s) after writer (${writerName})`);
+                console.log(`  ${label}: ${ev.text_file} — ${additionalSpeakers.length} additional speaker(s) after writer (${writerName})`);
 
                 if (update) {
                     // Build the new events in speaker order, then splice them all
@@ -10086,17 +10086,17 @@ async function checkLengths(casesPath, caseFilter, update) {
         if (!Array.isArray(c.events)) continue;
 
         for (const ev of c.events) {
-            const audioHref = ev.audio_href || '';
-            if (!audioHref) continue;
+            const audioUrl = ev.audio_url || '';
+            if (!audioUrl) continue;
             // Skip only when length, size, and bitrate are all already set.
             if ('length' in ev && 'size' in ev && 'bitrate' in ev) continue;
 
             probed++;
             const label = `${c.number || c.id || '?'} (${ev.date || '?'})`;
-            const urlShort = audioHref.length > 60 ? '…' + audioHref.slice(-59) : audioHref;
+            const urlShort = audioUrl.length > 60 ? '…' + audioUrl.slice(-59) : audioUrl;
             process.stdout.write(`  ${label}: ${urlShort} `);
 
-            const meta = await _ffprobeMeta(audioHref);
+            const meta = await _ffprobeMeta(audioUrl);
             if (!meta) {
                 console.log('FAILED');
                 failed++;
@@ -10146,10 +10146,10 @@ function checkAlignedTranscriptLengths(casesPath, caseFilter) {
         for (const ev of c.events || []) {
             const evType = ev.type || '';
             if (evType !== 'argument' && evType !== 'reargument') continue;
-            if (!ev.audio_href || !ev.text_href || !ev.aligned) continue;
+            if (!ev.audio_url || !ev.text_file || !ev.aligned) continue;
             if (!ev.length) continue;
 
-            const transcriptPath = path.join(casesDir, ev.text_href);
+            const transcriptPath = path.join(casesDir, ev.text_file);
             if (!fs.existsSync(transcriptPath)) continue;
 
             const transcript = _readJson(transcriptPath);
@@ -10164,7 +10164,7 @@ function checkAlignedTranscriptLengths(casesPath, caseFilter) {
 
             const audioSecs    = _parseTimeSecs(ev.length);
             const lastTurnSecs = _parseTimeSecs(String(lastTime));
-            const label = `${term}/${c.number || c.id || '?'} "${c.title || '?'}" (${ev.date || '?'}) ${path.basename(ev.text_href)}`;
+            const label = `${term}/${c.number || c.id || '?'} "${c.title || '?'}" (${ev.date || '?'}) ${path.basename(ev.text_file)}`;
 
             if (_VERBOSE) {
                 if (audioSecs < lastTurnSecs - 60) {
@@ -10414,11 +10414,11 @@ Examples:
   node update_cases.js 2025-10 24-1260 --tag Noteworthy --dry-run
 
   # Attach a NARA "Minutes of the U.S. Supreme Court" (M215) page reference
-  # to one event: minutes_href records the catalog URL, minutes_src the
+  # to one event: minutes_url records the catalog URL, minutes_src the
   # resolved image URL (no local copy)
   node update_cases.js 1881-10 194 --date 1882-01-28 --minutes "https://catalog.archives.gov/id/178843742?objectPage=628"
   node update_cases.js 1881-10 194 --date 1882-01-28 --minutes "https://catalog.archives.gov/id/178843742?objectPage=628" --dry-run
-  node update_cases.js --minutes                           # backfill minutes_src for existing minutes_href values
+  node update_cases.js --minutes                           # backfill minutes_src for existing minutes_url values
   node update_cases.js --minutes --dry-run                 # preview only
 
   # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
@@ -10934,9 +10934,9 @@ function _computeCiteRefs(term, c, cites, { verbose = false } = {}) {
     const casesDir = path.join(TERMS_DIR, term, 'cases');
     const texts = [];
     for (const ev of c.events) {
-        if (!ev.text_href) continue;
+        if (!ev.text_file) continue;
         let transcript;
-        try { transcript = _readJson(path.join(casesDir, ev.text_href)); } catch { continue; }
+        try { transcript = _readJson(path.join(casesDir, ev.text_file)); } catch { continue; }
         for (const t of transcript.turns || []) if (t.text) texts.push(t.text);
     }
     if (!texts.length) return [];
@@ -11008,7 +11008,7 @@ function _resolveOpinionPath(c) {
 // ═══════════════════════════════════════════════════════════════════════════
 // --verify backfills missing events[] entries: any case in scope with a
 // recorded argument/reargument date but no events[] entry at all for that
-// date gets a bare metadata-only one added (no audio_href — these dates come
+// date gets a bare metadata-only one added (no audio_url — these dates come
 // from the case's own argument/reargument fields, not an actual recording).
 // A date that already has *some* event, regardless of that event's source,
 // is left alone — this only fills genuine gaps.
@@ -11384,8 +11384,8 @@ function runTopCites(dryRun) {
                 argument: c.argument || '',
                 decision: c.decision || '',
             };
-            if (citerEvents.some(e => e.audio_href)) citerEntry.event      = true;
-            if (citerEvents.some(e => e.text_href))  citerEntry.transcript = true;
+            if (citerEvents.some(e => e.audio_url)) citerEntry.event      = true;
+            if (citerEvents.some(e => e.text_file))  citerEntry.transcript = true;
             for (const entry of c.cites) {
                 const ref = `${entry.term}/${entry.id}`;
                 if (!citedBy.has(ref)) citedBy.set(ref, []);
@@ -11751,7 +11751,7 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
         const oyezDates = new Set();
         if (isEarlyTerm) {
             for (const e of c.events) {
-                if (e && e.source === 'oyez' && e.text_href) {
+                if (e && e.source === 'oyez' && e.text_file) {
                     const d = e.date || c.argument || '';
                     if (d) oyezDates.add(d);
                 }
@@ -11759,10 +11759,10 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
         }
         for (const ev of c.events) {
             if (ev.type !== 'argument' && ev.type !== 'reargument') continue;
-            if (!ev.text_href) continue;
+            if (!ev.text_file) continue;
             const evDate = ev.date || c.argument || '';
             if (isEarlyTerm && ev.source === 'ussc' && oyezDates.has(evDate)) continue;
-            const transcriptPath = path.join(casesDir, ev.text_href);
+            const transcriptPath = path.join(casesDir, ev.text_file);
             const info = _partyReadTranscript(transcriptPath);
             if (!info || info.order.length === 0) continue;
 
@@ -12882,13 +12882,13 @@ async function runAddMinutes(term, caseArg, argv, dryRun) {
         process.exit(1);
     }
 
-    console.log(`  ${term}/${label}: minutes_href=${url}, minutes_src=${asset.objectUrl}`);
+    console.log(`  ${term}/${label}: minutes_url=${url}, minutes_src=${asset.objectUrl}`);
     if (dryRun) {
         console.log(`[dry-run] Would update ${path.relative(REPO_ROOT, casesPath)}`);
         return;
     }
 
-    event.minutes_href = url;
+    event.minutes_url = url;
     event.minutes_src = asset.objectUrl;
     const idx = c.events.indexOf(event);
     c.events[idx] = reorderEvent(event);
@@ -12901,8 +12901,8 @@ async function runAddMinutes(term, caseArg, argv, dryRun) {
     console.log(`Added minutes reference to ${term}/${label} (${date}).`);
 }
 
-// Sweeps every term's cases.json for an event with minutes_href but no
-// minutes_src, and resolves+fills in minutes_src — e.g. for minutes_href
+// Sweeps every term's cases.json for an event with minutes_url but no
+// minutes_src, and resolves+fills in minutes_src — e.g. for minutes_url
 // values that were entered by hand before this field existed. Metadata
 // only — no network fetch of the image itself, just the small API lookup
 // needed to resolve its URL.
@@ -12923,14 +12923,14 @@ async function runMinutesBackfill(dryRun) {
         for (const c of cases) {
             const label = c.number || c.id || '?';
             for (const ev of (c.events || [])) {
-                if (!ev.minutes_href) continue;
+                if (!ev.minutes_url) continue;
                 checked++;
                 if (ev.minutes_src) { skipped++; continue; }
 
                 try {
-                    const asset = await _resolveMinutesAsset(ev.minutes_href, knownRoll);
+                    const asset = await _resolveMinutesAsset(ev.minutes_url, knownRoll);
                     if (!asset) {
-                        console.log(`  WARNING: ${term}/${label}: could not resolve ${ev.minutes_href}`);
+                        console.log(`  WARNING: ${term}/${label}: could not resolve ${ev.minutes_url}`);
                         failed++;
                         continue;
                     }
@@ -13202,7 +13202,7 @@ async function runJustiaCheck(volFilter, opts) {
 }
 
 // =====================================================================
-// --docket: probe SCOTUS docket URLs and store docket_href on each case
+// --docket: probe SCOTUS docket URLs and store docket_url on each case
 // =====================================================================
 
 const _DOCKET_NEW = n => `https://www.supremecourt.gov/docket/docketfiles/html/public/${n}.html`;
@@ -13211,7 +13211,7 @@ const _DOCKET_OLD = n => `https://www.supremecourt.gov/search.aspx?filename=/doc
 // Markers that distinguish a real docket page from a blank "Search Results" shell.
 const _DOCKET_CONTENT_RE = /v\.\s+[A-Z]|Petition for|Cert Granted|Argued|Decided/i;
 
-// Return the docket_href for a given primary docket number, or null if neither format works.
+// Return the docket_url for a given primary docket number, or null if neither format works.
 async function _probeDocketNum(num) {
     // New format: a 200 HEAD means the file exists and has real content.
     const [newOk] = await _request(_DOCKET_NEW(num), 'HEAD');
@@ -13278,7 +13278,7 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
             }
             if (caseFilter && firstNum !== caseFilter && c.id !== caseFilter &&
                 !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
-            if (!refetch && c.docket_href) { skipped++; continue; }
+            if (!refetch && c.docket_url) { skipped++; continue; }
             candidates.push({ c, firstNum, docketNum });
         }
 
@@ -13306,10 +13306,10 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
                     if (verbose || !dryRun) {
                         const verb = dryRun ? 'would set' : 'set';
                         const label = `${term}/${docketNum !== firstNum ? docketNum : firstNum}`;
-                        if (verbose) console.log(`  ${verb} docket_href  ${label}  ${href}`);
+                        if (verbose) console.log(`  ${verb} docket_url  ${label}  ${href}`);
                     }
                     if (!dryRun) {
-                        c.docket_href = href;
+                        c.docket_url = href;
                         const reordered = reorderCase(c);
                         Object.keys(c).forEach(k => delete c[k]);
                         Object.assign(c, reordered);
@@ -13506,7 +13506,7 @@ function runGenerateAudits(dryRun) {
 // Podcast feeds: courts/ussc/feeds/ (--feeds)
 // =====================================================================
 //
-// Builds one podcast RSS feed per term (every audio_href-bearing event across
+// Builds one podcast RSS feed per term (every audio_url-bearing event across
 // every case, chronologically) plus a master feed combining every term as an
 // iTunes "season" — so a single URL lets a podcast app discover the entire
 // archive. Fully derived from cases.json: audio byte size (`size`) and
@@ -13583,7 +13583,7 @@ function _buildTermEpisodes(term, termCases) {
     const groups = new Map(); // "type|date|title" -> {event, caseEntry}
     for (const c of termCases) {
         for (const ev of (c.events || [])) {
-            if (!ev.audio_href || ev.redundant) continue;
+            if (!ev.audio_url || ev.redundant) continue;
             const key = `${ev.type || 'argument'}|${ev.date || ''}|${ev.title || ''}`;
             const existing = groups.get(key);
             if (!existing || (_FEED_SOURCE_PRIORITY[ev.source] ?? 9) < (_FEED_SOURCE_PRIORITY[existing.event.source] ?? 9)) {
@@ -13604,14 +13604,14 @@ function _buildTermEpisodes(term, termCases) {
             `${a.title ? a.title.replace(/,/g, ' ') + ' ' : ''}${a.name}`.trim());
         if (advocateNames.length) descParts.push('Arguing: ' + advocateNames.join(', ') + '.');
         return {
-            guid:        event.audio_href,
+            guid:        event.audio_url,
             title:       `${firstTitle(caseEntry.title)} — ${event.title || typeLabel}`,
             date:        event.date || caseEntry.decision || caseEntry.argument || '',
             type:        event.type || 'argument',
             case:        num,
             caseId:      caseEntry.id || num,
             link:        `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${num}&event=${evIdx}`,
-            audio_href:  event.audio_href,
+            audio_url:  event.audio_url,
             size:        event.size ?? null,
             duration:    _formatDurationHMS(durationSecs),
             durationSecs,
@@ -13634,7 +13634,7 @@ function _rssItemXml(ep, { season, episodeNum } = {}) {
     const pubDate = _rssPubDate(ep.date);
     if (pubDate) lines.push(`      <pubDate>${pubDate}</pubDate>`);
     lines.push(`      <description>${_xmlEscape(ep.description)}</description>`);
-    lines.push(`      <enclosure url="${_xmlEscape(ep.audio_href)}" length="${ep.size ?? 0}" type="audio/mpeg"/>`);
+    lines.push(`      <enclosure url="${_xmlEscape(ep.audio_url)}" length="${ep.size ?? 0}" type="audio/mpeg"/>`);
     if (ep.duration) lines.push(`      <itunes:duration>${_xmlEscape(ep.duration)}</itunes:duration>`);
     lines.push('      <itunes:explicit>false</itunes:explicit>');
     if (season     != null) lines.push(`      <itunes:season>${season}</itunes:season>`);
@@ -14436,24 +14436,24 @@ async function main() {
         console.log(`Key order: unknown event keys found: [${_sortStr(r.unknownEventKeys).map(k=>`'${k}'`).join(', ')}]`);
     }
     if (r.hrefUpdated) {
-        console.log(`text_href: ${dryRun ? 'Would migrate' : 'Migrated'} ${r.hrefUpdated} bare filename(s).`);
+        console.log(`text_file: ${dryRun ? 'Would migrate' : 'Migrated'} ${r.hrefUpdated} bare filename(s).`);
     }
     if (r.hrefWarned) {
-        console.log(`text_href: ${r.hrefWarned} bare filename(s) could not be resolved.`);
+        console.log(`text_file: ${r.hrefWarned} bare filename(s) could not be resolved.`);
     }
     if (r.hrefRedundantFixed) {
-        console.log(`text_href: ${dryRun ? 'Would remove' : 'Removed'} stale text_href from ${r.hrefRedundantFixed} redundant event(s).`);
+        console.log(`text_file: ${dryRun ? 'Would remove' : 'Removed'} stale text_file from ${r.hrefRedundantFixed} redundant event(s).`);
     }
-    if (r.hrefMissing) console.log(`text_href: ${r.hrefMissing} reference(s) point to missing files.`);
+    if (r.hrefMissing) console.log(`text_file: ${r.hrefMissing} reference(s) point to missing files.`);
     if (r.hrefOrphaned.length) {
-        console.log(`text_href: ${r.hrefOrphaned.length} transcript file(s) have no reference.`);
+        console.log(`text_file: ${r.hrefOrphaned.length} transcript file(s) have no reference.`);
         for (const [label, date, th] of r.hrefOrphaned) {
             const detail = th ? `  ${date}  ${th}` : `  ${date}`;
             console.log(`  ${label}${detail}`);
         }
     }
-    if (r.hrefDupes)    console.log(`text_href: ${r.hrefDupes} duplicate value(s) found.`);
-    if (r.hrefStripped) console.log(`transcript_href: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
+    if (r.hrefDupes)    console.log(`text_file: ${r.hrefDupes} duplicate value(s) found.`);
+    if (r.hrefStripped) console.log(`transcript_url: ${dryRun ? 'Would strip' : 'Stripped'} duplicate from ${r.hrefStripped} oyez audio object(s).`);
     if (r.casesSorted)   console.log(`Case order: ${dryRun ? 'Would sort' : 'Sorted'} cases in ${r.casesSorted} term(s).`);
     if (r.eventsSorted)  console.log(`Event order: ${dryRun ? 'Would sort' : 'Sorted'} events in ${r.eventsSorted} case(s).`);
     if (r.suffixesFixed) console.log(`Transcript suffixes: ${dryRun ? 'Would fix' : 'Fixed'} ${r.suffixesFixed} file(s).`);

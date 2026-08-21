@@ -294,7 +294,7 @@
         "name": "Cases Missing Audio",
         "conditions": [
           "argument >= '1955-10-01'",
-          "COUNT(event.audio_href) == 0"
+          "COUNT(event.audio_url) == 0"
         ],
         "order": "argument:ascending,titles:ascending"
       },
@@ -302,7 +302,7 @@
         "id": "unaligned-audio",
         "name": "Cases with Unaligned Audio",
         "conditions": [
-          "event.source == 'oyez' && event.audio_href && !event.aligned"
+          "event.source == 'oyez' && event.audio_url && !event.aligned"
         ],
         "order": "argument:ascending,titles:ascending"
       },
@@ -310,7 +310,7 @@
         "id": "unidentified-speakers",
         "name": "Cases with Unidentified Speakers",
         "conditions": [
-          "event.source == 'oyez' && COUNT(event.text_href.turn.name contains 'UNKNOWN') >= 100"
+          "event.source == 'oyez' && COUNT(event.text_file.turn.name contains 'UNKNOWN') >= 100"
         ],
         "order": "argument:ascending,titles:ascending",
         "page": "/courts/ussc/transcripts/updates"
