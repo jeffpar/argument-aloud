@@ -13,7 +13,7 @@
 
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number',
-    'files', 'references', 'oyez_url', 'oyez_alt', 'previouslyFiled',
+    'files', 'references', 'oyez_alt', 'previouslyFiled',
     'docket_url', 'questions', 'questions_url',
     // Comma-separated docket number(s) of every case (this one included)
     // heard in the same argument session — distinct from a joint "number"
@@ -27,7 +27,10 @@ export const CASE_KEY_ORDER = [
     // with no decision-type event to hang a per-event journal_ref off of.
     'journal_ref',
     'citation', 'volume', 'page', 'cites',
-    'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol',
+    // oyez_url always sits right before the decision-document link group
+    // (see _DECISION_LINK_KEYS) — including when that group relocates to
+    // right after decision_day for a case with no citation yet.
+    'oyez_url', 'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol',
     'result',
     // The id (see processBenches in update_cases.js) of the Court composition
     // seated on this case's decision date — lets the case page's vote-score
@@ -70,15 +73,19 @@ function _reorder(obj, order) {
     return out;
 }
 
-const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol'];
+const _DECISION_DOC_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol'];
+// oyez_url travels with the decision-document link group so it always sits
+// right before it, even when the group relocates (see below) — but its own
+// near-universal presence must not itself be what triggers a relocation.
+const _DECISION_LINK_KEYS = ['oyez_url', ..._DECISION_DOC_KEYS];
 
-// When citation is absent, decision href keys belong right after decision_day (or decision).
+// When citation is absent, decision doc keys belong right after decision_day (or decision).
 export function caseKeyOrder(obj) {
-    if (!obj.citation && _DECISION_HREF_KEYS.some(k => k in obj)) {
-        const order = CASE_KEY_ORDER.filter(k => !_DECISION_HREF_KEYS.includes(k));
+    if (!obj.citation && _DECISION_DOC_KEYS.some(k => k in obj)) {
+        const order = CASE_KEY_ORDER.filter(k => !_DECISION_LINK_KEYS.includes(k));
         const anchorIdx = order.indexOf('decision_day');
         const insertAt = anchorIdx !== -1 ? anchorIdx + 1 : order.indexOf('decision') + 1;
-        order.splice(insertAt, 0, ..._DECISION_HREF_KEYS);
+        order.splice(insertAt, 0, ..._DECISION_LINK_KEYS);
         return order;
     }
     return CASE_KEY_ORDER;
