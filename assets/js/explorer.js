@@ -1777,7 +1777,7 @@ const _FILTER_OPTIONS = [
 // "dismissed" too — matching how both are counted server-side in
 // syncTermsJson (scripts/update_cases.js).
 const _FILTER_CASE_TEST = {
-  orders:     (c, termEntry) => _isOrdersCase(c.usCite, termEntry),
+  orders:     (c, termEntry) => _isOrdersCase(c.citation, termEntry),
   dismissals: (c) => /dismissed/i.test(c.result || ''),
   digs:       (c) => /dismissed as improvidently granted/i.test(c.result || ''),
 };
@@ -1915,10 +1915,10 @@ async function _fetchOnThisDayIndex() {
   return _onThisDayIndexPromise;
 }
 
-// Lowercase, strip periods, collapse whitespace — matches _normalizeUsCite in
+// Lowercase, strip periods, collapse whitespace — matches _normalizeCitation in
 // scripts/update_cases.js so "387 U.S. 397" and "387 US 397" both resolve to
 // the same citations.json key ("387 us 397").
-function _normalizeUsCite(s) {
+function _normalizeCitation(s) {
   return String(s || '').toLowerCase().replace(/\./g, '').replace(/\s+/g, ' ').trim();
 }
 
@@ -2752,7 +2752,7 @@ function _bestEventIndexForNumber(events, number) {
 
 // Build the text for the case‑title label above the transcript pane.
 // subCase (optional): { title, number } from _subCaseForOption for consolidated cases.
-// Parenthesised annotation is the docket number(s), if any — usCite is shown
+// Parenthesised annotation is the docket number(s), if any — citation is shown
 // separately via #case-cite, so it's never repeated here.
 // Returns { text, full }: when four or more docket numbers would be listed,
 // `text` collapses them to "first, …, last" and `full` carries the untruncated
@@ -2865,14 +2865,14 @@ function _isOrdersBreakpoint(bp) {
   return !!bp.marked || (bp.start > 800 && bp.start % 100 === 1);
 }
 
-// True if a case's own usCite lands in an "orders mapping" section of its
+// True if a case's own citation lands in an "orders mapping" section of its
 // volume — see _isOrdersBreakpoint. A roman-numeral page (front matter)
 // always qualifies; an arabic page qualifies if the breakpoint segment it
 // falls into is itself an orders mapping. termEntry is the citing term's own
 // TERMS[] entry (carries reports[]) — kept in sync with _isOrdersCase in
 // scripts/update_cases.js by hand; no shared module between the two runtimes.
-function _isOrdersCase(usCite, termEntry) {
-  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite.trim());
+function _isOrdersCase(citation, termEntry) {
+  const m = citation && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation.trim());
   if (!m) return false;
   if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
   const vol  = parseInt(m[1], 10);
@@ -2887,8 +2887,8 @@ function _isOrdersCase(usCite, termEntry) {
 
 // Compute the PDF page for a given US Reports logical page using the term's
 // reports[] pages mapping.  Returns null if no mapping is available.
-function _reportPdfPage(usCite, termEntry) {
-  const m = usCite && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite.trim());
+function _reportPdfPage(citation, termEntry) {
+  const m = citation && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation.trim());
   if (!m) return null;
   const vol   = parseInt(m[1], 10);
   const roman = !/^\d+$/.test(m[2]);
@@ -2905,7 +2905,7 @@ function _reportPdfPage(usCite, termEntry) {
 
 // Returns [{value, href, title}] in display order: LOC, GOV, US Reports.
 // Used by the case-page document dropdown, which lists every available
-// decision source with its own (LOC)/(GOV)/(usCite) suffix.
+// decision source with its own (LOC)/(GOV)/(citation) suffix.
 function _buildDecisionEntries(caseEntry) {
   if (!caseEntry) return [];
   const dateStr  = caseEntry.decision || '';
@@ -2921,11 +2921,11 @@ function _buildDecisionEntries(caseEntry) {
     let href = caseEntry.decision_vol;
     if (!href.includes('#page=')) {
       const termEntry = TERMS.find(t => t.term === _currentTerm);
-      const pdfPage = _reportPdfPage(caseEntry.usCite, termEntry);
+      const pdfPage = _reportPdfPage(caseEntry.citation, termEntry);
       if (pdfPage != null) href = href + '#page=' + pdfPage;
     }
     entries.push({ value: 'decision_vol', href,
-                   title: dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '') });
+                   title: dateLabel + (caseEntry.citation ? '\u00a0(' + caseEntry.citation + ')' : '') });
   }
   return entries;
 }
@@ -2934,14 +2934,14 @@ function _buildDecisionEntries(caseEntry) {
 // that show just one decision link (case file list, scales-icon quick-open):
 // prefer decision_loc, then decision_gov, then decision_vol — same
 // priority order as _buildDecisionEntries, whose href/page-anchor computation
-// this reuses. Unlike the dropdown, the title always uses the usCite rather
+// this reuses. Unlike the dropdown, the title always uses the citation rather
 // than a (LOC)/(GOV) source suffix.
 function _buildPrimaryDecisionEntry(caseEntry) {
   const first = _buildDecisionEntries(caseEntry)[0];
   if (!first) return null;
   const dateStr   = caseEntry.decision || '';
   const dateLabel = dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision';
-  const title = dateLabel + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
+  const title = dateLabel + (caseEntry.citation ? '\u00a0(' + caseEntry.citation + ')' : '');
   return { value: first.value, href: first.href, title };
 }
 
@@ -3554,9 +3554,9 @@ function _setCaseInfoRow2(caseEntry) {
   // directly rather than showing a one-item menu first.
   const citeEl = document.getElementById('case-cite');
   const citeEntries = _buildCiteMenuEntries(caseEntry);
-  if (citeEntries.length && caseEntry.usCite) {
+  if (citeEntries.length && caseEntry.citation) {
     citeEl.href = citeEntries[0].href; // plain fallback (e.g. middle-click/open-in-new-tab)
-    citeEl.textContent = '(' + caseEntry.usCite + ')';
+    citeEl.textContent = '(' + caseEntry.citation + ')';
     citeEl.hidden = false;
     citeEl.onclick = (e) => {
       e.preventDefault();
@@ -3699,7 +3699,10 @@ function _showCaseVotesView(caseEntry) {
 function _setCaseInfoRow3(caseEntry) {
   const row = document.getElementById('case-info-row3');
   const span = document.getElementById('case-vote');
-  if (!caseEntry.voteMajority || caseEntry.voteMinority == null || !caseEntry.votes?.length) {
+  const scoreM = /^(\d+)-(\d+)$/.exec(caseEntry.score || '');
+  const voteMajority = scoreM ? parseInt(scoreM[1], 10) : null;
+  const voteMinority = scoreM ? parseInt(scoreM[2], 10) : null;
+  if (!voteMajority || voteMinority == null || !caseEntry.votes?.length) {
     span.textContent = '';
     row.hidden = true;
     return;
@@ -3754,8 +3757,8 @@ function _setCaseInfoRow3(caseEntry) {
   // dismissal (rare, but possible) keeps it.
   const dismissMatch = /^dismissed\b(.*)$/i.exec(firstSegment);
   const scoreLabel = dismissMatch ? 'Dismissed' + dismissMatch[1] : 'Voted';
-  const showTally = !dismissMatch || caseEntry.voteMinority !== 0;
-  const score = showTally ? scoreLabel + ' ' + caseEntry.voteMajority + '–' + caseEntry.voteMinority : scoreLabel;
+  const showTally = !dismissMatch || voteMinority !== 0;
+  const score = showTally ? scoreLabel + ' ' + voteMajority + '–' + voteMinority : scoreLabel;
 
   // Score links to this case's own bench page (see the `bench` prop —
   // schema.js/processBenches in update_cases.js), scoped to this specific
@@ -3770,7 +3773,7 @@ function _setCaseInfoRow3(caseEntry) {
   } else {
     span.appendChild(document.createTextNode(score));
   }
-  if (caseEntry.voteMinority === 0) {
+  if (voteMinority === 0) {
     // Unanimous — listing every justice by name is just noise. Name the
     // opinion author alone ("Scalia for the Court") if we have one to link
     // to; otherwise skip the parenthetical entirely.
@@ -4195,19 +4198,19 @@ function _injectVirtualTranscripts(rawFiles, caseEntry, argumentDates = null) {
 }
 
 // Build the { kind: 'group', label: 'Citations', files } entry from a case's
-// opCite array (see scripts/update_cases.js --cites), or null when absent.
+// cites array (see scripts/update_cases.js --cites), or null when absent.
 // Always append this after any Briefs/Media/Other groups but before
 // Consolidations and References (the very last groups).
 function _buildCitationsEntry(caseEntry) {
-  if (!caseEntry.opCite?.length) return null;
-  const files = caseEntry.opCite
+  if (!caseEntry.cites?.length) return null;
+  const files = caseEntry.cites
     .map((entry, i) => ({
       title: entry.title,
       citationTerm: entry.term,
       citationId: entry.id,
-      citationIdx: i + 1, // 1-based index into opCite, mirrored in the 'citation' URL param
+      citationIdx: i + 1, // 1-based index into cites, mirrored in the 'citation' URL param
     }))
-    // Sorted by title, same convention as References, rather than opCite's
+    // Sorted by title, same convention as References, rather than cites'
     // own order (most-recently-decided citation first).
     .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
   return { kind: 'group', label: 'Citations', files };
@@ -4466,7 +4469,7 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
       if ((f.type || '').toLowerCase() === 'opinion') {
         const dateStr = f.date || caseEntry.decision || '';
         f.title = (dateStr ? 'Decision\u00a0on\u00a0' + formatDecisionDate(dateStr) : 'Decision')
-          + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '');
+          + (caseEntry.citation ? '\u00a0(' + caseEntry.citation + ')' : '');
       }
     });
   }
@@ -4731,14 +4734,14 @@ function _firstArgDate(c) {
   return dates.length ? dates.reduce((a, b) => a < b ? a : b) : '';
 }
 
-// Parse a usCite string ("N U.S. N", with an optional trailing footnote "n",
+// Parse a citation string ("N U.S. N", with an optional trailing footnote "n",
 // or a roman-numeral front-matter page like "N U.S. cxxv") into numeric
-// {vol, page, roman} sort keys, or null if unparseable — a missing usCite or
+// {vol, page, roman} sort keys, or null if unparseable — a missing citation or
 // an unassigned-page placeholder ("N U.S. ___") both return null, and such
 // cases always sort to the end regardless of direction (see 'citation' mode
 // in buildTermCasesSorted).
-function _citationSortKey(usCite) {
-  const s = (usCite || '').trim();
+function _citationSortKey(citation) {
+  const s = (citation || '').trim();
   let m = /^(\d+)\s+U\.S\.?\s+(\d+)n?$/.exec(s);
   if (m) return { vol: parseInt(m[1], 10), page: parseInt(m[2], 10), roman: false };
   m = /^(\d+)\s+U\.S\.?\s+([ivxlcdmIVXLCDM]+)$/.exec(s);
@@ -4804,20 +4807,21 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     sorted = [...decided, ...undecided];
   } else if (mode === 'votes') {
     sorted = [...visible].sort((a, b) => {
-      const am = a.voteMajority ?? 0, an_ = a.voteMinority ?? 0;
-      const bm = b.voteMajority ?? 0, bn_ = b.voteMinority ?? 0;
+      const asM = /^(\d+)-(\d+)$/.exec(a.score || ''), bsM = /^(\d+)-(\d+)$/.exec(b.score || '');
+      const am = asM ? parseInt(asM[1], 10) : 0, an_ = asM ? parseInt(asM[2], 10) : 0;
+      const bm = bsM ? parseInt(bsM[1], 10) : 0, bn_ = bsM ? parseInt(bsM[2], 10) : 0;
       // Sort descending by majority, then ascending minority
       if (bm !== am) return bm - am;
       if (an_ !== bn_) return an_ - bn_;
       return caseTitle(a.title || '').localeCompare(caseTitle(b.title || ''));
     });
   } else if (mode === 'citation') {
-    // Cases with no usCite (or an unparseable/placeholder one) always sort
+    // Cases with no citation (or an unparseable/placeholder one) always sort
     // to the end regardless of direction, like undecided cases in 'decided'.
-    const cited   = visible.filter(c => _citationSortKey(c.usCite));
-    const uncited = visible.filter(c => !_citationSortKey(c.usCite));
+    const cited   = visible.filter(c => _citationSortKey(c.citation));
+    const uncited = visible.filter(c => !_citationSortKey(c.citation));
     cited.sort((a, b) => {
-      const ka = _citationSortKey(a.usCite), kb = _citationSortKey(b.usCite);
+      const ka = _citationSortKey(a.citation), kb = _citationSortKey(b.citation);
       if (ka.vol !== kb.vol) return ka.vol - kb.vol;
       if (ka.roman !== kb.roman) return ka.roman ? -1 : 1;
       return ka.page - kb.page;
@@ -4844,9 +4848,9 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     const hasOpinion    = !!caseEntry.decision || hasDecisionHref(caseEntry);
     // Broad "is there a file list worth showing at all" signal — toggle
     // visibility and the undecided-case empty ring both use this. The green
-    // ring below is narrower: caseEntry.files alone (not references/opCite/
+    // ring below is narrower: caseEntry.files alone (not references/cites/
     // consolidation), since it specifically means "documents on file".
-    const hasFiles      = !!caseEntry.files || !!caseEntry.references || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
+    const hasFiles      = !!caseEntry.files || !!caseEntry.references || !!caseEntry.cites?.length || (caseEntry.title || '').includes('|');
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
@@ -4868,15 +4872,15 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       dateLbl.textContent = _fmtMonthDay(dateKey);
       header.appendChild(dateLbl);
     } else if (mode === 'votes') {
-      const maj = caseEntry.voteMajority, min = caseEntry.voteMinority;
+      const scoreM = /^(\d+)-(\d+)$/.exec(caseEntry.score || '');
       const voteLbl = document.createElement('span');
       voteLbl.className = 'case-sort-label';
-      voteLbl.textContent = (maj != null && min != null) ? maj + '\u2013' + min : '';
+      voteLbl.textContent = scoreM ? scoreM[1] + '\u2013' + scoreM[2] : '';
       header.appendChild(voteLbl);
     } else if (mode === 'citation') {
       const citeLbl = document.createElement('span');
       citeLbl.className = 'case-sort-label';
-      citeLbl.textContent = caseEntry.usCite || '';
+      citeLbl.textContent = caseEntry.citation || '';
       header.appendChild(citeLbl);
     } else {
       // Default mode: normal icons
@@ -4895,7 +4899,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       if (hasOpinion) {
         // Green ring is the lowest-priority signal — only drawn when there's
         // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
-        // Driven by caseEntry.files alone (not references/opCite/etc — see
+        // Driven by caseEntry.files alone (not references/cites/etc — see
         // hasFiles's own comment above) since it specifically flags "there
         // are documents on file", matching its "documents available" tooltip.
         _attachScalesIcon(ci, header, {
@@ -6715,9 +6719,8 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   ci.dataset.argued  = _firstArgDate(caseRef);
   ci.dataset.decided = caseRef.decision || '';
   if (caseRef.vocal) ci.dataset.vocal = caseRef.vocal;
-  if (caseRef.voteMajority != null && caseRef.voteMinority != null) {
-    ci.dataset.voteMajority = caseRef.voteMajority;
-    ci.dataset.voteMinority = caseRef.voteMinority;
+  if (caseRef.score) {
+    ci.dataset.score = caseRef.score;
   }
   const _sortLabel = document.createElement('span');
   _sortLabel.className = 'case-sort-label';
@@ -6767,7 +6770,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   if (caseRef.event || caseRef.decision || caseRef.files) {
     // Green ring (lowest priority — see makeScalesRingSvg) as a best-effort
     // guess from the lightweight caseRef alone; the deferred upgrade below
-    // corrects it once the full caseEntry (with opCite) is fetched.
+    // corrects it once the full caseEntry (with cites) is fetched.
     _scalesIconNode = _attachScalesIcon(ci, header, {
       onClick: _scalesOnClick,
       ring: caseRef.files ? { green: true } : null,
@@ -6805,7 +6808,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         if (!caseEntry) return;
         // Green ring is the lowest-priority signal — only drawn when there's
         // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
-        // caseEntry.files alone (not references/opCite/etc), same as the
+        // caseEntry.files alone (not references/cites/etc), same as the
         // term-list's own equivalent check — it specifically flags
         // "documents on file", matching its "documents available" tooltip.
         const ring = opinionCircleData(caseEntry) || (caseEntry.files ? { green: true } : null);
@@ -7241,7 +7244,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       { mode: 'cases',   label: 'Cases'   },
       { mode: 'argued',  label: 'Argued'  },
       { mode: 'decided', label: 'Decided' },
-      // Only benches' per-case JSON carries voteMajority/voteMinority (see
+      // Only benches' per-case JSON carries score (see
       // processBenches in update_cases.js) — other collections' case entries
       // have nothing to sort by here, so this option is scoped to benches.
       ...(collId === 'benches' ? [{ mode: 'votes', label: 'Votes' }] : []),
@@ -7374,8 +7377,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
             lbl.textContent = s + '\u00a0sec';
           }
         } else if (mode === 'votes') {
-          const vm = ci.dataset.voteMajority, vn = ci.dataset.voteMinority;
-          lbl.textContent = (vm !== undefined && vn !== undefined) ? (vm + '\u2013' + vn) : '';
+          const scoreM = /^(\d+)-(\d+)$/.exec(ci.dataset.score || '');
+          lbl.textContent = scoreM ? (scoreM[1] + '\u2013' + scoreM[2]) : '';
         } else {
           lbl.textContent = '';
         }
@@ -7395,13 +7398,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         _sortedItems.sort((a, b) => _parseVocalSecs(a.dataset.vocal || '') - _parseVocalSecs(b.dataset.vocal || ''));
         groupUl.classList.add('coll-sort-date');
       } else if (mode === 'votes') {
-        // Cases with no known vote (dataset.voteMajority absent) treated as
+        // Cases with no known vote (dataset.score absent) treated as
         // -1 so they consistently sort to the low end (start when ascending,
         // end when descending) — same convention as an empty argued/decided
         // date string sorting first.
         _sortedItems.sort((a, b) => {
-          const av = a.dataset.voteMajority !== undefined ? +a.dataset.voteMajority : -1;
-          const bv = b.dataset.voteMajority !== undefined ? +b.dataset.voteMajority : -1;
+          const am = /^(\d+)-/.exec(a.dataset.score || ''), bm = /^(\d+)-/.exec(b.dataset.score || '');
+          const av = am ? +am[1] : -1;
+          const bv = bm ? +bm[1] : -1;
           return av - bv;
         });
         // Reuses the same "hide audio/scales icons, show just the sort
@@ -8031,7 +8035,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
 
   const decisionText = caseEntry.decision
     ? 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision)
-        + (caseEntry.usCite ? '\u00a0(' + caseEntry.usCite + ')' : '')
+        + (caseEntry.citation ? '\u00a0(' + caseEntry.citation + ')' : '')
     : null;
 
   // If there are extra documents to choose from, surface a dropdown rather
@@ -10536,7 +10540,7 @@ let _navSearchActivate = null;
     const citationMode = !keywordMode && /^\d+\s*u\.?s\.?\s+[0-9ivxlcdm]/i.test(q);
     if (citationMode) {
       const citeIndex = await _fetchCitationIndex();
-      const normQ = _normalizeUsCite(q);
+      const normQ = _normalizeCitation(q);
       const refs = normQ && citeIndex[normQ] ? [...citeIndex[normQ]] : [];
       await renderRefResults(refs);
       return;
@@ -11335,7 +11339,7 @@ async function restoreFromURL() {
   const highlightParam  = params.get('highlight') != null ? parseInt(params.get('highlight'), 10) - 1 : null;
   const audioParam = params.get('event') != null ? Math.max(1, parseInt(params.get('event'), 10)) : null; // 1-based index into caseEntry.events (original on-disk order)
   const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
-  const citationParam = params.get('citation') != null ? parseInt(params.get('citation'), 10) : null; // 1-based index into caseEntry.opCite
+  const citationParam = params.get('citation') != null ? parseInt(params.get('citation'), 10) : null; // 1-based index into caseEntry.cites
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
   const _parsedSort = _parseSortParam(params.get('sort'), params.get('o'));
 

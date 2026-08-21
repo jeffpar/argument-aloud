@@ -162,7 +162,7 @@ node scripts/update_advocates.js [--verbose|-v] [--women] [--repair]
 
 ## update_cases.js
 
-Updates vote data for a specific case — result, voteMajority, voteMinority, and
+Updates vote data for a specific case — result, score, and
 votes array with proper seniority ordering. Automatically determines which
 justices were serving on the decision date and validates all vote counts.
 

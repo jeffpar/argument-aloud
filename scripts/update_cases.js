@@ -249,7 +249,7 @@ async function _fetchOpinionsViaWayback(year2digit) {
     const minDate     = `${yearInt + 1}0701`;
     const opinionsUrl = `${SCOTUS_BASE}/opinions/slipopinion/${year2digit}`;
 
-    // Target roughly 8 years after the term — late enough for usCite values to
+    // Target roughly 8 years after the term — late enough for citation values to
     // have appeared in U.S. Reports, early enough to avoid later page shrinkage.
     const targetDate   = `${yearInt + 8}1201`;
     const cdxApi = `${_WAYBACK_CDX_URL}?url=${encodeURIComponent(opinionsUrl)}`
@@ -326,7 +326,7 @@ export async function fetchOpinions(year2digit, checkUrls = false) {
     } else {
         // Even when the live page works, supplement with Wayback to recover
         // opinions that have fallen off the live page over time, and to fill
-        // in usCite values that post-date the original snapshots.
+        // in citation values that post-date the original snapshots.
         // _fetchOpinionsViaWayback's minDate guard (year+1 July) means this
         // is a fast no-op (one CDX lookup, no HTML fetch) for current and
         // near-future terms where no qualifying snapshots exist yet.
@@ -1728,14 +1728,14 @@ function reportsPagesString(bps) {
     return bps.map(b => `${b.roman ? b.startStr : b.start}:${b.pdfPage}${b.marked ? '*' : ''}`).join(',');
 }
 
-// True if a case's own usCite lands in an "orders mapping" section of its
+// True if a case's own citation lands in an "orders mapping" section of its
 // volume (see isOrdersBreakpoint) — a roman-numeral page (front matter)
 // always qualifies; an arabic page qualifies if the breakpoint segment it
 // falls into (same "latest breakpoint with start <= page" resolution as
 // _pdfPageFor) is itself an orders mapping. termReports is the citing term's
 // own reports[] array (termEntry.reports in terms.json).
-function _isOrdersCase(usCite, termReports) {
-    const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec((usCite || '').trim());
+function _isOrdersCase(citation, termReports) {
+    const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec((citation || '').trim());
     if (!m) return false;
     if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
     const vol  = parseInt(m[1], 10);
@@ -1790,7 +1790,7 @@ function _reportsDbPages(entry) {
     return undefined;
 }
 
-// Build/update the decision_vol field on each case whose usCite contains
+// Build/update the decision_vol field on each case whose citation contains
 // "<volume> U.S. <page>" and whose volume matches an entry in the term's
 // reports array. The value is just reports[].href — no "#page=<pdfPage>"
 // anchor — because _reportPdfPage/_buildDecisionEntries in explorer.js
@@ -1819,9 +1819,9 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
         // If decision_vol already carries an explicit #page=N, leave it alone.
         if (/#page=\d+$/.test(c.decision_vol || '')) continue;
-        const usCite = (c.usCite || '').trim();
-        if (!usCite) continue;
-        const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+        const citation = (c.citation || '').trim();
+        if (!citation) continue;
+        const m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation);
         if (!m) continue;
         const vol    = parseInt(m[1], 10);
         const report = byVolume.get(vol);
@@ -1839,7 +1839,7 @@ function addDecisionReports(casesPath, termEntry, caseFilter = '') {
 
 // Audit every decision_vol value that carries an explicit "#page=N" anchor
 // against the PDF page terms.json's reports[] mapping would compute for the
-// case's own usCite (same algorithm as addDecisionReports/_reportPdfPage in
+// case's own citation (same algorithm as addDecisionReports/_reportPdfPage in
 // explorer.js). Where they agree, the anchor is redundant — strip it back to
 // the bare report href so the front end computes it live, which is cheap
 // (string-parse only, no network) and keeps decision_vol from silently going
@@ -1880,8 +1880,8 @@ function auditDecisionReportPages(termFilter) {
                 const [, baseHref, storedStr] = anchorMatch;
                 const stored = parseInt(storedStr, 10);
 
-                const usCite = (c.usCite || '').trim();
-                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                const citation = (c.citation || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation);
                 if (!cm) continue;
                 const vol    = parseInt(cm[1], 10);
                 const roman  = !/^\d+$/.test(cm[2]);
@@ -1891,7 +1891,7 @@ function auditDecisionReportPages(termFilter) {
                 const expected = _pdfPageFor(_parsePages(report.pages), cpage, roman);
                 const computedUrl = report.href + (expected != null ? `#page=${expected}` : '');
                 if (report.href !== baseHref) {
-                    mismatches.push({ term, id: c.id, title: c.title, usCite, rep, computedUrl });
+                    mismatches.push({ term, id: c.id, title: c.title, citation, rep, computedUrl });
                     continue;
                 }
                 if (expected == null) continue;
@@ -1903,7 +1903,7 @@ function auditDecisionReportPages(termFilter) {
                     Object.assign(c, reordered);
                     modified = true;
                 } else {
-                    mismatches.push({ term, id: c.id, title: c.title, usCite, rep, computedUrl });
+                    mismatches.push({ term, id: c.id, title: c.title, citation, rep, computedUrl });
                 }
             }
             if (modified) _writeJson(casesPath, data);
@@ -1915,7 +1915,7 @@ function auditDecisionReportPages(termFilter) {
     if (mismatches.length) {
         console.log('Mismatches (left untouched — needs manual review):');
         for (const mm of mismatches) {
-            console.log(`  ${mm.term} ${mm.id} "${mm.title}" (${mm.usCite})`);
+            console.log(`  ${mm.term} ${mm.id} "${mm.title}" (${mm.citation})`);
             console.log(`    decision_vol: ${mm.rep}`);
             console.log(`    computed:     ${mm.computedUrl}`);
             console.log('');
@@ -1930,7 +1930,7 @@ function auditDecisionReportPages(termFilter) {
 // every case citing this volume whose decision_vol still carries an explicit
 // #page=N — an anchor already stripped down to a bare href by a prior audit
 // pass agreed with the mapping and carries no new information, so those are
-// naturally excluded — sorts them by usCite page ascending, and walks them
+// naturally excluded — sorts them by citation page ascending, and walks them
 // in order: a candidate becomes a new breakpoint only if the mapping as
 // built up so far (starting from reports.json's existing breakpoints)
 // doesn't already reproduce its stored #page value, i.e. only where the
@@ -1968,14 +1968,14 @@ function useDecisionRepForVolume(vol) {
             for (const c of data) {
                 const am = /^(.*)#page=(\d+)$/.exec(c.decision_vol || '');
                 if (!am) continue;
-                const usCite = (c.usCite || '').trim();
-                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                const citation = (c.citation || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation);
                 if (!cm || parseInt(cm[1], 10) !== vol) continue;
                 const roman = !/^\d+$/.test(cm[2]);
                 const cpage = roman ? _parseRomanNumeral(cm[2]) : parseInt(cm[2], 10);
                 if (!isFinite(cpage)) continue;
                 candidates.push({
-                    term, id: c.id, title: c.title, usCite,
+                    term, id: c.id, title: c.title, citation,
                     roman, cpage, startStr: cm[2], stored: parseInt(am[2], 10),
                 });
             }
@@ -2014,7 +2014,7 @@ function useDecisionRepForVolume(vol) {
     const newPages = reportsPagesString(bps);
     console.log(`${volKey}: pages ${basePages || '(none)'} → ${newPages}`);
     for (const a of added) {
-        console.log(`  + ${a.startStr}:${a.stored}  (${a.term} ${a.id} "${a.title}", ${a.usCite}, `
+        console.log(`  + ${a.startStr}:${a.stored}  (${a.term} ${a.id} "${a.title}", ${a.citation}, `
             + `mapping was computing ${a.computed == null ? '(nothing)' : a.computed})`);
     }
 
@@ -2057,8 +2057,8 @@ function useDecisionVolForVolume(vol) {
             for (const c of data) {
                 const am = /^(.*)#page=(\d+)$/.exec(c.decision_vol || '');
                 if (!am) continue;
-                const usCite = (c.usCite || '').trim();
-                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(usCite);
+                const citation = (c.citation || '').trim();
+                const cm = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation);
                 if (!cm || parseInt(cm[1], 10) !== vol) continue;
                 c.decision_vol = am[1];
                 const reordered = reorderCase(c);
@@ -2119,29 +2119,29 @@ function pruneSecondSegmentDecisionLoc(casesPath, termEntry, caseFilter = '') {
 }
 
 // Remove redundant `volume`/`page` properties when they match the citation
-// numbers derived from `usCite` (e.g. usCite "584 U.S. 1" with volume "584"
+// numbers derived from `citation` (e.g. citation "584 U.S. 1" with volume "584"
 // and page "1"). For a roman-numeral page (e.g. "131 U.S. clxxxvi" — an
 // appendix/table page), there's no second arabic number to compare against;
 // the legacy `page` value for those is instead a numeric surrogate key of the
 // form 9000 + <arabic value of the roman numeral>, so it's compared against
 // that formula instead.
-// Verbose mode reports any discrepancies between volume/page and usCite numbers.
+// Verbose mode reports any discrepancies between volume/page and citation numbers.
 function pruneRedundantCitation(casesPath, term, caseFilter = '') {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return;
     let modified = false;
     for (const c of data) {
         if (caseFilter && c.number !== caseFilter && c.id !== caseFilter) continue;
-        const usCite = c.usCite || '';
-        if (!usCite) continue;
-        const nums = usCite.match(/\d+/g);
+        const citation = c.citation || '';
+        if (!citation) continue;
+        const nums = citation.match(/\d+/g);
         if (!nums || nums.length < 1) continue;
         let citeVol, citePage, romanPage = null;
         if (nums.length >= 2) {
             citeVol  = String(parseInt(nums[0], 10));
             citePage = String(parseInt(nums[1], 10));
         } else {
-            const rm = /U\.S\.\s+([ivxlcdmIVXLCDM]+)\s*$/.exec(usCite.trim());
+            const rm = /U\.S\.\s+([ivxlcdmIVXLCDM]+)\s*$/.exec(citation.trim());
             const rv = rm ? _parseRomanNumeral(rm[1]) : NaN;
             if (!Number.isFinite(rv)) continue;
             citeVol   = String(parseInt(nums[0], 10));
@@ -2156,17 +2156,17 @@ function pruneRedundantCitation(casesPath, term, caseFilter = '') {
         const volMatch  = hasVol  && vol  === citeVol;
         const pageMatch = hasPage && page === citePage;
         if (hasVol && !volMatch && _VERBOSE) {
-            console.log(` NOTICE: ${term}/${label}: volume='${c.volume}' but usCite='${usCite}' has volume ${citeVol}`);
+            console.log(` NOTICE: ${term}/${label}: volume='${c.volume}' but citation='${citation}' has volume ${citeVol}`);
         }
         if (hasPage && !pageMatch && _VERBOSE) {
-            console.log(` NOTICE: ${term}/${label}: page='${c.page}' but usCite='${usCite}' has page ${citePage}${romanPage ? ` (roman '${romanPage}')` : ''}`);
+            console.log(` NOTICE: ${term}/${label}: page='${c.page}' but citation='${citation}' has page ${citePage}${romanPage ? ` (roman '${romanPage}')` : ''}`);
         }
         if (volMatch || pageMatch) {
             const verb = _DRY_RUN ? 'would remove' : 'removed';
             const removed = [];
             if (volMatch)  { removed.push(`volume='${c.volume}'`);  if (!_DRY_RUN) delete c.volume; }
             if (pageMatch) { removed.push(`page='${c.page}'`);      if (!_DRY_RUN) delete c.page;   }
-            if (_VERBOSE) console.log(` NOTICE: ${term}/${label}: ${verb} redundant ${removed.join(', ')} (usCite='${usCite}')`);
+            if (_VERBOSE) console.log(` NOTICE: ${term}/${label}: ${verb} redundant ${removed.join(', ')} (citation='${citation}')`);
             if (!_DRY_RUN) modified = true;
         }
     }
@@ -4022,8 +4022,8 @@ function _scdbNormalizeDocket(docket) {
     return n ? `${n}-${suffix}` : suffix;
 }
 
-function _scdbParseUsCite(usCite) {
-    const m = _US_CITE_RE.exec(_scdbNormalizeCite(usCite));
+function _scdbParseCitation(citation) {
+    const m = _US_CITE_RE.exec(_scdbNormalizeCite(citation));
     if (!m) return ['', ''];
     return [m[1], m[2]];
 }
@@ -5043,10 +5043,7 @@ function processBenches(dryRun) {
             if (c.references) meta.references = c.references;
             // Vote tally, when known — lets the per-bench case listing (see
             // Phase 5) offer the same Vote sort/display other case listings do.
-            if (c.voteMajority != null && c.voteMinority != null) {
-                meta.voteMajority = c.voteMajority;
-                meta.voteMinority = c.voteMinority;
-            }
+            if (c.score != null) meta.score = c.score;
             Object.defineProperty(meta, '_src', { value: { case: c, term: termName }, enumerable: false });
             allCases.push(meta);
         }
@@ -5145,7 +5142,7 @@ function processBenches(dryRun) {
 
     // Write each case's own bench assignment back onto its cases.json record
     // (the `bench` prop — see schema.js, positioned right before
-    // voteMajority) so the case page's vote-score link can point straight at
+    // score) so the case page's vote-score link can point straight at
     // its bench without needing to fetch/walk benches.json. `m._src.case` is
     // the very object living inside termCasesMap's own per-term array, so
     // mutating it here is enough — no re-matching needed, just track which
@@ -5632,7 +5629,7 @@ function _findCaseInList(cases, row) {
             if (!num) continue;
             if (_normalizeDocket(num).toLowerCase() !== csvDocketNorm) continue;
             if (csvCitation) {
-                if ((c.usCite || '').trim() === csvCitation) return c;
+                if ((c.citation || '').trim() === csvCitation) return c;
                 continue;
             }
             return c;
@@ -5794,9 +5791,9 @@ function syncTermsJson() {
                 // shouldn't inflate these stats or the term=all history chart.
                 const arguedData = data.filter(c => c.argument || c.reargument);
                 decided = arguedData.filter(c => c.decision || c.dateDecision).length;
-                unanimous = arguedData.filter(c => c.voteMinority === 0).length;
+                unanimous = arguedData.filter(c => /-0$/.test(c.score || '')).length;
                 ({ argued, argDays, audio } = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm));
-                orders = data.filter(c => _isOrdersCase(c.usCite, page.reports)).length;
+                orders = data.filter(c => _isOrdersCase(c.citation, page.reports)).length;
                 // "digs" is a subset of "dismissals" — a case dismissed as
                 // improvidently granted is still just "dismissed" too — so
                 // every dig case is counted in both.
@@ -5957,7 +5954,7 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
 // Minutes book) has no way to learn about it from its own cases.json alone,
 // so this scans every term's cases.json for an argument/reargument date
 // landing in a chronologically earlier term and records a case-detail
-// object — { type, id, term, number, title, usCite } — under that date in
+// object — { type, id, term, number, title, citation } — under that date in
 // the earlier term's own dates.json, creating the file (or just that date's
 // own array) if neither exists yet. "term" here is the CASE's own term (not
 // the earlier one whose dates.json this lands in); "type" is "argument" or
@@ -5999,7 +5996,7 @@ function syncCrossTermCaseDates() {
                     if (!additions.has(dTerm)) additions.set(dTerm, new Map());
                     const byIso = additions.get(dTerm);
                     if (!byIso.has(d)) byIso.set(d, []);
-                    byIso.get(d).push({ type, id: c.id, term: termId, number: c.number, title: c.title, usCite: c.usCite });
+                    byIso.get(d).push({ type, id: c.id, term: termId, number: c.number, title: c.title, citation: c.citation });
                 }
             }
         }
@@ -6285,7 +6282,7 @@ async function _generateReportCover(pdfPath, outputJpgPath, pdfPage = 1) {
 }
 
 // For every term in terms.json, scan cases.json for U.S. Reports volume
-// numbers (from usCite fields), cross-reference against the bound volumes
+// numbers (from citation fields), cross-reference against the bound volumes
 // listed on USReports.aspx, and build/maintain the "reports" array on
 // each term group entry. Cover images are generated via pdftoppm if absent;
 // pages values are computed via pdftotext if absent.
@@ -6438,11 +6435,11 @@ async function syncTermsReports(termFilter, volFilter = null, scanPdfs = false) 
                 if (!Array.isArray(cases)) cases = [];
             } catch { continue; }
 
-            // Collect unique volume numbers referenced in usCite fields that
+            // Collect unique volume numbers referenced in citation fields that
             // also have a local PDF available.
             const volSet = new Set();
             for (const c of cases) {
-                const cm = /^(\d+)\s+U\.S\./.exec(c.usCite || '');
+                const cm = /^(\d+)\s+U\.S\./.exec(c.citation || '');
                 if (cm) {
                     const vol = parseInt(cm[1], 10);
                     if (vol >= 2 && localVols.has(vol)) volSet.add(vol);
@@ -6759,10 +6756,10 @@ function _applyCompOp(lhs, op, rhs) {
 }
 
 // 'volume' is never stored on a case object — like 'page', it's derived from
-// usCite at read time (see CLAUDE.md) — so any condition/field referencing it
+// citation at read time (see CLAUDE.md) — so any condition/field referencing it
 // must re-derive it here rather than reading caseObj.volume directly.
-function _deriveVolumeFromUsCite(caseObj) {
-    const m = /^(\d+)\s/.exec(caseObj.usCite || '');
+function _deriveVolumeFromCitation(caseObj) {
+    const m = /^(\d+)\s/.exec(caseObj.citation || '');
     return m ? parseInt(m[1], 10) : null;
 }
 
@@ -6787,7 +6784,7 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
             const val = cond.prop === 'term' && termDir
                 ? path.basename(termDir)
                 : cond.prop === 'volume'
-                    ? _deriveVolumeFromUsCite(c)
+                    ? _deriveVolumeFromCitation(c)
                     : c[cond.prop];
             if (val == null) return false;
             if (!_applyCompOp(val, cond.op, cond.value)) return false;
@@ -7368,12 +7365,12 @@ function processNumberIndex(allTerms, dryRun) {
 // more succinct "384 US 436" both resolve to the same index key ("384 us
 // 436"). Mirrors the normalization the Terms search box applies to a partial
 // citation query (assets/js/explorer.js) so index keys and queries agree.
-function _normalizeUsCite(s) {
+function _normalizeCitation(s) {
     return String(s || '').toLowerCase().replace(/\./g, '').replace(/\s+/g, ' ').trim();
 }
 
 // Builds courts/ussc/indexes/cases/citations.json.
-// Maps each case's normalized `usCite` to a sorted array of ref strings, using
+// Maps each case's normalized `citation` to a sorted array of ref strings, using
 // the same shortened-ref convention as processTitleIndex/processNumberIndex.
 // A citation is occasionally shared by more than one case, hence the array
 // value. File is written compact (no indentation).
@@ -7381,7 +7378,7 @@ function _normalizeUsCite(s) {
 function processCitationIndex(allTerms, dryRun) {
     const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'citations.json');
 
-    // normalized usCite → Set of ref strings
+    // normalized citation → Set of ref strings
     const citeRefs = new Map();
 
     for (const term of allTerms) {
@@ -7395,7 +7392,7 @@ function processCitationIndex(allTerms, dryRun) {
         const isOctoberTerm = term.endsWith('-10');
 
         for (const c of cases) {
-            const key = _normalizeUsCite(c.usCite);
+            const key = _normalizeCitation(c.citation);
             if (!key || (!c.id && !c.number)) continue;
             const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
             const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
@@ -8029,7 +8026,7 @@ function _scdbFieldPresent(c, key) {
 }
 
 function _scdbHasImportedOpinion(c) {
-    for (const k of ['volume','page','usCite','voteMajority','voteMinority','votes','decision_loc','decision_gov','decision_vol']) {
+    for (const k of ['volume','page','citation','score','votes','decision_loc','decision_gov','decision_vol']) {
         if (_scdbFieldPresent(c, k)) return true;
     }
     return false;
@@ -8055,22 +8052,24 @@ function _scdbMergeVotes(existing, fromScdb) {
 }
 
 function _scdbApplyOpinionUpdate(c, row) {
-    const usCite = _scdbNormalizeCite(row.usCite || '');
-    const [volume, page] = _scdbParseUsCite(usCite);
+    const citation = _scdbNormalizeCite(row.usCite || '');
+    const [volume, page] = _scdbParseCitation(citation);
     const [maj, minv]    = _scdbMajorityCounts(row);
     const votes          = _scdbVotesSubset(row);
     const opinionHref    = _scdbLocOpinionHref(volume, page);
 
-    if (!(volume || page || usCite || maj !== null || minv !== null || votes.length || opinionHref)) return false;
+    if (!(volume || page || citation || maj !== null || minv !== null || votes.length || opinionHref)) return false;
 
-    // If usCite is/will be present and parses to the same volume/page, don't write redundant keys.
-    const effectiveUsCite = _scdbFieldPresent(c, 'usCite') ? c.usCite : usCite;
-    const [citeVol, citePage] = _scdbParseUsCite(effectiveUsCite);
+    // If citation is/will be present and parses to the same volume/page, don't write redundant keys.
+    const effectiveCitation = _scdbFieldPresent(c, 'citation') ? c.citation : citation;
+    const [citeVol, citePage] = _scdbParseCitation(effectiveCitation);
 
     const next = { ...c };
-    if (usCite       && !_scdbFieldPresent(c, 'usCite'))       next.usCite = usCite;
-    if (maj  !== null && !_scdbFieldPresent(c, 'voteMajority')) next.voteMajority = maj;
-    if (minv !== null && !_scdbFieldPresent(c, 'voteMinority')) next.voteMinority = minv;
+    if (citation && !_scdbFieldPresent(c, 'citation')) next.citation = citation;
+    // score only gets written once BOTH halves are known — there's no way to
+    // store "majority known, minority unknown" in a single merged field (see
+    // CLAUDE.md's Case schema section).
+    if (maj !== null && minv !== null && !_scdbFieldPresent(c, 'score')) next.score = `${maj}-${minv}`;
     if (votes.length) {
         if (!_scdbFieldPresent(c, 'votes')) {
             next.votes = votes;
@@ -8227,13 +8226,9 @@ function _scdbApplyXUpdate(c, row, mm) {
     }
 
     const [maj, minv] = _scdbMajorityCounts(row);
-    if (mm.voteMajority !== null && maj  !== null && c.voteMajority !== maj
-            && !ignored.has('voteMajority') && !ignored.has('votes')) {
-        c.voteMajority = maj; changed = true;
-    }
-    if (mm.voteMinority !== null && minv !== null && c.voteMinority !== minv
-            && !ignored.has('voteMinority') && !ignored.has('votes')) {
-        c.voteMinority = minv; changed = true;
+    if (mm.score && maj !== null && minv !== null && !ignored.has('score') && !ignored.has('votes')) {
+        const scdbScore = `${maj}-${minv}`;
+        if (c.score !== scdbScore) { c.score = scdbScore; changed = true; }
     }
 
     if (!('result' in c)) {
@@ -8244,14 +8239,14 @@ function _scdbApplyXUpdate(c, row, mm) {
         }
     }
 
-    if (!ignored.has('usCite')) {
-        const cur = String(c.usCite || '').trim();
+    if (!ignored.has('citation')) {
+        const cur = String(c.citation || '').trim();
         const scdbCite = _scdbNormalizeCite(row.usCite || '');
         if (!cur && scdbCite) {
-            c.usCite = scdbCite;
+            c.citation = scdbCite;
             changed = true;
             if (!c.decision_loc && !ignored.has('decision_loc')) {
-                const [vol, pg] = _scdbParseUsCite(scdbCite);
+                const [vol, pg] = _scdbParseCitation(scdbCite);
                 const href = _scdbLocOpinionHref(vol, pg);
                 if (href) { c.decision_loc = href; }
             }
@@ -8385,18 +8380,18 @@ function _scdbCleanTitle(title) {
 }
 
 function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
-    let usCite     = _scdbNormalizeCite(scdbCase.usCite || '');
+    let citation   = _scdbNormalizeCite(scdbCase.usCite || '');
     let docket     = (scdbCase.docket || '').trim();
     let argument   = _scdbNormalizeDate(scdbCase.dateArgument || '');
     let reargument = _scdbNormalizeDate(scdbCase.dateRearg || scdbCase.datreRearg || '');
     let decision   = _scdbNormalizeDate(scdbCase.dateDecision || '');
     let title      = (scdbCase.caseName || '').trim() || caseId;
 
-    let ldArgDates = [], ldReargDates = [], ldDecision = '', ldTitle = '', ldUsCite = '', ldDocket = '';
+    let ldArgDates = [], ldReargDates = [], ldDecision = '', ldTitle = '', ldCitation = '', ldDocket = '';
     for (const r of [...ldDates].sort((a, b) => _scdbArgnum(a) - _scdbArgnum(b))) {
-        if (!ldTitle)   ldTitle   = (r.caseTitle || '').trim();
-        if (!ldUsCite)  ldUsCite  = _scdbNormalizeCite(r.usCite || '');
-        if (!ldDocket)  ldDocket  = (r.docket || '').trim();
+        if (!ldTitle)    ldTitle    = (r.caseTitle || '').trim();
+        if (!ldCitation) ldCitation = _scdbNormalizeCite(r.usCite || '');
+        if (!ldDocket)   ldDocket   = (r.docket || '').trim();
         if (!ldDecision) {
             const cand = _scdbNormalizeDate(r.dateDecision || '');
             if (cand && cand !== '0') ldDecision = cand;
@@ -8407,12 +8402,12 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
         for (const d of argDates) if (!target.includes(d)) target.push(d);
     }
 
-    if (!usCite && ldUsCite) usCite = ldUsCite;
+    if (!citation && ldCitation) citation = ldCitation;
     if ((!docket || docket === '0') && ldDocket && ldDocket !== '0') docket = ldDocket;
 
-    if (usCite && ldTitles[usCite]) {
+    if (citation && ldTitles[citation]) {
         const decYear = decision.slice(0, 4);
-        const entries = ldTitles[usCite];
+        const entries = ldTitles[citation];
         const yearMatches = entries.filter(e => e.year === decYear);
         const candidates = yearMatches.length ? yearMatches : entries;
         if (candidates.length === 1) {
@@ -8439,18 +8434,17 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
     const [maj, minv] = _scdbMajorityCounts(scdbCase);
     const votes = _scdbVotesSubset(scdbCase);
 
-    const obj = { id: caseId, title, files: false, votes };
+    const obj = { id: caseId, title, files: false, references: false, votes };
     if (docket && docket !== '0')     obj.number = _scdbNormalizeDocket(docket);
     if (argument && argument !== '0') obj.argument = argument;
     if (reargument && reargument !== '0') obj.reargument = reargument;
     if (decision && decision !== '0') {
         obj.decision = decision;
     }
-    if (maj  !== null) obj.voteMajority = maj;
-    if (minv !== null) obj.voteMinority = minv;
-    if (usCite) {
-        obj.usCite = usCite;
-        const [volume, page] = _scdbParseUsCite(usCite);
+    if (maj !== null && minv !== null) obj.score = `${maj}-${minv}`;
+    if (citation) {
+        obj.citation = citation;
+        const [volume, page] = _scdbParseCitation(citation);
         const href = _scdbLocOpinionHref(volume, page);
         if (href)   obj.decision_loc = href;
     }
@@ -8468,9 +8462,9 @@ function _scdbNotIncludedLine(c) {
         const label = c.number.includes(',') ? 'Nos.' : 'No.';
         line += ` (${label} ${c.number.replace(/-(?=Orig|Misc)/gi, ' ')})`;
     }
-    if (c.usCite) {
+    if (c.citation) {
         const year = (c.decision || '').slice(0, 4);
-        line += `, ${c.usCite}${year ? ` (${year})` : ''}`;
+        line += `, ${c.citation}${year ? ` (${year})` : ''}`;
     }
     return line;
 }
@@ -8658,7 +8652,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
         // have a c.id (e.g. recently imported terms).
         const termYear  = (term.match(/^(\d{4})/)      || [])[1] || '';
         const termMonth = (term.match(/^\d{4}-(\d{2})$/) || [])[1] || '';
-        const scdbByCite       = new Map(); // normalized usCite -> caseId | null(=ambiguous)
+        const scdbByCite       = new Map(); // normalized citation -> caseId | null(=ambiguous)
         const scdbByDocketDate = new Map(); // "docket\u0000YYYY-MM-DD" -> caseId | null
         const scdbByDocket     = new Map(); // docket -> caseId | null
         const scdbByTitle      = new Map(); // squashed title -> caseId | null
@@ -8733,9 +8727,9 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             // this note -- so check it here too, regardless of how cid was set.
             if (cid && update && _removeAuditMessage(c, SCDB_MISSING_MESSAGE)) termChanged = true;
             if (!cid) {
-                const cite = _scdbNormalizeCite(c.usCite || '');
+                const cite = _scdbNormalizeCite(c.citation || '');
                 let cand = cite ? scdbByCite.get(cite) : null;
-                if (cand) matchHow = 'usCite';
+                if (cand) matchHow = 'citation';
                 if (!cand) {
                     const decIso = _scdbNormalizeDate(c.decision || '');
                     for (const d of splitDocket(c.number)) {
@@ -8831,8 +8825,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             if (matchHow) matchInfo.push({ title: firstTitle(c.title) || cid, cid, how: matchHow });
             total++;
             const prefix = `${term}/${cid} (${firstTitle(c.title) || cid})`;
-            const noVoteData = (c.voteMajority === undefined &&
-                                c.voteMinority === undefined &&
+            const noVoteData = (c.score === undefined &&
                                 (!Array.isArray(c.votes) || c.votes.length === 0));
 
             const row = scdb[cid];
@@ -8873,7 +8866,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             }
 
             const mm = { decision: false, argument: false, reargument: false,
-                         voteMajority: null, voteMinority: null, missingVotes: [], scdbVotes: null };
+                         score: false, missingVotes: [], scdbVotes: null };
 
             // A comma-separated (multi-day) value flags its field regardless of
             // whether SCDB's single date matches one of ours — SCDB's schema
@@ -8956,21 +8949,19 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
             if (_scdbHasImportedOpinion(c) || noVoteData) {
                 const [maj, minv] = _scdbMajorityCounts(row);
                 if (noVoteData) {
-                    if (maj !== null) mm.voteMajority = maj;
-                    if (minv !== null) mm.voteMinority = minv;
+                    if (maj !== null && minv !== null) mm.score = true;
                     const sVall = _scdbVotesSubset(row);
                     if (sVall.length) { mm.missingVotes = sVall; mm.scdbVotes = sVall; }
-                    if (maj !== null || minv !== null || sVall.length) {
+                    if ((maj !== null && minv !== null) || sVall.length) {
                         pushErr('votes', `${prefix}: missing vote data`);
                     }
                 } else {
-                if (maj  !== null && c.voteMajority !== maj) {
-                    mm.voteMajority = maj;
-                    pushErr('voteMajority', `${prefix}: voteMajority mismatch: ours=${JSON.stringify(c.voteMajority)} scdb=${JSON.stringify(maj)}`);
-                }
-                if (minv !== null && c.voteMinority !== minv) {
-                    mm.voteMinority = minv;
-                    pushErr('voteMinority', `${prefix}: voteMinority mismatch: ours=${JSON.stringify(c.voteMinority)} scdb=${JSON.stringify(minv)}`);
+                if (maj !== null && minv !== null) {
+                    const scdbScore = `${maj}-${minv}`;
+                    if (c.score !== scdbScore) {
+                        mm.score = true;
+                        pushErr('score', `${prefix}: score mismatch: ours=${JSON.stringify(c.score)} scdb=${JSON.stringify(scdbScore)}`);
+                    }
                 }
 
                 const sV = _scdbVotesSubset(row);
@@ -9308,7 +9299,7 @@ async function runScdb(opts) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// --dates: verify argument/decision dates and usCite against
+// --dates: verify argument/decision dates and citation against
 //          data/ussc/dates.csv
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -9339,21 +9330,21 @@ function _loadDatesCsv() {
         const caseId = (fields[idIdx] || '').trim();
         if (!caseId) continue;
         // A caseId may appear more than once (multiple argument dates for the
-        // same case under separate rows). Only merge rows where both usCite and
+        // same case under separate rows). Only merge rows where both citation and
         // dateDecision match the first-seen row — rows that differ on either
         // field are a different case that shares the caseId by error.
         const rowCite = (fields[citeIdx] || '').trim();
         const rowDec  = (fields[decIdx]  || '').trim();
         if (!map.has(caseId)) {
             map.set(caseId, {
-                usCite:        rowCite,
+                citation:      rowCite,
                 dateArguments: [],
                 dateDecision:  rowDec,
             });
         }
         const entry = map.get(caseId);
         // Skip rows that belong to a different case sharing this caseId.
-        if (rowCite !== entry.usCite || rowDec !== entry.dateDecision) continue;
+        if (rowCite !== entry.citation || rowDec !== entry.dateDecision) continue;
         // dateArgument may be '0' (no date), a single YYYY-MM-DD, or a
         // quoted comma-separated list like "1792-08-08,1792-08-10".
         const rawArg = (fields[argIdx] || '').trim();
@@ -9436,17 +9427,17 @@ async function runDatesCheck(termFilter, caseFilter, update) {
             let fixArg = null;   // sorted CSV dates to set as c.argument, if accepted
             let fixDec = null;   // CSV decision date to set as c.decision, if accepted
 
-            // usCite — also used as a sanity check: if it doesn't match,
+            // citation — also used as a sanity check: if it doesn't match,
             // the CSV row is for a different case and date checks are skipped.
-            const ourCite = normDate(c.usCite);
-            const csvCite = normDate(row.usCite);
+            const ourCite = normDate(c.citation);
+            const csvCite = normDate(row.citation);
             const citeConflict = ourCite && csvCite && !csvCite.includes('___') && ourCite !== csvCite;
             if (citeConflict) {
-                console.log(`  ${label}: usCite   ours="${ourCite}"  csv="${csvCite}"`);
+                console.log(`  ${label}: citation ours="${ourCite}"  csv="${csvCite}"`);
                 discrepancy = true;
             }
 
-            // argument date(s) and decision date: only checked when usCite
+            // argument date(s) and decision date: only checked when citation
             // matches (or is absent), so a caseId collision in the CSV doesn't
             // produce spurious date discrepancies.
             if (!citeConflict) {
@@ -10334,13 +10325,13 @@ const USAGE = `Usage: node update_cases.js                                # upda
                                                                           # backfill missing events[] for recorded argument/reargument dates
        node update_cases.js [TERM [CASE]] --split [--dry-run]                  # detect/split multi-speaker opinion events
        node update_cases.js [TERM [CASE]] --unargued                            # list argument anomalies
-       node update_cases.js [TERM]       --missing-cite                        # list decided cases without usCite
+       node update_cases.js [TERM]       --missing-cite                        # list decided cases without citation
        node update_cases.js [TERM [CASE]] --loc --backfill [--dry-run]          # fill missing sub-titles from LOC opinion PDFs
        node update_cases.js [TERM [CASE]] --cleanup-files [--dry-run]          # normalize type/group in all files.json
        node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
        node update_cases.js TERM CASE --date YYYY-MM-DD --minutes URL   # attach a NARA minutes reference
        node update_cases.js --minutes [--dry-run]              # backfill missing minutes_src values
-       node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build opCite
+       node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build cites
        node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
        node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/historical/cites/top_cites.json
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
@@ -10369,7 +10360,7 @@ Examples:
   node update_cases.js 2024-10 23-975 --recused gorsuch
   node update_cases.js 2024-10 2024-001 --minority sotomayor kagan jackson
 
-  # Build opCite from the opinion's cited-case links
+  # Build cites from the opinion's cited-case links
   node update_cases.js 1965-10 759 --cites
   node update_cases.js 1965-10 759 --cites --verbose --dry-run
   node update_cases.js 1965-10 --cites                     # every case in that term with opinion HTML
@@ -10594,7 +10585,7 @@ function runTagAdd(term, caseNumber, tagValue, dryRun) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // --cites: scan a case's opinion HTML for citations to earlier opinions and
-// record them in a new "opCite" array ({ title, ref, count }).
+// record them in a new "cites" array ({ title, ref, count }).
 //
 // Full citations are identified by an italicized (<em>) case name adjacent to
 // a link to another /cases/federal/us/VOL/PAGE/ opinion (Justia links early
@@ -10607,8 +10598,8 @@ function runTagAdd(term, caseNumber, tagValue, dryRun) {
 // cited opinion's own starting page (from the href) is used.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// vol -> page -> { term, id, title }, built from every case's usCite.
-function _buildUsCiteIndex() {
+// vol -> page -> { term, id, title }, built from every case's citation.
+function _buildCitationIndex() {
     const idx = new Map();
     const terms = fs.readdirSync(TERMS_DIR).filter(d => /^\d{4}-\d{2}$/.test(d));
     for (const term of terms) {
@@ -10617,7 +10608,7 @@ function _buildUsCiteIndex() {
         try { cases = _readJson(casesPath); } catch { continue; }
         if (!Array.isArray(cases)) continue;
         for (const c of cases) {
-            const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+            const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.citation || '').trim());
             if (!m) continue;
             const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
             if (!idx.has(vol)) idx.set(vol, new Map());
@@ -10646,7 +10637,7 @@ function _buildReporterIndex() {
     return idx;
 }
 
-const _OPCITE_REPORTER_ABBREV = {
+const _CITES_REPORTER_ABBREV = {
     dall: 'dallas', dallas: 'dallas',
     cranch: 'cranch', cr: 'cranch',
     wheat: 'wheaton', wheaton: 'wheaton',
@@ -10657,7 +10648,7 @@ const _OPCITE_REPORTER_ABBREV = {
 };
 
 function _resolveOldReporter(reporterIdx, numStr, abbrev) {
-    const name = _OPCITE_REPORTER_ABBREV[abbrev.toLowerCase().replace(/\.$/, '')];
+    const name = _CITES_REPORTER_ABBREV[abbrev.toLowerCase().replace(/\.$/, '')];
     if (!name) return null;
     return reporterIdx.get(name)?.get(parseInt(numStr, 10)) ?? null;
 }
@@ -10686,9 +10677,9 @@ function _stripCiteSignalPrefix(s) {
 
 // Procedural-history annotations ("aff'd, 381 U. S. 654") cite the case named
 // in the preceding em-span, not the annotation word itself.
-const _OPCITE_PROCEDURAL_RE = /^(aff'd|affirmed|rev'd|reversed|vacated|modified|remanded|denied|granted|aff'g|rev'g|quoting|quoted in|cited in|citing|overruled(?:\s+by)?|distinguished|explained in|on remand)\.?,?$/i;
+const _CITES_PROCEDURAL_RE = /^(aff'd|affirmed|rev'd|reversed|vacated|modified|remanded|denied|granted|aff'g|rev'g|quoting|quoted in|cited in|citing|overruled(?:\s+by)?|distinguished|explained in|on remand)\.?,?$/i;
 
-function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = false } = {}) {
+function _extractCites(html, citationIdx, reporterIdx, selfRef, { verbose = false } = {}) {
     let content = _boundOpinionContent(html);
 
     // Replace federal US case links with a marker holding vol:page, keeping the
@@ -10709,7 +10700,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
     const US_RE = /^\s*,?\s*(\d+)\s+U\.?\s*S\.?\s+(\d+)/;
 
     const register = (title, vol, page) => {
-        const hit = usCiteIdx.get(vol)?.get(page);
+        const hit = citationIdx.get(vol)?.get(page);
         const ref = hit ? `${hit.term}/${hit.id}` : null;
         if (!ref) {
             if (verbose) console.log(`  [unresolved] "${title}" -> ${vol} U.S. ${page} (no matching case in terms data)`);
@@ -10721,7 +10712,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
         } else {
             // Use the cited case's own canonical title (from cases.json) rather than
             // however this citing opinion happened to spell/style it in its text —
-            // keeps opCite titles consistent across every opinion that cites a case,
+            // keeps cites titles consistent across every opinion that cites a case,
             // and immune to that opinion's own OCR typos.
             const year = /^(\d{4})-/.exec(hit.decision || '')?.[1] || null;
             const canonicalTitle = firstTitle(hit.title) || title;
@@ -10787,7 +10778,7 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
         if (hasVPattern) lastTitleSeen = title;
 
         if (vol != null && page != null) {
-            const useTitle = (!hasVPattern && _OPCITE_PROCEDURAL_RE.test(title) && lastTitleSeen) ? lastTitleSeen : title;
+            const useTitle = (!hasVPattern && _CITES_PROCEDURAL_RE.test(title) && lastTitleSeen) ? lastTitleSeen : title;
             register(useTitle, vol, page);
             continue;
         }
@@ -10821,8 +10812,8 @@ function _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose = fals
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// opCite -> files.json "reference" entries: scan a case's own oral-argument
-// transcripts for mentions of the parties named in each opCite title, and
+// cites -> files.json "reference" entries: scan a case's own oral-argument
+// transcripts for mentions of the parties named in each cites title, and
 // record a "reference" file entry (with a "refs" list of the actual words/
 // phrases found) for every cited opinion that turns out to be discussed by
 // name in the argument itself.
@@ -10842,8 +10833,8 @@ const _US_STATE_NAMES = [
 // Party names/phrases to strip entirely before candidate extraction: they're
 // too common as case parties (all 50 states, plus "United States") to make
 // useful "refs" matches on their own.
-const _OPCITE_REF_STOP_PHRASES = ['United States', ..._US_STATE_NAMES.filter(n => /\s/.test(n))];
-const _OPCITE_REF_STOPWORDS = new Set(['A', 'An', 'The', ..._US_STATE_NAMES.filter(n => !/\s/.test(n))]);
+const _CITES_REF_STOP_PHRASES = ['United States', ..._US_STATE_NAMES.filter(n => /\s/.test(n))];
+const _CITES_REF_STOPWORDS = new Set(['A', 'An', 'The', ..._US_STATE_NAMES.filter(n => !/\s/.test(n))]);
 
 // Common English words that make poor "refs" even though they're capitalized
 // in the source title — they're capitalized only because a title-cased case
@@ -10852,7 +10843,7 @@ const _OPCITE_REF_STOPWORDS = new Set(['A', 'An', 'The', ..._US_STATE_NAMES.filt
 // because they're a distinctive party name/surname like "Griswold" or
 // "Shelton". Checked case-insensitively against the candidate word. Not
 // exhaustive — extend as more false-positive matches turn up.
-const _OPCITE_REF_COMMON_WORDS = new Set([
+const _CITES_REF_COMMON_WORDS = new Set([
     'in', 're', 'for', 'of', 'and', 'or', 'the', 'to', 'on', 'at', 'by', 'is',
     'as', 'it', 'be', 'his', 'her', 'its', 'our', 'their', 'from', 'with',
     'organization', 'organizations', 'association', 'associations',
@@ -10865,13 +10856,13 @@ const _OPCITE_REF_COMMON_WORDS = new Set([
     'school', 'schools', 'educ', 'education', 'educational',
 ]);
 
-// Split a "Party v. Party (YEAR)" opCite title into its two party names.
+// Split a "Party v. Party (YEAR)" cites title into its two party names.
 function _titleParties(title) {
     const bare = title.replace(/\s*\(\d{4}\)$/, '').trim();
     return bare.split(/\s+v\.?\s+/i).map(s => s.trim()).filter(Boolean);
 }
 
-// Extract candidate capitalized words/phrases from an opCite title's party
+// Extract candidate capitalized words/phrases from a cites title's party
 // names, skipping "United States", U.S. state names, leading articles ("A",
 // "An", "The"), words under 3 letters, and common English words — all too
 // common (as case parties, or as ordinary vocabulary) to make useful "refs".
@@ -10879,7 +10870,7 @@ function _extractRefCandidates(title) {
     const candidates = new Set();
     for (const party of _titleParties(title)) {
         let cleaned = party;
-        for (const phrase of _OPCITE_REF_STOP_PHRASES) {
+        for (const phrase of _CITES_REF_STOP_PHRASES) {
             cleaned = cleaned.replace(new RegExp('\\b' + phrase + '\\b', 'g'), ' ');
         }
         const words = cleaned.split(/\s+/).filter(Boolean);
@@ -10892,8 +10883,8 @@ function _extractRefCandidates(title) {
             const bare = w.replace(/[.,;:]+$/, '');
             const qualifies = bare.length >= 3
                 && /^[A-Z]/.test(bare)
-                && !_OPCITE_REF_STOPWORDS.has(bare)
-                && !_OPCITE_REF_COMMON_WORDS.has(bare.toLowerCase());
+                && !_CITES_REF_STOPWORDS.has(bare)
+                && !_CITES_REF_COMMON_WORDS.has(bare.toLowerCase());
             if (qualifies) run.push(bare);
             else flush();
         }
@@ -10919,7 +10910,7 @@ function _findRefMatches(candidate, corpus) {
     return found;
 }
 
-// term -> Map(id -> case), lazily built and cached across opCite entries.
+// term -> Map(id -> case), lazily built and cached across cites entries.
 const _caseByRefCache = new Map();
 function _loadCaseByRef(term, id) {
     if (!_caseByRefCache.has(term)) {
@@ -10933,12 +10924,12 @@ function _loadCaseByRef(term, id) {
     return _caseByRefCache.get(term).get(id) || null;
 }
 
-// For each opCite entry, search the case's own argument transcript(s) for
+// For each cites entry, search the case's own argument transcript(s) for
 // mentions of its parties, returning { title, href, refs } for every entry
 // that's actually discussed by name (href comes from the cited case's own
 // decision_loc / decision_gov / decision_vol, in that preference order).
-function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
-    if (!opCite.length || !Array.isArray(c.events)) return [];
+function _computeCiteRefs(term, c, cites, { verbose = false } = {}) {
+    if (!cites.length || !Array.isArray(c.events)) return [];
 
     const casesDir = path.join(TERMS_DIR, term, 'cases');
     const texts = [];
@@ -10952,7 +10943,7 @@ function _computeOpCiteRefs(term, c, opCite, { verbose = false } = {}) {
     const corpus = texts.join(' ');
 
     const refEntries = [];
-    for (const entry of opCite) {
+    for (const entry of cites) {
         const matches = new Set();
         for (const cand of _extractRefCandidates(entry.title)) {
             for (const found of _findRefMatches(cand, corpus)) matches.add(found);
@@ -11003,10 +10994,10 @@ function _addReferenceEntries(term, c, refEntries) {
     }
 }
 
-// Resolve a case's opinion HTML path from its usCite, or null if the case has
-// no usable usCite or no cached opinion HTML file for it.
+// Resolve a case's opinion HTML path from its citation, or null if the case has
+// no usable citation or no cached opinion HTML file for it.
 function _resolveOpinionPath(c) {
-    const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim());
+    const m = /^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.citation || '').trim());
     if (!m) return null;
     const vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
     const volDir = 'us' + String(vol).padStart(3, '0');
@@ -11105,10 +11096,10 @@ async function runVerifyBackfill(termFilter, caseFilter, dryRun, { verbose = fal
     console.log(`\nEvents: ${dryRun ? 'would add' : 'added'} ${eventsBackfilledTotal} event(s) across ${eventsBackfilledCases} case(s) missing one for a recorded argument/reargument date.`);
 }
 
-function _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose = false } = {}) {
+function _buildCitesList(opinionPath, term, c, citationIdx, reporterIdx, { verbose = false } = {}) {
     const html = fs.readFileSync(opinionPath, 'utf8');
     const selfRef = `${term}/${c.id}`;
-    return _extractOpCites(html, usCiteIdx, reporterIdx, selfRef, { verbose })
+    return _extractCites(html, citationIdx, reporterIdx, selfRef, { verbose })
         .filter(entry => entry.count > 1)
         .sort((a, b) => (b.decision || '').localeCompare(a.decision || ''));
 }
@@ -11129,8 +11120,8 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     }
     const label = c.number || c.id || '?';
 
-    if (!/^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.usCite || '').trim())) {
-        console.error(`ERROR: ${term}/${label} has no usable usCite ("${c.usCite || ''}")`);
+    if (!/^(\d+)\s+U\.?\s*S\.?\s+(\d+)$/.exec((c.citation || '').trim())) {
+        console.error(`ERROR: ${term}/${label} has no usable citation ("${c.citation || ''}")`);
         process.exit(1);
     }
     const opinionPath = _resolveOpinionPath(c);
@@ -11139,42 +11130,42 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
         process.exit(1);
     }
 
-    const usCiteIdx = _buildUsCiteIndex();
+    const citationIdx = _buildCitationIndex();
     const reporterIdx = _buildReporterIndex();
-    const opCite = _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose });
+    const cites = _buildCitesList(opinionPath, term, c, citationIdx, reporterIdx, { verbose });
 
-    console.log(`${term}/${label}: found ${opCite.length} cited opinion(s)`);
-    for (const entry of opCite) {
+    console.log(`${term}/${label}: found ${cites.length} cited opinion(s)`);
+    for (const entry of cites) {
         console.log(`  [${entry.count}x] ${entry.title} -> ${entry.term}/${entry.id}`);
     }
 
-    const refEntries = _computeOpCiteRefs(term, c, opCite, { verbose });
+    const refEntries = _computeCiteRefs(term, c, cites, { verbose });
 
     if (dryRun) {
-        console.log(`[dry-run] Would ${opCite.length ? 'set' : 'clear'} opCite on ${term}/${label}`);
+        console.log(`[dry-run] Would ${cites.length ? 'set' : 'clear'} cites on ${term}/${label}`);
         for (const r of refEntries) {
             console.log(`[dry-run] Would add reference "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
         }
         return;
     }
 
-    if (opCite.length) c.opCite = opCite;
-    else delete c.opCite;
+    if (cites.length) c.cites = cites;
+    else delete c.cites;
 
     const reordered = reorderCase(c);
     for (const k of Object.keys(c)) delete c[k];
     Object.assign(c, reordered);
 
     _writeJson(casesPath, cases);
-    console.log(`Wrote opCite (${opCite.length} entries) to ${term}/${label}.`);
+    console.log(`Wrote cites (${cites.length} entries) to ${term}/${label}.`);
 
     _addReferenceEntries(term, c, refEntries);
 }
 
 // --cites over every case in a term (or every term) that has a resolvable
-// usCite and a cached opinion HTML file. Reuses the same per-case extraction
-// as the single-case path; the usCite index (built once, up front) is what
-// keeps opCite entries limited to citations that match one of our own cases.
+// citation and a cached opinion HTML file. Reuses the same per-case extraction
+// as the single-case path; the citation index (built once, up front) is what
+// keeps cites entries limited to citations that match one of our own cases.
 function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
     let allTerms = [];
     try {
@@ -11187,7 +11178,7 @@ function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
     } catch {}
 
     const termsToProcess = termFilter ? [termFilter] : allTerms;
-    const usCiteIdx = _buildUsCiteIndex();
+    const citationIdx = _buildCitationIndex();
     const reporterIdx = _buildReporterIndex();
 
     let scanned = 0, changed = 0;
@@ -11207,26 +11198,26 @@ function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
             scanned++;
 
             const label = c.number || c.id || '?';
-            const opCite = _buildOpCiteList(opinionPath, term, c, usCiteIdx, reporterIdx, { verbose });
+            const cites = _buildCitesList(opinionPath, term, c, citationIdx, reporterIdx, { verbose });
 
-            const before = JSON.stringify(c.opCite || null);
-            const after = JSON.stringify(opCite.length ? opCite : null);
+            const before = JSON.stringify(c.cites || null);
+            const after = JSON.stringify(cites.length ? cites : null);
             if (before === after) continue;
             changed++;
 
-            console.log(`${term}/${label}: ${(c.opCite || []).length} -> ${opCite.length} cited opinion(s)`);
-            const refEntries = _computeOpCiteRefs(term, c, opCite, { verbose });
+            console.log(`${term}/${label}: ${(c.cites || []).length} -> ${cites.length} cited opinion(s)`);
+            const refEntries = _computeCiteRefs(term, c, cites, { verbose });
 
             if (dryRun) {
-                console.log(`[dry-run] Would ${opCite.length ? 'set' : 'clear'} opCite on ${term}/${label}`);
+                console.log(`[dry-run] Would ${cites.length ? 'set' : 'clear'} cites on ${term}/${label}`);
                 for (const r of refEntries) {
                     console.log(`[dry-run] Would add reference "${r.title}" (refs: ${Array.isArray(r.refs) ? r.refs.join(', ') : r.refs})`);
                 }
                 continue;
             }
 
-            if (opCite.length) c.opCite = opCite;
-            else delete c.opCite;
+            if (cites.length) c.cites = cites;
+            else delete c.cites;
 
             const reordered = reorderCase(c);
             for (const k of Object.keys(c)) delete c[k];
@@ -11242,19 +11233,19 @@ function runOpCitesBulk(termFilter, dryRun, { verbose = false } = {}) {
         }
     }
 
-    console.log(`Scanned ${scanned} case(s) with opinion HTML; updated opCite on ${changed} case(s).`);
+    console.log(`Scanned ${scanned} case(s) with opinion HTML; updated cites on ${changed} case(s).`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // --cites --prune: one-time cleanup for reference entries that were added by
 // an earlier, looser version of _extractRefCandidates (before it excluded
 // sub-3-letter and common-English-word candidates — see
-// _OPCITE_REF_COMMON_WORDS). --cites itself won't touch these on a normal
+// _CITES_REF_COMMON_WORDS). --cites itself won't touch these on a normal
 // re-run: _addReferenceEntries() only ever *adds* entries and skips any
 // title it's already seen, and runOpCitesBulk() only recomputes refs for a
-// case when its opCite list itself changed. This instead recomputes refs
+// case when its cites list itself changed. This instead recomputes refs
 // fresh for every case with existing "reference" file entries, regardless of
-// whether opCite changed, and reconciles each one against the fresh result:
+// whether cites changed, and reconciles each one against the fresh result:
 //   - a title the current rules no longer match at all (no surviving
 //     candidate word) is removed entirely;
 //   - a title that still matches, but whose stored refs list mixes a
@@ -11282,7 +11273,7 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
         if (!Array.isArray(cases)) continue;
 
         for (const c of cases) {
-            if (!c.opCite?.length) continue;
+            if (!c.cites?.length) continue;
             const label = c.number || c.id || '?';
             if (caseFilter && label !== caseFilter && c.id !== caseFilter) continue;
 
@@ -11296,7 +11287,7 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
             if (!refFiles.length) continue;
             scannedFiles++;
 
-            const fresh = _computeOpCiteRefs(term, c, c.opCite, { verbose });
+            const fresh = _computeCiteRefs(term, c, c.cites, { verbose });
             const freshByTitle = new Map(fresh.map(r => [r.title, r]));
             const existingTitles = new Set(refFiles.map(f => f.title));
 
@@ -11348,10 +11339,10 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
 // --top-cites: build courts/ussc/collections/historical/cites/top_cites.json — an ordinary
 // embedded-format collection (like rare_words.json/oral_dissents.json:
 // [{ name, link, cases: [...] }, ...]) of the most-cited opinions across
-// every term, ranked by how many *other* cases' opCite array references them
+// every term, ranked by how many *other* cases' cites array references them
 // (not the per-citing-opinion mention count — see --cites above). Each
 // entry's "name" is looked up fresh from the cited case's own title/decision
-// (not copied from a citing opinion's opCite entry) so it's always
+// (not copied from a citing opinion's cites entry) so it's always
 // canonical, its "link" opens the cited opinion itself, and
 // its "cases" array — the citing opinions — is sorted by title ascending.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -11381,7 +11372,7 @@ function runTopCites(dryRun) {
 
         for (const c of cases) {
             caseByRef.set(`${term}/${c.id}`, c);
-            if (!Array.isArray(c.opCite) || !c.opCite.length) continue;
+            if (!Array.isArray(c.cites) || !c.cites.length) continue;
 
             const decMatch = /^(\d{4})/.exec(c.decision || '');
             const baseTitle = firstTitle(c.title) || '';
@@ -11395,7 +11386,7 @@ function runTopCites(dryRun) {
             };
             if (citerEvents.some(e => e.audio_href)) citerEntry.event      = true;
             if (citerEvents.some(e => e.text_href))  citerEntry.transcript = true;
-            for (const entry of c.opCite) {
+            for (const entry of c.cites) {
                 const ref = `${entry.term}/${entry.id}`;
                 if (!citedBy.has(ref)) citedBy.set(ref, []);
                 citedBy.get(ref).push(citerEntry);
@@ -11434,7 +11425,7 @@ function runTopCites(dryRun) {
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// --missing-cite: list decided cases that have no usCite
+// --missing-cite: list decided cases that have no citation
 // ─────────────────────────────────────────────────────────────────────────────
 
 function runMissingCite(termFilter, { argued = false } = {}) {
@@ -11459,7 +11450,7 @@ function runMissingCite(termFilter, { argued = false } = {}) {
         if (!Array.isArray(cases)) continue;
 
         for (const c of cases) {
-            if (!c.decision || c.usCite) continue;
+            if (!c.decision || c.citation) continue;
             if (argued) {
                 const hasArgDate = !!(c.argument || c.reargument ||
                     (c.events || []).some(e => e && (e.type === 'argument' || e.type === 'reargument') && e.date));
@@ -11472,7 +11463,7 @@ function runMissingCite(termFilter, { argued = false } = {}) {
         }
     }
 
-    console.log(`${total} case(s) missing usCite.`);
+    console.log(`${total} case(s) missing citation.`);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -12137,7 +12128,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
     if (opinion.cite) {
         const cm = /^(\d+)\s+U\.S\.[\s\xa0]+(\d+)$/.exec(opinion.cite.trim());
         if (cm) {
-            entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
+            entry.citation = `${cm[1]} U.S. ${cm[2]}`;
         }
     }
     entry.decision_gov = opinion.href;
@@ -12305,15 +12296,16 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
             Array.from(voteMap.values()).map(v => reorderVote(v)),
             decisionDate
         );
-        theCase.voteMajority = theCase.votes.filter(v => v.vote === 'majority').length;
-        theCase.voteMinority = theCase.votes.filter(v => v.vote === 'minority').length;
-        const noneCount      = theCase.votes.filter(v => v.vote === 'none').length;
+        const newMajority = theCase.votes.filter(v => v.vote === 'majority').length;
+        const newMinority = theCase.votes.filter(v => v.vote === 'minority').length;
+        theCase.score     = `${newMajority}-${newMinority}`;
+        const noneCount    = theCase.votes.filter(v => v.vote === 'none').length;
 
         console.log(`\nUpdated vote breakdown:`);
-        console.log(`  Majority: ${theCase.voteMajority}`);
-        console.log(`  Minority: ${theCase.voteMinority}`);
+        console.log(`  Majority: ${newMajority}`);
+        console.log(`  Minority: ${newMinority}`);
         console.log(`  None:     ${noneCount}`);
-        console.log(`  Total:    ${theCase.voteMajority + theCase.voteMinority + noneCount} of ${servingJustices.length} serving`);
+        console.log(`  Total:    ${newMajority + newMinority + noneCount} of ${servingJustices.length} serving`);
 
     } else {
         // ── Full update: replace all vote data ─────────────────────────────
@@ -12395,10 +12387,9 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         console.log(`  Total:    ${majorityCount + minorityCount + noneCount} of ${servingJustices.length} serving`);
         console.log(`\nOpinion author: ${authorCanonical ? _justiceDisplayName(authorCanonical) : 'Per curiam'}`);
 
-        theCase.result       = result;
-        theCase.voteMajority = votes.majority;
-        theCase.voteMinority = votes.minority;
-        theCase.votes        = sorted;
+        theCase.result = result;
+        theCase.score  = `${votes.majority}-${votes.minority}`;
+        theCase.votes  = sorted;
     }
 
     cases[caseIndex] = reorderCase(theCase);
@@ -12514,7 +12505,7 @@ async function runAddCase(term, title, argv, dryRun) {
             console.error(`ERROR: --cite value must be "N U.S. N" (e.g. "344 U.S. 923"), got "${citeRaw}"`);
             process.exit(1);
         }
-        entry.usCite = `${cm[1]} U.S. ${cm[2]}`;
+        entry.citation = `${cm[1]} U.S. ${cm[2]}`;
         const vol = Number(cm[1]), page = parseInt(cm[2], 10);
         try {
             const tj = _readJson(TERMS_JSON);
@@ -13044,7 +13035,7 @@ function _isOtherCourtHtml(html) {
 }
 
 function _parseJustiaOpinionHtml(html) {
-    const info = { title: null, usCite: null, year: null, numbers: [], argued: [], reargued: [], decided: null };
+    const info = { title: null, citation: null, year: null, numbers: [], argued: [], reargued: [], decided: null };
 
     // <title>Case Name | VOL U.S. PAGE (YEAR) | Justia...</title>
     const titleM = /<title>([^<]+)<\/title>/i.exec(html);
@@ -13052,9 +13043,9 @@ function _parseJustiaOpinionHtml(html) {
         const raw = titleM[1].trim();
         const m = /^(.+?)\s*\|\s*(\d+\s+U\.S\.\s+[\d_]+)\s*\((\d{4})\)/.exec(raw);
         if (m) {
-            info.title  = m[1].trim();
-            info.usCite = m[2].replace(/\s+/g, ' ').trim();
-            info.year   = parseInt(m[3], 10);
+            info.title    = m[1].trim();
+            info.citation = m[2].replace(/\s+/g, ' ').trim();
+            info.year     = parseInt(m[3], 10);
         }
     }
 
@@ -13112,7 +13103,7 @@ async function runJustiaCheck(volFilter, opts) {
     }
 
     // Build lookup tables from all terms' cases.json.
-    const knownCites   = new Map(); // usCite  → { term, id }
+    const knownCites   = new Map(); // citation → { term, id }
     const knownNumbers = new Map(); // number  → [{ term, id }, ...]
     try {
         const termNames = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
@@ -13121,7 +13112,7 @@ async function runJustiaCheck(volFilter, opts) {
             try {
                 const cases = JSON.parse(fs.readFileSync(cp, 'utf8'));
                 for (const c of cases) {
-                    if (c.usCite) knownCites.set(c.usCite, { term: termName, id: c.id });
+                    if (c.citation) knownCites.set(c.citation, { term: termName, id: c.id });
                     if (c.number) {
                         for (const num of c.number.split(/\s*,\s*/).map(s => s.trim()).filter(Boolean)) {
                             if (!knownNumbers.has(num)) knownNumbers.set(num, []);
@@ -13156,15 +13147,15 @@ async function runJustiaCheck(volFilter, opts) {
             }
 
             const info = _parseJustiaOpinionHtml(html);
-            if (!info.usCite) {
-                if (verbose) console.log(`  skip  ${basename}  (no usCite parsed)`);
+            if (!info.citation) {
+                if (verbose) console.log(`  skip  ${basename}  (no citation parsed)`);
                 continue;
             }
 
             let found = false;
-            if (!info.usCite.includes('_')) {
+            if (!info.citation.includes('_')) {
                 // Known citation — match exactly.
-                found = knownCites.has(info.usCite);
+                found = knownCites.has(info.citation);
             } else {
                 // Unreported (___) — fall back to case-number match.
                 for (const num of info.numbers) {
@@ -13346,10 +13337,10 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
 // =====================================================================
 
 // Resolve a field name to its value, supporting computed fields.
-// Computed: 'volume' → first integer in caseObj.usCite (e.g. "601 U.S. 1" → 601)
+// Computed: 'volume' → first integer in caseObj.citation (e.g. "601 U.S. 1" → 601)
 function _resolveAuditField(field, caseObj, term) {
     if (field === 'term')   return { value: term, numeric: false };
-    if (field === 'volume') return { value: _deriveVolumeFromUsCite(caseObj), numeric: true };
+    if (field === 'volume') return { value: _deriveVolumeFromCitation(caseObj), numeric: true };
     return { value: caseObj[field], numeric: false };
 }
 

@@ -2296,18 +2296,18 @@ async function compareUsscOyezSpeakers(casesPath, caseFilter = null) {
     }
 }
 
-// ── usCite formatting helpers ──────────────────────────────────────────────
+// ── citation formatting helpers ────────────────────────────────────────────
 
-function _isUsCitePlaceholder(cite) {
+function _isCitationPlaceholder(cite) {
     return /\bU\.S\.\s+___/.test(cite || '');
 }
 
 // Convert a raw citation string (as returned by the opinions page) to the
-// canonical usCite format stored in cases.json.
+// canonical citation format stored in cases.json.
 //   "608/2"      → "608 U.S. ___"   (slip-citation: volume known, page not yet)
 //   "608 U.S. 5" → "608 U.S. 5"     (final paginated citation)
 //   other/empty  → ""
-function _formatUsCite(rawCite) {
+function _formatCitation(rawCite) {
     if (!rawCite) return '';
     // Final paginated form (may contain NBSP): "608 U.S. 1"
     if (/^\d+ U\.S\.[\s\xa0]+\d+$/.test(rawCite)) return rawCite.replace(/\xa0/g, ' ');
@@ -2317,14 +2317,14 @@ function _formatUsCite(rawCite) {
     return '';
 }
 
-// Return true if the existing usCite should be replaced with newCite.
+// Return true if the existing citation should be replaced with newCite.
 // Never downgrades a real page number to a placeholder.
-function _shouldUpdateUsCite(existingCite, newCite) {
+function _shouldUpdateCitation(existingCite, newCite) {
     if (!newCite) return false;
     if (!existingCite) return true;
     if (existingCite === newCite) return false;
     // Don't overwrite a real page number with a placeholder
-    if (!_isUsCitePlaceholder(existingCite) && _isUsCitePlaceholder(newCite)) return false;
+    if (!_isCitationPlaceholder(existingCite) && _isCitationPlaceholder(newCite)) return false;
     return true;
 }
 
@@ -2395,17 +2395,17 @@ async function importOpinionCases(casesPath, term) {
             console.log(`  WARNING: ${number} has an opinion but is not in cases.json; pass --cases to add it`);
             continue;
         }
-        const cite   = _formatUsCite(opinion.cite || '');
+        const cite   = _formatCitation(opinion.cite || '');
 
         const newCaseObj = { title: opinion.name, number };
         if (opinion.date)  newCaseObj.decision     = opinion.date;
-        if (cite)          newCaseObj.usCite        = cite;
+        if (cite)          newCaseObj.citation      = cite;
         if (opinion.href)  newCaseObj.decision_gov  = opinion.href;
 
         data.push(reorderCase(newCaseObj));
         existingLower.add(docketKey);
         addedNumbers.add(number);
-        console.log(`  ${number}: added from opinions page (${opinion.date || '?'})${cite ? `, usCite=${cite}` : ''}`);
+        console.log(`  ${number}: added from opinions page (${opinion.date || '?'})${cite ? `, citation=${cite}` : ''}`);
     }
 
     if (addedNumbers.size) {
@@ -2507,7 +2507,7 @@ async function importRelatingToOrdersCases(casesPath, term) {
             const date = dm ? `20${dm[3]}-${dm[1].padStart(2, '0')}-${dm[2].padStart(2, '0')}` : '';
             const number = _rtoNormalizeNumber(docketRaw);
             const href   = _resolveHref(rawHref, BASE_URL);
-            const cite   = _formatUsCite(citeRaw);
+            const cite   = _formatCitation(citeRaw);
             if (!number || !href) continue;
             rows.push({ number, name, date, author, href, cite });
         }
@@ -2547,11 +2547,11 @@ async function importRelatingToOrdersCases(casesPath, term) {
             const first = groupRows[0];
             const newCaseObj = { title: first.name, number: first.number };
             if (first.date) newCaseObj.decision = first.date;
-            if (first.cite) newCaseObj.usCite   = first.cite;
+            if (first.cite) newCaseObj.citation = first.cite;
             matchedCase = reorderCase(newCaseObj);
             data.push(matchedCase);
             addedCases++;
-            console.log(`  ${first.number}: added from relating-to-orders page (${first.date || '?'})${first.cite ? `, usCite=${first.cite}` : ''}`);
+            console.log(`  ${first.number}: added from relating-to-orders page (${first.date || '?'})${first.cite ? `, citation=${first.cite}` : ''}`);
         }
 
         const caseDir   = path.join(path.dirname(casesPath), 'cases', _caseFolder(matchedCase.number));
@@ -2711,10 +2711,10 @@ async function backfillOpinionHrefs(casesPath, term) {
         }
         if (!opinion) continue;
         let href = opinion.href;
-        const cite = _formatUsCite(opinion.cite || '');
+        const cite = _formatCitation(opinion.cite || '');
         const date = opinion.date || '';
         const existingHref = c.decision_gov || '';
-        const existingCite = c.usCite || '';
+        const existingCite = c.citation || '';
         const existingDate = c.decision || '';
 
         // The slip-opinions index for older terms may now link to preliminary
@@ -2735,14 +2735,14 @@ async function backfillOpinionHrefs(casesPath, term) {
             && !c.decision_gov_bad
             && existingHref !== href
         );
-        const updateCite = _shouldUpdateUsCite(existingCite, cite);
+        const updateCite = _shouldUpdateCitation(existingCite, cite);
         const updateDate = !!(date && existingDate !== date);
 
         if (!updateHref && !updateCite && !updateDate) continue;
 
         const updated = { ...c };
         if (updateDate) updated.decision      = date;
-        if (updateCite) updated.usCite        = cite;
+        if (updateCite) updated.citation      = cite;
         if (updateHref) updated.decision_gov = href;
         // Strip fields being removed (updateX but value is falsy)
         if (updateHref && !href) delete updated.decision_gov;
@@ -2752,7 +2752,7 @@ async function backfillOpinionHrefs(casesPath, term) {
         Object.assign(c, reordered);
         casesModified = true;
         if (updateHref) console.log(`  ${number}: decision_gov → ${href}`);
-        if (updateCite) console.log(`  ${number}: usCite → ${cite}`);
+        if (updateCite) console.log(`  ${number}: citation → ${cite}`);
         if (updateDate) console.log(`  ${number}: decision → ${date}`);
 
         const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');

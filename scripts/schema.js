@@ -26,14 +26,16 @@ export const CASE_KEY_ORDER = [
     // Case-level fallback for the decision's own journal entry, for a case
     // with no decision-type event to hang a per-event journal_ref off of.
     'journal_ref',
-    'usCite', 'volume', 'page', 'opCite',
+    'citation', 'volume', 'page', 'cites',
     'decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol',
     'result',
     // The id (see processBenches in update_cases.js) of the Court composition
     // seated on this case's decision date — lets the case page's vote-score
     // link straight to that bench's page without walking benches.json.
     'bench',
-    'voteMajority', 'voteMinority', 'votes',
+    // "N-M" (majority-minority), e.g. "5-3" — replaces the old separate
+    // voteMajority/voteMinority integer fields.
+    'score', 'votes',
     'events', 'history_href', 'scdb_check', 'scdb_message',
     'note', 'audit_message',
 ];
@@ -53,7 +55,7 @@ export const VOTE_KEY_ORDER = [
     'name', 'vote', 'action', 'opinion', 'dissent',
 ];
 
-export const OPCITE_KEY_ORDER = [
+export const CITES_KEY_ORDER = [
     'id', 'title', 'term', 'decision', 'count',
 ];
 
@@ -70,9 +72,9 @@ function _reorder(obj, order) {
 
 const _DECISION_HREF_KEYS = ['decision_xml', 'decision_loc', 'decision_loc_bad', 'decision_gov', 'decision_gov_bad', 'decision_vol'];
 
-// When usCite is absent, decision href keys belong right after decision_day (or decision).
+// When citation is absent, decision href keys belong right after decision_day (or decision).
 export function caseKeyOrder(obj) {
-    if (!obj.usCite && _DECISION_HREF_KEYS.some(k => k in obj)) {
+    if (!obj.citation && _DECISION_HREF_KEYS.some(k => k in obj)) {
         const order = CASE_KEY_ORDER.filter(k => !_DECISION_HREF_KEYS.includes(k));
         const anchorIdx = order.indexOf('decision_day');
         const insertAt = anchorIdx !== -1 ? anchorIdx + 1 : order.indexOf('decision') + 1;
@@ -86,4 +88,4 @@ export const reorderCase     = (obj) => _reorder(obj, caseKeyOrder(obj));
 export const reorderEvent    = (obj) => _reorder(obj, EVENT_KEY_ORDER);
 export const reorderAdvocate = (obj) => _reorder(obj, ADVOCATE_KEY_ORDER);
 export const reorderVote     = (obj) => _reorder(obj, VOTE_KEY_ORDER);
-export const reorderOpCite   = (obj) => _reorder(obj, OPCITE_KEY_ORDER);
+export const reorderCites    = (obj) => _reorder(obj, CITES_KEY_ORDER);

@@ -37,12 +37,12 @@ scripts/             Import/update/alignment scripts (Node.js)
 ### dates.json (optional, per term)
 `courts/ussc/terms/YYYY-MM/dates.json` maps an ISO date to an array of entries, built/maintained by two different scripts. Every entry starts with a `type` prop identifying its own kind — **the only thing any code should ever check** to tell the two kinds apart, never which other props happen to be present:
 - **Minutes-scan groups** — `{type: "minutes", href, src, pages, modified?}`, built by `scripts/parse_minutes.js` from NARA's OCR'd Minutes books. `pages` is a `"<first>-<last>"` range string (every group's own pages are always a gap-free consecutive run), or `""` for an empty/tombstone group. See that script's own top-of-file doc comment for the full format.
-- **Cross-term case-detail objects** — `{type, id, term, number, title, usCite}`, added by `update_cases.js`'s `syncCrossTermCaseDates` for a case whose `argument`/`reargument` date falls within an *earlier* term's own date range than the term it's filed under (e.g. a case reargued in the term after the one it was first argued in — `term` here is the case's own term, `type` is `"argument"` or `"reargument"`). The front end adds these to that earlier term's own date-argued/reargued lists and Court Calendar coloring when viewing its page, linking to the case via its own `term`.
+- **Cross-term case-detail objects** — `{type, id, term, number, title, citation}`, added by `update_cases.js`'s `syncCrossTermCaseDates` for a case whose `argument`/`reargument` date falls within an *earlier* term's own date range than the term it's filed under (e.g. a case reargued in the term after the one it was first argued in — `term` here is the case's own term, `type` is `"argument"` or `"reargument"`). The front end adds these to that earlier term's own date-argued/reargued lists and Court Calendar coloring when viewing its page, linking to the case via its own `term`.
 
 ### Case schema (in `cases.json`)
 Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT_KEY_ORDER`). Always call `reorderCase()` / `reorderEvent()` when writing new objects.
 
-`volume` and `page` are **not written** to new cases — they are derived from `usCite` at read time. Existing cases that still carry them are cleaned up by `update_cases.js`.
+`volume` and `page` are **not written** to new cases — they are derived from `citation` at read time. Existing cases that still carry them are cleaned up by `update_cases.js`.
 
 `oyez_href` is normally a single URL string, but for a case consolidated from multiple Oyez case pages (e.g. `1971-176`) it's an array of URL strings instead — both forms are handled by `explorer.js` and `import_oyez.js`.
 
@@ -61,10 +61,10 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
   "argument_consolidation": "24-1260,24-1261",
   "argument": "YYYY-MM-DD",
   "decision": "YYYY-MM-DD",
-  "usCite": "601 U.S. 1",
+  "citation": "601 U.S. 1",
+  "cites": [{"id": "2020-123", "title": "Cited Case v. Other", "term": "2020-10", "decision": "YYYY-MM-DD", "count": 2}],
   "result": "affirmed|reversed|vacated|…",
-  "voteMajority": 6,
-  "voteMinority": 3,
+  "score": "5-3",
   "votes": [{"name": "JOHN ROBERTS", "vote": "majority"}],
   "events": [
     {
@@ -97,7 +97,7 @@ Object keyed by `"vNNN"` (or `"vNNN-P"` for a not-yet-bound volume split into pa
   ]
 }
 ```
-- `pages` — comma-separated `<reportPage>:<pdfPage>` breakpoints (optionally roman, e.g. `vi:490`; optionally `*`-marked as an "orders mapping" section start, see `isOrdersBreakpoint` in `scripts/update_cases.js`) mapping a printed U.S. Reports page to its PDF page. `_pdfPageFor`/`_parsePages` (`scripts/update_cases.js`) and `_reportPdfPage`/`_parsePnBps` (`assets/js/explorer.js`, kept in sync by hand) walk these breakpoints to resolve a case's `usCite` to a `#page=N` PDF link (`decision_vol`).
+- `pages` — comma-separated `<reportPage>:<pdfPage>` breakpoints (optionally roman, e.g. `vi:490`; optionally `*`-marked as an "orders mapping" section start, see `isOrdersBreakpoint` in `scripts/update_cases.js`) mapping a printed U.S. Reports page to its PDF page. `_pdfPageFor`/`_parsePages` (`scripts/update_cases.js`) and `_reportPdfPage`/`_parsePnBps` (`assets/js/explorer.js`, kept in sync by hand) walk these breakpoints to resolve a case's `citation` to a `#page=N` PDF link (`decision_vol`).
 - `alt_citation` (optional) — the volume's nominative-reporter name (e.g. early volumes cited as `"2 Dallas"` before the `"N U.S."` convention).
 - `ephemera` (optional) — array flagging notable non-opinion content in the volume (dedications, addresses, in-memoriam notices, patent diagrams, unbound inserts, etc.). Each entry carries `page` (the U.S. Reports page, as a string, may include a letter suffix) plus exactly one of:
   - `text` — a short all-caps label describing referenced text (e.g. `"THE TELEPHONE CASES"`)
@@ -234,4 +234,4 @@ The main interactive page is a large vanilla JS single-page app in `assets/js/ex
 - **`data/` is Jekyll's data dir** — eg, files in `data/ussc/` are accessible as `site.data.ussc.*` in templates.
 - **Audio timing uses frames** — `HH:MM:SS.FF` where `.FF` is frame number treated as decimal; `parseTime()` handles this correctly.
 - **`courts/ussc/index.html` is the SPA entry point**, not `index.md` — it uses `layout: argument`.
-- **`volume` and `page` are derived internally from `usCite`** — they are no longer written to case objects.
+- **`volume` and `page` are derived internally from `citation`** — they are no longer written to case objects.

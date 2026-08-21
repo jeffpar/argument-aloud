@@ -1182,7 +1182,7 @@ function runLinkCases({ dryRun, verbose }) {
         let modified = false;
         for (let i = 0; i < cases.length; i++) {
             const c = cases[i];
-            const xmlPath = c.usCite ? xmlByCitation.get(c.usCite) : null;
+            const xmlPath = c.citation ? xmlByCitation.get(c.citation) : null;
             if (!xmlPath) continue;
             if (c.decision_xml === xmlPath) { alreadyLinked++; continue; }
             cases[i] = reorderCase({ ...c, decision_xml: xmlPath });

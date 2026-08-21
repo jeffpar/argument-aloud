@@ -539,10 +539,10 @@ function _jmNameMatchesCanonical(advocateName, canonicalName) {
     return true;
 }
 
-/** Build {(term,number)→case}, {usCite→[term,number]}, and {titleStripped→[term,number]} indices. */
+/** Build {(term,number)→case}, {citation→[term,number]}, and {titleStripped→[term,number]} indices. */
 function _jmBuildCaseIndices(termDirs) {
     const byKey = new Map();
-    const byUsCite = new Map();
+    const byCitation = new Map();
     const byTitle = new Map();
     for (const termDir of termDirs) {
         const term = path.basename(termDir);
@@ -555,8 +555,8 @@ function _jmBuildCaseIndices(termDirs) {
             const number = raw.split(',')[0].trim();
             const effectiveKey = number || String(c.id || '').trim();
             byKey.set(`${term}/${effectiveKey}`, c);
-            const cite = String(c.usCite || '').trim();
-            if (cite) byUsCite.set(cite, [term, String(c.number || '')]);
+            const cite = String(c.citation || '').trim();
+            if (cite) byCitation.set(cite, [term, String(c.number || '')]);
             const title = firstTitle(String(c.title || '').trim());
             if (title) {
                 if (!byTitle.has(title)) byTitle.set(title, []);
@@ -564,7 +564,7 @@ function _jmBuildCaseIndices(termDirs) {
             }
         }
     }
-    return { byKey, byUsCite, byTitle };
+    return { byKey, byCitation, byTitle };
 }
 
 /** Build a map from _jmNameKey(name) → canonical uppercase justice display name,
@@ -1770,11 +1770,11 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             const audioEntries = c.events || [];
             const decision    = c.decision || null;
 
-            const usCite = c.usCite || '';
+            const caseCite = c.citation || '';
             const citeYear = (decision || '').slice(0, 4);
             let citation = '';
-            if (usCite && citeYear) citation = `${usCite} (${citeYear})`;
-            else if (usCite) citation = usCite;
+            if (caseCite && citeYear) citation = `${caseCite} (${citeYear})`;
+            else if (caseCite) citation = caseCite;
             caseCitation.set(ckCite(title, term, number), citation);
 
             // The advocate JSON persists the 1-based index into the original
@@ -2904,11 +2904,11 @@ function _buildAltCiteMap() {
 }
 
 // Parse an index.md file's markdown list items into an array of objects:
-//   { lineIdx, indent, prefix, title, usCites[], alreadyLinked }
+//   { lineIdx, indent, prefix, title, citations[], alreadyLinked }
 // 'indent'       = the "  - " list prefix
 // 'prefix'       = leading asterisks before the title (e.g. "**")
 // 'title'        = the case title text (stripped of asterisks and bracket notes)
-// 'usCites'      = resolved US Report citation strings (e.g. "17 U.S. 316")
+// 'citations'    = resolved US Report citation strings (e.g. "17 U.S. 316")
 // 'alreadyLinked'= true if the title is already wrapped in a markdown link
 function _parseIndexMdItems(text, altCiteMap) {
     const CITE_RE = /([0-9ıoOiITg]+)\s+(Cranch|Wheaton|Peters|Howard|Black|Wallace|Dallas)\s+(\d+)/gi;
@@ -2947,8 +2947,8 @@ function _parseIndexMdItems(text, altCiteMap) {
         // Strip any residual bracket note from raw title
         const title = rawTitle.replace(/\s*\[.*$/, '').trim();
 
-        // Collect all resolved usCites from this line
-        const usCites = [];
+        // Collect all resolved citations from this line
+        const citations = [];
         CITE_RE.lastIndex = 0;
         let m;
         while ((m = CITE_RE.exec(afterPrefix)) !== null) {
@@ -2957,11 +2957,11 @@ function _parseIndexMdItems(text, altCiteMap) {
             const lookupKey = `${nomVol} ${m[2].toLowerCase()}`;
             const usVol = altCiteMap.get(lookupKey);
             if (usVol == null) continue;
-            usCites.push(`${usVol} U.S. ${m[3]}`);
+            citations.push(`${usVol} U.S. ${m[3]}`);
         }
         CITE_RE.lastIndex = 0;
 
-        items.push({ lineIdx: i, indent, prefix, title, usCites, alreadyLinked });
+        items.push({ lineIdx: i, indent, prefix, title, citations, alreadyLinked });
     }
 
     return items;
@@ -3001,7 +3001,7 @@ function _addAdvocateEvent(c, type, advocateName, source = 'manual') {
 }
 
 // Process "--add NAME": find the featured folder for NAME, parse its index.md,
-// resolve every nominative citation to a usCite, then add advocate events to
+// resolve every nominative citation to a citation, then add advocate events to
 // the matching cases in the terms/ tree.  Also rewrites index.md to wrap each
 // matched case title in a markdown link.
 async function addFeaturedAdvocate(name, { verbose = false } = {}) {
@@ -3032,9 +3032,9 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
     const items      = _parseIndexMdItems(indexMdText, altCiteMap);
     console.log(`Parsed ${items.length} list items from ${relRepo(indexMdPath)}`);
 
-    // Build usCite → [{term, casesPath, caseIdx, caseId, caseTitle}] index and
+    // Build citation → [{term, casesPath, caseIdx, caseId, caseTitle}] index and
     // normalized title → [{…}] index across all terms.
-    const usCiteIndex = new Map();
+    const citationIndex = new Map();
     const titleIndex  = new Map();
     for (const termDir of listSubdirs(TERMS_DIR)) {
         const casesPath = path.join(termDir, 'cases.json');
@@ -3046,15 +3046,15 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
             const caseId    = String(c.id || '').trim();
             const caseTitle = String(c.title || '').split('|')[0].trim();
             const entry     = { term, casesPath, caseIdx: i, caseId, caseTitle };
-            const cite      = c.usCite;
+            const cite      = c.citation;
             if (cite) {
-                if (!usCiteIndex.has(cite)) usCiteIndex.set(cite, []);
-                usCiteIndex.get(cite).push({ ...entry, usCite: cite });
+                if (!citationIndex.has(cite)) citationIndex.set(cite, []);
+                citationIndex.get(cite).push({ ...entry, citation: cite });
             }
             if (caseTitle) {
                 const norm = caseTitle.toLowerCase().replace(/\s+/g, ' ');
                 if (!titleIndex.has(norm)) titleIndex.set(norm, []);
-                titleIndex.get(norm).push({ ...entry, usCite: cite });
+                titleIndex.get(norm).push({ ...entry, citation: cite });
             }
         }
     }
@@ -3069,10 +3069,10 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
         let matchMethod = null;
 
         // ── Citation match ──────────────────────────────────────────────────
-        for (const usCite of item.usCites) {
-            const hits = usCiteIndex.get(usCite);
+        for (const citation of item.citations) {
+            const hits = citationIndex.get(citation);
             if (!hits?.length) {
-                console.log(`  NOT FOUND: ${usCite}  («${item.title}»)`);
+                console.log(`  NOT FOUND: ${citation}  («${item.title}»)`);
                 notFound++;
                 continue;
             }
@@ -3099,8 +3099,8 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
                     pending.get(casesPath).add(caseIdx);
                 }
                 // Verify there is also a citation match when matched by title.
-                const hitCites  = titleHits.map(h => h.usCite).filter(Boolean);
-                const confirmed = item.usCites.some(u => hitCites.includes(u));
+                const hitCites  = titleHits.map(h => h.citation).filter(Boolean);
+                const confirmed = item.citations.some(u => hitCites.includes(u));
                 if (!confirmed) {
                     console.log(`  WARNING [title match, no citation confirm]: «${item.title}» → ${primaryHit.term}/${primaryHit.caseId}`);
                 }
@@ -3138,7 +3138,7 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
             if (mod) {
                 cases[idx] = reorderCase(c);
                 changed = true;
-                if (verbose) console.log(`  ${c.usCite}  ${relRepo(casesPath)}`);
+                if (verbose) console.log(`  ${c.citation}  ${relRepo(casesPath)}`);
             }
         }
         if (changed) {

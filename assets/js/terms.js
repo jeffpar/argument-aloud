@@ -203,8 +203,8 @@
 
   // "531 U.S. 57" -> a number that sorts citations chronologically (by
   // volume, then page) rather than alphabetically.
-  function opinionSortKey(usCite) {
-    var m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(usCite || '');
+  function opinionSortKey(citation) {
+    var m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(citation || '');
     return m ? parseInt(m[1], 10) * 100000 + parseInt(m[2], 10) : null;
   }
 
@@ -286,8 +286,9 @@
     var argIso = argIsoOverride || Array.from(new Set(dateTokens(c.argument).concat(dateTokens(c.reargument))))
       .filter(function (d) { return d.slice(0, 7) >= caseTerm; });
     var decIso = dateTokens(c.decision);
-    var voteM = c.voteMajority, voteN = c.voteMinority;
-    var opinionText = c.usCite || '';
+    var scoreM = /^(\d+)-(\d+)$/.exec(c.score || '');
+    var voteM = scoreM ? parseInt(scoreM[1], 10) : null, voteN = scoreM ? parseInt(scoreM[2], 10) : null;
+    var opinionText = c.citation || '';
     var decDates = decIso.slice().sort();
     return {
       title: caseDisplayTitle(c),
@@ -296,7 +297,7 @@
       argTerm: argTerm,
       argIso: argIso,
       decIso: decIso,
-      voteText: (voteM != null && voteN != null) ? (voteM + '-' + voteN) : '',
+      voteText: c.score || '',
       opinionText: opinionText,
       decisionHref: opinionText ? (c.decision_loc || c.decision_gov || c.decision_vol || '') : '',
       decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
@@ -320,7 +321,7 @@
   // arguments list (see fillGroup above) but were missing from the Case
   // Listing table entirely, which only ever looked at this term's own
   // cases.json. A pointer only carries {type, id, term, number, title,
-  // usCite} — not enough to build a full row (no votes/decision/etc.) — so
+  // citation} — not enough to build a full row (no votes/decision/etc.) — so
   // each one is resolved against its own home term's cases.json (grouped by
   // term first so a term with several cross-term entries is only fetched
   // once), deduped by case id (rare, but the same case could have e.g. both
