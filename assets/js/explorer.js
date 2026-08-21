@@ -3154,17 +3154,24 @@ function _buildOyezEntries(caseEntry) {
 
 // A ringed (or oyez-pending, see _attachAudioIcon) audio icon means the case
 // very likely has a matching oyez_url — if so, returns a click handler for
-// _attachAudioIcon that opens it in the doc viewer, embedded (view: 'pane')
-// the same way the file-select dropdown's own "Description from The Oyez
-// Project" option does (see the 'oyez:' branch in its change handler); else
-// null (no click behavior). Callers only pass this alongside a ring/
-// oyezPending icon — see buildTermCasesSorted.
-function _oyezAudioIconClick(caseEntry) {
+// _attachAudioIcon that selects/loads the case (via the caller's own
+// selectCase, so this case ends up shown in the main panel like clicking the
+// case item itself) and opens the Oyez description in the doc viewer,
+// embedded (view: 'pane') the same way the file-select dropdown's own
+// "Description from The Oyez Project" option does (see the 'oyez:' branch in
+// its change handler), syncing the dropdown to match; else null (no click
+// behavior). Callers only pass this alongside a ring/oyezPending icon — see
+// buildTermCasesSorted and the collection-item deferred icon upgrade.
+function _oyezAudioIconClick(caseEntry, selectCase) {
   if (!caseEntry?.oyez_url) return null;
-  return (e) => {
+  return async (e) => {
     e.stopPropagation();
     const entries = _buildOyezEntries(caseEntry);
-    if (entries.length) showDocViewer({ href: entries[0].href, title: entries[0].title, view: 'pane' }, { force: true });
+    if (!entries.length) return;
+    await selectCase?.();
+    showDocViewer({ href: entries[0].href, title: entries[0].title, view: 'pane' }, { force: true });
+    const fileSelect = document.getElementById('file-select');
+    if (fileSelect && !fileSelect.hidden) fileSelect.value = entries[0].value;
   };
 }
 
@@ -4889,12 +4896,25 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       // term case awaiting oral argument) gets a plain blue ring instead of
       // nothing at all — see _attachAudioIcon's oyezPending option.
       const oyezPending = !hasAudio && !!caseEntry.oyez_url;
+      // Shared selection step for the audio/scales icon click handlers below,
+      // so clicking either one also selects/loads this case into the main
+      // panel — same as clicking the case item itself — not just whatever
+      // document the icon itself opens.
+      async function _selectThisCase() {
+        markCaseItemActive(ci);
+        const url = buildUrlParams(
+          { term, case: urlId },
+          ['collection', 'event', 'file', 'turn'],
+        );
+        navigate(url);
+        await loadCase(term, caseEntry, 0);
+      }
       _attachAudioIcon(header, {
         hasAudio, hasTranscript,
         ring: audioRing,
         oyezPending,
         deficit: oyezDeficitClass(caseEntry),
-        onClick: (audioRing || oyezPending) ? _oyezAudioIconClick(caseEntry) : null,
+        onClick: (audioRing || oyezPending) ? _oyezAudioIconClick(caseEntry, _selectThisCase) : null,
       });
       if (hasOpinion) {
         // Green ring is the lowest-priority signal — only drawn when there's
@@ -4904,26 +4924,21 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         // are documents on file", matching its "documents available" tooltip.
         _attachScalesIcon(ci, header, {
           ring: opinionCircleData(caseEntry) || (caseEntry.files ? { green: true } : null),
-          onClick: (e) => {
+          onClick: async (e) => {
             e.stopPropagation();
             const _firstDecision = _buildPrimaryDecisionEntry(caseEntry);
             const opinionFile = _firstDecision
               ? { href: _firstDecision.href, title: _firstDecision.title }
               : null;
+            await _selectThisCase();
             // A decision date with no linked document (e.g. a cert-denial/DIG
             // order — see hasOpinion above) has nothing to open in the doc
-            // viewer, so just navigate to the case itself instead of no-oping.
+            // viewer, so selecting the case (above) is all there is to do.
             if (opinionFile && caseEntry.events?.length) {
               document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
               showDocViewer(opinionFile, { autoScroll: true });
-            } else {
-              markCaseItemActive(ci);
-              const url = buildUrlParams(
-                { term, case: urlId },
-                ['collection', 'event', 'file', 'turn'],
-              );
-              navigate(url);
-              loadCase(term, caseEntry, 0);
+              const fileSelect = document.getElementById('file-select');
+              if (fileSelect && !fileSelect.hidden) fileSelect.value = _firstDecision.value;
             }
           },
         });
@@ -4937,13 +4952,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           ring: { empty: true },
           onClick: (e) => {
             e.stopPropagation();
-            markCaseItemActive(ci);
-            const url = buildUrlParams(
-              { term, case: urlId },
-              ['collection', 'event', 'file', 'turn'],
-            );
-            navigate(url);
-            loadCase(term, caseEntry, 0);
+            _selectThisCase();
           },
         });
       }
@@ -6754,6 +6763,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     const _firstDE = _buildPrimaryDecisionEntry(caseEntry);
     if (!_firstDE) return;
     const opinionFile = { href: _firstDE.href, title: _firstDE.title };
+    const fileSelect = document.getElementById('file-select');
     if (caseRef.event) {
       // Case has audio: if not yet loaded, load the case first, then open opinion in doc viewer.
       if (!ci.classList.contains('active')) {
@@ -6762,9 +6772,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       }
       document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
       showDocViewer(opinionFile, { autoScroll: true });
+      if (fileSelect && !fileSelect.hidden) fileSelect.value = _firstDE.value;
     } else {
       // No audio: load case in no-audio mode so opinion opens full-height.
-      loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
+      await loadCase(caseRef.term, caseEntry, 0, { forceNoAudio: true });
+      if (fileSelect && !fileSelect.hidden) fileSelect.value = _firstDE.value;
     }
   } : null;
   if (caseRef.event || caseRef.decision || caseRef.files) {
@@ -6796,7 +6808,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           hasTranscript: !!caseRef.transcript,
           ring,
           deficit,
-          onClick: ring ? _oyezAudioIconClick(caseEntry) : null,
+          onClick: ring ? _oyezAudioIconClick(caseEntry, async () => {
+            if (ci.classList.contains('active')) return;
+            markCaseItemActive(ci);
+            const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
+            await loadCase(caseRef.term, caseEntry, defaultAudioIdx);
+          }) : null,
         });
         if (_audioIconNode && nextSibling && nextSibling.parentNode === header) {
           header.insertBefore(_audioIconNode, nextSibling);
