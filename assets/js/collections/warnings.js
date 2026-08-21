@@ -51,7 +51,7 @@
     .then(function (groups) {
       var group = null;
       for (var i = 0; i < groups.length; i++) {
-        if (groups[i].id === 'warnings') { group = groups[i]; break; }
+        if (groups[i].id === 'all-warnings') { group = groups[i]; break; }
       }
       var cases = (group && group.cases) || [];
 
