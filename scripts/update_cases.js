@@ -435,6 +435,12 @@ function _primaryCaseNumber(c) {
     return (c.number || c.id || '').split(',')[0].trim();
 }
 
+// "files" and "references" partition a case's own files.json entries: every
+// entry is either type:"reference" (counted toward "references") or
+// something else (counted toward "files") — see schema.js's CASE_KEY_ORDER
+// and CLAUDE.md's Case schema section. The two aren't mutually exclusive on
+// the case itself (a files.json can hold both kinds), but files.json's own
+// existence is now "files || references", not a single flag.
 export function syncFilesCount(casesPath) {
     let data;
     try { data = _readJson(casesPath); } catch { return; }
@@ -446,22 +452,35 @@ export function syncFilesCount(casesPath) {
     for (const c of data) {
         const folderName = _caseFolder(c.number || c.id || '');
         const filesPath  = path.join(termDir, 'cases', folderName, 'files.json');
-        let count = 0;
+        let hasFiles = false, hasReferences = false;
         if (fs.existsSync(filesPath)) {
             try {
                 const files = _readJson(filesPath);
-                if (Array.isArray(files)) count = files.length;
+                if (Array.isArray(files)) {
+                    for (const f of files) {
+                        if ((f?.type || '').toLowerCase() === 'reference') hasReferences = true;
+                        else hasFiles = true;
+                    }
+                }
             } catch {}
         }
-        const hasFiles = count > 0;
-        if (c.files === hasFiles) continue;
+        if (c.files === hasFiles && c.references === hasReferences) continue;
+        const wasNewKey = !('references' in c);
         c.files = hasFiles;
+        c.references = hasReferences;
+        if (wasNewKey) {
+            // Get "references" into its canonical position (right after
+            // "files") rather than left dangling at the end of the object.
+            const reordered = reorderCase(c);
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+        }
         modified = true;
     }
 
     if (modified) {
         _writeJson(casesPath, data);
-        if (_VERBOSE) console.log(` NOTICE: ${path.basename(termDir)}/cases.json: synced "files" counts`);
+        if (_VERBOSE) console.log(` NOTICE: ${path.basename(termDir)}/cases.json: synced "files"/"references" counts`);
     }
 }
 
@@ -2484,10 +2503,11 @@ function checkCasesSync(termDir, verbose = false) {
         const folder = _caseFolder(number);
         if (!diskFolders.has(folder)) {
             // A case folder is only required when there's something to put in
-            // it — either `files: true` (i.e. a non-empty files.json) or an
-            // event with a local text_href that resolves into THIS folder.
-            // text_hrefs that point at another case folder (e.g. consolidated
-            // cases share a transcript file) don't require a folder here.
+            // it — either `files: true` or `references: true` (i.e. a non-
+            // empty files.json) or an event with a local text_href that
+            // resolves into THIS folder. text_hrefs that point at another
+            // case folder (e.g. consolidated cases share a transcript file)
+            // don't require a folder here.
             const hasLocalText = (c.events || []).some(a => {
                 const href = a.text_href;
                 if (!href || href.startsWith('http')) return false;
@@ -2495,7 +2515,7 @@ function checkCasesSync(termDir, verbose = false) {
                 if (slash < 0) return true; // bare filename → lives in this folder
                 return href.slice(0, slash) === folder;
             });
-            const hasContent = !!c.files || hasLocalText;
+            const hasContent = !!c.files || !!c.references || hasLocalText;
             if (hasContent) {
                 console.log(`WARNING: ${term}: ${number} in cases.json but no folder at cases/${folder}/`);
             }
@@ -4403,6 +4423,7 @@ function processLoneDissenters(termsToProcess, dryRun) {
                 decision: c.decision || '',
             };
             if (c.files) entry.files = c.files;
+            if (c.references) entry.references = c.references;
             if (!byJustice.has(canonical)) byJustice.set(canonical, []);
             byJustice.get(canonical).push(entry);
         }
@@ -4520,6 +4541,7 @@ function processOpinionAuthors(termsToProcess, dryRun) {
                     decision: c.decision || '',
                 };
                 if (c.files) entry.files = c.files;
+                if (c.references) entry.references = c.references;
                 if (!byJustice.has(canonical)) byJustice.set(canonical, []);
                 byJustice.get(canonical).push(entry);
             }
@@ -4661,6 +4683,7 @@ function processVocalJustices(allTerms, dryRun) {
                 decision: c.decision || '',
             };
             if (c.files) caseMeta.files = c.files;
+            if (c.references) caseMeta.references = c.references;
 
             // canonical → { totalSecs, firstEventIdx, firstTurnNum } — accumulated within this case
             const caseAccum = new Map();
@@ -5017,6 +5040,7 @@ function processBenches(dryRun) {
             const titled = (baseTitle && decMatch) ? `${baseTitle} (${decMatch[1]})` : baseTitle;
             const meta = { title: titled, term: termName, number: _primaryCaseNumber(c), argument: c.argument || '', decision: dec };
             if (c.files) meta.files = c.files;
+            if (c.references) meta.references = c.references;
             // Vote tally, when known — lets the per-bench case listing (see
             // Phase 5) offer the same Vote sort/display other case listings do.
             if (c.voteMajority != null && c.voteMinority != null) {
@@ -5422,7 +5446,7 @@ function _decisionYearOf(c) {
 // 'gallery' (the orig.json Case Gallery thumbnail list) is likewise computed
 // below, not hand-curated — see _buildOrigGallery.
 const _CASE_ENTRY_FIELDS = new Set(
-    ['title', 'term', 'number', 'argument', 'reargument', 'decision', 'files', 'event', 'transcript', 'turn', 'gallery']);
+    ['title', 'term', 'number', 'argument', 'reargument', 'decision', 'files', 'references', 'event', 'transcript', 'turn', 'gallery']);
 
 // For a case tagged "Original Jurisdiction Archive", build the orig.json
 // "gallery" array ("<file id>|<href>|<title>" per files.json entry) driving
@@ -5433,7 +5457,7 @@ const _CASE_ENTRY_FIELDS = new Set(
 // no longer carry an explicit "file" prop) — must match the thumbnail
 // filenames on disk, which are numbered the same way.
 function _buildOrigGallery(c, term) {
-    if (!c.files) return null;
+    if (!c.files && !c.references) return null;
     if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) return null;
     const caseId = (c.number || '').split(',').map(s => s.trim()).find(n => /^\d+-Orig$/i.test(n));
     if (!caseId) return null;
@@ -5465,6 +5489,7 @@ function _setCaseEntry(c, term, extra = null, fields = null) {
     if (c.reargument) entry.reargument = c.reargument;
     if (c.decision)   entry.decision   = c.decision;
     if (c.files)      entry.files      = c.files;
+    if (c.references) entry.references = c.references;
     const events = Array.isArray(c.events) ? c.events : [];
     if (events.some(e => e.audio_href))  entry.event      = true;
     if (events.some(e => e.text_href))   entry.transcript = true;
@@ -12117,6 +12142,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
     }
     entry.decision_gov = opinion.href;
     entry.files        = false;
+    entry.references   = false;
 
     const ordered = reorderCase(entry);
     if (dryRun) {
@@ -12505,6 +12531,7 @@ async function runAddCase(term, title, argv, dryRun) {
         } catch {}
     }
     entry.files = false;
+    entry.references = false;
     if (events.length) entry.events = events;
     const orderedEntry = reorderCase(entry);
 

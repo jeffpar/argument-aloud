@@ -2033,6 +2033,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                         caseEntry.event = resolvedOrigIdx + 1;
                     }
                     if (c.files) caseEntry.files = true;
+                    if (c.references) caseEntry.references = true;
                     // De-dup: two separate cases sharing the same audio_href
                     // represent a single consolidated argument; record it once
                     // per advocate. Intra-case duplicates (same audio_href used

@@ -48,6 +48,8 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
 
 `argument_consolidation` (optional) is a comma-separated docket number(s) of every case (this one included) — each a separately tracked case object (own `id`/`title`/`decision`) — heard in the same argument session, distinct from a joint `number` (one case filed under several dockets). Every case in the group carries the exact same value.
 
+`files`/`references` are booleans synced from the case's own `files.json` by `update_cases.js`'s `syncFilesCount` — `references` is true iff `files.json` has one or more `type: "reference"` entries, `files` is true iff it has any *other* entries (the two aren't mutually exclusive on the case — a files.json can have both kinds — but every individual entry is exactly one or the other). A case's `files.json` exists iff `files || references`.
+
 ```json
 {
   "id": "2024-123",
@@ -78,7 +80,8 @@ Canonical key order is defined in `scripts/schema.js` (`CASE_KEY_ORDER` / `EVENT
       "aligned": true
     }
   ],
-  "files": 0
+  "files": true,
+  "references": false
 }
 ```
 

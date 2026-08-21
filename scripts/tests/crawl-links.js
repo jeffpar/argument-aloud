@@ -428,7 +428,7 @@ async function runPhase2() {
           checkUrl(`${termDir}/cases/${ev.text_href}`, caseRef).catch(() => {});
         }
       }
-      if (c.files) {
+      if (c.files || c.references) {
         filesJsonChecked++;
         // files.json always lives under the *first* docket's directory (matching
         // import_oyez.js's convention), even for a consolidated case whose transcript

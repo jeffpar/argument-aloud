@@ -409,6 +409,7 @@ function _buildGroupCaseRefFromEntry(caseEntry, term) {
   if (caseEntry.reargument) ref.reargument = caseEntry.reargument;
   if (caseEntry.decision)   ref.decision   = caseEntry.decision;
   if (caseEntry.files)      ref.files      = caseEntry.files;
+  if (caseEntry.references) ref.references = caseEntry.references;
   const events = Array.isArray(caseEntry.events) ? caseEntry.events : [];
   if (events.some(e => e.audio_href)) ref.event      = true;
   if (events.some(e => e.text_href))  ref.transcript = true;
@@ -4446,7 +4447,7 @@ function _renderFileGroup(fileUl, label, files, makeFileItem, open = false) {
 //
 // Returns { isEmpty, hideToggle }.
 async function _buildCaseFileList(fileUl, caseEntry, opts) {
-  const rawFiles = caseEntry.files
+  const rawFiles = (caseEntry.files || caseEntry.references)
     ? await loadFiles(opts.basePath + 'files.json')
     : [];
 
@@ -4646,7 +4647,7 @@ function _attachScalesIcon(ci, header, { onClick, ring = null }) {
     } else if (!ring) {
       tooltipText = 'Opinion issued';
     } else if (ring.green) {
-      tooltipText = 'Opinion issued; citations or references available';
+      tooltipText = 'Opinion issued; documents available';
     } else if (ring.filled && !ring.hasOpinionAudio) {
       tooltipText = 'Video from On The Docket';
     } else if (ring.filled) {
@@ -4766,11 +4767,11 @@ function _visibleTermCaseCount(page) {
 }
 
 // Returns the case.json entries visible in `term`'s sidebar list — has
-// audio/transcript events, a decision link, or files — further narrowed by
+// audio/transcript events, a decision link, or files/references — further narrowed by
 // whatever Filter panel options are currently active: a case matching ANY
 // active filter (OR, not AND) stays visible (see _activeFilters/_FILTER_CASE_TEST).
 function _visibleTermCases(term, cases) {
-  let visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files);
+  let visible = cases.filter(c => c.events?.length || hasDecisionHref(c) || c.files || c.references);
   if (_activeFilters.size) {
     const termEntry = TERMS.find(t => t.term === term);
     visible = visible.filter(c => _caseMatchesActiveFilters(c, termEntry));
@@ -4841,7 +4842,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     // alone (e.g. a cert-denial/DIG order with no separate opinion document)
     // still warrants the scales icon.
     const hasOpinion    = !!caseEntry.decision || hasDecisionHref(caseEntry);
-    const hasFiles      = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
+    // Broad "is there a file list worth showing at all" signal — toggle
+    // visibility and the undecided-case empty ring both use this. The green
+    // ring below is narrower: caseEntry.files alone (not references/opCite/
+    // consolidation), since it specifically means "documents on file".
+    const hasFiles      = !!caseEntry.files || !!caseEntry.references || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
@@ -4890,8 +4895,11 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
       if (hasOpinion) {
         // Green ring is the lowest-priority signal — only drawn when there's
         // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
+        // Driven by caseEntry.files alone (not references/opCite/etc — see
+        // hasFiles's own comment above) since it specifically flags "there
+        // are documents on file", matching its "documents available" tooltip.
         _attachScalesIcon(ci, header, {
-          ring: opinionCircleData(caseEntry) || (hasFiles ? { green: true } : null),
+          ring: opinionCircleData(caseEntry) || (caseEntry.files ? { green: true } : null),
           onClick: (e) => {
             e.stopPropagation();
             const _firstDecision = _buildPrimaryDecisionEntry(caseEntry);
@@ -6694,7 +6702,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         : (typeof caseRef.reargument === 'string' && caseRef.reargument)
           ? caseRef.reargument.split(',')[0].trim()
           : null,
-    hasFiles:  !!caseRef.files,
+    hasFiles:  !!(caseRef.files || caseRef.references),
     href:      buildUrlParams(
       {
         [isTopic ? 'topic' : 'collection']: collId, ..._ciGroupOrId, term: caseRef.term, case: caseRef.number,
@@ -6795,10 +6803,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     if (caseRef.decision || caseRef.event || caseRef.files) {
       _fetchCaseEntry().then(caseEntry => {
         if (!caseEntry) return;
-        const hasFiles = !!caseEntry.files || !!caseEntry.opCite?.length || (caseEntry.title || '').includes('|');
         // Green ring is the lowest-priority signal — only drawn when there's
         // no opinion-audio/video ring to show instead (see makeScalesRingSvg).
-        const ring = opinionCircleData(caseEntry) || (hasFiles ? { green: true } : null);
+        // caseEntry.files alone (not references/opCite/etc), same as the
+        // term-list's own equivalent check — it specifically flags
+        // "documents on file", matching its "documents available" tooltip.
+        const ring = opinionCircleData(caseEntry) || (caseEntry.files ? { green: true } : null);
         if (!ring) return;
         if (_scalesIconNode?.parentNode === header) header.removeChild(_scalesIconNode);
         _scalesIconNode = _attachScalesIcon(ci, header, { onClick: _scalesOnClick, ring });
@@ -8031,7 +8041,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   _currentOyezEntries = _buildOyezEntries(caseEntry);
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_href).map(e => ({ href: e.video_href, title: e.title || 'Video' }));
   const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
-  const _opRawFiles = caseEntry.files ? await loadFiles(_opBasePath + 'files.json') : [];
+  const _opRawFiles = (caseEntry.files || caseEntry.references) ? await loadFiles(_opBasePath + 'files.json') : [];
   if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _currentFiles = _opRawFiles;
   // Same filter+sort as the "file:" options built into the dropdown below —
@@ -8592,7 +8602,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
     qEl.style.cursor = '';
   }
 
-  const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
+  const rawFiles = (caseEntry.files || caseEntry.references) ? await loadFiles(basePath + 'files.json') : [];
   if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _currentFiles = rawFiles;
   links = rawFiles.filter(f => f.refs);

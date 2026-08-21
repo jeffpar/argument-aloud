@@ -13,7 +13,7 @@
 
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number',
-    'files', 'oyez_href', 'oyez_alt', 'previouslyFiled',
+    'files', 'references', 'oyez_href', 'oyez_alt', 'previouslyFiled',
     'docket_href', 'questions', 'questions_href',
     // Comma-separated docket number(s) of every case (this one included)
     // heard in the same argument session — distinct from a joint "number"

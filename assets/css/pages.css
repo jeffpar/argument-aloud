@@ -511,23 +511,31 @@ html[data-theme="dark"] .jb-grid-photo { background: #3a3c45; }
   margin: 0 0 10px;
 }
 .jb-row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px 8px;
+  display: flex;
+  gap: 8px;
   margin-bottom: 4px;
 }
-@media (max-width: 600px) {
-  .jb-row { grid-template-columns: repeat(4, 1fr); }
-}
 .jb-item {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   color: inherit;
+  /* Query container for .jb-name's own font-size below — see #justices-row's
+     matching .jr-item in explorer.css, whose flex/container-query pattern
+     this mirrors so a bench's full roster reads as one responsive row
+     instead of a fixed 6-column grid leaving a ragged, non-centered last
+     row for any bench whose justice count isn't a multiple of 6. */
+  container-type: inline-size;
 }
 .jb-item:hover .portrait-photo { opacity: 0.82; }
-.jb-name { letter-spacing: 0.04em; margin-top: 4px; }
+.jb-name {
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+  font-size: clamp(0.34rem, 15cqw, 0.62rem);
+}
 /* detail view */
 .jb-title-row {
   display: flex;
