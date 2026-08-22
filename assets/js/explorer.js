@@ -1718,6 +1718,31 @@ function findCurrentTurn(t) {
   return result;
 }
 
+// Seeks to turnIdx's own timestamp, guarding the highlight against a stale
+// timeupdate race: audio.currentTime read back after a seek can differ from
+// turnTimes[turnIdx] by a tiny floating-point epsilon, which would otherwise
+// make the very next timeupdate's findCurrentTurn land on the preceding turn
+// and stomp on the highlight the caller already set (matching the same fix
+// already used for the initial-load turn= seek below). A small epsilon nudges
+// the target above the boundary, and _suppressTimeupdateBeforeSeek blocks the
+// timeupdate handler until 'seeked' re-affirms turnIdx is still active.
+function _seekToTurn(turnIdx, { play = false } = {}) {
+  if (_pendingSeekListener) audio.removeEventListener('seeked', _pendingSeekListener);
+  _suppressTimeupdateBeforeSeek = true;
+  _pendingSeekListener = () => {
+    _pendingSeekListener = null;
+    _suppressTimeupdateBeforeSeek = false;
+    if (activeTurnIdx !== turnIdx) {
+      document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+      const el = document.getElementById('turn-' + turnIdx);
+      if (el) { el.classList.add('active'); activeTurnIdx = turnIdx; }
+    }
+  };
+  audio.addEventListener('seeked', _pendingSeekListener, { once: true });
+  audio.currentTime = turnTimes[turnIdx] + 0.01;
+  if (play) audio.play().catch(() => {});
+}
+
 // ── Links helpers ──────────────────────────────────────────────────────────
 
 // files.json entries no longer carry an explicit "file" id on disk — each
@@ -2139,8 +2164,13 @@ function renderTurnText(textEl, rawText, searchQuery, currentRange) {
     }
   }
 
-  // Sort by start; search beats ref on ties so it renders on top
-  marks.sort((a, b) => a.start - b.start || (a.kind === 'search' ? -1 : 1));
+  // Sort by start; search beats ref on ties so it renders on top; two refs
+  // starting at the same position (e.g. "Betts" vs. "Betts against Brady",
+  // both beginning at "Betts") resolve to the longer one, regardless of
+  // which order they happen to appear in files.json's refs — a shorter ref
+  // that's a prefix of a longer one at the same spot should never win.
+  marks.sort((a, b) => a.start - b.start
+    || (a.kind === 'search' ? -1 : b.kind === 'search' ? 1 : (b.end - b.start) - (a.end - a.start)));
 
   const frag = document.createDocumentFragment();
   let cursor = 0;
@@ -2150,7 +2180,10 @@ function renderTurnText(textEl, rawText, searchQuery, currentRange) {
     if (kind === 'ref') {
       const span = document.createElement('span');
       span.className = 'ref-mark';
-      span.textContent = rawText.slice(start, end);
+      // Matched case-insensitively (see findWholeWordMatches), but shown in
+      // the ref's own exact casing from files.json rather than however the
+      // transcript happened to capitalize it, so it stands out more clearly.
+      span.textContent = refText;
       span.addEventListener('click', e => {
         e.stopPropagation();
         const page = getRefPage(link, refText);
@@ -2389,11 +2422,17 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   const isImage = /\.(jpe?g|png|gif|webp|bmp|tiff?)(#|\?|$)/i.test(displayHref);
   const inPane  = isPdf || isMp4 || isMp3 || isImage || link.view === 'pane';
 
-  // Build the effective href, appending #page=N if applicable
+  // Build the effective href, appending #page=N if applicable. For PDFs,
+  // this always pins an explicit page (defaulting to 1) rather than only
+  // doing so when `page` is given — Chrome's built-in PDF viewer otherwise
+  // restores whatever page it last remembers for that exact PDF URL (its
+  // own internal state, independent of anything this app tracks, possibly
+  // left over from an entirely different ref/session), which reads as "this
+  // ref opened the wrong page" even though we never asked for a specific one.
   const effectiveHref = (() => {
-    if (page == null || displayHref.includes('#')) return displayHref;
-    return isPdf ? displayHref + '#page=' + page + '&pagemode=none'
-                 : displayHref + '#page=' + page;
+    if (displayHref.includes('#')) return displayHref;
+    if (isPdf) return displayHref + '#page=' + (page ?? 1) + '&pagemode=none';
+    return page != null ? displayHref + '#page=' + page : displayHref;
   })();
   // Only meaningfully different from effectiveHref when link.src is present
   // (see displayHref above) — otherwise identical, so every other caller's
@@ -2490,16 +2529,21 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
         // flash that placeholder in over top of whatever was showing before.
         // Instead, keep the previous content up until this iframe's own
         // 'load' fires, then swap straight from old to new with nothing
-        // blank in between. The 4s timeout is a safety net in case 'load'
-        // never fires (blocked/errored fetch) so a broken PDF doesn't leave
-        // the *previous* case's document stuck on screen forever.
+        // blank in between. In practice a cross-origin PDF's 'load' event
+        // is unreliable (many browsers' built-in PDF viewer plugin never
+        // fires it at all), so the timeout below — not 'load' — is the
+        // usual way this resolves; keep it short. Otherwise the *previous*
+        // ref's document (e.g. a different #page= anchor into the very
+        // same PDF) stays on screen for the whole timeout, which reads as
+        // "this ref opened the wrong page" even though the correct src was
+        // already loading underneath the whole time.
         iframe.src = src;
         const _reveal = () => {
           clearTimeout(_revealTimer);
           if (_pendingPaneReveal !== src) return; // superseded by a later showDocViewer call — leave hidden
           for (const [s, el] of _pdfIframePool) el.style.display = s === src ? 'block' : 'none';
         };
-        const _revealTimer = setTimeout(_reveal, 4000);
+        const _revealTimer = setTimeout(_reveal, 600);
         iframe.addEventListener('load', _reveal, { once: true });
       } else {
         // Show only this iframe; others stay hidden but alive — no reload needed on return.
@@ -3492,10 +3536,27 @@ async function _refreshMinutesGalleryOptions(term, caseEntry) {
 function _setCaseInfoRow2(caseEntry) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
 
+  // Collapses a sorted (ascending, as-appearing) array of day numbers into a
+  // comma-joined string, turning any run of 2+ consecutive days into a
+  // "first-last" range: [6,7,8,10,11,12,13,14,18,19] -> "6-8, 10-14, 18-19".
+  function _collapseDayRanges(days) {
+    const parts = [];
+    let i = 0;
+    while (i < days.length) {
+      let j = i;
+      while (j + 1 < days.length && days[j + 1] === days[j] + 1) j++;
+      parts.push(j > i ? days[i] + '-' + days[j] : String(days[i]));
+      i = j + 1;
+    }
+    return parts.join(',\u00a0');
+  }
+
   // Replaces the contents of `el` with a prefix label followed by a single
   // clickable <a> spanning every date, navigating to the first one.
   // e.g. "1890-11-21,1890-11-24"  \u2192 "November 21, 24, 1890"
   //      "1890-11-30,1890-12-01"  \u2192 "November 30, December 1, 1890"
+  //      "1795-08-06,...,1795-08-08,1795-08-10,...,1795-08-14,1795-08-18,1795-08-19"
+  //        \u2192 "August 6-8, 10-14, 18-19, 1795" (see _collapseDayRanges)
   function _setDateLinks(el, prefix, dateStr, futurePrefix) {
     while (el.firstChild) el.removeChild(el.firstChild);
     if (!dateStr) { el.hidden = true; return; }
@@ -3528,7 +3589,7 @@ function _setCaseInfoRow2(caseEntry) {
       }
       text = segments.map((seg, i) => {
         const month = MONTHS[parseInt(seg.m, 10) - 1] || seg.m;
-        let s = month + '\u00a0' + seg.days.join(',\u00a0');
+        let s = month + '\u00a0' + _collapseDayRanges(seg.days);
         const isLast = i === segments.length - 1;
         if (isLast || segments[i + 1].y !== seg.y) s += ',\u00a0' + seg.y;
         return s;
@@ -8928,8 +8989,7 @@ function renderTranscript() {
       if (!hadRef) collapseDocViewer();
       // Seek to the new turn; only play if audio was already playing
       if (turn.time != null) {
-        audio.currentTime = turnTimes[idx];
-        if (wasPlaying) audio.play().catch(() => {});
+        _seekToTurn(idx, { play: wasPlaying });
       } else {
         div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
@@ -9276,8 +9336,7 @@ function jumpToTurn(target) {
   history.replaceState(null, '', _turnUrl);
   if (turns[target]?.time != null) {
     const wasPlaying = !audio.paused;
-    audio.currentTime = turnTimes[target];
-    if (wasPlaying) audio.play();
+    _seekToTurn(target, { play: wasPlaying });
   }
 }
 
@@ -9811,8 +9870,7 @@ let _transcriptSearchClearHighlight = null;
         checkLinksForActiveTurn(targetIdx);
         if (turns[targetIdx]?.time != null) {
           const wasPlaying = !audio.paused;
-          audio.currentTime = turnTimes[targetIdx];
-          if (wasPlaying) audio.play().catch(() => {});
+          _seekToTurn(targetIdx, { play: wasPlaying });
         }
       }
     }

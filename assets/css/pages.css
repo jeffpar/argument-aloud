@@ -535,6 +535,15 @@ html[data-theme="dark"] .jb-grid-photo { background: #3a3c45; }
   letter-spacing: 0.04em;
   margin-top: 4px;
   font-size: clamp(0.34rem, 15cqw, 0.62rem);
+  /* Keep names on one line as the row narrows — cqw already shrinks the
+     font to match the container, but once it hits the clamp's floor a
+     long name (e.g. MCREYNOLDS, SUTHERLAND) would otherwise wrap onto a
+     second line instead of continuing to shrink. max-width+ellipsis is
+     just a safety net for that floor case, not the normal behavior. */
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* detail view */
 .jb-title-row {
