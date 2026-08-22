@@ -2615,7 +2615,7 @@ button.term-case-count.sort-active:hover {
     overflow: hidden;
   }
 
-  /* 2nd: decision label (file dropdown moved below the vote line — see order: 5) */
+  /* 2nd: decision label (file dropdown moved below the vote/SCDB lines — see order: 6) */
   #decision-date-label { order: 2; flex-basis: 100%; margin-top: 6px; }
   /* The wrapper stretches to fill the row, but a bare <select> only sizes to
      its content — without also stretching it, the wrapper (and the arrow
@@ -2632,12 +2632,13 @@ button.term-case-count.sort-active:hover {
   /* 4th: vote line */
   #case-info-row3    { order: 4; flex-basis: 100%; }
 
-  /* 5th: file dropdown — placed after the vote line on mobile, unlike the
-     desktop layout where it sits up in row1 next to the title. */
-  #file-select-wrap  { order: 5; flex-basis: 100%; margin-top: 6px; }
+  /* 5th: SCDB discrepancy / audit message */
+  #case-info-row4    { order: 5; flex-basis: 100%; }
 
-  /* 6th: SCDB discrepancy message */
-  #case-info-row4    { order: 6; flex-basis: 100%; }
+  /* 6th: file dropdown — placed after the vote line and any SCDB/audit
+     message on mobile, unlike the desktop layout where it sits up in row1
+     next to the title. */
+  #file-select-wrap  { order: 6; flex-basis: 100%; margin-top: 6px; }
 
   /* 7th: questions */
   #case-questions    { order: 7; flex-basis: 100%; }
