@@ -5027,10 +5027,10 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
         basePath,
         argumentDates: null,
         computeEntries: async (rawFiles) => {
-          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', collections:'Collections', reference:'References', media:'Media', other:'Other' };
-          const ORDER = ['petitioner','respondent','amicus','briefs','collections','reference','media','other'];
+          const TYPE_LABELS = { petitioner:'Petitioner', respondent:'Respondent', amicus:'Amicus', briefs:'Briefs', collections:'Collections', references:'References', media:'Media', other:'Other' };
+          const ORDER = ['petitioner','respondent','amicus','briefs','collections','references','media','other'];
           const MERGE_AMICUS_OTHER = true;
-          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','collections','reference','media','other','transcript','opinion','statement','records']);
+          const _TERM_GROUP_KEYS = new Set(['petitioner','respondent','amicus','briefs','collections','references','media','other','transcript','opinion','statement','records']);
           const groups = {};
           rawFiles.forEach(f => {
             let key = (f.group || '').toLowerCase();
@@ -5042,6 +5042,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
               key = (f.type || '').toLowerCase();
               if (key === 'appellant' || key === 'appellants' || key === 'plaintiff' || key === 'plaintiffs' || key === 'complainant' || key === 'complainants') key = 'petitioner';
               else if (key === 'appellee' || key === 'appellees' || key === 'defendant' || key === 'defendants') key = 'respondent';
+              else if (key === 'reference') key = 'references';
               if (!_TERM_GROUP_KEYS.has(key)) key = 'other';
             }
             if (!groups[key]) groups[key] = [];
@@ -5049,7 +5050,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           });
           ORDER.forEach(k => {
             if (!groups[k]) return;
-            if (k === 'reference') groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+            if (k === 'references') groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
             else groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
           });
           if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
@@ -5082,9 +5083,9 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           delete groups.transcript;
           delete groups.opinion;
           delete groups.records;
-          const referenceFiles = groups.reference || [];
-          delete groups.reference;
-          const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'reference');
+          const referenceFiles = groups.references || [];
+          delete groups.references;
+          const effectiveOrder = (MERGE_AMICUS_OTHER ? ORDER.filter(k => k !== 'amicus') : ORDER).filter(k => k !== 'references');
           const entries = [];
           effectiveOrder.forEach(typeKey => {
             if (!groups[typeKey]?.length) return;
@@ -5099,7 +5100,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           if (citationsEntry) entries.push(citationsEntry);
           const otherTitlesEntry = _buildOtherTitlesEntry(caseEntry, term);
           if (otherTitlesEntry) entries.push(otherTitlesEntry);
-          if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.reference, files: referenceFiles });
+          if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.references, files: referenceFiles });
           if (recordsFiles.length) entries.push({ kind: 'group', label: 'Records', files: recordsFiles });
           return { entries };
         },
@@ -6918,7 +6919,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         const activeCatSet = new Set(activeCats);
 
         // Map a file to the best available active category label.
-        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','reference','media','other','brief','briefs','collection','collections']);
+        const _COLL_SEM_KEYS = new Set(['petitioner','respondent','amicus','references','media','other','brief','briefs','collection','collections']);
         function resolveCategory(f) {
           // Prefer the explicit group property when it carries a known semantic key.
           let sem = (f.group || '').toLowerCase();
@@ -6927,13 +6928,14 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
             sem = (f.type || '').toLowerCase();
             if (sem === 'appellant' || sem === 'appellants' || sem === 'plaintiff' || sem === 'plaintiffs' || sem === 'complainant' || sem === 'complainants') sem = 'petitioner';
             else if (sem === 'appellee' || sem === 'appellees' || sem === 'defendant' || sem === 'defendants') sem = 'respondent';
+            else if (sem === 'reference') sem = 'references';
             if (!_COLL_SEM_KEYS.has(sem)) sem = 'other';
           }
           const prefs = {
             petitioner: ['Petitioner', 'Briefs', 'Other'],
             respondent: ['Respondent', 'Briefs', 'Other'],
             amicus:     ['Amicus', 'Briefs', 'Other'],
-            reference:  ['References', 'Other'],
+            references: ['References', 'Other'],
             media:      ['Media', 'Other'],
             brief:      ['Briefs', 'Other'],
             briefs:     ['Briefs', 'Other'],

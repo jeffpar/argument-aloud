@@ -2965,7 +2965,7 @@ async function importCitedUrls(casesPath, term) {
 
         let files = exists(filesPath) ? readJson(filesPath) : [];
         const allByHref      = new Map(files.filter(f => f.href).map(f => [f.href, f]));
-        const existingByHref = new Map(files.filter(f => f.href && f.group === 'reference').map(f => [f.href, f]));
+        const existingByHref = new Map(files.filter(f => f.href && f.group === 'references').map(f => [f.href, f]));
         let added = 0;
 
         for (const { href, source } of items) {
@@ -2981,7 +2981,7 @@ async function importCitedUrls(casesPath, term) {
                 if (other.group === 'media' && correctSource && other.source !== correctSource) { other.source = correctSource; added++; }
                 continue;
             }
-            const newEntry = { type: 'url', group: 'reference', title: correctTitle };
+            const newEntry = { type: 'url', group: 'references', title: correctTitle };
             if (decisionDate) newEntry.date = decisionDate;
             newEntry.href = href;
             if (correctSource) newEntry.source = correctSource;

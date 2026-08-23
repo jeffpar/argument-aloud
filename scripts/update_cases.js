@@ -1387,7 +1387,7 @@ function backfillUntrackedFiles(casesPath, term, dryRun = false) {
 
 // Valid normalized type and group values for files.json entries.
 // Type "reference" never carries a "group" — a reference entry is always
-// implicitly grouped under "reference" (see explorer.js's type→group fallback),
+// implicitly grouped under "references" (see explorer.js's type→group fallback),
 // so the redundant property is omitted entirely.
 const _FILE_TYPES  = new Set(['brief', 'opinion', 'reference', 'other', 'mp4', 'mp3']);
 const _FILE_GROUPS = new Set(['petitioner', 'respondent', 'amicus', 'other', 'media']);
