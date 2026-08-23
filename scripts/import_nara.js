@@ -24,8 +24,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const NARA_DIR = resolve(ROOT, 'data/nara/ussc');
 
-/** Return the first pipe-delimited component of a case title for display. */
-const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+/** Return the first semicolon-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf(';'); return i === -1 ? s : s.slice(0, i); };
 
 const API_BASE = 'https://catalog.archives.gov/proxy/records/search';
 const ROWS_PER_PAGE = 100;

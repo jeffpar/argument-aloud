@@ -48,8 +48,8 @@ const REPORTS_JSON      = path.join(REPO_ROOT, 'data', 'ussc', 'reports.json');
 
 // ── Small helpers ──────────────────────────────────────────────────────────
 
-/** Return the first pipe-delimited component of a case title for display. */
-const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+/** Return the first semicolon-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf(';'); return i === -1 ? s : s.slice(0, i); };
 
 // A case's "argument_consolidation" (see schema.js) — an identical,
 // shared value on every case in the group, listing all their numbers
@@ -1995,7 +1995,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     let entryTitle = title;
                     if (subKey) {
                         const numParts   = number.split(',').map(n => n.trim());
-                        const titleParts = (c.title || '').split('|');
+                        const titleParts = (c.title || '').split(';').map(t => t.trim());
                         const subIdx     = numParts.indexOf(subKey);
                         if (subIdx !== -1 && subIdx < titleParts.length) entryTitle = titleParts[subIdx];
                     }
@@ -3044,7 +3044,7 @@ async function addFeaturedAdvocate(name, { verbose = false } = {}) {
         for (let i = 0; i < cases.length; i++) {
             const c         = cases[i];
             const caseId    = String(c.id || '').trim();
-            const caseTitle = String(c.title || '').split('|')[0].trim();
+            const caseTitle = String(c.title || '').split(';')[0].trim();
             const entry     = { term, casesPath, caseIdx: i, caseId, caseTitle };
             const cite      = c.citation;
             if (cite) {

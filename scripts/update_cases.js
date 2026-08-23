@@ -85,8 +85,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT   = path.resolve(__dirname, '..');
 export const SCOTUS_BASE = 'https://www.supremecourt.gov';
 
-/** Return the first pipe-delimited component of a case title for display. */
-const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+/** Return the first semicolon-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf(';'); return i === -1 ? s : s.slice(0, i); };
 
 const _OPINIONS_CACHE = new Map();   // `${year2}|${checkUrls}` -> opinions dict
 let _VERBOSE = false;
@@ -10178,7 +10178,7 @@ function checkAlignedTranscriptLengths(casesPath, caseFilter) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// --loc --backfill: fill missing pipe-separated sub-titles from LOC PDFs
+// --loc --backfill: fill missing semicolon-separated sub-titles from LOC PDFs
 // ═══════════════════════════════════════════════════════════════════════════
 
 /**
@@ -10232,7 +10232,7 @@ function _parseTogetherWith(text) {
 
 /**
  * For cases in cases.json where the number field has more comma-separated
- * values than the title field has pipe-separated values, fetch the LOC
+ * values than the title field has semicolon-separated values, fetch the LOC
  * opinion PDF and parse "Together with" footnotes to fill in the gaps.
  */
 async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
@@ -10248,7 +10248,7 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
         }
 
         const numbers = (c.number || '').split(',').map(s => s.trim()).filter(Boolean);
-        const titles  = (c.title  || '').split('|');
+        const titles  = (c.title  || '').split(';').map(s => s.trim());
         if (numbers.length <= titles.length) continue;
 
         const href = c.decision_loc || '';
@@ -10290,7 +10290,7 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
         // Drop any trailing empty slots.
         while (newTitles.length > 1 && !newTitles[newTitles.length - 1]) newTitles.pop();
 
-        const newTitle = newTitles.join('|');
+        const newTitle = newTitles.join('; ');
         if (dryRun) {
             console.log(`  [dry-run] would set title: "${newTitle}"`);
         } else {

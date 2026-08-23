@@ -55,8 +55,8 @@ const exists   = (p) => fs.existsSync(p);
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const readText = (p) => fs.readFileSync(p, 'utf8');
 
-/** Return the first pipe-delimited component of a case title for display. */
-const firstTitle = (s) => { if (!s) return s; const i = s.indexOf('|'); return i === -1 ? s : s.slice(0, i); };
+/** Return the first semicolon-delimited component of a case title for display. */
+const firstTitle = (s) => { if (!s) return s; const i = s.indexOf(';'); return i === -1 ? s : s.slice(0, i); };
 
 function relRepo(p) {
     const r = path.relative(REPO_ROOT, p);

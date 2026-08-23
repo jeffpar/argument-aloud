@@ -37,7 +37,7 @@
     return DAYS[d.getUTCDay()] + ', ' + MONTHS[+p[1] - 1] + ' ' + d.getUTCDate() + ', ' + p[0];
   }
   function caseDisplayTitle(c) {
-    return (c.title || c.number || c.id || '(unknown)').split('|')[0].trim();
+    return (c.title || c.number || c.id || '(unknown)').split(';')[0].trim();
   }
   // "No. 5" / "Nos. 5, 6-Orig" — mirrors decisionTooltip/argumentTooltip's
   // own number formatting in assets/js/explorer.js (duplicated here since

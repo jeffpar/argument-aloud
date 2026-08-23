@@ -2709,16 +2709,16 @@ function caseDirName(caseEntry) {
 }
 
 // Return the primary (display) title from a raw case title string.
-// Multiple consolidated case titles may be stored as pipe-delimited values;
-// only the first element is used for display.
+// Multiple consolidated case titles may be stored as semicolon-delimited
+// values ("; "); only the first element is used for display.
 function caseTitle(raw) {
   if (!raw) return raw;
-  const idx = raw.indexOf('|');
+  const idx = raw.indexOf(';');
   return idx === -1 ? raw : raw.slice(0, idx);
 }
 
 // Returns a display title for use in the Edits/Favorites nav.
-// When the event title contains "No. N", finds the matching '|'-split case title
+// When the event title contains "No. N", finds the matching ';'-split case title
 // at the same index as N in the ','-split number field, then formats as
 // "Sub-case Title (No. N)". Falls back to the first title with "(No. N)" if N
 // isn't in the number field. Returns just the first title when no "No. N" present.
@@ -2733,23 +2733,23 @@ function _caseDisplayTitle(caseEntry, eventEntry) {
     return num ? `${base} (No. ${num})` : base;
   }
   const num     = _normNum(m[1]);
-  const titles  = (caseEntry.title  || '').split('|');
+  const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
   const idx     = numbers.indexOf(m[1]);
   const base    = (idx !== -1 && idx < titles.length) ? titles[idx] : titles[0];
   return `${base} (No. ${num})`;
 }
 
-// For a consolidated case (multiple titles separated by '|' and numbers by ','),
+// For a consolidated case (multiple titles separated by '; ' and numbers by ','),
 // return the { title, number } sub-case whose docket number appears as "No. X" in
 // optionText. Defaults to the first sub-case when no match. Returns null for
 // non-consolidated cases (title/number counts differ or only one part each).
 function _subCaseForOption(caseEntry, optionText) {
-  const titles  = (caseEntry.title  || '').split('|');
+  const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   if (optionText) {
-    const m = /\bNo\.\s*(\d+)\b/.exec(optionText);
+    const m = /\bNo\.\s*([\d][\d-]*)/i.exec(optionText);
     if (m) {
       const idx = numbers.indexOf(m[1]);
       if (idx !== -1) return { title: titles[idx], number: numbers[idx] };
@@ -2763,7 +2763,7 @@ function _subCaseForOption(caseEntry, optionText) {
 // param named). Returns null for non-consolidated cases or an unmatched number.
 function _subCaseForNumber(caseEntry, number) {
   if (!number) return null;
-  const titles  = (caseEntry.title  || '').split('|');
+  const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   const idx = numbers.indexOf(number);
@@ -3784,7 +3784,7 @@ function _setCaseInfoRow3(caseEntry) {
   // granted") — anything after that is either the petitioning-party-outcome
   // phrase or prose about a different case entirely.
   const firstSegment = result.split(';')[0].trim();
-  const firstTitle = (caseEntry.title || '').split('|')[0];
+  const firstTitle = (caseEntry.title || '').split(';')[0].trim();
   let party;
   if (result.includes('petitioning party received a favorable disposition')) {
     party = firstTitle.split(' v. ')[0].trim();
@@ -4294,7 +4294,7 @@ function _buildCitationsEntry(caseEntry) {
 // Appears after Citations but before References (the very last group) and
 // any flat transcript/decision entries.
 function _buildOtherTitlesEntry(caseEntry, term) {
-  const titles  = (caseEntry.title  || '').split('|');
+  const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
   const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   const files = titles.map((title, i) => ({
@@ -4918,7 +4918,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
     // visibility and the undecided-case empty ring both use this. The green
     // ring below is narrower: caseEntry.files alone (not references/cites/
     // consolidation), since it specifically means "documents on file".
-    const hasFiles      = !!caseEntry.files || !!caseEntry.references || !!caseEntry.cites?.length || (caseEntry.title || '').includes('|');
+    const hasFiles      = !!caseEntry.files || !!caseEntry.references || !!caseEntry.cites?.length || (caseEntry.title || '').includes(';');
 
     const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
       caseKey,
