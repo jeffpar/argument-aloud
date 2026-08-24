@@ -276,16 +276,16 @@ function loadJusticeLastNames(p) {
 }
 const JUSTICE_LAST_NAMES = loadJusticeLastNames(path.join(REPO_ROOT, 'data', 'ussc', 'justices.json'));
 
-// Maps uppercase justice name → dateStart string (ISO), used for seniority ordering.
+// Maps uppercase justice name → service_started string (ISO), used for seniority ordering.
 function loadJusticeSeniority(p) {
     const map = new Map();
     if (!exists(p)) return map;
     let data;
     try { data = readJson(p); } catch { return map; }
     for (const [key, entry] of Object.entries(data)) {
-        if (!entry.dateStart) continue;
+        if (!entry.service_started) continue;
         for (const form of [key, ...(entry.alternates || [])]) {
-            map.set(form.trim().toUpperCase(), entry.dateStart);
+            map.set(form.trim().toUpperCase(), entry.service_started);
         }
     }
     return map;
@@ -1486,16 +1486,43 @@ function _computeYearsServed(tenures) {
     return totalMs / (365.25 * _MS_PER_DAY);
 }
 
+/** Every bench composition (see update_cases.js's processBenches) that
+ *  overlaps a single tenure's own [tenureStart, tenureStop] range (open-
+ *  ended if tenureStop is '') and whose "justices" array includes
+ *  canonicalName — in `benches`' own ascending-dateStart order, as
+ *  benches.json always is. A tenure's own dateStart/dateStop don't always
+ *  land exactly on a bench boundary of their own: a same-day handoff (e.g.
+ *  Alito sworn in on O'Connor's last day) pushes the incoming justice's own
+ *  bench membership to the following day, and a departure that isn't
+ *  immediately followed by any decided case (e.g. Harlan resigning 6 days
+ *  after Hugo Black, with no intervening decision) can leave someone's last
+ *  bench appearance ending days before their own official service_ended.
+ *  Scoping to the tenure's own overlap (rather than an exact-date lookup)
+ *  catches both without wandering into a different tenure's own benches —
+ *  see John Rutledge, whose first tenure predates benches.json's own
+ *  tracking entirely (only starts the day after the Court's first
+ *  departure) and so correctly returns no benches at all here. */
+function _benchesForTenure(benches, canonicalName, tenureStart, tenureStop) {
+    if (!tenureStart) return [];
+    const stop = tenureStop || '9999-99-99';
+    return benches.filter(b =>
+        b.dateStart <= stop && (!b.dateStop || b.dateStop >= tenureStart) &&
+        Array.isArray(b.justices) && b.justices.includes(canonicalName));
+}
+
 /** Return the HTML body for a justice page.
- *  servedBase is the "Served from X to Y" sentence WITHOUT a trailing period. */
-function _justiceBody(servedBase) {
+ *  servedBase is the "Served from X to Y" sentence WITHOUT a trailing period.
+ *  bornDied is the "Born <date>." (optionally " Died <date>.") sentence, or
+ *  '' to omit entirely (a justice with no known life_started). */
+function _justiceBody(servedBase, bornDied) {
     return [
         '<div style="display:flex; gap:1em;">',
         '<div style="flex:2; min-width:0; overflow:hidden;">',
         '<h1>{{ page.title }}</h1>',
+        ...(bornDied ? ['<p>' + bornDied + '</p>'] : []),
         '<p>' + servedBase + '{% if page.years_served %}{% assign yr_str = page.years_served | append: "" | remove: ".0" %} ({{ yr_str }} year{% unless yr_str == "1" %}s{% endunless %} or {{ page.days_served }} days){% elsif page.date_start %} <span id="jp-dur"></span>{% endif %}.</p>',
         '{% if page.date_start %}<script>(function(){var e=document.getElementById("jp-dur");if(!e)return;var ms=Date.now()-Date.parse("{{ page.date_start }}")+86400000;var d=Math.floor(ms/86400000);var y=(ms/(365.25*86400000)).toFixed(1).replace(/\\.0$/,"");e.textContent="("+y+" year"+(y==="1"?"":"s")+" or "+d.toLocaleString()+" days)";}());</script>{% endif %}',
-        '{% if page.case_count %}<p>Also argued {{ page.case_count }} {% if page.case_count == 1 %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">case</a> on {{ page.last_argument }}{% else %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">cases</a> from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
+        '{% if page.case_count %}<p>Argued {{ page.case_count }} {% if page.case_count == 1 %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">case</a> on {{ page.last_argument }}{% else %}<a href="/courts/ussc/?collection=justice_advocates&id={{ page.justice_id }}">cases</a> from {{ page.first_argument }} to {{ page.last_argument }}{% endif %}.</p>{% endif %}',
         '{% if page.opinions or page.lone_dissents or page.vocal_secs %}<p>{% if page.opinions or page.lone_dissents %}Wrote {% if page.opinions %}{{ page.opinions }} majority <a href="/courts/ussc/?collection=opinions&id={{ page.justice_id }}">opinion{% if page.opinions != 1 %}s{% endif %}</a>{% endif %}{% if page.opinions and page.lone_dissents %} and {% endif %}{% if page.lone_dissents %}{{ page.lone_dissents }} lone <a href="/courts/ussc/?collection=lone_dissents&id={{ page.justice_id }}">dissent{% if page.lone_dissents != 1 %}s{% endif %}</a>{% endif %}{% if page.vocal_secs %}, and spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}{% elsif page.vocal_secs %}Spoke for {{ page.vocal_secs | divided_by: 3600.0 | round: 1 }} hours in <a href="/courts/ussc/?collection=vocal_justices&id={{ page.justice_id }}">oral arguments</a>{% endif %}.</p>{% endif %}',
         '</div>',
         '<div class="jp-frame"><img src="portrait.jpg" alt="{{ page.title }}" onerror="this.parentElement.style.display=\'none\'"></div>',
@@ -1562,6 +1589,10 @@ function syncJusticePages({ verbose = false } = {}) {
             if (e.id && e.wikipedia) wikiMap.set(e.id, e.wikipedia);
         }
     } catch {}
+    // Benches (see update_cases.js's processBenches), for linking a tenure's
+    // own start/stop date to the specific bench composition it falls within.
+    let benches = [];
+    try { benches = readJson(path.join(justicesBase, 'benches.json')); } catch {}
 
     ensureDir(JUSTICES_ALL_DIR);
     let created = 0, updated = 0;
@@ -1584,13 +1615,29 @@ function syncJusticePages({ verbose = false } = {}) {
         const loneCount = loneMap.get(id) || 0;
         const vocalSecs = vocalMap.get(id) || 0;
 
-        // Build tenure text and compute years served.
-        const tenures = entry.tenures
-            ? entry.tenures
-            : [{ dateStart: entry.dateStart || '', dateStop: entry.dateStop || '' }];
-        const servedPhrases = tenures.map(t => {
-            const from = isoToFullDate(t.dateStart || '');
-            const to   = t.dateStop ? isoToFullDate(t.dateStop) : 'present';
+        // Build tenure text and compute years served. Normalized to
+        // {dateStart, dateStop} here (from justices.json's own
+        // service_started/service_ended) so the rest of this function can
+        // read that shape regardless of whether the source was a single
+        // top-level tenure or a multi-tenure "tenures" array.
+        const tenures = (entry.tenures || [entry])
+            .map(t => ({ dateStart: t.service_started || '', dateStop: t.service_ended || '' }));
+        // The overall start date (first tenure's own start) links to the
+        // first bench they served on; the overall stop date (last tenure's
+        // own stop, when it has one — an active justice's still open) links
+        // to the last. A multi-tenure justice's own in-between tenure
+        // boundaries (e.g. Charles Hughes, John Rutledge) are left unlinked.
+        const firstTenure    = tenures[0];
+        const lastTenure     = tenures[tenures.length - 1];
+        const firstTenureBenches = _benchesForTenure(benches, canonicalName, firstTenure.dateStart, firstTenure.dateStop);
+        const lastTenureBenches  = _benchesForTenure(benches, canonicalName, lastTenure.dateStart, lastTenure.dateStop);
+        const firstBenchId = firstTenureBenches.length ? firstTenureBenches[0].id : null;
+        const lastBenchId  = lastTenure.dateStop && lastTenureBenches.length ? lastTenureBenches[lastTenureBenches.length - 1].id : null;
+        const servedPhrases = tenures.map((t, i) => {
+            let from = isoToFullDate(t.dateStart || '');
+            let to   = t.dateStop ? isoToFullDate(t.dateStop) : 'present';
+            if (i === 0 && firstBenchId) from = `<a href="/courts/ussc/?collection=benches&id=${firstBenchId}">${from}</a>`;
+            if (i === tenures.length - 1 && lastBenchId) to = `<a href="/courts/ussc/?collection=benches&id=${lastBenchId}">${to}</a>`;
             return `from ${from} to ${to}`;
         });
         const servedBase = 'Served ' + (servedPhrases.length > 1
@@ -1607,6 +1654,15 @@ function syncJusticePages({ verbose = false } = {}) {
         }, 0);
         const daysStr  = yrs > 0 ? Math.round(daysMs / _MS_PER_DAY).toLocaleString('en-US') : '';
         const wikiUrl  = wikiMap.get(id) || '';
+
+        // "Born <date>." (plus " Died <date>." when known) — omitted
+        // entirely for the handful of justices with no reliably known exact
+        // birth date (see data/ussc/justices.json's own life_started doc).
+        const lifeStarted = entry.life_started || '';
+        const lifeEnded   = entry.life_ended || '';
+        const bornDied = lifeStarted
+            ? 'Born ' + isoToFullDate(lifeStarted) + '.' + (lifeEnded ? ' Died ' + isoToFullDate(lifeEnded) + '.' : '')
+            : '';
 
         // Gallery entry (skip placeholder entries like "Unknown Justice" that
         // carry no known tenure start date).
@@ -1629,7 +1685,7 @@ function syncJusticePages({ verbose = false } = {}) {
             galleryEntries.push(galleryEntry);
         }
 
-        const body = _justiceBody(servedBase);
+        const body = _justiceBody(servedBase, bornDied);
 
         if (!exists(mdPath)) {
             ensureDir(dir);
@@ -1676,14 +1732,21 @@ function syncJusticePages({ verbose = false } = {}) {
 
             // Migrate body if frame is absent, still carries the old inline <style> block,
             // is an active justice whose body predates the dynamic duration span,
-            // has the old unlinked "argued N cases" text, or still carries the
-            // now-removed inclusive-service-calculation note (also catches stale
-            // copies of the pre-fix, non-inclusive jp-dur duration script).
+            // has the old unlinked "argued N cases" text, still says "Also argued"
+            // (pre-dates dropping the "Also"), hasn't yet linked its own served
+            // date(s) to their bench page, hasn't yet gotten its own Born/Died
+            // paragraph, or still carries the now-removed inclusive-service-
+            // calculation note (also catches stale copies of the pre-fix,
+            // non-inclusive jp-dur duration script).
             const needsDynDuration  = isActive && !mdText.includes('id="jp-dur"');
             const needsCasesLink    = mdText.includes('{% else %}cases from {{ page.first_argument }}');
             const needsCombinedP    = mdText.includes('View vocal statistics');
             const needsNoteRemoved  = mdText.includes('All service calculations are inclusive');
-            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP || needsNoteRemoved) {
+            const needsArguedFix    = mdText.includes('Also argued');
+            const needsServedLinks  = (firstBenchId && !mdText.includes(`collection=benches&id=${firstBenchId}`))
+                || (lastBenchId && !mdText.includes(`collection=benches&id=${lastBenchId}`));
+            const needsBornDied     = bornDied && !mdText.includes('Born ');
+            if (!mdText.includes('class="jp-frame"') || mdText.includes('<style>\n.jp-frame') || needsDynDuration || needsCasesLink || needsCombinedP || needsNoteRemoved || needsArguedFix || needsServedLinks || needsBornDied) {
                 const fmEnd = /^---\r?\n[\s\S]*?\n---\r?\n/.exec(mdText);
                 if (fmEnd) mdText = mdText.slice(0, fmEnd[0].length) + body + '\n';
             }

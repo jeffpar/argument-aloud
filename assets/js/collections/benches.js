@@ -2,11 +2,109 @@
   var PORTRAIT_BASE = '/courts/ussc/people/justices/all/';
   var MONTHS = ['January','February','March','April','May','June',
                 'July','August','September','October','November','December'];
+  var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
   function fmtDate(iso) {
     if (!iso) return 'present';
     var p = iso.split('-');
-    return MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    var weekday = isNaN(d) ? '' : DAYS[d.getUTCDay()] + ', ';
+    return weekday + MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
+  }
+
+  // Every known term's own id + start date ("<YYYY>-<MM>-01"), sorted
+  // chronologically ascending — mirrors assets/js/terms.js's own
+  // termForDate/termStarts (duplicated here since this page runs on its
+  // own, not alongside terms.js) so a bench's own dateStart/dateStop links
+  // to the term whose calendar page actually covers that date.
+  function loadTermStarts() {
+    return fetch('/courts/ussc/terms/terms.json').then(function (r) { return r.json(); }).then(function (decades) {
+      var starts = [];
+      decades.forEach(function (d) {
+        (d.groups || []).forEach(function (g) {
+          var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
+          if (m) starts.push({ term: m[1], start: m[1].slice(0, 4) + '-' + m[1].slice(5, 7) + '-01' });
+        });
+      });
+      starts.sort(function (a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
+      return starts;
+    });
+  }
+
+  function termForDate(dateStr, starts) {
+    var found = null;
+    for (var i = 0; i < starts.length; i++) {
+      if (starts[i].start <= dateStr) found = starts[i].term; else break;
+    }
+    return found;
+  }
+
+  // Every justice's own raw tenure service_started/service_ended values
+  // from data/ussc/justices.json (same source scripts/update_cases.js's
+  // syncJusticeDates reads to build each dates.json's own "justice"
+  // entries), as two { iso: true } lookup sets. Lets dateLink below tell,
+  // purely from local data, whether a bench's own dateStart/dateStop is
+  // really some justice's own event day (link it as-is) or just a "the
+  // Court's roster count changed" boundary with no event of its own (see
+  // dateLink's own comment) — without a network round trip per date.
+  function loadJusticeDates() {
+    return fetch('/data/ussc/justices.json').then(function (r) { return r.json(); }).then(function (data) {
+      var starts = {}, stops = {};
+      Object.keys(data).forEach(function (name) {
+        var spec = data[name];
+        var tenures = spec.tenures || [spec];
+        tenures.forEach(function (t) {
+          if (t.service_started) starts[t.service_started] = true;
+          if (t.service_ended) stops[t.service_ended] = true;
+        });
+      });
+      return { starts: starts, stops: stops };
+    });
+  }
+
+  // Add n days to an ISO date string (UTC, so no local-timezone drift).
+  function addDaysIso(iso, n) {
+    var p = iso.split('-');
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]) + n * 86400000);
+    var pad = function (v) { return v < 10 ? '0' + v : '' + v; };
+    return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate());
+  }
+
+  // A formatted bench start/stop date, linked to that date's own term
+  // calendar page (same ?term=&date= route wireCalDayNav in terms.js
+  // navigates to) — plain text for an open-ended "present" or for a date
+  // that resolves to no known term at all.
+  //
+  // A bench's own dateStart/dateStop is often just "the Court's roster
+  // count changed" rather than any specific justice's own start/stop day —
+  // e.g. a departure with no same-day successor pushes the *next* bench's
+  // dateStart to the day after, while the actual departure is recorded on
+  // the *previous* bench's own dateStop (see scripts/update_cases.js's
+  // processBenches, and its same-day-handoff comment for the mirror case).
+  // Linking straight to such a date lands the visitor on a calendar day
+  // with no "Justices" section at all. So: when isStart's iso isn't itself
+  // some justice's own dateStart, the link goes one day earlier instead
+  // (toward whichever justice's departure actually triggered this bench);
+  // symmetrically, when !isStart's iso isn't some justice's own dateStop,
+  // the link goes one day later. The displayed label always stays the
+  // bench's own true date either way — only the link target shifts.
+  function dateLink(iso, isStart, termStarts, justiceDates) {
+    if (!iso) return document.createTextNode('present');
+    var label = fmtDate(iso);
+    var known = isStart ? justiceDates.starts : justiceDates.stops;
+    var linkIso = known[iso] ? iso : addDaysIso(iso, isStart ? -1 : 1);
+    var term = termForDate(linkIso, termStarts);
+    if (!term) return document.createTextNode(label);
+    var a = document.createElement('a');
+    a.textContent = label;
+    var s = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(linkIso);
+    a.href = '/courts/ussc/' + s;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
+      else { location.href = '/courts/ussc/' + s; }
+    });
+    return a;
   }
 
   // bench.justices stores full capitalized names (e.g. "WARREN BURGER"), not
@@ -160,10 +258,14 @@
 
   Promise.all([
     fetch('/courts/ussc/people/justices/benches.json').then(function (r) { return r.json(); }),
-    fetch('/courts/ussc/people/justices/gallery.json').then(function (r) { return r.json(); })
+    fetch('/courts/ussc/people/justices/gallery.json').then(function (r) { return r.json(); }),
+    loadTermStarts(),
+    loadJusticeDates()
   ]).then(function (results) {
-    var benches    = results[0];
-    var gallery    = results[1];
+    var benches      = results[0];
+    var gallery      = results[1];
+    var termStarts   = results[2];
+    var justiceDates = results[3];
     var justiceMap = {};
     gallery.forEach(function (j) { justiceMap[j.id] = j; });
 
@@ -213,7 +315,9 @@
       var meta = document.createElement('p');
       meta.className = 'jb-detail-dates';
       var dateSpan = document.createElement('span');
-      dateSpan.textContent = fmtDate(bench.dateStart) + ' to ' + fmtDate(bench.dateStop);
+      dateSpan.appendChild(dateLink(bench.dateStart, true, termStarts, justiceDates));
+      dateSpan.appendChild(document.createTextNode(' to '));
+      dateSpan.appendChild(dateLink(bench.dateStop, false, termStarts, justiceDates));
       var countSpan = document.createElement('span');
       var n = bench.cases || 0;
       countSpan.textContent = n.toLocaleString() + ' case' + (n === 1 ? '' : 's');
@@ -354,7 +458,9 @@
           var meta = document.createElement('div');
           meta.className = 'jb-meta';
           var dateSpan = document.createElement('span');
-          dateSpan.textContent = fmtDate(bench.dateStart) + ' to ' + fmtDate(bench.dateStop);
+          dateSpan.appendChild(dateLink(bench.dateStart, true, termStarts, justiceDates));
+          dateSpan.appendChild(document.createTextNode(' to '));
+          dateSpan.appendChild(dateLink(bench.dateStop, false, termStarts, justiceDates));
           var countSpan = document.createElement('span');
           countSpan.textContent = n.toLocaleString() + ' case' + (n === 1 ? '' : 's');
           meta.appendChild(dateSpan);

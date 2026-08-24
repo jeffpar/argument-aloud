@@ -23,6 +23,10 @@ scripts:
         </button>
       </div>
       <div id="date-sections">
+        <div id="date-justices-section" hidden>
+          <h3>Justices</h3>
+          <ul id="date-justices-list" class="date-case-list"></ul>
+        </div>
         <div id="date-argued-section" hidden>
           <h3>Arguments</h3>
           <ul id="date-argued-list" class="date-case-list"></ul>

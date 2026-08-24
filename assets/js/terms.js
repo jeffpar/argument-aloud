@@ -1928,6 +1928,54 @@
           document.getElementById(sectionId).hidden = false;
         }
 
+        // Justice service-date entries (type "justice" — see update_cases.js's
+        // syncJusticeDates) for this date: one row per justice whose service
+        // started or ended this day, linking straight to their own gallery
+        // page via the entry's own title/href — no case lookup involved, so
+        // this doesn't share fillGroup's own case-row plumbing above.
+        function fillJusticesGroup(items) {
+          if (!items.length) return;
+          var ul = document.getElementById('date-justices-list');
+          var sorted = items.slice().sort(function (a, b) {
+            var ta = (a.title || '').toLowerCase(), tb = (b.title || '').toLowerCase();
+            return ta < tb ? -1 : ta > tb ? 1 : 0;
+          });
+          var items2 = sorted.map(function (g) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.textContent = g.title || '';
+            a.href = g.href || '#';
+            a.addEventListener('click', function (e) {
+              e.preventDefault();
+              var s = '?' + (g.href || '').split('?')[1];
+              if (window.parent !== window) {
+                window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin);
+              } else {
+                location.href = g.href;
+              }
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+            return li;
+          });
+          if (items2.length > 2) {
+            items2.slice(2).forEach(function (li) { li.hidden = true; });
+            var moreLi = document.createElement('li');
+            var moreLink = document.createElement('a');
+            moreLink.href = '#';
+            moreLink.textContent = '…';
+            moreLink.title = 'Show ' + (items2.length - 2) + ' more';
+            moreLink.addEventListener('click', function (e) {
+              e.preventDefault();
+              items2.forEach(function (li) { li.hidden = false; });
+              moreLi.remove();
+            });
+            moreLi.appendChild(moreLink);
+            ul.insertBefore(moreLi, items2[2]);
+          }
+          document.getElementById('date-justices-section').hidden = false;
+        }
+
         // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
         // per-term file (most terms don't have one) built by
         // scripts/parse_minutes.js from NARA's own OCR'd minutes books — see
@@ -1942,6 +1990,7 @@
         termDatesPromise.then(function (datesData) {
           var crossTermCases = (datesData && datesData[date]) || [];
           var crossArg = crossTermCases.filter(function (g) { return g.type === 'argument' || g.type === 'reargument'; });
+          var justiceDates = crossTermCases.filter(function (g) { return g.type === 'justice'; });
 
           // Arguments and reargument dates share a single section/list now —
           // a case argued and reargued on the very same date (never actually
@@ -1949,6 +1998,7 @@
           var argued = casesOnDate('argument').concat(casesOnDate('reargument'));
           argued = argued.filter(function (c, i) { return argued.indexOf(c) === i; });
 
+          fillJusticesGroup(justiceDates);
           fillGroup('date-argued-section',  'date-argued-list',  argued.concat(crossArg));
           fillGroup('date-decided-section', 'date-decided-list', casesOnDate('decision'), true);
 

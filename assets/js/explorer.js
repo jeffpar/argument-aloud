@@ -1789,22 +1789,27 @@ let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
 // single-select); a case matching ANY active filter stays visible (OR, not
 // AND — see _visibleTermCases). A term/decade qualifies for one when its
 // precomputed terms.json count (same key name — "orders", "digs",
-// "dismissals") is > 0; a case list is additionally filtered case-by-case
-// once actually fetched, via _FILTER_CASE_TEST below.
+// "partialDigs", "dismissals") is > 0; a case list is additionally filtered
+// case-by-case once actually fetched, via _FILTER_CASE_TEST below.
 const _FILTER_OPTIONS = [
-  { key: 'digs',       label: 'DIGs' },
-  { key: 'dismissals', label: 'Dismissals' },
-  { key: 'orders',     label: 'Orders' },
+  { key: 'digs',        label: 'DIGs' },
+  { key: 'partialDigs', label: 'Partial DIGs' },
+  { key: 'dismissals',  label: 'Dismissals' },
+  { key: 'orders',      label: 'Orders' },
 ];
 // Per-case test backing each filter option, applied once a term's cases.json
 // has actually been fetched (see _visibleTermCases). "digs" is a subset of
 // "dismissals" — dismissed-as-improvidently-granted cases are still just
 // "dismissed" too — matching how both are counted server-side in
-// syncTermsJson (scripts/update_cases.js).
+// syncTermsJson (scripts/update_cases.js). "partialDigs" is NOT a subset of
+// either — a case "partially improvidently granted" (only one of several
+// consolidated questions/dockets DIG'ed) still gets a real merits
+// disposition on the rest, so its own result text never says "dismissed".
 const _FILTER_CASE_TEST = {
-  orders:     (c, termEntry) => _isOrdersCase(c.citation, termEntry),
-  dismissals: (c) => /dismissed/i.test(c.result || ''),
-  digs:       (c) => /dismissed as improvidently granted/i.test(c.result || ''),
+  orders:      (c, termEntry) => _isOrdersCase(c.citation, termEntry),
+  partialDigs: (c) => /partially improvidently granted/i.test(c.result || ''),
+  dismissals:  (c) => /dismissed/i.test(c.result || ''),
+  digs:        (c) => /dismissed as improvidently granted/i.test(c.result || ''),
 };
 // True if `c` matches at least one active Filter panel option, or none are
 // active at all — shared by _visibleTermCases (term case lists) and nav
@@ -1818,11 +1823,21 @@ function _caseMatchesActiveFilters(c, termEntry) {
   return [..._activeFilters].some(key => _FILTER_CASE_TEST[key]?.(c, termEntry));
 }
 const _FILTER_KEYS = new Set(_FILTER_OPTIONS.map(o => o.key));
+// _FILTER_OPTIONS/_FILTER_CASE_TEST/terms.json keys are camelCase (matching
+// every other camelCase field there, e.g. argDays), but the URL's own
+// filter= value uses snake_case — convert at this boundary so a future
+// filter key needs no separate mapping table, just a camelCase key here.
+function _filterKeyToUrl(key) {
+  return key.replace(/[A-Z]/g, c => '_' + c.toLowerCase());
+}
+function _filterKeyFromUrl(slug) {
+  return slug.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+}
 // filter=a+b in the URL — URLSearchParams decodes a literal "+" back to a
 // space (form-encoding convention), and a "," from an older shared link is
 // accepted too, so split on either.
 let _activeFilters = new Set(
-  (new URLSearchParams(location.search).get('filter') || '').split(/[\s,]+/).filter(k => _FILTER_KEYS.has(k)),
+  (new URLSearchParams(location.search).get('filter') || '').split(/[\s,]+/).map(_filterKeyFromUrl).filter(k => _FILTER_KEYS.has(k)),
 );
 let COLLECTIONS = []; // populated from collections.json in init()
 let TOPICS      = []; // populated from topics.json in init()
@@ -5324,7 +5339,7 @@ function _applyActiveFilters() {
   // Written by hand rather than via url.searchParams.set, which would
   // percent-encode a literal "+" as "%2B" — same reason it's read back with
   // a regex above instead of assuming "+" survives unescaped.
-  const filterStr = [..._activeFilters].join('+');
+  const filterStr = [..._activeFilters].map(_filterKeyToUrl).join('+');
   const url = new URL(location.href);
   url.searchParams.delete('filter');
   const base = url.toString();

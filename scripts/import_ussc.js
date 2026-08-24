@@ -299,9 +299,8 @@ function _buildJusticeLastNameMap() {
     for (const [canonical, entry] of Object.entries(data)) {
         const u = canonical.toUpperCase();
         const last = lastNameOf(canonical);
-        const tenures = Array.isArray(entry?.tenures) && entry.tenures.length
-            ? entry.tenures
-            : [{ dateStart: entry?.dateStart || '', dateStop: entry?.dateStop || '' }];
+        const tenures = (Array.isArray(entry?.tenures) && entry.tenures.length ? entry.tenures : [entry || {}])
+            .map(t => ({ dateStart: t.service_started || '', dateStop: t.service_ended || '' }));
         for (const t of tenures) addEntry(last, u, t.dateStart, t.dateStop);
         for (const alt of (entry?.alternates || [])) {
             const aLast = lastNameOf(alt);
