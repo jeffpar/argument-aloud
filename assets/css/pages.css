@@ -46,6 +46,10 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 .stat-term-title-link:hover { text-decoration: underline; }
 .calendar-heading-link { color: inherit; text-decoration: none; cursor: pointer; }
 .calendar-heading-link:hover { text-decoration: underline; }
+.stat-filter-note { font-size: 0.85rem; font-style: italic; margin: -0.3rem 0 0.75rem; color: #888; }
+@media (prefers-color-scheme: dark) { .stat-filter-note { color: #6a7080; } }
+html[data-theme="dark"]  .stat-filter-note { color: #6a7080; }
+html[data-theme="light"] .stat-filter-note { color: #888; }
 .stats-term-nav { display: flex; gap: 0.6rem; font-size: 0.72rem; flex-shrink: 0; }
 .stats-term-nav-btn { background: none; border: none; padding: 0; cursor: pointer; color: inherit; font-size: inherit; opacity: 0.6; white-space: nowrap; }
 .stats-term-nav-btn:hover { opacity: 1; color: #4a9eff; text-decoration: underline; }

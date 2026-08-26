@@ -1662,9 +1662,15 @@ function speakerClass(speaker) {
 // to scroll there.
 function updateEmptyStateForTerm(term, date = null, page = null, hash = null) {
   if (!term) return; // term collapsed — leave current view
+  // Forward the Terms nav's own active Filter panel state (kept in sync with
+  // the outer URL's filter= param by _applyActiveFilters) so the term stats
+  // page can note it under its own heading — see FILTER_DESCRIPTIONS/
+  // renderFilterNote in terms.js.
+  const filter = new URLSearchParams(location.search).get('filter');
   const statsUrl = '/courts/ussc/terms/?term=' + encodeURIComponent(term)
     + (date ? '&date=' + encodeURIComponent(date) : '')
     + (page ? '&page=' + encodeURIComponent(page) : '')
+    + (filter ? '&filter=' + encodeURIComponent(filter) : '')
     + (hash ? '#' + encodeURIComponent(hash) : '');
   showPageViewer(statsUrl, { pushState: false });
 }
@@ -5346,6 +5352,11 @@ function _applyActiveFilters() {
   const next = filterStr ? base + (base.includes('?') ? '&' : '?') + 'filter=' + filterStr : base;
   history.replaceState(null, '', next);
   document.querySelectorAll('.term-group').forEach(el => el._applyFilterState?.());
+  // Live-updates the term stats page's own filter note (see renderFilterNote
+  // in terms.js) without reloading the page-viewer iframe — it only ever
+  // gets the filter= param fresh on its own initial load otherwise (see
+  // updateEmptyStateForTerm).
+  document.getElementById('page-viewer-frame')?.contentWindow?.postMessage({ type: 'ussc-filter-update', filter: filterStr }, location.origin);
 }
 
 // Wires a collapsible sidebar row (term, collection, group, top-level section, ...)
@@ -11922,7 +11933,8 @@ async function restoreFromURL() {
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
-    showPageViewer('/courts/ussc/terms/?term=all', { pushState: false });
+    const _allFilter = new URLSearchParams(location.search).get('filter');
+    showPageViewer('/courts/ussc/terms/?term=all' + (_allFilter ? '&filter=' + encodeURIComponent(_allFilter) : ''), { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);

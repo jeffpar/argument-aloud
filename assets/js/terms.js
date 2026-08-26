@@ -27,6 +27,38 @@
       ? href.replace('{{ indexes_base_url }}', window.INDEXES_BASE_URL || '')
       : href;
   }
+  // Mirrors explorer.js's _FILTER_OPTIONS (keys already snake_case here, as
+  // they appear in the URL's own filter= param — see _filterKeyToUrl there)
+  // — kept in sync by hand since this page runs in its own iframe/script.
+  var FILTER_DESCRIPTIONS = {
+    digs:         'DIGs (cases dismissed as improvidently granted)',
+    partial_digs: 'Partial DIGs (cases partially dismissed as improvidently granted)',
+    dismissals:   'Dismissals (cases dismissed for any reason, improvident or otherwise)',
+    orders:       'Orders (cases summarily decided)',
+  };
+  // Populates the italicized note under the term-page heading (#stat-filter-note)
+  // from the current filter= URL param, forwarded here by explorer.js's
+  // updateEmptyStateForTerm whenever the Terms nav's Filter panel is active.
+  // Split on whitespace/comma (a URL's filter= param, once decoded by
+  // URLSearchParams.get, has a literal "+" join turned into a space) as well
+  // as a literal "+" itself (the raw, not-yet-URL-encoded string posted live
+  // by explorer.js's _applyActiveFilters — see the message listener below).
+  function renderFilterNote(filterParam) {
+    var noteEl = document.getElementById('stat-filter-note');
+    if (!noteEl) return;
+    var descs = (filterParam || '').split(/[\s,+]+/).filter(Boolean)
+      .map(function (k) { return FILTER_DESCRIPTIONS[k]; }).filter(Boolean);
+    if (!descs.length) { noteEl.hidden = true; return; }
+    noteEl.textContent = 'Cases filters in effect: ' + descs.join(', ');
+    noteEl.hidden = false;
+  }
+  // Keeps the note current as the Terms nav's Filter panel checkboxes are
+  // toggled, without reloading this iframe — see the postMessage call in
+  // explorer.js's _applyActiveFilters.
+  window.addEventListener('message', function (e) {
+    if (e.origin !== location.origin) return;
+    if (e.data && e.data.type === 'ussc-filter-update') renderFilterNote(e.data.filter);
+  });
   function fmtDate(iso) {
     var MONTHS = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
@@ -1344,6 +1376,8 @@
   var term = params.get('term');
   var date = params.get('date');
   if (!term) return;
+  renderFilterNote(params.get('filter'));
+
   if (term === 'all') {
     // Journal covers and the argued/reargued/decided date lists below only ever
     // apply to a single term or a specific date — neither ever populates in the

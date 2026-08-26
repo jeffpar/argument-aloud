@@ -9,6 +9,7 @@ scripts:
   <div class="stats-title-row">
     <h1 id="stat-term-title"></h1>
   </div>
+  <p id="stat-filter-note" class="stat-filter-note" hidden></p>
 
   <div class="date-section" id="date-section">
     <div id="date-header-row">
