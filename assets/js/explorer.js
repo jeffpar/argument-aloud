@@ -4566,8 +4566,15 @@ async function _buildCaseFileList(fileUl, caseEntry, opts) {
   // Append one "Decision on <Date> (LOC/GOV/VOL/XML)" entry per available
   // decision source \u2014 the same set the top-right document dropdown offers
   // (see _buildOpinionEntries) \u2014 rather than just the single primary one.
+  // `file` is set to the same short code case-cite's own URL uses (see
+  // DECISION_FILE_PARAMS/_showDecisionFromParam) \u2014 without it, the click
+  // handler in _makeCaseFileItem falls back to the raw href's filename, which
+  // _showDecisionFromParam doesn't recognize and findFileItem can't match
+  // either (the href carries a #page=N anchor the filename suffix lookup
+  // doesn't account for), so reloading/sharing the resulting URL silently
+  // failed to reopen the doc at all.
   _opinionEntries.forEach(oe => {
-    rawFiles.push({ type: 'opinion', title: oe.title, href: oe.href, ...(oe.view ? { view: oe.view } : {}) });
+    rawFiles.push({ type: 'opinion', title: oe.title, href: oe.href, file: DECISION_FILE_PARAMS[oe.value], ...(oe.view ? { view: oe.view } : {}) });
   });
 
   const { entries, hideToggle = false } = await opts.computeEntries(rawFiles);
