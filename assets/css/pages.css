@@ -46,7 +46,7 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 .stat-term-title-link:hover { text-decoration: underline; }
 .calendar-heading-link { color: inherit; text-decoration: none; cursor: pointer; }
 .calendar-heading-link:hover { text-decoration: underline; }
-.stat-filter-note { font-size: 0.85rem; font-style: italic; margin: -0.3rem 0 0.75rem; color: #888; }
+.stat-filter-note { font-size: 0.85rem; font-style: italic; margin: 0.4rem 0 0.75rem; color: #888; }
 @media (prefers-color-scheme: dark) { .stat-filter-note { color: #6a7080; } }
 html[data-theme="dark"]  .stat-filter-note { color: #6a7080; }
 html[data-theme="light"] .stat-filter-note { color: #888; }
@@ -144,7 +144,10 @@ html[data-theme="light"] .cal-month-hdr { border-color: #ccc; }
    so the row's own height — not just the heading text's — sits that far
    below .stats-grid. */
 .calendar-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 1rem; }
-#case-listing-heading  { margin-top: 2rem; }
+/* Self-contained (not scoped under .term-stats like the general h1/h2 rules
+   above) so the On This Day page's own Court Cases heading — outside any
+   .term-stats wrapper — still matches the term page's own compact look. */
+#case-listing-heading { font-size: 1.1rem; font-weight: 700; border: none; padding: 0; margin: 2rem 0 0; }
 
 /* ── All-terms progressive Court Calendar (term=all) ────────────────────── */
 #all-terms-calendar-heading { margin-top: 2rem; }
@@ -187,7 +190,7 @@ html[data-theme="light"] #case-listing-table td a { color: #2672b4; }
    citation so they never wrap mid-value. */
 #case-listing-table th, #case-listing-table td { padding-left: 0; }
 #case-listing-table td.col-date, #case-listing-table td.col-opinion { white-space: nowrap; }
-#case-listing-table td.col-vote { text-align: right; }
+#case-listing-table td.col-vote { text-align: left; }
 @media (max-width: 600px) {
   #case-listing-table .col-opinion { display: none; }
 }
@@ -861,3 +864,15 @@ html[data-theme="light"] #otd-go:hover:not(:disabled) { background: #1a5090; bor
 .otd-calendar-large .cal-day { font-size: 0.95rem; line-height: 2.6; border-radius: 4px; }
 .otd-calendar-large .cal-day.cal-clickable { cursor: pointer; }
 .otd-calendar-large .cal-day.cal-clickable:hover { box-shadow: inset 0 0 0 2px #4a9eff; }
+/* NARA recordings for the selected day — same per-session nested list (own
+   events, then a link + play toggle per audio file) as sources/nara/audio/
+   {red,gold,black}/index.md's own collection.html include, just scoped to
+   one day instead of a whole series. */
+#nara-heading { font-size: 1.1rem; font-weight: 700; border: none; padding: 0; margin: 1rem 0 0; }
+#nara-heading a { color: #2672b4; text-decoration: none; }
+#nara-heading a:hover { text-decoration: underline; color: #4a9eff; }
+@media (prefers-color-scheme: dark) { #nara-heading a { color: #5eaee0; } }
+html[data-theme="dark"]  #nara-heading a { color: #5eaee0; }
+html[data-theme="light"] #nara-heading a { color: #2672b4; }
+#nara-list { margin: 0.5rem 0 0; }
+#nara-list .clickable { cursor: pointer; margin-left: 0.5em; }

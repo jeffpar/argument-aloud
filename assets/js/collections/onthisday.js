@@ -172,9 +172,9 @@
   // calendar (see buildCalendarMonth) to match the new Argued-only filter.
   arguedChk.addEventListener('change', function () { refreshCalendar(); });
 
-  // terms.json stores decades/terms newest-first (each decade's own groups
-  // are too) — reversing the flattened list gives chronological (oldest
-  // first) order, same convention terms.js uses for its prev/next lookup.
+  // terms.json stores decades/terms oldest-first (each decade's own groups
+  // are too) — already chronological order, same convention terms.js relies
+  // on for its own prev/next lookup, so no reversal needed here.
   fetch('/courts/ussc/terms/terms.json')
     .then(function (r) { return r.ok ? r.json() : []; })
     .then(function (decades) {
@@ -185,7 +185,6 @@
           if (m) flat.push(m[1]);
         });
       });
-      flat.reverse();
       return flat;
     })
     .catch(function () { return []; })
@@ -248,6 +247,356 @@
         return raw.split(',').map(function (s) { return s.trim(); }).indexOf(dateStr) !== -1;
       }
 
+      // ── Court Cases table (selected day) ────────────────────────────────
+      // Mirrors terms.js's own Court Cases table (courts/ussc/terms/
+      // index.md's #case-listing-heading/#case-listing-table markup, reused
+      // verbatim here — see the matching elements in this page's own
+      // index.md) — duplicated rather than shared since this script runs on
+      // its own page, not alongside terms.js (same reasoning as caseUrlId
+      // above). Kept in sync by hand.
+      var MONTHS_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+      function dayOf(iso) {
+        var p = iso.split('-');
+        return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])).getUTCDate();
+      }
+
+      // "2000-11-28" -> "Nov 28, 2000"
+      function fmtMonthDayYear(iso) {
+        var p = iso.split('-');
+        var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+        if (isNaN(d)) return iso;
+        return MONTHS_ABBR[+p[1] - 1] + ' ' + d.getUTCDate() + ', ' + p[0];
+      }
+
+      function caseDisplayTitle(c) {
+        return (c.title || c.number || c.id || '(unknown)').split(';')[0].trim();
+      }
+
+      // "531 U.S. 57" -> a number that sorts citations chronologically (by
+      // volume, then page) rather than alphabetically.
+      function opinionSortKey(citation) {
+        var m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec(citation || '');
+        return m ? parseInt(m[1], 10) * 100000 + parseInt(m[2], 10) : null;
+      }
+
+      // Undecided/missing values (null) always sort last, regardless of
+      // direction.
+      function compareRows(a, b, key, asc) {
+        var av = a.sortValues[key], bv = b.sortValues[key];
+        if (av == null && bv == null) return 0;
+        if (av == null) return 1;
+        if (bv == null) return -1;
+        var cmp = av < bv ? -1 : av > bv ? 1 : 0;
+        return asc ? cmp : -cmp;
+      }
+
+      // Same postMessage-when-framed / direct-navigate-when-standalone
+      // pattern as this file's own goTo (see the Go button handler below),
+      // but as a plain <a> click handler for the case-listing table's links,
+      // which — unlike a Go/day-cell pick — should feel like following a
+      // link (no history entry of its own to leave behind) rather than
+      // committing to leave the page.
+      function wireSearchLink(a, search) {
+        var target = '/courts/ussc/' + search;
+        a.href = target;
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.parent !== window) {
+            window.parent.postMessage({ type: 'ussc-navigate', search: search }, location.origin);
+          } else {
+            location.href = target;
+          }
+        });
+      }
+
+      function _openInNewTab(href) {
+        var w = window.open(href, '_blank');
+        if (w) w.opener = null;
+      }
+
+      function wireDocLink(a, href, title) {
+        a.href = href;
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.parent !== window) {
+            window.parent.postMessage({ type: 'ussc-open-doc', href: href, title: title }, location.origin);
+          } else {
+            _openInNewTab(href);
+          }
+        });
+      }
+
+      // Renders one or more ISO dates into a table cell, linked to the
+      // earliest date shown — see terms.js's own renderDateCell, which this
+      // mirrors exactly.
+      function renderDateCell(td, term, isoDates) {
+        if (!isoDates.length) { td.textContent = '—'; return; }
+        var sorted = isoDates.slice().sort();
+        var months = new Set(sorted.map(function (d) { return d.slice(0, 7); }));
+        var a = document.createElement('a');
+        if (months.size > 1) {
+          a.textContent = '…';
+        } else if (sorted.length > 1) {
+          var p = sorted[0].split('-');
+          a.textContent = MONTHS_ABBR[+p[1] - 1] + ' ' + dayOf(sorted[0]) + '-' + dayOf(sorted[sorted.length - 1]) + ', ' + p[0];
+        } else {
+          a.textContent = fmtMonthDayYear(sorted[0]);
+        }
+        wireSearchLink(a, '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(sorted[0]));
+        td.appendChild(a);
+      }
+
+      function dateTokens(fieldVal) {
+        if (!fieldVal) return [];
+        return fieldVal.split(',').map(function (d) { return d.trim(); }).filter(Boolean);
+      }
+
+      // Builds one Case Listing row from a full case record — see terms.js's
+      // own buildCaseRow, which this mirrors (minus the cross-term
+      // argIsoOverride param, not needed here: every case shown already
+      // belongs to `term`, the term the selected day itself falls in).
+      function buildCaseRow(c, term, allCases) {
+        var argIso = Array.from(new Set(dateTokens(c.argument).concat(dateTokens(c.reargument))));
+        var decIso = dateTokens(c.decision);
+        var scoreM = /^(\d+)-(\d+)$/.exec(c.score || '');
+        var voteM = scoreM ? parseInt(scoreM[1], 10) : null;
+        var opinionText = c.citation || '';
+        var decDates = decIso.slice().sort();
+        return {
+          title: caseDisplayTitle(c),
+          caseId: caseUrlId(c, allCases),
+          caseTerm: term,
+          argTerm: term,
+          argIso: argIso,
+          decIso: decIso,
+          voteText: c.score || '',
+          opinionText: opinionText,
+          decisionHref: opinionText ? (c.decision_loc || c.decision_gov || c.decision_vol || '') : '',
+          decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
+            + (opinionText ? ' (' + opinionText + ')' : ''),
+          sortValues: {
+            title: caseDisplayTitle(c).toLowerCase(),
+            argued: argIso.slice().sort()[0] || null,
+            decided: decDates[0] || null,
+            vote: (voteM != null) ? voteM : null,
+            opinion: opinionSortKey(opinionText),
+          },
+        };
+      }
+
+      function buildCaseListingRow(row) {
+        var tr = document.createElement('tr');
+
+        var tdTitle = document.createElement('td');
+        var aTitle = document.createElement('a');
+        aTitle.textContent = row.title;
+        wireSearchLink(aTitle, '?term=' + encodeURIComponent(row.caseTerm) + '&case=' + encodeURIComponent(row.caseId));
+        tdTitle.appendChild(aTitle);
+        tr.appendChild(tdTitle);
+
+        var tdArgued = document.createElement('td');
+        tdArgued.className = 'col-date';
+        renderDateCell(tdArgued, row.argTerm, row.argIso);
+        tr.appendChild(tdArgued);
+
+        var tdDecided = document.createElement('td');
+        tdDecided.className = 'col-date';
+        renderDateCell(tdDecided, row.caseTerm, row.decIso);
+        tr.appendChild(tdDecided);
+
+        var tdVote = document.createElement('td');
+        tdVote.className = 'col-vote';
+        tdVote.textContent = row.voteText || '—';
+        tr.appendChild(tdVote);
+
+        var tdOpinion = document.createElement('td');
+        tdOpinion.className = 'col-opinion';
+        if (row.opinionText && row.decisionHref) {
+          var aOp = document.createElement('a');
+          aOp.textContent = row.opinionText;
+          wireDocLink(aOp, row.decisionHref, row.decisionTitle);
+          tdOpinion.appendChild(aOp);
+        } else {
+          tdOpinion.textContent = row.opinionText || '—';
+        }
+        tr.appendChild(tdOpinion);
+
+        return tr;
+      }
+
+      // Persistent sort state across repeated redraws (a new day/month/year
+      // pick redraws in place — see refreshCalendar below) — same pattern as
+      // terms.js's own _caseListingSort.
+      var caseListingSort = { key: 'title', asc: true };
+      var caseListingSortWired = false;
+      var clHeading = document.getElementById('case-listing-heading');
+      var clTable   = document.getElementById('case-listing-table');
+      var clTbody   = document.getElementById('case-listing-tbody');
+
+      // Shows (or hides, if `rows` is empty/null) the Court Cases table for
+      // the currently selected day's own argued-or-decided cases — always
+      // both, regardless of the "Argued only" checkbox, which only ever
+      // scopes the calendar's own day coloring/click targets.
+      function drawCaseListing(rows) {
+        if (!clHeading || !clTable || !clTbody) return;
+        if (!rows || !rows.length) { clHeading.hidden = true; clTable.hidden = true; return; }
+        clHeading.hidden = false;
+        clTable.hidden = false;
+        var sorted = rows.slice().sort(function (a, b) { return compareRows(a, b, caseListingSort.key, caseListingSort.asc); });
+        clTbody.innerHTML = '';
+        sorted.forEach(function (row) { clTbody.appendChild(buildCaseListingRow(row)); });
+        clTable.querySelectorAll('th[data-sort-key]').forEach(function (th) {
+          var active = th.dataset.sortKey === caseListingSort.key;
+          th.setAttribute('aria-sort', active ? (caseListingSort.asc ? 'ascending' : 'descending') : 'none');
+        });
+        if (!caseListingSortWired) {
+          caseListingSortWired = true;
+          clTable.querySelectorAll('th[data-sort-key]').forEach(function (th) {
+            th.querySelector('button').addEventListener('click', function () {
+              var key = th.dataset.sortKey;
+              if (caseListingSort.key === key) caseListingSort.asc = !caseListingSort.asc;
+              else { caseListingSort.key = key; caseListingSort.asc = true; }
+              drawCaseListing(rows);
+            });
+          });
+        }
+      }
+
+      // ── NARA recordings (selected day) ──────────────────────────────────
+      // Mirrors the per-date entries collection.html renders for
+      // sources/nara/audio/{red,gold,black}/index.md (each backed by one of
+      // NARA_COLLECTION_IDS' own data/nara/ussc/<id>.json — see that
+      // include), scoped here to just the selected day instead of a whole
+      // series. Duplicated rather than shared since collection.html is a
+      // Liquid include (server-side), not JS this page could call into.
+      // Ids (and their sources/nara/audio/<slug>/ page — see the date-link
+      // built in drawNaraList below): 77820785/black (Oct 1955 – Dec 1972),
+      // 105447/red (Dec 1972 – Jun 2005), 175704063/gold (Oct 2005 –
+      // present).
+      var NARA_COLLECTIONS = [
+        { id: '77820785',  slug: 'black' },
+        { id: '105447',    slug: 'red' },
+        { id: '175704063', slug: 'gold' },
+      ];
+      // NARA's own audio collections don't begin until October 1955 — skip
+      // ever fetching ~3.5MB of JSON for a selection that predates all three.
+      var NARA_FIRST_YEAR = 1955;
+      var naraDataPromise = null;
+      function fetchNaraData() {
+        if (!naraDataPromise) {
+          naraDataPromise = Promise.all(NARA_COLLECTIONS.map(function (coll) {
+            return fetch('/data/nara/ussc/' + coll.id + '.json')
+              .then(function (r) { return r.ok ? r.json() : []; })
+              .then(function (list) { return Array.isArray(list) ? list : []; })
+              .catch(function () { return []; })
+              // Tags each object with its own series slug, needed by
+              // drawNaraList's own date link (a date's matches only ever
+              // come from one series, but this way it never has to guess).
+              .then(function (list) { return list.map(function (o) { o._naraSlug = coll.slug; return o; }); });
+          })).then(function (lists) { return [].concat.apply([], lists); });
+        }
+        return naraDataPromise;
+      }
+
+      var naraHeading = document.getElementById('nara-heading');
+      var naraListEl  = document.getElementById('nara-list');
+      // audio -> its own toggle span, so the shared 'play' listener below can
+      // reset any other still-playing icon back to ▶️ — same as
+      // collection.html's own audio.nextElementSibling lookup, just an
+      // explicit map since this list is rebuilt (old elements discarded)
+      // every time a new day is picked.
+      var naraAudioSpans = new Map();
+
+      function toggleNaraAudio(audio, span, src) {
+        if (!audio.src) audio.src = src;
+        if (audio.paused) { audio.play(); span.textContent = '⏸'; }
+        else { audio.pause(); span.textContent = '▶️'; span.blur(); }
+      }
+      document.addEventListener('play', function (e) {
+        naraAudioSpans.forEach(function (span, audio) {
+          if (audio !== e.target && audio.duration > 0 && !audio.paused) {
+            audio.pause();
+            span.textContent = '▶️';
+          }
+        });
+      }, true);
+
+      var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      // "2013-02-25" -> "Monday February 25, 2013" (no comma after the
+      // weekday) — just this heading's own format, distinct from fmtDate
+      // elsewhere in this codebase.
+      function fmtFullDate(iso) {
+        var p = iso.split('-');
+        var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+        if (isNaN(d)) return iso;
+        return WEEKDAYS[d.getUTCDay()] + ' ' + MONTHS[+p[1] - 1] + ' ' + d.getUTCDate() + ', ' + p[0];
+      }
+
+      // Shows (or hides, if `objects` is empty/null) the NARA Holdings list
+      // for the currently selected day's own matching sessions — a single
+      // flat list (events and file-play entries interleaved per session, in
+      // the data's own order) rather than collection.html's own per-session
+      // nested list, since every entry shown here already belongs to the
+      // one selected day.
+      function drawNaraList(objects, iso) {
+        if (!naraHeading || !naraListEl) return;
+        naraAudioSpans.clear();
+        naraListEl.innerHTML = '';
+        if (!objects || !objects.length) { naraHeading.hidden = true; naraListEl.hidden = true; return; }
+        naraHeading.hidden = false;
+        naraListEl.hidden = false;
+
+        // All of a single day's matches always come from the same series
+        // (the three collections' own date ranges don't overlap) — the
+        // first match's own _naraSlug (see fetchNaraData) is enough.
+        var target = '/courts/ussc/?link=' + encodeURIComponent('/sources/nara/audio/' + objects[0]._naraSlug) + '#' + iso;
+        naraHeading.textContent = '';
+        naraHeading.appendChild(document.createTextNode('NARA Holdings for '));
+        var dateLink = document.createElement('a');
+        dateLink.textContent = fmtFullDate(iso);
+        dateLink.href = target;
+        // Real top-level navigation (not the SPA's in-place "ussc-navigate"
+        // message, which only ever forwards a plain search string, never a
+        // #hash) — same postMessage-when-framed / direct-navigate-when-
+        // standalone split as this file's own goTo.
+        dateLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.parent !== window) window.parent.location.href = target;
+          else window.location.href = target;
+        });
+        naraHeading.appendChild(dateLink);
+
+        objects.forEach(function (obj) {
+          (obj.events || []).forEach(function (ev) {
+            var evLi = document.createElement('li');
+            evLi.textContent = ev;
+            naraListEl.appendChild(evLi);
+          });
+          (obj.destinations || []).forEach(function (dest, i) {
+            var src = obj.sources && obj.sources[i];
+            if (!src) return;
+            var srcLi = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = src;
+            a.textContent = dest;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            srcLi.appendChild(a);
+            var audio = document.createElement('audio');
+            audio.preload = 'none';
+            srcLi.appendChild(audio);
+            var span = document.createElement('span');
+            span.className = 'clickable';
+            span.textContent = '▶️';
+            span.addEventListener('click', function () { toggleNaraAudio(audio, span, src); });
+            srcLi.appendChild(span);
+            naraAudioSpans.set(audio, span);
+            naraListEl.appendChild(srcLi);
+          });
+        });
+      }
+
       // Cached across repeated Go clicks within the same page load — a term's
       // cases.json rarely changes mid-visit, and Any-year mode especially can
       // revisit the same term across different candidates.
@@ -270,31 +619,15 @@
       // since it's the only month shown rather than one of a dozen packed
       // into a 3-column grid. Coloring follows the same "Argued only" filter
       // as the Go button: checked shows only argued (red) days, unchecked
-      // shows both argued and decided (red/blue/gradient). A colored day
-      // jumps straight to a random matching case for that date (like Go's
-      // specific-year path); an uncolored one just updates the controls to
-      // that date, same as picking it from the Month/Day selects — there's
-      // no scenario left where a day click should land on the bare term
-      // calendar page, so only the month title (below) links there.
+      // shows both argued and decided (red/blue/gradient). Every day cell —
+      // colored or not — just updates the controls (Day, and the address
+      // bar's own pending "date") and redraws the calendar/Court Cases table
+      // in place; jumping straight to a specific case is the Go button's own
+      // job now, not a day click's (see wireCalDayPick below and the goBtn
+      // handler further down). The month title (below) is the only link left
+      // to the bare term calendar page.
       function matchesForDate(cases, fields, iso) {
         return cases.filter(function (c) { return fields.some(function (f) { return dateMatches(c[f], iso); }); });
-      }
-
-      function wireCalDayJump(dayEl, term, cases, matches, day) {
-        dayEl.addEventListener('click', function () {
-          // Match Day to the clicked cell (may differ from whatever was
-          // previously selected) and replace the current entry with it
-          // before leaving, so Back lands on the exact date just clicked —
-          // replace, not push: we're leaving immediately either way, so
-          // there's no reason to also leave behind an extra history entry
-          // the visitor never actually paused on.
-          daySel.value = String(day);
-          syncUrlDate(false);
-          var pick = matches[Math.floor(Math.random() * matches.length)];
-          var target = '/courts/ussc/?term=' + encodeURIComponent(term) + '&case=' + encodeURIComponent(caseUrlId(pick, cases));
-          if (window.parent !== window) window.parent.location.href = target;
-          else window.location.href = target;
-        });
       }
 
       function wireCalDayPick(dayEl, day) {
@@ -305,7 +638,7 @@
         });
       }
 
-      function buildCalendarMonth(year, month, term, cases, fields, selectedIso) {
+      function buildCalendarMonth(year, month, cases, fields, selectedIso) {
         calContainer.innerHTML = '';
         var mEl = document.createElement('div');
         mEl.className = 'cal-month';
@@ -340,8 +673,7 @@
           if (iso === selectedIso) cls += ' cal-sel';
           dayEl.className = cls;
           dayEl.textContent = String(d);
-          if (matches.length) wireCalDayJump(dayEl, term, cases, matches, d);
-          else wireCalDayPick(dayEl, d);
+          wireCalDayPick(dayEl, d);
           grid.appendChild(dayEl);
         }
         mEl.appendChild(grid);
@@ -386,7 +718,12 @@
       });
 
       refreshCalendar = function () {
-        if (yearSel.value === 'any') { calSection.hidden = true; return; }
+        if (yearSel.value === 'any') {
+          calSection.hidden = true;
+          drawCaseListing(null);
+          drawNaraList(null);
+          return;
+        }
         calSection.hidden = false;
 
         var year = parseInt(yearSel.value, 10);
@@ -415,8 +752,27 @@
           // call's own fetchTermCases (cached) will resolve immediately
           // after and repaint correctly.
           if (yearSel.value !== String(year) || parseInt(monthSel.value, 10) !== month) return;
-          buildCalendarMonth(year, month, term, cases, fields, selectedIso);
+          buildCalendarMonth(year, month, cases, fields, selectedIso);
+          // Always both argued and decided, regardless of the "Argued only"
+          // checkbox — that only ever scopes the calendar's own day
+          // coloring/click targets (see `fields` above), not this listing.
+          var dayMatches = matchesForDate(cases, ['argument', 'reargument', 'decision'], selectedIso);
+          drawCaseListing(dayMatches.map(function (c) { return buildCaseRow(c, term, cases); }));
         });
+
+        if (year < NARA_FIRST_YEAR) {
+          drawNaraList(null);
+        } else {
+          fetchNaraData().then(function (all) {
+            // Stale by the time this resolves — a newer call's own
+            // fetchNaraData (cached after the first real fetch) will resolve
+            // right after and repaint correctly. Day-precise (unlike the
+            // year/month-only check above), since a NARA match depends on
+            // the exact selected day, not just the month.
+            if (yearSel.value !== String(year) || parseInt(monthSel.value, 10) !== month || parseInt(daySel.value, 10) !== day) return;
+            drawNaraList(all.filter(function (o) { return o.date === selectedIso; }), selectedIso);
+          });
+        }
       };
       refreshCalendar();
 

@@ -40,4 +40,23 @@ scripts:
   <div id="otd-calendar" class="otd-calendar-large"></div>
 </div>
 
+<h2 id="case-listing-heading" hidden>Court Cases</h2>
+<div class="table-scroll">
+  <table id="case-listing-table" hidden>
+    <thead>
+      <tr>
+        <th data-sort-key="title" aria-sort="ascending"><button type="button">Title</button></th>
+        <th class="col-date" data-sort-key="argued"><button type="button">Argued</button></th>
+        <th class="col-date" data-sort-key="decided"><button type="button">Decided</button></th>
+        <th data-sort-key="vote"><button type="button">Vote</button></th>
+        <th class="col-opinion" data-sort-key="opinion"><button type="button">Opinion</button></th>
+      </tr>
+    </thead>
+    <tbody id="case-listing-tbody"></tbody>
+  </table>
+</div>
+
+<h2 id="nara-heading" hidden>NARA Recordings</h2>
+<ul id="nara-list" hidden></ul>
+
 <p id="otd-result" class="otd-result" hidden></p>

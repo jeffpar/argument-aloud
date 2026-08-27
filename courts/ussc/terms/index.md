@@ -9,7 +9,6 @@ scripts:
   <div class="stats-title-row">
     <h1 id="stat-term-title"></h1>
   </div>
-  <p id="stat-filter-note" class="stat-filter-note" hidden></p>
 
   <div class="date-section" id="date-section">
     <div id="date-header-row">
@@ -97,6 +96,7 @@ scripts:
   <div id="term-calendar" hidden></div>
 
   <h2 id="case-listing-heading" hidden>Court Cases</h2>
+  <p id="stat-filter-note" class="stat-filter-note" hidden></p>
   <div class="table-scroll">
     <table id="case-listing-table" hidden>
       <thead>

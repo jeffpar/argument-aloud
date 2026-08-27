@@ -36,28 +36,38 @@
     dismissals:   'Dismissals (cases dismissed for any reason, improvident or otherwise)',
     orders:       'Orders (cases summarily decided)',
   };
-  // Populates the italicized note under the term-page heading (#stat-filter-note)
-  // from the current filter= URL param, forwarded here by explorer.js's
-  // updateEmptyStateForTerm whenever the Terms nav's Filter panel is active.
-  // Split on whitespace/comma (a URL's filter= param, once decoded by
-  // URLSearchParams.get, has a literal "+" join turned into a space) as well
-  // as a literal "+" itself (the raw, not-yet-URL-encoded string posted live
-  // by explorer.js's _applyActiveFilters — see the message listener below).
-  function renderFilterNote(filterParam) {
+  // Current filter= value — seeded from this page's own URL below (see
+  // `_currentFilterParam = params.get('filter')`), then kept live as the
+  // Terms nav's Filter panel checkboxes are toggled in the parent frame (see
+  // the message listener below, and explorer.js's _applyActiveFilters, which
+  // posts the update). Read by both renderFilterNote and _drawCaseListing so
+  // the note and the Court Cases table always agree on the active filter.
+  var _currentFilterParam = null;
+  // Populates the italicized note now shown under the Court Cases heading
+  // (#stat-filter-note) from _currentFilterParam — call only once that
+  // heading/table are themselves about to be shown (see _drawCaseListing).
+  function renderFilterNote() {
     var noteEl = document.getElementById('stat-filter-note');
     if (!noteEl) return;
-    var descs = (filterParam || '').split(/[\s,+]+/).filter(Boolean)
+    // Split on whitespace/comma (a URL's filter= param, once decoded by
+    // URLSearchParams.get, has a literal "+" join turned into a space) as
+    // well as a literal "+" itself (the raw, not-yet-URL-encoded string
+    // posted live by explorer.js's _applyActiveFilters).
+    var descs = (_currentFilterParam || '').split(/[\s,+]+/).filter(Boolean)
       .map(function (k) { return FILTER_DESCRIPTIONS[k]; }).filter(Boolean);
     if (!descs.length) { noteEl.hidden = true; return; }
     noteEl.textContent = 'Cases filters in effect: ' + descs.join(', ');
     noteEl.hidden = false;
   }
-  // Keeps the note current as the Terms nav's Filter panel checkboxes are
-  // toggled, without reloading this iframe — see the postMessage call in
-  // explorer.js's _applyActiveFilters.
+  // Keeps the note and the Court Cases table current as the Terms nav's
+  // Filter panel checkboxes are toggled, without reloading this iframe — see
+  // the postMessage call in explorer.js's _applyActiveFilters.
   window.addEventListener('message', function (e) {
     if (e.origin !== location.origin) return;
-    if (e.data && e.data.type === 'ussc-filter-update') renderFilterNote(e.data.filter);
+    if (e.data && e.data.type === 'ussc-filter-update') {
+      _currentFilterParam = e.data.filter || '';
+      _drawCaseListing();
+    }
   });
   function fmtDate(iso) {
     var MONTHS = ['January','February','March','April','May','June',
@@ -331,6 +341,12 @@
       decIso: decIso,
       voteText: c.score || '',
       opinionText: opinionText,
+      // Kept off the display but read by _FILTER_CASE_TEST (see below) so the
+      // Court Cases table can be filtered by the same Terms nav Filter panel
+      // state as the sidebar case list, without needing the raw case record
+      // again — a cross-term row (see collectCrossTermRows) has no other way
+      // to reach it once built.
+      result: c.result || '',
       decisionHref: opinionText ? (c.decision_loc || c.decision_gov || c.decision_vol || '') : '',
       decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
         + (opinionText ? ' (' + opinionText + ')' : ''),
@@ -400,37 +416,120 @@
     })).then(function (perTerm) { return [].concat.apply([], perTerm); });
   }
 
-  function renderCaseListing(term, cases, extraRows) {
-    var rows = cases.map(function (c) { return buildCaseRow(c, term, term, cases); });
-    if (extraRows && extraRows.length) rows = rows.concat(extraRows);
-    if (!rows.length) return;
+  // True if breakpoint bp (see _parseArabicPnBps) marks the start of an
+  // "orders mapping" section of a U.S. Reports volume — mirrors
+  // isOrdersBreakpoint in scripts/update_cases.js / _isOrdersBreakpoint in
+  // explorer.js (kept in sync by hand; no shared module between the three
+  // runtimes).
+  function _isOrdersBreakpoint(bp) {
+    return !!bp.marked || (bp.start > 800 && bp.start % 100 === 1);
+  }
+  // Parses a reports[].pages breakpoint string ("1:85,801:717") into
+  // {start, pdfPage, marked?} objects, arabic (non-roman) breakpoints only —
+  // all _isOrdersCase needs. Mirrors _parsePages in scripts/update_cases.js /
+  // _parsePnBps in explorer.js (kept in sync by hand).
+  function _parseArabicPnBps(pn) {
+    if (!pn) return [];
+    return pn.split(',').map(function (seg) {
+      var colon = seg.indexOf(':');
+      if (colon < 0) return null;
+      var startStr = seg.slice(0, colon).trim();
+      var pdfPageStr = seg.slice(colon + 1).trim();
+      var marked = pdfPageStr.charAt(pdfPageStr.length - 1) === '*';
+      if (marked) pdfPageStr = pdfPageStr.slice(0, -1).trim();
+      var start = parseInt(startStr, 10);
+      if (!isFinite(start)) return null; // roman or garbage
+      return { start: start, marked: marked };
+    }).filter(Boolean).sort(function (a, b) { return a.start - b.start; });
+  }
+  // True if citation lands in an "orders mapping" section of its volume —
+  // mirrors _isOrdersCase in scripts/update_cases.js / explorer.js (kept in
+  // sync by hand). termEntry is the citing term's own terms.json group entry
+  // (carries reports[]) — see termEntryPromise below.
+  function _isOrdersCase(citation, termEntry) {
+    var m = /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec((citation || '').trim());
+    if (!m) return false;
+    if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
+    var vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+    var reports = (termEntry && termEntry.reports) || [];
+    var report = null;
+    for (var i = 0; i < reports.length; i++) { if (Number(reports[i].volume) === vol) { report = reports[i]; break; } }
+    if (!report || !report.pages) return false;
+    var bps = _parseArabicPnBps(report.pages);
+    var match = null;
+    for (var j = 0; j < bps.length; j++) { if (bps[j].start <= page) match = bps[j]; else break; }
+    return !!match && _isOrdersBreakpoint(match);
+  }
+  // Mirrors explorer.js's _FILTER_CASE_TEST — "digs" is a subset of
+  // "dismissals", "partial_digs" is not (see that file's own comment).
+  // Operates on a buildCaseRow row (result/opinionText), not a raw case
+  // record, so it works uniformly for native and cross-term rows alike.
+  var _FILTER_CASE_TEST = {
+    orders:       function (row, termEntry) { return _isOrdersCase(row.opinionText, termEntry); },
+    partial_digs: function (row) { return /partially improvidently granted/i.test(row.result || ''); },
+    dismissals:   function (row) { return /dismissed/i.test(row.result || ''); },
+    digs:         function (row) { return /dismissed as improvidently granted/i.test(row.result || ''); },
+  };
+  // Returns just the rows matching at least one active filter key (OR, not
+  // AND — see explorer.js's own _caseMatchesActiveFilters), or every row
+  // unchanged when filterParam names no recognized filter.
+  function _rowsMatchingFilters(rows, filterParam, termEntry) {
+    var keys = (filterParam || '').split(/[\s,+]+/).filter(function (k) {
+      return Object.prototype.hasOwnProperty.call(_FILTER_CASE_TEST, k);
+    });
+    if (!keys.length) return rows;
+    return rows.filter(function (row) {
+      return keys.some(function (k) { return _FILTER_CASE_TEST[k](row, termEntry); });
+    });
+  }
 
+  // Persistent Case Listing state, set by renderCaseListing and read by
+  // _drawCaseListing — split out so a live filter change (see the message
+  // listener above) can redraw the table from cache, without re-fetching or
+  // losing the visitor's current sort.
+  var _caseListingRows = null;       // every row for the current term, unfiltered
+  var _caseListingTermEntry = null;  // this term's own terms.json group entry (reports[]) — see _isOrdersCase
+  var _caseListingSort = { key: 'title', asc: true };
+  var _caseListingSortWired = false;
+
+  function _drawCaseListing() {
     var heading = document.getElementById('case-listing-heading');
     var table   = document.getElementById('case-listing-table');
     var tbody   = document.getElementById('case-listing-tbody');
+    var noteEl  = document.getElementById('stat-filter-note');
+    if (!_caseListingRows) { heading.hidden = true; table.hidden = true; if (noteEl) noteEl.hidden = true; return; }
+    var visible = _rowsMatchingFilters(_caseListingRows, _currentFilterParam, _caseListingTermEntry);
+    if (!visible.length) { heading.hidden = true; table.hidden = true; if (noteEl) noteEl.hidden = true; return; }
     heading.hidden = false;
     table.hidden = false;
+    renderFilterNote();
 
-    var state = { key: 'title', asc: true };
-    function render() {
-      var sorted = rows.slice().sort(function (a, b) { return compareRows(a, b, state.key, state.asc); });
-      tbody.innerHTML = '';
-      sorted.forEach(function (row) { tbody.appendChild(buildCaseListingRow(row)); });
+    var sorted = visible.slice().sort(function (a, b) { return compareRows(a, b, _caseListingSort.key, _caseListingSort.asc); });
+    tbody.innerHTML = '';
+    sorted.forEach(function (row) { tbody.appendChild(buildCaseListingRow(row)); });
+    table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
+      var active = th.dataset.sortKey === _caseListingSort.key;
+      th.setAttribute('aria-sort', active ? (_caseListingSort.asc ? 'ascending' : 'descending') : 'none');
+    });
+    if (!_caseListingSortWired) {
+      _caseListingSortWired = true;
       table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
-        var active = th.dataset.sortKey === state.key;
-        th.setAttribute('aria-sort', active ? (state.asc ? 'ascending' : 'descending') : 'none');
+        th.querySelector('button').addEventListener('click', function () {
+          var key = th.dataset.sortKey;
+          if (_caseListingSort.key === key) _caseListingSort.asc = !_caseListingSort.asc;
+          else { _caseListingSort.key = key; _caseListingSort.asc = true; }
+          _drawCaseListing();
+        });
       });
     }
-    table.querySelectorAll('th[data-sort-key]').forEach(function (th) {
-      function activate() {
-        var key = th.dataset.sortKey;
-        if (state.key === key) state.asc = !state.asc;
-        else { state.key = key; state.asc = true; }
-        render();
-      }
-      th.querySelector('button').addEventListener('click', activate);
-    });
-    render();
+  }
+
+  function renderCaseListing(term, cases, extraRows, termEntry) {
+    var rows = cases.map(function (c) { return buildCaseRow(c, term, term, cases); });
+    if (extraRows && extraRows.length) rows = rows.concat(extraRows);
+    _caseListingRows = rows;
+    _caseListingTermEntry = termEntry || null;
+    _drawCaseListing();
   }
 
   function renderHistoryChart(container, data) {
@@ -1376,7 +1475,11 @@
   var term = params.get('term');
   var date = params.get('date');
   if (!term) return;
-  renderFilterNote(params.get('filter'));
+  // The note itself is only ever shown alongside the Court Cases table (see
+  // _drawCaseListing) — this just seeds the shared value from this page's
+  // own initial load; term === 'all' has no such table, so it stays unused
+  // there (renderCaseListing is never reached in that branch below).
+  _currentFilterParam = params.get('filter');
 
   if (term === 'all') {
     // Journal covers and the argued/reargued/decided date lists below only ever
@@ -1651,6 +1754,14 @@
   var _resolvePrevTermIdPromise;
   var prevTermIdPromise = new Promise(function (resolve) { _resolvePrevTermIdPromise = resolve; });
 
+  // Resolves to this term's own terms.json group entry (carries reports[],
+  // needed by _isOrdersCase for the Court Cases table's "orders" filter — see
+  // renderCaseListing below), or null if terms.json failed or this term
+  // wasn't found in it. Resolved once the terms.json fetch below finds
+  // (or fails to find) `entry`.
+  var _resolveTermEntryPromise;
+  var termEntryPromise = new Promise(function (resolve) { _resolveTermEntryPromise = resolve; });
+
   // Every known term's own id + start date ("<YYYY>-<MM>-01"), sorted
   // chronologically ascending — filled in once the terms.json fetch below
   // builds allTerms, stays null until then (every consumer already tolerates
@@ -1759,6 +1870,7 @@
         }
       }
       _resolveTermDates(entry ? entry.dates : undefined);
+      _resolveTermEntryPromise(entry || null);
       if (!entry) return;
       // argued/argDays/audio here are cross-term-aware (see update_cases.js's
       // syncTermsJson/_computeTermArgAudioStats) — an argument/reargument
@@ -2174,7 +2286,11 @@
       termDatesPromise
         .then(function (datesData) { return collectCrossTermRows(datesData, term); })
         .catch(function () { return []; })
-        .then(function (extraRows) { renderCaseListing(term, cases, extraRows); });
+        .then(function (extraRows) {
+          return termEntryPromise.then(function (termEntry) {
+            renderCaseListing(term, cases, extraRows, termEntry);
+          });
+        });
 
       // Only counts cases that were actually argued (see the "decided" note
       // below) — a case with no argument shouldn't count here even if it
