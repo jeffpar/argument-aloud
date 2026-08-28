@@ -508,9 +508,9 @@
       // every time a new day is picked.
       var naraAudioSpans = new Map();
 
-      function toggleNaraAudio(audio, span, src) {
+      function toggleNaraAudio(audio, span, src, errorMsg) {
         if (!audio.src) audio.src = src;
-        if (audio.paused) { audio.play(); span.textContent = '⏸'; }
+        if (audio.paused) { errorMsg.hidden = true; audio.play(); span.textContent = '⏸'; }
         else { audio.pause(); span.textContent = '▶️'; span.blur(); }
       }
       document.addEventListener('play', function (e) {
@@ -588,8 +588,23 @@
             var span = document.createElement('span');
             span.className = 'clickable';
             span.textContent = '▶️';
-            span.addEventListener('click', function () { toggleNaraAudio(audio, span, src); });
             srcLi.appendChild(span);
+            var errorMsg = document.createElement('span');
+            errorMsg.className = 'nara-audio-error';
+            errorMsg.textContent = '(Resource not available)';
+            errorMsg.hidden = true;
+            srcLi.appendChild(errorMsg);
+            span.addEventListener('click', function () { toggleNaraAudio(audio, span, src, errorMsg); });
+            // A failed load (e.g. the S3 object itself returning 403/404)
+            // fires here rather than rejecting toggleNaraAudio's own
+            // audio.play() call — revert the play button to its original
+            // icon and surface the failure next to it, since play()
+            // otherwise just silently no-ops with nothing but a console
+            // error to show for it.
+            audio.addEventListener('error', function () {
+              span.textContent = '▶️';
+              errorMsg.hidden = false;
+            });
             naraAudioSpans.set(audio, span);
             naraListEl.appendChild(srcLi);
           });

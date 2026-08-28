@@ -876,3 +876,8 @@ html[data-theme="dark"]  #nara-heading a { color: #5eaee0; }
 html[data-theme="light"] #nara-heading a { color: #2672b4; }
 #nara-list { margin: 0.5rem 0 0; }
 #nara-list .clickable { cursor: pointer; margin-left: 0.5em; }
+/* Shown next to a play button (see onthisday.js's toggleNaraAudio) when its
+   own audio element's "error" event fires — e.g. NARA's S3 bucket returning
+   403/404 for a given recording — same italic red as .otd-result's own
+   failure message elsewhere on this page. */
+.nara-audio-error { margin-left: 0.5em; font-size: 0.85rem; font-style: italic; color: #d97070; }
