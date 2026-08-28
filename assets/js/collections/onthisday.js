@@ -552,20 +552,19 @@
         // first match's own _naraSlug (see fetchNaraData) is enough.
         var target = '/courts/ussc/?link=' + encodeURIComponent('/sources/nara/audio/' + objects[0]._naraSlug) + '#' + iso;
         naraHeading.textContent = '';
-        naraHeading.appendChild(document.createTextNode('NARA Holdings for '));
-        var dateLink = document.createElement('a');
-        dateLink.textContent = fmtFullDate(iso);
-        dateLink.href = target;
+        var headingLink = document.createElement('a');
+        headingLink.textContent = 'NARA Holdings for ' + fmtFullDate(iso);
+        headingLink.href = target;
         // Real top-level navigation (not the SPA's in-place "ussc-navigate"
         // message, which only ever forwards a plain search string, never a
         // #hash) — same postMessage-when-framed / direct-navigate-when-
         // standalone split as this file's own goTo.
-        dateLink.addEventListener('click', function (e) {
+        headingLink.addEventListener('click', function (e) {
           e.preventDefault();
           if (window.parent !== window) window.parent.location.href = target;
           else window.location.href = target;
         });
-        naraHeading.appendChild(dateLink);
+        naraHeading.appendChild(headingLink);
 
         objects.forEach(function (obj) {
           (obj.events || []).forEach(function (ev) {

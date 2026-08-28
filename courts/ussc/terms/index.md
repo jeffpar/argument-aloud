@@ -27,14 +27,6 @@ scripts:
           <h3>Justices</h3>
           <ul id="date-justices-list" class="date-case-list"></ul>
         </div>
-        <div id="date-argued-section" hidden>
-          <h3>Arguments</h3>
-          <ul id="date-argued-list" class="date-case-list"></ul>
-        </div>
-        <div id="date-decided-section" hidden>
-          <h3>Decisions</h3>
-          <ul id="date-decided-list" class="date-case-list"></ul>
-        </div>
         <div id="minutes" hidden>
           <h3>Minutes</h3>
           <p id="date-minutes-list" class="date-minutes-list"></p>

@@ -256,8 +256,8 @@ html[data-theme="light"] { --chart-grid:#eee; --chart-axis:#ccc; --chart-label:#
 /* ID selector so this wins over the .date-minutes-list color rule above
    (and its dark-mode variant) regardless of source order — matching the
    same green used for minutes-book digits on the term calendar
-   (.cal-day.cal-minutes). #date-argued-list a is left unstyled here so it
-   falls through to .date-case-list a's own blue, same as #date-decided-list. */
+   (.cal-day.cal-minutes). #date-justices-list a is left unstyled here so it
+   falls through to .date-case-list a's own blue. */
 #date-minutes-list, #date-minutes-list a { color: rgb(46, 139, 87); }
 #date-minutes-list a { cursor: grab; }
 /* Extra class so the brighter calendar green wins over the rgb(46, 139, 87)

@@ -498,7 +498,17 @@
     var tbody   = document.getElementById('case-listing-tbody');
     var noteEl  = document.getElementById('stat-filter-note');
     if (!_caseListingRows) { heading.hidden = true; table.hidden = true; if (noteEl) noteEl.hidden = true; return; }
-    var visible = _rowsMatchingFilters(_caseListingRows, _currentFilterParam, _caseListingTermEntry);
+    // A specific selected date (not the bare term, nor date=all's full
+    // 12-month view — see the `if (date)` block below) scopes this table to
+    // just that day's own arguments/reargument/decisions, mirroring
+    // assets/js/collections/onthisday.js's own Court Cases table — reads the
+    // live `date` var (declared further down, in scope for the whole file)
+    // rather than a snapshot, so a later selectDate() call picks this up
+    // automatically on redraw.
+    var scoped = (date && date !== 'all')
+      ? _caseListingRows.filter(function (row) { return row.argIso.indexOf(date) !== -1 || row.decIso.indexOf(date) !== -1; })
+      : _caseListingRows;
+    var visible = _rowsMatchingFilters(scoped, _currentFilterParam, _caseListingTermEntry);
     if (!visible.length) { heading.hidden = true; table.hidden = true; if (noteEl) noteEl.hidden = true; return; }
     heading.hidden = false;
     table.hidden = false;
@@ -658,10 +668,13 @@
     if (dayEl.classList.contains('cal-clickable')) return;
     dayEl.classList.add('cal-clickable');
     var handler = function () {
+      // A day cell belonging to this same page's own term (the single-term
+      // Court Calendar above the Court Cases table, as opposed to the
+      // all-terms progressive calendar's own day cells, each tied to some
+      // other term's page) updates in place — see selectDate below — rather
+      // than navigating away, mirroring assets/js/collections/onthisday.js.
+      if (termId === term) { selectDate(iso, dayEl); return; }
       var s = '?term=' + encodeURIComponent(termId) + '&date=' + encodeURIComponent(iso);
-      if (dayEl.dataset.minutesPage && new URLSearchParams(location.search).has('page')) {
-        s += '&page=' + encodeURIComponent(dayEl.dataset.minutesPage) + '#minutes';
-      }
       if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
       else { location.href = '/courts/ussc/' + s; }
     };
@@ -1481,6 +1494,117 @@
   // there (renderCaseListing is never reached in that branch below).
   _currentFilterParam = params.get('filter');
 
+  // Reassigned once the cases.json fetch below resolves (see the Court
+  // Calendar and Date section code further down) — real no-ops until then,
+  // matching the same deferred-function pattern already used elsewhere in
+  // this file for termDatesPromise/nextTermIdPromise's own resolvers.
+  // selectDate below is never actually invoked (via a calendar day click)
+  // before that reassignment happens, since no calendar day cell exists
+  // until that same cases.json fetch has rendered one.
+  var redrawCalendar = function () {};
+  var renderDateSection = function () { return Promise.resolve(); };
+
+  // Rebuilds #stat-date-title as a link to this exact date on the "On This
+  // Day" page (assets/js/collections/onthisday.js) — a real top-level
+  // navigation (postMessage when framed, direct otherwise), not the SPA's
+  // in-place "ussc-navigate" message, since the destination is a wholly
+  // different page/pane. Hidden entirely for the bare term view or
+  // date=all — see the `if (date)` block below, which only ever calls this
+  // when there's an actual specific date to show.
+  function updateDateHeading() {
+    var dtEl = document.getElementById('stat-date-title');
+    if (!date || date === 'all') { dtEl.hidden = true; return; }
+    var link = document.createElement('a');
+    link.className = 'calendar-heading-link';
+    link.textContent = fmtDate(date);
+    var target = '/courts/ussc/?link=' + encodeURIComponent('/courts/ussc/collections/historical/onthisday/')
+      + '&date=' + encodeURIComponent(date);
+    link.href = target;
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.parent !== window) window.parent.location.href = target;
+      else window.location.href = target;
+    });
+    dtEl.textContent = '';
+    dtEl.appendChild(link);
+    dtEl.hidden = false;
+  }
+
+  // Keeps both the *top-level* address bar's own term=/date= AND this
+  // iframe's own location in sync with the currently selected date. The
+  // iframe's own address is only ever replaceState'd (never pushed — its
+  // own history stack is never used; Back/Forward is driven entirely by
+  // the top-level one) so explorer.js's own _frameNavigate — which decides
+  // whether a later Back/Forward needs to reload this iframe by comparing
+  // its target URL against this iframe's own *current* address — always
+  // compares against an address that actually matches what's rendered here
+  // right now. Without this, a Back/Forward landing back on a date already
+  // visited earlier in this same iframe session (e.g. A → B → A) would
+  // wrongly compare against this iframe's stale, never-updated initial-load
+  // address, find it coincidentally matches the target, and skip the
+  // reload — leaving whichever date's content was rendered most recently
+  // in place instead of the one actually being restored. Keeping this
+  // iframe's own address current instead means _frameNavigate only ever
+  // skips a reload when the DOM already showing here truly does match.
+  function syncUrlDate(push, hash) {
+    var ownUrl = new URL(location.href);
+    ownUrl.searchParams.set('date', date);
+    ownUrl.hash = hash || '';
+    history.replaceState(null, '', ownUrl);
+
+    if (window.parent === window) return;
+    var parentUrl = new URL(window.parent.location.href);
+    parentUrl.searchParams.set('term', term);
+    parentUrl.searchParams.set('date', date);
+    parentUrl.hash = hash || '';
+    if (push) window.parent.history.pushState(null, '', parentUrl);
+    else window.parent.history.replaceState(null, '', parentUrl);
+  }
+
+  // Selects a new date within this same term in place — no iframe reload,
+  // just a redraw of whatever depends on `date` (the heading, the Court
+  // Calendar, the date-section's Justices/Minutes, and the Court Cases
+  // table), plus a new top-level history entry so Back/Forward and
+  // bookmarking still work — mirrors
+  // assets/js/collections/onthisday.js's own day-cell handling. Only ever
+  // reached for a day cell belonging to *this* page's own term — see
+  // wireCalDayNav below, which still does a full cross-term navigation for
+  // a day cell in the all-terms progressive calendar further down this
+  // page. dayEl is the clicked calendar day cell itself, needed to carry an
+  // already-open Minutes viewer forward onto the new date's own first page
+  // — preserves the behavior documented in wireCalDayNav's own old doc
+  // comment, just without the reload that used to accomplish it.
+  function selectDate(iso, dayEl) {
+    if (iso === date) return;
+    var minutesPage = dayEl && dayEl.dataset.minutesPage;
+    var carryIntoMinutes = !!(minutesPage && new URLSearchParams(location.search).has('page'));
+
+    date = iso;
+    // Same as the `if (date)` block near this page's own initial setup —
+    // only ever needs to *hide* these here, never unhide them, since a
+    // calendar day click always lands on a specific date and there's no way
+    // to click back to the bare term view.
+    document.getElementById('stats-grid').hidden = true;
+    document.getElementById('stats-note').hidden = true;
+    updateDateHeading();
+    redrawCalendar();
+    _drawCaseListing();
+    renderDateSection(false).then(function () {
+      if (carryIntoMinutes) {
+        for (var i = 0; i < minutesPageEls.length; i++) {
+          if (minutesPageEls[i].dataset.page === minutesPage) { minutesPageEls[i].click(); break; }
+        }
+        var minutesSection = document.getElementById('minutes');
+        if (minutesSection && !minutesSection.hidden) {
+          requestAnimationFrame(function () { minutesSection.scrollIntoView({ behavior: 'instant', block: 'start' }); });
+        }
+      } else if (new URLSearchParams(location.search).has('page')) {
+        clearUrlPageParam();
+      }
+      syncUrlDate(true, carryIntoMinutes ? 'minutes' : '');
+    });
+  }
+
   if (term === 'all') {
     // Journal covers and the argued/reargued/decided date lists below only ever
     // apply to a single term or a specific date — neither ever populates in the
@@ -1700,15 +1824,13 @@
   titleEl.appendChild(titleLink);
   if (date) {
     // The term-wide stat cards (and the audio-availability note below them)
-    // don't apply to a single selected date — the date-section above already
-    // shows what's relevant for it (arguments/decisions/minutes) — nor to
-    // date=all (see below), which trades them for the full 12-month Court
-    // Calendar instead of a specific date's own info.
+    // don't apply to a single selected date — the Court Cases table below
+    // already shows what's relevant for it — nor to date=all (see below),
+    // which trades them for the full 12-month Court Calendar instead of a
+    // specific date's own info.
     document.getElementById('stats-grid').hidden = true;
     document.getElementById('stats-note').hidden = true;
-    if (date !== 'all') {
-      var _dtEl = document.getElementById('stat-date-title'); _dtEl.textContent = fmtDate(date); _dtEl.hidden = false;
-    }
+    updateDateHeading();
   }
 
   // Shared, mutable state for this term's dates.json (server data + this
@@ -1988,176 +2110,101 @@
     .then(function (cases) {
 
       // ── Date section ────────────────────────────────────────────────────────
-      if (!date || date === 'all') {
-        // No ?date= yet (or the special date=all full-calendar view — see
-        // below) — the covers row (journal/report/minutes covers) may still
-        // be showing something, but there's nothing day-specific here yet;
-        // point the visitor at the Court Calendar below instead of leaving
-        // this whole area blank.
-        document.getElementById('date-empty-message').hidden = false;
-      } else {
-        function casesOnDate(field) {
-          return cases.filter(function (c) {
-            if (!c[field]) return false;
-            return c[field].split(',').map(function (d) { return d.trim(); }).indexOf(date) >= 0;
+      // Justice service-date entries (type "justice" — see update_cases.js's
+      // syncJusticeDates) for a given date: one row per justice whose
+      // service started or ended that day, linking straight to their own
+      // gallery page via the entry's own title/href — no case lookup
+      // involved. Clears out any previous date's own entries first —
+      // renderDateSection below can run this more than once per page view
+      // (see selectDate), including for a page that started out with no
+      // ?date= at all — so a date with no justice entries of its own
+      // doesn't keep showing stale ones left over from whichever date was
+      // selected before it.
+      function fillJusticesGroup(items) {
+        var ul = document.getElementById('date-justices-list');
+        ul.innerHTML = '';
+        document.getElementById('date-justices-section').hidden = true;
+        if (!items.length) return;
+        var sorted = items.slice().sort(function (a, b) {
+          var ta = (a.title || '').toLowerCase(), tb = (b.title || '').toLowerCase();
+          return ta < tb ? -1 : ta > tb ? 1 : 0;
+        });
+        var items2 = sorted.map(function (g) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = g.title || '';
+          a.href = g.href || '#';
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            var s = '?' + (g.href || '').split('?')[1];
+            if (window.parent !== window) {
+              window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin);
+            } else {
+              location.href = g.href;
+            }
           });
+          li.appendChild(a);
+          ul.appendChild(li);
+          return li;
+        });
+        if (items2.length > 2) {
+          items2.slice(2).forEach(function (li) { li.hidden = true; });
+          var moreLi = document.createElement('li');
+          var moreLink = document.createElement('a');
+          moreLink.href = '#';
+          moreLink.textContent = '…';
+          moreLink.title = 'Show ' + (items2.length - 2) + ' more';
+          moreLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            items2.forEach(function (li) { li.hidden = false; });
+            moreLi.remove();
+          });
+          moreLi.appendChild(moreLink);
+          ul.insertBefore(moreLi, items2[2]);
         }
+        document.getElementById('date-justices-section').hidden = false;
+      }
 
-        // c.term (only ever set on a cross-term case-detail object — see
-        // below) links to that case's own term instead of this page's, since
-        // it isn't actually part of this term's own docket.
-        // Preference order matches explorer.js's own _buildDecisionEntries/
-        // DECISION_FILE_PARAMS — the case's default decision doc source.
-        function decisionFileParam(c) {
-          if (c.decision_loc) return 'loc';
-          if (c.decision_gov) return 'gov';
-          if (c.decision_vol) return 'vol';
-          return null;
-        }
-
-        // isDecision (Decisions group only) makes the link open straight to
-        // the case's own decision doc — via explorer.js's ?file= restore —
-        // instead of its default oral-argument audio, since that's what
-        // brought this case to this date's attention in the first place.
-        function fillGroup(sectionId, listId, group, isDecision) {
-          if (!group.length) return;
-          var ul = document.getElementById(listId);
-          var sorted = group.slice().sort(function (a, b) {
-            var ta = caseDisplayTitle(a).toLowerCase(), tb = caseDisplayTitle(b).toLowerCase();
-            return ta < tb ? -1 : ta > tb ? 1 : 0;
-          });
-          var items = sorted.map(function (c) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            var id = caseUrlId(c, cases);
-            var linkTerm = c.term || term;
-            var numberLabel = caseNumberLabel(c);
-            var fileParam = isDecision ? decisionFileParam(c) : null;
-            var search = '?term=' + encodeURIComponent(linkTerm) + '&case=' + encodeURIComponent(id) +
-              (fileParam ? '&file=' + fileParam : '');
-            a.textContent = caseDisplayTitle(c) + (numberLabel ? ' (' + numberLabel + ')' : '');
-            a.href = '/courts/ussc/' + search;
-            a.addEventListener('click', function (e) {
-              e.preventDefault();
-              if (window.parent !== window) {
-                window.parent.postMessage({
-                  type: 'ussc-navigate',
-                  search: search
-                }, location.origin);
-              } else {
-                location.href = a.href;
-              }
-            });
-            li.appendChild(a);
-            ul.appendChild(li);
-            return li;
-          });
-          // More than two entries would otherwise push this section well past
-          // its siblings' own height — collapse to the first two, with a
-          // third "…" line that reveals the rest in place on click (never
-          // re-collapses; there's no need to hide them again once seen).
-          if (items.length > 2) {
-            items.slice(2).forEach(function (li) { li.hidden = true; });
-            var moreLi = document.createElement('li');
-            var moreLink = document.createElement('a');
-            moreLink.href = '#';
-            moreLink.textContent = '…';
-            moreLink.title = 'Show ' + (items.length - 2) + ' more';
-            moreLink.addEventListener('click', function (e) {
-              e.preventDefault();
-              items.forEach(function (li) { li.hidden = false; });
-              moreLi.remove();
-            });
-            moreLi.appendChild(moreLink);
-            ul.insertBefore(moreLi, items[2]);
-          }
-          document.getElementById(sectionId).hidden = false;
-        }
-
-        // Justice service-date entries (type "justice" — see update_cases.js's
-        // syncJusticeDates) for this date: one row per justice whose service
-        // started or ended this day, linking straight to their own gallery
-        // page via the entry's own title/href — no case lookup involved, so
-        // this doesn't share fillGroup's own case-row plumbing above.
-        function fillJusticesGroup(items) {
-          if (!items.length) return;
-          var ul = document.getElementById('date-justices-list');
-          var sorted = items.slice().sort(function (a, b) {
-            var ta = (a.title || '').toLowerCase(), tb = (b.title || '').toLowerCase();
-            return ta < tb ? -1 : ta > tb ? 1 : 0;
-          });
-          var items2 = sorted.map(function (g) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            a.textContent = g.title || '';
-            a.href = g.href || '#';
-            a.addEventListener('click', function (e) {
-              e.preventDefault();
-              var s = '?' + (g.href || '').split('?')[1];
-              if (window.parent !== window) {
-                window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin);
-              } else {
-                location.href = g.href;
-              }
-            });
-            li.appendChild(a);
-            ul.appendChild(li);
-            return li;
-          });
-          if (items2.length > 2) {
-            items2.slice(2).forEach(function (li) { li.hidden = true; });
-            var moreLi = document.createElement('li');
-            var moreLink = document.createElement('a');
-            moreLink.href = '#';
-            moreLink.textContent = '…';
-            moreLink.title = 'Show ' + (items2.length - 2) + ' more';
-            moreLink.addEventListener('click', function (e) {
-              e.preventDefault();
-              items2.forEach(function (li) { li.hidden = false; });
-              moreLi.remove();
-            });
-            moreLi.appendChild(moreLink);
-            ul.insertBefore(moreLi, items2[2]);
-          }
-          document.getElementById('date-justices-section').hidden = false;
-        }
-
-        // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
-        // per-term file (most terms don't have one) built by
-        // scripts/parse_minutes.js from NARA's own OCR'd minutes books — see
-        // renderMinutesPagesList below. It can also hold a case-detail object
-        // (see update_cases.js's syncCrossTermCaseDates) — a later term's own
-        // case actually argued/reargued on this earlier term's own date —
-        // which joins the arguments list below alongside this term's own
-        // cases, same as any of them (their own "term" field, not this
-        // page's, is what fillGroup's link above uses). A ?page= param (see
-        // openMinutesPageFromUrl's own doc comment) then opens straight to
-        // that Minutes page once the list exists for it to find.
-        termDatesPromise.then(function (datesData) {
-          var crossTermCases = (datesData && datesData[date]) || [];
-          var crossArg = crossTermCases.filter(function (g) { return g.type === 'argument' || g.type === 'reargument'; });
+      // Minutes: courts/ussc/terms/<term>/dates.json is a separate, optional
+      // per-term file (most terms don't have one) built by
+      // scripts/parse_minutes.js from NARA's own OCR'd minutes books — see
+      // renderMinutesPagesList below. Its own case-detail objects (see
+      // update_cases.js's syncCrossTermCaseDates and syncJusticeDates) only
+      // ever contribute a "justice" entry here — a later term's own
+      // argument/reargument on this earlier term's own date instead shows
+      // up in the Court Cases table below via collectCrossTermRows/
+      // _drawCaseListing's own date scoping, same as this term's own cases.
+      // Reassigns the module-level renderDateSection (see its declaration
+      // above `if (term === 'all')`) to the real implementation —
+      // unconditionally, regardless of whether this page happened to start
+      // out with a ?date= of its own, since a later selectDate() call (see
+      // wireCalDayNav) needs the real implementation available too, not
+      // just a true initial load. Only ever actually *invoked* below when
+      // there's a real date to show — never for the bare term view. isInitial
+      // is true only for this page's own true first load — see selectDate,
+      // which instead lands straight on a day's own already-known first
+      // Minutes page rather than reading a (by-then-stale) initial ?page=
+      // param.
+      renderDateSection = function (isInitial) {
+        var forDate = date; // guards a still-pending call from an earlier date clobbering a newer one
+        return termDatesPromise.then(function (datesData) {
+          if (forDate !== date) return;
+          var crossTermCases = (datesData && datesData[forDate]) || [];
           var justiceDates = crossTermCases.filter(function (g) { return g.type === 'justice'; });
 
-          // Arguments and reargument dates share a single section/list now —
-          // a case argued and reargued on the very same date (never actually
-          // happens, but cheap to guard) would otherwise appear twice.
-          var argued = casesOnDate('argument').concat(casesOnDate('reargument'));
-          argued = argued.filter(function (c, i) { return argued.indexOf(c) === i; });
-
           fillJusticesGroup(justiceDates);
-          fillGroup('date-argued-section',  'date-argued-list',  argued.concat(crossArg));
-          fillGroup('date-decided-section', 'date-decided-list', casesOnDate('decision'), true);
-
           renderMinutesPagesList();
-          openMinutesPageFromUrl();
+          if (isInitial) openMinutesPageFromUrl();
 
           // A calendar day link with minutes (see wireCalDayNav) lands here
-          // with a #minutes fragment — scroll the (now-unhidden, if this
-          // date actually has any) Minutes heading to the top, same as any
-          // other same-page anchor link, rather than relying on the
-          // browser's own native hash-scroll-on-load (which can't find an
-          // element that started out `hidden` and was only just unhidden
-          // above).
+          // with a #minutes fragment on a true initial load — scroll the
+          // (now-unhidden, if this date actually has any) Minutes heading
+          // to the top, same as any other same-page anchor link, rather
+          // than relying on the browser's own native hash-scroll-on-load
+          // (which can't find an element that started out `hidden` and was
+          // only just unhidden above). selectDate handles this same scroll
+          // itself for an in-place date switch, since that never touches
+          // this iframe's own location.hash.
           if (location.hash === '#minutes') {
             var minutesSection = document.getElementById('minutes');
             if (minutesSection && !minutesSection.hidden) {
@@ -2165,6 +2212,17 @@
             }
           }
         });
+      };
+
+      // No ?date= yet (or the special date=all full-calendar view) — the
+      // covers row (journal/report/minutes covers) may still be showing
+      // something, but there's nothing day-specific here yet; point the
+      // visitor at the Court Calendar below instead of leaving this whole
+      // area blank.
+      if (!date || date === 'all') {
+        document.getElementById('date-empty-message').hidden = false;
+      } else {
+        renderDateSection(true);
       }
 
       // ── Term stats ──────────────────────────────────────────────────────────
@@ -2201,86 +2259,102 @@
 
       calContainer = document.getElementById('term-calendar'); // module-scope — see handleMinutesDrop above
       if (calContainer) {
-        Promise.all([nextTermIdPromise, termDatesPromise]).then(function (results) {
-          var nextTermId = results[0], datesData = results[1];
+        // Reassigns the module-level redrawCalendar (see its declaration
+        // above `if (term === 'all')`) to the real implementation — called
+        // once here for the initial render, and again by selectDate on
+        // every in-place date switch, each time re-centering/re-scoping the
+        // grid around the (by-then-current) `date` and `singleDate` below.
+        redrawCalendar = function () {
+          return Promise.all([nextTermIdPromise, termDatesPromise]).then(function (results) {
+            var nextTermId = results[0], datesData = results[1];
 
-          // Cross-term case-detail entries (see update_cases.js's
-          // syncCrossTermCaseDates) in this term's own dates.json — a later
-          // term's own case actually argued/reargued during this earlier
-          // term's own date range — get the same calendar coloring as this
-          // term's own argument/reargument days. Built as a copy rather than
-          // mutating argDaySet itself, since argDays (the stat card above,
-          // already rendered from argDaySet.size before this promise even
-          // resolves) should only ever count this term's own docket.
-          var calArgDaySet = new Set(argDaySet);
-          if (datesData) {
-            Object.keys(datesData).forEach(function (iso) {
-              (datesData[iso] || []).forEach(function (g) {
-                if (g.type === 'argument' || g.type === 'reargument') calArgDaySet.add(iso);
+            // Cross-term case-detail entries (see update_cases.js's
+            // syncCrossTermCaseDates) in this term's own dates.json — a
+            // later term's own case actually argued/reargued during this
+            // earlier term's own date range — get the same calendar
+            // coloring as this term's own argument/reargument days. Built
+            // as a copy rather than mutating argDaySet itself, since
+            // argDays (the stat card above, already rendered from
+            // argDaySet.size before this promise even resolves) should
+            // only ever count this term's own docket.
+            var calArgDaySet = new Set(argDaySet);
+            if (datesData) {
+              Object.keys(datesData).forEach(function (iso) {
+                (datesData[iso] || []).forEach(function (g) {
+                  if (g.type === 'argument' || g.type === 'reargument') calArgDaySet.add(iso);
+                });
               });
-            });
-          }
-          if (!calArgDaySet.size && !decDaySet.size) return;
-
-          // The special date=all value (see the Court Calendar heading link
-          // below) means "show the full calendar, not scoped to any single
-          // date" — treated the same as no ?date= at all for the grid itself,
-          // it just additionally suppresses the stat cards above (see the
-          // `if (date)` block earlier) since there's no specific date's own
-          // info to show alongside them either.
-          var singleDate = (date && date !== 'all') ? date : null;
-
-          var termParts = term.split('-');
-          var termStart = { year: parseInt(termParts[0], 10), month: parseInt(termParts[1], 10) - 1 }; // 0-based
-          // A single selected ?date= jumps the grid's own start to the month
-          // before the selected date's own month, so that month always lands
-          // in the middle of the 3-month row — never earlier than the term's
-          // own actual first month, though, since there's nothing to show
-          // before the term itself begins.
-          var calStart = termStart;
-          if (singleDate) {
-            var d = singleDate.split('-');
-            var selIdx = parseInt(d[0], 10) * 12 + (parseInt(d[1], 10) - 1) - 1; // previous month, 0-based total months
-            var prevStart = { year: Math.floor(selIdx / 12), month: ((selIdx % 12) + 12) % 12 };
-            if (prevStart.year * 12 + prevStart.month >= termStart.year * 12 + termStart.month) calStart = prevStart;
-          }
-          // Stops the month before the next term begins, however many months
-          // that actually is (no 12-month cap) — falls back to a flat 12 when
-          // there's no known next term (the latest term, or terms.json failed).
-          var monthCount = 12;
-          if (nextTermId) {
-            var n = nextTermId.split('-');
-            var nextStartIdx = parseInt(n[0], 10) * 12 + (parseInt(n[1], 10) - 1);
-            var diff = nextStartIdx - (calStart.year * 12 + calStart.month);
-            if (diff > 0) monthCount = diff;
-          }
-          // A single selected ?date= means calStart is already the quarter
-          // (3-month row) containing it (see above) — cap the grid to just
-          // that row instead of running all the way to the next term, so the
-          // view stays consistently scoped to the date the visitor clicked
-          // into. date=all keeps the full, uncapped count instead.
-          if (singleDate) monthCount = Math.min(monthCount, 3);
-          renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, singleDate, monthCount, handleMinutesDrop, calStart);
-          calContainer.hidden = false;
-          var calHdr = document.getElementById('term-calendar-heading');
-          if (calHdr) {
-            calHdr.hidden = false;
-            // When scoped to a single date, make the heading a link to
-            // date=all — the full 12-month calendar with the stat cards
-            // suppressed (same wireSearchLink/<a>-wrapping pattern as
-            // #stat-term-title's titleLink above).
-            if (singleDate) {
-              var calHdrLink = document.createElement('a');
-              calHdrLink.className = 'calendar-heading-link';
-              calHdrLink.textContent = calHdr.textContent;
-              wireSearchLink(calHdrLink, '?term=' + encodeURIComponent(term) + '&date=all');
-              calHdr.textContent = '';
-              calHdr.appendChild(calHdrLink);
             }
-          }
+            if (!calArgDaySet.size && !decDaySet.size) return;
 
-          applyMinutesHighlight(calContainer, datesData, term);
-        });
+            // The special date=all value (see the Court Calendar heading
+            // link below) means "show the full calendar, not scoped to any
+            // single date" — treated the same as no ?date= at all for the
+            // grid itself, it just additionally suppresses the stat cards
+            // above (see the `if (date)` block earlier) since there's no
+            // specific date's own info to show alongside them either.
+            var singleDate = (date && date !== 'all') ? date : null;
+
+            var termParts = term.split('-');
+            var termStart = { year: parseInt(termParts[0], 10), month: parseInt(termParts[1], 10) - 1 }; // 0-based
+            // A single selected ?date= jumps the grid's own start to the
+            // month before the selected date's own month, so that month
+            // always lands in the middle of the 3-month row — never
+            // earlier than the term's own actual first month, though,
+            // since there's nothing to show before the term itself begins.
+            var calStart = termStart;
+            if (singleDate) {
+              var d = singleDate.split('-');
+              var selIdx = parseInt(d[0], 10) * 12 + (parseInt(d[1], 10) - 1) - 1; // previous month, 0-based total months
+              var prevStart = { year: Math.floor(selIdx / 12), month: ((selIdx % 12) + 12) % 12 };
+              if (prevStart.year * 12 + prevStart.month >= termStart.year * 12 + termStart.month) calStart = prevStart;
+            }
+            // Stops the month before the next term begins, however many
+            // months that actually is (no 12-month cap) — falls back to a
+            // flat 12 when there's no known next term (the latest term, or
+            // terms.json failed).
+            var monthCount = 12;
+            if (nextTermId) {
+              var n = nextTermId.split('-');
+              var nextStartIdx = parseInt(n[0], 10) * 12 + (parseInt(n[1], 10) - 1);
+              var diff = nextStartIdx - (calStart.year * 12 + calStart.month);
+              if (diff > 0) monthCount = diff;
+            }
+            // A single selected ?date= means calStart is already the
+            // quarter (3-month row) containing it (see above) — cap the
+            // grid to just that row instead of running all the way to the
+            // next term, so the view stays consistently scoped to the date
+            // the visitor clicked into. date=all keeps the full, uncapped
+            // count instead.
+            if (singleDate) monthCount = Math.min(monthCount, 3);
+            // Cleared before every render (not just the first) —
+            // redrawCalendar can now run more than once per page view (see
+            // selectDate), and renderTermCalendar itself only ever appends
+            // a fresh grid rather than replacing whatever's already there.
+            calContainer.innerHTML = '';
+            renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, singleDate, monthCount, handleMinutesDrop, calStart);
+            calContainer.hidden = false;
+            var calHdr = document.getElementById('term-calendar-heading');
+            if (calHdr) {
+              calHdr.hidden = false;
+              // When scoped to a single date, make the heading a link to
+              // date=all — the full 12-month calendar with the stat cards
+              // suppressed (same wireSearchLink/<a>-wrapping pattern as
+              // #stat-term-title's titleLink above).
+              if (singleDate) {
+                var calHdrLink = document.createElement('a');
+                calHdrLink.className = 'calendar-heading-link';
+                calHdrLink.textContent = calHdr.textContent;
+                wireSearchLink(calHdrLink, '?term=' + encodeURIComponent(term) + '&date=all');
+                calHdr.textContent = '';
+                calHdr.appendChild(calHdrLink);
+              }
+            }
+
+            applyMinutesHighlight(calContainer, datesData, term);
+          });
+        };
+        redrawCalendar();
       }
 
       termDatesPromise
