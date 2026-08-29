@@ -228,6 +228,16 @@ Then there's the problem of multiple rearguments. Once again, the Spaeth "ALLCOU
 
 The limitation here is even worse than before, because not only can a reargument span multiple days, but there can also be *multiple* rearguments. Take a look at [Boyle v. Landry (401 U.S. 77)](/courts/ussc/?term=1970-10&case=4). The second reargument on November 16, 1970 is nowhere to be found in SCDB.
 
+### Argument vs. Reargument
+
+There are cases like these:
+
+- Thompson v. Coastal Oil Co. (decided in [January 1956](/courts/ussc/?term=1955-10&case=105) and again in [October 1956](/courts/ussc/?term=1956-10&case=1))
+- Bartkus v. Illinois (decided in [January 1958](/courts/ussc/?term=1957-10&case=39) and again in [March 1959](/courts/ussc/?term=1958-10&case=1))
+- Flora v. United States (decided in [June 1958](/courts/ussc/?term=1957-10&case=492) and again in [March 1960](/courts/ussc/?term=1959-10&case=492)
+
+which SCDB correctly lists twice, because in each instance, the case was argued and then decided, and then accepted by the Court again, argued again, and decided again.  However, SCDB considers the second instance a *reargument* and creates a duplicate reference to the first argument, whereas we consider both instances as *new* cases, each with *new* arguments and a separate decision.  Traditionally, rearguments are *additional* arguments that the *Court* has asked for, not the parties, without an intervening decision.
+
 ### Dismissals
 
 SCDB also doesn't comprehensively list cases that were granted, argued, and then dismissed without an opinion. This can happen when the Court "DIGs" (dismisses as improvidently granted) a case, or when it dismisses a case that has later become moot. To be clear, I'm referring to cases that were fully briefed and argued and *then* dismissed, which makes them significantly different from the many petitions that are routinely denied, as well as the occasional petition that is granted and then dismissed before argument.

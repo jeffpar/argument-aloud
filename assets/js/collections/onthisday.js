@@ -273,6 +273,25 @@
         return (c.title || c.number || c.id || '(unknown)').split(';')[0].trim();
       }
 
+      // Formats a case's docket number(s) as a parenthesized " (No. 12-345)" /
+      // " (Nos. 12-345, 12-346)" annotation, ready to append straight onto a
+      // title string — mirrors terms.js's own caseNumberAnnotation, which in
+      // turn mirrors explorer.js's caseTitleLabel (kept in sync by hand; no
+      // shared module between the three runtimes). Four or more numbers
+      // collapse `text` to "first, …, last"; `full` then carries the
+      // untruncated annotation for use as a tooltip, else null. Returns null
+      // (no annotation at all) when the case has no docket number.
+      function caseNumberAnnotation(number) {
+        if (!number) return null;
+        var numbers = number.split(',').map(function (n) { return n.trim(); });
+        var label = numbers.length > 1 ? 'Nos.' : 'No.';
+        function fmt(ns) { return ns.join(', ').replace(/-(?=Orig|Misc)/g, ' '); }
+        var shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;
+        var text = ' (' + label + ' ' + fmt(shown) + ')';
+        var full = numbers.length >= 4 ? ' (' + label + ' ' + fmt(numbers) + ')' : null;
+        return { text: text, full: full };
+      }
+
       // "531 U.S. 57" -> a number that sorts citations chronologically (by
       // volume, then page) rather than alphabetically.
       function opinionSortKey(citation) {
@@ -365,6 +384,7 @@
         var decDates = decIso.slice().sort();
         return {
           title: caseDisplayTitle(c),
+          number: c.number || '',
           caseId: caseUrlId(c, allCases),
           caseTerm: term,
           argTerm: term,
@@ -390,7 +410,9 @@
 
         var tdTitle = document.createElement('td');
         var aTitle = document.createElement('a');
-        aTitle.textContent = row.title;
+        var numAnno = caseNumberAnnotation(row.number);
+        aTitle.textContent = row.title + (numAnno ? numAnno.text : '');
+        if (numAnno && numAnno.full) aTitle.title = row.title + numAnno.full;
         wireSearchLink(aTitle, '?term=' + encodeURIComponent(row.caseTerm) + '&case=' + encodeURIComponent(row.caseId));
         tdTitle.appendChild(aTitle);
         tr.appendChild(tdTitle);

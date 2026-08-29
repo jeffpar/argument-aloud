@@ -81,13 +81,22 @@
   function caseDisplayTitle(c) {
     return (c.title || c.number || c.id || '(unknown)').split(';')[0].trim();
   }
-  // "No. 5" / "Nos. 5, 6-Orig" — mirrors decisionTooltip/argumentTooltip's
-  // own number formatting in assets/js/explorer.js (duplicated here since
-  // this script runs on its own page, not alongside explorer.js).
-  function caseNumberLabel(c) {
-    if (!c.number) return '';
-    var numbers = c.number.split(',').map(function (n) { return n.trim().replace(/-(?=Orig|Misc)/i, ' '); });
-    return (numbers.length > 1 ? 'Nos. ' : 'No. ') + numbers.join(', ');
+  // Formats a case's docket number(s) as a parenthesized " (No. 12-345)" /
+  // " (Nos. 12-345, 12-346)" annotation, ready to append straight onto a
+  // title string — mirrors explorer.js's own caseTitleLabel (kept in sync by
+  // hand; no shared module between the two runtimes). Four or more numbers
+  // collapse `text` to "first, …, last"; `full` then carries the
+  // untruncated annotation for use as a tooltip, else null. Returns null (no
+  // annotation at all) when the case has no docket number.
+  function caseNumberAnnotation(number) {
+    if (!number) return null;
+    var numbers = number.split(',').map(function (n) { return n.trim(); });
+    var label = numbers.length > 1 ? 'Nos.' : 'No.';
+    function fmt(ns) { return ns.join(', ').replace(/-(?=Orig|Misc)/g, ' '); }
+    var shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;
+    var text = ' (' + label + ' ' + fmt(shown) + ')';
+    var full = numbers.length >= 4 ? ' (' + label + ' ' + fmt(numbers) + ')' : null;
+    return { text: text, full: full };
   }
   // Preferred `case=` URL value for a case — its first docket number when
   // that's unique among siblingCases, else its own id (matching
@@ -267,7 +276,9 @@
 
     var tdTitle = document.createElement('td');
     var aTitle = document.createElement('a');
-    aTitle.textContent = row.title;
+    var numAnno = caseNumberAnnotation(row.number);
+    aTitle.textContent = row.title + (numAnno ? numAnno.text : '');
+    if (numAnno && numAnno.full) aTitle.title = row.title + numAnno.full;
     wireSearchLink(aTitle, '?term=' + encodeURIComponent(row.caseTerm) + '&case=' + encodeURIComponent(row.caseId));
     tdTitle.appendChild(aTitle);
     tr.appendChild(tdTitle);
@@ -318,7 +329,12 @@
   // to *this* page, not every argument/reargument date on the record.
   // siblingCases should be c's own home term's cases.json array, passed
   // through to caseUrlId() for its leading-number-uniqueness check.
-  function buildCaseRow(c, caseTerm, argTerm, siblingCases, argIsoOverride) {
+  // termEntry is c's own home term's terms.json group entry (carries
+  // reports[]) — used to append a "#page=N" fragment to a decision_vol href
+  // (a link straight to the whole bound volume) so it lands on the case's
+  // own page instead of page 1; decision_loc/decision_gov already point at
+  // the opinion's own standalone PDF and never need this.
+  function buildCaseRow(c, caseTerm, argTerm, siblingCases, argIsoOverride, termEntry) {
     // A case reargued in a later term than it was first argued in still
     // carries both dates on the same case record — comparing by
     // year-month (both "argument"/"reargument" and caseTerm share the same
@@ -332,8 +348,21 @@
     var voteM = scoreM ? parseInt(scoreM[1], 10) : null, voteN = scoreM ? parseInt(scoreM[2], 10) : null;
     var opinionText = c.citation || '';
     var decDates = decIso.slice().sort();
+    var decisionHref = '';
+    if (opinionText) {
+      if (c.decision_loc) decisionHref = c.decision_loc;
+      else if (c.decision_gov) decisionHref = c.decision_gov;
+      else if (c.decision_vol) {
+        decisionHref = c.decision_vol;
+        if (decisionHref.indexOf('#page=') < 0) {
+          var pdfPage = _reportPdfPage(opinionText, termEntry);
+          if (pdfPage != null) decisionHref += '#page=' + pdfPage;
+        }
+      }
+    }
     return {
       title: caseDisplayTitle(c),
+      number: c.number || '',
       caseId: caseUrlId(c, siblingCases),
       caseTerm: caseTerm,
       argTerm: argTerm,
@@ -347,7 +376,7 @@
       // again — a cross-term row (see collectCrossTermRows) has no other way
       // to reach it once built.
       result: c.result || '',
-      decisionHref: opinionText ? (c.decision_loc || c.decision_gov || c.decision_vol || '') : '',
+      decisionHref: decisionHref,
       decisionTitle: 'Decision' + (decDates.length ? ' on ' + fmtMonthDayYear(decDates[0]) : '')
         + (opinionText ? ' (' + opinionText + ')' : ''),
       sortValues: {
@@ -378,8 +407,12 @@
   // Promise resolving to an array of rows in buildCaseRow's own shape;
   // resolves to [] (never rejects) if datesData is empty or every fetch
   // fails, so a lookup failure just means the table falls back to native
-  // cases only rather than never rendering.
-  function collectCrossTermRows(datesData, term) {
+  // cases only rather than never rendering. allTermEntriesById (term id ->
+  // terms.json group entry, see allTermEntriesPromise below) lets each row
+  // resolve its own home term's reports[] for buildCaseRow's decision_vol
+  // "#page=" computation, since a cross-term case's home term is never
+  // `term` itself.
+  function collectCrossTermRows(datesData, term, allTermEntriesById) {
     if (!datesData) return Promise.resolve([]);
     var byId = new Map(); // case id/number -> { pointer, isos: [iso, ...] }
     Object.keys(datesData).forEach(function (iso) {
@@ -410,7 +443,7 @@
             var key = entry.pointer.id || entry.pointer.number;
             var full = Array.isArray(termCases) && termCases.find(function (c) { return c.id === key || c.number === key; });
             if (!full) return null;
-            return buildCaseRow(full, t, term, termCases, entry.isos.slice().sort());
+            return buildCaseRow(full, t, term, termCases, entry.isos.slice().sort(), allTermEntriesById && allTermEntriesById[t]);
           }).filter(Boolean);
         });
     })).then(function (perTerm) { return [].concat.apply([], perTerm); });
@@ -426,8 +459,9 @@
   }
   // Parses a reports[].pages breakpoint string ("1:85,801:717") into
   // {start, pdfPage, marked?} objects, arabic (non-roman) breakpoints only —
-  // all _isOrdersCase needs. Mirrors _parsePages in scripts/update_cases.js /
-  // _parsePnBps in explorer.js (kept in sync by hand).
+  // used by both _isOrdersCase and _reportPdfPage below. Mirrors _parsePages
+  // in scripts/update_cases.js / _parsePnBps in explorer.js (kept in sync by
+  // hand).
   function _parseArabicPnBps(pn) {
     if (!pn) return [];
     return pn.split(',').map(function (seg) {
@@ -438,9 +472,28 @@
       var marked = pdfPageStr.charAt(pdfPageStr.length - 1) === '*';
       if (marked) pdfPageStr = pdfPageStr.slice(0, -1).trim();
       var start = parseInt(startStr, 10);
-      if (!isFinite(start)) return null; // roman or garbage
-      return { start: start, marked: marked };
+      var pdfPage = parseInt(pdfPageStr, 10);
+      if (!isFinite(start) || !isFinite(pdfPage)) return null; // roman or garbage
+      return { start: start, pdfPage: pdfPage, marked: marked };
     }).filter(Boolean).sort(function (a, b) { return a.start - b.start; });
+  }
+  // Compute the PDF page for a U.S. Reports citation using termEntry's own
+  // reports[] breakpoints — mirrors explorer.js's _reportPdfPage (kept in
+  // sync by hand; no shared module between the two runtimes). Arabic pages
+  // only — a case citation is never a roman-numeral front-matter page.
+  function _reportPdfPage(citation, termEntry) {
+    var m = /^(\d+)\s+U\.S\.\s+(\d+)$/.exec((citation || '').trim());
+    if (!m) return null;
+    var vol = parseInt(m[1], 10), page = parseInt(m[2], 10);
+    var reports = (termEntry && termEntry.reports) || [];
+    var report = null;
+    for (var i = 0; i < reports.length; i++) { if (Number(reports[i].volume) === vol) { report = reports[i]; break; } }
+    if (!report || !report.pages) return null;
+    var bps = _parseArabicPnBps(report.pages);
+    var match = null;
+    for (var j = 0; j < bps.length; j++) { if (bps[j].start <= page) match = bps[j]; else break; }
+    if (!match) return null;
+    return page + (match.pdfPage - match.start);
   }
   // True if citation lands in an "orders mapping" section of its volume —
   // mirrors _isOrdersCase in scripts/update_cases.js / explorer.js (kept in
@@ -535,7 +588,7 @@
   }
 
   function renderCaseListing(term, cases, extraRows, termEntry) {
-    var rows = cases.map(function (c) { return buildCaseRow(c, term, term, cases); });
+    var rows = cases.map(function (c) { return buildCaseRow(c, term, term, cases, undefined, termEntry); });
     if (extraRows && extraRows.length) rows = rows.concat(extraRows);
     _caseListingRows = rows;
     _caseListingTermEntry = termEntry || null;
@@ -1884,6 +1937,14 @@
   var _resolveTermEntryPromise;
   var termEntryPromise = new Promise(function (resolve) { _resolveTermEntryPromise = resolve; });
 
+  // Resolves to a term id -> terms.json group entry map covering every term
+  // (not just this page's own), so a cross-term Case Listing row (see
+  // collectCrossTermRows) can look up its own home term's reports[] for
+  // buildCaseRow's decision_vol "#page=" computation. Resolved alongside
+  // termEntryPromise once the terms.json fetch below finishes.
+  var _resolveAllTermEntriesPromise;
+  var allTermEntriesPromise = new Promise(function (resolve) { _resolveAllTermEntriesPromise = resolve; });
+
   // Every known term's own id + start date ("<YYYY>-<MM>-01"), sorted
   // chronologically ascending — filled in once the terms.json fetch below
   // builds allTerms, stays null until then (every consumer already tolerates
@@ -1949,13 +2010,15 @@
     .then(function (decades) {
       var entry = null;
       var allTerms = [];
+      var allTermEntriesById = {};
       decades.forEach(function (d) {
         (d.groups || []).forEach(function (g) {
           var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
-          if (m) allTerms.push({ id: m[1], name: g.name || termTitle(m[1]) });
+          if (m) { allTerms.push({ id: m[1], name: g.name || termTitle(m[1]) }); allTermEntriesById[m[1]] = g; }
           if (g.file && g.file.indexOf('/terms/' + term + '/') >= 0) entry = g;
         });
       });
+      _resolveAllTermEntriesPromise(allTermEntriesById);
       termStarts = allTerms.map(function (t) { return { term: t.id, start: t.id.slice(0, 4) + '-' + t.id.slice(5, 7) + '-01' }; });
       var idx = allTerms.findIndex(function (t) { return t.id === term; });
       // Refines the title text set above (termTitle(term)'s own guess) —
@@ -2357,8 +2420,8 @@
         redrawCalendar();
       }
 
-      termDatesPromise
-        .then(function (datesData) { return collectCrossTermRows(datesData, term); })
+      Promise.all([termDatesPromise, allTermEntriesPromise])
+        .then(function (results) { return collectCrossTermRows(results[0], term, results[1]); })
         .catch(function () { return []; })
         .then(function (extraRows) {
           return termEntryPromise.then(function (termEntry) {

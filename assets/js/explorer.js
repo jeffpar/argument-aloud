@@ -3553,6 +3553,25 @@ async function _refreshMinutesGalleryOptions(term, caseEntry) {
   }
 }
 
+// Returns the term (from TERMS) whose own calendar actually contains isoDate
+// — the term with the latest start ("<YYYY>-<MM>-01") <= isoDate. A case's
+// own filing term can differ from this for a cross-term argument/reargument
+// date (see update_cases.js's syncCrossTermCaseDates — that date falls
+// within an *earlier* term's own range), so a date link must resolve
+// against this rather than assuming the case's own term. TERMS is already
+// chronologically sorted (mirrors terms.js's own termForDate/termStarts, no
+// shared module between the two runtimes). Returns null if TERMS isn't
+// loaded yet or isoDate predates every known term.
+function _termForDate(isoDate) {
+  let found = null;
+  for (const t of TERMS) {
+    if (!t.term) continue;
+    const start = t.term.slice(0, 4) + '-' + t.term.slice(5, 7) + '-01';
+    if (start <= isoDate) found = t.term; else break;
+  }
+  return found;
+}
+
 // Populate and show/hide the argued/decided date row below the case title.
 function _setCaseInfoRow2(caseEntry) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
@@ -3617,13 +3636,18 @@ function _setCaseInfoRow2(caseEntry) {
       }).join(',\u00a0');
     }
 
+    // A cross-term argument/reargument date can fall outside the case's own
+    // filing term's actual calendar range (see _termForDate) \u2014 link to
+    // whichever term really covers firstIso, falling back to the case's own
+    // term if that can't be determined.
+    const linkTerm = _termForDate(firstIso) || term;
     const a = document.createElement('a');
-    a.href = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(firstIso);
+    a.href = '?term=' + encodeURIComponent(linkTerm) + '&date=' + encodeURIComponent(firstIso);
     a.className = 'date-link';
     a.textContent = prefix + '\u00a0' + text;
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      navigate(buildUrlParams({ term, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
+      navigate(buildUrlParams({ term: linkTerm, date: firstIso }, ['case', 'event', 'turn', 'file', 'collection', 'group', 'id', 'highlight', 'link']));
       // restoreFromURL's own term-only branch expands/scrolls to the term in
       // the left pane (and calls updateEmptyStateForTerm itself) — a plain
       // updateEmptyStateForTerm call here only ever updated the main pane,
@@ -7338,8 +7362,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     // Vocal-style groups have a `total` (HH:MM:SS.NN) instead of a case count.
     const hoursLabel = (() => {
       if (typeof group.total !== 'string' || !group.total) return null;
-      const m = /^(\d+):\d{2}:\d{2}/.exec(group.total);
-      if (!m) return null; const h = parseInt(m[1], 10); return h + '\u00a0' + (h === 1 ? 'hr' : 'hrs');
+      const m = /^(\d+):(\d{2}):(\d{2}(?:\.\d+)?)/.exec(group.total);
+      if (!m) return null;
+      const h = Math.round((parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseFloat(m[3])) / 3600);
+      return h + '\u00a0' + (h === 1 ? 'hr' : 'hrs');
     })();
     const _groupSortModeLabel = (mode, asc) => {
       if (mode === 'none') return hoursLabel || (n + '\u00a0Cases');

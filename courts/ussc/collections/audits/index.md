@@ -3,7 +3,7 @@ layout: pane
 title: "Audits"
 cards:
   - title: "Missing Audio"
-    desc: "Cases that <em>should</em> have audio (from October 1955 or later) but don't (due to the Court's error or someone else's)."
+    desc: "Cases that <em>should</em> have audio (from October 1955 or later) but suffer from a recording or filing or other error."
     href: "/courts/ussc/?collection=audits&id=missing-audio"
   - title: "Unaligned Audio"
     desc: "Audio files that don't have a transcript or <em>do</em> but it's unaligned (see the <a href='https://www.oyez.org'>Oyez Project</a>)."

@@ -1168,12 +1168,17 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "nara",
         "type": "argument",
         "date": "1961-10-11",
-        "title": "Oral Argument on October 11, 1961"
+        "title": "Oral Argument on October 11, 1961",
+        "audio_url": "https://catalog.archives.gov/medialz/mopix/267a/black/267-334-20-19611011.mp3",
+        "length": "01:26:17.97",
+        "size": 82847868,
+        "bitrate": "128kbps"
       }
-    ]
+    ],
+    "audit_message": "Oyez missing case and audio; see https://www.oyez.org/cases/1961"
   },
   {
     "id": "1961-023",
@@ -6291,20 +6296,49 @@
     ],
     "events": [
       {
-        "source": "scdb",
+        "source": "nara",
         "type": "argument",
         "date": "1961-12-13",
-        "title": "Oral Argument on December 13, 1961"
+        "title": "Oral Argument on December 13, 1961",
+        "audio_url": "https://catalog.archives.gov/medialz/mopix/267a/black/267-354-2-3-19611213-19611214.mp3",
+        "length": "00:07:21.29",
+        "size": 7061001,
+        "bitrate": "128kbps"
       },
       {
-        "source": "ussc",
+        "source": "nara",
         "type": "argument",
         "date": "1961-12-14",
-        "title": "Oral Argument on December 14, 1961"
+        "title": "Oral Argument Part 1 on December 14, 1961",
+        "audio_url": "https://catalog.archives.gov/medialz/mopix/267a/black/267-355-2-3-19611213-19611214-1of3.mp3",
+        "length": "01:05:15.65",
+        "size": 62650826,
+        "bitrate": "128kbps"
+      },
+      {
+        "source": "nara",
+        "type": "argument",
+        "date": "1961-12-14",
+        "title": "Oral Argument Part 2 on December 14, 1961",
+        "audio_url": "https://catalog.archives.gov/medialz/mopix/267a/black/267-355-2-3-19611213-19611214-2of3.mp3",
+        "length": "01:08:10.70",
+        "size": 65451571,
+        "bitrate": "128kbps"
+      },
+      {
+        "source": "nara",
+        "type": "argument",
+        "date": "1961-12-14",
+        "title": "Oral Argument Part 3 on December 14, 1961",
+        "audio_url": "https://catalog.archives.gov/medialz/mopix/267a/black/267-355-2-3-19611213-19611214-3of3.mp3",
+        "length": "00:48:52.79",
+        "size": 46925112,
+        "bitrate": "128kbps"
       }
     ],
     "scdb_check": "argument",
-    "scdb_message": "SCDB argument dates incomplete"
+    "scdb_message": "SCDB argument dates incomplete",
+    "audit_message": "Oyez missing audio"
   },
   {
     "id": "1961-042",
@@ -13700,7 +13734,7 @@
         ]
       }
     ],
-    "audit_message": "Oyez missing this case and its audio; see https://www.oyez.org/cases/1961"
+    "audit_message": "Oyez missing case and audio; see https://www.oyez.org/cases/1961"
   },
   {
     "id": "1961-107",
