@@ -5649,7 +5649,26 @@ function buildNav(title = 'Terms', id = '') {
       _wireAccordionHeader(termHeader, {
         tog: termTog,
         li: termLi,
-        isSelected: () => new URLSearchParams(location.search).get('term') === term,
+        // A header click on an already-open term should close it only when
+        // doing so wouldn't silently supersede some *other* selection that's
+        // still worth returning to with one more click of its own — either a
+        // narrower view nested inside this same term (a case, a calendar
+        // date, a Minutes page…) or a genuinely different term that's
+        // currently the active one (both terms open, the other one's own
+        // page actually showing). In both of those cases the click instead
+        // just re-selects this term's own bare page (via onOpen below, same
+        // as clicking any other closed term). With nothing else active to
+        // protect, though — no term selected at all, e.g. right after
+        // closing a sibling term the same way — there's nothing to
+        // re-select first, so the click can close this term directly instead
+        // of leaving the visitor to click it a second, redundant time.
+        isSelected: () => {
+          const params = new URLSearchParams(location.search);
+          const activeTerm = params.get('term');
+          if (activeTerm !== term) return !activeTerm;
+          return !params.get('case') && !params.get('date') && !params.get('event')
+              && !params.get('file') && !params.get('turn');
+        },
         onClose: () => {
           termCount.classList.remove('sort-active');
           // Reset to plain count label when collapsed
