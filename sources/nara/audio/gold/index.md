@@ -1,5 +1,7 @@
 ---
 layout: pane
+styles:
+- /assets/css/pages.css
 ---
 
 # U.S. Supreme Court Audio Recordings

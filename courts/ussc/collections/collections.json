@@ -294,6 +294,7 @@
         "name": "Cases Missing Audio",
         "conditions": [
           "argument >= '1955-10-01'",
+          "argument <= today",
           "COUNT(event.audio_url) == 0"
         ],
         "order": "argument:ascending,titles:ascending"

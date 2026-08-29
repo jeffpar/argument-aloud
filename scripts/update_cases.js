@@ -6762,6 +6762,9 @@ function _collectTaggedLeafEntries(entries) {
 
 // Regex patterns for the supported condition forms:
 //   property op value            e.g.  argument >= '1955-10-01'
+//   property op today            e.g.  argument <= today  (today's date, UTC,
+//                                 resolved once when conditions are parsed —
+//                                 see _parseCaseCondition)
 //   property == undefined        e.g.  id == undefined  (property absent or null)
 //   property != undefined        e.g.  id != undefined  (property present)
 //   property contains 'v'        e.g.  scdb_check contains 'argument'
@@ -6770,6 +6773,7 @@ function _collectTaggedLeafEntries(entries) {
 //   event sub-conditions (&&)    e.g.  event.source == 'oyez' && event.audio_url && !event.aligned
 //   COUNT(file.prop == 'v') op n e.g.  COUNT(file.type == 'mp3') > 0
 const _COND_PROP_RE        = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*(?:'([^']*)'|(\d+(?:\.\d+)?))$/;
+const _COND_PROP_TODAY_RE  = /^(\w+)\s*(>=|<=|!=|==|>|<)\s*today$/i;
 const _COND_UNDEF_RE       = /^(\w+)\s*(==|!=)\s*undefined$/;
 const _COND_PROP_CONTAINS_RE     = /^(\w+)\s+contains\s+'([^']*)'$/;
 const _COND_PROP_NOT_CONTAINS_RE = /^!(\w+)\s+contains\s+'([^']*)'$/;
@@ -6839,6 +6843,12 @@ function _parseCaseCondition(str) {
         const value = m[3] !== undefined ? m[3] : parseFloat(m[4]);
         return { type: 'property', prop: m[1], op: m[2], value };
     }
+    m = _COND_PROP_TODAY_RE.exec(s);
+    // Resolved once, here, rather than per-case in _matchesCaseConditions —
+    // a batch run's own "today" doesn't need to track a midnight rollover
+    // mid-run. ISO "YYYY-MM-DD" compares lexically the same as any other
+    // date-valued property condition (e.g. "argument >= '1955-10-01'").
+    if (m) return { type: 'property', prop: m[1], op: m[2], value: new Date().toISOString().slice(0, 10) };
     m = _COND_PROP_NOT_CONTAINS_RE.exec(s);
     if (m) return { type: 'propContains', prop: m[1], value: m[2], negate: true };
     m = _COND_PROP_CONTAINS_RE.exec(s);

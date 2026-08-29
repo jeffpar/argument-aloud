@@ -521,8 +521,11 @@
         return naraDataPromise;
       }
 
-      var naraHeading = document.getElementById('nara-heading');
-      var naraListEl  = document.getElementById('nara-list');
+      var naraHeading       = document.getElementById('nara-heading');
+      var naraEventsSection = document.getElementById('nara-events-section');
+      var naraEventsList    = document.getElementById('nara-events-list');
+      var naraAudioSection  = document.getElementById('nara-audio-section');
+      var naraAudioList     = document.getElementById('nara-audio-list');
       // audio -> its own toggle span, so the shared 'play' listener below can
       // reset any other still-playing icon back to ▶️ — same as
       // collection.html's own audio.nextElementSibling lookup, just an
@@ -556,18 +559,23 @@
       }
 
       // Shows (or hides, if `objects` is empty/null) the NARA Holdings list
-      // for the currently selected day's own matching sessions — a single
-      // flat list (events and file-play entries interleaved per session, in
-      // the data's own order) rather than collection.html's own per-session
-      // nested list, since every entry shown here already belongs to the
-      // one selected day.
+      // for the currently selected day's own matching sessions — two flat
+      // sub-lists, Events then Audio Files (each pooling every matching
+      // session's own entries, in the data's own order) rather than
+      // collection.html's own per-session nested list, since every entry
+      // shown here already belongs to the one selected day.
       function drawNaraList(objects, iso) {
-        if (!naraHeading || !naraListEl) return;
+        if (!naraHeading || !naraEventsSection || !naraEventsList || !naraAudioSection || !naraAudioList) return;
         naraAudioSpans.clear();
-        naraListEl.innerHTML = '';
-        if (!objects || !objects.length) { naraHeading.hidden = true; naraListEl.hidden = true; return; }
+        naraEventsList.innerHTML = '';
+        naraAudioList.innerHTML = '';
+        if (!objects || !objects.length) {
+          naraHeading.hidden = true;
+          naraEventsSection.hidden = true;
+          naraAudioSection.hidden = true;
+          return;
+        }
         naraHeading.hidden = false;
-        naraListEl.hidden = false;
 
         // All of a single day's matches always come from the same series
         // (the three collections' own date ranges don't overlap) — the
@@ -588,15 +596,18 @@
         });
         naraHeading.appendChild(headingLink);
 
+        var hasEvents = false, hasAudio = false;
         objects.forEach(function (obj) {
           (obj.events || []).forEach(function (ev) {
+            hasEvents = true;
             var evLi = document.createElement('li');
             evLi.textContent = ev;
-            naraListEl.appendChild(evLi);
+            naraEventsList.appendChild(evLi);
           });
           (obj.destinations || []).forEach(function (dest, i) {
             var src = obj.sources && obj.sources[i];
             if (!src) return;
+            hasAudio = true;
             var srcLi = document.createElement('li');
             var a = document.createElement('a');
             a.href = src;
@@ -628,9 +639,11 @@
               errorMsg.hidden = false;
             });
             naraAudioSpans.set(audio, span);
-            naraListEl.appendChild(srcLi);
+            naraAudioList.appendChild(srcLi);
           });
         });
+        naraEventsSection.hidden = !hasEvents;
+        naraAudioSection.hidden = !hasAudio;
       }
 
       // Cached across repeated Go clicks within the same page load — a term's

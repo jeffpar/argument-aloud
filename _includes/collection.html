@@ -5,7 +5,7 @@
 {%- assign collection = site.data[location][location_category][location_id] %}
 <h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
 <p><a href="/data/{{ location }}/{{ location_category }}/{{ location_id }}.json">[Raw Data]</a></p>
-<ul>
+<ul class="nara-date-list">
 {%- for object in collection %}
   {%- unless object.events %}
   <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
@@ -16,10 +16,17 @@
     {%- assign year_index = length | minus: 1 %}
     {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
   <li id="{{ object.date }}">{{ date }}
-    <ul>
+    {%- if object.events and object.events.size > 0 %}
+    <h3 class="nara-sublist-heading">Events</h3>
+    <ul class="nara-sublist">
     {%- for event in object.events %}
       <li>{{ event }}</li>
     {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if object.destinations and object.destinations.size > 0 %}
+    <h3 class="nara-sublist-heading">Audio Files</h3>
+    <ul class="nara-sublist">
     {%- assign i = 0 %}
     {%- for destination in object.destinations %}
       <li><a href="{{ object.sources[i] }}">{{ destination }}</a>
@@ -29,6 +36,7 @@
       {%- assign i = i | plus: 1 %}
     {%- endfor %}
     </ul>
+    {%- endif %}
   </li>
   {%- endunless %}
 {%- endfor %}

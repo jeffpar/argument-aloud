@@ -57,6 +57,13 @@ scripts:
 </div>
 
 <h2 id="nara-heading" hidden>NARA Recordings</h2>
-<ul id="nara-list" hidden></ul>
+<div id="nara-events-section" hidden>
+  <h3 class="nara-sublist-heading">Events</h3>
+  <ul id="nara-events-list" class="nara-sublist"></ul>
+</div>
+<div id="nara-audio-section" hidden>
+  <h3 class="nara-sublist-heading">Audio Files</h3>
+  <ul id="nara-audio-list" class="nara-sublist"></ul>
+</div>
 
 <p id="otd-result" class="otd-result" hidden></p>
