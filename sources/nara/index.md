@@ -2,7 +2,7 @@
 layout: pane
 ---
 
-# U.S. Supreme Court Media
+# U.S. Supreme Court Audio Recordings
 
 With the [National Archives](https://www.archives.gov), [Library of Congress](https://www.loc.gov), and even (*gasp*) the [U.S. Supreme Court](https://www.supremecourt.gov) itself making more of the Court's current and historical information available online, having some roadmaps to -- and mappings between -- all that data is becoming increasingly important.  Add private collections to the mix, such as [The Oyez Project](https://www.oyez.org), [Justia](https://supreme.justia.com), and [The Supreme Court Database](https://scdb.la.psu.edu), and the wealth of information becomes both a blessing and a curse.
 
@@ -12,9 +12,9 @@ No detailed mappings across all these rich data sets exist yet, but hopefully th
 
 This [audit](/courts/ussc/?link=/sources/nara/audit) relies in part on the audio materials (and associated metadata) sitting in [NARA's SCOTUS Collection](https://catalog.archives.gov/id/594):
 
-  - [Sound Recordings of Oral Arguments - Black Series, October 1955 - December 1972](/courts/ussc?link=/sources/nara/audio/black)
-  - [Sound Recordings of Oral Arguments - Red Series, December 1972 - June 27, 2005](/courts/ussc?link=/sources/nara/audio/red)
-  - [Sound Recordings of Oral Arguments - Gold Series, October 3, 2005 - June 27, 2025](/courts/ussc?link=/sources/nara/audio/gold)
+  - [Black Series: October 1955 - December 1972](/courts/ussc?link=/sources/nara/audio/black)
+  - [Red Series: December 1972 - June 27, 2005](/courts/ussc?link=/sources/nara/audio/red)
+  - [Gold Series: October 3, 2005 - June 27, 2025](/courts/ussc?link=/sources/nara/audio/gold)
 
 Other [Series](https://catalog.archives.gov/search-within/594?levelOfDescription=series&limit=100&sort=title%3Aasc) in NARA's SCOTUS collection include:
 

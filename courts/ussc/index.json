@@ -86,30 +86,9 @@
         "name": "National Archives",
         "groups": [
           {
-            "name": "U.S. Constitution",
-            "page": "/sources/nara/constitution/index.md",
-            "hidden": true
-          },
-          {
-            "name": "U.S. Supreme Court Media",
-            "page": "/sources/nara/index.md",
+            "name": "U.S. Supreme Court Records",
+            "link": "https://catalog.archives.gov/id/594",
             "groups": [
-              {
-                "name": "Audio Files: Auditing and Oddities",
-                "page": "/sources/nara/audit/index.md"
-              },
-              {
-                "name": "Black Series, October 1955 - December 1972",
-                "page": "/sources/nara/audio/black/index.md"
-              },
-              {
-                "name": "Red Series, December 1972 - June 27, 2005",
-                "page": "/sources/nara/audio/red/index.md"
-              },
-              {
-                "name": "Gold Series, October 3, 2005 - June 27, 2025",
-                "page": "/sources/nara/audio/gold/index.md"
-              },
               {
                 "name": "Engrossed Dockets",
                 "link": "https://catalog.archives.gov/id/1524561"
@@ -119,6 +98,33 @@
                 "link": "https://catalog.archives.gov/id/607809"
               }
             ]
+          },
+          {
+            "name": "U.S. Supreme Court Audio Recordings",
+            "page": "/sources/nara/index.md",
+            "groups": [
+              {
+                "name": "Black Series: October 1955 - December 1972",
+                "page": "/sources/nara/audio/black/index.md"
+              },
+              {
+                "name": "Red Series: December 1972 - June 27, 2005",
+                "page": "/sources/nara/audio/red/index.md"
+              },
+              {
+                "name": "Gold Series: October 3, 2005 - June 27, 2025",
+                "page": "/sources/nara/audio/gold/index.md"
+              },
+              {
+                "name": "Audits and Oddities",
+                "page": "/sources/nara/audit/index.md"
+              }
+            ]
+          },
+          {
+            "name": "U.S. Constitution",
+            "page": "/sources/nara/constitution/index.md",
+            "hidden": true
           }
         ]
       },

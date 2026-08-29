@@ -2,9 +2,9 @@
 layout: pane
 ---
 
-# U.S. Supreme Court Media
+# U.S. Supreme Court Audio Recordings
 
-## Auditing and Oddities
+## Audits and Oddities
 
 Below are the results of an on-going audit that correlates three sources of U.S. Supreme Court data:
 
