@@ -6244,6 +6244,40 @@ function _restorePageFrameScroll(pf) {
 // only chance to persist the outgoing page's scroll position.
 window.addEventListener('pagehide', _savePageFrameScroll);
 
+// Safari (unlike Chrome/Firefox) restores this whole app document from its
+// back/forward cache when a target="_top" link inside the page-viewer iframe
+// has sent the tab off-site (e.g. tapping an oyez.org date link on
+// /sources/nara/audit) and the user then hits Back. On that restore Safari
+// repaints the outer document but leaves the iframe's own compositing layer
+// blank — the content only reappears once a scroll or resize forces the frame
+// to paint again. Nudge every currently-visible iframe on the bfcache
+// 'pageshow' so its content is there immediately.
+window.addEventListener('pageshow', (e) => {
+  if (!e.persisted) return;
+  const frames = [];
+  if (!pageViewer.hidden) {
+    const pf = document.getElementById('page-viewer-frame');
+    if (pf) frames.push(pf);
+  }
+  if (!document.getElementById('doc-viewer').hidden) {
+    for (const el of _pdfIframePool.values()) {
+      if (el.style.display !== 'none') frames.push(el);
+    }
+  }
+  for (const f of frames) {
+    // Scrolling a same-origin frame's own content by a pixel and back triggers
+    // exactly the repaint a manual scroll would, without reloading it.
+    try {
+      const cw = f.contentWindow;
+      if (cw) { const y = cw.scrollY; cw.scrollTo(0, y + 1); cw.scrollTo(0, y); }
+    } catch { /* cross-origin (a PDF) — the transform nudge below covers it */ }
+    // Belt and braces, and the only lever for cross-origin frames: force the
+    // element's compositing layer to be rebuilt.
+    f.style.transform = 'translateZ(0)';
+    requestAnimationFrame(() => { f.style.transform = ''; });
+  }
+});
+
 function _frameNavigate(pf, url) {
   const targetHref = new URL(url, location.href).href;
   try {
