@@ -11101,13 +11101,15 @@ function _escapeRegExp(s) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// Find every distinct word/phrase in `corpus` matching `candidate` — an exact
-// match for multi-word phrases, or a word-prefix match for single words (so
-// "Bruen" also picks up derived forms like "Bruenize" mentioned at argument).
+// Find every distinct word/phrase in `corpus` that is a whole-word match for
+// `candidate`. The trailing "(?!['’\w])" (in addition to the leading \b)
+// rejects longer words that merely start with the candidate — including
+// contraction fragments like "Doesn" in "Doesn't" (which a bare \b would
+// treat as a word end) — so "Doe" no longer matches "Does"/"Doesn", "Green"
+// no longer matches "Greene", "Holm" no longer matches "Holmes", etc.
 function _findRefMatches(candidate, corpus) {
     const escaped = _escapeRegExp(candidate);
-    const re = /\s/.test(candidate) ? new RegExp('\\b' + escaped + '\\b', 'g')
-                                     : new RegExp('\\b' + escaped + '\\w*', 'g');
+    const re = new RegExp('\\b' + escaped + "(?!['’\\w])", 'g');
     const found = new Set();
     let m;
     while ((m = re.exec(corpus))) found.add(m[0]);
@@ -11468,6 +11470,7 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
     if (termFilter) allTerms = allTerms.filter(t => t === termFilter);
 
     let scannedFiles = 0, removed = 0, updated = 0, added = 0, affectedFiles = 0;
+    const touchedCasesPaths = new Set();
 
     for (const term of allTerms) {
         const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -11523,16 +11526,25 @@ function runPruneRefs(termFilter, caseFilter, dryRun, { verbose = false } = {}) 
             }
             if (!fileChanged) continue;
             affectedFiles++;
+            touchedCasesPaths.add(casesPath);
 
             if (!dryRun) {
                 let kept = files.filter(f => !(f?.type === 'reference' && staleFiles.has(f)));
                 for (const r of toAdd) {
                     kept.push({ type: 'reference', title: r.title, href: r.href, refs: r.refs });
                 }
-                _writeJson(filesPath, kept);
+                // A files.json exists iff it has entries — drop it when the last
+                // one was just pruned (keeps it in sync with the case's
+                // files/references booleans, set below via syncFilesCount).
+                if (kept.length) _writeJson(filesPath, kept);
+                else _unlinkSync(filesPath);
             }
         }
     }
+
+    // Re-sync each touched term's files/references booleans (a case whose only
+    // reference entry was pruned now has neither).
+    if (!dryRun) for (const p of touchedCasesPaths) syncFilesCount(p);
 
     const verb = dryRun ? 'Would remove/update/add' : 'Removed/updated/added';
     console.log(`Scanned ${scannedFiles} files.json with reference entries. `
