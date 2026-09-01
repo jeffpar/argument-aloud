@@ -74,7 +74,7 @@ Searching for a word or phrase in a transcript is done by using double-quotes, a
 
 #### On This Day
 
-The [On This Day](/courts/ussc/?link=/courts/ussc/collections/historical/onthisday/) feature isn't actually part of the Search function, but it is another type of case-related search the site can perform.  That link randomly selects a case that was either argued or decided on the current month and day at some previous point in the Court's history.
+The [On This Day](/courts/ussc/?link=/courts/ussc/collections/historical/onthisday/) feature isn't actually part of the Search function, but it's another type of case-related search the site can perform.  It allows you to randomly selects a case that was either argued or decided on the current month and day at some previous point in the Court's history.
 
 ## More To Come
 

@@ -105,6 +105,11 @@ node scripts/update_cases.js --collections
 | 1882-10 | 1151 | The Union Trust Company of New York v. Edward Fitzgerald | 1883-03-12 |
 | 1883-10 | 138 | Cook v. Sandusky Tool Company | 1884-01-21 |
 
+## Briefs with Issues
+
+1950-10/336   336_023.pdf      "Joint Appendix … Part 5"
+1961-10/468   468_016.pdf      "Transcript of Record"
+
 ## Command-Line Examples
 
 Adding missing cases:

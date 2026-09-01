@@ -584,8 +584,10 @@ function _collectTagGroupDefs() {
       if (!fileUrl || !Array.isArray(e.groups)) continue;
       const id = e.id || fileUrl.split('/').pop().replace('.json', '');
       for (const g of e.groups) {
-        if (!Array.isArray(g.tags) || !g.tags.length) continue;
-        out.push({ isTopic, id, fileUrl, requiredTags: g.tags, groupName: g.name, groupId: g.id ?? null, isFanout: g.name === '*', allowMerge: !!g.allow_group_merging });
+        const hasTags = Array.isArray(g.tags) && g.tags.length;
+        const tagPrefix = typeof g.tagPrefix === 'string' && g.tagPrefix ? g.tagPrefix : null;
+        if (!hasTags && !tagPrefix) continue;
+        out.push({ isTopic, id, fileUrl, requiredTags: hasTags ? g.tags : [], tagPrefix, groupName: g.name, groupId: g.id ?? null, isFanout: g.name === '*', allowMerge: !!g.allow_group_merging });
       }
     }
   }
@@ -642,10 +644,15 @@ async function _resolveTagTarget(tag, caseTags) {
   // name equals this tag.
   for (const d of defs) {
     if (!d.isFanout) continue;
+    // A "tagPrefix" fan-out (e.g. Popular Cases' Curiae groups) only owns tags
+    // that start with its prefix — skip it for anything else, no fetch needed.
+    if (d.tagPrefix && !tag.startsWith(d.tagPrefix)) continue;
     if (!d.allowMerge && !d.requiredTags.every(rt => caseTags.includes(rt))) continue;
     const groups = await _fetchCollectionGroups(d.fileUrl);
     const idx = Array.isArray(groups) ? groups.findIndex(g => g.name === tag) : -1;
-    if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupId: null, groupIdx: idx + 1 };
+    // Prefer the sub-group's own stable id (e.g. a tagPrefix fan-out's slug)
+    // so the link survives a reordering; fall back to its 1-based position.
+    if (idx >= 0) return { isTopic: d.isTopic, id: d.id, groupId: groups[idx].id ?? null, groupIdx: idx + 1 };
   }
   return null;
 }
@@ -2102,7 +2109,7 @@ function _navigateToSectionAll(id) {
 // sort = mode name; o = 'a' (ascending) | 'd' (descending, default when omitted is ascending).
 function _parseSortParam(sortStr, orderStr) {
   if (!sortStr) return null;
-  if (!['cases', 'argued', 'decided', 'votes', 'citation', 'hours', 'none'].includes(sortStr)) return null;
+  if (!['cases', 'argued', 'decided', 'votes', 'citation', 'hours', 'popular', 'none'].includes(sortStr)) return null;
   return { mode: sortStr, asc: orderStr !== 'd' };
 }
 
@@ -4817,6 +4824,7 @@ function _sortModeLabel(mode, count, asc = true) {
   if (mode === 'decided')  return 'Decided' + arrow;
   if (mode === 'votes')    return 'Votes' + arrow;
   if (mode === 'citation') return 'Citations' + arrow;
+  if (mode === 'popular')  return 'Popular' + arrow;
   return '';
 }
 
@@ -6873,9 +6881,15 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   // this same entry_PROP key, so the two stay in sync.
   const _openFileMatch = /^event\.(\w+)$/.exec(group?.openFile || '');
   const _openFileValue = _openFileMatch ? caseRef['event_' + _openFileMatch[1]] : null;
+  // "Popular Cases" entries carry a "popularity" score (1 = cited by the most
+  // Curiae reference works); show its ordinal appended like the advocate
+  // "appearance" ordinal — "(1st)" for the most popular, "(15th)" the least.
+  const _titleOrdinal = caseRef.appearance != null ? caseRef.appearance
+    : caseRef.popularity != null ? caseRef.popularity
+    : null;
   const { ci, header, toggle, titleSpan, fileUl } = _buildCaseItemShell({
     caseKey,
-    title:     caseRef.appearance != null ? _baseTitle + ' (' + _ordinal(caseRef.appearance) + ')' : _baseTitle,
+    title:     _titleOrdinal != null ? _baseTitle + ' (' + _ordinal(_titleOrdinal) + ')' : _baseTitle,
     tooltip:   argumentTooltip(caseRef.term, caseRef),
     // When a specific event index is stored, use it as the sole disambiguator
     // so the audioDate filter in loadCase doesn't block activation. Fall back
@@ -6903,6 +6917,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   if (caseRef.score) {
     ci.dataset.score = caseRef.score;
   }
+  if (caseRef.popularity != null) ci.dataset.popularity = String(caseRef.popularity);
   const _sortLabel = document.createElement('span');
   _sortLabel.className = 'case-sort-label';
   header.appendChild(_sortLabel);
@@ -7326,6 +7341,7 @@ function _parseOrderModeSpec(orderSpec) {
   if (mode === 'title' || mode === 'titles') mode = 'cases';
   else if (mode === 'argument') mode = 'argued';
   else if (mode === 'decision') mode = 'decided';
+  else if (mode === 'popularity') mode = 'popular';
   return { mode, asc: rawDir !== 'descending' };
 }
 
@@ -7434,6 +7450,10 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
     const _GROUP_SORT_OPTIONS = [
       ...(_defaultSortMode === 'hours' ? [{ mode: 'hours', label: 'Hours' }] : []),
       { mode: 'cases',   label: 'Cases'   },
+      // Only collections whose case entries carry a "popularity" score (built
+      // from a group's "tagPrefix" in update_cases.js — e.g. "Popular Cases")
+      // offer this; keyed off the collection's own default order, like "hours".
+      ...(_defaultSortMode === 'popular' ? [{ mode: 'popular', label: 'Popular' }] : []),
       { mode: 'argued',  label: 'Argued'  },
       { mode: 'decided', label: 'Decided' },
       // Only benches' per-case JSON carries score (see
@@ -7571,6 +7591,8 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         } else if (mode === 'votes') {
           const scoreM = /^(\d+)-(\d+)$/.exec(ci.dataset.score || '');
           lbl.textContent = scoreM ? (scoreM[1] + '\u2013' + scoreM[2]) : '';
+        } else if (mode === 'popular') {
+          lbl.textContent = ci.dataset.popularity ? _ordinal(parseInt(ci.dataset.popularity, 10)) : '';
         } else {
           lbl.textContent = '';
         }
@@ -7609,11 +7631,25 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
         const keyMap = new Map(_sortedItems.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
         _sortedItems.sort((a, b) => keyMap.get(a).localeCompare(keyMap.get(b)));
         groupUl.classList.remove('coll-sort-date');
+      } else if (mode === 'popular') {
+        // "Popular Cases": sort by the per-case popularity score (1 = most
+        // popular). Within an equal score, always A→Z by title — so this
+        // branch honors `asc` itself and is exempt from the shared reverse
+        // below (like 'decided'/'citation' in buildTermCasesSorted), keeping
+        // the title tie-break stable in both directions.
+        const keyMap = new Map(_sortedItems.map(ci => [ci, ci.querySelector('.case-title-nav')?.textContent || '']));
+        _sortedItems.sort((a, b) => {
+          const av = parseInt(a.dataset.popularity, 10) || Infinity;
+          const bv = parseInt(b.dataset.popularity, 10) || Infinity;
+          if (av !== bv) return asc ? av - bv : bv - av;
+          return keyMap.get(a).localeCompare(keyMap.get(b));
+        });
+        groupUl.classList.add('coll-sort-date');
       } else {
         // 'none': preserve original insertion order (no-op on items array).
         groupUl.classList.remove('coll-sort-date');
       }
-      if (!asc) _sortedItems.reverse();
+      if (!asc && mode !== 'popular') _sortedItems.reverse();
       groupUl.dataset.sortMode = mode;
       _centerPageOnActiveItem();
       _renderGroupPage();

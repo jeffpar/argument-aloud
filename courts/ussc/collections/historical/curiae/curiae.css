@@ -1,0 +1,16 @@
+/* Curiae explainer pages (pane layout). */
+.curiae-cover {
+  float: right;
+  width: 170px;
+  max-width: 42%;
+  height: auto;
+  margin: 0.2rem 0 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 4px 14px rgba(0, 0, 0, 0.28);
+  background: #fff;
+}
+.curiae-meta { color: #777; font-size: 0.9rem; }
+.curiae-works td:first-child { white-space: nowrap; }
+@media (max-width: 480px) {
+  .curiae-cover { float: none; display: block; width: 150px; max-width: 60%; margin: 0 0 1rem; }
+}

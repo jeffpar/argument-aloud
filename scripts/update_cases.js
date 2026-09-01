@@ -7053,6 +7053,9 @@ function _sortCaseEntriesByOrder(cases, orderSpec) {
         if (key === 'titles')   return _naturalSortKey(c.title || '');
         if (key === 'argument') return c.argument || '';
         if (key === 'decision') return c.decision || '';
+        // Numeric per-case key (e.g. "Popular Cases" popularity score, 1 = most);
+        // absent scores sort last, whichever direction.
+        if (key === 'popularity') return typeof c.popularity === 'number' ? c.popularity : Infinity;
         return c.term || '';
     };
     cases.sort((a, b) => {
@@ -7183,6 +7186,39 @@ function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, or
     return cases;
 }
 
+// Scan allTerms for every case carrying at least one tag that begins with
+// `prefix` (e.g. "Curiae: "), attaching a numeric `popularity` score derived
+// from how many such tags it has: the fuller the set, the more popular, so
+// `popularity = (TAG_PREFIX_MAX + 1) - count` — a case cited by all 15 Curiae
+// reference works scores 1, one cited by a single work scores 15. Used by a
+// group's "tagPrefix" in collections.json (see "Popular Cases"); pair it with
+// an "order" of "popularity:ascending,..." so the most popular cases lead.
+// Distinct from `_casesByTags`, whose "tags" list is an exact-match AND filter
+// with no per-case score.
+const TAG_PREFIX_MAX = 15;
+function _casesByTagPrefix(allTerms, prefix, filter = {}, extraByKey = null, orderSpec = null, fields = null) {
+    const cases = [];
+    for (const term of allTerms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let termCases;
+        try { termCases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(termCases)) continue;
+        for (const c of termCases) {
+            if (!Array.isArray(c.tags)) continue;
+            const count = c.tags.filter(t => typeof t === 'string' && t.startsWith(prefix)).length;
+            if (!count) continue;
+            if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
+            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            const entry = _setCaseEntry(c, term, extraByKey?.get(key), fields);
+            entry.popularity = Math.max(1, (TAG_PREFIX_MAX + 1) - count);
+            cases.push(entry);
+        }
+    }
+    _sortCaseEntriesByOrder(cases, orderSpec);
+    return cases;
+}
+
 // Build a tags-based collection. When collEntry has a 'groups' array each
 // group becomes a separate { name, cases } entry in the output; when it has
 // a flat 'tags' array the entire collection is one group named after the
@@ -7216,7 +7252,12 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
     // to treat those freshly-recomputed properties as hand-curated "extra".
     const declaredFields = new Set(collEntry.fields || []);
     if (Array.isArray(collEntry.groups)) {
-        for (const g of collEntry.groups) for (const f of (g.fields || [])) declaredFields.add(f);
+        for (const g of collEntry.groups) {
+            for (const f of (g.fields || [])) declaredFields.add(f);
+            // A "tagPrefix" group computes "popularity" fresh every run (see
+            // _casesByTagPrefix) — treat it like a declared field, not "extra".
+            if (typeof g.tagPrefix === 'string' && g.tagPrefix) declaredFields.add('popularity');
+        }
     }
     // Carry forward any hand-added per-case fields (e.g. "gallery") from the
     // collection's existing output, since every branch below rebuilds case
@@ -7231,11 +7272,25 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
             if (g.enabled === false) continue;
             const requiredTags = Array.isArray(g.tags) && g.tags.length ? g.tags : [];
             if ((g.name ?? g.title) === '*') {
-                // Fan-out: one group per unique non-required tag on matching cases.
-                // "excludeTags" additionally omits tags that aren't real topic
-                // categories (e.g. media-availability tags like "Historical Briefs").
+                // Fan-out: one group per unique candidate tag on matching cases.
+                // Normally the candidates are every non-required tag, minus
+                // "excludeTags" — tags that aren't real topic categories and
+                // shouldn't get a group of their own. Each excludeTags entry is
+                // an anchored regex tested against the whole tag, so a plain name
+                // ("Historical Briefs") still matches only itself while a pattern
+                // ("Historical.*", "Curiae:.*") stands in for a whole family.
+                // With "tagPrefix" the candidates are instead exactly the tags
+                // starting with it (an allow-list — see "Popular Cases"), and
+                // each entry also carries the popularity score for that prefix.
                 const filter = g.decision ? { decision: g.decision } : {};
-                const excludeTags = Array.isArray(g.excludeTags) ? g.excludeTags : [];
+                const prefix = typeof g.tagPrefix === 'string' && g.tagPrefix ? g.tagPrefix : null;
+                const excludeRes = (Array.isArray(g.excludeTags) ? g.excludeTags : []).map(s => {
+                    try { return new RegExp(`^(?:${s})$`); }
+                    catch { return new RegExp(`^${_escapeRegExp(String(s))}$`); }
+                });
+                const isCandidate = prefix
+                    ? (tag) => tag.startsWith(prefix)
+                    : (tag) => !requiredTags.includes(tag) && !excludeRes.some(re => re.test(tag));
                 const fanOut = new Map(); // tag name -> [entry, ...]
                 for (const term of allTerms) {
                     const casesPath = path.join(TERMS_DIR, term, 'cases.json');
@@ -7249,8 +7304,12 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                         if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
                         const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
                         const entry = _setCaseEntry(c, term, extraByKey?.get(key), g.fields);
+                        if (prefix) {
+                            const n = c.tags.filter(t => typeof t === 'string' && t.startsWith(prefix)).length;
+                            entry.popularity = Math.max(1, (TAG_PREFIX_MAX + 1) - n);
+                        }
                         for (const tag of c.tags) {
-                            if (requiredTags.includes(tag) || excludeTags.includes(tag)) continue;
+                            if (typeof tag !== 'string' || !isCandidate(tag)) continue;
                             if (!fanOut.has(tag)) fanOut.set(tag, []);
                             fanOut.get(tag).push(entry);
                         }
@@ -7262,10 +7321,28 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                 // name is dynamically generated) — the "*" group's own order/the
                 // collection's order applies to all of them.
                 const fanoutOrder = g.order || collEntry.order || null;
+                // For a "tagPrefix" fan-out each sub-group also gets a stable
+                // "id" = the tag minus its prefix, kebab-cased ("Curiae: Nowak &
+                // Rotunda" -> "nowak-rotunda"), so links can use ?…&id=<slug>
+                // instead of the position-dependent ?…&group=<N>. "pageBase" (on
+                // the "*" group) additionally points each sub-group at its own
+                // explainer page <pageBase>/<slug>. Both are read straight from
+                // the generated file by the front end (group.id / group.page).
+                const pageBase = typeof g.pageBase === 'string' && g.pageBase
+                    ? g.pageBase.replace(/\/+$/, '') : null;
                 for (const name of sortedNames) {
                     const cases = fanOut.get(name);
                     _sortCaseEntriesByOrder(cases, fanoutOrder);
-                    output.push({ name, cases });
+                    const slug = prefix
+                        ? name.slice(prefix.length).toLowerCase().replace(/&/g, ' ')
+                              .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+                        : '';
+                    const grp = {};
+                    if (slug) grp.id = slug;
+                    grp.name = name;
+                    grp.cases = cases;
+                    if (slug && pageBase) grp.page = `${pageBase}/${slug}`;
+                    output.push(grp);
                 }
             } else {
                 const filter = g.decision ? { decision: g.decision } : {};
@@ -7279,6 +7356,10 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                         ? g.conditions.map(set => set.map(_parseCaseCondition).filter(Boolean))
                         : g.conditions.map(_parseCaseCondition).filter(Boolean);
                     cases = _casesByConditions(allTerms, requiredTags, parsed, filter, extraByKey, groupOrder, g.fields, g.openFile);
+                } else if (typeof g.tagPrefix === 'string' && g.tagPrefix) {
+                    // "tagPrefix": every case with >=1 tag starting with it, each
+                    // entry carrying a numeric "popularity" score from that count.
+                    cases = _casesByTagPrefix(allTerms, g.tagPrefix, filter, extraByKey, groupOrder, g.fields);
                 } else {
                     cases = requiredTags.length ? _casesByTags(allTerms, requiredTags, filter, extraByKey, groupOrder, g.fields) : [];
                 }
@@ -7326,7 +7407,10 @@ function processCollectionSets(allTerms, dryRun) {
     if (!dryRun) {
         _mkdirSync(_COLLECTIONS_DIR, { recursive: true });
         for (const { filePath, output } of taggedCollections) {
-            if (_jsonChanged(filePath, output)) _writeJson(filePath, output);
+            if (_jsonChanged(filePath, output)) {
+                _mkdirSync(path.dirname(filePath), { recursive: true });
+                _writeJson(filePath, output);
+            }
         }
     }
     for (const { collEntry, filePath, output } of taggedCollections) {

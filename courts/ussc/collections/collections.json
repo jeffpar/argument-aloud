@@ -247,6 +247,26 @@
         "search": "cases:title"
       },
       {
+        "id": "popular",
+        "name": "Popular Cases",
+        "file": "/courts/ussc/collections/historical/popular/popular_cases.json",
+        "search": "cases:title",
+        "order": "popularity:ascending,titles:ascending",
+        "groups": [
+          {
+            "id": "all",
+            "name": "Curiae: All Tags",
+            "tagPrefix": "Curiae: ",
+            "page": "/courts/ussc/collections/historical/curiae"
+          },
+          {
+            "name": "*",
+            "tagPrefix": "Curiae: ",
+            "pageBase": "/courts/ussc/collections/historical/curiae"
+          }
+        ]
+      },
+      {
         "id": "rare-words",
         "name": "Rare Words",
         "file": "/courts/ussc/collections/historical/rare/rare_words.json",
