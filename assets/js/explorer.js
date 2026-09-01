@@ -107,6 +107,22 @@ function _clearPdfIframePool() {
   for (const el of _pdfIframePool.values()) el.remove();
   _pdfIframePool.clear();
 }
+
+// Normalize a PDF iframe src's #fragment so the browser's built-in viewer
+// renders it usefully. Chrome/Firefox already fit the page to the frame width;
+// Safari's PDFKit viewer instead opens the document at a tiny fixed zoom
+// inside a flex-sized iframe and won't zoom past ~50% — "view=FitH" (fit
+// page width) forces it to behave. "pagemode=none" hides the thumbnail rail.
+// Existing params (e.g. an incoming "#page=N") are preserved.
+function _pdfViewerSrc(href) {
+  const hashIdx = href.indexOf('#');
+  const base = hashIdx < 0 ? href : href.slice(0, hashIdx);
+  const params = (hashIdx < 0 ? '' : href.slice(hashIdx + 1)).split('&').filter(Boolean);
+  const seen = new Set(params.map(p => p.split('=')[0]));
+  if (!seen.has('view')) params.push('view=FitH');
+  if (!seen.has('pagemode')) params.push('pagemode=none');
+  return base + '#' + params.join('&');
+}
 let _currentOyezEntries = []; // Oyez case-description entries for the active case [{value,href,title}]
 let _currentVideoEntries = []; // OTD video events for the active case [{href, title}]
 let _currentTranscriptPdfUrl = null; // resolved transcript_url for the active audio entry
@@ -2545,6 +2561,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
       videoEl.style.display = 'none';
       audioEl.style.display = 'none';
       const src = isImage ? iframeSrc
+        : isPdf ? _pdfViewerSrc(effectiveHref)
         : (effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none');
       const isNew = !_pdfIframePool.has(src);
       const iframe = _getOrCreatePdfIframe(src);
@@ -3459,6 +3476,12 @@ async function _showMinutesGalleryForDate(term, iso, label, minutesRef) {
 async function _showMinutesGalleryFromParam(param) {
   const term = _currentTerm || (_currentCaseKey ? _currentCaseKey.split('/')[0] : '');
   if (!term || !param) return false;
+  // Only an ISO date names a Minutes gallery. Bail on anything else (e.g. a
+  // plain numeric files.json id like "2") — _minutesGalleryForCaseDate's own
+  // earlier-date fallback does a string `date > iso` compare that a real date
+  // (all starting "1"/"2") loses against a bare digit, so it would otherwise
+  // wrongly resolve a fallback gallery and swallow the file= param.
+  if (!/^\d{4}-\d{2}(-\d{2})?$/.test(param)) return false;
   const minutesRef = _currentCaseEntry?.events?.find(e => e.date === param)?.minutes_ref ?? null;
   return _showMinutesGalleryForDate(term, param, 'Minutes for', minutesRef);
 }
