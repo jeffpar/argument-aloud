@@ -11057,6 +11057,7 @@ const _CITES_REF_COMMON_WORDS = new Set([
     'international', 'district', 'general', 'services', 'service',
     'authority', 'agency', 'bureau', 'office', 'council', 'group', 'system',
     'school', 'schools', 'educ', 'education', 'educational',
+    'house', 'houses', 'representative', 'representatives',
 ]);
 
 // Split a "Party v. Party (YEAR)" cites title into its two party names.
