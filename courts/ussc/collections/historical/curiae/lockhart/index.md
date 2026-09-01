@@ -13,7 +13,7 @@ styles:
 
 A long-running constitutional-law casebook first built by University of Minnesota law dean William B. Lockhart and a group of co-authors whose names have carried it through many later editions.
 
-A **Curiae: Lockhart** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Lockhart** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Lockhart%20Kamisar%20Choper%20Constitutional%20Law%20Cases%20Comments%20Questions)</span>
 

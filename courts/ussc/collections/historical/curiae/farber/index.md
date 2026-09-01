@@ -13,7 +13,7 @@ styles:
 
 A law-school casebook that organizes constitutional doctrine around recurring themes rather than clause by clause. The Curiae project keyed off its table of principal cases.
 
-A **Curiae: Farber** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Farber** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Farber%20Eskridge%20Frickey%20Cases%20and%20Materials%20on%20Constitutional%20Law)</span>
 

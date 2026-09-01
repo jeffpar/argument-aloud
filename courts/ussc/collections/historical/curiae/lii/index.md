@@ -13,7 +13,7 @@ styles:
 
 A curated online set of the Court's most-taught opinions, maintained by Cornell Law School's Legal Information Institute — among the first free full-text collections of Supreme Court case law on the web.
 
-A **Curiae: LII** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: LII** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Visit the Legal Information Institute →](https://www.law.cornell.edu/)</span>
 

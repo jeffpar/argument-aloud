@@ -13,7 +13,7 @@ styles:
 
 A leading constitutional-law casebook by four well-known scholars, distinctive for its historical and theoretical framing of the material.
 
-A **Curiae: Stone** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Stone** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Stone%20Seidman%20Sunstein%20Tushnet%20Constitutional%20Law%20casebook)</span>
 

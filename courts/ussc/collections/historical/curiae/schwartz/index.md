@@ -13,7 +13,7 @@ styles:
 
 A narrative one-volume history of the Court from 1790 through the Rehnquist era, by the prolific legal historian Bernard Schwartz.
 
-A **Curiae: Schwartz** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Schwartz** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Bernard%20Schwartz%20A%20History%20of%20the%20Supreme%20Court)</span>
 

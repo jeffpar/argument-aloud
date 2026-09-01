@@ -13,7 +13,7 @@ styles:
 
 A two-volume chronological history that analyzes, decision by decision, every significant constitutional ruling of the Court’s first two centuries. David P. Currie was a professor at the University of Chicago Law School.
 
-A **Curiae: Currie** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Currie** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Currie%20The%20Constitution%20in%20the%20Supreme%20Court)</span>
 

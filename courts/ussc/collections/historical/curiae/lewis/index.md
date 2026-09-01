@@ -13,7 +13,7 @@ styles:
 
 A three-volume reference encyclopedia with signed topical essays on landmark cases, justices, doctrines, and the Court as an institution.
 
-A **Curiae: Lewis** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Lewis** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Encyclopedia%20of%20the%20U.S.%20Supreme%20Court%20Lewis%20Wilson%20Salem%20Press)</span>
 

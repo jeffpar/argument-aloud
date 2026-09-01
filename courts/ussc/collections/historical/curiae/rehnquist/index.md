@@ -13,7 +13,7 @@ styles:
 
 A general-audience history of the institution by the Chief Justice of the United States, revised from his 1987 book *The Supreme Court: How It Was, How It Is*. Its comparatively short list of "primary" cases is why this is the rarest tag in the set.
 
-A **Curiae: Rehnquist** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Rehnquist** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Rehnquist%20The%20Supreme%20Court%20book)</span>
 

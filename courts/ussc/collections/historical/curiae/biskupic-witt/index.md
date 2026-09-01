@@ -13,7 +13,7 @@ styles:
 
 A single-volume desk reference on the Court's history, powers, procedures, and major rulings, from CQ Press's *Congressional Quarterly's Guide to the U.S. Supreme Court* line. Joan Biskupic covered the Court for the *Washington Post* and later *USA Today*; Elder Witt was a longtime Congressional Quarterly editor.
 
-A **Curiae: Biskupic & Witt** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Biskupic & Witt** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Biskupic%20Witt%20The%20Supreme%20Court%20at%20Work)</span>
 

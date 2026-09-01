@@ -13,7 +13,7 @@ styles:
 
 A one-volume treatise-and-casebook notable for treating constitutional interpretation as the work of all three branches, not the Court alone. Louis Fisher spent decades as a separation-of-powers specialist at the Congressional Research Service and the Law Library of Congress.
 
-A **Curiae: Fisher** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Fisher** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Louis%20Fisher%20American%20Constitutional%20Law)</span>
 

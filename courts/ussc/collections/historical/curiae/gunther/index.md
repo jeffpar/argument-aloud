@@ -13,7 +13,7 @@ styles:
 
 For a generation the most widely assigned constitutional-law casebook in American law schools. Gerald Gunther taught at Stanford and wrote the standard biography of Learned Hand; later editions are co-authored with Kathleen M. Sullivan.
 
-A **Curiae: Gunther** tag marks a case that this work singles out for *primary treatment* — a separate index or case-list entry — in the survey behind the Yale Law School [Curiae Project](/courts/ussc/?collection=popular&id=all).
+A **Curiae: Gunther** tag marks every case that this work singled out for *primary treatment*, as determined by Yale Law School’s now-defunct [Curiae Project](/courts/ussc/?collection=popular&id=all).
 
 <span class="curiae-meta">[Search Amazon for this book →](https://www.amazon.com/s?k=Gunther%20Constitutional%20Law%20casebook%20Foundation%20Press)</span>
 
