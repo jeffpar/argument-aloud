@@ -2949,7 +2949,7 @@ function _isOrdersCase(citation, termEntry) {
   if (!/^\d+$/.test(m[2])) return true; // roman-numeral page
   const vol  = parseInt(m[1], 10);
   const page = parseInt(m[2], 10);
-  const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
+  const report = _volumeReport(vol, termEntry);
   if (!report?.pages) return false;
   const bps = _parsePnBps(report.pages).filter(bp => !bp.roman);
   let match = null;
@@ -2957,7 +2957,23 @@ function _isOrdersCase(citation, termEntry) {
   return !!match && _isOrdersBreakpoint(match);
 }
 
-// Compute the PDF page for a given US Reports logical page using the term's
+// Find a U.S. Reports volume's page-breakpoint mapping. Every term with cases
+// in a given volume carries the same reports[] entry for it, so `termEntry`
+// (the citing case's own term) is just the fast path — fall back to scanning
+// all loaded terms, since the mapping is a property of the volume, not the
+// term, and callers don't always have the right (or any) termEntry to hand
+// (e.g. the collection file list is built before _currentTerm is updated).
+function _volumeReport(vol, termEntry) {
+  const local = (termEntry?.reports || []).find(r => Number(r.volume) === vol && r.pages);
+  if (local) return local;
+  for (const t of TERMS) {
+    const r = (t.reports || []).find(rr => Number(rr.volume) === vol && rr.pages);
+    if (r) return r;
+  }
+  return null;
+}
+
+// Compute the PDF page for a given US Reports logical page using the volume's
 // reports[] pages mapping.  Returns null if no mapping is available.
 function _reportPdfPage(citation, termEntry) {
   const m = citation && /^(\d+)\s+U\.S\.\s+(\d+|[ivxlcdmIVXLCDM]+)$/.exec(citation.trim());
@@ -2966,7 +2982,7 @@ function _reportPdfPage(citation, termEntry) {
   const roman = !/^\d+$/.test(m[2]);
   const page  = roman ? _parseRomanNumeral(m[2]) : parseInt(m[2], 10);
   if (!isFinite(page)) return null;
-  const report = (termEntry?.reports || []).find(r => Number(r.volume) === vol);
+  const report = _volumeReport(vol, termEntry);
   if (!report?.pages) return null;
   const bps = _parsePnBps(report.pages).filter(bp => !!bp.roman === roman);
   let match = null;
