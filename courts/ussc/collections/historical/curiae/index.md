@@ -42,4 +42,4 @@ In this collection, cases have been tagged with **Curiae** tags, one for each of
 | [Curiae: Tribe](/courts/ussc/?collection=popular&id=tribe) | Laurence H. Tribe, American Constitutional Law, vol. 1 (3d ed., Foundation Press, 2000) |
 {: .curiae-works}
 
-<span class="curiae-meta">Source: the Curiae Project case-ranking page, Yale Law School, archived at the [Internet Archive](https://web.archive.org/web/20061018102422/http://curiae.law.yale.edu/ranking/).</span>
+<span class="curiae-meta">Source: Curiae Project, Case Ranking Methodology, archived at the [Internet Archive](https://web.archive.org/web/20051210070533/http://curiae.law.yale.edu/ranking/?biskupic_weight=1&currie_weight=1&farber_weight=1&fisher_weight=1&gunther_weight=1&landmark_weight=1&lewis_weight=1&lii_weight=1&lockhart_weight=1&nr_weight=1&oxford_weight=1&rehnquist_weight=1&schwartz_weight=1&stone_weight=1&tribe_weight=1&bsize=50).</span>
