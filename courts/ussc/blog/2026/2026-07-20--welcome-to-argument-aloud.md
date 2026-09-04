@@ -10,7 +10,7 @@ default: true
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This website is a hub that connects U.S. Supreme Court media (briefs, transcripts, recordings, opinions) to cases, and collects stats on the Justices and Advocates who argue them.
+This website connects U.S. Supreme Court media (briefs, transcripts, recordings, opinions) to cases, and collects stats on the Justices and Advocates who argue them.
 
 If you're looking for something specific, tips on [Searching](#search-tips) are provided below.  Otherwise, here are some quick links to help you dive in.
 
