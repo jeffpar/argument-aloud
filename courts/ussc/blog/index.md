@@ -13,10 +13,10 @@ styles:
 {%- for post in blog_posts %}
   {%- comment -%}
     Excerpt = the post's first paragraph that isn't a leading italic-only
-    line (a "*or, ...*" tagline, the "*{{ page.date | date: ... }}*" line,
-    an "*Originally posted on ...*" byline, etc.) — a rendered paragraph is
-    "italic-only" iff it's exactly "<p><em>...</em></p>" with nothing else
-    inside the <p>. Content starts after the post's own <h1>.
+    line (an "or, " tagline, the post's own date line, an "Originally
+    posted on" byline, etc.) — a rendered paragraph is "italic-only" iff
+    it's exactly a p tag wrapping a single em tag and nothing else. Content
+    starts after the post's own h1.
   {%- endcomment -%}
   {%- assign blog_after_h1 = post.content | split: "</h1>" %}
   {%- assign blog_body = blog_after_h1[1] | default: post.content %}
