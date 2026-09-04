@@ -1686,6 +1686,12 @@ function speakerClass(speaker) {
 // to scroll there.
 function updateEmptyStateForTerm(term, date = null, page = null, hash = null) {
   if (!term) return; // term collapsed — leave current view
+  // The term-stats page (courts/ussc/terms/index.md, driven by terms.js) is a
+  // ussc-only feature. Other courts have no such page — and pointing an <iframe>
+  // at "<COURT_BASE>/terms/?term=…" would just hit a bare directory on their
+  // data endpoint (a 404, or a 500 from older Jekyll's WEBrick). Their term's
+  // case list still renders in the sidebar nav; just leave the main panel as-is.
+  if (COURT_ID !== 'ussc') return;
   // Forward the Terms nav's own active Filter panel state (kept in sync with
   // the outer URL's filter= param by _applyActiveFilters) so the term stats
   // page can note it under its own heading — see FILTER_DESCRIPTIONS/
@@ -12249,8 +12255,12 @@ async function restoreFromURL() {
       const _termsName = _termsSectionLi.querySelector('.terms-label')?.textContent;
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
-    const _allFilter = new URLSearchParams(location.search).get('filter');
-    showPageViewer(`${COURT_BASE}/terms/?term=all` + (_allFilter ? '&filter=' + encodeURIComponent(_allFilter) : ''), { pushState: false });
+    // The all-terms stats page is ussc-only (see updateEmptyStateForTerm); other
+    // courts just get the Terms section expanded in the sidebar, above.
+    if (COURT_ID === 'ussc') {
+      const _allFilter = new URLSearchParams(location.search).get('filter');
+      showPageViewer(`${COURT_BASE}/terms/?term=all` + (_allFilter ? '&filter=' + encodeURIComponent(_allFilter) : ''), { pushState: false });
+    }
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
