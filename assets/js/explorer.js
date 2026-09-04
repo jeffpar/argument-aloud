@@ -1822,11 +1822,14 @@ async function loadFiles(url) {
 // active court's id; a `?court=<id>` query param still overrides it (old links
 // into the ussc shell predating the per-court shells), and the /courts/<id>/
 // path segment is a last-ditch fallback. COURT_BASE is the URL prefix every
-// data path is built from — "/courts/<id>" for a same-origin court, or an
-// absolute cross-origin base (e.g. https://wasc.argumentaloud.org) for a court
-// whose data lives in its own repo/origin. Both are finalized in init() once
-// /courts/courts.json has loaded; the eager values here keep pre-init callers
-// (and the ussc default) working unchanged.
+// data path is built from — "/courts/<id>" for a same-origin court, or (for a
+// court whose data lives in its own repo/origin, e.g. wasc) that origin PLUS
+// its own "/courts/<id>" path (e.g. https://wasc.argumentaloud.org/courts/wasc
+// — courts.json's own "base" carries this suffix already; that origin serves
+// its data unflattened, at the very same "/courts/<id>/…" paths the main
+// repo authors them at). Both are finalized in init() once /courts/courts.json
+// has loaded; the eager values here keep pre-init callers (and the ussc
+// default) working unchanged.
 const COURT_ID = new URLSearchParams(location.search).get('court')
   || window.__COURT_ID__
   || (location.pathname.match(/\/courts\/([^/]+)\//) || [])[1]
@@ -1848,11 +1851,12 @@ function courtShellHref(query) {
 // Resolve a data path taken from index.json / terms.json — always authored as a
 // same-origin "/courts/<id>/…" absolute path — against the active court's data
 // base. For a same-origin court COURT_BASE is "/courts/<id>", so the path is
-// already right and returned unchanged. For a cross-origin court whose data
-// lives at the root of its own origin (e.g. https://wasc.argumentaloud.org),
-// strip the "/courts/<id>" prefix and re-root the rest onto COURT_BASE. Paths
-// that are already absolute URLs, and "${COURT_BASE}/…" paths built in code,
-// pass straight through.
+// already right and returned unchanged. For a cross-origin court (e.g. wasc)
+// COURT_BASE is that origin plus its own "/courts/<id>" suffix, so this swaps
+// out the scheme+host — the "/courts/<id>/…" path itself passes through
+// unchanged either way (see COURT_BASE's own comment above). Paths that are
+// already absolute URLs, and "${COURT_BASE}/…" paths built in code, pass
+// straight through.
 function courtDataUrl(p) {
   if (!p || /^https?:\/\//i.test(p) || !/^https?:\/\//i.test(COURT_BASE)) return p;
   return COURT_BASE + p.replace(new RegExp('^/courts/' + COURT_ID + '(?=/|$)'), '');
