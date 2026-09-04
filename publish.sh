@@ -5,6 +5,7 @@ sync_xml() {
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
+  rsync -vcrt -O --delete --exclude=".*" --exclude="/index.*" courts/wasc/ ../argument-aloud-wasc/courts/wasc/
   rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 }
 
@@ -31,6 +32,7 @@ elif [ -n "$1" ]; then
   sync_to_website "argument-aloud"
   sync_to_website "argument-aloud-index"
   sync_to_website "argument-aloud-xml"
+  sync_to_website "argument-aloud-wasc"
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js

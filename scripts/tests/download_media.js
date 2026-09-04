@@ -127,7 +127,7 @@ function filenameFromUrl(url) {
  * comma in the "number" field, or the "id" if number is absent.
  */
 function primaryNumber(c) {
-    const n = (c.number || '').split(',')[0].trim();
+    const n = (c.number || '').split(';')[0].trim();
     return n || c.id || 'unknown';
 }
 
@@ -337,7 +337,7 @@ async function processTerm(term, caseFilter, opts) {
     const filtered = caseFilter
         ? cases.filter(c =>
             c.id === caseFilter ||
-            (c.number || '').split(',').map(n => n.trim()).includes(caseFilter)
+            (c.number || '').split(';').map(n => n.trim()).includes(caseFilter)
           )
         : cases;
 
@@ -516,7 +516,7 @@ async function processTermThumbsMode(term, caseFilter, opts) {
     const targets = [];
     for (const c of cases) {
         if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) continue;
-        const nums   = (c.number || '').split(',').map(s => s.trim());
+        const nums   = (c.number || '').split(';').map(s => s.trim());
         const caseId = nums.find(n => /^\d+-Orig$/i.test(n));
         if (!caseId) continue;
         if (caseFilter && caseId !== caseFilter) continue;

@@ -11,16 +11,33 @@
  * © 2026 by Jeff Parsons
  */
 
+// A case's `number` (and `argument_consolidation`) holds one or more docket
+// numbers joined by ';'. A ',' is never a delimiter — it's a literal character
+// within a single docket number (e.g. a thousands separator in some courts'
+// numbering, such as WA Supreme Court's "200,262-5"). Always split docket
+// fields with splitDockets(); take the case's canonical/primary docket with
+// primaryDocket(); render a docket field for humans with formatDockets()
+// (which joins with ", "). Mirrored verbatim in assets/js/explorer.js.
+export function splitDockets(s) {
+    return String(s == null ? '' : s).split(';').map(t => t.trim()).filter(Boolean);
+}
+export function primaryDocket(s) {
+    return splitDockets(s)[0] || '';
+}
+export function formatDockets(s) {
+    return splitDockets(s).join(', ');
+}
+
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number',
     'files', 'references', 'oyez_alt', 'previouslyFiled',
     'docket_url', 'questions', 'questions_url',
-    // Comma-separated docket number(s) of every case (this one included)
+    // Semicolon-separated docket number(s) of every case (this one included)
     // heard in the same argument session — distinct from a joint "number"
     // (one case filed under several dockets); this is for separately
     // tracked cases (their own id/title/decision) argued together. By
     // convention every case in the group carries the exact same value, e.g.
-    // cases 880 and 1441 both carry "880,1441".
+    // cases 880 and 1441 both carry "880;1441". Split with splitDockets().
     'argument_consolidation',
     'argument', 'argument_day', 'reargument', 'reargument_day', 'decision', 'decision_day',
     // Case-level fallback for the decision's own journal entry, for a case

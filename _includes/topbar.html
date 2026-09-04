@@ -1,7 +1,10 @@
 <div id="topbar">
   <a id="site-link" href="/">Argument Aloud</a>
   {%- if include.court_title %}
-  <a id="page-title" href="{{ include.court_href | default: '#' }}">{{ include.court_title }}</a>
+  <span id="court-select-wrap">
+    <button id="court-select" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="court-menu" title="Switch court">{{ include.court_title }}</button>
+    <div id="court-menu" role="menu" aria-hidden="true"></div>
+  </span>
   <button id="nav-back-btn" title="Back" aria-label="Go back">&#9664;&#65038;</button>
   <button id="nav-forward-btn" title="Forward" aria-label="Go forward">&#9654;&#65038;</button>
   {%- endif %}

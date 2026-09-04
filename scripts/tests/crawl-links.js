@@ -433,7 +433,7 @@ async function runPhase2() {
         // files.json always lives under the *first* docket's directory (matching
         // import_oyez.js's convention), even for a consolidated case whose transcript
         // events point at a different docket's text_file -- don't reuse caseDir here.
-        const dir = (c.number || '').split(',')[0].trim() || caseDir || c.id;
+        const dir = (c.number || '').split(';')[0].trim() || caseDir || c.id;
         if (dir) checkUrl(`${termDir}/cases/${dir}/files.json`, caseRef).catch(() => {});
       }
     }

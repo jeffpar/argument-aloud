@@ -467,7 +467,7 @@ async function _localTagMatchesForGroup(collEntry, group) {
     const [, term, number] = key.split(':');
     const cases = await fetchTermCases(term);
     const entry = cases.find(c => c.number === number
-      || (c.number && c.number.split(',').map(n => n.trim()).includes(number))
+      || (c.number && splitDockets(c.number).includes(number))
       || (!c.number && c.id === number));
     if (!entry) continue;
     const builtinTags = Array.isArray(entry.tags) ? entry.tags : (entry.tags ? [String(entry.tags)] : []);
@@ -487,7 +487,7 @@ async function _caseQualifiesForGroup(collEntry, group, term, number) {
   if (!requiredTags.length) return false;
   const cases = await fetchTermCases(term);
   const entry = cases.find(c => c.number === number
-    || (c.number && c.number.split(',').map(n => n.trim()).includes(number))
+    || (c.number && splitDockets(c.number).includes(number))
     || (!c.number && c.id === number));
   if (!entry) return false;
   const builtinTags = Array.isArray(entry.tags) ? entry.tags : (entry.tags ? [String(entry.tags)] : []);
@@ -1087,7 +1087,7 @@ function _initFavoritesCollectionItem(sectionLi) {
 
   _favoritesLi = document.createElement('li');
   _favoritesLi.className = 'term-group';
-  _favoritesLi.dataset.collectionUrl = '/courts/ussc/collections/favorites.json';
+  _favoritesLi.dataset.collectionUrl = `${COURT_BASE}/collections/favorites.json`;
   _favoritesLi.dataset.collectionId = 'favorites';
 
   const header = document.createElement('div');
@@ -1229,7 +1229,7 @@ function _initEditsNavItem(sectionLi) {
 
   _editsLi = document.createElement('li');
   _editsLi.className = 'term-group';
-  _editsLi.dataset.collectionUrl = '/courts/ussc/collections/edits.json';
+  _editsLi.dataset.collectionUrl = `${COURT_BASE}/collections/edits.json`;
   _editsLi.dataset.collectionId = 'edits';
 
   const header = document.createElement('div');
@@ -1347,7 +1347,7 @@ function _rebuildEditsItems() {
         }
       }
 
-      const caseParamId    = caseData.id || (caseData.number ? caseData.number.split(',')[0].trim() : '');
+      const caseParamId    = caseData.id || primaryDocket(caseData.number);
       let resolvedEventIdx = null;
       let resolvedTurnNum  = bestTurnNum < Infinity ? bestTurnNum : null;
 
@@ -1562,6 +1562,7 @@ function termDisplayName(term) {
   const entry = TERMS.find(t => t.term === term);
   if (entry?.name) return entry.name.replace(/ /g, '\u00a0');
   const [year, month] = term.split('-');
+  if (!month) return year; // court whose term id is a bare year (e.g. wasc)
   return (MONTHS[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
 }
 
@@ -1582,7 +1583,7 @@ function setTopbarTerm(term) {
 function decisionTooltip(term, caseEntry, decision) {
   const parts = [];
   if (caseEntry.number) {
-    const numbers = caseEntry.number.split(',').map(n => _normNum(n.trim()));
+    const numbers = splitDockets(caseEntry.number).map(n => _normNum(n));
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
     parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
@@ -1595,7 +1596,7 @@ function decisionTooltip(term, caseEntry, decision) {
 function argumentTooltip(term, caseRef) {
   const parts = [];
   if (caseRef.number) {
-    const numbers = caseRef.number.split(',').map(n => _normNum(n.trim()));
+    const numbers = splitDockets(caseRef.number).map(n => _normNum(n));
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
     parts.push('(' + label + '\u00a0' + numbers.join(', ') + ')');
   }
@@ -1690,7 +1691,7 @@ function updateEmptyStateForTerm(term, date = null, page = null, hash = null) {
   // page can note it under its own heading — see FILTER_DESCRIPTIONS/
   // renderFilterNote in terms.js.
   const filter = new URLSearchParams(location.search).get('filter');
-  const statsUrl = '/courts/ussc/terms/?term=' + encodeURIComponent(term)
+  const statsUrl = `${COURT_BASE}/terms/?term=` + encodeURIComponent(term)
     + (date ? '&date=' + encodeURIComponent(date) : '')
     + (page ? '&page=' + encodeURIComponent(page) : '')
     + (filter ? '&filter=' + encodeURIComponent(filter) : '')
@@ -1809,6 +1810,77 @@ async function loadFiles(url) {
   return copy;
 }
 
+// ── Court selection ─────────────────────────────────────────────────────────
+// Each court has its own copy of the SPA shell (courts/<id>/index.html), which
+// names itself via `window.__COURT_ID__`. That's the primary source of the
+// active court's id; a `?court=<id>` query param still overrides it (old links
+// into the ussc shell predating the per-court shells), and the /courts/<id>/
+// path segment is a last-ditch fallback. COURT_BASE is the URL prefix every
+// data path is built from — "/courts/<id>" for a same-origin court, or an
+// absolute cross-origin base (e.g. https://wasc.argumentaloud.org) for a court
+// whose data lives in its own repo/origin. Both are finalized in init() once
+// /courts/courts.json has loaded; the eager values here keep pre-init callers
+// (and the ussc default) working unchanged.
+const COURT_ID = new URLSearchParams(location.search).get('court')
+  || window.__COURT_ID__
+  || (location.pathname.match(/\/courts\/([^/]+)\//) || [])[1]
+  || 'ussc';
+let COURT_BASE = '/courts/' + COURT_ID;
+let COURTS = []; // [{ id, name, short, base }] from /courts/courts.json, set in init()
+
+// A link back into this same SPA shell — the path it's actually being served
+// from (/courts/ussc/, /courts/wasc/, or a court subdomain's root), so in-app
+// navigation stays on the current court's shell. A ?court= override present in
+// the current URL (old-style links into the ussc shell) is carried along.
+function courtShellHref(query) {
+  const q = (query || '').replace(/^\?/, '');
+  const cp = new URLSearchParams(location.search).get('court');
+  const pre = cp ? 'court=' + encodeURIComponent(cp) + (q ? '&' : '') : '';
+  return location.pathname + (pre || q ? '?' + pre + q : '');
+}
+
+// Resolve a data path taken from index.json / terms.json — always authored as a
+// same-origin "/courts/<id>/…" absolute path — against the active court's data
+// base. For a same-origin court COURT_BASE is "/courts/<id>", so the path is
+// already right and returned unchanged. For a cross-origin court whose data
+// lives at the root of its own origin (e.g. https://wasc.argumentaloud.org),
+// strip the "/courts/<id>" prefix and re-root the rest onto COURT_BASE. Paths
+// that are already absolute URLs, and "${COURT_BASE}/…" paths built in code,
+// pass straight through.
+function courtDataUrl(p) {
+  if (!p || /^https?:\/\//i.test(p) || !/^https?:\/\//i.test(COURT_BASE)) return p;
+  return COURT_BASE + p.replace(new RegExp('^/courts/' + COURT_ID + '(?=/|$)'), '');
+}
+
+// URL for a case index file (rel is relative to courts/<id>/indexes/cases/,
+// e.g. "numbers.json" or "titles/aa.json"). ussc's indexes are far too large
+// for the main repo and are offloaded to a dedicated static host
+// (INDEXES_BASE_URL, e.g. index.argumentaloud.org); every other court keeps its
+// indexes alongside the rest of its consolidated data, so they resolve through
+// courtDataUrl() against that court's own data base (e.g. wasc →
+// wasc.argumentaloud.org). Build-side counterpart: processTitleIndex /
+// processNumberIndex in scripts/update_cases.js.
+function caseIndexUrl(rel) {
+  return COURT_ID === 'ussc'
+    ? (window.INDEXES_BASE_URL || '') + '/courts/ussc/indexes/cases/' + rel
+    : courtDataUrl('/courts/' + COURT_ID + '/indexes/cases/' + rel);
+}
+
+// A case's `number` holds one or more docket numbers joined by ';'. A ',' is
+// never a delimiter — it's a literal character within a single docket number
+// (e.g. a thousands separator in WA Supreme Court numbers like "200,262-5").
+// Mirrors splitDockets/primaryDocket/formatDockets in scripts/schema.js.
+// formatDockets() is the human-facing form (joined with ", ").
+function splitDockets(s) {
+  return String(s == null ? '' : s).split(';').map(t => t.trim()).filter(Boolean);
+}
+function primaryDocket(s) {
+  return splitDockets(s)[0] || '';
+}
+function formatDockets(s) {
+  return splitDockets(s).join(', ');
+}
+
 // ── Lazy term loading ────────────────────────────────────────────────────────
 let TERMS = [];         // flat array {name, file, cases(count), term(derived), journal_*} built from terms.json in init()
 let TERMS_GROUPED = []; // decade-grouped [{name, groups:[...]}] from terms.json
@@ -1897,8 +1969,8 @@ const _keywordIndexCache = new Map(); // first-char → inflight Promise or reso
 async function fetchTermCases(term) {
   if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
   const entry = TERMS.find(t => t.term === term);
-  const casesUrl = entry ? (entry.file || entry.cases) : '/courts/ussc/terms/' + term + '/cases.json';
-  const p = fetch(casesUrl, { cache: 'reload' })
+  const casesUrl = entry ? (entry.file || entry.cases) : `${COURT_BASE}/terms/` + term + '/cases.json';
+  const p = fetch(courtDataUrl(casesUrl), { cache: 'reload' })
     .then(r => r.ok ? r.json() : [])
     .catch(e => { console.warn('[cases] fetch failed for term', term, e); return []; });
   _termFetchPromises.set(term, p);
@@ -1909,7 +1981,7 @@ async function fetchTermCases(term) {
 
 async function _fetchTitleIndex(prefix) {
   if (_titleIndexCache.has(prefix)) return _titleIndexCache.get(prefix);
-  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/titles/' + prefix + '.json', { cache: 'reload' })
+  const p = fetch(caseIndexUrl('titles/' + prefix + '.json'), { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
   _titleIndexCache.set(prefix, p);
@@ -1920,7 +1992,7 @@ async function _fetchTitleIndex(prefix) {
 
 async function _fetchKeywordIndex(prefix) {
   if (_keywordIndexCache.has(prefix)) return _keywordIndexCache.get(prefix);
-  const p = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/keywords/' + prefix + '.json', { cache: 'reload' })
+  const p = fetch(caseIndexUrl('keywords/' + prefix + '.json'), { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}));
   _keywordIndexCache.set(prefix, p);
@@ -1949,7 +2021,7 @@ let _numberIndexPromise = null;
 async function _fetchNumberIndex() {
   if (_numberIndex) return _numberIndex;
   if (_numberIndexPromise) return _numberIndexPromise;
-  _numberIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/numbers.json', { cache: 'reload' })
+  _numberIndexPromise = fetch(caseIndexUrl('numbers.json'), { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _numberIndex = d; return d; });
@@ -1962,7 +2034,7 @@ let _citationIndexPromise = null;
 async function _fetchCitationIndex() {
   if (_citationIndex) return _citationIndex;
   if (_citationIndexPromise) return _citationIndexPromise;
-  _citationIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/citations.json', { cache: 'reload' })
+  _citationIndexPromise = fetch(caseIndexUrl('citations.json'), { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _citationIndex = d; return d; });
@@ -1977,7 +2049,7 @@ let _onThisDayIndexPromise = null;
 async function _fetchOnThisDayIndex() {
   if (_onThisDayIndex) return _onThisDayIndex;
   if (_onThisDayIndexPromise) return _onThisDayIndexPromise;
-  _onThisDayIndexPromise = fetch(window.INDEXES_BASE_URL + '/courts/ussc/indexes/cases/onthisday.json', { cache: 'reload' })
+  _onThisDayIndexPromise = fetch(caseIndexUrl('onthisday.json'), { cache: 'reload' })
     .then(r => r.ok ? r.json() : {})
     .catch(() => ({}))
     .then(d => { _onThisDayIndex = d; return d; });
@@ -2028,7 +2100,7 @@ let _benchesPromise = null;
 async function _fetchBenches() {
   if (_benchesById) return _benchesById;
   if (_benchesPromise) return _benchesPromise;
-  _benchesPromise = fetch('/courts/ussc/people/justices/benches.json')
+  _benchesPromise = fetch(`${COURT_BASE}/people/justices/benches.json`)
     .then(r => r.ok ? r.json() : [])
     .catch(() => [])
     .then(list => {
@@ -2070,7 +2142,9 @@ function buildUrlParams(updates, deletes = []) {
   // Setting one of the mutually exclusive nav params removes the other.
   if ('collection' in updates) url.searchParams.delete('topic');
   if ('topic'      in updates) url.searchParams.delete('collection');
-  // Enforce canonical parameter order: collection/topic, source, group/id, highlight, term, case, event, turn, file, then rest.
+  // Enforce canonical parameter order: court, collection/topic, source, group/id, highlight, term, case, event, turn, file, then rest.
+  // `court` is preserved (never set/deleted here) so in-app navigation keeps the active non-default court.
+  const courtPrm   = url.searchParams.get('court');
   const collection = url.searchParams.get('collection');
   const topic      = url.searchParams.get('topic');
   const source     = url.searchParams.get('source');
@@ -2086,9 +2160,10 @@ function buildUrlParams(updates, deletes = []) {
   const citation   = url.searchParams.get('citation');
   const sortPrm    = url.searchParams.get('sort');
   const orderPrm   = url.searchParams.get('o');
-  const orderedKeys = ['collection', 'topic', 'source', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'citation', 'sort', 'o'];
+  const orderedKeys = ['court', 'collection', 'topic', 'source', 'group', 'id', 'highlight', 'term', 'date', 'case', 'event', 'turn', 'file', 'citation', 'sort', 'o'];
   const rest = [...url.searchParams.entries()].filter(([k]) => !orderedKeys.includes(k));
   const reordered = [];
+  if (courtPrm   != null) reordered.push(['court', courtPrm]);
   if (collection != null) reordered.push(['collection', collection]);
   if (topic      != null) reordered.push(['topic',      topic]);
   if (source     != null) reordered.push(['source',     source]);
@@ -2735,22 +2810,21 @@ function caseId(caseEntry) {
 }
 
 // Preferred URL 'case' param for a case entry given its sibling cases.
-// Uses the first docket number (split on ',') when it is unique across all
-// cases in the term; falls back to caseEntry.id so the param stays stable.
+// Uses the primary (first) docket number when it is unique across all cases
+// in the term; falls back to caseEntry.id so the param stays stable.
 function _caseUrlId(caseEntry, allCases) {
   if (caseEntry.number) {
-    const firstNum = caseEntry.number.split(',')[0].trim();
-    const unique = allCases.filter(c => c.number && c.number.split(',')[0].trim() === firstNum).length === 1;
+    const firstNum = primaryDocket(caseEntry.number);
+    const unique = allCases.filter(c => primaryDocket(c.number) === firstNum).length === 1;
     if (unique) return firstNum;
   }
-  return caseEntry.id || (caseEntry.number ? caseEntry.number.split(',')[0].trim() : '');
+  return caseEntry.id || primaryDocket(caseEntry.number);
 }
 
 // Directory name for the case on the filesystem — uses number first since
 // case directories are named by docket number, not the lonedissent id.
 function caseDirName(caseEntry) {
-  const name = caseEntry.number || caseEntry.id || '';
-  return name.split(',')[0].trim();
+  return primaryDocket(caseEntry.number) || caseEntry.id || '';
 }
 
 // Return the primary (display) title from a raw case title string.
@@ -2774,12 +2848,12 @@ function _caseDisplayTitle(caseEntry, eventEntry) {
   const m = /\bNo\.\s*([\d][\d-]*)/i.exec(eventEntry?.title || '');
   if (!m) {
     const base = caseTitle(caseEntry.title);
-    const num  = _normNum((caseEntry.number || '').split(',')[0].trim());
+    const num  = _normNum(primaryDocket(caseEntry.number));
     return num ? `${base} (No. ${num})` : base;
   }
   const num     = _normNum(m[1]);
   const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
-  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  const numbers = splitDockets(caseEntry.number);
   const idx     = numbers.indexOf(m[1]);
   const base    = (idx !== -1 && idx < titles.length) ? titles[idx] : titles[0];
   return `${base} (No. ${num})`;
@@ -2791,7 +2865,7 @@ function _caseDisplayTitle(caseEntry, eventEntry) {
 // non-consolidated cases (title/number counts differ or only one part each).
 function _subCaseForOption(caseEntry, optionText) {
   const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
-  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  const numbers = splitDockets(caseEntry.number);
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   if (optionText) {
     const m = /\bNo\.\s*([\d][\d-]*)/i.exec(optionText);
@@ -2809,7 +2883,7 @@ function _subCaseForOption(caseEntry, optionText) {
 function _subCaseForNumber(caseEntry, number) {
   if (!number) return null;
   const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
-  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  const numbers = splitDockets(caseEntry.number);
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   const idx = numbers.indexOf(number);
   return idx === -1 ? null : { title: titles[idx], number: numbers[idx] };
@@ -2850,7 +2924,7 @@ function caseTitleLabel(caseEntry, subCase) {
   const title  = subCase ? subCase.title  : caseTitle(caseEntry.title);
   const number = subCase ? subCase.number : caseEntry.number;
   if (!number) return { text: title, full: null };
-  const numbers = number.split(',').map(n => n.trim());
+  const numbers = splitDockets(number);
   const isMulti = numbers.length > 1;
   const label = isMulti ? 'Nos.' : 'No.';
   const fmt = ns => ns.join(', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
@@ -3320,7 +3394,7 @@ function _fetchTermDates(term) {
     const termEntry = TERMS.find(t => t.term === term);
     const promise = (termEntry && termEntry.dates === false)
       ? Promise.resolve(null)
-      : fetch('/courts/ussc/terms/' + term + '/dates.json')
+      : fetch(`${COURT_BASE}/terms/` + term + '/dates.json')
         .then(r => r.ok ? r.json() : null)
         .catch(() => null)
         .then(_expandDatesPages);
@@ -3612,7 +3686,10 @@ function _termForDate(isoDate) {
   let found = null;
   for (const t of TERMS) {
     if (!t.term) continue;
-    const start = t.term.slice(0, 4) + '-' + t.term.slice(5, 7) + '-01';
+    // "YYYY-MM" → that month's 1st; a bare-year term id (wasc) → Jan 1.
+    const start = t.term.length > 4
+      ? t.term.slice(0, 4) + '-' + t.term.slice(5, 7) + '-01'
+      : t.term.slice(0, 4) + '-01-01';
     if (start <= isoDate) found = t.term; else break;
   }
   return found;
@@ -3781,12 +3858,12 @@ function _showCaseVotesView(caseEntry) {
     const el = document.createElement('a');
     el.className = 'jr-item';
     if (v.side !== 'majority') el.classList.add('jr-dimmed');
-    el.href = '/courts/ussc/?collection=gallery&id=' + jid;
+    el.href = courtShellHref('collection=gallery&id=' + jid);
 
     const photo = document.createElement('div');
     photo.className = 'jr-photo';
     const img = document.createElement('img');
-    img.src = '/courts/ussc/people/justices/all/' + jid + '/portrait.jpg';
+    img.src = `${COURT_BASE}/people/justices/all/` + jid + '/portrait.jpg';
     img.alt = displayName;
     img.loading = 'lazy';
     img.onerror = () => { photo.style.background = 'transparent'; img.style.display = 'none'; };
@@ -4047,9 +4124,11 @@ function formatArgDates(dateStr) {
 
 function caseTermDate(caseEntry, term) {
   const [yearStr, monthStr] = term.split('-');
-  const termStart = `${yearStr}-${monthStr}-01`;
+  // A bare-year term id (wasc) spans the whole calendar year.
+  const mm = monthStr || '01';
+  const termStart = `${yearStr}-${mm}-01`;
   const nextYear  = String(parseInt(yearStr, 10) + 1);
-  const termEnd   = `${nextYear}-${monthStr}-01`;
+  const termEnd   = `${nextYear}-${mm}-01`;
   const audio = caseEntry.events ?? [];
   const inTerm = audio.find(a =>
     a.type !== 'decision' && a.date && a.date >= termStart && a.date < termEnd
@@ -4386,7 +4465,7 @@ function _buildCitationsEntry(caseEntry) {
 // any flat transcript/decision entries.
 function _buildOtherTitlesEntry(caseEntry, term) {
   const titles  = (caseEntry.title  || '').split(';').map(t => t.trim());
-  const numbers = (caseEntry.number || '').split(',').map(n => n.trim());
+  const numbers = splitDockets(caseEntry.number);
   if (titles.length < 2 || numbers.length !== titles.length) return null;
   const files = titles.map((title, i) => ({
     title: `${title} (No. ${_normNum(numbers[i])})`,
@@ -4956,7 +5035,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
 
   // Precompute URL ids for all cases in the term (not just visible) so the
   // uniqueness check is accurate and stable across sort modes.
-  const _firstNumOf = (c) => c.number ? c.number.split(',')[0].trim() : '';
+  const _firstNumOf = (c) => primaryDocket(c.number);
   const _numCount = new Map();
   for (const c of cases) { const n = _firstNumOf(c); if (n) _numCount.set(n, (_numCount.get(n) || 0) + 1); }
   const urlIdOf = (c) => { const n = _firstNumOf(c); return (n && _numCount.get(n) === 1) ? n : (c.id || n || ''); };
@@ -5006,7 +5085,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
   sorted.forEach(caseEntry => {
     const urlId = urlIdOf(caseEntry);
     const caseKey = term + '/' + urlId;
-    const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+    const basePath = `${COURT_BASE}/terms/` + term + '/cases/' + caseDirName(caseEntry) + '/';
     const hasAudio      = !!caseEntry.events?.some(a => a.audio_url      && a.type !== 'decision');
     const hasTranscript = !!caseEntry.events?.some(a => a.transcript_url && a.type !== 'decision');
     // A decision_* href is sufficient but not necessary — a decision date
@@ -6341,6 +6420,11 @@ function _frameNavigate(pf, url) {
 }
 
 function showPageViewer(url, { pushState = true } = {}) {
+  // A court whose index.json has no node marked "default": true (e.g. a
+  // secondary court still being populated) leaves _defaultPage null, so the
+  // bare-URL / <id>=all fallbacks can land here with nothing to show. Bail
+  // rather than crash on url.split() below — the nav sidebar stays usable.
+  if (!url) return;
   playerSection.hidden = true;
   audioControls.hidden = true;
   transcriptViewer.hidden = true;
@@ -6373,7 +6457,7 @@ function showPageViewer(url, { pushState = true } = {}) {
 // viewer — used by the topbar menu's "Search …" shortcut (see topbar.js)
 // alongside opening the search box, so a visitor who reaches for it also
 // sees how to use it.
-const SEARCH_TIPS_LINK = '/courts/ussc/blog/2026/welcome-to-argument-aloud/#search-tips';
+const SEARCH_TIPS_LINK = `${COURT_BASE}/blog/2026/welcome-to-argument-aloud/#search-tips`;
 window._showSearchTipsPage = () => showPageViewer(SEARCH_TIPS_LINK);
 
 // Run `renderFn` (a DOM mutation, e.g. paginating a list by toggling many
@@ -6967,7 +7051,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     if (_caseEntryCache) return _caseEntryCache;
     const cases = await fetchTermCases(caseRef.term);
     _caseEntryCache = cases.find(c => c.number === caseRef.number ||
-      (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)) ||
+      (c.number && splitDockets(c.number).includes(caseRef.number)) ||
       (!c.number && c.id === caseRef.number)) ?? null;
     return _caseEntryCache;
   }
@@ -7067,7 +7151,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   async function ensureCollFileListBuilt(caseEntry) {
     if (fileListBuilt) return;
     fileListBuilt = true;
-    const basePath = '/courts/ussc/terms/' + caseRef.term + '/cases/' + caseDirName(caseEntry) + '/';
+    const basePath = `${COURT_BASE}/terms/` + caseRef.term + '/cases/' + caseDirName(caseEntry) + '/';
 
     // When the collection case entry specifies a particular argument date, only inject the
     // transcript for that date — not all transcripts for the case (e.g. a reargument).
@@ -7221,7 +7305,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         setPageMeta(caseTitle(caseRef.title) + ' | Argument Aloud');
         navigate(url);
       }
-      const anchorId = caseRef.term + '--' + caseRef.number.split(',')[0].trim();
+      const anchorId = caseRef.term + '--' + primaryDocket(caseRef.number);
       // Directory-style permalinks (e.g. /collections/historical/orig) 301-redirect to add
       // a trailing slash. Without it here, every click would force the iframe
       // through a full server round-trip + reload instead of a same-document
@@ -7353,7 +7437,7 @@ async function _loadCaseFromGroupLink(link) {
   if (!linkTerm || !linkCase) return;
   const cases = await fetchTermCases(linkTerm);
   const caseEntry = cases.find(c => c.number === linkCase ||
-    (c.number && c.number.split(',').map(n => n.trim()).includes(linkCase)) ||
+    (c.number && splitDockets(c.number).includes(linkCase)) ||
     (!c.number && c.id === linkCase));
   if (!caseEntry) return;
   const hasPlayableAudio = (caseEntry.events || []).some(a => a.audio_url);
@@ -8243,7 +8327,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _navKeys.push(term + '/' + caseEntry.number);
   if (caseEntry.number) {
-    caseEntry.number.split(',').forEach(n => {
+    splitDockets(caseEntry.number).forEach(n => {
       const numKey = term + '/' + n.trim();
       if (!_navKeys.includes(numKey)) _navKeys.push(numKey);
     });
@@ -8311,7 +8395,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   _currentTranscriptEntries = _buildTranscriptEntries(caseEntry);
   _currentOyezEntries = _buildOyezEntries(caseEntry);
   _currentVideoEntries = (caseEntry.events || []).filter(e => e.source === 'otd' && e.video_url).map(e => ({ href: e.video_url, title: e.title || 'Video' }));
-  const _opBasePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+  const _opBasePath = `${COURT_BASE}/terms/` + term + '/cases/' + caseDirName(caseEntry) + '/';
   const _opRawFiles = (caseEntry.files || caseEntry.references) ? await loadFiles(_opBasePath + 'files.json') : [];
   if (_mySeq !== _caseLoadSeq) return; // a newer case has since been clicked — abandon this load
   _currentFiles = _opRawFiles;
@@ -8485,7 +8569,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
   _currentTerm    = term;
-  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+  const basePath = `${COURT_BASE}/terms/` + term + '/cases/' + caseDirName(caseEntry) + '/';
 
   // Update topbar term label
   setTopbarTerm(term);
@@ -8752,7 +8836,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
     _activeKeys.push(term + '/' + caseEntry.number);
   if (caseEntry.number) {
-    caseEntry.number.split(',').forEach(n => {
+    splitDockets(caseEntry.number).forEach(n => {
       const numKey = term + '/' + n.trim();
       if (!_activeKeys.includes(numKey)) _activeKeys.push(numKey);
     });
@@ -10615,7 +10699,7 @@ let _navSearchActivate = null;
       while (queue.length) {
         if (gen !== _verifyGen) return;
         const { term, c, lbl } = queue.shift();
-        const casesPath = '/courts/ussc/terms/' + term + '/cases/';
+        const casesPath = `${COURT_BASE}/terms/` + term + '/cases/';
         const hrefs = (c.events || []).map(e => e.text_file).filter(h => h && !/^https?:\/\//i.test(h));
         if (!hrefs.length) continue; // no local transcript — leave "? matches"
         let count = 0;
@@ -10719,7 +10803,9 @@ let _navSearchActivate = null;
       } else {
         const MAX_N = 200;
         for (const { term, c } of results.slice(0, MAX_N)) {
-          const urlId = (c.number ? c.number.split(',')[0].trim() : '') || c.id || '';
+          // Other courts keep a ',' inside `number` (a thousands separator, not
+          // a delimiter), which is ugly in a URL — prefer their clean id.
+          const urlId = (COURT_ID !== 'ussc' && c.id) ? c.id : (primaryDocket(c.number) || c.id || '');
           const href = buildUrlParams(
             { term, case: urlId },
             ['collection', 'group', 'id', 'highlight', 'file', 'event', 'turn', 'find'],
@@ -10730,12 +10816,13 @@ let _navSearchActivate = null;
           div.className = 'case-header';
           const a = document.createElement('a');
           a.className = 'case-title-nav';
-          const _numLabel = c.number
-            ? ' (' + (c.number.includes(',') ? 'Nos. ' : 'No. ') + c.number.replace(/-(?=Orig|Misc)/gi, ' ') + ')'
+          const _numDockets = splitDockets(c.number);
+          const _numLabel = _numDockets.length
+            ? ' (' + (_numDockets.length > 1 ? 'Nos. ' : 'No. ') + _numDockets.join(', ').replace(/-(?=Orig|Misc)/gi, ' ') + ')'
             : '';
           a.textContent = (caseTitle(c.title) || urlId) + _numLabel;
           a.href = href;
-          a.title = (c.number || c.id || '') + '  ·  ' + term;
+          a.title = (formatDockets(c.number) || c.id || '') + '  ·  ' + term;
           a.addEventListener('click', e => {
             e.preventDefault();
             navigate(href);
@@ -10765,10 +10852,13 @@ let _navSearchActivate = null;
     // Normalisation mirrors processNumberIndex in update_cases.js: lowercase and
     // replace a hyphen immediately before "orig"/"misc" with a space (so the
     // hyphenated and space-separated forms of the same query are equivalent).
+    // For non-ussc courts a comma in a docket number is a thousands separator
+    // (e.g. wasc "200,262-5"), stripped both here and in the index.
     const numberMode = !keywordMode && q.startsWith('#');
     if (numberMode) {
       const numIndex = await _fetchNumberIndex();
-      const normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
+      let normQ = q.slice(1).trim().replace(/-(?=orig|misc)/i, ' ').replace(/\s+/g, ' ').toLowerCase();
+      if (COURT_ID !== 'ussc') normQ = normQ.replace(/,/g, '');
       // A query naming an actual docket number (i.e. containing a digit) must
       // match a key exactly -- otherwise "#2" would substring-match
       // "22-1260", "1972-161", etc., and "#5-orig"/"#5 misc" would likewise
@@ -10980,7 +11070,7 @@ let _navSearchActivate = null;
     } else {
       const verifyTasks = []; // { term, c, lbl } for background phrase check
       for (const { term, c, loc, count } of results.slice(0, MAX)) {
-        const urlId = (c.number ? c.number.split(',')[0].trim() : '') || c.id || '';
+        const urlId = (COURT_ID !== 'ussc' && c.id) ? c.id : (primaryDocket(c.number) || c.id || '');
         const updates = { term, case: urlId };
         const deletes = ['collection', 'group', 'id', 'highlight', 'file'];
         if (loc) { updates.event = loc[0]; updates.turn = loc[1]; }
@@ -11007,7 +11097,7 @@ let _navSearchActivate = null;
           a.textContent = title;
         }
         a.href = href;
-        a.title = (c.number || c.id || '') + '  ·  ' + term;
+        a.title = (formatDockets(c.number) || c.id || '') + '  ·  ' + term;
         a.addEventListener('click', e => {
           e.preventDefault();
           if (keywordMode) {
@@ -11229,7 +11319,7 @@ function _mmddFor(dateParam) {
 async function _pickNoteworthyOnThisDay(mmdd) {
   let groups;
   try {
-    const r = await fetch('/courts/ussc/topics/noteworthy.json', { cache: 'reload' });
+    const r = await fetch(`${COURT_BASE}/topics/noteworthy.json`, { cache: 'reload' });
     groups = r.ok ? await r.json() : null;
   } catch { groups = null; }
   if (!Array.isArray(groups)) return null;
@@ -11266,7 +11356,7 @@ async function _pickNoteworthyOnThisDay(mmdd) {
 // miss for today's date carries no date= at all, which would otherwise be
 // indistinguishable from a visitor landing on the page directly.
 function _showOnThisDayNotFound(dateParam) {
-  const linkBase = '/courts/ussc/collections/historical/onthisday/';
+  const linkBase = `${COURT_BASE}/collections/historical/onthisday/`;
   const extra = ['notfound=1'];
   if (dateParam) extra.push('date=' + encodeURIComponent(dateParam));
   const target = linkBase + '?' + extra.join('&');
@@ -11362,12 +11452,77 @@ async function pickRandomCase() {
   }
 }
 
+// ── Court select ────────────────────────────────────────────────────────────
+// Turns the topbar's court name (#court-select, rendered by _includes/topbar.html)
+// into a menu of every supported court from COURTS. Picking one loads that
+// court's own shell at /courts/<id>/ (every court's shell is served from this
+// origin — a court's cross-origin `base` is its data endpoint, not its UI),
+// where window.__COURT_ID__ re-selects it.
+function buildCourtSelect() {
+  const btn  = document.getElementById('court-select');
+  const menu = document.getElementById('court-menu');
+  if (!btn || !menu) return; // non-SPA pages include the topbar without it
+
+  const courtHome = c => '/courts/' + c.id + '/';
+  const list = COURTS.length ? COURTS : [{ id: 'ussc', short: btn.textContent.trim() || 'U.S. Supreme Court', name: 'U.S. Supreme Court' }];
+  const active = list.find(c => c.id === COURT_ID) || list[0];
+  btn.textContent = active.short || active.name || active.id;
+  btn.title = 'Switch court' + (active.name ? ' (' + active.name + ')' : '');
+
+  menu.innerHTML = '';
+  list.forEach(c => {
+    const item = document.createElement('a');
+    item.className = 'court-menu-item';
+    item.setAttribute('role', 'menuitem');
+    item.href = courtHome(c);
+    item.textContent = c.short || c.name || c.id;
+    if (c.name && c.name !== (c.short || '')) item.title = c.name;
+    if (c.id === active.id) item.classList.add('active');
+    menu.appendChild(item);
+  });
+
+  const close = () => {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  };
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+  });
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && e.target !== btn) close();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+}
+
 // ── Init ────────────────────────────────────────────────────────────────────
 async function init() {
-  // Load nav structure from index.json, then pre-fetch any referenced data files in parallel.
+  // Resolve the supported courts and the active court's data base URL before
+  // anything else — every data path below is built from COURT_BASE. courts.json
+  // is always same-origin (it lives with the shell, not with a court's data).
+  try {
+    const res = await fetch('/courts/courts.json', { cache: 'reload' });
+    if (res.ok) {
+      COURTS = await res.json();
+      const active = COURTS.find(c => c.id === COURT_ID);
+      if (active && active.base) COURT_BASE = active.base;
+    }
+  } catch (e) {
+    console.warn('[court] courts.json fetch failed:', e);
+  }
+  buildCourtSelect();
+
+  // Load nav structure from index.json, then pre-fetch any referenced data files
+  // in parallel. index.json is a shell companion — it's served from this origin
+  // alongside courts/<id>/index.html, not from a cross-origin court's data
+  // endpoint (COURT_BASE), which only carries the bulk data files index.json
+  // *references* (resolved through courtDataUrl below).
   let navData = [];
   try {
-    const res = await fetch('/courts/ussc/index.json', { cache: 'reload' });
+    const res = await fetch(`/courts/${COURT_ID}/index.json`, { cache: 'reload' });
     if (res.ok) navData = await res.json();
   } catch (e) {
     console.warn('[nav] index.json fetch failed:', e);
@@ -11376,7 +11531,7 @@ async function init() {
   await Promise.all(navData.map(async entry => {
     if (!entry.file) return;
     try {
-      const res = await fetch(entry.file, { cache: 'reload' });
+      const res = await fetch(courtDataUrl(entry.file), { cache: 'reload' });
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {
@@ -11805,7 +11960,7 @@ async function restoreFromURL() {
         if (c.id && c.id === caseParam) return true;
         if (!c.number) return false;
         return c.number === caseParam
-          || c.number.split(',').map(n => n.trim()).includes(caseParam);
+          || splitDockets(c.number).includes(caseParam);
       });
 
       // Sibling-docket fallback: caseParam may name a *different* docket number
@@ -11816,7 +11971,7 @@ async function restoreFromURL() {
       // override so the title/event still reflect it.
       let numberOverride = null;
       if (candidates.length === 0 && matchedCase?.number) {
-        const _numbers = matchedCase.number.split(',').map(n => n.trim());
+        const _numbers = splitDockets(matchedCase.number);
         if (_numbers.length > 1 && _numbers.includes(caseParam)) {
           numberOverride = caseParam;
           const primaryKey = CSS.escape(termParam + '/' + _numbers[0]);
@@ -11950,7 +12105,7 @@ async function restoreFromURL() {
         if (!c.number) return false;
         // Match against full number or any individual number in a consolidated list ("81-298,81-799").
         return c.number === caseParam
-          || c.number.split(',').map(n => n.trim()).includes(caseParam);
+          || splitDockets(c.number).includes(caseParam);
       });
       const resolvedKey = matchedCase
         ? termParam + '/' + _caseUrlId(matchedCase, termCases)
@@ -11969,7 +12124,7 @@ async function restoreFromURL() {
         // override), show that docket's own title, and — if a matching "No. N"
         // event exists — default to its best (aligned) event instead of the
         // first event overall.
-        const _numbers = (matchedCase?.number || '').split(',').map(n => n.trim());
+        const _numbers = splitDockets(matchedCase?.number);
         const numberOverride = (_numbers.length > 1 && caseParam !== _numbers[0] && _numbers.includes(caseParam)) ? caseParam : null;
         let _defaultAudioIdx = audioParam;
         if (_defaultAudioIdx == null && numberOverride) {
@@ -12095,7 +12250,7 @@ async function restoreFromURL() {
       if (_termsName) setPageMeta(_termsName + ' | Argument Aloud');
     }
     const _allFilter = new URLSearchParams(location.search).get('filter');
-    showPageViewer('/courts/ussc/terms/?term=all' + (_allFilter ? '&filter=' + encodeURIComponent(_allFilter) : ''), { pushState: false });
+    showPageViewer(`${COURT_BASE}/terms/?term=all` + (_allFilter ? '&filter=' + encodeURIComponent(_allFilter) : ''), { pushState: false });
   } else if (termParam) {
     // term-only URL: expand the term and load its case list, but don't select a case.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
@@ -12528,7 +12683,7 @@ async function downloadTranscriptEdits() {
     for (const [textFile, turnEdits] of caseData.eventEdits) {
       let serverTurns;
       try {
-        const resp = await fetch(`/courts/ussc/terms/${term}/cases/${textFile}`);
+        const resp = await fetch(`${COURT_BASE}/terms/${term}/cases/${textFile}`);
         if (!resp.ok) continue;
         const data = await resp.json();
         serverTurns = Array.isArray(data) ? data : (data.turns ?? []);
@@ -12589,11 +12744,11 @@ async function _filterBuiltinTagsForExport(tagData) {
   const builtinMap = {};
   await Promise.all(Object.entries(byTerm).map(async ([term, entries]) => {
     try {
-      const resp = await fetch(`/courts/ussc/terms/${term}/cases.json`);
+      const resp = await fetch(`${COURT_BASE}/terms/${term}/cases.json`);
       if (!resp.ok) return;
       const cases = await resp.json();
       for (const { key, number } of entries) {
-        const c = cases.find(c => (c.number || c.id || '') === number);
+        const c = cases.find(c => c.id === number || c.number === number || primaryDocket(c.number) === number || splitDockets(c.number).includes(number));
         if (c?.tags) builtinMap[key] = Array.isArray(c.tags) ? c.tags : [String(c.tags)];
       }
     } catch { /* ignore network errors — keep all user tags for that term */ }

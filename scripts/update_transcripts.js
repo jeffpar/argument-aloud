@@ -67,8 +67,8 @@ const writeJson = (p, d) => writeText(p, JSON.stringify(d, null, 2) + '\n');
  * consolidated numbers ending up in a generated URL.
  */
 function caseUrlNumber(c, siblingCases) {
-    const num = (c.number || '').split(',')[0].trim();
-    if (num && siblingCases.filter(s => (s.number || '').split(',')[0].trim() === num).length === 1) {
+    const num = (c.number || '').split(';')[0].trim();
+    if (num && siblingCases.filter(s => (s.number || '').split(';')[0].trim() === num).length === 1) {
         return num;
     }
     return c.id || num;
@@ -1021,7 +1021,7 @@ async function applyEditsFromFile(filePath) {
                 caseEntry = termCases.find(c =>
                     c.number === caseRef ||
                     c.id     === caseRef ||
-                    (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef))
+                    (c.number && c.number.split(';').map(n => n.trim()).includes(caseRef))
                 );
                 if (caseEntry?.events) {
                     const idx = caseEntry.events.findIndex(e => e.text_file === text_file);
@@ -1167,13 +1167,13 @@ function organizeCheck(term, caseNumber, cases) {
         ? cases
         : cases.filter(c =>
             c.number === caseNumber ||
-            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+            (c.number && c.number.split(';').map(n => n.trim()).includes(caseNumber))
           );
 
     let issues = 0;
     for (const c of toCheck) {
         const caseAudioNums = new Set(
-            (c.number || '').split(',').map(n => toAudioNum(n.trim())).filter(Boolean)
+            (c.number || '').split(';').map(n => toAudioNum(n.trim())).filter(Boolean)
         );
         const label = c.number || c.id || '?';
 
@@ -1217,13 +1217,13 @@ function organizeFix(term, caseNumber, cases, casesPath, dryRun) {
         ? cases
         : cases.filter(c =>
             c.number === caseNumber ||
-            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+            (c.number && c.number.split(';').map(n => n.trim()).includes(caseNumber))
           );
 
     let casesModified = 0;
 
     for (const c of toFix) {
-        const caseNums = (c.number || '').split(',').map(n => n.trim()).filter(Boolean);
+        const caseNums = (c.number || '').split(';').map(n => n.trim()).filter(Boolean);
         const mediaNumToFolder = new Map(caseNums.map(n => [toAudioNum(n), n]));
         const label = c.number || c.id || '?';
 
@@ -1418,7 +1418,7 @@ async function main() {
         // Match by docket number (case.number) or by case id suffix.
         const caseObj = cases.find(c =>
             c.number === caseNumber ||
-            (c.number && c.number.split(',').map(n => n.trim()).includes(caseNumber))
+            (c.number && c.number.split(';').map(n => n.trim()).includes(caseNumber))
         );
         if (!caseObj) {
             console.error(`Case ${caseNumber} not found in ${term} cases.json`);

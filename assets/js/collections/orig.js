@@ -1,5 +1,7 @@
 (function () {
-  function caseId(c) { return c.number.split(',')[0].trim(); }
+  // `number` holds one or more dockets joined by ';' (a ',' is a literal
+  // char within a single number, not a delimiter).
+  function caseId(c) { return c.number.split(';')[0].trim(); }
 
   // Grid cells are a fixed 230:400 box. Images at least that wide (relative
   // to height) are cropped to fill it (object-fit: cover — no distortion).

@@ -1243,7 +1243,7 @@ function runVerifyCaseDates(year) {
     // sometimes recorded in the journal under only one side's number, so any
     // one of them counts as found. Falls back to this case's own number(s)
     // when it isn't part of a consolidated-argument group at all.
-    const caseNums = (c.argument_consolidation || c.number).split(',').map(s => s.trim());
+    const caseNums = (c.argument_consolidation || c.number).split(';').map(s => s.trim());
     for (const prop of CASE_DATE_PROPS) {
       const raw = c[prop];
       if (!raw) continue;
@@ -1601,7 +1601,7 @@ async function runVerifyJournalDates(year, { promptMode = false } = {}) {
   const caseByNumber = new Map();
   for (const c of cases) {
     if (!c.number) continue;
-    for (const n of c.number.split(',').map(s => s.trim())) caseByNumber.set(n, c);
+    for (const n of c.number.split(';').map(s => s.trim())) caseByNumber.set(n, c);
   }
   const saveCases = () => writeFileSync(casesPath, JSON.stringify(cases, null, 2) + '\n', 'utf8');
 

@@ -46,7 +46,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { reorderCase } from './schema.js';
+import { reorderCase, splitDockets } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -343,8 +343,7 @@ async function main() {
 
         let modified = false;
         for (const [ref, tagSet] of refMap) {
-            const c = cases.find(x => x && (x.id === ref ||
-                (x.number || '').split(',').map(s => s.trim()).includes(ref)));
+            const c = cases.find(x => x && (x.id === ref || splitDockets(x.number).includes(ref)));
             if (!c) { console.log(`  WARNING: ${term}: case "${ref}" not found`); continue; }
 
             const existing = Array.isArray(c.tags) ? c.tags : [];

@@ -33,6 +33,9 @@ exclude:
   - courts/ussc/people/justices/all/harry_blackmun/_private/
   - courts/ussc/transcripts/pdfs/
   - courts/ussc/transcripts/text/
+  - courts/wasc/indexes/
+  - courts/wasc/people/
+  - courts/wasc/terms/
   - data/misc/
   - scripts/
   - sources/scdb/cache/
@@ -47,3 +50,4 @@ defaults:
       image: /assets/img/aa_exterior1.jpg
 indexes_base_url: http://localhost:4011
 opinions_base_url: http://localhost:4012
+wasc_base_url: http://localhost:4013

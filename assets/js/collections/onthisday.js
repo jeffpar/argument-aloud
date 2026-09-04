@@ -233,13 +233,15 @@
       // unique across the term, else fall back to the case's own id.
       function caseUrlId(caseEntry, allCases) {
         if (caseEntry.number) {
-          var firstNum = caseEntry.number.split(',')[0].trim();
+          // `number` holds one or more dockets joined by ';' (a ',' is a
+          // literal char within one number, not a delimiter).
+          var firstNum = caseEntry.number.split(';')[0].trim();
           var uniqueCount = allCases.filter(function (c) {
-            return c.number && c.number.split(',')[0].trim() === firstNum;
+            return c.number && c.number.split(';')[0].trim() === firstNum;
           }).length;
           if (uniqueCount === 1) return firstNum;
         }
-        return caseEntry.id || (caseEntry.number ? caseEntry.number.split(',')[0].trim() : '');
+        return caseEntry.id || (caseEntry.number ? caseEntry.number.split(';')[0].trim() : '');
       }
 
       function dateMatches(raw, dateStr) {
@@ -283,7 +285,7 @@
       // (no annotation at all) when the case has no docket number.
       function caseNumberAnnotation(number) {
         if (!number) return null;
-        var numbers = number.split(',').map(function (n) { return n.trim(); });
+        var numbers = number.split(';').map(function (n) { return n.trim(); }).filter(Boolean);
         var label = numbers.length > 1 ? 'Nos.' : 'No.';
         function fmt(ns) { return ns.join(', ').replace(/-(?=Orig|Misc)/g, ' '); }
         var shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;

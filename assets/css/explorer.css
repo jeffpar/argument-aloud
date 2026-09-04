@@ -40,13 +40,56 @@ body {
   color: #1a5090;
 }
 
-#page-title {
+#court-select-wrap {
+  position: relative;
   margin-left: 10px;
+  display: inline-flex;
+}
+
+#court-select {
   color: #2672b4;
   font-size: 11px;
   white-space: nowrap;
-  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 4px;
 }
+#court-select::after {
+  content: "\25BE";
+  margin-left: 4px;
+  font-size: 9px;
+  opacity: 0.7;
+}
+#court-select:hover { background: #f0f4f8; }
+
+#court-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #e0e4ea;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 6px 0;
+  min-width: 190px;
+  z-index: 1000;
+}
+#court-menu.open { display: block; }
+
+.court-menu-item {
+  display: block;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.court-menu-item:hover { background: #f0f4f8; }
+.court-menu-item.active { font-weight: 700; color: #2672b4; }
 
 #nav-back-btn, #nav-forward-btn {
   flex-shrink: 0;
@@ -2671,7 +2714,8 @@ button.term-case-count.sort-active:hover {
   #topbar { background: #1a1c22; border-bottom-color: #2d2f38; }
   #site-link  { color: #7bc8f0; }
   #site-link:hover { color: #a8dcf4; }
-  #page-title { color: #fff; }
+  #court-select { color: #fff; }
+  #court-select:hover { background: #252a35; }
   #nav-back-btn, #nav-forward-btn { color: #fff; opacity: 0.4; }
   #nav-back-btn:hover, #nav-forward-btn:hover { opacity: 0.85; }
   #topbar-term { color: #fff; }
@@ -3005,10 +3049,11 @@ button.term-case-count.sort-active:hover {
   #mobile-back-btn { color: #6c7280; }
 
   /* Topbar menu */
-  #topbar-menu { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+  #topbar-menu, #court-menu { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
   .menu-section-label { color: #6c7280; }
-  .menu-item { color: #d0d3dc; }
-  .menu-item:hover { background: #252a35; }
+  .menu-item, .court-menu-item { color: #d0d3dc; }
+  .menu-item:hover, .court-menu-item:hover { background: #252a35; }
+  .court-menu-item.active { color: #7bc8f0; }
   .menu-check { color: #7bc8f0; }
   #menu-btn { opacity: 0.4; }
   #menu-btn:hover { opacity: 0.85; }
@@ -3033,13 +3078,15 @@ html[data-theme="dark"] body { color: #d0d3dc; background: #121318; }
 html[data-theme="dark"] #topbar { background: #1a1c22; border-bottom-color: #2d2f38; }
 html[data-theme="dark"] #site-link  { color: #7bc8f0; }
 html[data-theme="dark"] #site-link:hover { color: #a8dcf4; }
-html[data-theme="dark"] #page-title { color: #fff; }
+html[data-theme="dark"] #court-select { color: #fff; }
+html[data-theme="dark"] #court-select:hover { background: #252a35; }
 html[data-theme="dark"] #nav-back-btn, html[data-theme="dark"] #nav-forward-btn { color: #fff; opacity: 0.4; }
 html[data-theme="dark"] #nav-back-btn:hover, html[data-theme="dark"] #nav-forward-btn:hover { opacity: 0.85; }
 html[data-theme="dark"] #nav-back-btn:disabled, html[data-theme="dark"] #nav-forward-btn:disabled,
 html[data-theme="dark"] #nav-back-btn:disabled:hover, html[data-theme="dark"] #nav-forward-btn:disabled:hover { opacity: 0.15; }
 html[data-theme="dark"] #topbar-term { color: #fff; }
-html[data-theme="light"] #page-title { color: #2672b4; }
+html[data-theme="light"] #court-select { color: #2672b4; }
+html[data-theme="light"] #court-select:hover { background: #f0f4f8; }
 html[data-theme="light"] #nav-back-btn, html[data-theme="light"] #nav-forward-btn { color: #2672b4; opacity: 0.55; }
 html[data-theme="light"] #nav-back-btn:hover, html[data-theme="light"] #nav-forward-btn:hover { opacity: 1; }
 html[data-theme="light"] #nav-back-btn:disabled, html[data-theme="light"] #nav-forward-btn:disabled,
@@ -3047,10 +3094,11 @@ html[data-theme="light"] #nav-back-btn:disabled:hover, html[data-theme="light"] 
 html[data-theme="light"] #topbar-term { color: #2672b4; }
 html[data-theme="dark"] #random-case-btn { opacity: 0.4; }
 html[data-theme="dark"] #random-case-btn:hover { opacity: 0.85; }
-html[data-theme="dark"] #topbar-menu { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+html[data-theme="dark"] #topbar-menu, html[data-theme="dark"] #court-menu { background: #1e2130; border-color: #3a3d4a; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
 html[data-theme="dark"] .menu-section-label { color: #6c7280; }
-html[data-theme="dark"] .menu-item { color: #d0d3dc; }
-html[data-theme="dark"] .menu-item:hover { background: #252a35; }
+html[data-theme="dark"] .menu-item, html[data-theme="dark"] .court-menu-item { color: #d0d3dc; }
+html[data-theme="dark"] .menu-item:hover, html[data-theme="dark"] .court-menu-item:hover { background: #252a35; }
+html[data-theme="dark"] .court-menu-item.active { color: #7bc8f0; }
 html[data-theme="dark"] .menu-check { color: #7bc8f0; }
 html[data-theme="dark"] #menu-btn { opacity: 0.4; }
 html[data-theme="dark"] #menu-btn:hover { opacity: 0.85; }
@@ -3278,10 +3326,11 @@ html[data-theme="light"] #site-link  { color: #2672b4; }
 html[data-theme="light"] #site-link:hover { color: #1a5090; }
 html[data-theme="light"] #random-case-btn { opacity: 0.55; }
 html[data-theme="light"] #random-case-btn:hover { opacity: 1; }
-html[data-theme="light"] #topbar-menu { background: #fff; border-color: #e0e4ea; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+html[data-theme="light"] #topbar-menu, html[data-theme="light"] #court-menu { background: #fff; border-color: #e0e4ea; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 html[data-theme="light"] .menu-section-label { color: #888; }
-html[data-theme="light"] .menu-item { color: #333; }
-html[data-theme="light"] .menu-item:hover { background: #f0f4f8; }
+html[data-theme="light"] .menu-item, html[data-theme="light"] .court-menu-item { color: #333; }
+html[data-theme="light"] .menu-item:hover, html[data-theme="light"] .court-menu-item:hover { background: #f0f4f8; }
+html[data-theme="light"] .court-menu-item.active { color: #2672b4; }
 html[data-theme="light"] .menu-check { color: #2672b4; }
 html[data-theme="light"] #menu-btn { opacity: 0.55; }
 html[data-theme="light"] #menu-btn:hover { opacity: 1; }

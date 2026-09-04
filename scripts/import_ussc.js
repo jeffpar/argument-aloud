@@ -30,7 +30,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parse as parseHtml } from 'node-html-parser';
 
-import { reorderCase, reorderEvent } from './schema.js';
+import { reorderCase, reorderEvent, splitDockets, primaryDocket } from './schema.js';
 import {
     REPO_ROOT, checkUrl, waybackPdfUrl, fetchOpinions, checkOpinionForCase,
     syncFilesCount, syncOpinionHrefFromFiles, setVerbose as setVcVerbose, sortCases,
@@ -231,7 +231,7 @@ function _normalizeNumber(num) {
 }
 
 function _caseFolder(number) {
-    return String(number || '').split(',')[0].trim();
+    return primaryDocket(number);
 }
 
 const _USSC_HREF_NUM_RE = /\/(?:argument_transcripts|transcripts)\/\d+\/([^/]+)\.pdf/i;
@@ -963,7 +963,7 @@ async function fetchTranscriptsFromUrl(url, yearStr = '') {
 }
 
 function _docketUrl(number, termYear = '') {
-    const primary = number.split(',')[0].trim();
+    const primary = primaryDocket(number);
     const internal = _docketNumber(primary, termYear);
     const yearInt = /^\d+$/.test(termYear) ? parseInt(termYear, 10) : 0;
     const isOrig  = ORIG_RE.test(primary);
@@ -1118,7 +1118,7 @@ async function importProspectiveCases(casesPath, yearStr) {
     const existing = exists(casesPath) ? readJson(casesPath) : [];
     const existingNumbers = new Set();
     for (const c of existing) {
-        for (const part of (c.number || '').split(',')) existingNumbers.add(part.trim());
+        for (const part of splitDockets(c.number)) existingNumbers.add(part.trim());
     }
 
     const added = [];
@@ -1170,7 +1170,7 @@ function _loadTermNumbers(casesPath) {
     try { data = readJson(casesPath); } catch { return new Set(); }
     const numbers = new Set();
     for (const c of data) {
-        for (const part of (c.number || '').split(',')) {
+        for (const part of splitDockets(c.number)) {
             const n = part.trim();
             if (n) numbers.add(n);
         }
@@ -1203,7 +1203,7 @@ function _checkPreviouslyFiled(_currentTerm, caseNumber, laterTerm, termsRoot) {
     }
     const { data } = _laterTermDataCache.get(laterTerm);
     for (const c of data) {
-        const nums = (c.number || '').split(',').map(s => s.trim());
+        const nums = splitDockets(c.number);
         if (!nums.includes(caseNumber)) continue;
         const pf = c.previouslyFiled;
         if (!pf) {
@@ -1239,7 +1239,7 @@ async function updateCasesJson(casesPath, newCases, year, laterTermNumbers = nul
     }
     const existingNumbers = new Set();
     for (const c of existing) {
-        for (const part of (c.number || '').split(',')) existingNumbers.add(part.trim());
+        for (const part of splitDockets(c.number)) existingNumbers.add(part.trim());
     }
 
     let modified = false;
@@ -1301,7 +1301,7 @@ async function updateCasesJson(casesPath, newCases, year, laterTermNumbers = nul
         const scraped = scrapedByNum.get(c.number);
         if (!scraped || !scraped.detail_url) {
             // Consolidated case fallback
-            if ((c.number || '').includes(',')) {
+            if ((c.number || '').includes(';')) {
                 for (const arg of (c.events || [])) {
                     if ((arg.source || 'ussc') !== 'ussc') continue;
                     if (arg.audio_url || !arg.transcript_url) continue;
@@ -1384,7 +1384,7 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
         const filesPath = path.join(path.dirname(casesPath), 'cases', _caseFolder(number), 'files.json');
 
         process.stdout.write(`Fetching docket for ${number} ... `);
-        const subNumbers = number.split(',').map(n => n.trim()).filter(Boolean);
+        const subNumbers = splitDockets(number);
         const infos = [];
         for (const sub of subNumbers) {
             const subInfo = await fetchDocketInfo(sub, termYear);
@@ -1458,9 +1458,9 @@ async function generateMissingTranscripts(casesPath, caseFilter = null, force = 
     // Collision pre-pass.
     for (const c of existing) {
         if (!('number' in c)) continue;
-        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
+        if (caseFilter && !splitDockets(c.number).includes(caseFilter)) continue;
         const folder = _caseFolder(c.number);
-        const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+        const caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
         const byDate = new Map();
         for (const arg of (c.events || [])) {
             if ((arg.source || 'ussc') !== 'ussc') continue;
@@ -1516,7 +1516,7 @@ async function generateMissingTranscripts(casesPath, caseFilter = null, force = 
         }
 
         if (!('number' in c)) continue;
-        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
+        if (caseFilter && !splitDockets(c.number).includes(caseFilter)) continue;
 
         for (const arg of (c.events || [])) {
             if ((arg.source || 'ussc') !== 'ussc') continue;
@@ -1527,7 +1527,7 @@ async function generateMissingTranscripts(casesPath, caseFilter = null, force = 
 
             const existingTh = arg.text_file || '';
             let componentNum = _ussCcaseNumFromHref(pdfUrl, existingTh);
-            const _caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            const _caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
             if (!componentNum || !_caseNorms.includes(componentNum)) {
                 componentNum = _caseFolder(c.number);
             }
@@ -1603,9 +1603,9 @@ async function generateMissingTranscripts(casesPath, caseFilter = null, force = 
     // Supplementary pass: backfill/strip "in No. N" for consolidated cases.
     for (const c of existing) {
         if (!('number' in c)) continue;
-        if (caseFilter && !c.number.split(',').map(n => n.trim()).includes(caseFilter)) continue;
-        if (!(c.number || '').includes(',')) continue;
-        const comps = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+        if (caseFilter && !splitDockets(c.number).includes(caseFilter)) continue;
+        if (!(c.number || '').includes(';')) continue;
+        const comps = splitDockets(c.number).map(n => _normalizeNumber(n));
         const dateCounts = new Map();
         for (const a of (c.events || [])) {
             if ((a.source || 'ussc') !== 'ussc') continue;
@@ -1653,7 +1653,7 @@ async function _ensureEventTranscript(casesPath, c, arg, term) {
     }
     const pdfUrl = arg.transcript_url;
     const date   = arg.date;
-    const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+    const caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
     let componentNum = _ussCcaseNumFromHref(pdfUrl, existingTh);
     if (!componentNum || !caseNorms.includes(componentNum)) componentNum = _caseFolder(c.number);
     if (pdfUrl.includes('/pdfs/transcripts/')) {
@@ -1878,7 +1878,7 @@ function _findCaseInLaterTerms(termsRoot, currentYear, rowNorm, rowDate, lookahe
         try { cases = readJson(cp); } catch { continue; }
         for (const c of cases) {
             if (!('number' in c)) continue;
-            const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            const caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
             if (!caseNorms.includes(rowNorm)) continue;
             const argDates = new Set();
             for (const field of ['argument', 'reargument']) {
@@ -2007,7 +2007,7 @@ async function importTranscriptPdfs(casesPath, yearStr, laterTermNumbers = null)
 
     for (const c of existing) {
         if (!('number' in c)) continue;
-        const caseNorms = c.number.split(',').map(n => _normalizeNumber(n));
+        const caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
         const seenRowKeys = new Set();
         const rows = [];
         for (const cn of caseNorms) {
@@ -2111,7 +2111,7 @@ async function importTranscriptPdfs(casesPath, yearStr, laterTermNumbers = null)
     const existingNumbers = new Set();
     for (const c of existing) {
         if (!('number' in c)) continue;
-        for (const n of c.number.split(',')) existingNumbers.add(_normalizeNumber(n.trim()));
+        for (const n of splitDockets(c.number)) existingNumbers.add(_normalizeNumber(n));
     }
     const newByNum = new Map();
     const termsRoot = path.dirname(path.dirname(casesPath));
@@ -2275,7 +2275,7 @@ async function compareUsscOyezSpeakers(casesPath, caseFilter = null) {
     for (const c of existing) {
         if (!('number' in c)) continue;
         if (caseFilter) {
-            const caseNorms = c.number.split(',').map(n => _normalizeNumber(n.trim()));
+            const caseNorms = splitDockets(c.number).map(n => _normalizeNumber(n));
             if (!caseNorms.includes(_normalizeNumber(caseFilter))) continue;
         }
         for (const arg of (c.events || [])) {
@@ -2361,7 +2361,7 @@ async function importOpinionCases(casesPath, term) {
     // Build a lowercase set of all normalized case numbers already present.
     const existingLower = new Set();
     for (const c of data) {
-        for (const part of (c.number || '').split(',')) {
+        for (const part of splitDockets(c.number)) {
             existingLower.add(_normalizeNumber(part.trim()).toLowerCase());
         }
     }
@@ -2536,7 +2536,7 @@ async function importRelatingToOrdersCases(casesPath, term) {
 
     for (const [numLower, groupRows] of byNumber) {
         let matchedCase = data.find(c =>
-            (c.number || '').split(',').some(p => _normalizeNumber(p.trim()).toLowerCase() === numLower));
+            splitDockets(c.number).some(p => _normalizeNumber(p).toLowerCase() === numLower));
 
         if (!matchedCase) {
             if (!ADD_CASES) {
@@ -2704,8 +2704,8 @@ async function backfillOpinionHrefs(casesPath, term) {
         const number = c.number || '';
         if (!number) continue;
         let opinion = null;
-        for (const part of number.split(',')) {
-            opinion = opinions[part.trim().toLowerCase()];
+        for (const part of splitDockets(number)) {
+            opinion = opinions[part.toLowerCase()];
             if (opinion) break;
         }
         if (!opinion) continue;
@@ -2868,7 +2868,7 @@ async function importMediaFiles(termsRoot) {
         // Find matching case in the term's cases.json
         const cases = getCases(currentTerm);
         const matchedCase = cases.find(c => {
-            const numbers = String(c.number || '').split(',').map(s => s.trim());
+            const numbers = StringsplitDockets(c.number);
             return numbers.includes(docket);
         });
 
@@ -2919,7 +2919,7 @@ async function importCitedUrls(casesPath, term) {
 
     const caseByNumber = new Map();
     for (const c of data) {
-        for (const part of (c.number || '').split(',')) {
+        for (const part of splitDockets(c.number)) {
             const n = _normalizeNumber(part.trim());
             if (n) caseByNumber.set(n.toLowerCase(), c);
         }
@@ -3087,7 +3087,7 @@ async function importOriginalJurisdictionFiles(casesPath, caseFilter, sourceCase
         let caseModified = false;
         for (let i = 0; i < cases.length; i++) {
             const c = cases[i];
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             if (!nums.includes(caseFilter)) continue;
             if (Array.isArray(c.tags)) {
                 if (!c.tags.includes(TAG)) {
@@ -3133,7 +3133,7 @@ async function importAllMissingOriginalJurisdictionFiles() {
             if (c.files) continue;   // documents already fetched
             if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) continue;
 
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             const caseFilter = nums.find(n => ORIG_RE.test(n));
             if (!caseFilter) continue;
 

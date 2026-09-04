@@ -23,7 +23,7 @@ import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 
-import { reorderEvent, reorderCase } from './schema.js';
+import { reorderEvent, reorderCase, splitDockets, primaryDocket } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -70,7 +70,7 @@ export function computeArguedWithSkipSet(cases) {
         return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';
     };
     const firstDocketNum = (cc) => {
-        const raw = (cc.number || '').split(',')[0].trim();
+        const raw = primaryDocket(cc.number);
         const parts = raw.split('-');
         return parseInt(parts[parts.length - 1], 10) || 0;
     };
@@ -104,8 +104,8 @@ export function computeArguedWithSkipSet(cases) {
  * already resolves unambiguously.
  */
 function caseUrlNumber(c, siblingCases) {
-    const num = (c.number || '').split(',')[0].trim();
-    if (num && siblingCases.filter(s => (s.number || '').split(',')[0].trim() === num).length === 1) {
+    const num = primaryDocket(c.number);
+    if (num && siblingCases.filter(s => primaryDocket(s.number) === num).length === 1) {
         return num;
     }
     return c.id || num;
@@ -395,7 +395,7 @@ function normalizeTranscript(transcript) {
 // ── Other helpers ──────────────────────────────────────────────────────────
 
 function caseFolderNumber(s) {
-    return (s || '').split(',')[0].trim();
+    return primaryDocket(s);
 }
 
 function loadExisting() {
@@ -498,7 +498,7 @@ function writeCsvNonnumeric(headers, rows) {
 const _JM_YEAR_SUFFIX_RE = /\s+\((\d{4})\)$/;
 
 function _jmNormalizeCaseNumber(raw) {
-    const first = String(raw).split(',')[0].trim();
+    const first = primaryDocket(raw);
     const m = first.match(/^(\d+)\s*[-\u2013]?\s*(Misc|Orig)\.?$/i);
     if (m) return `${m[1]}-${m[2].charAt(0).toUpperCase() + m[2].slice(1).toLowerCase()}`;
     return first;
@@ -551,8 +551,7 @@ function _jmBuildCaseIndices(termDirs) {
         let cases;
         try { cases = readJson(cf); } catch { continue; }
         for (const c of cases) {
-            const raw = String(c.number || '').trim();
-            const number = raw.split(',')[0].trim();
+            const number = primaryDocket(c.number);
             const effectiveKey = number || String(c.id || '').trim();
             byKey.set(`${term}/${effectiveKey}`, c);
             const cite = String(c.citation || '').trim();
@@ -622,7 +621,7 @@ function syncJusticeAdvocates(termDirs, { verbose = false } = {}) {
             // re ___" petition) falls back to its own id — same convention as
             // _jmBuildCaseIndices()'s byKey and the main advocate-list loop's
             // caseEntry.number below, so the two line up as the same key.
-            const number = String(c.number || '').split(',')[0].trim() || String(c.id || '').trim();
+            const number = primaryDocket(c.number) || String(c.id || '').trim();
             // Accumulate per-justice, per-type: dates and event indices for this case.
             const accumByJustice = new Map(); // justiceDisp -> {argument:{dates,idxs}, reargument:{dates,idxs}}
 
@@ -920,9 +919,9 @@ function _jnlDateSection(journalText, isoDate) {
 }
 
 /** Test whether a journal section contains a reference to any of the case's numbers.
- *  Handles consolidated numbers ("70-161,70-5211") and Orig suffixes ("59-Orig"). */
+ *  Handles consolidated numbers ("70-161;70-5211") and Orig suffixes ("59-Orig"). */
 function _jnlHasCaseNum(section, caseNumber) {
-    const parts = caseNumber.split(',').map(s => s.trim()).filter(Boolean);
+    const parts = splitDockets(caseNumber);
     for (const part of parts) {
         const origMatch = part.match(/^(\d+)-Orig(?:in(?:al)?)?$/i);
         let re;
@@ -1856,12 +1855,11 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             // title doesn't isolate one of the listed sub-dockets (e.g.
             // multi-part argument blocks).
             const eventSubDocket = (ev) => {
-                if (!number || !number.includes(',')) return '';
+                if (!number || !number.includes(';')) return '';
                 const m = (ev.title || '').match(/\bNo\.\s*([\w-]+)/i);
                 if (!m) return '';
                 const sub = m[1];
-                const parts = number.split(',').map(s => s.trim());
-                return parts.includes(sub) ? sub : '';
+                return splitDockets(number).includes(sub) ? sub : '';
             };
 
             // Keyed as `${date}|${subDocket}` so that USSC events for a
@@ -2057,7 +2055,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const dateFieldName = resolvedAudio.type === 'reargument' ? 'reargument' : 'argument';
                     let entryTitle = title;
                     if (subKey) {
-                        const numParts   = number.split(',').map(n => n.trim());
+                        const numParts   = splitDockets(number);
                         const titleParts = (c.title || '').split(';').map(t => t.trim());
                         const subIdx     = numParts.indexOf(subKey);
                         if (subIdx !== -1 && subIdx < titleParts.length) entryTitle = titleParts[subIdx];
@@ -2719,7 +2717,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                     const journalRef = journalTerm === caseTerm ? page : `${journalTerm}:${page}`;
                     const argDates = new Set(argDate.split(',').map(s => s.trim()).filter(Boolean));
                     for (const c of caseData) {
-                        const nums = (c.number || '').split(',').map(s => s.trim());
+                        const nums = splitDockets(c.number);
                         if (!nums.includes(caseNum)) continue;
                         for (let ei = 0; ei < (c.events || []).length; ei++) {
                             const ev = c.events[ei];

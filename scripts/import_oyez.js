@@ -27,7 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { reorderEvent } from './schema.js';
+import { reorderEvent, splitDockets, primaryDocket } from './schema.js';
 import { syncFilesCount } from './update_cases.js';
 
 const __dirname  = path.dirname(fileURLToPath(import.meta.url));
@@ -201,10 +201,7 @@ function loadTermNumbers(casesPath) {
     try { data = readJson(casesPath); } catch { return new Set(); }
     const out = new Set();
     for (const c of data) {
-        for (const part of (c.number || '').split(',')) {
-            const n = part.trim();
-            if (n) out.add(n);
-        }
+        for (const n of splitDockets(c.number)) out.add(n);
     }
     return out;
 }
@@ -233,7 +230,7 @@ function checkPreviouslyFiled(currentTerm, caseNumber, laterTerm, termsRoot) {
     }
     const data = _laterTermDataCache[laterTerm];
     for (const c of data) {
-        const nums = (c.number || '').split(',').map(s => s.trim());
+        const nums = splitDockets(c.number);
         if (!nums.includes(caseNumber)) continue;
         const pf = c.previouslyFiled;
         if (!pf) {
@@ -632,10 +629,10 @@ async function main() {
     }
     for (const c of ourCases) {
         if (!('number' in c)) continue;
-        const parts = c.number.split(',');
+        const parts = splitDockets(c.number);
         if (parts.length > 1) {
             for (const n of parts) {
-                const nn = normalizeCaseNum(n.trim());
+                const nn = normalizeCaseNum(n);
                 if (!(nn in ourByNum)) ourByNum[nn] = c;
             }
         }
@@ -706,10 +703,10 @@ async function main() {
             if (!anyMatches) localCase = null;
         }
         const localNumber = localCase ? (localCase.number || '') : '';
-        const isConsolidated = localNumber.includes(',');
+        const isConsolidated = localNumber.includes(';');
         let caseNumForTitle = '';
         if (isConsolidated) {
-            const comps = localNumber.split(',').map(n => normalizeCaseNum(n.trim()));
+            const comps = splitDockets(localNumber).map(n => normalizeCaseNum(n));
             const oyezComps = comps.filter(cn => cn in oyezByNum);
             caseNumForTitle = oyezComps.length > 1 ? number : '';
         }
@@ -802,8 +799,8 @@ async function main() {
                 const laterData = _redirFiles.get(laterCasesPath) || [];
                 const oyezDocket = normalizeCaseNum(oyezCase.docket_number || number);
                 const laterLocal = laterData.find(c => {
-                    const nums = (c.number || '').split(',')
-                        .map(s => normalizeCaseNum(s.trim()))
+                    const nums = splitDockets(c.number)
+                        .map(s => normalizeCaseNum(s))
                         .filter(Boolean);
                     if (!nums.includes(number)) return false;
                     // Same /cases/YYYY/DOCKET guard as above.
@@ -1029,7 +1026,7 @@ async function main() {
         if (localCase) {
             const hasUnique = (localCase.events || []).some(a => a.unique);
             const isSecondary = isConsolidated
-                && number !== normalizeCaseNum(localNumber.split(',')[0].trim());
+                && number !== normalizeCaseNum(primaryDocket(localNumber));
             const existingOpinionDates = new Set();
             if (isSecondary) {
                 for (const a of localCase.events || []) {
@@ -1140,8 +1137,8 @@ async function main() {
     // ── Supplementary pass: consolidated cases ──
     for (const localCase of ourCases) {
         const localNumber = localCase.number || '';
-        if (!localNumber.includes(',')) continue;
-        const componentNums = localNumber.split(',').map(n => normalizeCaseNum(n.trim()));
+        if (!localNumber.includes(';')) continue;
+        const componentNums = splitDockets(localNumber).map(n => normalizeCaseNum(n));
         const oyezComponentNums = componentNums.filter(cn => cn in oyezByNum);
         const useCaseNums = oyezComponentNums.length > 1;
         // Note: existing events' titles are never rewritten here to add/remove an

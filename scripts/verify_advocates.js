@@ -431,7 +431,7 @@ function main() {
     // Case numbers may be comma-separated (consolidated); index every one.
     const ourByNumber = new Map();
     for (const c of ourCases) {
-        const numbers = (c.number || '').split(',').map(s => s.trim()).filter(Boolean);
+        const numbers = (c.number || '').split(';').map(s => s.trim()).filter(Boolean);
         for (const num of numbers) {
             const key = normDocket(num).toUpperCase();
             if (!ourByNumber.has(key)) ourByNumber.set(key, []);
@@ -482,7 +482,7 @@ function main() {
         // Compare JSON → page
         const pageNumbers = new Set(pageCases.map(pc => normDocket(pc.number).toUpperCase()));
         const jsonOnly = ourCases.filter(c => {
-            const numbers = (c.number || '').split(',').map(s => s.trim()).filter(Boolean);
+            const numbers = (c.number || '').split(';').map(s => s.trim()).filter(Boolean);
             return numbers.every(n => !pageNumbers.has(normDocket(n).toUpperCase()));
         });
         jsonOnly.sort((a, b) => b.term.localeCompare(a.term));
@@ -744,7 +744,7 @@ function main() {
                 if (tc.id && tc.id === c.number) return true;
                 if (!tc.number) return false;
                 return tc.number === c.number ||
-                    tc.number.split(',').map(n => n.trim()).includes(c.number);
+                    tc.number.split(';').map(n => n.trim()).includes(c.number);
             });
 
             const title = (caseEntry?.title || c.title || null);
@@ -806,11 +806,11 @@ function main() {
                 if (tc.id && tc.id === c.number) return true;
                 if (!tc.number) return false;
                 return tc.number === c.number ||
-                    tc.number.split(',').map(n => n.trim()).includes(c.number);
+                    tc.number.split(';').map(n => n.trim()).includes(c.number);
             });
             if (!caseEntry) continue;
             // Only care about consolidated cases (multiple dockets).
-            if (!caseEntry.number || !caseEntry.number.includes(',')) continue;
+            if (!caseEntry.number || !caseEntry.number.includes(';')) continue;
             // Deduplicate: each consolidated case entry is only reported once.
             const caseId = caseEntry.id || caseEntry.number;
             if (seenCaseIds.has(caseId)) continue;

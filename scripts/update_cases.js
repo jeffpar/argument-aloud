@@ -77,6 +77,7 @@ import { promisify } from 'node:util';
 import {
     CASE_KEY_ORDER, EVENT_KEY_ORDER, ADVOCATE_KEY_ORDER,
     caseKeyOrder, reorderCase, reorderEvent, reorderAdvocate, reorderVote,
+    splitDockets, primaryDocket,
 } from './schema.js';
 
 import { syncAdvocates as _syncAdvocatesFromScript, computeArguedWithSkipSet } from './update_advocates.js';
@@ -423,16 +424,16 @@ export async function checkOpinionForCase(filesPath, caseNumber, term, printHead
 }
 
 function _caseFolder(numberOrId) {
-    return String(numberOrId || '').split(',')[0].trim();
+    return primaryDocket(numberOrId);
 }
 
 // The web app resolves a case by its first docket number alone (or by id when
-// there is no number) even for consolidated cases with several comma-joined
+// there is no number) even for consolidated cases with several ';'-joined
 // numbers, so collection-style output files (noteworthy.json, transcripts.json,
 // briefs.json, audits.json, the per-justice people/justices/*.json sets, etc.)
-// only need to record that one number — never the full comma-joined list.
+// only need to record that one number — never the full ';'-joined list.
 function _primaryCaseNumber(c) {
-    return (c.number || c.id || '').split(',')[0].trim();
+    return primaryDocket(c.number) || (c.id || '');
 }
 
 // "files" and "references" partition a case's own files.json entries: every
@@ -594,8 +595,10 @@ function _sortStr(arr) {
     return [...arr].sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
 }
 
+// Docket numbers in `number` / `argument_consolidation` are ';'-joined (a ','
+// is a literal character within a single number, never a delimiter).
 function _splitNumbers(raw) {
-    return String(raw || '').split(',').map(s => s.trim()).filter(Boolean);
+    return splitDockets(raw);
 }
 
 function _parseDateField(value) {
@@ -3415,7 +3418,7 @@ function sortCases(term, cases, dryRun) {
         return dates.length ? dates.reduce((a, b) => b > a ? b : a) : '';
     };
     const firstDocketNum = (c) => {
-        const raw = (c.number || '').split(',')[0].trim();
+        const raw = primaryDocket(c.number);
         const parts = raw.split('-');
         return parseInt(parts[parts.length - 1], 10) || 0;
     };
@@ -4240,7 +4243,7 @@ function verifySpeakersInTranscripts(casesPath, term, caseFilter, dryRun) {
     for (const c of cases) {
         const folder = _caseFolder(c.number || c.id || '');
         if (caseFilter && folder !== caseFilter && c.id !== caseFilter &&
-            !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+            !splitDockets(c.number).includes(caseFilter)) continue;
 
         for (const ev of c.events || []) {
             const th = ev.text_file || '';
@@ -5355,7 +5358,7 @@ function processJusticeAdvocates(allTerms, dryRun) {
         let addedForThisJustice = 0;
         for (const cd of byCase.values()) {
         // Check if already in group.cases (normalize to first docket number).
-            const normNum = n => String(n || '').split(',')[0].trim();
+            const normNum = n => primaryDocket(n);
             const already = group.cases.some(
                 e => String(e.term) === cd.term && normNum(e.number) === normNum(cd.number));
             if (already) continue;
@@ -5424,7 +5427,7 @@ function _firstDate(s) {
 
 function _normalizeDocket(d) {
     if (!d) return '';
-    let docket = String(d).split(',')[0].trim();
+    let docket = primaryDocket(d);
     docket = docket.replace(/^(\d+)\s+ORIG$/i, '$1-Orig');
     return docket;
 }
@@ -5456,7 +5459,7 @@ const _CASE_ENTRY_FIELDS = new Set(
 function _buildOrigGallery(c, term) {
     if (!c.files && !c.references) return null;
     if (!(Array.isArray(c.tags) && c.tags.includes('Original Jurisdiction Archive'))) return null;
-    const caseId = (c.number || '').split(',').map(s => s.trim()).find(n => /^\d+-Orig$/i.test(n));
+    const caseId = splitDockets(c.number).find(n => /^\d+-Orig$/i.test(n));
     if (!caseId) return null;
     const filesPath = path.join(TERMS_DIR, term, 'cases', caseId, 'files.json');
     let entries;
@@ -5515,7 +5518,7 @@ function _loadExtraFieldsByKey(filePath, declaredFields = null) {
     for (const group of data) {
         for (const c of (group.cases || [])) {
             const term = (c.term   || '').trim();
-            const num  = (c.number || '').split(',')[0].trim();
+            const num  = primaryDocket(c.number);
             if (!term || !num) continue;
             const extra = {};
             for (const k of Object.keys(c)) {
@@ -6886,7 +6889,7 @@ function _matchesCaseConditions(c, conditions, termDir = '') {
     for (const cond of conditions) {
         if (!cond) continue;
         if (cond.type === 'fileCount') {
-            const folder = (c.number || c.id || '').split(',')[0].trim();
+            const folder = (primaryDocket(c.number) || c.id || '');
             if (!folder) return false;
             const filesPath = path.join(termDir, 'cases', folder, 'files.json');
             const files = _loadFilesCached(filesPath);
@@ -7118,7 +7121,7 @@ function _casesByConditions(allTerms, requiredTags, conditions, filter = {}, ext
             }
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
             if (!matchesConditions(c, termDir)) continue;
-            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            const key = `${term}\u0000${(primaryDocket(c.number) || c.id || '')}`;
             const entry = _setCaseEntry(c, term, extraByKey?.get(key), fields);
             if (hasFileCount) {
                 const info = _findFirstEventAndTurn(c, flatConditions, termDir);
@@ -7178,7 +7181,7 @@ function _casesByTags(allTerms, requiredTags, filter = {}, extraByKey = null, or
             if (!Array.isArray(c.tags)) continue;
             if (!requiredTags.every(t => c.tags.includes(t))) continue;
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            const key = `${term}\u0000${(primaryDocket(c.number) || c.id || '')}`;
             cases.push(_setCaseEntry(c, term, extraByKey?.get(key), fields));
         }
     }
@@ -7209,7 +7212,7 @@ function _casesByTagPrefix(allTerms, prefix, filter = {}, extraByKey = null, ord
             const count = c.tags.filter(t => typeof t === 'string' && t.startsWith(prefix)).length;
             if (!count) continue;
             if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-            const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+            const key = `${term}\u0000${(primaryDocket(c.number) || c.id || '')}`;
             const entry = _setCaseEntry(c, term, extraByKey?.get(key), fields);
             entry.popularity = Math.max(1, (TAG_PREFIX_MAX + 1) - count);
             cases.push(entry);
@@ -7302,7 +7305,7 @@ function _buildTagsCollection(allTerms, collEntry, filePath = null) {
                         if (!Array.isArray(c.tags)) continue;
                         if (!requiredTags.every(t => c.tags.includes(t))) continue;
                         if (filter.decision && !(c.decision || '').includes(filter.decision)) continue;
-                        const key = `${term}\u0000${(c.number || c.id || '').split(',')[0].trim()}`;
+                        const key = `${term}\u0000${(primaryDocket(c.number) || c.id || '')}`;
                         const entry = _setCaseEntry(c, term, extraByKey?.get(key), g.fields);
                         if (prefix) {
                             const n = c.tags.filter(t => typeof t === 'string' && t.startsWith(prefix)).length;
@@ -7424,8 +7427,66 @@ function processCollectionSets(allTerms, dryRun) {
     }
 }
 
+// ── Multi-court case indexes ─────────────────────────────────────────────────
+// The case indexes (title / number / citation / on-this-day / keyword) are
+// built per court. `ussc` is the default and its data lives at courts/ussc/…;
+// every other court listed in courts/courts.json keeps ALL of its data —
+// these indexes included — consolidated under courts/<id>/ (see the front end's
+// caseIndexUrl(): ussc indexes are offloaded to index.argumentaloud.org, but
+// other courts serve theirs from their own consolidated data origin, e.g.
+// wasc.argumentaloud.org). Only title + number are built for non-ussc courts
+// for now — their cases carry no citations or transcripts yet.
+const COURTS_JSON = path.join(REPO_ROOT, 'courts', 'courts.json');
+
+function _courtIndexPaths(court = 'ussc') {
+    return {
+        termsDir:   path.join(REPO_ROOT, 'courts', court, 'terms'),
+        indexesDir: path.join(REPO_ROOT, 'courts', court, 'indexes', 'cases'),
+    };
+}
+
+// Court ids from courts/courts.json other than ussc (which every other code
+// path here handles). Returns [] if the file is missing or unreadable.
+// courts.json carries a Jekyll front-matter header (so `base` can interpolate
+// `{{ site.wasc_base_url }}` at build time) — strip it before parsing.
+function _otherCourts() {
+    let list;
+    try {
+        const raw = fs.readFileSync(COURTS_JSON, 'utf8').replace(/^---\r?\n([\s\S]*?\r?\n)?---\r?\n/, '');
+        list = JSON.parse(raw);
+    } catch { return []; }
+    if (!Array.isArray(list)) return [];
+    return list.map(c => c && c.id).filter(id => id && id !== 'ussc');
+}
+
+// Term keys for a court, oldest-first, parsed from its terms.json the same
+// decade-grouped way as ussc's (page.term, else the term segment of page.file's
+// URL). Works for both YYYY (wasc) and YYYY-MM (ussc) term keys.
+function _courtTerms(court) {
+    try {
+        const tj = _readJson(path.join(REPO_ROOT, 'courts', court, 'terms', 'terms.json'));
+        if (!Array.isArray(tj)) return [];
+        return tj.flatMap(decade => (decade.groups || []).map(page => {
+            if (page.term) return page.term;
+            const m = /\/terms\/([^/]+)\/cases\.json$/.exec(page.file || (typeof page.cases === 'string' ? page.cases : '') || '');
+            return m ? m[1] : null;
+        })).filter(Boolean);
+    } catch { return []; }
+}
+
+// Build the title + number case indexes for every non-ussc court in
+// courts.json, each written under courts/<id>/indexes/cases/.
+function processOtherCourtIndexes(dryRun) {
+    for (const court of _otherCourts()) {
+        const terms = _courtTerms(court);
+        if (!terms.length) continue;
+        processTitleIndex(terms, dryRun, court);
+        processNumberIndex(terms, dryRun, court);
+    }
+}
+
 // ── Title word index ──────────────────────────────────────────────────────────
-// Builds courts/ussc/indexes/cases/titles/{aa,ab,...,zz,1a,...}.json.
+// Builds courts/<court>/indexes/cases/titles/{aa,ab,...,zz,1a,...}.json.
 // Each file maps every word that begins with that two-letter prefix (across all
 // case titles in every term) to a sorted array of ref strings.  For standard
 // October terms where c.id starts with the term year (e.g. "2019-036" in
@@ -7435,8 +7496,9 @@ function processCollectionSets(allTerms, dryRun) {
 // Within each file, words are ordered by frequency (most cases first).
 // Files are written compact (no indentation).
 
-function processTitleIndex(allTerms, dryRun) {
-    const INDEX_DIR = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'titles');
+function processTitleIndex(allTerms, dryRun, court = 'ussc') {
+    const { termsDir, indexesDir } = _courtIndexPaths(court);
+    const INDEX_DIR = path.join(indexesDir, 'titles');
     if (!dryRun && !fs.existsSync(INDEX_DIR)) {
         fs.mkdirSync(INDEX_DIR, { recursive: true });
     }
@@ -7445,7 +7507,7 @@ function processTitleIndex(allTerms, dryRun) {
     const wordRefs = new Map();
 
     for (const term of allTerms) {
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        const casesPath = path.join(termsDir, term, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
         let cases;
         try { cases = _readJson(casesPath); } catch { continue; }
@@ -7496,25 +7558,30 @@ function processTitleIndex(allTerms, dryRun) {
         }
     }
 
-    if (written) console.log(`Title index: wrote ${written} file(s) in courts/ussc/indexes/cases/titles/`);
+    if (written) console.log(`Title index: wrote ${written} file(s) in courts/${court}/indexes/cases/titles/`);
 }
 
-// Builds courts/ussc/indexes/cases/numbers.json.
-// Maps each individual docket number (from the comma-separated "number" field)
-// to a sorted array of ref strings using the same shortened-ref convention as
-// processTitleIndex.  Normalization: lowercase; a hyphen immediately before
-// "Orig" or "Misc" is replaced with a space so that "22-Orig" and "22 orig"
-// both resolve to the index key "22 orig".
+// Builds courts/<court>/indexes/cases/numbers.json.
+// Maps each docket number to a sorted array of ref strings using the same
+// shortened-ref convention as processTitleIndex.  Normalization: lowercase; a
+// hyphen immediately before "Orig" or "Misc" is replaced with a space so that
+// "22-Orig" and "22 orig" both resolve to the index key "22 orig".
+// The comma in a "number" field means different things by court: for ussc it
+// separates several dockets one case is filed under (each indexed on its own).
+// A ',' is never a delimiter — it's a literal character within a single docket
+// number (e.g. wasc's "200,262-5" thousands separator), stripped from the key.
 // File is written compact (no indentation).
 
-function processNumberIndex(allTerms, dryRun) {
-    const OUT_FILE = path.join(REPO_ROOT, 'courts', 'ussc', 'indexes', 'cases', 'numbers.json');
+function processNumberIndex(allTerms, dryRun, court = 'ussc') {
+    const { termsDir, indexesDir } = _courtIndexPaths(court);
+    const OUT_FILE = path.join(indexesDir, 'numbers.json');
+    const REL = `courts/${court}/indexes/cases/numbers.json`;
 
     // normalized number → Set of ref strings
     const numRefs = new Map();
 
     for (const term of allTerms) {
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        const casesPath = path.join(termsDir, term, 'cases.json');
         if (!fs.existsSync(casesPath)) continue;
         let cases;
         try { cases = _readJson(casesPath); } catch { continue; }
@@ -7526,7 +7593,7 @@ function processNumberIndex(allTerms, dryRun) {
         for (const c of cases) {
             if (!c.number && !c.id) continue;
             const canShorten = isOctoberTerm && c.id && c.id.startsWith(termYYYY);
-            const ref = canShorten ? c.id : `${term}/${c.id || c.number}`;
+            const ref = canShorten ? c.id : `${term}/${c.id || primaryDocket(c.number)}`;
 
             const addKey = (key) => {
                 if (!key) return;
@@ -7534,9 +7601,10 @@ function processNumberIndex(allTerms, dryRun) {
                 numRefs.get(key).add(ref);
             };
 
-            // Index each comma-separated docket number.
-            for (const part of (c.number || '').split(',')) {
-                addKey(part.trim().replace(/-(?=Orig|Misc)/i, ' ').toLowerCase());
+            // Index each docket number; a ',' within one is a literal
+            // character (thousands separator), stripped from the key.
+            for (const part of splitDockets(c.number)) {
+                addKey(part.replace(/,/g, '').replace(/-(?=Orig|Misc)/i, ' ').toLowerCase());
             }
 
             // Also index by case id so searches like "1972-161" resolve directly.
@@ -7553,13 +7621,14 @@ function processNumberIndex(allTerms, dryRun) {
 
     const content = JSON.stringify(sorted);
     if (dryRun) {
-        if (_VERBOSE) console.log(`  [dry-run] would write courts/ussc/indexes/cases/numbers.json`);
+        if (_VERBOSE) console.log(`  [dry-run] would write ${REL}`);
     } else {
         let changed = true;
         try { changed = fs.readFileSync(OUT_FILE, 'utf8') !== content; } catch { /* new file */ }
         if (changed) {
+            fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
             fs.writeFileSync(OUT_FILE, content, 'utf8');
-            console.log(`Number index: wrote courts/ussc/indexes/cases/numbers.json`);
+            console.log(`Number index: wrote ${REL}`);
         }
     }
 }
@@ -8657,13 +8726,14 @@ function _scdbBuildCaseFromSources(scdbCase, caseId, ldTitles, ldDates) {
 // Renders one "Cases Not Included from SCDB" list entry: title (re-capitalized
 // by _scdbCleanTitle inside _scdbBuildCaseFromSources), docket number(s) in
 // parens, then citation — e.g. "Smith v. Jones (No. 12-345), 400 U.S. 100 (1971)".
-// Matches the "No./Nos." + raw-comma docket convention used for case listings
+// Matches the "No./Nos." + comma-joined docket display used for case listings
 // elsewhere (see explorer.js's case-title-nav rendering).
 function _scdbNotIncludedLine(c) {
     let line = c.title || c.id;
     if (c.number) {
-        const label = c.number.includes(',') ? 'Nos.' : 'No.';
-        line += ` (${label} ${c.number.replace(/-(?=Orig|Misc)/gi, ' ')})`;
+        const dockets = splitDockets(c.number);
+        const label = dockets.length > 1 ? 'Nos.' : 'No.';
+        line += ` (${label} ${dockets.join(', ').replace(/-(?=Orig|Misc)/gi, ' ')})`;
     }
     if (c.citation) {
         const year = (c.decision || '').slice(0, 4);
@@ -9020,7 +9090,7 @@ function _scdbVerifyTerms(scdb, termFilter, caseFilter, update, verbose, debug, 
                 }
             }
             if (caseFilter) {
-                const dockets = (c.number || '').split(',').map(s => s.trim());
+                const dockets = splitDockets(c.number);
                 if (cid !== caseFilter && c.id !== caseFilter && !dockets.includes(caseFilter)) continue;
             }
             matchedFromOurs.add(cid);
@@ -9608,7 +9678,7 @@ async function runDatesCheck(termFilter, caseFilter, update) {
         const filtered = caseFilter
             ? cases.filter(c => c && (
                 c.id === caseFilter ||
-                (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)
+                splitDockets(c.number).includes(caseFilter)
               ))
             : cases;
 
@@ -9803,7 +9873,7 @@ function runUnargued(termFilter, caseFilter) {
         for (const c of cases) {
             const number = c.number || c.id || '?';
             if (caseFilter && c.id !== caseFilter
-                    && !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+                    && !splitDockets(c.number).includes(caseFilter)) continue;
 
             // Skip cases resolved without argument (cert denials, GVRs, summary dispositions, etc.).
             if (!c.argument && !c.reargument) continue;
@@ -9917,7 +9987,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
         for (const c of cases) {
             if (caseFilter && c.id !== caseFilter &&
-                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+                !splitDockets(c.number).includes(caseFilter)) continue;
             if (!Array.isArray(c.events)) continue;
 
             const casesDir = path.join(termsDir, term, 'cases');
@@ -10001,7 +10071,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
         for (const c of cases) {
             if (caseFilter && c.id !== caseFilter &&
-                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+                !splitDockets(c.number).includes(caseFilter)) continue;
             if (!Array.isArray(c.votes) || !Array.isArray(c.events)) continue;
 
             // Only process cases with at least one "Part N" opinion event title.
@@ -10075,7 +10145,7 @@ async function runSplitCheck(termFilter, caseFilter, update) {
 
         for (const c of cases) {
             if (caseFilter && c.id !== caseFilter &&
-                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+                !splitDockets(c.number).includes(caseFilter)) continue;
             if (!Array.isArray(c.votes) || !Array.isArray(c.events)) continue;
 
             // Find the majority opinion writer (the one vote with opinion:true).
@@ -10283,7 +10353,7 @@ async function checkLengths(casesPath, caseFilter, update) {
 
     for (const c of cases) {
         if (caseFilter) {
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
         }
         if (!Array.isArray(c.events)) continue;
@@ -10343,7 +10413,7 @@ function checkAlignedTranscriptLengths(casesPath, caseFilter) {
 
     for (const c of cases) {
         if (caseFilter) {
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
         }
         for (const ev of c.events || []) {
@@ -10446,11 +10516,11 @@ async function backfillTitlesFromLoc(casesPath, term, caseFilter, dryRun) {
 
     for (const c of cases) {
         if (caseFilter) {
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
         }
 
-        const numbers = (c.number || '').split(',').map(s => s.trim()).filter(Boolean);
+        const numbers = splitDockets(c.number);
         const titles  = (c.title  || '').split(';').map(s => s.trim());
         if (numbers.length <= titles.length) continue;
 
@@ -10540,7 +10610,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js --import FILE [--dry-run]        # import tags from a JSON file
        node update_cases.js --advocates                       # rebuild advocate index only
        node update_cases.js --feeds [--verbose]                # rebuild courts/ussc/feeds/ (podcast RSS)
-       node update_cases.js --sitemap [--dry-run]              # rebuild courts/ussc/sitemap.xml
+       node update_cases.js --sitemap [--dry-run]              # rebuild courts/sitemap.xml
 
 File changes happen by default. Pass --dry-run to suppress all writes and only
 report what would change.
@@ -10756,7 +10826,7 @@ function runTagAdd(term, caseNumber, tagValue, dryRun) {
         process.exit(1);
     }
 
-    const c = cases.find(x => x && (x.id === caseNumber || (x.number || '').split(',').map(s => s.trim()).includes(caseNumber)));
+    const c = cases.find(x => x && (x.id === caseNumber || splitDockets(x.number).includes(caseNumber)));
     if (!c) {
         console.error(`ERROR: ${term}: case "${caseNumber}" not found`);
         process.exit(1);
@@ -11279,7 +11349,7 @@ async function runVerifyBackfill(termFilter, caseFilter, dryRun, { verbose = fal
         const filtered = caseFilter
             ? cases.filter(c => c && (
                 c.id === caseFilter ||
-                (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)
+                splitDockets(c.number).includes(caseFilter)
               ))
             : cases;
 
@@ -11318,7 +11388,7 @@ function runOpCites(term, caseArg, dryRun, { verbose = false } = {}) {
     }
     const cases = _readJson(casesPath);
     const c = Array.isArray(cases) && cases.find(x =>
-        x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg))
+        x && (x.id === caseArg || splitDockets(x.number).includes(caseArg))
     );
     if (!c) {
         console.error(`ERROR: ${term}: case "${caseArg}" not found`);
@@ -11949,11 +12019,11 @@ function _partyVerifyTerm(termDir, term, caseFilter, dryRun) {
 
     for (const c of cases) {
         if (caseFilter) {
-            const nums = (c.number || '').split(',').map(s => s.trim());
+            const nums = splitDockets(c.number);
             if (c.id !== caseFilter && !nums.includes(caseFilter)) continue;
         }
         if (!Array.isArray(c.events)) continue;
-        const docket = (c.number || '').split(',')[0].trim();
+        const docket = primaryDocket(c.number);
         if (!docket) continue;
 
         let caseModified = false;
@@ -12177,9 +12247,9 @@ async function processOneTerm(term, opts) {
         if (!dirExists && fs.existsSync(casesPathForLookup)) {
             const arr = _readJson(casesPathForLookup);
             if (Array.isArray(arr)) {
-                const match = arr.find(c => c && (c.id === caseFilter || (c.number || '').split(',').map(s => s.trim()).includes(caseFilter)));
+                const match = arr.find(c => c && (c.id === caseFilter || splitDockets(c.number).includes(caseFilter)));
                 if (match && match.number) {
-                    const primary = match.number.split(',')[0].trim();
+                    const primary = primaryDocket(match.number);
                     if (primary && isDir(path.join(casesDir, primary))) {
                         caseFilter = primary;
                     }
@@ -12290,7 +12360,7 @@ function runPerCaseChecks(casesPath, term, caseFilter, dryRun) {
     const cases = _readJson(casesPath);
     if (!Array.isArray(cases)) return null;
     const matches = cases.filter(c =>
-        c && (c.id === caseFilter || (c.number || '').split(',').map(s => s.trim()).includes(caseFilter))
+        c && (c.id === caseFilter || splitDockets(c.number).includes(caseFilter))
     );
     if (!matches.length) return null;
     const resorted = verifyVoteSeniority(term, matches, !dryRun);
@@ -12335,7 +12405,7 @@ async function _addCaseFromOpinions(term, caseNumber, dryRun) {
     // If already present, return the opinion data without re-adding.
     const already = cases.some(c => c && (
         c.id === caseNumber ||
-        (c.number || '').split(',').map(s => s.trim()).includes(caseNumber)
+        splitDockets(c.number).includes(caseNumber)
     ));
     if (already) return opinion;
 
@@ -12395,7 +12465,7 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
     }
     let cases = _readJson(casesPath);
     let caseIndex = cases.findIndex(c =>
-        c && (c.id === caseId || (c.number || '').split(',').map(s => s.trim()).includes(caseId))
+        c && (c.id === caseId || splitDockets(c.number).includes(caseId))
     );
     if (caseIndex === -1) {
         if (dryRun) {
@@ -12418,7 +12488,7 @@ async function runVotesUpdate(term, caseId, argv, dryRun) {
         }
         cases = _readJson(casesPath);
         caseIndex = cases.findIndex(c =>
-            c && (c.id === caseId || (c.number || '').split(',').map(s => s.trim()).includes(caseId))
+            c && (c.id === caseId || splitDockets(c.number).includes(caseId))
         );
         if (caseIndex === -1) {
             console.error(`ERROR: Failed to locate newly-added case "${caseId}".`);
@@ -12633,11 +12703,13 @@ async function runAddCase(term, title, argv, dryRun) {
     };
     const getValue = (flag) => getValues(flag)[0] || null;
 
-    const numberRaw     = getValue('--number');
+    let numberRaw       = getValue('--number');
     if (!numberRaw) {
         console.error('ERROR: --add requires --number');
         process.exit(1);
     }
+    // Multiple dockets are stored ';'-joined; accept ',' on the command line too.
+    numberRaw = numberRaw.split(/\s*[;,]\s*/).filter(Boolean).join(';');
     const argumentRaw   = getValue('--argument');
     const reargumentRaw = getValue('--reargument');
     const decisionRaw   = getValue('--decision');
@@ -12750,9 +12822,9 @@ async function runAddCase(term, title, argv, dryRun) {
     }
     if (!Array.isArray(cases)) cases = [];
 
-    const numbers = numberRaw.split(',').map(s => s.trim()).filter(Boolean);
+    const numbers = splitDockets(numberRaw);
     const exists = cases.some(c => c && numbers.some(n =>
-        c.id === n || (c.number || '').split(',').map(s => s.trim()).includes(n)
+        c.id === n || splitDockets(c.number).includes(n)
     ));
     if (exists) {
         console.error(`ERROR: Case with number "${numberRaw}" already exists in ${term}/cases.json`);
@@ -12875,7 +12947,7 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
         console.error(`ERROR: ${path.relative(REPO_ROOT, casesPath)} is not an array`);
         process.exit(1);
     }
-    const c = cases.find(x => x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg)));
+    const c = cases.find(x => x && (x.id === caseArg || splitDockets(x.number).includes(caseArg)));
     if (!c) {
         console.error(`ERROR: ${term}: case "${caseArg}" not found`);
         process.exit(1);
@@ -12888,10 +12960,10 @@ function runAddAdvocate(term, caseArg, argv, dryRun) {
     // named on the command line.
     const targets = [c];
     if (c.argument_consolidation) {
-        const ownNumbers = new Set((c.number || '').split(',').map(s => s.trim()).filter(Boolean));
+        const ownNumbers = new Set(splitDockets(c.number));
         for (const num of _splitNumbers(c.argument_consolidation)) {
             if (ownNumbers.has(num)) continue;
-            const other = cases.find(x => x && (x.number || '').split(',').map(s => s.trim()).includes(num));
+            const other = cases.find(x => x && splitDockets(x.number).includes(num));
             if (other && !targets.includes(other)) targets.push(other);
         }
     }
@@ -13081,7 +13153,7 @@ async function runAddMinutes(term, caseArg, argv, dryRun) {
         console.error(`ERROR: ${path.relative(REPO_ROOT, casesPath)} is not an array`);
         process.exit(1);
     }
-    const c = cases.find(x => x && (x.id === caseArg || (x.number || '').split(',').map(s => s.trim()).includes(caseArg)));
+    const c = cases.find(x => x && (x.id === caseArg || splitDockets(x.number).includes(caseArg)));
     if (!c) {
         console.error(`ERROR: ${term}: case "${caseArg}" not found`);
         process.exit(1);
@@ -13495,7 +13567,7 @@ async function runDocketScan(termFilter, caseFilter, { refetch = false, dryRun =
                 else continue; // skip non-standard numbers (Misc, etc.)
             }
             if (caseFilter && firstNum !== caseFilter && c.id !== caseFilter &&
-                !(c.number || '').split(',').map(s => s.trim()).includes(caseFilter)) continue;
+                !splitDockets(c.number).includes(caseFilter)) continue;
             if (!refetch && c.docket_url) { skipped++; continue; }
             candidates.push({ c, firstNum, docketNum });
         }
@@ -13986,20 +14058,22 @@ function runGenerateFeeds(dryRun) {
 }
 
 // =====================================================================
-// Sitemap: courts/ussc/sitemap.xml (--sitemap)
+// Sitemap: courts/sitemap.xml (--sitemap)
 // =====================================================================
 //
 // Every case/term/collection "page" on this site is really one static HTML
-// shell (courts/ussc/index.html) whose content is resolved entirely
+// shell (courts/<court>/index.html) whose content is resolved entirely
 // client-side from URL query params, so search engines have no way to
-// discover the ~29,000 individual case URLs short of an explicit sitemap.
-// Lists one <url> per case (?term=X&case=Y, using the case's own unique
-// "id" so consolidated/shared docket numbers can't collide), per term
+// discover the individual case URLs short of an explicit sitemap.
+// For every court in courts/courts.json (ussc plus any others), lists one
+// <url> per case (/courts/<court>/?term=X&case=Y, using the case's own
+// unique "id" so consolidated/shared docket numbers can't collide), per term
 // (?term=X), and per collection/topic (?collection=X / ?topic=X), plus the
-// site root and the SPA entry point. Fully derived from cases.json/
-// collections.json/topics.json — no network access needed.
+// site root and each court's SPA entry point. Blog posts and other
+// "pane"-layout narrative pages are ussc-only. Fully derived from
+// cases.json/collections.json/topics.json — no network access needed.
 
-const SITEMAP_PATH = path.join(REPO_ROOT, 'courts', 'ussc', 'sitemap.xml');
+const SITEMAP_PATH = path.join(REPO_ROOT, 'courts', 'sitemap.xml');
 // The sitemap protocol caps a single file at 50,000 URLs/50MB — warn well
 // before that so a future growth spurt doesn't silently produce a truncated
 // or rejected sitemap.
@@ -14124,8 +14198,6 @@ function _collectSitemapCollectionIds(entries) {
 }
 
 function runGenerateSitemap(dryRun) {
-    const allTerms = fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
-
     // Case "decision"/"argument" dates are frequently partial (many pre-20th-century
     // cases only record "YYYY-MM", no day) or otherwise inconsistent, which trips up
     // Google's sitemap date validator ("An invalid date was found"). lastmod is just a
@@ -14133,37 +14205,54 @@ function runGenerateSitemap(dryRun) {
     // (build) date instead of trying to derive/validate a per-case date.
     const buildDate = new Date().toISOString().slice(0, 10);
 
-    const urls = [{ loc: `${FEED_SITE_URL}/`, lastmod: buildDate }, { loc: `${FEED_SITE_URL}/courts/ussc/`, lastmod: buildDate }];
-    let caseCount = 0;
-    for (const term of allTerms) {
-        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
-        if (!fs.existsSync(casesPath)) continue;
-        let termCases;
-        try { termCases = _readJson(casesPath); } catch { continue; }
-        if (!Array.isArray(termCases)) continue;
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}`, lastmod: buildDate });
-        for (const c of termCases) {
-            // Prefer the case's own unique "id" (avoids collisions when a docket
-            // number is shared across consolidated cases); only the rare case
-            // lacking an "id" falls back to its (term-scoped) docket number.
-            const caseId = c.id || _primaryCaseNumber(c);
-            if (!caseId) continue;
-            urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?term=${term}&case=${encodeURIComponent(caseId)}`, lastmod: buildDate });
-            caseCount++;
+    const urls = [{ loc: `${FEED_SITE_URL}/`, lastmod: buildDate }];
+
+    // Per-court term / case / collection / topic browsing URLs. ussc is the
+    // primary court (data under courts/ussc/); every other court in courts.json
+    // keeps its data under courts/<id>/ (see _otherCourts). wasc-style term keys
+    // are bare "YYYY"; ussc's are "YYYY-MM" — accept either.
+    let caseCount = 0, termCount = 0;
+    for (const court of ['ussc', ..._otherCourts()]) {
+        const base     = `${FEED_SITE_URL}/courts/${court}`;
+        const termsDir = path.join(REPO_ROOT, 'courts', court, 'terms');
+        urls.push({ loc: `${base}/`, lastmod: buildDate });
+
+        let terms = [];
+        try { terms = fs.readdirSync(termsDir).filter(n => /^\d{4}(-\d{2})?$/.test(n)).sort(); } catch { /* no such court */ }
+        for (const term of terms) {
+            const casesPath = path.join(termsDir, term, 'cases.json');
+            if (!fs.existsSync(casesPath)) continue;
+            let termCases;
+            try { termCases = _readJson(casesPath); } catch { continue; }
+            if (!Array.isArray(termCases)) continue;
+            urls.push({ loc: `${base}/?term=${term}`, lastmod: buildDate });
+            termCount++;
+            for (const c of termCases) {
+                // Prefer the case's own unique "id" (avoids collisions when a docket
+                // number is shared across consolidated cases); only the rare case
+                // lacking an "id" falls back to its (term-scoped) docket number.
+                const caseId = c.id || _primaryCaseNumber(c);
+                if (!caseId) continue;
+                urls.push({ loc: `${base}/?term=${term}&case=${encodeURIComponent(caseId)}`, lastmod: buildDate });
+                caseCount++;
+            }
+        }
+
+        // Collection / topic browsing views — most courts have neither yet, so
+        // the registry file simply won't exist.
+        for (const [param, registry] of [
+            ['collection', path.join(REPO_ROOT, 'courts', court, 'collections', 'collections.json')],
+            ['topic',      path.join(REPO_ROOT, 'courts', court, 'topics', 'topics.json')],
+        ]) {
+            let defs;
+            try { defs = _readJson(registry); } catch { continue; }
+            for (const id of _collectSitemapCollectionIds(defs)) {
+                urls.push({ loc: `${base}/?${param}=${encodeURIComponent(id)}`, lastmod: buildDate });
+            }
         }
     }
 
-    let collDefs = [];
-    try { collDefs = _readJson(_COLLECTIONS_REGISTRY); } catch {}
-    for (const id of _collectSitemapCollectionIds(collDefs)) {
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?collection=${encodeURIComponent(id)}`, lastmod: buildDate });
-    }
-    let topicDefs = [];
-    try { topicDefs = _readJson(path.join(REPO_ROOT, 'courts', 'ussc', 'topics', 'topics.json')); } catch {}
-    for (const id of _collectSitemapCollectionIds(topicDefs)) {
-        urls.push({ loc: `${FEED_SITE_URL}/courts/ussc/?topic=${encodeURIComponent(id)}`, lastmod: buildDate });
-    }
-
+    // Blog posts and other "pane"-layout narrative pages are ussc-only.
     urls.push(..._collectSitemapBlogUrls(buildDate));
     urls.push(..._collectSitemapPaneUrls(buildDate));
 
@@ -14180,9 +14269,9 @@ function runGenerateSitemap(dryRun) {
     const verb = dryRun ? 'Would write' : 'Wrote';
     if (_textChanged(SITEMAP_PATH, xml)) {
         if (!dryRun) _writeFileSync(SITEMAP_PATH, xml);
-        console.log(`Sitemap: ${verb} ${urls.length} URL(s) (${caseCount} case(s), ${allTerms.length} term(s)) → courts/ussc/sitemap.xml`);
+        console.log(`Sitemap: ${verb} ${urls.length} URL(s) (${caseCount} case(s), ${termCount} term(s)) → courts/sitemap.xml`);
     } else if (_VERBOSE) {
-        console.log(`Sitemap: unchanged (${urls.length} URL(s)) → courts/ussc/sitemap.xml`);
+        console.log(`Sitemap: unchanged (${urls.length} URL(s)) → courts/sitemap.xml`);
     }
 }
 
@@ -14253,7 +14342,7 @@ async function main() {
                 if (Array.isArray(arr)) {
                     const found = arr.some(c => c && (
                         c.id === _explicitCase ||
-                        (c.number || '').split(',').map(s => s.trim()).includes(_explicitCase)
+                        splitDockets(c.number).includes(_explicitCase)
                     ));
                     if (!found) {
                         // Not yet in cases.json — try to add it from the SCOTUS
@@ -14523,6 +14612,8 @@ async function main() {
         if (flags.has('--citation-index'))  processCitationIndex(allTerms, false);
         if (flags.has('--onthisday-index')) processOnThisDayIndex(allTerms, false);
         if (flags.has('--keyword-index'))   processKeywordIndex(allTerms, false);
+        // Non-ussc courts only carry title + number indexes for now.
+        if (flags.has('--title-index') || flags.has('--number-index')) processOtherCourtIndexes(false);
         return;
     }
 
@@ -14626,6 +14717,7 @@ async function main() {
         processCitationIndex(allTerms, false);
         processOnThisDayIndex(allTerms, false);
         processKeywordIndex(allTerms, false);
+        processOtherCourtIndexes(false);
         await runDissentCheck(null);
         // Advocate index rebuild (final phase).
         const _allTermDirs = allTerms.map(t => path.join(TERMS_DIR, t));

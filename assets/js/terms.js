@@ -1,4 +1,11 @@
 (function () {
+  // A case's `number` holds one or more docket numbers joined by ';'. A ','
+  // is a literal character within a single number (a thousands separator in
+  // some courts), never a delimiter. Mirrors schema.js / explorer.js.
+  function splitDockets(s) {
+    return String(s == null ? '' : s).split(';').map(function (t) { return t.trim(); }).filter(Boolean);
+  }
+  function primaryDocket(s) { return splitDockets(s)[0] || ''; }
   function termTitle(term) {
     var parts = term.split('-'), year = parts[0], mon = parseInt(parts[1], 10);
     var names = ['January','February','March','April','May','June',
@@ -90,7 +97,7 @@
   // annotation at all) when the case has no docket number.
   function caseNumberAnnotation(number) {
     if (!number) return null;
-    var numbers = number.split(',').map(function (n) { return n.trim(); });
+    var numbers = splitDockets(number);
     var label = numbers.length > 1 ? 'Nos.' : 'No.';
     function fmt(ns) { return ns.join(', ').replace(/-(?=Orig|Misc)/g, ' '); }
     var shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;
@@ -107,11 +114,11 @@
   // way to check leading-number uniqueness for it — always use its id,
   // which such an object is always given (see syncCrossTermCaseDates).
   function caseUrlId(c, siblingCases) {
-    var num = (c.number || '').split(',')[0].trim();
+    var num = primaryDocket(c.number);
     if (!c.term && num && siblingCases) {
       var count = 0;
       for (var i = 0; i < siblingCases.length; i++) {
-        if ((siblingCases[i].number || '').split(',')[0].trim() === num) count++;
+        if (primaryDocket(siblingCases[i].number) === num) count++;
       }
       if (count === 1) return num;
     }
