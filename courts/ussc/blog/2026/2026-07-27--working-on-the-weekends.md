@@ -11,7 +11,7 @@ permalink: /courts/ussc/blog/2026/working-on-the-weekends/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-When you find an error in some data, it's tempting to just fix the error and move on. But when it's an error that other people could keep tripping over, some explanation seems warranted.
+When you find an error in some data, it's tempting to just fix the error and move on. But when it's an error that other people will also likely trip over, some explanation seems warranted.
 
 For example, take the case of [Aikens v. Wisconsin (No. 3)](/courts/ussc/?term=1904-10&case=3), which U.S. Reports says was argued on November 7, 1903.
 

@@ -31,7 +31,11 @@ export function formatDockets(s) {
 export const CASE_KEY_ORDER = [
     'id', 'title', 'tags', 'number',
     'files', 'references', 'oyez_alt', 'previouslyFiled',
-    'docket_url', 'questions', 'questions_url',
+    'docket_url',
+    // A case whose synopsis is written as "Facts: ... Question(s): ...
+    // Conclusion: ..." (rather than a single free-form paragraph) splits
+    // across these three instead of cramming it all into questions.
+    'facts', 'questions', 'questions_url', 'conclusions',
     // Semicolon-separated docket number(s) of every case (this one included)
     // heard in the same argument session — distinct from a joint "number"
     // (one case filed under several dockets); this is for separately
@@ -62,7 +66,21 @@ export const CASE_KEY_ORDER = [
 
 export const EVENT_KEY_ORDER = [
     'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
-    'audio_url', 'bad_audio_url', 'video_url', 'length', 'size', 'bitrate', 'offset', 'transcript_url', 'text_file',
+    // page_url is the human-facing source page (e.g. a TVW watch page) for
+    // whichever of audio_url/video_url below is the actual playable file --
+    // they're often on different hosts and page_url need not match either.
+    'page_url',
+    'audio_url', 'bad_audio_url',
+    // video_url and audio_url are mutually exclusive for a given source: a
+    // recording is one or the other, not both (video wins when both exist
+    // upstream). hls_url is an adaptive-bitrate alternative to video_url,
+    // when the source offers one, for players that prefer it.
+    'video_url', 'hls_url',
+    'length', 'size', 'bitrate', 'offset',
+    // transcript_url is a document meant to be read (e.g. a PDF); captions_url
+    // is a timed subtitle file (e.g. WebVTT) meant to be played back alongside
+    // the media, not read on its own.
+    'transcript_url', 'captions_url', 'text_file',
     'journal_ref', 'minutes_ref', 'minutes_url', 'minutes_src',
     'advocates', 'aligned', 'turn', 'redundant', 'unique', 'note', 'view'
 ];
@@ -72,7 +90,12 @@ export const ADVOCATE_KEY_ORDER = [
 ];
 
 export const VOTE_KEY_ORDER = [
-    'name', 'side', 'action', 'opinion', 'dissent',
+    'name', 'side',
+    // Base name of this justice's own opinion document (e.g. a concurrence or
+    // dissent they authored/joined separately from the majority), when one
+    // exists and is known — even if we don't have the actual file on hand.
+    'file',
+    'action', 'opinion', 'dissent',
 ];
 
 export const CITES_KEY_ORDER = [

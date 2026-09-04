@@ -9,7 +9,7 @@ permalink: /courts/ussc/blog/2026/revisiting-the-scdb/
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this hub. It is simultaneously both an invaluable resource and an occasional source of frustration, as we'll see below.
+This post discusses the [[U.S.] Supreme Court Database](/courts/ussc/?source=scdb), which was used to help build this site. It is simultaneously both an invaluable resource and an occasional source of frustration, as we'll see below.
 
 Currently, this site is using version "2025 Release 01" of the Modern Database and version "SCDB Legacy 07" of the Legacy Database. Per the database's [citation](https://scdb.la.psu.edu/how-to-cite-us/) guidelines:
 

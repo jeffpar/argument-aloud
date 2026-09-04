@@ -2929,15 +2929,15 @@ function _bestEventIndexForNumber(events, number) {
 function caseTitleLabel(caseEntry, subCase) {
   const title  = subCase ? subCase.title  : caseTitle(caseEntry.title);
   const number = subCase ? subCase.number : caseEntry.number;
-  if (!number) return { text: title, full: null };
+  if (!number) return { title, numberText: '', fullNumberText: '' };
   const numbers = splitDockets(number);
   const isMulti = numbers.length > 1;
   const label = isMulti ? 'Nos.' : 'No.';
   const fmt = ns => ns.join(', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
   const shown = numbers.length >= 4 ? [numbers[0], '…', numbers[numbers.length - 1]] : numbers;
-  const text = title + '\u00a0(' + label + '\u00a0' + fmt(shown) + ')';
-  const full = numbers.length >= 4 ? title + '\u00a0(' + label + '\u00a0' + fmt(numbers) + ')' : null;
-  return { text, full };
+  const numberText = '(' + label + '\u00a0' + fmt(shown) + ')';
+  const fullNumberText = numbers.length >= 4 ? '(' + label + '\u00a0' + fmt(numbers) + ')' : '';
+  return { title, numberText, fullNumberText };
 }
 
 // Set the case-title-label element to a link that reveals the case in the nav pane.
@@ -2954,9 +2954,8 @@ function setCaseTitleLabel(term, caseEntry, optionText, numberOverride) {
   const a = document.createElement('a');
   a.href = '?' + urlParams.toString();
   a.className = 'case-title-link';
-  const { text, full } = caseTitleLabel(caseEntry, subCase);
-  a.textContent = text;
-  if (full) a.title = full;
+  const { title, numberText, fullNumberText } = caseTitleLabel(caseEntry, subCase);
+  a.textContent = title;
 
   a.addEventListener('click', e => {
     e.preventDefault();
@@ -2968,6 +2967,27 @@ function setCaseTitleLabel(term, caseEntry, optionText, numberOverride) {
     restoreFromURL();
   });
   span.appendChild(a);
+
+  // The docket-number annotation is its own element, separate from the
+  // title link above — when the case has a docket_url, it becomes a link to
+  // that (e.g. wasc's discretionary-review docket calendar entry), since
+  // ussc's audio-path cases already reach the same href via their file-select
+  // dropdown's "Docket Search" option (see loadCase), which a case reached
+  // through loadCaseAsOpinion (no synced transcript — including every
+  // non-ussc court's cases) never shows.
+  if (numberText) {
+    span.appendChild(document.createTextNode(' '));
+    const numEl = document.createElement(caseEntry.docket_url ? 'a' : 'span');
+    if (caseEntry.docket_url) {
+      numEl.href = caseEntry.docket_url;
+      numEl.target = '_blank';
+      numEl.rel = 'noopener noreferrer';
+      numEl.className = 'case-title-number-link';
+    }
+    numEl.textContent = numberText;
+    if (fullNumberText) numEl.title = fullNumberText;
+    span.appendChild(numEl);
+  }
 }
 
 // Format an ISO date "YYYY-MM-DD", "YYYY-MM", or "YYYY" → readable string.
@@ -3825,6 +3845,47 @@ function _voteName(allCapsName) {
   return toTitleCase(last);
 }
 
+// Builds one justice-photo item (.jr-item) for a caseEntry.votes entry —
+// shared by _showCaseVotesView (the ussc bench-page view) and
+// _showWascCaseSummary (the non-ussc case-summary view, which has no gallery
+// collection to link a justice's photo to yet, hence `linkable`).
+function _buildJusticeRowItem(v, { linkable = true } = {}) {
+  const jid = _makeAdvocateId(v.name);
+  const displayName = _voteName(v.name);
+  const el = document.createElement(linkable ? 'a' : 'div');
+  el.className = 'jr-item';
+  if (v.side !== 'majority') el.classList.add('jr-dimmed');
+  if (linkable) el.href = courtShellHref('collection=gallery&id=' + jid);
+
+  const photo = document.createElement('div');
+  photo.className = 'jr-photo';
+  const img = document.createElement('img');
+  img.src = `${COURT_BASE}/people/justices/all/` + jid + '/portrait.jpg';
+  img.alt = displayName;
+  img.loading = 'lazy';
+  img.onerror = () => { photo.style.background = 'transparent'; img.style.display = 'none'; };
+  photo.appendChild(img);
+
+  // Opinion authorship (majority/dissent/concurrence — anything, per
+  // schema.js's vote.action convention of always starting with "wrote an
+  // opinion") gets a pencil mark in the corner, mirrored so it reads as
+  // writing left-to-right despite the mark's own glyph facing that way.
+  if ((v.action || '').startsWith('wrote an opinion')) {
+    const mark = document.createElement('div');
+    mark.className = 'jr-opinion-mark';
+    mark.textContent = '✏️';
+    photo.appendChild(mark);
+  }
+
+  const label = document.createElement('div');
+  label.className = 'jr-name';
+  label.textContent = displayName.toUpperCase();
+
+  el.appendChild(photo);
+  el.appendChild(label);
+  return el;
+}
+
 // A case reached via its own bench's page (see the vote-score link in
 // _setCaseInfoRow3) replaces the usual turn-by-turn transcript with one row
 // of every justice in caseEntry.votes — flexed so however many there are,
@@ -3858,42 +3919,7 @@ function _showCaseVotesView(caseEntry) {
       titleEl.hidden = false;
     });
   }
-  votes.forEach(v => {
-    const jid = _makeAdvocateId(v.name);
-    const displayName = _voteName(v.name);
-    const el = document.createElement('a');
-    el.className = 'jr-item';
-    if (v.side !== 'majority') el.classList.add('jr-dimmed');
-    el.href = courtShellHref('collection=gallery&id=' + jid);
-
-    const photo = document.createElement('div');
-    photo.className = 'jr-photo';
-    const img = document.createElement('img');
-    img.src = `${COURT_BASE}/people/justices/all/` + jid + '/portrait.jpg';
-    img.alt = displayName;
-    img.loading = 'lazy';
-    img.onerror = () => { photo.style.background = 'transparent'; img.style.display = 'none'; };
-    photo.appendChild(img);
-
-    // Opinion authorship (majority/dissent/concurrence — anything, per
-    // schema.js's vote.action convention of always starting with "wrote an
-    // opinion") gets a pencil mark in the corner, mirrored so it reads as
-    // writing left-to-right despite the mark's own glyph facing that way.
-    if ((v.action || '').startsWith('wrote an opinion')) {
-      const mark = document.createElement('div');
-      mark.className = 'jr-opinion-mark';
-      mark.textContent = '✏️';
-      photo.appendChild(mark);
-    }
-
-    const label = document.createElement('div');
-    label.className = 'jr-name';
-    label.textContent = displayName.toUpperCase();
-
-    el.appendChild(photo);
-    el.appendChild(label);
-    row.appendChild(el);
-  });
+  votes.forEach(v => row.appendChild(_buildJusticeRowItem(v)));
   turnList.style.display = 'none';
   loadingMsg.style.display = 'none';
   emptyState.style.display = 'none';
@@ -3936,6 +3962,85 @@ function _showCaseVotesView(caseEntry) {
     showDocViewer({ href: de.href, title: de.title }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
   }
+}
+
+// Attribution shown under an embedded case-summary player (see
+// _showWascCaseSummary), keyed by event.source.
+const _EVENT_SOURCE_INFO = {
+  tvw: { label: 'TVW', url: 'https://tvw.org' },
+};
+
+// For a court with no synced transcript pipeline of its own (currently: any
+// court other than ussc — see COURT_ID), loadCaseAsOpinion shows this in
+// place of the usual turn-by-turn transcript: a plain summary built straight
+// from the case object — a justices-row of the vote (unlinked: this court has
+// no gallery collection yet to send a click to), the docket number (linked to
+// docket_url, when known), the facts/questions/conclusions paragraphs (each
+// optional — not every case's own source has every field yet), and an
+// embedded player for the first event with a playable recording, with a
+// "[Source: ...]" caption linking to that event's own page_url.
+function _showWascCaseSummary(caseEntry) {
+  const container = document.getElementById('case-summary');
+  container.innerHTML = '';
+
+  const row = document.getElementById('justices-row');
+  row.innerHTML = '';
+  const votes = caseEntry.votes || [];
+  votes.forEach(v => row.appendChild(_buildJusticeRowItem(v, { linkable: false })));
+  row.hidden = !votes.length;
+  document.getElementById('justices-row-title').hidden = true;
+
+  // The docket number (linked to docket_url, when known) lives in the case
+  // title label above instead — see setCaseTitleLabel.
+  const addPara = (className, label, text) => {
+    if (!text) return;
+    const p = document.createElement('p');
+    p.className = className;
+    const b = document.createElement('b');
+    b.textContent = label;
+    p.appendChild(b);
+    p.appendChild(document.createTextNode(text));
+    container.appendChild(p);
+  };
+  addPara('case-summary-facts', 'Facts: ', caseEntry.facts);
+  addPara('case-summary-questions', 'Question(s): ', caseEntry.questions);
+  addPara('case-summary-conclusions', 'Conclusion: ', caseEntry.conclusions);
+
+  // video_url wins over audio_url when a source offers both (see schema.js);
+  // hls_url is stored but unused here — video_url is already a direct file
+  // every modern browser plays natively, with no extra player library needed.
+  const mediaEvent = (caseEntry.events || []).find(e => e.video_url || e.audio_url);
+  if (mediaEvent) {
+    const media = document.createElement(mediaEvent.video_url ? 'video' : 'audio');
+    media.className = 'case-summary-media';
+    media.controls = true;
+    media.preload = 'metadata';
+    media.src = mediaEvent.video_url || mediaEvent.audio_url;
+    container.appendChild(media);
+
+    const sourceInfo = _EVENT_SOURCE_INFO[mediaEvent.source];
+    if (sourceInfo) {
+      const cap = document.createElement('p');
+      cap.className = 'case-summary-source';
+      cap.append('[Source: ');
+      const a = document.createElement('a');
+      a.href = mediaEvent.page_url || sourceInfo.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = sourceInfo.label + ', ' + sourceInfo.url;
+      cap.appendChild(a);
+      cap.append(']');
+      container.appendChild(cap);
+    }
+  }
+
+  turnList.style.display = 'none';
+  loadingMsg.style.display = 'none';
+  emptyState.style.display = 'none';
+  transcriptViewer.classList.remove('no-audio', 'no-transcript');
+  transcriptViewer.classList.add('case-summary-active');
+  container.hidden = false;
+  audioControls.hidden = true;
 }
 
 function _setCaseInfoRow3(caseEntry) {
@@ -8060,7 +8165,8 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
   turnList.style.display = 'none';
   turnList.innerHTML = '';
   document.getElementById('justices-row').hidden = true;
-  transcriptViewer.classList.remove('justices-row-active');
+  document.getElementById('case-summary').hidden = true;
+  transcriptViewer.classList.remove('justices-row-active', 'case-summary-active');
   _inBenchCaseView = false;
   loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
@@ -8355,8 +8461,9 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   turnList.style.display = 'none';
   turnList.innerHTML = '';
   document.getElementById('justices-row').hidden = true;
+  document.getElementById('case-summary').hidden = true;
   loadingMsg.style.display = 'none';
-  document.getElementById('transcript-viewer').classList.remove('justices-row-active');
+  document.getElementById('transcript-viewer').classList.remove('justices-row-active', 'case-summary-active');
   document.getElementById('transcript-viewer').classList.add('no-audio');
   _inBenchCaseView = false;
 
@@ -8538,6 +8645,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   qEl.onclick = null;
   qEl.style.cursor = '';
 
+  // A court with no synced-transcript pipeline of its own (currently: any
+  // court other than ussc — see loadCase's own hasPlayableAudio gate above)
+  // gets a plain case-summary view here instead of ussc's questions widget +
+  // empty turn-by-turn transcript pane.
+  if (COURT_ID !== 'ussc') _showWascCaseSummary(caseEntry);
+
   playerSection.hidden = false;
 
   // Open the first oral-argument transcript href full-height in the document
@@ -8580,10 +8693,13 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // Update topbar term label
   setTopbarTerm(term);
 
-  // Treat as no-audio when forceNoAudio is set OR when no audio entry has a
-  // playable audio_url (e.g. transcript-only placeholder entries). Defer to
-  // loadCaseAsOpinion which handles the simpler opinion-only display path.
-  const hasPlayableAudio = !forceNoAudio && caseEntry.events?.some(a => a.audio_url);
+  // Treat as no-audio when forceNoAudio is set, when no audio entry has a
+  // playable audio_url (e.g. transcript-only placeholder entries), or when
+  // this court has no synced-transcript pipeline of its own (currently: any
+  // court other than ussc) — even a court whose events carry a playable
+  // audio_url/video_url has no turns to sync it to, so it always takes
+  // loadCaseAsOpinion's case-summary path (_showWascCaseSummary) instead.
+  const hasPlayableAudio = !forceNoAudio && COURT_ID === 'ussc' && caseEntry.events?.some(a => a.audio_url);
   if (!hasPlayableAudio) {
     return loadCaseAsOpinion(term, caseEntry, numberOverride, _mySeq);
   }
