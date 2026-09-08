@@ -11951,7 +11951,11 @@ async function init() {
   await Promise.all(navData.map(async entry => {
     if (!entry.file) return;
     try {
-      const res = await fetch(courtDataUrl(entry.file), { cache: 'reload' });
+      // The blog is a shell companion built by THIS (main) site's Jekyll from
+      // courts/<id>/blog/*.md (same as index.json itself), so its posts.json is
+      // same-origin — never on a cross-origin court's data host (COURT_BASE).
+      const fileUrl = entry.id === 'blog' ? entry.file : courtDataUrl(entry.file);
+      const res = await fetch(fileUrl, { cache: 'reload' });
       if (!res.ok) return;
       const data = await res.json();
       if (entry.file.endsWith('terms.json')) {

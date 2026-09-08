@@ -957,6 +957,19 @@ function _captionIsState(raw) {
         || /^(the\s+)?state\s+of\s+wash(ington)?\b.*\bex\s+rel\b/i.test(x);
 }
 const _alphaTokens = (s) => (String(s || '').toUpperCase().match(/[A-Z]{3,}/g) || []);
+// true iff `a` and `b` differ by exactly one inserted / deleted character
+// (a transcription typo like the WA calendar's "976652-0" for "97652-0").
+function _oneCharApart(a, b) {
+    if (Math.abs(a.length - b.length) !== 1) return false;
+    const s = a.length < b.length ? a : b;
+    const l = a.length < b.length ? b : a;
+    let i = 0, j = 0, skipped = false;
+    while (i < s.length && j < l.length) {
+        if (s[i] === l[j]) { i++; j++; }
+        else { if (skipped) return false; skipped = true; j++; }
+    }
+    return true;
+}
 // Loose "same case" check: our non-State party shares a name token with the
 // caption's corresponding party — guards against a wrong docket/caption match.
 function _corroborates(ourOther, capOther) {
@@ -1425,6 +1438,11 @@ async function datePass(dateIso, files, refetch) {
 //     (the "?fa=…display&…&file=…" form) now 404. This probes the stored URL
 //     and, if it's dead, the PDF and HTML forms for the same session date, and
 //     (with --fix) rewrites docket_url to whichever resolves — PDF preferred.
+//   docket-number typos — a pair of cases whose numbers differ by exactly one
+//     inserted/deleted digit is almost always one case split in two by a
+//     transcription error (e.g. the WA calendar printed "976652-0" for docket
+//     "97652-0", so the argued case never matched its own opinion). Report-only
+//     — which digit is wrong can't be guessed safely.
 // Scope with an optional YYYY. Calendar fetches reuse the --fix-titles cache.
 function _isValidCalendar(text) {
     return /Case\s*No\.?\s*\d/i.test(text || '') && !/Could not find the included template/i.test(text);
@@ -1469,6 +1487,30 @@ async function verifyPass(yearArg, doFix) {
     }
     console.log(`\n  docket_url: ${st.checked} checked, ${st.ok} ok, ${st.fixedTo.pdf + st.fixedTo.html} ${doFix ? 'fixed' : 'fixable'}`
         + ` (${st.fixedTo.pdf} -> PDF, ${st.fixedTo.html} -> HTML), ${st.broken} broken with no source, ${st.noDate} dead with no date`);
+
+    // docket-number typos: cases whose numbers are one inserted/deleted digit
+    // apart. Only the modern well-formed shape (NNNNN-C / NNNNNN-C, comma
+    // stripped) — on the irregular pre-2000 / bar-matter numbers a one-char
+    // difference is just zero-padding or coincidence, not a typo.
+    const numbered = [];
+    for (const f of files.values()) {
+        if (yearArg && f.year !== +yearArg) continue;
+        for (const c of f.cases) for (const n of splitDockets(c.number)) {
+            const x = normNum(n);
+            if (/^\d{5,6}-\d$/.test(x)) numbered.push({ c, n: x });
+        }
+    }
+    let typoPairs = 0;
+    for (let i = 0; i < numbered.length; i++) {
+        for (let j = i + 1; j < numbered.length; j++) {
+            if (numbered[i].n === numbered[j].n) continue;
+            if (!_oneCharApart(numbered[i].n, numbered[j].n)) continue;
+            typoPairs++;
+            const A = numbered[i], B = numbered[j];
+            console.log(`  [docket typo?] ${A.c.id} (${A.n}) "${A.c.title}"\n               ~ ${B.c.id} (${B.n}) "${B.c.title}"`);
+        }
+    }
+    console.log(`  docket-number: ${typoPairs} suspicious one-digit-apart pair(s)`);
 
     if (doFix) {
         let wrote = 0;

@@ -38,6 +38,20 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 .blog-list-date { font-size: 0.78rem; opacity: 0.6; margin: 0 0 0.6rem; }
 .blog-list-more { margin-top: 0.4rem; }
 
+/* Embedded video in a post body (courts/*/blog/) — plays straight from the
+   media host, same as a case's oral-argument video. */
+.blog-video-wrap { margin: 0.4rem 0 3.6rem; }
+.blog-video {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  background: #000;
+  border-radius: 4px;
+}
+.blog-video-source { font-size: 0.75rem; opacity: 0.55; margin: 0.3rem 0 0; }
+.blog-video-source a { color: inherit; }
+
 /* ── Term stats & calendar — courts/ussc/terms/ ─────────────────────────── */
 
 /* Lean wasc term page extras (courts/wasc/terms/, wasc-terms.js) — the rest

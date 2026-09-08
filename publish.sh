@@ -13,6 +13,29 @@ sync_xsl() {
   rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 }
 
+# `git checkout website` (in sync_to_website below) runs in this same working
+# tree; if the website branch ever tracks a path under one of these git-ignored
+# symlinks, git silently replaces the symlink with a real file/dir. Recreate any
+# that went missing. Idempotent — only acts when the path is not already a link.
+restore_symlinks() {
+  local link target
+  while read -r link target; do
+    [ -z "$link" ] && continue
+    if [ ! -L "$link" ]; then
+      rm -rf "$link"
+      ln -s "$target" "$link"
+      echo "  restored symlink $link -> $target"
+    fi
+  done <<'EOF'
+courts/ussc/indexes		../../../argument-aloud-index/courts/ussc/indexes
+courts/ussc/journals/xml	../../../../argument-aloud-xml/courts/ussc/journals/xml
+courts/ussc/opinions/xml	../../../../argument-aloud-xml/courts/ussc/opinions/xml
+courts/wasc/indexes		../../../argument-aloud-wasc/courts/wasc/indexes
+courts/wasc/people		../../../argument-aloud-wasc/courts/wasc/people
+courts/wasc/terms		../../../argument-aloud-wasc/courts/wasc/terms
+EOF
+}
+
 if [ "$1" = "data" ]; then
   # kept for muscle memory: data trees are symlinked now, only xsl still copies
   sync_xsl
@@ -35,6 +58,7 @@ elif [ -n "$1" ]; then
     popd
   }
   sync_to_website "argument-aloud"
+  restore_symlinks   # the checkout dance above can clobber the git-ignored data symlinks
   sync_to_website "argument-aloud-index"
   sync_to_website "argument-aloud-xml"
   sync_to_website "argument-aloud-wasc"
