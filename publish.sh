@@ -1,16 +1,21 @@
 #!/bin/bash
 set -e
 
-sync_data() {
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
-  rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
-  rsync -vcrt -O --delete --exclude=".*" --exclude="/index.*" --exclude="/terms/index.md" --exclude="/archives" courts/wasc/ ../argument-aloud-wasc/courts/wasc/
+# The generated data trees are no longer copied into sibling repos — they are
+# symlinks straight into them:
+#   courts/ussc/indexes       -> ../argument-aloud-index/courts/ussc/indexes
+#   courts/ussc/journals/xml  -> ../argument-aloud-xml/courts/ussc/journals/xml
+#   courts/ussc/opinions/xml  -> ../argument-aloud-xml/courts/ussc/opinions/xml
+#   courts/wasc/{indexes,people,terms} -> ../argument-aloud-wasc/courts/wasc/*
+# so the scripts write directly into those repos. Only assets/xsl/ is still a
+# plain copy (it rarely changes).
+sync_xsl() {
   rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 }
 
 if [ "$1" = "data" ]; then
-  sync_data
+  # kept for muscle memory: data trees are symlinked now, only xsl still copies
+  sync_xsl
 elif [ -n "$1" ]; then
   MSG="$1"
   sync_to_website() {
@@ -36,5 +41,5 @@ elif [ -n "$1" ]; then
 else
   node scripts/update_cases.js
   node scripts/update_opinions.js
-  sync_data
+  sync_xsl
 fi

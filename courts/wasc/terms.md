@@ -1,6 +1,7 @@
 ---
 layout: pane
 title: WA Supreme Court Term
+permalink: /courts/wasc/terms/
 styles:
 - /assets/css/pages.css
 ---

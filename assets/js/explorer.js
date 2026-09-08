@@ -250,6 +250,14 @@ function _getFavData() {
     if (!raw.groups?.some(g => g.id === 'unfiled')) {
       raw.groups = [{ id: 'unfiled', name: 'Unfiled' }, ...(raw.groups || [])];
     }
+    // Court re-tag: before favorites were court-aware, everything was written
+    // as court:'ussc'. A wasc case's term is a bare year ("2019"); a ussc
+    // term is "YYYY-MM" — so a 'ussc' item with a 4-digit term is really wasc.
+    let _retagged = false;
+    for (const it of raw.items || []) {
+      if (it.court === 'ussc' && /^\d{4}$/.test(it.caseRef?.term || '')) { it.court = 'wasc'; _retagged = true; }
+    }
+    if (_retagged) _setFavData(raw);
     return raw;
   } catch { return { groups: [{ id: 'unfiled', name: 'Unfiled' }], items: [] }; }
 }
@@ -288,7 +296,7 @@ function _currentFavKey() {
     const selEntry = selVal >= 1 ? _currentAudioList[selVal - 1] : null;
     evIdx = selEntry ? Math.max(1, _currentEvents.indexOf(selEntry) + 1) : 0;
   }
-  return `ussc:${term}:${number}:${evIdx}`;
+  return `${COURT_ID}:${term}:${number}:${evIdx}`;
 }
 
 function _updateFavoriteBtn() {
@@ -341,7 +349,7 @@ function _toggleFavorite() {
       ...(ce.decision ? { decision: ce.decision } : {}),
     };
     const targetGroupId = data.groups.some(g => g.id === _activeFavGroupId) ? _activeFavGroupId : 'unfiled';
-    data.items.push({ court: 'ussc', groupId: targetGroupId, caseRef });
+    data.items.push({ court: COURT_ID, groupId: targetGroupId, caseRef });
   }
   _setFavData(data);
   _updateFavoriteBtn();
@@ -355,7 +363,22 @@ function _toggleFavorite() {
 function _getTagData() {
   try {
     const raw = JSON.parse(localStorage.getItem(_LS_TAGS_KEY) || 'null');
-    return (raw && typeof raw === 'object' && !Array.isArray(raw)) ? raw : {};
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+    // Court re-tag (see _getFavData): every key was written "ussc:…" before tags
+    // were court-aware. A key whose term is a bare year ("2019") is really wasc
+    // ("YYYY-MM" is the ussc term shape).
+    let _retag = false;
+    for (const k of Object.keys(raw)) {
+      const [court, term] = k.split(':');
+      if (court === 'ussc' && /^\d{4}$/.test(term || '')) {
+        const nk = 'wasc:' + k.slice('ussc:'.length);
+        raw[nk] = [...new Set([...(raw[nk] || []), ...(raw[k] || [])])];
+        delete raw[k];
+        _retag = true;
+      }
+    }
+    if (_retag) _setTagData(raw);
+    return raw;
   } catch { return {}; }
 }
 
@@ -383,7 +406,7 @@ function _currentTagKey() {
   if (!_currentCaseEntry || !_currentCaseKey) return null;
   const term   = _currentCaseKey.split('/')[0];
   const number = _currentCaseEntry.number || _currentCaseEntry.id || '';
-  return `ussc:${term}:${number}`;
+  return `${COURT_ID}:${term}:${number}`;
 }
 
 function _getBuiltinTags() {
@@ -409,6 +432,7 @@ function _addUserTag(tag) {
     data[key].push(trimmed);
     _setTagData(data);
     _updateTagsBtn();
+    _refreshTagsNav();
     _injectLocalTagIntoLoadedGroups(trimmed);
   }
 }
@@ -491,7 +515,7 @@ async function _caseQualifiesForGroup(collEntry, group, term, number) {
     || (!c.number && c.id === number));
   if (!entry) return false;
   const builtinTags = Array.isArray(entry.tags) ? entry.tags : (entry.tags ? [String(entry.tags)] : []);
-  const userTags = _getTagData()[`ussc:${term}:${number}`] || [];
+  const userTags = _getTagData()[`${COURT_ID}:${term}:${number}`] || [];
   const allTags = [...builtinTags, ...userTags];
   return requiredTags.every(t => allTags.includes(t));
 }
@@ -539,6 +563,7 @@ function _removeUserTag(tag) {
   if (!data[key].length) delete data[key];
   _setTagData(data);
   _updateTagsBtn();
+  _refreshTagsNav();
   _removeLocalTagFromLoadedGroups(tag);
 }
 
@@ -554,6 +579,7 @@ function _pruneRedundantUserTags() {
   if (pruned.length) data[key] = pruned;
   else delete data[key];
   _setTagData(data);
+  _refreshTagsNav();
 }
 
 function _updateTagsBtn() {
@@ -1181,10 +1207,14 @@ function _rebuildFavoritesItems() {
   _favGroupEls.clear();
   const data = _getFavData();
   for (const grp of data.groups) {
+    // Favorites are scoped to the court they were made in (item.court); the
+    // stored blob is shared across courts. Show only this court's items — and
+    // don't render an empty custom group that only holds another court's.
+    const groupItems = data.items.filter(f => f.groupId === grp.id && f.court === COURT_ID);
+    if (grp.id !== 'unfiled' && !groupItems.length) continue;
     const groupEl = _buildFavGroupEl(grp.id, grp.name);
     _favoritesUl.appendChild(groupEl);
     const g = _favGroupEls.get(grp.id);
-    const groupItems = data.items.filter(f => f.groupId === grp.id);
     for (const fav of groupItems) {
       const item = _buildCollectionCaseItem(fav.caseRef, 'favorites', 1, null, null);
       item._upgradeIcons?.();
@@ -1217,13 +1247,147 @@ function _makeFavItemDraggable(item, favKey) {
 function _refreshFavoritesNav() {
   if (!_favoritesLi) return;
   const data = _getFavData();
-  const hasContent = data.items.length > 0 || data.groups.some(g => g.id !== 'unfiled');
+  // Court-scoped: show the Favorites nav only once this court has ≥1 favorite.
+  const hasContent = data.items.some(f => f.court === COURT_ID);
   _favoritesLi.hidden = !hasContent;
   if (_favoritesItemsBuilt) _rebuildFavoritesItems();
 }
 
+// ── Tags nav (virtual collection, in Collections after Favorites) ─────────────
+// One sub-group per distinct user tag (this court's, from _getTagData()), each
+// listing the cases carrying it. Tags themselves are added/removed from the
+// case view (the "Tags" button) — this is a read-only browse view.
+let _tagsLi = null, _tagsUl = null, _tagsItemsBuilt = false;
+
+// Map<tagName, [{ term, number }]> for the current court.
+function _userTagIndex() {
+  const out = new Map();
+  for (const [key, tags] of Object.entries(_getTagData())) {
+    const [court, term, number] = key.split(':');
+    if (court !== COURT_ID || !term || !number) continue;
+    for (const t of tags || []) {
+      if (!out.has(t)) out.set(t, []);
+      out.get(t).push({ term, number });
+    }
+  }
+  return out;
+}
+
+async function _rebuildTagsItems() {
+  if (!_tagsUl) return;
+  const prevOpen = new Set(
+    [..._tagsUl.querySelectorAll('.fav-group.open')].map(li => li.dataset.tagName),
+  );
+  _tagsUl.innerHTML = '';
+  const idx = _userTagIndex();
+
+  // One cases.json fetch per involved term (cached), for titles/metadata.
+  const terms = new Set();
+  for (const refs of idx.values()) for (const r of refs) terms.add(r.term);
+  const byTerm = new Map();
+  await Promise.all([...terms].map(async (t) => { byTerm.set(t, await fetchTermCases(t)); }));
+  const findCase = (term, number) => (byTerm.get(term) || []).find(c =>
+    c.number === number || (c.number && splitDockets(c.number).includes(number)) || c.id === number);
+
+  for (const name of [...idx.keys()].sort((a, b) => a.localeCompare(b))) {
+    const refs = idx.get(name);
+    const li = document.createElement('li');
+    li.className = 'term-group fav-group';
+    li.dataset.tagName = name;
+
+    const header = document.createElement('div');
+    header.className = 'term-header';
+    const tog = document.createElement('span');
+    tog.className = 'term-toggle';
+    tog.textContent = '▶︎';
+    const glabel = document.createElement('span');
+    glabel.className = 'term-label';
+    glabel.textContent = name;
+    const count = document.createElement('button');
+    count.type = 'button';
+    count.className = 'term-case-count';
+    count.textContent = refs.length + ' ' + (refs.length === 1 ? 'Case' : 'Cases');
+    header.appendChild(tog);
+    header.appendChild(glabel);
+    header.appendChild(count);
+
+    const ul = document.createElement('ul');
+    ul.className = 'case-list';
+    for (const r of refs) {
+      const ce = findCase(r.term, r.number);
+      const caseRef = {
+        term: r.term, number: r.number,
+        title: ce ? ce.title : r.number,
+        argument: ce?.argument || '',
+        ...(ce?.reargument ? { reargument: ce.reargument } : {}),
+        ...(ce?.decision ? { decision: ce.decision } : {}),
+        files: !!(ce?.files || ce?.references),
+      };
+      const item = _buildCollectionCaseItem(caseRef, 'tags', 1, null, null);
+      item._upgradeIcons?.();
+      ul.appendChild(item);
+    }
+
+    header.addEventListener('click', (e) => {
+      if (count.contains(e.target)) return;
+      li.classList.toggle('open');
+    });
+    li.appendChild(header);
+    li.appendChild(ul);
+    if (prevOpen.has(name)) li.classList.add('open');
+    _tagsUl.appendChild(li);
+  }
+}
+
+function _refreshTagsNav() {
+  if (!_tagsLi) return;
+  _tagsLi.hidden = _userTagIndex().size === 0;
+  if (_tagsItemsBuilt) _rebuildTagsItems();
+}
+
+function _initTagsNavItem(sectionLi) {
+  if (_tagsLi) return;
+  const sectionUl = sectionLi.querySelector('ul.terms-list-inner');
+  if (!sectionUl) return;
+
+  _tagsLi = document.createElement('li');
+  _tagsLi.className = 'term-group';
+  _tagsLi.dataset.collectionId = 'tags';
+
+  const header = document.createElement('div');
+  header.className = 'term-header';
+  const tog = document.createElement('span');
+  tog.className = 'term-toggle';
+  tog.textContent = '▶︎';
+  const label = document.createElement('span');
+  label.className = 'term-label';
+  label.textContent = 'Tags';
+  header.appendChild(tog);
+  header.appendChild(label);
+
+  _tagsUl = document.createElement('ul');
+  _tagsUl.className = 'fav-groups-list';
+
+  _tagsLi._ensureBuilt = () => {
+    if (_tagsItemsBuilt) return;
+    _tagsItemsBuilt = true;
+    return _rebuildTagsItems();   // async — restore awaits this before looking up the case
+  };
+  header.addEventListener('click', () => {
+    _tagsLi.classList.toggle('open');
+    if (_tagsLi.classList.contains('open')) _tagsLi._ensureBuilt();
+  });
+
+  _tagsLi.appendChild(header);
+  _tagsLi.appendChild(_tagsUl);
+  sectionUl.appendChild(_tagsLi);   // after Favorites (initialised just before this)
+
+  _refreshTagsNav();
+}
+
 function _initEditsNavItem(sectionLi) {
   if (_editsLi) return;
+  if (COURT_ID !== 'ussc') return;   // transcript editing is ussc-only
   const sectionUl = sectionLi.querySelector('ul.terms-list-inner');
   if (!sectionUl) return;
 
@@ -1406,6 +1570,10 @@ const playerSection   = document.getElementById('player-section');
 const audioControls   = document.getElementById('audio-controls');
 const pageViewer      = document.getElementById('page-viewer');
 const transcriptViewer = document.getElementById('transcript-viewer');
+// Sibling of #transcript-viewer that holds the non-transcript case views —
+// the benches votes strip (_showCaseVotesView) and the wasc plain-summary view
+// (_showWascCaseSummary). Exactly one of the two panes is un-hidden at a time.
+const caseViewer       = document.getElementById('case-viewer');
 const playPauseBtn     = document.getElementById('play-pause-btn');
 const audioSeekBar     = document.getElementById('audio-seek-bar');
 const audioCurrentTime = document.getElementById('audio-current-time');
@@ -3222,6 +3390,8 @@ function _showDecisionFromParam(param) {
   const key = DECISION_PARAM_KEYS[param];
   const de  = key && _currentDecisionEntries.find(d => d.value === key);
   if (!de) return false;
+  _setWascCaseMode('decision');   // wasc: only #justices-row above the decision (no-op for ussc)
+  if (COURT_ID !== 'ussc' && !isMobile()) docViewerOpenHeight = _wascDecisionDocHeight();
   showDocViewer({ href: de.href, title: de.title, view: de.view }, { autoScroll: true });
   // The dropdown only ever offers the single preferred decision_* source
   // (see _appendDecisionOption) — sync it to that entry rather than `key`,
@@ -3930,16 +4100,14 @@ function _showCaseVotesView(caseEntry) {
   turnList.style.display = 'none';
   loadingMsg.style.display = 'none';
   emptyState.style.display = 'none';
-  // A no-audio case's loadCaseAsOpinion tags #transcript-viewer .no-audio,
-  // which CSS collapses to flex:0/padding:0 so the doc viewer can fill the
-  // freed space — exactly wrong here, since #justices-row lives inside that
-  // same container and needs real height to show. .justices-row-active
-  // overrides it back to auto-sized (see explorer.css, which also mirrors
-  // .no-audio/.no-transcript's own "#bottom-bar fills remaining space" rule
-  // for this class); cleared again by loadAudioEntry/loadCaseAsOpinion's own
-  // reset the next time any case loads.
-  transcriptViewer.classList.remove('no-audio', 'no-transcript');
-  transcriptViewer.classList.add('justices-row-active');
+  // Swap the transcript pane out for #case-viewer, sized to its own content
+  // (.justices-row-active — see explorer.css, which also mirrors the "#bottom-bar
+  // fills the remaining space" rule for this class). Both are cleared again by
+  // loadAudioEntry/loadCaseAsOpinion's own reset the next time any case loads.
+  transcriptViewer.hidden = true;
+  caseViewer.hidden = false;
+  caseViewer.classList.remove('case-summary-active');
+  caseViewer.classList.add('justices-row-active');
   row.hidden = false;
   // The audio player controls belong to the argument transcript, which this
   // view replaces — hidden regardless of whether the case actually has
@@ -4044,10 +4212,42 @@ function _showWascCaseSummary(caseEntry) {
   turnList.style.display = 'none';
   loadingMsg.style.display = 'none';
   emptyState.style.display = 'none';
-  transcriptViewer.classList.remove('no-audio', 'no-transcript');
-  transcriptViewer.classList.add('case-summary-active');
-  container.hidden = false;
+  // Swap the transcript pane out for #case-viewer. Default to "argument" mode
+  // (summary fills the pane, doc viewer minimized); loadCaseAsOpinion / the
+  // file-select handler flip to "decision" mode when a decision is shown.
+  transcriptViewer.hidden = true;
+  caseViewer.hidden = false;
+  _setWascCaseMode('argument');
   audioControls.hidden = true;
+}
+
+// The wasc #case-viewer has two layouts, driven by the #file-select dropdown:
+//   'argument' — #case-summary fills the pane and scrolls; the doc viewer sits
+//                minimized (30px) below it. The default.
+//   'decision' — #case-summary is hidden so only the fixed-height #justices-row
+//                shows, and the doc viewer expands directly below it (its own
+//                height animating, #bottom-bar staying content-sized — unlike
+//                the ussc votes strip's flex-fill, so open/minimize slide).
+// No-op for ussc (its #case-summary is never populated).
+function _setWascCaseMode(mode) {
+  if (COURT_ID === 'ussc') return;
+  // Desktop only: on mobile the panes stack and scroll, so the summary always
+  // stays visible and the doc viewer just flows below it.
+  const decision = mode === 'decision' && !isMobile();
+  document.getElementById('case-summary').hidden = decision;
+  caseViewer.classList.toggle('case-decision-active', decision);
+  caseViewer.classList.toggle('case-summary-active', !decision);
+}
+
+// Height for the wasc decision doc viewer so its top edge sits right under
+// #justices-row with no gap (the rest of the panel below it is clipped by
+// #main-panel's overflow).
+function _wascDecisionDocHeight() {
+  const mp = document.getElementById('main-panel').clientHeight;
+  const ps = document.getElementById('player-section').getBoundingClientRect().height;
+  const jrEl = document.getElementById('justices-row');
+  const jr = jrEl.hidden ? 0 : jrEl.getBoundingClientRect().height;
+  return Math.max(240, Math.round(mp - ps - jr - 16));   // 16 ≈ #case-decision-active top padding
 }
 
 function _setCaseInfoRow3(caseEntry) {
@@ -6007,7 +6207,10 @@ function _findCollectionEntry(entries, collId) {
 }
 
 function buildCollectionsNav(title = 'Collections', data = COLLECTIONS, isTopic = false, id = '') {
-  if (!data || !data.length) return null;
+  // A section with an id but no entries is still built — it's a lazily-filled
+  // shell that Favorites / Edits get appended to (e.g. wasc, which has no
+  // curated collections of its own yet).
+  if ((!data || !data.length) && !id) return null;
 
   const termListEl = document.getElementById('term-list');
 
@@ -6083,6 +6286,18 @@ function _normalizePageNodes(nodes) {
   }
 }
 
+// Wrap a Collections section's lazy build so Favorites (and, ussc-only, Edits)
+// get appended the first time it's expanded.
+function _hookFavoritesOntoCollections(sectionLi) {
+  if (!sectionLi) return;
+  const _origEnsure = sectionLi._ensureBuilt;
+  let _hooked = false;
+  sectionLi._ensureBuilt = () => {
+    _origEnsure?.();
+    if (!_hooked) { _hooked = true; _initEditsNavItem(sectionLi); _initFavoritesCollectionItem(sectionLi); _initTagsNavItem(sectionLi); }
+  };
+}
+
 function buildNavFromIndex(navData) {
   const termListEl = document.getElementById('term-list');
   termListEl.innerHTML = '';
@@ -6093,16 +6308,14 @@ function buildNavFromIndex(navData) {
       if (entry.file.endsWith('terms.json')) buildNav(entry.name || 'Terms', entry.id || '');
       else if (entry.file.endsWith('collections.json')) {
         _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', COLLECTIONS, false, entry.id || '');
-        if (_collectionsSectionLi) {
-          const _origCollEnsure = _collectionsSectionLi._ensureBuilt;
-          let _favHooked = false;
-          _collectionsSectionLi._ensureBuilt = () => {
-            _origCollEnsure();
-            if (!_favHooked) { _favHooked = true; _initEditsNavItem(_collectionsSectionLi); _initFavoritesCollectionItem(_collectionsSectionLi); }
-          };
-        }
+        _hookFavoritesOntoCollections(_collectionsSectionLi);
       }
       else if (entry.file.endsWith('topics.json')) _topicsSectionLi = buildCollectionsNav(entry.name || 'Topics', TOPICS, true, entry.id || '');
+    } else if (entry.id === 'collection') {
+      // File-less Collections entry (a court with no curated collections of its
+      // own, e.g. wasc) — a bare section that just hosts Favorites.
+      _collectionsSectionLi = buildCollectionsNav(entry.name || 'Collections', [], false, 'collection');
+      _hookFavoritesOntoCollections(_collectionsSectionLi);
     } else if (entry.groups) {
       buildStaticNavSection(termListEl, entry);
     }
@@ -6352,6 +6565,8 @@ function showAdvocateDocument(documentUrl, linkUrl, groupName) {
   document.querySelectorAll('.case-item.active').forEach(el => el.classList.remove('active', 'open'));
   document.querySelectorAll('.case-item.active-page').forEach(el => el.classList.remove('active-page'));
 
+  caseViewer.hidden = true;
+  caseViewer.classList.remove('justices-row-active', 'case-summary-active', 'case-decision-active');
   if (linkUrl) {
     // Show link page in the top third, document in the doc-viewer below
     // filling the bottom two-thirds.
@@ -6546,6 +6761,8 @@ function showPageViewer(url, { pushState = true } = {}) {
   playerSection.hidden = true;
   audioControls.hidden = true;
   transcriptViewer.hidden = true;
+  caseViewer.hidden = true;
+  caseViewer.classList.remove('justices-row-active', 'case-summary-active', 'case-decision-active');
   // Force-close doc-viewer immediately (no animation needed).
   const docPanel = document.getElementById('doc-viewer');
   docPanel.classList.remove('collapsed');
@@ -7177,9 +7394,12 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
   async function _fetchCaseEntry() {
     if (_caseEntryCache) return _caseEntryCache;
     const cases = await fetchTermCases(caseRef.term);
+    // caseRef.number normally holds a docket number, but an older favorite (or
+    // one made before the case had a docket) may have stored the case `id`
+    // instead — so match on `id` too, not only when the case has no number.
     _caseEntryCache = cases.find(c => c.number === caseRef.number ||
       (c.number && splitDockets(c.number).includes(caseRef.number)) ||
-      (!c.number && c.id === caseRef.number)) ?? null;
+      c.id === caseRef.number) ?? null;
     return _caseEntryCache;
   }
 
@@ -8182,7 +8402,11 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
   turnList.innerHTML = '';
   document.getElementById('justices-row').hidden = true;
   document.getElementById('case-summary').hidden = true;
-  transcriptViewer.classList.remove('justices-row-active', 'case-summary-active');
+  // Back to the transcript pane — hide the case view (_showCaseVotesView /
+  // _showWascCaseSummary) that a previous case may have left showing.
+  caseViewer.hidden = true;
+  caseViewer.classList.remove('justices-row-active', 'case-summary-active', 'case-decision-active');
+  transcriptViewer.hidden = false;
   _inBenchCaseView = false;
   loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
@@ -8479,7 +8703,10 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   document.getElementById('justices-row').hidden = true;
   document.getElementById('case-summary').hidden = true;
   loadingMsg.style.display = 'none';
-  document.getElementById('transcript-viewer').classList.remove('justices-row-active', 'case-summary-active');
+  // Hide the case view by default — _showCaseVotesView / _showWascCaseSummary
+  // (called later in this function for non-ussc / bench cases) re-show it.
+  caseViewer.hidden = true;
+  caseViewer.classList.remove('justices-row-active', 'case-summary-active', 'case-decision-active');
   document.getElementById('transcript-viewer').classList.add('no-audio');
   _inBenchCaseView = false;
 
@@ -8517,6 +8744,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
     ? 'Decision on\u00a0' + formatDecisionDate(caseEntry.decision)
         + (caseEntry.citation ? '\u00a0(' + caseEntry.citation + ')' : '')
     : null;
+
+  // A court with no synced transcript of its own (wasc) gets an explicit
+  // "Oral Argument on <date>" dropdown entry for its argument date \u2014 the
+  // default selection (ahead of the decision), with the doc viewer minimized
+  // while it's active so the case summary + embedded argument media show.
+  const _wascArgIso = (COURT_ID !== 'ussc' && caseEntry.argument) ? caseEntry.argument : null;
 
   // If there are extra documents to choose from, surface a dropdown rather
   // than the standalone decision label.
@@ -8560,7 +8793,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   // below is reserved for a decided case with no document source at all
   // (decisionText set but every decision_* href missing); a visitor who
   // wants a new tab already has the doc viewer's own "open in new tab" button.
-  if (caseEntry.history_url || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length || _currentOyezEntries.length) {
+  if (_wascArgIso || caseEntry.history_url || _opRawFiles.length || (journalOpts.length && (decisionText || journalOpts.length > 1)) || minutesOpts.length || _currentVideoEntries.length || _currentTranscriptEntries.length || _currentDecisionEntries.length || _currentOyezEntries.length) {
     decisionLabel.hidden = true;
     fileSelect.innerHTML = '';
     minutesOpts.forEach(mn => {
@@ -8590,6 +8823,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
       opt.textContent = te.title;
       fileSelect.appendChild(opt);
     });
+    if (_wascArgIso) {
+      const argOpt = document.createElement('option');
+      argOpt.value = 'wasc-argument';
+      argOpt.textContent = 'Oral Argument on ' + formatDecisionDate(_wascArgIso);
+      fileSelect.appendChild(argOpt);
+    }
     _appendDecisionOption(fileSelect, _currentDecisionEntries);
     // Append sentinel option(s) linking to the Oyez case page(s), if available
     // (see the matching block in loadCase, for the with-audio path).
@@ -8613,11 +8852,12 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
       historyOpt.textContent = _historyEntryTitle(caseEntry.history_url);
       fileSelect.appendChild(historyOpt);
     }
-    // Default to the first oral-argument transcript when present (matches a
-    // case with real audio defaulting to its argument), else the first
-    // decision entry, else a file, else Minutes/Journal — all open in the
-    // document viewer.
-    const _defaultEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
+    // Default to the wasc "Oral Argument" entry when present, then the first
+    // oral-argument transcript (matches a case with real audio defaulting to
+    // its argument), else the first decision entry, else a file, else
+    // Minutes/Journal — all open in the document viewer.
+    const _defaultEntry = (_wascArgIso ? { value: 'wasc-argument' } : null)
+      || _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
     if (_defaultEntry) fileSelect.value = _defaultEntry.value;
     // Adds "Minutes for <date>" options (if any) for this case's own argued/
     // reargument/decided dates — see _showMinutesGalleryForDate/_setDateLinks
@@ -8674,11 +8914,26 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   // argument — falling back to the decision, then a file, then Minutes/
   // Journal when there's no transcript source. Use a local override so this
   // large height doesn't persist for the next audio case.
+  // wasc default is the "Oral Argument" entry (see _wascArgIso / _defaultEntry):
+  // the #case-viewer summary + embedded argument media own the screen and the
+  // doc viewer stays HIDDEN, so picking "Decision on …" from the dropdown
+  // slides it up into view (like a ussc audio case's decision). A ?file= in the
+  // URL (a shared/reloaded decision link) opts straight into that decision view.
+  const _wascArgDefault = !!_wascArgIso && !new URLSearchParams(location.search).get('file');
+  // Desktop wasc "decision" layout: only #justices-row above an animating doc
+  // viewer (see _setWascCaseMode / _wascDecisionDocHeight).
+  const _wascDecision = COURT_ID !== 'ussc' && !_wascArgDefault && !isMobile();
+
   const _primaryEntry = _currentTranscriptEntries[0] || _currentDecisionEntries[0] || _opFileEntries[0] || _opMinutesPrimary || _opJournalPrimary;
-  _docViewerOpinionModeOpen = !!_primaryEntry;
-  if (_primaryEntry) {
+  _docViewerOpinionModeOpen = !!_primaryEntry && !_wascArgDefault;
+  if (_primaryEntry && !_wascArgDefault) {
     const savedHeight = docViewerOpenHeight;
-    docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+    if (_wascDecision) {
+      _setWascCaseMode('decision');                        // before measuring: #justices-row-only layout
+      docViewerOpenHeight = _wascDecisionDocHeight();
+    } else {
+      docViewerOpenHeight = Math.round(window.innerHeight * 0.85);  // ussc opinion view (and mobile)
+    }
     showDocViewer({ href: _primaryEntry.href, src: _primaryEntry.src, images: _primaryEntry.images, title: _primaryEntry.title, view: _primaryEntry.view }, { autoScroll: true });
     docViewerOpenHeight = savedHeight;
     // Track a "pages"-type default entry the same way an explicit click
@@ -9539,6 +9794,18 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
   // the 'minutes-date:' branch below re-sets this immediately if that's
   // what was actually picked, same as clicking that link would.
   _activeMinutesGalleryIso = null;
+  if (e.target.value === 'wasc-argument') {
+    // The "Oral Argument on <date>" entry (wasc): restore the case summary +
+    // embedded argument media in #case-viewer and slide the doc viewer back
+    // down out of view; drop any ?file= param.
+    _setWascCaseMode('argument');
+    hideDocViewerFully();
+    const url = new URL(location.href);
+    url.searchParams.delete('file');
+    url.searchParams.delete('citation');
+    history.replaceState(null, '', url);
+    return;
+  }
   if (e.target.value === 'docket-page') {
     if (_currentCaseEntry?.docket_url) {
       showDocViewer({ href: _currentCaseEntry.docket_url, title: 'Docket Search', view: 'pane' }, { force: true });
@@ -9557,6 +9824,11 @@ document.getElementById('file-select').addEventListener('change', async (e) => {
     return;
   }
   if (e.target.value.startsWith('decision_')) {
+    // wasc: hide #case-summary so only #justices-row shows above the decision,
+    // and expand the (possibly minimized) doc viewer to sit right under it.
+    // No-op / no height override for ussc.
+    _setWascCaseMode('decision');
+    if (COURT_ID !== 'ussc' && !isMobile()) docViewerOpenHeight = _wascDecisionDocHeight();
     const de = _currentDecisionEntries.find(d => d.value === e.target.value);
     if (de) showDocViewer({ href: de.href, title: de.title, view: de.view }, { force: true });
     const url = new URL(location.href);
@@ -9928,6 +10200,16 @@ document.getElementById('doc-viewer-close').addEventListener('click', (e) => {
 
 document.getElementById('doc-viewer-minimize').addEventListener('click', (e) => {
   e.stopPropagation();
+  // wasc decision view: minimizing means "back to the Oral Argument view" —
+  // reinstate the summary and route through that dropdown entry's own handler
+  // (which minimizes the doc viewer and drops ?file=).
+  const _fs = document.getElementById('file-select');
+  if (COURT_ID !== 'ussc' && caseViewer.classList.contains('case-decision-active')
+      && _fs && !_fs.hidden && [..._fs.options].some(o => o.value === 'wasc-argument')) {
+    _fs.value = 'wasc-argument';
+    _fs.dispatchEvent(new Event('change'));
+    return;
+  }
   collapseDocViewer();
 });
 
@@ -12209,11 +12491,11 @@ async function restoreFromURL() {
         }));
       }
     }
-    // For favorites/edits: if the case wasn't found, fall through to the plain
-    // term+case handler so the case still loads.
-    if (_collCaseFocused || (collectionParam !== 'favorites' && collectionParam !== 'edits')) return;
-    // For favorites only: strip collection/group from the URL before falling through.
-    if (collectionParam === 'favorites') {
+    // For favorites/tags/edits: if the case wasn't found, fall through to the
+    // plain term+case handler so the case still loads.
+    if (_collCaseFocused || !['favorites', 'tags', 'edits'].includes(collectionParam)) return;
+    // For favorites/tags: strip collection/group from the URL before falling through.
+    if (collectionParam === 'favorites' || collectionParam === 'tags') {
       const _fbUrl = new URL(location.href);
       _fbUrl.searchParams.delete('collection');
       _fbUrl.searchParams.delete('group');
@@ -12927,7 +13209,7 @@ async function saveFavorites() {
   const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
-  a.href = url; a.download = 'ussc-favorites.json';
+  a.href = url; a.download = `${COURT_ID}-favorites.json`;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
@@ -12967,7 +13249,9 @@ function restoreFavorites() {
         _setTagData(tagData);
         _activeFavGroupId = 'unfiled';
         _favoritesItemsBuilt = false;
+        _tagsItemsBuilt = false;
         _refreshFavoritesNav();
+        _refreshTagsNav();
         _updateFavoriteBtn();
         _updateTagsBtn();
       } catch {

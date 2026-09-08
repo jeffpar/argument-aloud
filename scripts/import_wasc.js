@@ -5,12 +5,28 @@
  *
  * Usage:
  *   node scripts/import_wasc.js YYYY  [--dry-run] [--verbose] [--no-args]
- *   node scripts/import_wasc.js --sync [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js YYYY-MM-DD     [--dry-run] [--verbose] [--refetch]
+ *   node scripts/import_wasc.js --sync         [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js --justices     [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js --fix-titles   [--dry-run] [--verbose] [--refetch]
+ *   node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]
+ *   node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]
  *
  * Examples:
  *   node scripts/import_wasc.js 2013           # published opinions for 2013
  *   node scripts/import_wasc.js 2005 --dry-run # argument dockets for 2005
+ *   node scripts/import_wasc.js 2020-09-24     # re-import one argument session
  *   node scripts/import_wasc.js --sync         # refile + renumber + dates.json only
+ *   node scripts/import_wasc.js --fix-titles   # "State"/"Washington" party -> "State of Washington"
+ *   node scripts/import_wasc.js --tvw 2025     # fill bare TVW events (page_url only) from Invintus
+ *   node scripts/import_wasc.js --verify 2025 --fix   # check (and fix) broken docket_url values
+ *
+ * DATE mode (YYYY-MM-DD): scrape one calendar date's docket sheet, import all
+ * of that day's argued cases (create any that are missing; leave existing
+ * titles untouched), then match each of the session's TVW oral-argument videos
+ * to its correct case — moving a mis-attached tvw event to the right case and
+ * deleting strays. Runs the whole-dataset normalisation afterwards like the
+ * per-year modes.
  *
  * Two per-year modes, picked by year:
  *   - YYYY >= 2013  OPINION mode: the published-opinions listing
@@ -38,6 +54,21 @@
  *     update_cases.js's syncCrossTermCaseDates).
  *   - terms.json: each year's `dates` flag is set to match dates.json existence.
  *
+ * `--fix-titles` is a standalone one-off pass (no --sync): for every case
+ * whose title is "X v. State" / "State v. X" (or "… v. Washington" / etc.),
+ * it rewrites that bare party to the canonical "State of Washington" — but
+ * only where the case's own docket sheet caption confirms that party is the
+ * State. See fixTitlesPass for the exact verification rule.
+ *
+ * `--tvw [YYYY]` finds source:"tvw" events that carry only a page_url and fills
+ * video_url / hls_url / length / size / captions_url from the Invintus media
+ * API (the same API courts-tvw.php in ~/Sites/archives/tofj/tofj1 uses).
+ *
+ * `--verify [YYYY]` runs data-integrity checks (report-only; `--fix` applies
+ * corrections). Currently: docket_url — probes each stored value and, when
+ * dead, the direct-PDF / HTML calendar URLs for that session date, preferring
+ * the PDF form (courts.wa.gov retired most per-date HTML calendars).
+ *
  * Re-running is idempotent. `courts/wasc/` is git-ignored here; publish.sh
  * syncs it to the argument-aloud-wasc repo.
  *
@@ -46,8 +77,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
-import { reorderCase, splitDockets } from './schema.js';
+import { reorderCase, reorderEvent, splitDockets } from './schema.js';
 import { REPO_ROOT, sortCases } from './update_cases.js';
 
 // courts.wa.gov pages are hand-authored ColdFusion HTML with unclosed td/tr
@@ -218,9 +250,10 @@ function parseCalYearDayUrls(html) {
 // separable — so those years are left to the tofj export (their cases.json
 // are already complete anyway). 1996 has no calendar data at all.
 const _DATE_HDR_RE = /(?:sunday|monday|tuesday|wednesday|thursday|friday|saturday),?\s+([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(\d{4})/gi;
-const _CASE_RE     = /Case\s*No\.?\s*\d+\s*[-–—]?\s*(\d[\d,]*-\d)\b([\s\S]*?)(?=Case\s*No\.?\s*\d+\s*[-–—]|SYNOPSIS|$)/gi;
+const _DASH        = '[-\\u2010-\\u2015\\u2212]';   // hyphen-minus, hyphen..horiz-bar, minus sign
+const _CASE_RE     = new RegExp(`Case\\s*No\\.?\\s*\\d+\\s*${_DASH}?\\s*(\\d[\\d,]*-\\d)\\b([\\s\\S]*?)(?=Case\\s*No\\.?\\s*\\d+\\s*${_DASH}|SYNOPSIS|$)`, 'gi');
 
-function parseCalendarCases(html) {
+function parseCalendarCases(html, defaultIso = null) {
     const text = stripTags(decodeEntities(html));
     const headers = [];
     for (const h of text.matchAll(_DATE_HDR_RE)) {
@@ -228,10 +261,12 @@ function parseCalendarCases(html) {
         if (mi < 0) continue;
         headers.push({ at: h.index, iso: `${h[3]}-${String(mi + 1).padStart(2, '0')}-${String(+h[2]).padStart(2, '0')}` });
     }
+    // A single-date docket sheet ("…&file=YYYYMMDD") has no weekday-prefixed
+    // date header for _DATE_HDR_RE to catch — DATE mode passes the known iso.
     const isoAt = (pos) => {
         let iso = null;
         for (const h of headers) { if (h.at <= pos) iso = h.iso; else break; }
-        return iso;
+        return iso || defaultIso;
     };
     const out = [];
     for (const m of text.matchAll(_CASE_RE)) {
@@ -246,36 +281,124 @@ function parseCalendarCases(html) {
     return out;
 }
 
-// Best-effort case title from a calendar caption block. Stubs are rare; a
-// human/enrich pass can tidy. Reduces "PARTY A, Petitioner, v. PARTY B,
-// Respondent." -> "Party A v. Party B", "State of Washington" -> "State".
-function captionToTitle(body) {
-    // caption sits between "COUNSEL" and "SYNOPSIS"; before COUNSEL is just
-    // "Case No. N -" leftovers, after SYNOPSIS is the summary.
-    let s = body;
-    const cm = /\bCOUNSEL\b/i.exec(s);
-    if (cm) s = s.slice(cm.index + cm[0].length);
-    s = s.split(/\bSYNOPSIS\b/i)[0];
+// One calendar page's PLAIN TEXT (tag-stripped HTML, or `pdftotext -layout`
+// output) -> Map<normNum(docket) -> { left, right }> of the raw
+// (un-title-cased) party names in each case's caption — used by --fix-titles
+// to check a stored title's "State" / "Washington" party against the docket.
+function parseCalendarCaptionsRaw(plainText) {
+    const text = stripTags(plainText);
+    const map = new Map();
+    for (const m of text.matchAll(_CASE_RE)) {
+        const parties = _captionParties((m[2] || '').replace(/^\s*\([^)]*\)\s*/, '').trim());
+        const k = normNum(m[1].trim());
+        if (parties && !map.has(k)) map.set(k, parties);
+    }
+    return map;
+}
+
+// One side of a docket-sheet caption ("STATE OF WASHINGTON v. LELAND HONN KNAPP
+// IV Hon. Andrew Kelvin Miller …") -> a clean title-cased party name. The
+// current HTML docket-sheet layout runs the Title-Case COUNSEL names straight
+// on after party B with NO delimiter, so captionToTitle drags them into the
+// title. Exploit that the caption itself is ALL-CAPS: keep only the leading run
+// of ALL-CAPS tokens (plus lowercase connectors) and stop at the first
+// Title-Case word (the first counsel name). A trailing roman-numeral
+// generational suffix ("KNAPP IV") is preserved uppercase.
+const _SHEET_CONN = /^(?:of|the|and|&|for|von|van|de|la|el|du|des|di)$/i;
+const _SHEET_ROMAN = /^(?:I{1,3}|IV|VI{0,3}|IX|X{1,3})$/;
+function _sheetTitleSide(raw) {
+    const toks = String(raw || '').trim().split(/\s+/).filter(Boolean);
+    const kept = [];
+    for (const tok of toks) {
+        const bare = tok.replace(/^[("']+/, '').replace(/[.,;:)"']+$/, '');
+        if (!bare) continue;
+        const caps = /[A-Z0-9]/.test(bare) && !/[a-z]/.test(bare);
+        const conn = _SHEET_CONN.test(bare);
+        if (!kept.length) { if (!caps) break; }        // must start on an ALL-CAPS token
+        else if (!caps && !conn) break;                // hit a Title-Case counsel name
+        kept.push(bare);
+    }
+    if (!kept.length) return '';
+    let suffix = '';
+    if (kept.length > 1 && _SHEET_ROMAN.test(kept[kept.length - 1])) suffix = ' ' + kept.pop();
+    let x = kept.join(' ').toLowerCase()
+        .replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
+        .replace(/\b(Of|The|And|A|An|In|On|For|To|V)\b/g, (w) => w.toLowerCase());
+    x = x.charAt(0).toUpperCase() + x.slice(1);
+    return (x + suffix).replace(/\s+/g, ' ').trim();
+}
+
+// One single-date docket sheet's PLAIN TEXT -> [{ iso, docket, title }] for
+// every argued case, using _sheetTitleSide so the run-on counsel names are
+// dropped. `title` is '' when the block has no "X v. Y" shape (e.g. an
+// "In re Personal Restraint Petition of: …" caption). Used by DATE mode.
+function parseDocketSheetCases(plainText, iso) {
+    const text = stripTags(decodeEntities(plainText));
+    const out = [];
+    for (const m of text.matchAll(_CASE_RE)) {
+        const docket = m[1].trim();
+        let body = (m[2] || '').replace(/^\s*\([^)]*\)\s*/, '').trim().split(/\bSYNOPSIS\b/i)[0];
+        const cAt = body.search(/\bCOUNSEL\b/i);
+        const vAt = body.search(/\sv\.?\s/i);
+        if (cAt >= 0 && vAt >= 0 && cAt < vAt) body = body.slice(cAt + 'COUNSEL'.length);
+        const vm = /^(.*?)\s+v\.?\s+(.*)$/i.exec(body.trim());
+        let title = '';
+        if (vm) {
+            const a = _sheetTitleSide(vm[1]), b = _sheetTitleSide(vm[2]);
+            if (a && b) title = `${a} v. ${b}`;
+        }
+        out.push({ iso, docket, title });
+    }
+    return out;
+}
+
+// A calendar caption block -> { left, right } — each the raw (still ALL-CAPS,
+// role words stripped) first-named party on that side, or null if the block
+// has no "X v. Y" shape. Two layouts occur on courts.wa.gov:
+//   - older HTML: "…COUNSEL <A> v. <B> …"                (parties AFTER "COUNSEL")
+//   - current PDF: "PETITIONER RESPONDENT <A> v. <B> COUNSEL COUNSEL …"
+//     (a column header, then the parties, then the counsel block)
+// so slice relative to whichever of "COUNSEL" / " v. " comes first.
+function _captionParties(body) {
+    let s = String(body).split(/\bSYNOPSIS\b/i)[0];
+    const cAt = s.search(/\bCOUNSEL\b/i);
+    const vAt = s.search(/\sv\.?\s/i);
+    if (vAt < 0) return null;
+    if (cAt >= 0 && cAt < vAt) s = s.slice(cAt + 'COUNSEL'.length);   // parties after COUNSEL
+    else if (cAt > vAt)        s = s.slice(0, cAt);                    // parties before COUNSEL
     s = s.replace(/\b\d+\s*MINUTES?\s+PER\s+SIDE\b/gi, ' ')
+         .replace(/\b(PETITIONERS?|RESPONDENTS?|APPELLANTS?|APPELLEES?|PLAINTIFFS?|DEFENDANTS?|CROSS[-\s]*(?:PETITIONERS?|RESPONDENTS?|APPELLANTS?|APPELLEES?))\b/gi, ' ')
          .replace(/\bCONSOLIDATED\b|\bPRO\s*TEM\b[\s\S]*$/gi, ' ')
          .replace(/\b(petition for review granted|passed to the merits|without oral argument)\b/gi, ' ')
+         .replace(/\bCOUNSEL\b[\s\S]*$/i, ' ')                        // any trailing counsel block
          .replace(/\s+/g, ' ').trim();
     const vm = /^(.*?)\s+v\.?\s+(.*)$/i.exec(s);
-    if (!vm) return '';
-    const side = (p) => {
+    if (!vm) return null;
+    const rawSide = (p) => {
         let x = p.split(/[;,]/)[0].trim();                       // first named party
-        x = x.replace(/\b(petitioner|respondent|appellant|appellee|plaintiff|defendant|petitioners|respondents|et al\.?)\b\.?/gi, '').trim();
-        x = x.replace(/\s+/g, ' ').replace(/[.,]+$/, '').trim();
-        if (/^state of washington$/i.test(x)) x = 'State';
-        // title-case ALL-CAPS words, leave already-mixed-case alone
-        if (x === x.toUpperCase()) {
+        x = x.replace(/\b(petitioner|respondent|appellant|appellee|plaintiff|defendant|petitioners|respondents|appellants|appellees|et al\.?)\b\.?/gi, '').trim();
+        return x.replace(/\s+/g, ' ').replace(/[.,]+$/, '').trim();
+    };
+    return { left: rawSide(vm[1]), right: rawSide(vm[2]) };
+}
+
+// Best-effort case title from a calendar caption block. Stubs are rare; a
+// human/enrich pass can tidy. "PARTY A, Petitioner, v. PARTY B, Respondent."
+// -> "Party A v. Party B". "State of Washington" is kept verbatim (the
+// canonical WA party name) — see --fix-titles, which normalises the reverse
+// ("State" / "Washington" -> "State of Washington") against docket sheets.
+function captionToTitle(body) {
+    const parts = _captionParties(body);
+    if (!parts) return '';
+    const tc = (x) => {
+        if (x === x.toUpperCase()) {                             // title-case ALL-CAPS, leave mixed-case alone
             x = x.toLowerCase().replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
                  .replace(/\b(Of|The|And|A|An|In|On|For|To|V)\b/g, (w) => w.toLowerCase());
             x = x.charAt(0).toUpperCase() + x.slice(1);
         }
         return x;
     };
-    const a = side(vm[1]), b = side(vm[2]);
+    const a = tc(parts.left), b = tc(parts.right);
     return a && b ? `${a} v. ${b}` : '';
 }
 
@@ -564,10 +687,10 @@ const WIKI_JUSTICES = 'https://en.wikipedia.org/wiki/List_of_justices_of_the_Was
 // Wikipedia historical table carries these, so bench naming would otherwise
 // stall on "Madsen N" through the present. Curated from courts.wa.gov.
 const RECENT_CHIEFS = [
-    { caps: 'BARBARA MADSEN',  surname: 'MADSEN',    start: '2010-01-11', end: '2017-01-09' },
-    { caps: 'MARY FAIRHURST',  surname: 'FAIRHURST', start: '2017-01-09', end: '2020-11-30' },
-    { caps: 'STEVEN GONZALEZ', surname: 'GONZALEZ',  start: '2021-01-11', end: '2025-01-13' },
-    { caps: 'DEBRA STEPHENS',  surname: 'STEPHENS',  start: '2025-01-13', end: '' },
+    { caps: 'BARBARA A. MADSEN',  surname: 'MADSEN',    start: '2010-01-11', end: '2017-01-09' },
+    { caps: 'MARY E. FAIRHURST',  surname: 'FAIRHURST', start: '2017-01-09', end: '2020-11-30' },
+    { caps: 'STEVEN C. GONZÁLEZ', surname: 'GONZÁLEZ',  start: '2021-01-11', end: '2025-01-13' },
+    { caps: 'DEBRA L. STEPHENS',  surname: 'STEPHENS',  start: '2025-01-13', end: '' },
 ];
 // canonical justice-record key order (mirrors wasc-export.php's $METAKEYS)
 const JUSTICE_KEY_ORDER = [
@@ -806,6 +929,554 @@ async function justicesPass() {
     console.log(`  wrote ${rel(JUSTICES_JSON)} and ${rel(BENCHES_JSON)}`);
 }
 
+// ── --fix-titles: canonicalise "State" / "Washington" party names ─────────
+// For every wasc case whose title splits into exactly two parties and one of
+// them is exactly "State" or "Washington", rewrite that party to the canonical
+// "State of Washington" — but ONLY where the case's own docket sheet confirms
+// that party really is the State (its caption shows STATE OF WASHINGTON / THE
+// STATE OF WASHINGTON / STATE / WASHINGTON on that side). Cases with no
+// docket_url, an unfetchable/unparseable docket sheet, a caption that doesn't
+// confirm it, or a docket the sheet doesn't list are left untouched. Calendar
+// pages are cached under courts/wasc/cache/calendar/ (git-ignored) so a
+// --dry-run then a real run only hit the network once; --refetch ignores it.
+const CAL_CACHE_DIR = path.join(REPO_ROOT, 'courts', 'wasc', 'cache', 'calendar');
+
+// A stored title -> { left, right } on its single " v. " / " vs. ", or null.
+function splitTitleParties(title) {
+    const m = String(title || '').split(/\s+vs?\.?\s+/i);
+    if (m.length !== 2) return null;
+    const clean = (x) => x.trim().replace(/,?\s+et\s+al\.?$/i, '').trim();
+    return { left: clean(m[0]), right: clean(m[1]) };
+}
+const _isStateParty      = (s) => /^(state|washington)$/i.test(String(s || '').trim());
+// Does a raw caption party name denote the State of Washington in some form?
+function _captionIsState(raw) {
+    const x = String(raw || '').trim().replace(/[.,]+$/, '').replace(/\s+/g, ' ');
+    return /^(the\s+)?state(\s+of\s+wash(ington)?)?$/i.test(x)
+        || /^washington$/i.test(x)
+        || /^(the\s+)?state\s+of\s+wash(ington)?\b.*\bex\s+rel\b/i.test(x);
+}
+const _alphaTokens = (s) => (String(s || '').toUpperCase().match(/[A-Z]{3,}/g) || []);
+// Loose "same case" check: our non-State party shares a name token with the
+// caption's corresponding party — guards against a wrong docket/caption match.
+function _corroborates(ourOther, capOther) {
+    const ours = _alphaTokens(ourOther);
+    if (!ours.length) return true;
+    const theirs = _alphaTokens(capOther);
+    return ours.some((t) => theirs.some((c) => c === t || c.includes(t) || t.includes(c)));
+}
+let _pdftotextOk = null;
+function _havePdftotext() {
+    if (_pdftotextOk === null) {
+        try { execFileSync('pdftotext', ['-v'], { stdio: 'ignore' }); _pdftotextOk = true; }
+        catch { _pdftotextOk = false; }
+    }
+    return _pdftotextOk;
+}
+// Fetch one calendar page and return it as PLAIN TEXT (tag-stripped for HTML,
+// `pdftotext -layout` for a PDF — courts.wa.gov moved recent session dockets
+// from per-date HTML to PDF). Cached under courts/wasc/cache/calendar/ as .txt.
+async function _fetchCalendarText(url, refetch) {
+    const key = url.replace(/^https?:\/\//, '').replace(/[^A-Za-z0-9]+/g, '_').slice(0, 180);
+    const cf = path.join(CAL_CACHE_DIR, key + '.txt');
+    if (!refetch && exists(cf)) return fs.readFileSync(cf, 'utf8');
+    const wait = 350 - (Date.now() - _lastFetch);
+    if (wait > 0) await sleep(wait);
+    _lastFetch = Date.now();
+    let text = '';
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 30000);
+    try {
+        const resp = await fetch(encodeURI(url), { redirect: 'follow', headers: { 'User-Agent': USER_AGENT }, signal: ctrl.signal });
+        if (resp.ok) {
+            const buf = Buffer.from(await resp.arrayBuffer());
+            if (buf.slice(0, 5).toString('latin1') === '%PDF-') {
+                if (_havePdftotext()) {
+                    try { text = execFileSync('pdftotext', ['-layout', '-', '-'], { input: buf, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+                    catch { text = ''; }
+                }
+            } else {
+                text = stripTags(decodeEntities(buf.toString('utf8')));
+            }
+        }
+    } finally { clearTimeout(t); }
+    // Only cache a real hit — an empty result is a fetch failure (404, timeout,
+    // WA rate-limit) and must stay retryable on the next run.
+    if (text) { fs.mkdirSync(CAL_CACHE_DIR, { recursive: true }); fs.writeFileSync(cf, text, 'utf8'); }
+    return text;
+}
+// Given a stored (HTML) docket_url with a file=YYYYMMDD param, the current
+// direct-PDF URL for that same session date.
+function _pdfCalendarUrl(docketUrl) {
+    const ymd = (/[?&]file=(\d{8})\b/.exec(docketUrl || '') || [])[1];
+    return ymd ? `${BASE}/appellate_trial_courts/supreme/calendar/${ymd.slice(0, 4)}/${ymd}.pdf` : null;
+}
+
+async function fixTitlesPass(refetch) {
+    console.log(`import_wasc --fix-titles${DRY_RUN ? ' [dry-run]' : ''}${refetch ? ' [refetch]' : ''}`);
+    const files = loadAllYears();
+
+    // Collect candidates: two-party title, a "State"/"Washington" party, a docket_url.
+    const byUrl = new Map();   // docket_url -> [{ f, c, parts, sides, dockets }]
+    let noSplit = 0, notStateParty = 0, noDocketUrl = 0;
+    for (const f of files.values()) {
+        for (const c of f.cases) {
+            const parts = splitTitleParties(c.title);
+            if (!parts) { noSplit++; continue; }
+            const sides = ['left', 'right'].filter((s) => _isStateParty(parts[s]));
+            if (!sides.length) { notStateParty++; continue; }
+            if (!c.docket_url) { noDocketUrl++; continue; }
+            if (!byUrl.has(c.docket_url)) byUrl.set(c.docket_url, []);
+            byUrl.get(c.docket_url).push({ f, c, parts, sides, dockets: splitDockets(c.number).map(normNum) });
+        }
+    }
+    const totalCand = [...byUrl.values()].reduce((n, a) => n + a.length, 0);
+    console.log(`  ${totalCand} candidate case(s) across ${byUrl.size} docket sheet(s)`
+        + ` (skipped: ${noDocketUrl} with no docket_url, ${notStateParty + noSplit} with no bare State/Washington party)`);
+
+    const changes = [];
+    const stats = { docketMissing: 0, notConfirmed: 0, ambiguous: 0, fromPdf: 0 };
+    let done = 0;
+    for (const [url, list] of byUrl) {
+        // Try the stored docket_url (HTML) first; if it yields no caption for
+        // some candidate on this sheet, fall back to the current direct-PDF URL
+        // for the same session date (WA retired the old per-date HTML pages).
+        const needed = new Set(list.flatMap(({ c }) => splitDockets(c.number).map(normNum)));
+        const captions = new Map();
+        for (const src of [url, _pdfCalendarUrl(url)]) {
+            if (!src) continue;
+            let m;
+            try { m = parseCalendarCaptionsRaw(await _fetchCalendarText(src, refetch)); }
+            catch (e) { vprint(`  [fetch fail] ${src} — ${e.message}`); continue; }
+            for (const [k, v] of m) if (!captions.has(k)) { captions.set(k, v); if (src !== url) stats.fromPdf++; }
+            if ([...needed].every((d) => captions.has(d))) break;
+        }
+        if (++done % 100 === 0) console.log(`  …${done}/${byUrl.size} sheets`);
+
+        for (const { f, c, parts, sides } of list) {
+            // A title that's "State"/"Washington" on BOTH sides is a garbled
+            // parse (the non-State side is really a person the old importer
+            // failed to name) — leave it for manual repair, don't half-fix it.
+            if (sides.length === 2) { stats.ambiguous++; vprint(`  [both sides State] ${c.id} "${c.title}"`); continue; }
+            const s = sides[0];
+            const other = s === 'left' ? 'right' : 'left';
+            // The other party must read like a real name (has a capital) —
+            // else the whole title is broken ("State v. issues", "775 v. State")
+            // and needs a proper fix, not just the State half canonicalised.
+            if (!/[A-Z]/.test(parts[other])) { stats.notConfirmed++; vprint(`  [other side not a name] ${c.id} "${c.title}"`); continue; }
+
+            let capParties = null;
+            for (const d of splitDockets(c.number).map(normNum)) { if (captions.has(d)) { capParties = captions.get(d); break; } }
+            if (!capParties) { stats.docketMissing++; vprint(`  [not on sheet] ${c.id} "${c.title}" (${c.number})`); continue; }
+
+            const next = { ...parts };
+            let hit = false;
+            if (_captionIsState(capParties[s])) {
+                if (_corroborates(parts[other], capParties[other])) { next[s] = 'State of Washington'; hit = true; }
+                else vprint(`  [no corroboration] ${c.id} "${c.title}" — our "${parts[other]}" vs caption "${capParties[other]}"`);
+            }
+            if (!hit) { stats.notConfirmed++; continue; }
+            if (next.left === next.right) { stats.ambiguous++; vprint(`  [would self-collide] ${c.id} "${c.title}"`); continue; }
+
+            const newTitle = `${next.left} v. ${next.right}`;
+            if (newTitle === c.title) continue;
+            changes.push({ year: f.year, id: c.id, from: c.title, to: newTitle });
+            c.title = newTitle;
+            f.changed = true;
+        }
+    }
+
+    changes.sort((a, b) => (a.year - b.year) || a.id.localeCompare(b.id));
+    for (const ch of changes) console.log(`  ${ch.id}  "${ch.from}"  ->  "${ch.to}"`);
+    console.log(`\n  ${changes.length} title(s) ${DRY_RUN ? 'would change' : 'changed'}`
+        + `  (not on sheet: ${stats.docketMissing}, caption didn't confirm: ${stats.notConfirmed},`
+        + ` ambiguous: ${stats.ambiguous}; ${stats.fromPdf} caption(s) read from PDF calendars)`);
+
+    let wrote = 0;
+    for (const f of files.values()) {
+        if (!f.changed) continue;
+        if (!DRY_RUN) writeJson(f.path, f.cases);
+        wrote++;
+    }
+    console.log(`  ${wrote} cases.json ${DRY_RUN ? 'would be' : ''} written`);
+}
+
+// ── --tvw: fill a bare TVW event (page_url only) from the Invintus API ────
+// A wasc `events[]` entry with source "tvw" carries a page_url (the tvw.org
+// watch/video page) plus, when we've resolved them, the real playable media:
+// video_url (a Backblaze B2 .mp4), hls_url, length ("HH:MM:SS"), size (bytes),
+// captions_url (.vtt). This pass finds events that have ONLY page_url and asks
+// the Invintus media API (the same one courts-tvw.php in ~/Sites/archives/tofj
+// uses) to fill the rest. Old pre-~2015 broadcasts aren't in that API and are
+// reported as unresolved. Scope with an optional YYYY.
+const INVINTUS_CLIENT = '9375922947';
+const INVINTUS_KEY     = '7WhiEBzijpritypp8bqcU7pfU9uicDR';
+const INVINTUS_URL     = 'https://api.v3.invintus.com/v2/Event/getDetailed';
+const TVW_CACHE_DIR    = path.join(REPO_ROOT, 'courts', 'wasc', 'cache', 'tvw');
+
+// eventID out of a tvw.org page URL:
+//   https://tvw.org/watch/?eventID=2012090012B   -> 2012090012B
+//   https://tvw.org/video/washington-state-supreme-court-2025051142/ -> 2025051142
+function tvwEventId(pageUrl) {
+    const u = String(pageUrl || '');
+    let m = /[?&]eventID=([0-9A-Za-z]+)/.exec(u);
+    if (m) return m[1];
+    m = /tvw\.org\/video\/[^/]*?-(\d{8,12}[A-Z]?)\/?(?:[?#].*)?$/i.exec(u);
+    return m ? m[1] : '';
+}
+
+async function invintusEvent(eid, refetch) {
+    const cf = path.join(TVW_CACHE_DIR, `${eid}.json`);
+    if (!refetch && exists(cf)) {
+        try { const j = JSON.parse(fs.readFileSync(cf, 'utf8')); return j && j.data ? j.data : null; } catch { /* refetch */ }
+    }
+    const wait = 350 - (Date.now() - _lastFetch);
+    if (wait > 0) await sleep(wait);
+    _lastFetch = Date.now();
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 30000);
+    let j = null;
+    try {
+        const resp = await fetch(INVINTUS_URL, {
+            method: 'POST', signal: ctrl.signal,
+            headers: { 'Content-Type': 'application/json', 'authorization': 'embedder', 'wsc-api-key': INVINTUS_KEY },
+            body: JSON.stringify({ eventID: String(eid), clientID: INVINTUS_CLIENT, showStreams: true, showDownloadLinks: true, showMediaAssets: true }),
+        });
+        j = await resp.json().catch(() => null);
+    } finally { clearTimeout(t); }
+    fs.mkdirSync(TVW_CACHE_DIR, { recursive: true });
+    fs.writeFileSync(cf, JSON.stringify(j || {}, null, 1), 'utf8');
+    return (j && !(j.errors && j.errors.hasError) && j.data && j.data.eventID) ? j.data : null;
+}
+
+// HEAD/Range-probe a media URL for its byte length (Invintus fileSize is
+// sometimes 0 for older archives).
+async function probeSize(url) {
+    if (!url) return 0;
+    try {
+        const r = await fetch(encodeURI(url), { headers: { 'User-Agent': USER_AGENT, Range: 'bytes=0-0' }, redirect: 'follow' });
+        const cr = r.headers.get('content-range');
+        if (cr) { const m = /\/(\d+)\s*$/.exec(cr); if (m) return +m[1]; }
+        const cl = r.headers.get('content-length');
+        return cl && r.status === 200 ? +cl : 0;
+    } catch { return 0; }
+}
+
+// Invintus getDetailed `data` -> the five media props we store (only the ones
+// we could actually determine). Mirrors courts-tvw.php's invintus_media_from_event.
+async function tvwMediaFromEvent(d, eid) {
+    const out = {};
+    const vids = (d.mediaAssets || []).filter((a) => a.type === 'video');
+    const vAsset = vids.find((a) => a.currentStatus === 'archive') || vids[0];
+    const dl = d.downloadLinks || {};
+
+    // video_url: prefer a Backblaze B2 progressive .mp4.
+    const hashOf = (s) => (/([0-9a-f]{40})\.(?:mp4|m4a)\b/i.exec(String(s || '')) || [])[1];
+    let videoUrl = '';
+    if (vAsset && /f005\.backblazeb2\.com/i.test(vAsset.fileUrl || '')) videoUrl = vAsset.fileUrl;
+    if (!videoUrl) {
+        const h = hashOf(vAsset && vAsset.fileUrl) || hashOf(dl.videoDownloadURI);
+        if (h) videoUrl = `https://f005.backblazeb2.com/file/invintus-client-media/${INVINTUS_CLIENT}/${h}.mp4`;
+    }
+    if (!videoUrl && dl.videoDownloadURI) videoUrl = dl.videoDownloadURI;
+    if (videoUrl) out.video_url = videoUrl;
+
+    let hls = (d.streamingURIs && d.streamingURIs.main) || '';
+    if (hls && hls.includes('//media.m3u8')) hls = hls.replace('//media.m3u8', `/${eid}/media.m3u8`);
+    if (hls) out.hls_url = hls;
+
+    if (vAsset && /^\d{1,2}:\d{2}:\d{2}$/.test(vAsset.totalRunTime || '')) out.length = vAsset.totalRunTime;
+
+    let size = +(vAsset && vAsset.fileSize) || 0;
+    if (!size && out.video_url) size = await probeSize(out.video_url);
+    if (size) out.size = size;
+
+    const capAsset = (d.mediaAssets || []).find((a) => a.type === 'caption');
+    const vtt = d.captionPath || (capAsset && capAsset.fileUrl) || '';
+    if (/\.vtt(\?|$)/i.test(vtt)) out.captions_url = vtt;
+
+    return out;
+}
+
+async function tvwPass(yearArg, refetch) {
+    console.log(`import_wasc --tvw${yearArg ? ' ' + yearArg : ''}${DRY_RUN ? ' [dry-run]' : ''}`);
+    const files = loadAllYears();
+    const MEDIA_KEYS = ['video_url', 'hls_url', 'length', 'size', 'captions_url'];
+
+    let bare = 0, resolved = 0, unresolved = 0, partial = 0;
+    for (const f of files.values()) {
+        if (yearArg && f.year !== +yearArg) continue;
+        for (const c of f.cases) {
+            for (let i = 0; i < (c.events || []).length; i++) {
+                const e = c.events[i];
+                if (e.source !== 'tvw' || !e.page_url) continue;
+                if (MEDIA_KEYS.some((k) => e[k] != null && e[k] !== '')) continue;   // not bare
+                bare++;
+                const eid = tvwEventId(e.page_url);
+                if (!eid) { unresolved++; console.log(`  [no eventID] ${c.id} ${e.page_url}`); continue; }
+                let data;
+                try { data = await invintusEvent(eid, refetch); }
+                catch (err) { unresolved++; console.log(`  [api error] ${c.id} ${eid} — ${err.message}`); continue; }
+                if (!data) { unresolved++; console.log(`  [not in Invintus] ${c.id} ${eid}  (${e.page_url})`); continue; }
+                const media = await tvwMediaFromEvent(data, eid);
+                const got = MEDIA_KEYS.filter((k) => media[k] != null);
+                if (!got.length) { unresolved++; console.log(`  [nothing playable] ${c.id} ${eid}`); continue; }
+                c.events[i] = reorderEvent({ ...e, ...media });
+                f.changed = true;
+                if (got.length === MEDIA_KEYS.length) resolved++; else partial++;
+                console.log(`  ${c.id}  ${eid}  +[${got.join(', ')}]${got.length < MEDIA_KEYS.length ? `  (missing ${MEDIA_KEYS.filter((k) => !media[k]).join(', ')})` : ''}`);
+            }
+        }
+    }
+    console.log(`\n  ${bare} bare tvw event(s): ${resolved} fully resolved, ${partial} partially, ${unresolved} unresolved`);
+
+    let wrote = 0;
+    for (const f of files.values()) {
+        if (!f.changed) continue;
+        if (!DRY_RUN) writeJson(f.path, f.cases);
+        wrote++;
+    }
+    console.log(`  ${wrote} cases.json ${DRY_RUN ? 'would be' : ''} written`);
+}
+
+// ── DATE mode (YYYY-MM-DD): one argument session from its docket sheet ────
+// The TVW WP-REST day window rejects the bare `Mozilla/5.0` UA with an HTML
+// block; a full browser UA returns JSON.
+const BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+
+// TVW oral-argument videos in the [date-1, date+2) window -> [{ eid, date,
+// link, name, text }] for WA Supreme Court sessions only. Ports courts-tvw.php's
+// day_videos(). Cached under courts/wasc/cache/tvw/ as window-YYYY-MM-DD.json.
+async function _tvwDayVideos(dateIso, refetch) {
+    const cf = path.join(TVW_CACHE_DIR, `window-${dateIso}.json`);
+    let arr = null;
+    if (!refetch && exists(cf)) { try { arr = JSON.parse(fs.readFileSync(cf, 'utf8')); } catch { arr = null; } }
+    if (!Array.isArray(arr)) {
+        const d = new Date(`${dateIso}T00:00:00Z`).getTime();
+        const after  = new Date(d - 86400e3).toISOString().slice(0, 10) + 'T00:00:00';
+        const before = new Date(d + 2 * 86400e3).toISOString().slice(0, 10) + 'T00:00:00';
+        const url = 'https://tvw.org/wp-json/wp/v2/invintus_video?per_page=80&orderby=date&order=asc&search=court'
+            + `&after=${encodeURIComponent(after)}&before=${encodeURIComponent(before)}`
+            + `&_fields=${encodeURIComponent('id,date,link,title.rendered,content.rendered')}`;
+        const wait = 350 - (Date.now() - _lastFetch);
+        if (wait > 0) await sleep(wait);
+        _lastFetch = Date.now();
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 30000);
+        try {
+            const resp = await fetch(url, { headers: { 'User-Agent': BROWSER_UA, Accept: 'application/json' }, signal: ctrl.signal });
+            arr = await resp.json().catch(() => null);
+        } finally { clearTimeout(t); }
+        if (Array.isArray(arr)) { fs.mkdirSync(TVW_CACHE_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(arr, null, 1), 'utf8'); }
+    }
+    if (!Array.isArray(arr)) return [];
+    const out = [];
+    for (const v of arr) {
+        const vt = (v.title && v.title.rendered) || '';
+        const vcRaw = (v.content && v.content.rendered) || '';
+        if (!/supreme court/i.test(vt)) continue;
+        const vc = stripTags(decodeEntities(vcRaw)).split(/\bRelated Videos\b/i)[0].trim();
+        if (!/oral argument/i.test(vc)) continue;
+        let eid = '';
+        let em = /data-eventid=["']([0-9]{8,12}[A-Z]?)["']/i.exec(vcRaw);
+        if (em) eid = em[1].toUpperCase();
+        if (!eid) { em = /-(\d{8,12}[A-Z]?)\/?$/.exec(String(v.link || '').replace(/[?#].*$/, '')); if (em) eid = em[1]; }
+        if (!eid) continue;
+        const nm = /oral arguments?:\s*(.+?)\s*(?:\(|$)/i.exec(vc);
+        out.push({ eid, date: String(v.date || '').slice(0, 10), link: v.link || '', name: nm ? nm[1].trim() : vc, text: vc });
+    }
+    return out;
+}
+
+// Scrape one calendar date's docket sheet, import every argued case on it
+// (create the missing ones, leave existing titles untouched), then match the
+// session's TVW oral-argument videos to their cases — attaching each to the
+// right case and deleting strays. Mutates `files`; main() runs syncWasc after.
+async function datePass(dateIso, files, refetch) {
+    console.log(`import_wasc ${dateIso}${DRY_RUN ? ' [dry-run]' : ''}${refetch ? ' [refetch]' : ''}`);
+    const y = +dateIso.slice(0, 4);
+    const url = wascDocketUrl(dateIso);
+    const text = await _fetchCalendarText(url, refetch);
+    if (!text) { console.log(`  no calendar text for ${dateIso}  (${url})`); return; }
+    const sheet = parseDocketSheetCases(text, dateIso);
+    if (!sheet.length) { console.log(`  no cases parsed from the ${dateIso} docket sheet`); return; }
+    console.log(`  ${sheet.length} case(s) on the ${dateIso} docket sheet`);
+
+    // 1. import / reconcile each sheet case
+    const session = []; // [{ docket, sheetTitle, ref }]
+    for (const sc of sheet) {
+        const found = findCase(files, [sc.docket]);
+        if (found) {
+            const c = found.case;
+            let touched = false;
+            if (!c.argument) { c.argument = dateIso; c.argument_day = isoToDayLabel(dateIso); touched = true; }
+            if (!c.docket_url) { c.docket_url = wascDocketUrl(dateIso); touched = true; }
+            if (touched) found.file.changed = true;
+            console.log(`  = ${c.id}  ${c.title}  (No. ${sc.docket})${touched ? '  [dates filled]' : ''}`);
+            session.push({ docket: sc.docket, sheetTitle: sc.title, ref: found });
+        } else {
+            const c = {
+                id: null,
+                title: sc.title || `[${sc.docket}]`,
+                number: sc.docket,
+                docket_url: wascDocketUrl(dateIso),
+                argument: dateIso,
+                argument_day: isoToDayLabel(dateIso),
+            };
+            const yf = ensureYear(files, y);
+            yf.cases.push(c);
+            yf.changed = true;
+            console.log(`  + new case  ${c.title}  (No. ${c.number}, argued ${dateIso})`
+                + (sc.title ? '' : '  [no caption parsed — needs a title]'));
+            session.push({ docket: sc.docket, sheetTitle: sc.title, ref: findCase(files, [sc.docket]) });
+        }
+    }
+
+    // 2. TVW videos for the session
+    let videos = [];
+    try { videos = await _tvwDayVideos(dateIso, refetch); }
+    catch (e) { console.log(`  [tvw] day-window fetch failed: ${e.message}`); }
+    console.log(`  ${videos.length} TVW oral-argument video(s) in the ${dateIso} window`);
+
+    // score every (video, sheet-case) pair, assign greedily (1:1)
+    const pairs = [];
+    for (const v of videos) {
+        const vtoks = new Set(_alphaTokens(`${v.name} ${v.text}`));
+        const vdig = v.text.match(/\d{4,}/g) || [];
+        for (const s of session) {
+            const ctoks = _alphaTokens(`${s.ref ? s.ref.case.title : ''} ${s.sheetTitle || ''}`);
+            const dk = normNum(s.docket).replace(/\D/g, '');
+            const dkHit = dk.length >= 5 && vdig.some((n) => n.includes(dk));
+            const hit = ctoks.filter((w) => vtoks.has(w)).length;
+            const frac = ctoks.length ? hit / ctoks.length : 0;
+            let score = 0;
+            if (dkHit) score += 60;
+            if (ctoks.length) score += Math.round(40 * frac);
+            if (v.date === dateIso) score += 10;
+            pairs.push({ v, s, score, hit, frac, dkHit });
+        }
+    }
+    pairs.sort((a, b) => b.score - a.score);
+    const eidByDocket = new Map(), caseByEid = new Map(), takenVid = new Set();
+    for (const p of pairs) {
+        if (takenVid.has(p.v.eid) || eidByDocket.has(p.s.docket)) continue;
+        if (p.score < 12) continue;
+        if (!p.dkHit && (p.hit < 2 || p.frac < 0.55)) continue;      // weak name-only overlap
+        takenVid.add(p.v.eid);
+        eidByDocket.set(p.s.docket, p.v.eid);
+        caseByEid.set(p.v.eid, p.s.docket);
+    }
+
+    // 3. attach each assigned video; rebuild only if bare / missing / eid changed
+    for (const s of session) {
+        const ref = s.ref || findCase(files, [s.docket]);
+        if (!ref) continue;
+        const c = ref.case;
+        const eid = eidByDocket.get(s.docket);
+        if (!eid) { console.log(`  · ${c.id || s.docket}  no TVW video this session`); continue; }
+        c.events = c.events || [];
+        const idx = c.events.findIndex((e) => e.source === 'tvw');
+        const existing = idx >= 0 ? c.events[idx] : null;
+        if (existing && tvwEventId(existing.page_url) === eid && (existing.video_url || existing.hls_url)) {
+            console.log(`  ✓ ${c.id || s.docket}  keeps TVW ${eid}`);
+            continue;
+        }
+        let data = null;
+        try { data = await invintusEvent(eid, refetch); }
+        catch (e) { console.log(`  [tvw] ${s.docket} ${eid} api error: ${e.message}`); }
+        const media = data ? await tvwMediaFromEvent(data, eid) : {};
+        const ev = reorderEvent({
+            source: 'tvw', type: 'argument', date: dateIso,
+            title: `Oral Argument on ${isoToDayLabel(dateIso)}`,
+            page_url: `https://tvw.org/video/washington-state-supreme-court-${eid}/`,
+            ...media,
+        });
+        if (idx >= 0) c.events[idx] = ev; else c.events.push(ev);
+        ref.file.changed = true;
+        console.log(`  ${existing ? '~' : '+'} ${c.id || s.docket}  TVW ${eid}  [${Object.keys(media).join(', ') || 'no media'}]`);
+    }
+
+    // 4. stray sweep — any case holding a session eid that was assigned elsewhere
+    const sessionEids = new Set(videos.map((v) => v.eid));
+    for (const f of files.values()) {
+        for (const c of f.cases) {
+            if (!Array.isArray(c.events)) continue;
+            for (let i = c.events.length - 1; i >= 0; i--) {
+                const e = c.events[i];
+                if (e.source !== 'tvw') continue;
+                const eid = tvwEventId(e.page_url);
+                if (!eid || !sessionEids.has(eid) || !caseByEid.has(eid)) continue;
+                const ownerDocket = caseByEid.get(eid);
+                if (splitDockets(c.number).map(normNum).includes(normNum(ownerDocket))) continue; // correct
+                c.events.splice(i, 1);
+                if (!c.events.length) delete c.events;
+                f.changed = true;
+                const owner = findCase(files, [ownerDocket]);
+                console.log(`  - stray TVW ${eid} removed from ${c.id} (belongs to ${owner ? owner.case.id || ownerDocket : ownerDocket})`);
+            }
+        }
+    }
+}
+
+// ── --verify: data-integrity checks (report-only unless --fix) ────────────
+// A place for assorted correctness sweeps over the whole dataset. For now:
+//   docket_url — courts.wa.gov retired most per-date HTML calendars in favour
+//     of PDFs (/calendar/YYYY/YYYYMMDD.pdf), so many stored docket_url values
+//     (the "?fa=…display&…&file=…" form) now 404. This probes the stored URL
+//     and, if it's dead, the PDF and HTML forms for the same session date, and
+//     (with --fix) rewrites docket_url to whichever resolves — PDF preferred.
+// Scope with an optional YYYY. Calendar fetches reuse the --fix-titles cache.
+function _isValidCalendar(text) {
+    return /Case\s*No\.?\s*\d/i.test(text || '') && !/Could not find the included template/i.test(text);
+}
+function _docketYmd(c) {
+    const fromUrl = (/[?&]file=(\d{8})\b/.exec(c.docket_url || '') || /\/(\d{8})\.pdf(?:$|[?#])/.exec(c.docket_url || '') || [])[1];
+    if (fromUrl) return fromUrl;
+    const iso = fullIso(c.argument) || fullIso(c.reargument);
+    return iso ? iso.replace(/-/g, '') : '';
+}
+
+async function verifyPass(yearArg, doFix) {
+    console.log(`import_wasc --verify${yearArg ? ' ' + yearArg : ''}${doFix ? (DRY_RUN ? ' --fix [dry-run]' : ' --fix') : ''}`);
+    const files = loadAllYears();
+
+    const st = { checked: 0, ok: 0, fixedTo: { pdf: 0, html: 0 }, broken: 0, noDate: 0 };
+    for (const f of files.values()) {
+        if (yearArg && f.year !== +yearArg) continue;
+        for (const c of f.cases) {
+            if (!c.docket_url) continue;
+            st.checked++;
+            const ymd = _docketYmd(c);
+            // does the stored URL still resolve to a real calendar?
+            let storedOk = false;
+            try { storedOk = _isValidCalendar(await _fetchCalendarText(c.docket_url, false)); } catch { /* treat as dead */ }
+            if (storedOk) { st.ok++; continue; }
+            if (!ymd) { st.noDate++; console.log(`  [docket_url dead, no date] ${c.id}  ${c.docket_url}`); continue; }
+
+            const yr = ymd.slice(0, 4);
+            const pdfUrl  = `https://www.courts.wa.gov/appellate_trial_courts/supreme/calendar/${yr}/${ymd}.pdf`;
+            const htmlUrl = `https://www.courts.wa.gov/appellate_trial_courts/supreme/calendar/?fa=atc_supreme_calendar.display&year=${yr}&file=${ymd}`;
+            let replacement = '', via = '';
+            try { if (_isValidCalendar(await _fetchCalendarText(pdfUrl, false)))  { replacement = pdfUrl;  via = 'pdf';  } } catch { /* try html */ }
+            if (!replacement) { try { if (_isValidCalendar(await _fetchCalendarText(htmlUrl, false))) { replacement = htmlUrl; via = 'html'; } } catch { /* none */ } }
+
+            if (!replacement) { st.broken++; console.log(`  [docket_url broken, no working source] ${c.id}  ${c.docket_url}`); continue; }
+            if (replacement === c.docket_url) { st.ok++; continue; }
+            st.fixedTo[via]++;
+            console.log(`  ${doFix ? 'FIX ' : 'would fix '}${c.id}  docket_url:\n      - ${c.docket_url}\n      + ${replacement}`);
+            if (doFix) { c.docket_url = replacement; f.changed = true; }
+        }
+    }
+    console.log(`\n  docket_url: ${st.checked} checked, ${st.ok} ok, ${st.fixedTo.pdf + st.fixedTo.html} ${doFix ? 'fixed' : 'fixable'}`
+        + ` (${st.fixedTo.pdf} -> PDF, ${st.fixedTo.html} -> HTML), ${st.broken} broken with no source, ${st.noDate} dead with no date`);
+
+    if (doFix) {
+        let wrote = 0;
+        for (const f of files.values()) { if (!f.changed) continue; if (!DRY_RUN) writeJson(f.path, f.cases); wrote++; }
+        console.log(`  ${wrote} cases.json ${DRY_RUN ? 'would be' : ''} written`);
+    }
+}
+
 // ── main ─────────────────────────────────────────────────────────────────
 async function main() {
     const argv = process.argv.slice(2);
@@ -815,15 +1486,44 @@ async function main() {
     const positional = argv.filter((a) => !a.startsWith('-'));
     const syncOnly = argv.includes('--sync');
     const justicesOnly = argv.includes('--justices');
+    const fixTitlesOnly = argv.includes('--fix-titles');
+    const tvwOnly = argv.includes('--tvw');
+    const verifyOnly = argv.includes('--verify');
     const noSync = argv.includes('--no-sync'); // batch: scrape only, run --sync once at the end
     const year = positional[0];
+    const yearArg = /^\d{4}$/.test(year || '') ? year : '';
+    const dateArg = /^\d{4}-\d{2}-\d{2}$/.test(year || '') ? year : '';
 
     if (justicesOnly) { await justicesPass(); return; }
+    if (fixTitlesOnly) { await fixTitlesPass(argv.includes('--refetch')); return; }
+    if (tvwOnly)       { await tvwPass(yearArg, argv.includes('--refetch')); return; }
+    if (verifyOnly)    { await verifyPass(yearArg, argv.includes('--fix')); return; }
+
+    if (dateArg) {
+        const files = loadAllYears();
+        await datePass(dateArg, files, argv.includes('--refetch'));
+        if (noSync) {
+            let n = 0;
+            for (const f of files.values()) {
+                if (!f.changed) continue;
+                if (!DRY_RUN) { fs.mkdirSync(path.dirname(f.path), { recursive: true }); writeJson(f.path, f.cases); }
+                n++;
+            }
+            console.log(`  --no-sync: ${n} cases.json ${DRY_RUN ? 'would be' : ''} written raw; run --sync to normalise`);
+        } else {
+            syncWasc(files);
+        }
+        return;
+    }
 
     if (!syncOnly && !/^\d{4}$/.test(year || '')) {
         console.error('Usage: node scripts/import_wasc.js YYYY  [--dry-run] [--verbose] [--no-args] [--no-sync]');
-        console.error('       node scripts/import_wasc.js --sync [--dry-run] [--verbose]');
-        console.error('       node scripts/import_wasc.js --justices [--dry-run] [--verbose]');
+        console.error('       node scripts/import_wasc.js YYYY-MM-DD     [--dry-run] [--verbose] [--refetch] [--no-sync]');
+        console.error('       node scripts/import_wasc.js --sync         [--dry-run] [--verbose]');
+        console.error('       node scripts/import_wasc.js --justices     [--dry-run] [--verbose]');
+        console.error('       node scripts/import_wasc.js --fix-titles   [--dry-run] [--verbose] [--refetch]');
+        console.error('       node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]');
+        console.error('       node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]');
         process.exit(1);
     }
 

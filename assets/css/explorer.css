@@ -1913,6 +1913,56 @@ button.term-case-count.sort-active:hover {
   display: none;
 }
 
+/* ── Case Viewer ─────────────────────────────────────────────
+   Sibling of #transcript-viewer holding the non-transcript case views:
+   #justices-row(-title) (the benches votes strip, _showCaseVotesView) and
+   #case-summary (the wasc plain-summary view, _showWascCaseSummary). Only one
+   of #transcript-viewer / #case-viewer is ever un-hidden at a time; these
+   rules mirror #transcript-viewer's own so the layout is unchanged after the
+   split. */
+#case-viewer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 20px 20px;
+}
+#case-viewer[hidden] {
+  display: none;
+}
+/* ussc benches votes strip: a fixed-height row, so the decision doc viewer
+   below it (always opened, never minimized in that view) flex-fills the rest. */
+#case-viewer.justices-row-active {
+  flex: 0 0 auto;
+  overflow: visible;
+  padding: 14px 20px 0;
+}
+/* wasc summary view: #case-viewer is the space-filling pane (flex:1) and
+   #bottom-bar stays content-sized — a minimized doc viewer (30px, the
+   wasc-argument default) leaves the whole panel to the summary. */
+#case-viewer.case-summary-active {
+  flex: 1;
+  overflow-y: auto;
+}
+/* wasc decision view: like the votes strip, only #justices-row shows (fixed
+   height) and the doc viewer sits directly below it. But #bottom-bar is left
+   content-sized (no flex-fill) so #doc-viewer's own height transition plays on
+   open (slide up) and minimize (slide down); it's opened tall enough (see
+   _wascDecisionDocHeight) that the panel below the row is filled and clipped. */
+#case-viewer.case-decision-active {
+  flex: 0 0 auto;
+  overflow: hidden;
+  padding: 14px 20px 0;
+}
+/* Desktop only — see the #transcript-viewer.no-audio note above for why not mobile. */
+@media (min-width: 769px) {
+  #case-viewer.justices-row-active:not([hidden]) ~ #bottom-bar {
+    flex: 1;
+  }
+  #case-viewer.justices-row-active:not([hidden]) ~ #bottom-bar #doc-viewer:not([hidden]):not(.collapsed) {
+    flex: 1;
+    height: auto !important;
+  }
+}
+
 #empty-state {
   height: 100%;
   display: flex;
@@ -2080,7 +2130,7 @@ button.term-case-count.sort-active:hover {
    Replaces #turn-list + the questions widget for a court with no synced-
    transcript pipeline of its own (see _showWascCaseSummary) — #justices-row
    above it (unlinked here — no gallery collection yet) still applies its own
-   styling as-is. Sized/scrolled by the plain #transcript-viewer rule above
+   styling as-is. Sized/scrolled by #case-viewer.case-summary-active
    (flex:1, overflow-y:auto) same as the normal turn-list — unlike
    .justices-row-active's fixed-height row, this content (paragraphs + a
    video) routinely runs taller than the viewport. */
@@ -2654,7 +2704,8 @@ button.term-case-count.sort-active:hover {
     z-index: 50;
   }
 
-  #transcript-viewer {
+  #transcript-viewer,
+  #case-viewer {
     overflow-y: visible;
     height: auto;
     padding-bottom: 0;
@@ -2788,7 +2839,7 @@ button.term-case-count.sort-active:hover {
 
   /* Page viewer iframe and transcript area */
   #page-viewer-frame { background: #1a1c22; }
-  #transcript-viewer { background: #1a1c22; }
+  #transcript-viewer, #case-viewer { background: #1a1c22; }
   .jr-photo { background: #3a3c45; }
 
   /* Sidebar */
@@ -3173,7 +3224,7 @@ html[data-theme="dark"] #menu-btn { opacity: 0.4; }
 html[data-theme="dark"] #menu-btn:hover { opacity: 0.85; }
 
 html[data-theme="dark"] #page-viewer-frame { background: #1a1c22; }
-html[data-theme="dark"] #transcript-viewer { background: #1a1c22; }
+html[data-theme="dark"] #transcript-viewer, html[data-theme="dark"] #case-viewer { background: #1a1c22; }
 html[data-theme="dark"] .jr-photo { background: #3a3c45; }
 
 html[data-theme="dark"] #doc-browser { background: #1a1c22; }
@@ -3409,7 +3460,7 @@ html[data-theme="light"] #menu-btn { opacity: 0.55; }
 html[data-theme="light"] #menu-btn:hover { opacity: 1; }
 
 html[data-theme="light"] #page-viewer-frame { background: transparent; }
-html[data-theme="light"] #transcript-viewer { background: #fff; }
+html[data-theme="light"] #transcript-viewer, html[data-theme="light"] #case-viewer { background: #fff; }
 html[data-theme="light"] .jr-photo { background: #ccc; }
 
 html[data-theme="light"] #doc-browser { background: #f7f8fa; }

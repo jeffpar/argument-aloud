@@ -84,6 +84,13 @@ image: /assets/img/aa_exterior1.jpg
       <div id="empty-state"></div>
       <div id="loading-msg">Loading transcript&hellip;</div>
       <div id="turn-list" role="list"></div>
+    </div>
+
+    <!-- Non-transcript case views: the ussc benches votes strip
+         (_showCaseVotesView) and the wasc plain-summary view
+         (_showWascCaseSummary). Kept out of #transcript-viewer so that
+         container is only ever the synced-transcript scroller. -->
+    <div id="case-viewer" hidden>
       <div id="justices-row-title" hidden></div>
       <div id="justices-row" hidden></div>
       <div id="case-summary" hidden></div>
@@ -144,4 +151,4 @@ image: /assets/img/aa_exterior1.jpg
 <script>window.__COURT_ID__ = "ussc";</script>
 <script>window.INDEXES_BASE_URL = "{{ site.indexes_base_url }}";</script>
 <script>window.OPINIONS_BASE_URL = "{{ site.opinions_base_url }}";</script>
-<script src="{{ '/assets/js/explorer.js' | relative_url }}?v=47"></script>
+<script src="{{ '/assets/js/explorer.js' | relative_url }}?v=58"></script>
