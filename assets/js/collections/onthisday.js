@@ -20,11 +20,12 @@
 //
 // 3. Keeps the controls' own pending selection (not yet a Go click, just
 //    what's showing) mirrored in the *top-level* window's own address bar
-//    as a "date" query param riding alongside its "link" one (both plain
-//    top-level siblings — link=<this page's bare path>&date=... — restored
-//    by explorer.js's restoreFromURL, which forwards "date" back onto this
-//    page's own query the same way it already does for sort/s/order/view;
-//    see also _showOnThisDayNotFound) — "YYYY-MM-DD" for a specific year,
+//    as a "date" query param riding alongside "collection=on-this-day" (this
+//    page's canonical address — see collections.json; both plain top-level
+//    siblings, collection=on-this-day&date=..., restored by explorer.js's
+//    restoreFromURL, which forwards "date" back onto this page's own query
+//    the same way it already does for sort/s/order/view; see also
+//    _showOnThisDayNotFound) — "YYYY-MM-DD" for a specific year,
 //    "MM-DD" when Year is "Any" — so the page loads with one even when none
 //    was given, and every control change pushes a new top-level history
 //    entry with the updated value. That's what makes a specific pending
@@ -138,14 +139,12 @@
     var value = yearSel.value === 'any' ? (month + '-' + day) : (yearSel.value + '-' + month + '-' + day);
     var parentUrl = new URL(window.parent.location.href);
     parentUrl.search = '';
-    // link= stays the bare path — date rides alongside it as a plain
-    // top-level sibling (restoreFromURL forwards it back onto this page's
-    // own query when reloading — see explorer.js) rather than URL-encoded
-    // inside link='s own value, so the address bar reads .../onthisday/
-    // &date=... instead of .../onthisday%2F%3Fdate%3D....
-    parentUrl.searchParams.set('link', location.pathname);
+    // collection=on-this-day is this page's canonical top-level address (see
+    // collections.json); date rides alongside it as a plain top-level sibling
+    // that restoreFromURL's collection branch forwards back onto this page's
+    // own query when reloading (see explorer.js).
+    parentUrl.searchParams.set('collection', 'on-this-day');
     parentUrl.searchParams.set('date', value);
-    parentUrl.search = parentUrl.search.replace(/%2F/gi, '/');
     if (push) window.parent.history.pushState(null, '', parentUrl);
     else window.parent.history.replaceState(null, '', parentUrl);
   }

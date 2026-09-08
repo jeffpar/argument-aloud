@@ -5,7 +5,7 @@ sync_data() {
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/indexes/ ../argument-aloud-index/courts/ussc/indexes/
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/journals/xml/ ../argument-aloud-xml/courts/ussc/journals/xml/
   rsync -vcrt -O --delete --exclude=".*" courts/ussc/opinions/xml/ ../argument-aloud-xml/courts/ussc/opinions/xml/
-  rsync -vcrt -O --delete --exclude=".*" --exclude="/index.*" courts/wasc/ ../argument-aloud-wasc/courts/wasc/
+  rsync -vcrt -O --delete --exclude=".*" --exclude="/index.*" --exclude="/terms/index.md" --exclude="/archives" courts/wasc/ ../argument-aloud-wasc/courts/wasc/
   rsync -vcrt -O --delete --exclude=".*" assets/xsl/ ../argument-aloud-xml/assets/xsl/
 }
 

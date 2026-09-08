@@ -21,8 +21,16 @@ courts/ussc/opinions
 courts/ussc/transcripts/pdfs
 courts/ussc/transcripts/text
 courts/wasc/*
+courts/waca1
+courts/waca2
+courts/waca3
 !courts/wasc/index.html
 !courts/wasc/index.json
+# keep only the term-stats page tracked here; the rest of courts/wasc/terms/
+# (case data) stays ignored and is published to the wasc repo/origin instead
+!courts/wasc/terms/
+courts/wasc/terms/*
+!courts/wasc/terms/index.md
 sources/scdb/cache
 scripts/pdfs
 scripts/tests/output

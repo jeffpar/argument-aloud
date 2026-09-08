@@ -204,10 +204,10 @@ async function verifyDocViewer(page, sinceLen) {
   if (info.visibleKind && info.visibleKind !== 'card' && info.requested.resolvedExternalHref) {
     const pathOf = (u) => { try { return new URL(u).pathname; } catch { return u; } };
     // A single image (or multi-page gallery) is routed through our own
-    // same-origin img-viewer.html wrapper (see showDocViewer) rather than
+    // same-origin html/img-viewer.html wrapper (see showDocViewer) rather than
     // linking the raw image URL directly — that wrapper's own pathname is
     // the correct thing to see here, not the external image/gallery href.
-    const isImageWrapper = pathOf(info.visibleSrc || '') === '/assets/img-viewer.html';
+    const isImageWrapper = pathOf(info.visibleSrc || '') === '/assets/html/img-viewer.html';
     if (info.visibleSrc && !isImageWrapper && pathOf(info.visibleSrc) !== pathOf(info.requested.resolvedExternalHref)) {
       findings.push(`visible ${info.visibleKind} src is ${info.visibleSrc}, expected something matching ${info.requested.resolvedExternalHref}`);
     }

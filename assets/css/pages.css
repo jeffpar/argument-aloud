@@ -40,6 +40,34 @@ html[data-theme="light"] .blog-list-item { border-color: #e0e0e0; }
 
 /* ── Term stats & calendar — courts/ussc/terms/ ─────────────────────────── */
 
+/* Lean wasc term page extras (courts/wasc/terms/, wasc-terms.js) — the rest
+   of this section's .term-stats / .stat-card / .term-calendar / .cal-* /
+   #case-listing-table rules are shared with it as-is. */
+.term-eyebrow {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  font-weight: 700; color: #888; margin: 0.2rem 0 0;
+}
+.cal-legend { font-size: 0.72rem; color: #888; margin: 0.1rem 0 0.6rem; }
+.cal-legend .sw {
+  display: inline-block; width: 0.8em; height: 0.8em; border-radius: 3px;
+  vertical-align: -1px; margin: 0 0.3em 0 1em;
+}
+.cal-legend .sw:first-child { margin-left: 0; }
+.cal-legend .sw-arg { background: #d97070; }
+.cal-legend .sw-dec { background: #6090cc; }
+.cal-day.cal-clickable { cursor: pointer; }
+#case-listing-tbody tr.xterm-row td { font-style: italic; opacity: 0.8; }
+#term-load-msg { color: #888; font-size: 0.9rem; padding: 1rem 0; }
+@media (prefers-color-scheme: dark) {
+  .term-eyebrow, .cal-legend, #term-load-msg { color: #6a7080; }
+}
+html[data-theme="dark"]  .term-eyebrow,
+html[data-theme="dark"]  .cal-legend,
+html[data-theme="dark"]  #term-load-msg { color: #6a7080; }
+html[data-theme="light"] .term-eyebrow,
+html[data-theme="light"] .cal-legend,
+html[data-theme="light"] #term-load-msg { color: #888; }
+
 .stats-title-row { display: flex; align-items: baseline; gap: 8px; margin: 0.75rem 0 0.6rem; padding-bottom: 0.5rem; }
 .stats-title-row h1, .stats-title-row h2 { flex: 1; }
 .stat-term-title-link { color: inherit; text-decoration: none; cursor: pointer; }

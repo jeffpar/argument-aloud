@@ -7,7 +7,7 @@
        /courts/ussc/?link=<path>. Opened directly (a bookmark, a search result,
        a shared link), send the visitor to the real app instead of the bare,
        chrome-less page. -->
-  <script>if (window.parent === window) location.replace('/courts/ussc/?link=' + location.pathname);</script>
+  <script>if (window.parent === window) { var _c = (location.pathname.match(/^\/courts\/([^/]+)\//) || [])[1] || 'ussc'; location.replace('/courts/' + _c + '/?link=' + location.pathname); }</script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base target="_top">
@@ -46,6 +46,7 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script>window.INDEXES_BASE_URL = "{{ site.indexes_base_url }}";</script>
+  <script>window.WASC_BASE_URL = "{{ site.wasc_base_url }}";</script>
   <script src="{{ '/assets/js/chart.js@4.4.9/dist/chart.umd.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/advocate-chart.js' | relative_url }}?v=9"></script>
   <script src="{{ '/assets/js/justice-bar-chart.js' | relative_url }}"></script>

@@ -1686,18 +1686,21 @@ function speakerClass(speaker) {
 // to scroll there.
 function updateEmptyStateForTerm(term, date = null, page = null, hash = null) {
   if (!term) return; // term collapsed — leave current view
-  // The term-stats page (courts/ussc/terms/index.md, driven by terms.js) is a
-  // ussc-only feature. Other courts have no such page — and pointing an <iframe>
-  // at "<COURT_BASE>/terms/?term=…" would just hit a bare directory on their
-  // data endpoint (a 404, or a 500 from older Jekyll's WEBrick). Their term's
-  // case list still renders in the sidebar nav; just leave the main panel as-is.
-  if (COURT_ID !== 'ussc') return;
+  // Every court has a courts/<id>/terms/ stats page (a "pane" layout page like
+  // any other), driven by its own terms.js — ussc's from this origin, wasc's
+  // from the wasc origin. The page HTML is always loaded from THIS (main) origin, never
+  // COURT_BASE: a court whose data lives on its own cross-origin host (e.g.
+  // wasc) still needs its stats page's *document* same-origin with the SPA so
+  // its postMessage back up (the 'ussc-navigate' handler) isn't dropped by the
+  // origin check. The page's own script and data may come from that court's
+  // origin cross-origin; only the document shell has to be here.
+  const termsBase = COURT_ID === 'ussc' ? COURT_BASE : `/courts/${COURT_ID}`;
   // Forward the Terms nav's own active Filter panel state (kept in sync with
   // the outer URL's filter= param by _applyActiveFilters) so the term stats
   // page can note it under its own heading — see FILTER_DESCRIPTIONS/
   // renderFilterNote in terms.js.
   const filter = new URLSearchParams(location.search).get('filter');
-  const statsUrl = `${COURT_BASE}/terms/?term=` + encodeURIComponent(term)
+  const statsUrl = `${termsBase}/terms/?term=` + encodeURIComponent(term)
     + (date ? '&date=' + encodeURIComponent(date) : '')
     + (page ? '&page=' + encodeURIComponent(page) : '')
     + (filter ? '&filter=' + encodeURIComponent(filter) : '')
@@ -2503,7 +2506,7 @@ function toEmbedUrl(href) {
 
 let _imageGalleryCounter = 0;
 // Stashes an array of image URLs in sessionStorage (shared with the
-// same-origin img-viewer.html iframe) under a short, unique key, returning
+// same-origin html/img-viewer.html iframe) under a short, unique key, returning
 // that key for use in a "?gallery=<key>" iframe src — see showDocViewer's
 // own isImage/link.images handling below.
 function _stashImageGallery(images) {
@@ -2591,8 +2594,8 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // clicked partway through a date's pages (see terms.js's wireDocLink calls).
   const iframeSrc = isImage
     ? (Array.isArray(link.images) && link.images.length > 1
-        ? '/assets/img-viewer.html?gallery=' + _stashImageGallery(link.images) + '&index=' + (link.index || 0)
-        : '/assets/img-viewer.html?src=' + encodeURIComponent(effectiveHref))
+        ? '/assets/html/img-viewer.html?gallery=' + _stashImageGallery(link.images) + '&index=' + (link.index || 0)
+        : '/assets/html/img-viewer.html?src=' + encodeURIComponent(effectiveHref))
     : effectiveHref;
 
   const refEl = document.getElementById('doc-viewer-ref');
@@ -2796,7 +2799,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   }
 
   // Move keyboard focus into the image iframe so its own Left/Right
-  // (img-viewer.html's gallery paging) actually receive the keydown —
+  // (html/img-viewer.html's gallery paging) actually receive the keydown —
   // otherwise focus stays wherever the visitor last clicked (e.g. a Minutes
   // Pages link in the page-viewer iframe — see terms.js), which silently
   // swallows the arrow keys instead. Must run down here, after the panel is
@@ -6624,11 +6627,15 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
   }
 
   // Link-only entry: no data file — just shows a linked page in the viewer.
+  // With an "id", it's addressed by ?collection=<id> (a clean canonical URL,
+  // and the sidebar item highlights on restore via _openCollectionSection's
+  // data-collection-id lookup); without one it falls back to ?link=<page>.
   if (!collEntry.file && !collEntry.collection) {
     if (!collEntry.page) return;
     const collLi = document.createElement('li');
     collLi.className = 'term-group case-item';
     collLi.dataset.link = collEntry.page;
+    if (collEntry.id) collLi.dataset.collectionId = collEntry.id;
     const collHeader = document.createElement('div');
     collHeader.className = 'term-header';
     const collLabel = document.createElement('span');
@@ -6638,10 +6645,15 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     collHeader.appendChild(collLabel);
     collHeader.addEventListener('click', () => {
       setPageMeta(collEntry.name + ' | Argument Aloud');
-      const url = buildUrlParams(
-        { link: collEntry.page },
-        ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o'],
-      );
+      const url = collEntry.id
+        ? buildUrlParams(
+            { collection: collEntry.id },
+            ['term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o', 'date', 'notfound'],
+          )
+        : buildUrlParams(
+            { link: collEntry.page },
+            ['collection', 'term', 'case', 'event', 'file', 'turn', 'group', 'id', 'highlight', 'sort', 'o'],
+          );
       navigate(url);
       showPageViewer(collEntry.page, { pushState: false });
     });
@@ -11472,30 +11484,30 @@ async function _pickNoteworthyOnThisDay(mmdd) {
   return candidates[idx];
 }
 
-// Swaps the current (action=onthisday) URL for a plain ?link= one pointing
-// at the "no case found" page, then shows it — same replace-then-show shape
-// as the successful path below, just with nothing to redirect to. Mirrors
-// showPageViewer's own pushState logic (replaceState here instead, so the
-// dead-end action= URL doesn't linger as a back-button target). The explicit
-// notfound=1 flag (rather than just checking for a date= param) is what
-// tells onthisday.js to show its apology message — a bare "action=onthisday"
-// miss for today's date carries no date= at all, which would otherwise be
-// indistinguishable from a visitor landing on the page directly.
+// Swaps the current (action=onthisday) URL for a plain ?collection=on-this-day
+// one pointing at the "no case found" page, then shows it — same
+// replace-then-show shape as the successful path below, just with nothing to
+// redirect to. Mirrors showPageViewer's own pushState logic (replaceState here
+// instead, so the dead-end action= URL doesn't linger as a back-button
+// target). The explicit notfound=1 flag (rather than just checking for a date=
+// param) is what tells onthisday.js to show its apology message — a bare
+// "action=onthisday" miss for today's date carries no date= at all, which
+// would otherwise be indistinguishable from a visitor landing on the page
+// directly.
 function _showOnThisDayNotFound(dateParam) {
   const linkBase = `${COURT_BASE}/collections/historical/onthisday/`;
   const extra = ['notfound=1'];
   if (dateParam) extra.push('date=' + encodeURIComponent(dateParam));
   const target = linkBase + '?' + extra.join('&');
-  // link= itself stays the bare path — notfound/date ride alongside it as
-  // plain top-level siblings (see restoreFromURL's own forwarding of them,
-  // and onthisday.js) so the address bar reads /?link=...&date=... instead
-  // of URL-encoding the query inside link='s own value.
+  // collection= is the canonical address for this page (see collections.json's
+  // "on-this-day" entry); notfound/date ride alongside it as plain top-level
+  // siblings that restoreFromURL's collection branch forwards onto the iframe
+  // URL (same as it does for the ?link= form) — see also onthisday.js.
   const url = new URL(location.href);
   url.search = '';
-  url.searchParams.set('link', linkBase);
+  url.searchParams.set('collection', 'on-this-day');
   url.searchParams.set('notfound', '1');
   if (dateParam) url.searchParams.set('date', dateParam);
-  url.search = url.search.replace(/%2F/gi, '/');
   history.replaceState(null, '', url);
   showPageViewer(target, { pushState: false });
 }
@@ -11930,6 +11942,8 @@ async function restoreFromURL() {
       const _sV     = params.get('s');
       const _orderV = params.get('order');
       const _viewV  = params.get('view');
+      const _dateV  = params.get('date');
+      const _notfoundV = params.get('notfound');
       let _linkWithSort = resolvedLink;
       const _extra = [];
       if (_sortV)  { _extra.push('sort=' + encodeURIComponent(_sortV), 'o=' + encodeURIComponent(params.get('o') || 'd')); }
@@ -11939,6 +11953,11 @@ async function restoreFromURL() {
       // as sort/s above so a direct/shared link restores it.
       if (_orderV) { _extra.push('order=' + encodeURIComponent(_orderV)); }
       if (_viewV)  { _extra.push('view=' + encodeURIComponent(_viewV)); }
+      // date/notfound: the "On This Day" page's own pending selection and
+      // "no case found" apology flag — forwarded onto its iframe URL the same
+      // way the ?link= branch below does (see onthisday.js / _showOnThisDayNotFound).
+      if (_dateV)     { _extra.push('date=' + encodeURIComponent(_dateV)); }
+      if (_notfoundV) { _extra.push('notfound=' + encodeURIComponent(_notfoundV)); }
       if (_hash)  { _extra.push('anchor=' + encodeURIComponent(_hash)); }
       if (_extra.length) _linkWithSort += '?' + _extra.join('&');
       showPageViewer(_linkWithSort, { pushState: false });
@@ -12430,7 +12449,7 @@ window.addEventListener('message', async (e) => {
     // false at its own top (see _docViewerRelayIndexToPageFrame above).
     _docViewerRelayIndexToPageFrame = Array.isArray(e.data.images) && e.data.images.length > 1;
   } else if (e.data?.type === 'ussc-gallery-index' && typeof e.data.index === 'number') {
-    // Posted by assets/img-viewer.html whenever its own current page changes
+    // Posted by assets/html/img-viewer.html whenever its own current page changes
     // (Left/Right or the prev/next buttons) — echoed down into the
     // page-viewer iframe so e.g. terms.js's Minutes Pages list can keep its
     // own highlighted page in sync, but only for a gallery that iframe

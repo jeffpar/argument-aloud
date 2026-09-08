@@ -1123,7 +1123,7 @@
   // the prev/next buttons) inside the doc viewer's image gallery, once
   // wireDocLink above has opened one from a page click — explorer.js relays
   // the gallery's own current index down to this iframe as this message
-  // whenever it changes (see assets/img-viewer.html and the 'ussc-open-doc'
+  // whenever it changes (see assets/html/img-viewer.html and the 'ussc-open-doc'
   // handler in explorer.js). Ignored if this date's list has since been
   // re-rendered for some other date (minutesPageEls swapped out from under
   // it) or the index is out of range for it.
@@ -1577,8 +1577,7 @@
     var link = document.createElement('a');
     link.className = 'calendar-heading-link';
     link.textContent = fmtDate(date);
-    var target = '/courts/ussc/?link=' + encodeURIComponent('/courts/ussc/collections/historical/onthisday/')
-      + '&date=' + encodeURIComponent(date);
+    var target = '/courts/ussc/?collection=on-this-day&date=' + encodeURIComponent(date);
     link.href = target;
     link.addEventListener('click', function (e) {
       e.preventDefault();
