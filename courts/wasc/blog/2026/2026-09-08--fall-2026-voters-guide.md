@@ -11,7 +11,7 @@ styles:
 
 *{{ page.date | date: "%A, %B %-d, %Y" }}*
 
-Five seats on the Washington State Supreme Court are on the 2026 ballot &mdash; Positions 1, 3, 4, 5, and 7. Each candidate recorded a short statement for the [TVW's Video Voters' Guide](https://tvw.org/video-voters-guide/).
+Five seats on the Washington State Supreme Court are on the 2026 ballot &mdash; Positions 1, 3, 4, 5, and 7. Each candidate recorded a short statement for the [TVW Video Voters Guide](https://tvw.org/video-voters-guide/).
 
 ## Supreme Court Justice &ndash; Position 1
 
