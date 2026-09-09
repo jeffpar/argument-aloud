@@ -3,7 +3,7 @@ layout: pane
 styles:
 - /assets/css/pages.css
 scripts:
-- /assets/js/terms.js
+- /assets/js/terms.js?v=2
 ---
 <div class="term-stats" id="stats-container">
   <div class="stats-title-row">
@@ -85,6 +85,7 @@ scripts:
       <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
     </div>
   </div>
+  <p id="term-calendar-legend" class="cal-legend" hidden><span class="sw sw-arg"></span>Arguments<span class="sw sw-dec"></span>Decisions</p>
   <div id="term-calendar" hidden></div>
 
   <h2 id="case-listing-heading" hidden>Court Cases</h2>

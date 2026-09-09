@@ -957,6 +957,12 @@ function _captionIsState(raw) {
         || /^(the\s+)?state\s+of\s+wash(ington)?\b.*\bex\s+rel\b/i.test(x);
 }
 const _alphaTokens = (s) => (String(s || '').toUpperCase().match(/[A-Z]{3,}/g) || []);
+// ubiquitous words in a WA caption's "v. <party>" tail — carry no signal for
+// telling one same-day argument's video from another's.
+const _TAIL_STOP = new Set(['state', 'of', 'washington', 'the', 'a', 'an', 'in', 're',
+    'dep', 'dept', 'department', 'city', 'county', 'personal', 'restraint', 'petition',
+    'matter', 'dependency', 'marriage', 'welfare', 'det', 'detention', 'pers', 'estate',
+    'ex', 'rel', 'and', 'co', 'inc', 'llc', 'corp']);
 // true iff `a` and `b` differ by exactly one inserted / deleted character
 // (a transcription typo like the WA calendar's "976652-0" for "97652-0").
 function _oneCharApart(a, b) {
@@ -1163,7 +1169,7 @@ async function invintusEvent(eid, refetch) {
 }
 
 // HEAD/Range-probe a media URL for its byte length (Invintus fileSize is
-// sometimes 0 for older archives).
+// sometimes 0 — or a bogus tiny value — for older archives).
 async function probeSize(url) {
     if (!url) return 0;
     try {
@@ -1171,7 +1177,12 @@ async function probeSize(url) {
         const cr = r.headers.get('content-range');
         if (cr) { const m = /\/(\d+)\s*$/.exec(cr); if (m) return +m[1]; }
         const cl = r.headers.get('content-length');
-        return cl && r.status === 200 ? +cl : 0;
+        if (cl && r.status === 200) return +cl;
+    } catch { /* fall through to HEAD */ }
+    try {
+        const r = await fetch(encodeURI(url), { method: 'HEAD', headers: { 'User-Agent': USER_AGENT }, redirect: 'follow' });
+        const cl = r.headers.get('content-length');
+        return r.ok && cl ? +cl : 0;
     } catch { return 0; }
 }
 
@@ -1200,9 +1211,11 @@ async function tvwMediaFromEvent(d, eid) {
 
     if (vAsset && /^\d{1,2}:\d{2}:\d{2}$/.test(vAsset.totalRunTime || '')) out.length = vAsset.totalRunTime;
 
+    // Invintus fileSize is 0 — or a bogus sub-kB placeholder — on legacy media;
+    // an oral-argument video is never under ~1 MB, so re-probe in that case.
     let size = +(vAsset && vAsset.fileSize) || 0;
-    if (!size && out.video_url) size = await probeSize(out.video_url);
-    if (size) out.size = size;
+    if (size < 1_000_000 && out.video_url) size = await probeSize(out.video_url);
+    if (size >= 1_000_000) out.size = size;
 
     const capAsset = (d.mediaAssets || []).find((a) => a.type === 'caption');
     const vtt = d.captionPath || (capAsset && capAsset.fileUrl) || '';
@@ -1308,10 +1321,18 @@ async function _tvwDayVideos(dateIso, refetch) {
 async function datePass(dateIso, files, refetch) {
     console.log(`import_wasc ${dateIso}${DRY_RUN ? ' [dry-run]' : ''}${refetch ? ' [refetch]' : ''}`);
     const y = +dateIso.slice(0, 4);
-    const url = wascDocketUrl(dateIso);
-    const text = await _fetchCalendarText(url, refetch);
-    if (!text) { console.log(`  no calendar text for ${dateIso}  (${url})`); return; }
-    const sheet = parseDocketSheetCases(text, dateIso);
+    const ymd = dateIso.replace(/-/g, '');
+    // courts.wa.gov retired the per-date HTML calendars (~2021+) for PDFs; try
+    // the HTML form first (older sessions), fall back to the PDF.
+    const htmlUrl = wascDocketUrl(dateIso);
+    const pdfUrl = `${BASE}/appellate_trial_courts/supreme/calendar/${y}/${ymd}.pdf`;
+    let text = await _fetchCalendarText(htmlUrl, refetch);
+    let sheet = _isValidCalendar(text) ? parseDocketSheetCases(text, dateIso) : [];
+    if (!sheet.length) {
+        const pdfText = await _fetchCalendarText(pdfUrl, refetch);
+        if (_isValidCalendar(pdfText)) { text = pdfText; sheet = parseDocketSheetCases(pdfText, dateIso); }
+    }
+    if (!text) { console.log(`  no calendar text for ${dateIso}  (${htmlUrl})`); return; }
     if (!sheet.length) { console.log(`  no cases parsed from the ${dateIso} docket sheet`); return; }
     console.log(`  ${sheet.length} case(s) on the ${dateIso} docket sheet`);
 
@@ -1351,30 +1372,43 @@ async function datePass(dateIso, files, refetch) {
     catch (e) { console.log(`  [tvw] day-window fetch failed: ${e.message}`); }
     console.log(`  ${videos.length} TVW oral-argument video(s) in the ${dateIso} window`);
 
+    // "v. <party>" tail tokens, initials kept (so "State of Washington v. D.L."
+    // and "... v. M.S." are still distinguishable — _alphaTokens drops both).
+    const _partyTail = (s) => {
+        const tail = String(s || '').toLowerCase().split(/\bv\.?\s+/).pop();
+        return new Set((tail.match(/[a-z0-9]+/g) || []).filter((t) => !_TAIL_STOP.has(t)));
+    };
+
     // score every (video, sheet-case) pair, assign greedily (1:1)
     const pairs = [];
     for (const v of videos) {
         const vtoks = new Set(_alphaTokens(`${v.name} ${v.text}`));
         const vdig = v.text.match(/\d{4,}/g) || [];
+        const vtail = _partyTail(v.name);
         for (const s of session) {
-            const ctoks = _alphaTokens(`${s.ref ? s.ref.case.title : ''} ${s.sheetTitle || ''}`);
+            const title = `${s.ref ? s.ref.case.title : ''} ${s.sheetTitle || ''}`;
+            const ctoks = _alphaTokens(title);
+            const ctail = _partyTail(s.sheetTitle || (s.ref ? s.ref.case.title : ''));
             const dk = normNum(s.docket).replace(/\D/g, '');
             const dkHit = dk.length >= 5 && vdig.some((n) => n.includes(dk));
             const hit = ctoks.filter((w) => vtoks.has(w)).length;
             const frac = ctoks.length ? hit / ctoks.length : 0;
+            const tailHit = [...vtail].filter((t) => ctail.has(t)).length;
             let score = 0;
             if (dkHit) score += 60;
             if (ctoks.length) score += Math.round(40 * frac);
+            if (tailHit) score += 25 + 10 * tailHit;   // distinctive party (incl. initials)
             if (v.date === dateIso) score += 10;
-            pairs.push({ v, s, score, hit, frac, dkHit });
+            pairs.push({ v, s, score, hit, frac, tailHit, dkHit });
         }
     }
-    pairs.sort((a, b) => b.score - a.score);
+    // higher score first; break ties toward the stronger distinctive-party match
+    pairs.sort((a, b) => b.score - a.score || b.tailHit - a.tailHit);
     const eidByDocket = new Map(), caseByEid = new Map(), takenVid = new Set();
     for (const p of pairs) {
         if (takenVid.has(p.v.eid) || eidByDocket.has(p.s.docket)) continue;
         if (p.score < 12) continue;
-        if (!p.dkHit && (p.hit < 2 || p.frac < 0.55)) continue;      // weak name-only overlap
+        if (!p.dkHit && !p.tailHit && (p.hit < 2 || p.frac < 0.55)) continue;   // weak name-only overlap
         takenVid.add(p.v.eid);
         eidByDocket.set(p.s.docket, p.v.eid);
         caseByEid.set(p.v.eid, p.s.docket);

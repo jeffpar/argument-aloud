@@ -4202,7 +4202,7 @@ function _showWascCaseSummary(caseEntry) {
       a.href = mediaEvent.page_url || sourceInfo.url;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      a.textContent = sourceInfo.label + ', ' + sourceInfo.url;
+      a.textContent = sourceInfo.label;
       cap.appendChild(a);
       cap.append(']');
       container.appendChild(cap);

@@ -2403,6 +2403,8 @@
             calContainer.innerHTML = '';
             renderTermCalendar(calContainer, term, calArgDaySet, decDaySet, singleDate, monthCount, handleMinutesDrop, calStart);
             calContainer.hidden = false;
+            var calLegend = document.getElementById('term-calendar-legend');
+            if (calLegend) calLegend.hidden = false;
             var calHdr = document.getElementById('term-calendar-heading');
             if (calHdr) {
               calHdr.hidden = false;

@@ -10,6 +10,7 @@ styles:
   <div class="stats-title-row">
     <h1 id="stat-term-title"></h1>
   </div>
+  <h2 id="stat-date-title" hidden></h2>
 
   <div class="stats-grid" id="stats-grid" hidden>
     <div class="stat-card">
@@ -29,16 +30,18 @@ styles:
       <span class="stat-label">Opinions online</span>
     </div>
   </div>
-  <p class="stats-note" id="stats-note" hidden>Cases are listed under the year they were decided.</p>
 
   <div class="calendar-heading-row">
     <h2 id="term-calendar-heading" hidden>Court Calendar</h2>
+    <div class="stats-term-nav" id="stats-term-nav" hidden>
+      <button class="stats-term-nav-btn" id="stat-prev-term" hidden></button>
+      <button class="stats-term-nav-btn" id="stat-next-term" hidden></button>
+    </div>
   </div>
-  <p id="term-calendar-legend" class="cal-legend" hidden><span class="sw sw-arg"></span>argued<span class="sw sw-dec"></span>decided</p>
+  <p id="term-calendar-legend" class="cal-legend" hidden><span class="sw sw-arg"></span>Arguments<span class="sw sw-dec"></span>Decisions</p>
   <div id="term-calendar" hidden></div>
 
   <h2 id="case-listing-heading" hidden>Court Cases</h2>
-  <p id="stat-filter-note" class="stat-filter-note" hidden></p>
   <div class="table-scroll">
     <table id="case-listing-table" hidden>
       <thead>
@@ -61,4 +64,4 @@ styles:
      fetches — distinct from ussc's own /assets/js/terms.js on this origin.
      window.WASC_BASE_URL is injected by _layouts/pane.html. Loaded last so the
      DOM above already exists (the script runs immediately, no DOMContentLoaded). -->
-<script src="{{ site.wasc_base_url }}/assets/js/terms.js?v=1"></script>
+<script src="{{ site.wasc_base_url }}/assets/js/terms.js?v=4"></script>
