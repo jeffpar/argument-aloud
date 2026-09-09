@@ -13815,7 +13815,7 @@ const FEED_DESCRIPTION = 'Oral arguments and opinion announcements before the U.
 const FEED_LANGUAGE    = 'en-us';
 const FEED_AUTHOR      = 'argumentaloud.org';
 const FEED_EMAIL       = 'jeff@pcjs.org';
-// 1909x1909 square crop of assets/img/aa_exterior1.jpg (min 1400x1400 for
+// 1909x1909 square crop of assets/img/aa/ussc_exterior.jpg (min 1400x1400 for
 // Apple Podcasts/Spotify).
 const FEED_IMAGE_URL   = FEED_SITE_URL + '/assets/img/podcast-cover.jpg';
 // TODO: verify against Apple's current podcast category list before

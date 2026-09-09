@@ -86,5 +86,5 @@ The entire site is currently comprised of three open-source repositories, which 
 
 Thoughts, suggestions, or other inquiries can be sent to [admin@argumentaloud.org](mailto:admin@argumentaloud.org).
 
-![U.S. Supreme Court Visit](/assets/img/aa_exterior1.jpg)  
+![U.S. Supreme Court Visit](/assets/img/aa/ussc_exterior.jpg)  
 [[Repository]](https://github.com/jeffpar/argument-aloud)
