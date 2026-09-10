@@ -2626,7 +2626,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
             }
             // Disambiguate multiple matches by case number from ref's Case Name.
             if (dateMatches.length > 1) {
-                const ourNums = new Set(caseNum.split(',').map(s => s.trim()));
+                const ourNums = new Set(splitDockets(caseNum));
                 const numMatches = dateMatches.filter(r =>
                     _parseCaseNums(r['Case Name'] || '').some(n => ourNums.has(n))
                 );
@@ -2659,7 +2659,7 @@ export async function syncAdvocates(termDirs, { verbose = false, showWomen = fal
                         }
                         expanded.add(n);
                     }
-                    const ourNums = new Set(caseNum.split(',').map(s => s.trim()));
+                    const ourNums = new Set(splitDockets(caseNum));
                     if (![...ourNums].some(n => expanded.has(n))) {
                         const sim = _titleSimilarity(title, dateMatches[0]['Case Name'] || '');
                         if (sim < 0.5) dateMatches = [];
