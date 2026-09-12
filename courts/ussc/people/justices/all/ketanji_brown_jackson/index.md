@@ -5,7 +5,7 @@ justice_id: ketanji_brown_jackson
 wikipedia_url: https://en.wikipedia.org/wiki/Ketanji_Brown_Jackson
 date_start: 2022-06-30
 opinions: 22
-lone_dissents: 4
+lone_dissents: 5
 vocal_secs: 110234
 ---
 <div style="display:flex; gap:1em;">

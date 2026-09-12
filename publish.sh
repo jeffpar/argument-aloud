@@ -36,10 +36,7 @@ courts/wasc/terms		../../../argument-aloud-wasc/courts/wasc/terms
 EOF
 }
 
-if [ "$1" = "data" ]; then
-  # kept for muscle memory: data trees are symlinked now, only xsl still copies
-  sync_xsl
-elif [ -n "$1" ]; then
+if [ -n "$1" ]; then
   MSG="$1"
   sync_to_website() {
     local repo_name="$1"
