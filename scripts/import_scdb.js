@@ -17,27 +17,58 @@
  *     rather than filled. If an extra docket already belongs to a different
  *     case in the same term, it is skipped and flagged (never duplicated).
  *
- *   PART 2  (report only, the report term — 2025-10 by default)
- *     Writes nothing. For every case that matches an SCDB record it prints a
- *     field-by-field diff of our case object against what the standard SCDB
- *     import would produce (title, number, argument, reargument, decision,
- *     score, citation, decision_loc, votes — the fields
- *     update_cases.js's _scdbBuildCaseFromSources emits, minus the
+ *   PART 2  (report only by default, the report term(s) — 2025-10 by default)
+ *     By default writes nothing. For every case that matches an SCDB record
+ *     it prints a field-by-field diff of our case object against what the
+ *     standard SCDB import would produce (title, number, argument,
+ *     reargument, decision, score, citation, decision_loc, votes — the
+ *     fields update_cases.js's _scdbBuildCaseFromSources emits, minus the
  *     data/ussc/citations.csv + dates.csv title/date enrichment, which this
  *     script intentionally does not consult). It also lists SCDB records in
  *     that term with no case of ours, and our cases with no SCDB match.
+ *
+ *     --report-term takes a single term, a comma-separated list, or "all"
+ *     to run Part 2's diff across every term instead of just one — those
+ *     terms are excluded from Part 1 either way. With more than one report
+ *     term, the per-term "no match" lists are collapsed to counts only (the
+ *     full lists still print for a single report term).
+ *
+ *     Pass --apply to actually write Part 2's diffs into each report term's
+ *     cases.json (one field at a time, --exclude-field FIELD to skip any of
+ *     them — repeatable). --exclude-field also removes that field from the
+ *     diff/report entirely, whether or not --apply is given.
+ *
+ *     A case's own `scdb_check` (comma-separated: 'number'/'argument'/
+ *     'reargument'/'decision') flags a field as a already-vetted, known SCDB
+ *     error/omission — Part 2 never reports that field disagreeing again,
+ *     only if SCDB's value now strictly agrees with ours (worth knowing,
+ *     since it means the flag itself is stale and could be removed).
+ *
+ *     Independent of scdbImportedFields()'s field list: every matched case
+ *     missing `id` gets SCDB's own id inserted (via --exclude-field id to
+ *     skip), and a stale "SCDB missing case" note is dropped from
+ *     audit_message (via --exclude-field audit_message to skip) — deleting
+ *     audit_message entirely if that was its only note.
  *
  * Case ↔ SCDB matching: by `c.id` when present, otherwise by docket number
  * within the same term year (an ambiguous docket → no match).
  *
  * Usage:
- *   node scripts/import_scdb.js [--dry-run] [--report-term YYYY-MM] [TERM]
+ *   node scripts/import_scdb.js [--dry-run] [--report-term YYYY-MM|LIST|all] [TERM]
+ *   node scripts/import_scdb.js --apply [--exclude-field FIELD ...] [--part2-only]
  *
  *   --dry-run            Do Part 1's matching and print what it would change,
  *                        but write no files.
- *   --report-term Y-M    Term handled as report-only (default 2025-10).
+ *   --report-term SPEC   Term(s) handled by Part 2 instead of Part 1 (default
+ *                        2025-10): one term, a comma-separated list, or "all".
  *   TERM (positional)    Restrict Part 1 to this one term (still skips the
- *                        report term). Useful for spot checks.
+ *                        report term(s)). Useful for spot checks.
+ *   --apply              Write Part 2's diffs into each report term's
+ *                        cases.json instead of only reporting them.
+ *   --exclude-field F    Drop field F from Part 2's diff/report/apply
+ *                        entirely (repeatable).
+ *   --part2-only         Skip Part 1's writes for this run (Part 1 is still
+ *                        matched/reported as if --dry-run).
  *
  * A copy of everything printed is also written to
  * sources/scdb/cache/import_scdb_report.md.
@@ -48,7 +79,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { splitDockets } from './schema.js';
+import { splitDockets, reorderCase, reorderVote } from './schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -59,6 +90,19 @@ const TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'ussc', 'terms');
 const REPORT_PATH  = path.join(REPO_ROOT, 'sources', 'scdb', 'cache', 'import_scdb_report.md');
 
 const DEFAULT_REPORT_TERM = '2025-10';
+
+// Mirrors update_cases.js's own _removeAuditMessage/SCDB_MISSING_MESSAGE:
+// audit_message is a single free-text string, multiple notes joined by "; ".
+const SCDB_MISSING_MESSAGE = 'SCDB missing case';
+function removeAuditMessage(c, msg) {
+    if (!c.audit_message) return false;
+    const parts = String(c.audit_message).split('; ').map(s => s.trim()).filter(Boolean);
+    if (!parts.includes(msg)) return false;
+    const kept = parts.filter(p => p !== msg);
+    if (kept.length) c.audit_message = kept.join('; ');
+    else delete c.audit_message;
+    return true;
+}
 
 // SCDB's "modern" era. Part 1's docket data comes from ingest_scdb.js's
 // aggregation, which only rebuilds the modern half of scdb.json; legacy
@@ -292,16 +336,22 @@ function say(line = '') { console.log(line); REPORT.push(line); }
 // ── main ────────────────────────────────────────────────────────────────────
 
 function parseArgs(argv) {
-    const opts = { dryRun: false, reportTerm: DEFAULT_REPORT_TERM, onlyTerm: null };
+    const opts = { dryRun: false, reportTerm: DEFAULT_REPORT_TERM, onlyTerm: null,
+        apply: false, excludeFields: new Set(), part2Only: false };
     for (let i = 0; i < argv.length; i++) {
         const a = argv[i];
         if (a === '--dry-run') opts.dryRun = true;
         else if (a === '--report-term') opts.reportTerm = argv[++i];
         else if (a.startsWith('--report-term=')) opts.reportTerm = a.slice('--report-term='.length);
+        else if (a === '--apply') opts.apply = true;
+        else if (a === '--exclude-field') opts.excludeFields.add(argv[++i]);
+        else if (a.startsWith('--exclude-field=')) opts.excludeFields.add(a.slice('--exclude-field='.length));
+        else if (a === '--part2-only') opts.part2Only = true;
         else if (a === '-h' || a === '--help') opts.help = true;
         else if (!a.startsWith('-')) opts.onlyTerm = a;
         else { console.error(`Unknown argument: ${a}`); process.exit(2); }
     }
+    if (opts.part2Only) opts.dryRun = true;
     return opts;
 }
 
@@ -360,12 +410,18 @@ function main() {
         .filter(d => /^\d{4}-\d{2}$/.test(d) && fs.existsSync(path.join(TERMS_DIR, d, 'cases.json')))
         .sort();
 
+    const reportTerms = opts.reportTerm === 'all'
+        ? allTerms
+        : opts.reportTerm.split(',').map(s => s.trim()).filter(Boolean);
+    const reportTermsSet = new Set(reportTerms);
+
     say(`# SCDB import report`);
     say('');
     say(`- Generated: ${new Date().toISOString()}`);
     say(`- scdb.json: ${Object.keys(scdb).length.toLocaleString()} records`);
-    say(`- Report-only term: ${opts.reportTerm}`);
+    say(`- Report-only term(s): ${reportTerms.length > 8 ? `${opts.reportTerm} (${reportTerms.length} terms)` : reportTerms.join(', ')}`);
     if (opts.onlyTerm) say(`- Part 1 restricted to: ${opts.onlyTerm}`);
+    if (opts.excludeFields.size) say(`- Part 2 field(s) excluded: ${[...opts.excludeFields].join(', ')}`);
     if (opts.dryRun) say(`- **--dry-run:** no files will be written`);
     say('');
 
@@ -374,7 +430,7 @@ function main() {
     say('');
 
     const part1Terms = allTerms.filter(t =>
-        t !== opts.reportTerm &&
+        !reportTermsSet.has(t) &&
         Number(t.slice(0, 4)) >= MODERN_MIN_YEAR &&
         (!opts.onlyTerm || t === opts.onlyTerm));
     let totalUpdated = 0, totalEmpty = 0, totalConflicts = 0, totalUnmatched = 0;
@@ -464,19 +520,25 @@ function main() {
     say('');
 
     // ── PART 2 ──────────────────────────────────────────────────────────────
-    say(`## Part 2 — ${opts.reportTerm} differences (report only, nothing written)`);
+    say(`## Part 2 — differences over ${reportTerms.length === 1 ? reportTerms[0] : `${reportTerms.length} terms`}` +
+        (opts.apply
+            ? ` (applying${opts.excludeFields.size ? `, excluding: ${[...opts.excludeFields].join(', ')}` : ''})`
+            : ' (report only, nothing written)'));
     say('');
 
-    const loaded = loadCases(opts.reportTerm);
-    if (!loaded) {
-        say(`_No cases.json for ${opts.reportTerm}._`);
-    } else {
-        const termYear = opts.reportTerm.slice(0, 4);
-        const { cases } = loaded;
+    const FIELD_ORDER = ['title', 'number', 'argument', 'reargument', 'decision', 'score', 'citation', 'decision_loc', 'votes'];
+    const showFullUnmatchedLists = reportTerms.length === 1;
+    let grandDiff = 0, grandClean = 0, grandMissingScdb = 0, grandUnmatchedOurs = 0, grandTermsChanged = 0;
+
+    for (const term of reportTerms) {
+        const loaded = loadCases(term);
+        if (!loaded) { say(`_No cases.json for ${term}._`); continue; }
+
+        const termYear = term.slice(0, 4);
+        const { path: reportCasesPath, cases } = loaded;
         const matchedScdbIds = new Set();
         let diffCount = 0, cleanCount = 0;
-
-        const FIELD_ORDER = ['title', 'number', 'argument', 'reargument', 'decision', 'score', 'citation', 'decision_loc', 'votes'];
+        let termChanged = false;
 
         for (const c of cases) {
             const match = matchCase(c, termYear, scdb, scdbDocketIndex);
@@ -485,37 +547,118 @@ function main() {
 
             const want = scdbImportedFields(match.rec);
             const diffs = [];
+            const applyOps = [];
+
+            // Fields already flagged (by update_cases.js's own SCDB
+            // reconciliation, or by hand) as a known SCDB error/omission on
+            // this case — scdb_check holds 'number'/'argument'/'reargument'/
+            // 'decision'. A still-disagreeing value here is old news, not
+            // worth re-reporting; only surface it again if SCDB's value now
+            // matches ours, since that means the flag itself is stale.
+            const scdbChecked = new Set(String(c.scdb_check || '').split(',').map(s => s.trim()).filter(Boolean));
 
             for (const f of FIELD_ORDER) {
+                if (opts.excludeFields.has(f)) continue;   // not interested in this field at all
                 if (!(f in want)) continue;               // SCDB wouldn't set it → not a diff
+                if (f === 'argument' || f === 'reargument') {
+                    // Our own field can hold a comma-separated run of dates for a
+                    // case argued/reargued across multiple days; SCDB's single
+                    // date* fields only ever hold one of those days (not always
+                    // the first). Any of our days matching SCDB's is agreement,
+                    // not a diff — flagging it would suggest collapsing our
+                    // richer multi-day record down to SCDB's single day.
+                    const ourDates = String(c[f] || '').split(',').map(s => s.trim()).filter(Boolean);
+                    const contains = ourDates.includes(want[f]);
+                    if (scdbChecked.has(f)) {
+                        // update_cases.js's own scdb_check pruning requires a
+                        // STRICT match (the whole field, not just "one of our
+                        // days") before it would clear this flag — a
+                        // multi-day list can never strictly equal SCDB's one
+                        // date, so it stays flagged forever and must never
+                        // report "stale" just because one day overlaps.
+                        if ((c[f] || '') === (want[f] || '')) diffs.push(`${f}: SCDB now agrees (${JSON.stringify(want[f])}) — scdb_check/scdb_message may be stale`);
+                        continue;
+                    }
+                    if (contains) continue;
+                    if (!jsonEq(c[f], want[f])) {
+                        const cur = c[f] === undefined ? '(absent)' : JSON.stringify(c[f]);
+                        diffs.push(`${f}: ${cur} -> ${JSON.stringify(want[f])}`);
+                        applyOps.push({ field: f, run: () => { c[f] = want[f]; } });
+                    }
+                    continue;
+                }
+                if (f === 'decision' && scdbChecked.has('decision')) {
+                    if (jsonEq(c.decision, want.decision)) diffs.push(`decision: SCDB now agrees (${JSON.stringify(want.decision)}) — scdb_check/scdb_message may be stale`);
+                    continue;
+                }
                 if (f === 'number') {
+                    const ourDockets = splitDockets(c.number);
                     const ourKeys = new Set(realDockets(c.number).map(docketKey));
                     const add = realDockets(match.rec.docket)
                         .filter(d => !ourKeys.has(docketKey(d))).map(scdbNormalizeDocket);
+                    if (scdbChecked.has('number')) {
+                        if (!add.length) diffs.push(`number: SCDB now agrees (no extra docket) — scdb_check/scdb_message may be stale`);
+                        continue;
+                    }
                     if (add.length) {
                         diffs.push(`number: ${JSON.stringify(c.number || '')} -> would add ${JSON.stringify(add.join(';'))}`);
+                        applyOps.push({ field: f, run: () => { c.number = [...ourDockets, ...add].join(';'); } });
                     }
                     continue;
                 }
                 if (f === 'votes') {
                     const vd = diffVotes(c.votes, want.votes);
-                    if (vd.length) diffs.push('votes:\n' + vd.map(x => `      ${x}`).join('\n'));
+                    if (vd.length) {
+                        diffs.push('votes:\n' + vd.map(x => `      ${x}`).join('\n'));
+                        applyOps.push({ field: f, run: () => { c.votes = applyVotes(c.votes, want.votes); } });
+                    }
                     continue;
                 }
                 if (!jsonEq(c[f], want[f])) {
                     const cur = c[f] === undefined ? '(absent)' : JSON.stringify(c[f]);
                     diffs.push(`${f}: ${cur} -> ${JSON.stringify(want[f])}`);
+                    applyOps.push({ field: f, run: () => { c[f] = want[f]; } });
                 }
+            }
+
+            // Every matched case should carry SCDB's own id (reorderCase always
+            // puts it first) and drop any now-stale "SCDB missing case" audit
+            // note — derived from the match itself, not from scdbImportedFields.
+            if (!opts.excludeFields.has('id') && !c.id) {
+                diffs.push(`id: (absent) -> ${JSON.stringify(match.id)}`);
+                applyOps.push({ field: 'id', run: () => { c.id = match.id; } });
+            }
+            const auditParts = String(c.audit_message || '').split('; ').map(s => s.trim()).filter(Boolean);
+            if (!opts.excludeFields.has('audit_message') && auditParts.includes(SCDB_MISSING_MESSAGE)) {
+                const kept = auditParts.filter(p => p !== SCDB_MISSING_MESSAGE).join('; ');
+                diffs.push(`audit_message: ${JSON.stringify(c.audit_message)} -> ${kept ? JSON.stringify(kept) : '(removed)'}`);
+                applyOps.push({ field: 'audit_message', run: () => { removeAuditMessage(c, SCDB_MISSING_MESSAGE); } });
             }
 
             if (diffs.length) {
                 diffCount++;
-                say(`### ${c.title || c.number} [${match.id} via ${match.how}]`);
+                say(`### ${reportTerms.length > 1 ? `${term} — ` : ''}${c.title || c.number} [${match.id} via ${match.how}]`);
                 for (const d of diffs) say(`  - ${d}`);
                 say('');
+
+                if (opts.apply) {
+                    for (const op of applyOps) {
+                        op.run();
+                        termChanged = true;
+                    }
+                }
             } else {
                 cleanCount++;
             }
+        }
+
+        if (opts.apply && termChanged) {
+            for (const c of cases) {
+                if (Array.isArray(c.votes)) c.votes = c.votes.map(reorderVote);
+            }
+            const reordered = cases.map(reorderCase);
+            fs.writeFileSync(reportCasesPath, JSON.stringify(reordered, null, 2) + '\n', 'utf8');
+            grandTermsChanged++;
         }
 
         // SCDB records in this term with no case of ours
@@ -527,18 +670,26 @@ function main() {
             .filter(c => !matchCase(c, termYear, scdb, scdbDocketIndex))
             .map(c => `${c.title || '?'} (${c.number || 'no number'})`);
 
-        say(`### SCDB records in ${opts.reportTerm} not present in our cases.json (${missingCases.length})`);
-        say('');
-        for (const cid of missingCases) say(`- \`${cid}\` — ${scdb[cid].caseName || ''}`);
-        say('');
-        say(`### Our ${opts.reportTerm} cases with no SCDB match (${unmatchedOurs.length})`);
-        say('');
-        for (const t of unmatchedOurs) say(`- ${t}`);
-        say('');
-        say(`**Part 2 totals:** ${diffCount} matched case(s) differ, ${cleanCount} match cleanly, ` +
-            `${missingCases.length} SCDB record(s) unmatched, ${unmatchedOurs.length} of our cases unmatched.`);
+        if (showFullUnmatchedLists) {
+            say(`### SCDB records in ${term} not present in our cases.json (${missingCases.length})`);
+            say('');
+            for (const cid of missingCases) say(`- \`${cid}\` — ${scdb[cid].caseName || ''}`);
+            say('');
+            say(`### Our ${term} cases with no SCDB match (${unmatchedOurs.length})`);
+            say('');
+            for (const t of unmatchedOurs) say(`- ${t}`);
+            say('');
+        }
+
+        grandDiff += diffCount;
+        grandClean += cleanCount;
+        grandMissingScdb += missingCases.length;
+        grandUnmatchedOurs += unmatchedOurs.length;
     }
 
+    say(`**Part 2 totals:** ${grandDiff} matched case(s) differ, ${grandClean} match cleanly, ` +
+        `${grandMissingScdb} SCDB record(s) unmatched, ${grandUnmatchedOurs} of our cases unmatched` +
+        (opts.apply ? `, ${grandTermsChanged} term(s) written` : '') + '.');
     say('');
     fs.writeFileSync(REPORT_PATH, REPORT.join('\n') + '\n', 'utf8');
     console.log(`\nreport → ${path.relative(REPO_ROOT, REPORT_PATH)}`);
@@ -559,6 +710,29 @@ function diffVotes(ours, theirs) {
     }
     for (const name of o.keys()) if (!t.has(name)) lines.push(`${name}: on our side but not in SCDB record`);
     return lines;
+}
+
+/** Merge SCDB-derived votes into our existing votes[], matching diffVotes'
+ *  semantics: side is overwritten when SCDB disagrees, action is filled in
+ *  only when we don't already have one, and a justice missing on our side is
+ *  appended. Never drops an existing vote or its other props. */
+function applyVotes(ours, theirs) {
+    const list = (Array.isArray(ours) ? ours : []).map(v => ({ ...v }));
+    const byName = new Map(list.map(v => [String(v.name || '').toUpperCase(), v]));
+    for (const tv of theirs) {
+        let ov = byName.get(tv.name);
+        if (!ov) {
+            ov = { name: tv.name, side: tv.side };
+            if (tv.action) ov.action = tv.action;
+            list.push(ov);
+            byName.set(tv.name, ov);
+            continue;
+        }
+        if (tv.side && (ov.side || '') !== tv.side) ov.side = tv.side;
+        const oa = ov.action || (ov.opinion ? 'wrote an opinion' : '');
+        if (tv.action && !oa) ov.action = tv.action;
+    }
+    return list;
 }
 
 main();
