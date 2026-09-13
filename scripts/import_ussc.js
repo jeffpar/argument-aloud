@@ -2868,7 +2868,7 @@ async function importMediaFiles(termsRoot) {
         // Find matching case in the term's cases.json
         const cases = getCases(currentTerm);
         const matchedCase = cases.find(c => {
-            const numbers = StringsplitDockets(c.number);
+            const numbers = splitDockets(c.number);
             return numbers.includes(docket);
         });
 
