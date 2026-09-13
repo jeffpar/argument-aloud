@@ -3145,19 +3145,21 @@ function setCaseTitleLabel(term, caseEntry, optionText, numberOverride) {
 
   // The docket-number annotation is its own element, separate from the
   // title link above — when the case has a docket_url, it becomes a link to
-  // that (e.g. wasc's discretionary-review docket calendar entry), since
-  // ussc's audio-path cases already reach the same href via their file-select
-  // dropdown's "Docket Search" option (see loadCase), which a case reached
-  // through loadCaseAsOpinion (no synced transcript — including every
-  // non-ussc court's cases) never shows.
+  // that (e.g. wasc's discretionary-review docket calendar entry), opened in
+  // the doc-viewer pane rather than a new tab (same as the "Docket Search"
+  // file-select option — see loadCase), which a case reached through
+  // loadCaseAsOpinion (no synced transcript — including every non-ussc
+  // court's cases) never shows.
   if (numberText) {
     span.appendChild(document.createTextNode(' '));
     const numEl = document.createElement(caseEntry.docket_url ? 'a' : 'span');
     if (caseEntry.docket_url) {
       numEl.href = caseEntry.docket_url;
-      numEl.target = '_blank';
-      numEl.rel = 'noopener noreferrer';
       numEl.className = 'case-title-number-link';
+      numEl.addEventListener('click', e => {
+        e.preventDefault();
+        showDocViewer({ href: caseEntry.docket_url, title: 'Docket Search', view: 'pane' }, { force: true });
+      });
     }
     numEl.textContent = numberText;
     if (fullNumberText) numEl.title = fullNumberText;
