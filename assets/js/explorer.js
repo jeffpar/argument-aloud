@@ -5541,6 +5541,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
               if (key === 'appellant' || key === 'appellants' || key === 'plaintiff' || key === 'plaintiffs' || key === 'complainant' || key === 'complainants') key = 'petitioner';
               else if (key === 'appellee' || key === 'appellees' || key === 'defendant' || key === 'defendants') key = 'respondent';
               else if (key === 'reference') key = 'references';
+              else if (key === 'brief') key = 'briefs';
               if (!_TERM_GROUP_KEYS.has(key)) key = 'other';
             }
             if (!groups[key]) groups[key] = [];
