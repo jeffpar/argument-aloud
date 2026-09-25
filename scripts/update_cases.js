@@ -5713,7 +5713,13 @@ function syncTermsJson() {
     }
 
     let modified = false;
-    let totalDecided = 0, totalArgued = 0, totalArgDays = 0, totalAudio = 0, totalUnanimous = 0;
+    let totalDecided = 0, totalArgDays = 0, totalUnanimous = 0;
+    const allArgKeys = new Set(), allAudioKeys = new Set();
+    // All-terms-only totals, computed the same way as terms.js's own
+    // single-term stat cards (advocates, fully aligned, argument/opinion
+    // audio hours and averages).
+    const allAdvocates = new Set();
+    let totalAligned = 0, argSecs = 0, argEvents = 0, opSecs = 0, opEvents = 0;
 
     // Auto-discover any term directory on disk (courts/ussc/terms/YYYY-MM/
     // cases.json) not yet listed in terms.json at all — e.g. a prospective
@@ -5788,14 +5794,16 @@ function syncTermsJson() {
             const data = casesByTerm.get(termId);
             if (Array.isArray(data)) {
                 count   = data.length;
-                // "decided"/"unanimous" only count cases that were actually
-                // argued — a case resolved without argument (cert denial,
-                // GVR, summary disposition) still carries a decision date but
-                // shouldn't inflate these stats or the term=all history chart.
-                const arguedData = data.filter(c => c.argument || c.reargument);
-                decided = arguedData.filter(c => c.decision || c.dateDecision).length;
-                unanimous = arguedData.filter(c => /-0$/.test(c.score || '')).length;
-                ({ argued, argDays, audio } = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm));
+                // "decided"/"unanimous" count every decided case, argued or
+                // not — a case resolved without argument (GVR, summary
+                // disposition, etc.) is still a decision of the Court.
+                const decidedData = data.filter(c => c.decision || c.dateDecision);
+                decided = decidedData.length;
+                unanimous = decidedData.filter(c => /-0$/.test(c.score || '')).length;
+                const stats = _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByTerm);
+                ({ argued, argDays, audio } = stats);
+                for (const k of stats.argKeys)   allArgKeys.add(k);
+                for (const k of stats.audioKeys) allAudioKeys.add(k);
                 orders = data.filter(c => _isOrdersCase(c.citation, page.reports)).length;
                 // "digs" is a subset of "dismissals" — a case dismissed as
                 // improvidently granted is still just "dismissed" too — so
@@ -5805,11 +5813,31 @@ function syncTermsJson() {
                 dismissals  = data.filter(c => /dismissed/i.test(c.result || '')).length;
                 digs        = data.filter(c => /dismissed as improvidently granted/i.test(c.result || '')).length;
                 partialDigs = data.filter(c => /partially improvidently granted/i.test(c.result || '')).length;
+
+                for (const c of data) {
+                    const evs = c.events || [];
+                    for (const e of evs) for (const a of e.advocates || []) if (a.name) allAdvocates.add(a.name);
+                    // "Fully aligned" = every oyez argument event with audio has an aligned transcript.
+                    const oyezArgEvs = evs.filter(e => e.source === 'oyez' && e.audio_url && (e.type === 'argument' || e.type === 'reargument'));
+                    if (oyezArgEvs.length && oyezArgEvs.every(e => e.text_file && e.aligned)) totalAligned++;
+                    // Audio lengths, de-duplicated per case by title (or date) so an
+                    // event available from both ussc and oyez only counts once.
+                    const seenArg = new Set(), seenOp = new Set();
+                    for (const e of evs) {
+                        if (!e.length) continue;
+                        const key = e.title || e.date;
+                        if (e.type === 'argument' || e.type === 'reargument') {
+                            if (key && seenArg.has(key)) continue;
+                            seenArg.add(key); argSecs += (_parseDurationSecs(e.length) || 0); argEvents++;
+                        } else if (e.type === 'decision' && e.audio_url) {
+                            if (key && seenOp.has(key)) continue;
+                            seenOp.add(key); opSecs += (_parseDurationSecs(e.length) || 0); opEvents++;
+                        }
+                    }
+                }
             }
             totalDecided   += decided;
-            totalArgued    += argued;
             totalArgDays   += argDays;
-            totalAudio     += audio;
             totalUnanimous += unanimous;
 
             // Rebuild page with canonical key order, file=URL, cases=count, stats at end.
@@ -5849,7 +5877,9 @@ function syncTermsJson() {
         tj.pop(); modified = true;
     }
     // Update or append the hidden all-terms container.
-    const newSummaryGroup = { id: 'all', decided: totalDecided, argued: totalArgued, argDays: totalArgDays, audio: totalAudio, unanimous: totalUnanimous };
+    const newSummaryGroup = { id: 'all', decided: totalDecided, argued: allArgKeys.size, argDays: totalArgDays, audio: allAudioKeys.size, unanimous: totalUnanimous,
+        advocates: allAdvocates.size, aligned: totalAligned,
+        argSecs: Math.round(argSecs), argEvents, opSecs: Math.round(opSecs), opEvents };
     const newContainer    = { name: 'All', hidden: true, groups: [newSummaryGroup] };
     const lastItem = tj[tj.length - 1];
     if (lastItem?.hidden === true && lastItem?.name === 'All' && Array.isArray(lastItem?.groups)) {
@@ -5911,9 +5941,11 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
     const argDaySet   = new Set();
     const argCaseIds  = new Set();
     const audioCaseIds = new Set();
+    const argTermOf    = new Map(); // caseKey -> term the case is filed under
 
     for (const c of casesByTerm.get(termId) || []) {
         const caseKey = c.id || c.number;
+        if (caseKey) argTermOf.set(caseKey, termId);
         for (const field of ['argument', 'reargument']) {
             const raw = c[field];
             if (!raw) continue;
@@ -5941,6 +5973,7 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
 
     for (const { iso, obj } of crossTermByTerm.get(termId) || []) {
         const caseKey = obj.id || obj.number;
+        if (caseKey) argTermOf.set(caseKey, obj.term);
         argDaySet.add(iso);
         if (caseKey) argCaseIds.add(caseKey);
 
@@ -5950,7 +5983,14 @@ function _computeTermArgAudioStats(termId, termStarts, casesByTerm, crossTermByT
         }
     }
 
-    return { argued: argCaseIds.size, argDays: argDaySet.size, audio: audioCaseIds.size };
+    return {
+        argued: argCaseIds.size, argDays: argDaySet.size, audio: audioCaseIds.size,
+        // Case keys qualified by the term each case is filed under, so the
+        // all-terms summary can count distinct cases — a case argued in one
+        // term and reargued in another appears in both terms' own counts.
+        argKeys: [...argCaseIds].map(k => argTermOf.get(k) + '|' + k),
+        audioKeys: [...audioCaseIds].map(k => argTermOf.get(k) + '|' + k),
+    };
 }
 
 // Some cases were actually argued/reargued during an *earlier* term's own

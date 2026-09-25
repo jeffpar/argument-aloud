@@ -602,14 +602,24 @@
     _drawCaseListing();
   }
 
+  // Which argument series the term=all history chart plots — every data row
+  // carries both ('ar' = cases argued, 'ad' = argument days), so switching
+  // back is just a matter of picking the other entry here.
+  var HISTORY_ARG_SERIES = {
+    ar: { legend: 'Arguments',     tip: 'Arguments' },
+    ad: { legend: 'Argument Days', tip: 'Arg. days' },
+  };
+  var HISTORY_ARG_FIELD = 'ar';
+
   function renderHistoryChart(container, data) {
+    var argField = HISTORY_ARG_FIELD, argSeries = HISTORY_ARG_SERIES[argField];
     var NS = 'http://www.w3.org/2000/svg';
     var W = 760, H = 300;
     var P = { t: 10, r: 16, b: 36, l: 40 };
     var cW = W - P.l - P.r, cH = H - P.t - P.b;
     var n = data.length;
     var maxRaw = 0;
-    for (var i = 0; i < n; i++) maxRaw = Math.max(maxRaw, data[i].d, data[i].ad, data[i].un || 0);
+    for (var i = 0; i < n; i++) maxRaw = Math.max(maxRaw, data[i].d, data[i][argField] || 0, data[i].un || 0);
     var step = maxRaw > 200 ? 50 : maxRaw > 100 ? 25 : 10;
     var maxY = Math.ceil(maxRaw * 1.1 / step) * step;
     function xOf(i) { return P.l + i / (n - 1) * cW; }
@@ -646,7 +656,7 @@
       for (var i = 0; i < n; i++) d += (i ? 'L' : 'M') + xOf(i).toFixed(1) + ' ' + yOf(data[i][field] || 0).toFixed(1);
       return svgEl('path', { d:d, fill:'none', stroke:color, 'stroke-width':'1.5', 'stroke-linejoin':'round' });
     }
-    svg.appendChild(makePath('ad', '#ff9f40'));
+    svg.appendChild(makePath(argField, '#ff9f40'));
     svg.appendChild(makePath('d',  '#4a9eff'));
     svg.appendChild(makePath('un', '#2ecc71'));
     var cursor = svgEl('line', { x1:P.l, x2:P.l, y1:P.t, y2:P.t+cH }, 'stroke:var(--chart-label);stroke-width:1;opacity:0;pointer-events:none');
@@ -670,7 +680,7 @@
       var unCount = row.un || 0;
       var unPct = row.d ? Math.round(unCount / row.d * 100) : 0;
       tipT[2].textContent = 'Unanimous: ' + unCount + ' (' + unPct + '%)';
-      tipT[3].textContent = 'Arg. days: ' + row.ad;
+      tipT[3].textContent = argSeries.tip + ': ' + (row[argField] || 0);
       tipT.forEach(function(t, i) { t.setAttribute('x', 6); t.setAttribute('y', 12 + i * 13); });
       var tx = +cx + 6;
       if (tx + 106 > P.l + cW) tx = +cx - 112;
@@ -683,7 +693,7 @@
     container.appendChild(svg);
     var leg = document.createElement('div');
     leg.style.cssText = 'display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:0.72rem;';
-    [['Decisions','#4a9eff'],['Unanimous Decisions','#2ecc71'],['Argument Days','#ff9f40']].forEach(function(item) {
+    [['Decisions','#4a9eff'],['Unanimous Decisions','#2ecc71'],[argSeries.legend,'#ff9f40']].forEach(function(item) {
       var s = document.createElement('span');
       s.style.cssText = 'display:inline-flex;align-items:center;gap:5px;';
       var sw = document.createElement('span');
@@ -1687,6 +1697,23 @@
           document.getElementById('stat-argument-days').textContent = summary.argDays.toLocaleString();
           document.getElementById('stat-with-audio').textContent    = summary.audio.toLocaleString();
           revealAudioStat('stat-with-audio', summary.audio > 0);
+          if (summary.advocates != null) document.getElementById('stat-advocates').textContent = summary.advocates.toLocaleString();
+          if (summary.aligned != null) {
+            document.getElementById('stat-with-transcript').textContent = summary.aligned.toLocaleString();
+            revealAudioStat('stat-with-transcript', summary.aligned > 0);
+          }
+          if (summary.argEvents > 0) {
+            document.getElementById('stat-argued-hours').textContent = Math.round(summary.argSecs / 3600).toLocaleString() + 'h';
+            document.getElementById('stat-avg-length').textContent   = fmtMins(summary.argSecs / summary.argEvents);
+            revealAudioStat('stat-argued-hours', true);
+            revealAudioStat('stat-avg-length', true);
+          }
+          if (summary.opEvents > 0) {
+            document.getElementById('stat-opinion-hours').textContent = Math.round(summary.opSecs / 3600).toLocaleString() + 'h';
+            document.getElementById('stat-avg-opinion').textContent   = fmtMins(summary.opSecs / summary.opEvents);
+            revealAudioStat('stat-opinion-hours', true);
+            revealAudioStat('stat-avg-opinion', true);
+          }
         }
         // Build per-term chart data from non-hidden group entries. Special terms
         // (e.g. "July Special Term 1942") decide only a handful of cases and
@@ -1697,7 +1724,7 @@
           if (decade.hidden) return;
           (decade.groups || []).forEach(function(g) {
             if (g.name && /special/i.test(g.name)) return;
-            if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ad: g.argDays, un: g.unanimous });
+            if (g.id && g.decided != null) chartData.push({ t: g.id, d: g.decided, ar: g.argued, ad: g.argDays, un: g.unanimous });
           });
         });
         if (chartData.length) {
@@ -2437,8 +2464,8 @@
           });
         });
 
-      // Only counts cases that were actually argued (see the "decided" note
-      // below) — a case with no argument shouldn't count here even if it
+      // Only counts cases that were actually argued — a case with no
+      // argument shouldn't count here even if it
       // somehow carried an audio_url (e.g. a decision-announcement recording).
       var withAudio   = cases.filter(function (c) { return (c.argument || c.reargument) && (c.events || []).some(function (e) { return e.audio_url; }); }).length;
       // "Fully aligned" = cases with oyez events that have audio, text_file, and aligned:true
@@ -2449,11 +2476,9 @@
         });
         return oyezArgEvs.length > 0 && oyezArgEvs.every(function (e) { return e.text_file && e.aligned; });
       }).length;
-      // Only counts cases that were actually argued — a case resolved
-      // without argument (cert denial, GVR, summary disposition) still
-      // carries a decision date but shouldn't inflate this stat, matching
-      // update_cases.js's own syncTermsJson computation.
-      var decided     = cases.filter(function (c) { return (c.argument || c.reargument) && (c.decision || c.dateDecision); }).length;
+      // Counts every decided case, argued or not, matching update_cases.js's
+      // own syncTermsJson computation.
+      var decided     = cases.filter(function (c) { return c.decision || c.dateDecision; }).length;
       var advSet = new Set();
       cases.forEach(function (c) {
         (c.events || []).forEach(function (e) {

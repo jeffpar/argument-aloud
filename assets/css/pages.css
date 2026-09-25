@@ -134,7 +134,10 @@ html[data-theme="light"] .stat-filter-note { color: #888; }
 .report-cover-img, .minutes-cover-img { height: 76px; width: auto; display: block; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); transition: opacity 0.15s; }
 .report-cover-btn:hover .report-cover-img, .minutes-cover-btn:hover .minutes-cover-img { opacity: 0.8; }
 .report-cover-label, .minutes-cover-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
+/* As many columns as fit at >= 8.5rem each (2 on a phone), capped at 4 —
+   the inner max() keeps each column at least a quarter of the row (minus
+   the 3 gaps) so a wide pane never spreads past 4 across. */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(max(8.5rem, (100% - 3 * 0.7rem) / 4), 1fr)); gap: 0.7rem; margin-bottom: 1rem; }
 .stats-grid[hidden] { display: none; }
 .stat-card { background: #f5f6fa; border-radius: 6px; padding: 0.6rem 0.8rem; }
 @media (prefers-color-scheme: dark) { .stat-card { background: #21242c; } }
