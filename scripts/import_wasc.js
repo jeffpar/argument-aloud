@@ -11,6 +11,7 @@
  *   node scripts/import_wasc.js --fix-titles   [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js --archives [YYYY] [--dry-run] [--verbose]
  *
  * Examples:
  *   node scripts/import_wasc.js 2013           # published opinions for 2013
@@ -20,6 +21,33 @@
  *   node scripts/import_wasc.js --fix-titles   # "State"/"Washington" party -> "State of Washington"
  *   node scripts/import_wasc.js --tvw 2025     # fill bare TVW events (page_url only) from Invintus
  *   node scripts/import_wasc.js --verify 2025 --fix   # check (and fix) broken docket_url values
+ *   node scripts/import_wasc.js --archives 2006 # flesh out 2006 from local archives
+ *
+ * `--archives [YYYY]` mines courts/wasc/archives/ (cached local snapshots —
+ * no network) rather than the live site, in two passes:
+ *   - CALENDAR: courts/wasc/archives/YYYY/source/docketYYYYMMDD.html — the
+ *     same per-date argument-calendar pages docketPass fetches live, but
+ *     cached from whenever they were archived. courts.wa.gov's calendar index
+ *     (CAL_YEAR_URL) has since stopped linking a lot of these dates for older
+ *     terms, so this often finds far more argued dockets than a live run —
+ *     e.g. 2006 has only 61 live-scraped cases vs. 117 argued dockets in the
+ *     local archive. Same fill rule as docketPass: create a stub for a
+ *     missing docket, fill argument/argument_day only if absent.
+ *   - OPINIONS: courts/wasc/archives/YYYY/<docket>/opinions/*.html — cached
+ *     "Opinion Information Sheet" pages (File Date, Oral Argument Date) plus,
+ *     for the pre-2011ish era, the full opinion text. Fills decision /
+ *     decision_day the same way, and — when the signing block is present and
+ *     unambiguous — score and votes, by parsing each opinion doc's own
+ *     AUTHOR:/WE CONCUR: signature block (MAJ + any pure Co concurrence(s) ->
+ *     majority, any Di dissent(s) -> minority). A CP ("Concurrence/Dissent in
+ *     part") doc, an unparseable signature block (e.g. PER CURIAM with no
+ *     signature block, or a >=2011ish doc with only a PDF link and no full
+ *     text), a name on both sides, or an implausible total vote count all
+ *     skip that case's score/votes (still fills decision/argument dates) —
+ *     reported in the pass summary, never guessed at.
+ *   Never overwrites an existing argument/decision/score value, and never
+ *   touches an existing title (matches every other per-year pass's rule).
+ * `courts/wasc/archives/` is itself git-ignored (see courts/wasc/ note below).
  *
  * DATE mode (YYYY-MM-DD): scrape one calendar date's docket sheet, import all
  * of that day's argued cases (create any that are missing; leave existing
@@ -93,7 +121,8 @@ const decodeEntities = (s) => (s || '')
     .replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>')
     .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/&nbsp;/gi, ' ');
 
-const WASC_TERMS_DIR = path.join(REPO_ROOT, 'courts', 'wasc', 'terms');
+const WASC_TERMS_DIR    = path.join(REPO_ROOT, 'courts', 'wasc', 'terms');
+const WASC_ARCHIVES_DIR = path.join(REPO_ROOT, 'courts', 'wasc', 'archives');
 const TERMS_JSON     = path.join(WASC_TERMS_DIR, 'terms.json');
 const BASE           = 'https://www.courts.wa.gov';
 const OPINIONS_URL   = (yr) => `${BASE}/opinions/index.cfm?fa=opinions.byYear&fileYear=${yr}&crtLevel=S&pubStatus=PUB`;
@@ -1553,6 +1582,247 @@ async function verifyPass(yearArg, doFix) {
     }
 }
 
+// ── --archives: flesh out cases.json from local courts/wasc/archives/ ─────
+// See the top-of-file doc comment for the CALENDAR / OPINIONS two-pass design.
+const archiveYears = () => exists(WASC_ARCHIVES_DIR)
+    ? fs.readdirSync(WASC_ARCHIVES_DIR).filter((n) => /^\d{4}$/.test(n)
+        && fs.statSync(path.join(WASC_ARCHIVES_DIR, n)).isDirectory()).map(Number).sort((a, b) => a - b)
+    : [];
+
+// CALENDAR pass: courts/wasc/archives/YYYY/source/docketYYYYMMDD.html, parsed
+// with the same parseCalendarCases() docketPass uses on a live fetch —
+// de-duped by docket, earliest date kept (a docket can appear on more than
+// one session's calendar if it was continued).
+function archiveCalendarCases(year) {
+    const srcDir = path.join(WASC_ARCHIVES_DIR, String(year), 'source');
+    if (!exists(srcDir)) return [];
+    const byDocket = new Map();
+    for (const f of fs.readdirSync(srcDir)) {
+        if (!/^docket\d{8}\.html$/.test(f)) continue;
+        let html;
+        try { html = fs.readFileSync(path.join(srcDir, f), 'utf8'); } catch { continue; }
+        for (const c of parseCalendarCases(html)) {
+            if (!byDocket.has(c.docket) || c.iso < byDocket.get(c.docket).iso) byDocket.set(c.docket, c);
+        }
+    }
+    return [...byDocket.values()];
+}
+
+// OPINIONS pass: courts/wasc/archives/YYYY/<docket>/opinions/*.html — one
+// "Opinion Information Sheet" per filed opinion doc, named
+// "<digits><MAJ|Di#|Co#|CP#>.html" (majority / dissent / pure concurrence /
+// concur-dissent-in-part). A "prev/" subfolder holds a superseded pre-
+// reconsideration version — skipped (directories don't pass the isFile check).
+function archiveDocketDirs(year) {
+    const yearDir = path.join(WASC_ARCHIVES_DIR, String(year));
+    if (!exists(yearDir)) return [];
+    return fs.readdirSync(yearDir).filter((n) => n !== 'source' && !n.startsWith('.')
+        && fs.statSync(path.join(yearDir, n)).isDirectory());
+}
+function classifyOpinionFile(name) {
+    const m = /^\d+([A-Za-z]+)\d*\.html$/i.exec(name);
+    if (!m) return null;
+    const kind = m[1].toUpperCase();
+    return ['MAJ', 'DI', 'CO', 'CP'].includes(kind) ? kind.toLowerCase() : 'other';
+}
+// -> [{ docketDir, maj, di[], co[], cp[] }] (html text of each doc)
+function archiveOpinionSets(year) {
+    const out = [];
+    for (const docketDir of archiveDocketDirs(year)) {
+        const opDir = path.join(WASC_ARCHIVES_DIR, String(year), docketDir, 'opinions');
+        if (!exists(opDir) || !fs.statSync(opDir).isDirectory()) continue;
+        const set = { docketDir, maj: null, di: [], co: [], cp: [] };
+        for (const f of fs.readdirSync(opDir)) {
+            const full = path.join(opDir, f);
+            if (!fs.statSync(full).isFile() || f.toLowerCase() === 'manifest.xml') continue;
+            const kind = classifyOpinionFile(f);
+            if (!kind || kind === 'other') continue;
+            let html;
+            try { html = fs.readFileSync(full, 'utf8'); } catch { continue; }
+            if (kind === 'maj') set.maj = html; else set[kind].push(html);
+        }
+        if (set.maj || set.di.length || set.co.length || set.cp.length) out.push(set);
+    }
+    return out;
+}
+
+// "12/07/2006" -> "2006-12-07"
+function mdySlashToIso(s) {
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(String(s || '').trim());
+    return m ? `${m[3]}-${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}` : null;
+}
+const INFO_RE = {
+    docket: /Docket Number:<\/td>\s*<td>([^<]+)<\/td>/i,
+    title:  /Title of Case:<\/td>\s*<td[^>]*>([\s\S]*?)<\/td>/i,
+    file:   /File Date:<\/td>\s*<td>([^<]*)<\/td>/i,
+    arg:    /Oral Argument Date:<\/td>\s*<td>([^<]*)<\/td>/i,
+};
+// The "Opinion Information Sheet" table every archived opinion doc starts
+// with -> { docket, title, decisionIso, argumentIso }. `argumentIso` is null
+// for a case decided without oral argument (the row is simply absent).
+function parseOpinionInfo(html) {
+    const g = (re) => { const m = re.exec(html); return m ? stripTags(decodeEntities(m[1])).trim() : ''; };
+    return {
+        docket: g(INFO_RE.docket),
+        title: g(INFO_RE.title),
+        decisionIso: mdySlashToIso(g(INFO_RE.file)),
+        argumentIso: mdySlashToIso(g(INFO_RE.arg)),
+    };
+}
+
+// Justice-name extraction out of a signature block's plain text. Anchored on
+// "Justice "/"Chief Justice " (or a trailing ", Justice Pro Tem.") rather than
+// attempting to reconstruct the original 2-column PDF layout (which a
+// pdftotext/HTML-strip pass reduces to space-run-separated fragments that
+// don't reliably re-pair) — a bare capitalised-word run would risk swallowing
+// past the next justice's own "Justice " marker, so the optional middle name
+// is deliberately restricted to a single initial ("L.", not "Louise") to keep
+// each match's span exact.
+const _NAME = "[A-Z\\u00C0-\\u017F][A-Za-z'\\u00C0-\\u017F-]*";
+// "Justice Pro Tem." itself is two Title-Case words after "Justice " — the
+// same shape as a real name — so it must be excluded explicitly, not just
+// left to the generic pattern.
+const RE_JUSTICE_NAME = new RegExp(`\\b(?:Chief\\s+Justice|Justice)\\s+(?!Pro\\s+Tem\\b)(${_NAME}(?:\\s+[A-Z]\\.)?\\s+${_NAME})`, 'g');
+const RE_PROTEM_NAME  = new RegExp(`\\b(${_NAME}(?:\\s+[A-Z]\\.)?\\s+${_NAME}),?\\s*Justice\\s+Pro\\s+Tem\\.?`, 'gi');
+function _extractJusticeNames(text) {
+    const collapsed = text.replace(/\s+/g, ' ');
+    const names = new Map(); // UPPER -> true
+    for (const re of [RE_JUSTICE_NAME, RE_PROTEM_NAME]) {
+        re.lastIndex = 0;
+        let m;
+        while ((m = re.exec(collapsed))) names.set(m[1].replace(/\s+/g, ' ').trim().toUpperCase(), true);
+    }
+    return [...names.keys()];
+}
+// One opinion doc's own <pre> body -> { author, concur[] } (both ALL CAPS
+// names), or null when there's no parseable AUTHOR: block (PER CURIAM, or a
+// >=2011ish doc that's just a PDF link with no opinion text). Running
+// header/footer noise ("No. 76534-1", a bare page number) is stripped first
+// so it can't be mistaken for a name fragment.
+function parseOpinionSignoff(html) {
+    const preMatch = /<pre>([\s\S]*)<\/pre>/i.exec(html);
+    if (!preMatch) return null;
+    const idx = preMatch[1].search(/AUTHOR:/i);
+    if (idx < 0) return null;
+    const tail = preMatch[1].slice(idx).replace(/\f/g, '\n').split('\n')
+        .filter((l) => !/^\s*\d+\s*$/.test(l) && !/^\s*No\.\s*[\d,]+-\d\s*$/i.test(l))
+        .join('\n');
+    const weIdx = tail.search(/WE CONCUR:/i);
+    const authorPart = weIdx >= 0 ? tail.slice(0, weIdx) : tail;
+    const concurPart = weIdx >= 0 ? tail.slice(weIdx) : '';
+    const authors = _extractJusticeNames(authorPart);
+    if (authors.length !== 1) return null;   // ambiguous / unparseable — skip rather than guess
+    return { author: authors[0], concur: _extractJusticeNames(concurPart) };
+}
+
+// One docket's { maj, di[], co[], cp[] } opinion set -> { majority: Set,
+// minority: Set } of ALL-CAPS names, or { skip: reason }. Conservative: any
+// single unparseable doc, a name landing on both sides, or an implausible
+// total (this dataset is always a 9-member court) drops the whole case's
+// vote tally rather than writing a partial/guessed score.
+function analyzeOpinionSet(set) {
+    if (set.cp.length) return { skip: 'cp' };
+    if (!set.maj) return { skip: 'no-maj' };
+    const majSignoff = parseOpinionSignoff(set.maj);
+    if (!majSignoff) return { skip: 'unparsed' };
+    const majority = new Set([majSignoff.author, ...majSignoff.concur]);
+    for (const html of set.co) {
+        const s = parseOpinionSignoff(html);
+        if (!s) return { skip: 'unparsed' };
+        majority.add(s.author);
+        for (const n of s.concur) majority.add(n);
+    }
+    const minority = new Set();
+    for (const html of set.di) {
+        const s = parseOpinionSignoff(html);
+        if (!s) return { skip: 'unparsed' };
+        minority.add(s.author);
+        for (const n of s.concur) minority.add(n);
+    }
+    for (const n of majority) if (minority.has(n)) return { skip: 'conflict' };
+    const total = majority.size + minority.size;
+    if (total < 4 || total > 9) return { skip: 'bounds' };
+    return { majority, minority };
+}
+
+function archivesPass(yearArg) {
+    console.log(`import_wasc --archives${yearArg ? ' ' + yearArg : ''}${DRY_RUN ? ' [dry-run]' : ''}`);
+    const files = loadAllYears();
+    const years = yearArg ? [+yearArg] : archiveYears();
+
+    let calCreated = 0, calArgFilled = 0, opCreated = 0, decFilled = 0, argFilled = 0;
+    let scoreFilled = 0;
+    const skipped = { cp: 0, 'no-maj': 0, unparsed: 0, conflict: 0, bounds: 0, 'no-case': 0 };
+
+    for (const y of years) {
+        for (const cc of archiveCalendarCases(y)) {
+            const found = findCase(files, [cc.docket]);
+            if (found) {
+                if (!found.case.argument && fullIso(cc.iso)) {
+                    found.case.argument = cc.iso;
+                    found.case.argument_day = isoToDayLabel(cc.iso);
+                    found.file.changed = true;
+                    calArgFilled++;
+                }
+                continue;
+            }
+            if (!fullIso(cc.iso)) continue;
+            const c = { id: null, title: cc.caption || `[${cc.docket}]`, number: cc.docket, argument: cc.iso, argument_day: isoToDayLabel(cc.iso) };
+            const yf = ensureYear(files, y);
+            yf.cases.push(c);
+            yf.changed = true;
+            calCreated++;
+            vprint(`  [cal] + new case  ${c.title}  (No. ${c.number}, argued ${c.argument})`);
+        }
+
+        for (const set of archiveOpinionSets(y)) {
+            const primary = set.maj || set.co[0] || set.di[0] || set.cp[0];
+            const info = primary ? parseOpinionInfo(primary) : null;
+            const candidates = [info && info.docket, set.docketDir].filter(Boolean);
+            let found = candidates.length ? findCase(files, candidates) : null;
+            let c, targetFile;
+            if (found) { c = found.case; targetFile = found.file; }
+            else if (info && info.decisionIso) {
+                const num = info.docket || set.docketDir;
+                c = { id: null, title: info.title || `[${num}]`, number: num };
+                targetFile = ensureYear(files, y);
+                targetFile.cases.push(c);
+                targetFile.changed = true;
+                opCreated++;
+                vprint(`  [op] + new case  ${c.title}  (No. ${c.number})`);
+            } else { skipped['no-case']++; continue; }
+
+            let touched = false;
+            if (info) {
+                if (!c.decision && info.decisionIso) { c.decision = info.decisionIso; c.decision_day = isoToDayLabel(info.decisionIso); touched = true; decFilled++; }
+                if (!c.argument && info.argumentIso) { c.argument = info.argumentIso; c.argument_day = isoToDayLabel(info.argumentIso); touched = true; argFilled++; }
+            }
+            if (!c.score) {
+                const result = analyzeOpinionSet(set);
+                if (result.skip) { skipped[result.skip]++; }
+                else {
+                    c.score = `${result.majority.size}-${result.minority.size}`;
+                    c.votes = [
+                        ...[...result.majority].map((name) => ({ name, side: 'majority' })),
+                        ...[...result.minority].map((name) => ({ name, side: 'minority' })),
+                    ];
+                    touched = true;
+                    scoreFilled++;
+                }
+            }
+            if (touched) targetFile.changed = true;
+        }
+    }
+
+    console.log(`  calendar: ${calCreated} case(s) created, ${calArgFilled} argument date(s) filled`);
+    console.log(`  opinions: ${opCreated} case(s) created, ${decFilled} decision date(s) filled, ${argFilled} argument date(s) filled`);
+    console.log(`  votes: ${scoreFilled} score/votes filled  (skipped: ${skipped.cp} concur/dissent-in-part, `
+        + `${skipped['no-maj'] + skipped.unparsed} unparseable signature block, ${skipped.conflict} name conflict, `
+        + `${skipped.bounds} implausible vote count, ${skipped['no-case']} no matching/creatable case)`);
+
+    syncWasc(files);
+}
+
 // ── main ─────────────────────────────────────────────────────────────────
 async function main() {
     const argv = process.argv.slice(2);
@@ -1565,6 +1835,7 @@ async function main() {
     const fixTitlesOnly = argv.includes('--fix-titles');
     const tvwOnly = argv.includes('--tvw');
     const verifyOnly = argv.includes('--verify');
+    const archivesOnly = argv.includes('--archives');
     const noSync = argv.includes('--no-sync'); // batch: scrape only, run --sync once at the end
     const year = positional[0];
     const yearArg = /^\d{4}$/.test(year || '') ? year : '';
@@ -1574,6 +1845,7 @@ async function main() {
     if (fixTitlesOnly) { await fixTitlesPass(argv.includes('--refetch')); return; }
     if (tvwOnly)       { await tvwPass(yearArg, argv.includes('--refetch')); return; }
     if (verifyOnly)    { await verifyPass(yearArg, argv.includes('--fix')); return; }
+    if (archivesOnly)  { archivesPass(yearArg); return; }
 
     if (dateArg) {
         const files = loadAllYears();
@@ -1600,6 +1872,7 @@ async function main() {
         console.error('       node scripts/import_wasc.js --fix-titles   [--dry-run] [--verbose] [--refetch]');
         console.error('       node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]');
         console.error('       node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]');
+        console.error('       node scripts/import_wasc.js --archives [YYYY] [--dry-run] [--verbose]');
         process.exit(1);
     }
 
