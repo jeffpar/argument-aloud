@@ -12,6 +12,7 @@
  *   node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]
  *   node scripts/import_wasc.js --archives [YYYY] [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js --cap YYYY     [--dry-run] [--verbose] [--refetch]
  *
  * Examples:
  *   node scripts/import_wasc.js 2013           # published opinions for 2013
@@ -22,6 +23,11 @@
  *   node scripts/import_wasc.js --tvw 2025     # fill bare TVW events (page_url only) from Invintus
  *   node scripts/import_wasc.js --verify 2025 --fix   # check (and fix) broken docket_url values
  *   node scripts/import_wasc.js --archives 2006 # flesh out 2006 from local archives
+ *   node scripts/import_wasc.js --cap 2005     # decision dates/citations/titles from case.law
+ *
+ * `--cap YYYY` fills decision dates, Wn.2d citations and shorter titles from the
+ * Caselaw Access Project's per-volume metadata (static.case.law, through March
+ * 2017) — see capPass for the rules.
  *
  * `--archives [YYYY]` mines courts/wasc/archives/ (cached local snapshots —
  * no network) rather than the live site, in two passes:
@@ -1823,6 +1829,256 @@ function archivesPass(yearArg) {
     syncWasc(files);
 }
 
+// ── --cap: decision dates / citations / titles from the Caselaw Access Project
+// static.case.law publishes one CasesMetadata.json per Washington Reports 2d
+// volume (every published opinion: decision_date, docket_number, official
+// cite, name_abbreviation) — complete, unlike Wayback's patchy snapshots of
+// courts.wa.gov's "recent opinions" page. Coverage ends with vol. 187
+// (March 2017). Each volume's JSON is cached under courts/wasc/cache/cap/.
+//
+// For every case in YYYY/cases.json, matched by docket number (commas
+// stripped — CAP writes "200,116-5"):
+//   - decision / decision_day: filled if absent (an existing value that
+//     disagrees is reported, never overwritten).
+//   - citation: filled if absent, as "154 Wn.2d 193 (2005)" (existing style).
+//   - title: replaced by CAP's name_abbreviation (bare "State" party ->
+//     "State of Washington", per --fix-titles) when that's shorter AND
+//     corroborated (shares a party-name token with ours), or whenever ours has
+//     no party-name token at all ("State v. State") or is led by a swallowed
+//     docket header ("67451-5 (Kitsap …) …"). One CAP disagrees with is
+//     settled by the case's own argument-calendar caption: agreeing with CAP
+//     -> ours is wrong (the tofj export's off-by-one captions), replaced;
+//     agreeing with ours -> a consolidated case, kept. Otherwise reported.
+//     A garbled title with no CAP opinion takes the calendar caption.
+// Table-of-dispositions entries (p. 1001+: review granted/denied, etc.) are
+// never used. A case with a decision date takes the CAP opinion nearest it
+// (within 180 days — one docket can carry several opinions, and CAP and
+// courts.wa.gov often differ by a day); one without takes the first opinion
+// on/after its argument. A decision date equal to the argument date, or to a
+// table entry's, is treated as bogus and replaced; a citation this pass itself
+// could have written is corrected, a hand-entered one never. The usual
+// --sync then refiles decided cases under their decision year.
+const CAP_BASE      = 'https://static.case.law/wash-2d';
+const CAP_CACHE_DIR = path.join(REPO_ROOT, 'courts', 'wasc', 'cache', 'cap');
+const CAP_LAST_VOL  = 187;
+const CAP_TABLE_PAGE = 1001; // table-of-dispositions entries (review granted/denied, …) start here
+
+const _capVols = new Map();
+async function capVolume(v, refetch) {
+    if (_capVols.has(v)) return _capVols.get(v);
+    const p = path.join(CAP_CACHE_DIR, `wash-2d-${v}.json`);
+    let list;
+    if (!refetch && exists(p)) list = readJson(p);
+    else {
+        list = JSON.parse(await fetchHtmlThrottled(`${CAP_BASE}/${v}/CasesMetadata.json`)).map((x) => ({
+            id: x.id, name: x.name_abbreviation, date: x.decision_date, docket: x.docket_number || '',
+            cite: (x.citations || []).find((c) => c.type === 'official')?.cite || '', page: x.first_page,
+        }));
+        fs.mkdirSync(CAP_CACHE_DIR, { recursive: true });
+        writeJson(p, list);
+    }
+    _capVols.set(v, list);
+    return list;
+}
+// |days| between two ISO dates; a partial "YYYY-MM" counts as mid-month
+const _capDayDiff = (a, b) => {
+    const t = (d) => Date.parse(/^\d{4}-\d{2}$/.test(d) ? `${d}-15` : d);
+    return Math.abs(t(a) - t(b)) / 86400000;
+};
+// reporter order of two entries by cite ("167 Wash. 2d 531"): volume, then page.
+// Same-date duplicates are an opinion and its later (amended) printing, and
+// the later one is what's commonly cited — so ties go to the later cite.
+const _capCiteOrder = (a, b) => {
+    const n = (x) => (/^(\d+)\D+(\d+)$/.exec(x.cite) || [0, 0, 0]).slice(1).map(Number);
+    const [av, ap] = n(a), [bv, bp] = n(b);
+    return av - bv || ap - bp;
+};
+const _capDates = (list) => list.map((x) => x.date).filter(fullIso).sort();
+
+// first volume whose latest decision is >= fromIso (volumes are chronological)
+async function capFirstVolume(fromIso, refetch) {
+    let lo = 1, hi = CAP_LAST_VOL;
+    while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        const d = _capDates(await capVolume(mid, refetch));
+        if ((d[d.length - 1] || '') < fromIso) lo = mid + 1; else hi = mid;
+    }
+    return lo;
+}
+
+// "154 Wash. 2d 193" + "2005-04-28" -> "154 Wn.2d 193 (2005)"
+const capCitation = (cite, iso) => {
+    const m = /^(\d+)\s+Wash\.\s*2d\s+(\d+)$/.exec(cite || '');
+    return m ? `${m[1]} Wn.2d ${m[2]} (${iso.slice(0, 4)})` : '';
+};
+function capTitle(name) {
+    let t = String(name || '').trim().replace(/^In re the\s+/i, 'In re ');
+    const p = splitTitleParties(t);
+    if (p && (_isStateParty(p.left) || _isStateParty(p.right))) {
+        const fix = (s) => (_isStateParty(s) ? 'State of Washington' : s);
+        t = `${fix(p.left)} v. ${fix(p.right)}`;
+    }
+    return t;
+}
+const _CAP_STOP = new Set([..._TAIL_STOP, 'wash', 'united', 'states', 'america', 'inc', 'ltd',
+    'company', 'insurance', 'district', 'school', 'public', 'board', 'commission', 'discipline',
+    'disciplinary', 'proceeding', 'against', 'attorney', 'law', 'parentage', 'guardianship',
+    'social', 'health', 'services', 'labor', 'industries', 'revenue', 'ecology', 'licensing',
+    'transportation', 'corrections', 'employment', 'security', 'parental', 'rights', 'custody',
+    'adoption', 'termination']);
+const _nameTokens = (s) => _alphaTokens(String(s).replace(/'/g, '')).filter((t) => !_CAP_STOP.has(t.toLowerCase()));
+const _titlesAgree = (ours, cap) => {
+    const a = new Set(_nameTokens(ours));
+    return _nameTokens(cap).some((t) => a.has(t));
+};
+
+// no party-name token at all ("State v. State", "In re 21821, Attorney at
+// Law"), or led by a docket number + court/trial number — a whole docket
+// header swallowed by the tofj export ("67451-5 (Kitsap 981004418) …")
+const _titleGarbled = (t) => !_nameTokens(t).length || /^\d[\d,]*-\d\s*\(/.test(String(t).trim());
+
+// this case's caption on its own argument-calendar page (HTML, else the PDF
+// form), as a title — '' when unavailable. Cached by _fetchCalendarText.
+async function calendarTitleFor(c) {
+    if (!c.docket_url || !fullIso(c.argument)) return '';
+    const want = splitDockets(c.number).map(normNum);
+    for (const url of [c.docket_url, _pdfCalendarUrl(c.docket_url)].filter(Boolean)) {
+        let text = '';
+        try { text = await _fetchCalendarText(url, false); } catch { continue; }
+        if (!_isValidCalendar(text)) continue;
+        // ALL-CAPS docket-sheet captions first; else the older mixed-case
+        // calendar caption (its tail may run on into counsel names — fine
+        // for the token comparison this feeds)
+        const mine = (e) => e.title && want.includes(normNum(e.docket));
+        const hit = parseDocketSheetCases(text, c.argument).find(mine)
+            || parseCalendarCases(text, c.argument).map((e) => ({ ...e, title: e.caption })).find(mine);
+        if (hit) return hit.title;
+    }
+    return '';
+}
+
+async function capPass(yearArg, refetch) {
+    console.log(`import_wasc --cap ${yearArg}${DRY_RUN ? ' [dry-run]' : ''}${refetch ? ' [refetch]' : ''}`);
+    const files = loadAllYears();
+    const f = files.get(+yearArg);
+    if (!f) { console.log(`  no ${yearArg}/cases.json`); return; }
+
+    // scan volumes from the earliest argument (else Jan 1) through 5 years on
+    const fromIso = f.cases.map((c) => fullIso(c.argument)).filter(Boolean).sort()[0] || `${yearArg}-01-01`;
+    const toIso = `${+fromIso.slice(0, 4) + 5}-12-31`;
+    const index = new Map(); // normNum(docket) -> [cap entry]
+    let v = await capFirstVolume(fromIso, refetch), vFirst = v;
+    for (; v <= CAP_LAST_VOL; v++) {
+        const list = await capVolume(v, refetch);
+        for (const x of list) {
+            for (const d of x.docket.replace(/(\d),(\d)/g, '$1$2').match(/\d{5,6}-\d/g) || []) {
+                const k = normNum(d);
+                if (!index.has(k)) index.set(k, []);
+                if (!index.get(k).some((y) => y.id === x.id)) index.get(k).push(x);
+            }
+        }
+        const d = _capDates(list);
+        if ((d[0] || '') > toIso) break;
+    }
+    console.log(`  CAP Wash.2d vols ${vFirst}-${Math.min(v, CAP_LAST_VOL)}: ${index.size} docket(s) indexed`);
+
+    let decFilled = 0, citeFilled = 0, titled = 0, repaired = 0;
+    const unmatched = [], conflicts = [], suspect = [];
+    for (const c of f.cases) {
+        const argIso = fullIso(c.argument) || '';
+        const all = [];
+        for (const n of splitDockets(c.number)) {
+            for (const x of index.get(normNum(n)) || []) if (!all.some((h) => h.id === x.id)) all.push(x);
+        }
+        const opinions = all.filter((x) => +x.page < CAP_TABLE_PAGE);
+        const tables = all.filter((x) => +x.page >= CAP_TABLE_PAGE);
+        // citations this pass could itself have written — safe to correct
+        const ownCites = new Set(all.map((x) => capCitation(x.cite, x.date)).filter(Boolean));
+        // a decision date that's really a table entry's (review granted, etc.)
+        // — only ever written by an earlier --cap run — or the argument date
+        const bogusDec = !!c.decision && (c.decision === c.argument
+            || (tables.some((t) => t.date === c.decision) && !opinions.some((o) => o.date === c.decision)));
+
+        let x = null;
+        if (c.decision && !bogusDec) {
+            // the opinion nearest our own date (CAP and courts.wa.gov often
+            // differ by a day or so; one docket can carry several opinions)
+            const near = opinions.map((o) => [o, _capDayDiff(o.date, c.decision)])
+                .sort((a, b) => a[1] - b[1] || _capCiteOrder(b[0], a[0]))[0];
+            if (near && near[1] <= 180) x = near[0];
+        } else {
+            x = opinions.filter((o) => fullIso(o.date) && o.date >= argIso)
+                .sort((a, b) => a.date.localeCompare(b.date) || _capCiteOrder(b, a))[0] || null;
+        }
+        const snap = JSON.stringify(c);
+        if (!x) {
+            if (bogusDec && tables.some((t) => t.date === c.decision)) {
+                console.log(`  ${c.id} ${c.number}: decision ${c.decision} came from a CAP table entry — removed`);
+                delete c.decision; delete c.decision_day;
+                if (ownCites.has(c.citation)) delete c.citation;
+                repaired++;
+                f.changed = true;
+            }
+            if (_titleGarbled(c.title)) {
+                const cal = await calendarTitleFor(c);
+                if (cal) { console.log(`  title ${c.id}: "${c.title.slice(0, 60)}" -> "${cal}" (calendar)`); c.title = cal; titled++; }
+            }
+            if (JSON.stringify(c) !== snap) f.changed = true;
+            if (!c.decision) unmatched.push(c);
+            continue;
+        }
+        if (opinions.length > 1) vprint(`  ${c.id} ${c.number}: ${opinions.length} CAP opinions, using ${x.date} ${x.cite}`);
+
+        if ((!c.decision || bogusDec) && fullIso(x.date)) {
+            if (bogusDec) { console.log(`  ${c.id} ${c.number}: decision ${c.decision} -> ${x.date} (${x.cite})`); repaired++; }
+            else decFilled++;
+            c.decision = x.date; c.decision_day = isoToDayLabel(x.date);
+        } else if (c.decision !== x.date) conflicts.push(`${c.id} ${c.number}: ours ${c.decision}, CAP ${x.date} (${x.cite})`);
+        const cite = capCitation(x.cite, x.date);
+        // (a same-date sibling — CAP's reprint of an amended opinion — isn't a correction)
+        const sibling = opinions.some((o) => o.date === x.date && capCitation(o.cite, o.date) === c.citation);
+        if (cite && c.citation !== cite && !sibling && (!c.citation || ownCites.has(c.citation))) {
+            if (c.citation) { console.log(`  ${c.id} ${c.number}: citation ${c.citation} -> ${cite}`); repaired++; }
+            else citeFilled++;
+            c.citation = cite;
+        }
+
+        const t = capTitle(x.name);
+        if (t && t !== c.title) {
+            if (_titleGarbled(c.title)) {
+                vprint(`  title ${c.id}: "${c.title}" -> "${t}" (garbled)`);
+                c.title = t;
+                titled++;
+            } else if (_titlesAgree(c.title, t)) {
+                if (t.length < c.title.length) { vprint(`  title ${c.id}: "${c.title}" -> "${t}"`); c.title = t; titled++; }
+            } else {
+                // CAP disagrees: courts.wa.gov's own calendar caption for this
+                // docket breaks the tie — agreeing with CAP means ours is wrong
+                // (e.g. the tofj export's off-by-one captions); agreeing with
+                // ours means a consolidated case CAP files under another name.
+                const cal = await calendarTitleFor(c);
+                if (cal && _titlesAgree(cal, t) && !_titlesAgree(cal, c.title)) {
+                    console.log(`  title ${c.id}: "${c.title.slice(0, 60)}" -> "${t}" (calendar: "${cal}")`);
+                    c.title = t;
+                    titled++;
+                } else if (!(cal && _titlesAgree(cal, c.title))) {
+                    suspect.push(`${c.id} ${c.number}: "${c.title.slice(0, 70)}" vs CAP "${t}"${cal ? ` / calendar "${cal}"` : ''}`);
+                }
+            }
+        }
+        if (JSON.stringify(c) !== snap) f.changed = true;
+    }
+
+    console.log(`  ${decFilled} decision date(s), ${citeFilled} citation(s), ${titled} title(s) filled/shortened`
+        + (repaired ? `, ${repaired} repaired` : ''));
+    if (conflicts.length) console.log(`  ${conflicts.length} decision date conflict(s) (kept ours):\n    ${conflicts.join('\n    ')}`);
+    if (suspect.length) console.log(`  ${suspect.length} title(s) not corroborated by CAP (left alone):\n    ${suspect.join('\n    ')}`);
+    if (unmatched.length) console.log(`  ${unmatched.length} undecided case(s) with no CAP opinion:\n    `
+        + unmatched.map((c) => `${c.id} ${c.number} ${c.argument || ''} ${c.title.slice(0, 60)}`).join('\n    '));
+
+    syncWasc(files);
+}
+
 // ── main ─────────────────────────────────────────────────────────────────
 async function main() {
     const argv = process.argv.slice(2);
@@ -1836,6 +2092,7 @@ async function main() {
     const tvwOnly = argv.includes('--tvw');
     const verifyOnly = argv.includes('--verify');
     const archivesOnly = argv.includes('--archives');
+    const capOnly = argv.includes('--cap');
     const noSync = argv.includes('--no-sync'); // batch: scrape only, run --sync once at the end
     const year = positional[0];
     const yearArg = /^\d{4}$/.test(year || '') ? year : '';
@@ -1846,6 +2103,11 @@ async function main() {
     if (tvwOnly)       { await tvwPass(yearArg, argv.includes('--refetch')); return; }
     if (verifyOnly)    { await verifyPass(yearArg, argv.includes('--fix')); return; }
     if (archivesOnly)  { archivesPass(yearArg); return; }
+    if (capOnly) {
+        if (!yearArg) { console.error('Usage: node scripts/import_wasc.js --cap YYYY [--dry-run] [--verbose] [--refetch]'); process.exit(1); }
+        await capPass(yearArg, argv.includes('--refetch'));
+        return;
+    }
 
     if (dateArg) {
         const files = loadAllYears();
@@ -1873,6 +2135,7 @@ async function main() {
         console.error('       node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]');
         console.error('       node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]');
         console.error('       node scripts/import_wasc.js --archives [YYYY] [--dry-run] [--verbose]');
+        console.error('       node scripts/import_wasc.js --cap YYYY     [--dry-run] [--verbose] [--refetch]');
         process.exit(1);
     }
 
