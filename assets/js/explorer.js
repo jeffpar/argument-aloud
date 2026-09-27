@@ -9439,6 +9439,7 @@ function renderTranscript() {
   if (!_editMode) _pruneStaleEditsForCurrentTranscript();
   const frag = document.createDocumentFragment();
   const speakerMap = new Map(caseSpeakers.map(s => [s.name, s]));
+  let prevViewName = null; // non-edit mode: only label a turn when the speaker changes
   turns.forEach((turn, idx) => {
     const div = document.createElement('div');
     const spkr = speakerMap.get(turn.name) || turn.name;
@@ -9565,16 +9566,21 @@ function renderTranscript() {
       const viewText  = localEdit?.text ?? turn.text;
       if (localEdit) div.className = 'turn ' + speakerClass(viewSpkr) + ' turn-modified';
 
-      sp.textContent = formatSpeaker(viewSpkr);
-      if (_unknownSpeakerNames.has(typeof viewSpkr === 'string' ? viewSpkr : viewSpkr.name)) sp.classList.add('speaker-unknown');
+      const spkrTitle = typeof viewSpkr === 'object' ? (viewSpkr.title || 'MR.') : '';
+      const spkrName  = typeof viewSpkr === 'object' ? viewSpkr.name : viewSpkr;
+      // Consecutive turns by the same speaker leave the speaker column blank.
+      const repeatSpkr = spkrName === prevViewName;
+      prevViewName = spkrName;
+      if (!repeatSpkr) {
+        sp.textContent = formatSpeaker(viewSpkr);
+        if (_unknownSpeakerNames.has(spkrName)) sp.classList.add('speaker-unknown');
+      }
       renderTurnText(tx, viewText, null, null);
 
       // Make non-justice speaker labels clickable links to advocate profiles.
-      const spkrTitle = typeof viewSpkr === 'object' ? (viewSpkr.title || 'MR.') : '';
-      const spkrName  = typeof viewSpkr === 'object' ? viewSpkr.name : viewSpkr;
-      const isAdvocate = spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE'
+      const isAdvocate = !repeatSpkr && spkrTitle && spkrTitle !== 'CHIEF JUSTICE' && spkrTitle !== 'JUSTICE'
                          && !_unknownSpeakerNames.has(spkrName);
-      const isJustice = (spkrTitle === 'CHIEF JUSTICE' || spkrTitle === 'JUSTICE')
+      const isJustice = !repeatSpkr && (spkrTitle === 'CHIEF JUSTICE' || spkrTitle === 'JUSTICE')
                         && !_unknownSpeakerNames.has(spkrName);
       if (isAdvocate) {
         sp.classList.add('speaker-link');

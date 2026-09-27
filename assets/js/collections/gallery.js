@@ -19,7 +19,8 @@
 
   function subLabel(j, sort, seniority) {
     if (sort === 'joined') {
-      return _fmtDate(j.dateStart);
+      // Seniority shows the date it sorts by: a wasc chief's most recent CJ start
+      return _fmtDate((seniority && j.cjStart) || j.dateStart);
     } else if (sort === 'years') {
       return j.yearsServed != null ? (+j.yearsServed).toFixed(1) + ' years' : '';
     } else if (sort === 'lone') {
@@ -33,8 +34,11 @@
 
   var SORTERS = {
     seniority: function (a, b) {
-      var ac = a.title === 'Chief Justice', bc = b.title === 'Chief Justice';
+      // wasc's chief rotates, so its gallery.json gives every past and present
+      // chief a cjStart (most recent CJ start date): all chiefs first, newest first.
+      var ac = !!a.cjStart || a.title === 'Chief Justice', bc = !!b.cjStart || b.title === 'Chief Justice';
       if (ac !== bc) return ac ? -1 : 1;
+      if (a.cjStart && b.cjStart && a.cjStart !== b.cjStart) return b.cjStart.localeCompare(a.cjStart);
       return (a.dateStart || '').localeCompare(b.dateStart || '');
     },
     joined: function (a, b) { return (a.dateStart || '').localeCompare(b.dateStart || ''); },
@@ -95,7 +99,7 @@
     sorted.forEach(function (j) {
       var words    = j.name.trim().split(/\s+/);
       var lastName = words[words.length - 1].toUpperCase();
-      var prefix   = j.title === 'Chief Justice' ? 'C.J. ' : 'J. ';
+      var prefix   = (j.title === 'Chief Justice' || j.cjStart) ? 'C.J. ' : 'J. ';
 
       var coll = activeSort === 'lone'  ? 'lone_dissents'  :
                  activeSort === 'vocal' ? 'vocal_justices' : 'gallery';

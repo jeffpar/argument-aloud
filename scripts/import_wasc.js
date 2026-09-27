@@ -1185,8 +1185,8 @@ function syncJusticeGallery(justices, files, benches = []) {
         const lastStop = j.term2_started ? j.term2_ended : j.service_ended;
         const active = !lastStop;
         // Chief Justice rotates here (unlike ussc), so only the sitting chief carries the title
-        const isChief = [[j.cj_term1_start, j.cj_term1_stop], [j.cj_term2_start, j.cj_term2_stop]]
-            .some(([a, b]) => a && a <= today && (!b || b > today));
+        const cjTerms = [[j.cj_term1_start, j.cj_term1_stop], [j.cj_term2_start, j.cj_term2_stop]].filter(([a]) => a);
+        const isChief = cjTerms.some(([a, b]) => a <= today && (!b || b > today));
         const title = isChief ? 'Chief Justice' : 'Justice';
         const page = `${JUSTICE_PAGES_URL}/${j.id}`;
         const e = { id: j.id, name, dateStart: j.service_started, dateStop: active ? '' : (lastStop || '') };
@@ -1195,6 +1195,9 @@ function syncJusticeGallery(justices, files, benches = []) {
                 .filter(([a]) => a).reduce((n, [a, b]) => n + _years(a, b), 0);
             e.yearsServed = Math.round(yrs * 10000) / 10000;
         }
+        // Most recent CJ start date: the gallery's seniority view lists every past
+        // and present chief first, newest chief first.
+        if (cjTerms.length) e.cjStart = cjTerms.map(([a]) => a).sort().pop();
         Object.assign(e, { page, cases: [], title });
         gallery.push(e);
         put(path.join(JUSTICE_PAGES_DIR, j.id, 'index.md'),
