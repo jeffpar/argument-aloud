@@ -198,9 +198,10 @@ const fullIso   = (v) => (/^\d{4}-\d{2}-\d{2}$/.test(v || '') ? v : null);
 const normNum = (n) => String(n || '').toLowerCase().replace(/,/g, '').trim();
 
 // The courts.wa.gov calendar URL a case's docket number links to — ported
-// verbatim from wasc-export.php's docket_url() (kept http:, matching existing
-// data). 2000+ is a flat YYYYMMDD token; 1996-1999 need a &season= plus a
-// year-specific date token; nothing exists before 1996.
+// from wasc-export.php's docket_url(), but https: rather than its http:
+// (Safari won't frame http: inside the https: SPA). 2000+ is a flat YYYYMMDD
+// token; 1996-1999 need a &season= plus a year-specific date token; nothing
+// exists before 1996.
 function wascDocketUrl(argIso) {
     if (!fullIso(argIso)) return '';
     const year = +argIso.slice(0, 4), mm = argIso.slice(5, 7), dd = argIso.slice(8, 10);

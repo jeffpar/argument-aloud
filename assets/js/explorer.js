@@ -2760,11 +2760,18 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   // link.index (optional) opens the gallery already positioned at that page
   // rather than always starting at index 0 — e.g. a Minutes Pages list link
   // clicked partway through a date's pages (see terms.js's wireDocLink calls).
+  // A plain http: document framed by an https: page is blocked as mixed
+  // content by Safari (a blank gray pane), where Chrome silently upgrades it
+  // instead — so upgrade it ourselves (e.g. legacy http://www.courts.wa.gov
+  // wasc docket_url values). Only the embedded copy; externalHref is untouched.
+  const framedHref = location.protocol === 'https:' && /^http:\/\//i.test(effectiveHref)
+    ? 'https://' + effectiveHref.slice(7)
+    : effectiveHref;
   const iframeSrc = isImage
     ? (Array.isArray(link.images) && link.images.length > 1
         ? '/assets/html/img-viewer.html?gallery=' + _stashImageGallery(link.images) + '&index=' + (link.index || 0)
-        : '/assets/html/img-viewer.html?src=' + encodeURIComponent(effectiveHref))
-    : effectiveHref;
+        : '/assets/html/img-viewer.html?src=' + encodeURIComponent(framedHref))
+    : framedHref;
 
   const refEl = document.getElementById('doc-viewer-ref');
   if (matchedRef) {
@@ -2817,8 +2824,8 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
       videoEl.style.display = 'none';
       audioEl.style.display = 'none';
       const src = isImage ? iframeSrc
-        : isPdf ? _pdfViewerSrc(effectiveHref)
-        : (effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none');
+        : isPdf ? _pdfViewerSrc(framedHref)
+        : (framedHref.includes('#') ? framedHref : framedHref + '#pagemode=none');
       const isNew = !_pdfIframePool.has(src);
       const iframe = _getOrCreatePdfIframe(src);
       _pendingPaneReveal = src;
