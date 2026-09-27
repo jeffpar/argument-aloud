@@ -1,5 +1,11 @@
 (function () {
-  var PORTRAIT_BASE = '/courts/ussc/people/justices/all/';
+  // Court from this page's own path (/courts/<id>/...); a court whose data
+  // lives on its own host (wasc: window.WASC_BASE_URL, set by the pane layout)
+  // serves benches/gallery/terms/portraits from there — see gallery.js.
+  var COURT     = (location.pathname.match(/^\/courts\/([^/]+)\//) || [])[1] || 'ussc';
+  var DATA_BASE = (COURT === 'wasc' && window.WASC_BASE_URL) || '';
+  var SHELL     = '/courts/' + COURT + '/';
+  var PORTRAIT_BASE = DATA_BASE + SHELL + 'people/justices/all/';
   var MONTHS = ['January','February','March','April','May','June',
                 'July','August','September','October','November','December'];
   var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -7,6 +13,7 @@
   function fmtDate(iso) {
     if (!iso) return 'present';
     var p = iso.split('-');
+    if (p.length < 3) return p[0];   // year-only (some wasc service dates)
     var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
     var weekday = isNaN(d) ? '' : DAYS[d.getUTCDay()] + ', ';
     return weekday + MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
@@ -18,12 +25,13 @@
   // own, not alongside terms.js) so a bench's own dateStart/dateStop links
   // to the term whose calendar page actually covers that date.
   function loadTermStarts() {
-    return fetch('/courts/ussc/terms/terms.json').then(function (r) { return r.json(); }).then(function (decades) {
+    return fetch(DATA_BASE + SHELL + 'terms/terms.json').then(function (r) { return r.json(); }).then(function (decades) {
       var starts = [];
       decades.forEach(function (d) {
         (d.groups || []).forEach(function (g) {
           var m = g.file && /\/terms\/([^/]+)\//.exec(g.file);
-          if (m) starts.push({ term: m[1], start: m[1].slice(0, 4) + '-' + m[1].slice(5, 7) + '-01' });
+          // "YYYY-MM" terms (ussc) start that month; plain "YYYY" ones (wasc) on January 1
+          if (m) starts.push({ term: m[1], start: m[1].length === 4 ? m[1] + '-01-01' : m[1].slice(0, 4) + '-' + m[1].slice(5, 7) + '-01' });
         });
       });
       starts.sort(function (a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
@@ -48,11 +56,12 @@
   // Court's roster count changed" boundary with no event of its own (see
   // dateLink's own comment) — without a network round trip per date.
   function loadJusticeDates() {
-    return fetch('/data/ussc/justices.json').then(function (r) { return r.json(); }).then(function (data) {
+    return fetch('/data/' + COURT + '/justices.json').then(function (r) { return r.json(); }).then(function (data) {
       var starts = {}, stops = {};
       Object.keys(data).forEach(function (name) {
         var spec = data[name];
-        var tenures = spec.tenures || [spec];
+        // wasc records a second tenure as term2_started/term2_ended instead
+        var tenures = spec.tenures || [spec].concat(spec.term2_started ? [{ service_started: spec.term2_started, service_ended: spec.term2_ended }] : []);
         tenures.forEach(function (t) {
           if (t.service_started) starts[t.service_started] = true;
           if (t.service_ended) stops[t.service_ended] = true;
@@ -91,6 +100,7 @@
   function dateLink(iso, isStart, termStarts, justiceDates) {
     if (!iso) return document.createTextNode('present');
     var label = fmtDate(iso);
+    if (iso.length < 10) return document.createTextNode(label);   // no single calendar day to link to
     var known = isStart ? justiceDates.starts : justiceDates.stops;
     var linkIso = known[iso] ? iso : addDaysIso(iso, isStart ? -1 : 1);
     var term = termForDate(linkIso, termStarts);
@@ -98,11 +108,11 @@
     var a = document.createElement('a');
     a.textContent = label;
     var s = '?term=' + encodeURIComponent(term) + '&date=' + encodeURIComponent(linkIso);
-    a.href = '/courts/ussc/' + s;
+    a.href = SHELL + s;
     a.addEventListener('click', function (e) {
       e.preventDefault();
       if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
-      else { location.href = '/courts/ussc/' + s; }
+      else { location.href = SHELL + s; }
     });
     return a;
   }
@@ -229,7 +239,7 @@
       var j = justiceMap[jid];
       var el = document.createElement('a');
       el.className = 'jb-item';
-      el.href = '/courts/ussc/?collection=gallery&id=' + jid;
+      el.href = SHELL + '?collection=gallery&id=' + jid;
       el.target = '_top';
 
       var portrait = document.createElement('div');
@@ -257,8 +267,8 @@
   var activeId = new URLSearchParams(location.search).get('id');
 
   Promise.all([
-    fetch('/courts/ussc/people/justices/benches.json').then(function (r) { return r.json(); }),
-    fetch('/courts/ussc/people/justices/gallery.json').then(function (r) { return r.json(); }),
+    fetch(DATA_BASE + SHELL + 'people/justices/benches.json').then(function (r) { return r.json(); }),
+    fetch(DATA_BASE + SHELL + 'people/justices/gallery.json').then(function (r) { return r.json(); }),
     loadTermStarts(),
     loadJusticeDates()
   ]).then(function (results) {
@@ -294,7 +304,7 @@
       function navTo(id) {
         var s = '?collection=benches&id=' + encodeURIComponent(id);
         if (window.parent !== window) { window.parent.postMessage({ type: 'ussc-navigate', search: s }, location.origin); }
-        else { location.href = s; }
+        else { location.href = SHELL + s; }
       }
       if (prevBench) {
         var prevBtn = document.createElement('button');
@@ -377,6 +387,12 @@
       var _bParams    = new URLSearchParams(location.search);
       var activeOrder = _bParams.get('order') === 'oldest' ? 'oldest' : 'newest';
       var activeView  = _bParams.get('view') === 'detail' ? 'detail' : 'overview';
+      // A court with no bench photos at all (wasc, so far) has nothing for the
+      // Overview grid to show — go straight to Detail and drop the toggle.
+      if (!benches.some(function (b) { return b.images && b.images.length; })) {
+        activeView = 'detail';
+        viewToggle.style.display = 'none';
+      }
 
       function updateViewButtons() {
         detailBtn.classList.toggle('active', activeView === 'detail');
@@ -395,7 +411,7 @@
           if (!bench.images || !bench.images.length) return;
           var el = document.createElement('a');
           el.className = 'jg-item';
-          el.href = '/courts/ussc/?collection=benches&id=' + bench.id;
+          el.href = SHELL + '?collection=benches&id=' + bench.id;
           el.target = '_top';
 
           var photo = document.createElement('div');
@@ -449,7 +465,7 @@
           var heading = document.createElement('a');
           heading.className = 'jb-heading';
           heading.textContent = bench.name;
-          heading.href = '/courts/ussc/?collection=benches&id=' + bench.id;
+          heading.href = SHELL + '?collection=benches&id=' + bench.id;
           heading.target = '_top';
           listEl.appendChild(heading);
 

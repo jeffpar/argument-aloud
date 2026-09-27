@@ -6,7 +6,7 @@ set -e
 #   courts/ussc/indexes       -> ../argument-aloud-index/courts/ussc/indexes
 #   courts/ussc/journals/xml  -> ../argument-aloud-xml/courts/ussc/journals/xml
 #   courts/ussc/opinions/xml  -> ../argument-aloud-xml/courts/ussc/opinions/xml
-#   courts/wasc/{indexes,people,terms} -> ../argument-aloud-wasc/courts/wasc/*
+#   courts/wasc/{collections,indexes,people,terms} -> ../argument-aloud-wasc/courts/wasc/*
 # so the scripts write directly into those repos. Only assets/xsl/ is still a
 # plain copy (it rarely changes).
 sync_xsl() {
@@ -30,6 +30,7 @@ restore_symlinks() {
 courts/ussc/indexes		../../../argument-aloud-index/courts/ussc/indexes
 courts/ussc/journals/xml	../../../../argument-aloud-xml/courts/ussc/journals/xml
 courts/ussc/opinions/xml	../../../../argument-aloud-xml/courts/ussc/opinions/xml
+courts/wasc/collections		../../../argument-aloud-wasc/courts/wasc/collections
 courts/wasc/indexes		../../../argument-aloud-wasc/courts/wasc/indexes
 courts/wasc/people		../../../argument-aloud-wasc/courts/wasc/people
 courts/wasc/terms		../../../argument-aloud-wasc/courts/wasc/terms

@@ -1,6 +1,11 @@
 (function () {
-  var PORTRAIT_BASE = '/courts/ussc/people/justices/all/';
-  var OP_URL        = '/courts/ussc/?collection=opinions&id=';
+  // The court comes from this page's own path (/courts/<id>/...). A court whose
+  // data lives on its own host (wasc: window.WASC_BASE_URL, set by the pane
+  // layout) serves gallery.json + portraits from there; ussc's are same-origin.
+  var COURT      = (location.pathname.match(/^\/courts\/([^/]+)\//) || [])[1] || 'ussc';
+  var DATA_BASE  = (COURT === 'wasc' && window.WASC_BASE_URL) || '';
+  var SHELL      = '/courts/' + COURT + '/';
+  var PORTRAIT_BASE = DATA_BASE + SHELL + 'people/justices/all/';
 
   var MONTHS = ['January','February','March','April','May','June',
                 'July','August','September','October','November','December'];
@@ -8,6 +13,7 @@
   function _fmtDate(iso) {
     if (!iso) return '';
     var p = iso.split('-');
+    if (p.length < 3) return p[0];   // year-only (some wasc service dates)
     return MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
   }
 
@@ -101,7 +107,7 @@
       var el = document.createElement('a');
       el.className = 'jg-item';
       el.id = j.id;
-      el.href = '/courts/ussc/?collection=' + coll + '&id=' + j.id + sortExtra;
+      el.href = SHELL + '?collection=' + coll + '&id=' + j.id + sortExtra;
       el.target = '_top';
 
       var portrait = document.createElement('div');
@@ -166,14 +172,15 @@
     renderGrid();
   });
 
-  fetch('/courts/ussc/people/justices/gallery.json')
+  fetch(DATA_BASE + SHELL + 'people/justices/gallery.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var nowMs = Date.now();
       justices = data.map(function (j) {
         if (!j.dateStop && j.dateStart) {
           // Inclusive of both the start day and today.
-          j.yearsServed = (Math.max(0, nowMs - Date.parse(j.dateStart)) + 86400000) / (365.25 * 86400000);
+          var ds = /^\d{4}$/.test(j.dateStart) ? j.dateStart + '-01-01' : j.dateStart;
+          j.yearsServed = (Math.max(0, nowMs - Date.parse(ds)) + 86400000) / (365.25 * 86400000);
         }
         return j;
       });

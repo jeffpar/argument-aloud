@@ -7,7 +7,7 @@
  *   node scripts/import_wasc.js YYYY  [--dry-run] [--verbose] [--no-args]
  *   node scripts/import_wasc.js YYYY-MM-DD     [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --sync         [--dry-run] [--verbose]
- *   node scripts/import_wasc.js --justices     [--dry-run] [--verbose]
+ *   node scripts/import_wasc.js --justices     [--dry-run] [--verbose]   (+ gallery & justice pages)
  *   node scripts/import_wasc.js --fix-titles   [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --tvw [YYYY]   [--dry-run] [--verbose] [--refetch]
  *   node scripts/import_wasc.js --verify [YYYY] [--fix] [--dry-run] [--verbose]
@@ -608,11 +608,12 @@ function syncWasc(files) {
         }
     }
 
-    // 2. docket_url fill
+    // 2. docket_url fill — docketed cases only: the per-date calendars list
+    //    none of the undocketed hearings (e.g. a bar-number discipline matter)
     let docketUrls = 0;
     for (const f of files.values()) {
         for (const c of f.cases) {
-            if (!c.docket_url && c.argument) {
+            if (!c.docket_url && c.argument && /^\d[\d,]*-\d/.test(c.number || '')) {
                 const u = wascDocketUrl(c.argument);
                 if (u) { c.docket_url = u; f.changed = true; docketUrls++; }
             }
@@ -718,21 +719,12 @@ function syncWasc(files) {
 const JUSTICES_JSON = path.join(REPO_ROOT, 'data', 'wasc', 'justices.json');
 const BENCHES_JSON  = path.join(REPO_ROOT, 'courts', 'wasc', 'people', 'justices', 'benches.json');
 const WIKI_JUSTICES = 'https://en.wikipedia.org/wiki/List_of_justices_of_the_Washington_Supreme_Court';
-// Chief-justice terms since 2010 — neither justices.json's cj_term1_* nor the
-// Wikipedia historical table carries these, so bench naming would otherwise
-// stall on "Madsen N" through the present. Curated from courts.wa.gov.
-const RECENT_CHIEFS = [
-    { caps: 'BARBARA A. MADSEN',  surname: 'MADSEN',    start: '2010-01-11', end: '2017-01-09' },
-    { caps: 'MARY E. FAIRHURST',  surname: 'FAIRHURST', start: '2017-01-09', end: '2020-11-30' },
-    { caps: 'STEVEN C. GONZÁLEZ', surname: 'GONZÁLEZ',  start: '2021-01-11', end: '2025-01-13' },
-    { caps: 'DEBRA L. STEPHENS',  surname: 'STEPHENS',  start: '2025-01-13', end: '' },
-];
 // canonical justice-record key order (mirrors wasc-export.php's $METAKEYS)
 const JUSTICE_KEY_ORDER = [
     'id', 'full_name', 'born', 'died', 'birthplace', 'party', 'religion', 'education',
     'career', 'seniority', 'governor', 'governor_party',
     'service_started', 'service_ended', 'term2_started', 'term2_ended',
-    'cj_term1_start', 'cj_term1_stop',
+    'cj_term1_start', 'cj_term1_stop', 'cj_term2_start', 'cj_term2_stop',
 ];
 const reorderJustice = (o) => {
     const out = {};
@@ -846,19 +838,18 @@ function rebuildBenches(justices, decisionIsos) {
             bump(D(e) || NOW, 'del', caps);
         }
     }
-    // chief timeline: [{ start, end, surname }], from justices.json's cj_term1_*
-    // plus RECENT_CHIEFS (the tofj/Wikipedia data carries no term for post-2010
-    // chiefs), then each term's end clamped to the next term's start.
-    const chiefByCaps = new Map();
+    // chief timeline: [{ start, end, surname }], from justices.json's
+    // cj_term1_* / cj_term2_* (a justice can serve two non-consecutive terms,
+    // e.g. Stephens 2020-2021 and 2025-), then each term's end clamped to the
+    // next term's start.
+    const chiefs = [];
     for (const { caps, j } of list) {
-        if (j.cj_term1_start) chiefByCaps.set(caps, { start: D(j.cj_term1_start), end: D(j.cj_term1_stop), surname: nameKey(j.full_name || caps).split(' ').pop() });
+        const surname = nameKey(j.full_name || caps).split(' ').pop();
+        for (const n of [1, 2]) {
+            if (j[`cj_term${n}_start`]) chiefs.push({ start: D(j[`cj_term${n}_start`]), end: D(j[`cj_term${n}_stop`]), surname });
+        }
     }
-    const deburr = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase();
-    for (const rc of RECENT_CHIEFS) {
-        for (const [k, v] of chiefByCaps) if (deburr(v.surname) === rc.surname) chiefByCaps.delete(k);
-        chiefByCaps.set(rc.caps, { start: rc.start, end: rc.end, surname: rc.surname });
-    }
-    const chiefs = [...chiefByCaps.values()].sort((a, b) => a.start.localeCompare(b.start));
+    chiefs.sort((a, b) => a.start.localeCompare(b.start));
     for (let i = 0; i < chiefs.length - 1; i++) {
         if (!chiefs[i].end || chiefs[i].end > chiefs[i + 1].start) chiefs[i].end = chiefs[i + 1].start;
     }
@@ -873,6 +864,15 @@ function rebuildBenches(justices, decisionIsos) {
     };
     const casesIn = (a, b) => decisionIsos.reduce((n, d) => n + (d >= a && (!b || d < b) ? 1 : 0), 0);
 
+    // A change of chief also starts a new bench, even with no roster change:
+    // the chief rotates here (unlike ussc, where a new chief always means a
+    // new member), so without this a bench could span several chiefs and
+    // take its name from one who no longer presides (e.g. González's whole
+    // 2021-2025 tenure would have been "Stephens 3").
+    for (const c of chiefs) {
+        if (!ev.has(c.start)) ev.set(c.start, { add: new Set(), del: new Set() });
+        ev.get(c.start).chief = true;
+    }
     const dates = [...ev.keys()].sort();
     const roster = new Set();
     const seg = [];                 // raw roster intervals, pre-naming
@@ -883,20 +883,27 @@ function rebuildBenches(justices, decisionIsos) {
         const c = chiefAt(openAt);
         const surname = c ? c.surname
             : nameKey(justices[bySeniority()[0]].full_name).split(' ').pop();
-        seg.push({ surname, dateStart: openAt, dateStop: endDate || '', justices: bySeniority() });
+        // chief first (same as ussc's benches), then associates by seniority
+        const order = bySeniority();
+        const ci = c ? order.findIndex((k) => nameKey(justices[k].full_name || k).split(' ').pop() === c.surname) : -1;
+        if (ci > 0) order.unshift(order.splice(ci, 1)[0]);
+        seg.push({ surname, dateStart: openAt, dateStop: endDate || '', justices: order });
     };
     for (const date of dates) {
-        const { add, del } = ev.get(date);
-        if (openAt !== null && roster.size && (add.size || del.size)) closeBench(date);
+        const { add, del, chief } = ev.get(date);
+        if (openAt !== null && roster.size && (add.size || del.size || chief)) closeBench(date);
         for (const c of del) roster.delete(c);
         for (const c of add) roster.add(c);
         openAt = roster.size ? date : null;
     }
     if (openAt !== null && roster.size) closeBench('');
 
-    // Merge away transient segments: a run shorter than ~25 days that holds no
-    // decided cases is an artifact of mixing year-only ("2020") and precise
-    // ("2020-01-06") service dates — fold it forward into the next segment.
+    // Drop transient segments: a run shorter than ~25 days that holds no
+    // decided cases — a vacancy between one justice leaving and the next
+    // arriving (e.g. Owens 2024-12-31 -> Mungia 2025-01-13), or an artifact of
+    // a year-only ("2020") vs. precise ("2020-01-06") service date. The next
+    // bench keeps its own start date (and so its own chief's name) rather than
+    // stretching back over the gap, which by definition decided nothing.
     const spanDays = (a, b) => {
         const pad = (s) => s.length === 4 ? `${s}-01-01` : s;
         return b ? (Date.parse(pad(b)) - Date.parse(pad(a))) / 864e5 : Infinity;
@@ -906,8 +913,6 @@ function rebuildBenches(justices, decisionIsos) {
         s.cases = casesIn(s.dateStart, s.dateStop && s.dateStop < NOW ? s.dateStop : '');
         const prev = merged[merged.length - 1];
         if (prev && prev.cases === 0 && spanDays(prev.dateStart, prev.dateStop) < 25) {
-            s.dateStart = prev.dateStart;
-            s.cases = casesIn(s.dateStart, s.dateStop && s.dateStop < NOW ? s.dateStop : '');
             merged[merged.length - 1] = s;
         } else {
             merged.push(s);
@@ -924,7 +929,8 @@ function rebuildBenches(justices, decisionIsos) {
         ordinal.set(b.surname, n);
         const y2 = b.dateStop && b.dateStop < NOW ? b.dateStop.slice(0, 4) : '';
         return {
-            id: `${b.surname.toLowerCase()}${n}`,
+            // ids stay ASCII ("gonzalez1"); the display name keeps the accent
+            id: `${b.surname.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()}${n}`,
             name: `${cap(b.surname)} ${n} (${b.dateStart.slice(0, 4)}–${y2})`,
             dateStart: b.dateStart,
             dateStop: y2 ? b.dateStop : '',
@@ -932,6 +938,277 @@ function rebuildBenches(justices, decisionIsos) {
             justices: b.justices,
         };
     });
+}
+
+// ── bench assignment + per-bench case lists (mirrors ussc's processBenches)
+const BENCHES_DIR       = path.join(REPO_ROOT, 'courts', 'wasc', 'people', 'justices', 'benches');
+const BENCHES_PAGE_URL  = '/courts/wasc/justices/benches';
+
+// Every decided case gets `bench` = the bench whose [dateStart, dateStop)
+// holds its decision date (replacing the old tofj-era bench ids); each
+// bench's case count is recomputed from those assignments, and its case list
+// written to people/justices/benches/<id>.json — the Benches collection's
+// split-format "folder", same shape as ussc's.
+function assignBenches(benches, files) {
+    const lists = new Map(benches.map((b) => [b.id, []]));
+    const benchFor = (d) => benches.find((b) => b.dateStart <= d && (!b.dateStop || d < b.dateStop));
+    let assigned = 0;
+    for (const f of files.values()) {
+        for (let i = 0; i < f.cases.length; i++) {
+            const c = f.cases[i];
+            const d = fullIso(c.decision);
+            const b = d ? benchFor(d) : null;
+            if ((b ? b.id : undefined) !== c.bench) {
+                if (b) c.bench = b.id; else delete c.bench;
+                f.cases[i] = reorderCase(c);
+                f.changed = true;
+                assigned++;
+            }
+            if (b) {
+                const e = { title: `${caseTitleFirst(c.title)} (${d.slice(0, 4)})`, term: String(f.year), number: c.number };
+                if (c.argument) e.argument = c.argument;
+                e.decision = d;
+                if (c.score) e.score = c.score;
+                lists.get(b.id).push(e);
+            }
+        }
+    }
+    for (const b of benches) {
+        const list = lists.get(b.id).sort((x, y) => x.decision.localeCompare(y.decision) || x.number.localeCompare(y.number));
+        b.cases = list.length;
+    }
+    let written = 0, removed = 0;
+    if (!DRY_RUN) fs.mkdirSync(BENCHES_DIR, { recursive: true });
+    for (const b of benches) {
+        const p = path.join(BENCHES_DIR, `${b.id}.json`);
+        let highlights = [];
+        try { highlights = readJson(p).highlights || []; } catch { /* new */ }
+        const next = JSON.stringify({ details: { page: `${BENCHES_PAGE_URL}/?id=${b.id}` }, highlights, cases: lists.get(b.id) }, null, 2) + '\n';
+        if (exists(p) && fs.readFileSync(p, 'utf8') === next) continue;
+        written++;
+        if (!DRY_RUN) fs.writeFileSync(p, next, 'utf8');
+    }
+    const known = new Set(benches.map((b) => `${b.id}.json`));
+    for (const n of exists(BENCHES_DIR) ? fs.readdirSync(BENCHES_DIR) : []) {
+        if (!n.endsWith('.json') || known.has(n)) continue;
+        removed++;
+        if (!DRY_RUN) fs.unlinkSync(path.join(BENCHES_DIR, n));
+    }
+    return { assigned, written, removed };
+}
+const caseTitleFirst = (t) => String(t || '').split(';')[0].trim();
+
+// ── justice gallery + per-justice pages (mirrors ussc's update_advocates.js
+// syncJusticePages): gallery.json is data, so it lives with the rest of the
+// wasc data (argument-aloud-wasc repo, via the courts/wasc/people symlink);
+// the pages are Jekyll "pane" pages, so they're built by THIS site and live in
+// its own tracked courts/wasc/justices/ (like courts/wasc/blog/).
+const GALLERY_JSON       = path.join(REPO_ROOT, 'courts', 'wasc', 'people', 'justices', 'gallery.json');
+const JUSTICE_PAGES_DIR  = path.join(REPO_ROOT, 'courts', 'wasc', 'justices');
+const JUSTICE_PAGES_URL  = '/courts/wasc/justices';
+
+const _deburrCaps = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().trim();
+
+// Rewrite case votes that use a justice's alternate spelling ("TOM CHAMBERS",
+// "COLLEEN MELODY") to the canonical justices.json key, so every vote links
+// to — and is counted for — the right justice.
+function normalizeVoteNames(justices, files) {
+    const alias = new Map();
+    for (const [caps, j] of Object.entries(justices)) {
+        alias.set(_deburrCaps(caps), caps);
+        for (const a of j.alternates || []) alias.set(_deburrCaps(a), caps);
+    }
+    let renamed = 0;
+    for (const f of files.values()) {
+        for (const c of f.cases) {
+            for (const v of c.votes || []) {
+                const canon = alias.get(_deburrCaps(v.name));
+                if (canon && canon !== v.name) { v.name = canon; f.changed = true; renamed++; }
+            }
+        }
+    }
+    return renamed;
+}
+
+// "2017-01-09" -> "January 9, 2017"; "2014" stays "2014"
+const _fullDate = (iso) => (fullIso(iso) ? isoToDayLabel(iso).replace(/^\w+, /, '') : String(iso || ''));
+const _years = (a, b) => {
+    const t = (d) => Date.parse(fullIso(d) ? d : `${d}-01-01`);
+    return a ? ((b ? t(b) : Date.now()) - t(a) + 86400000) / (365.25 * 86400000) : 0;
+};
+const _htmlEsc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// per-justice vote/opinion tallies across every wasc case
+function justiceStats(files) {
+    const stats = new Map(); // caps -> { cases, majority, minority, maj, con, dis, first, last }
+    for (const f of files.values()) {
+        for (const c of f.cases) {
+            for (const v of c.votes || []) {
+                const s = stats.get(v.name) || { cases: 0, majority: 0, minority: 0, maj: 0, con: 0, dis: 0, first: '', last: '' };
+                s.cases++;
+                if (v.side === 'majority') s.majority++; else if (v.side === 'minority') s.minority++;
+                // vote.file names the opinion doc they wrote: <docket>MAJ / Co# / Di# / CP#
+                if (/MAJ\./i.test(v.file || '')) s.maj++;
+                else if (/Co\d*\./.test(v.file || '')) s.con++;
+                else if (/(Di|CP)\d*\./.test(v.file || '')) s.dis++;
+                const d = fullIso(c.decision);
+                if (d) { if (!s.first || d < s.first) s.first = d; if (d > s.last) s.last = d; }
+                stats.set(v.name, s);
+            }
+        }
+    }
+    return stats;
+}
+
+function justicePageBody(caps, j, s, benches = []) {
+    const id = j.id;
+    const p = [];
+    const born = j.born ? `Born ${_fullDate(j.born)}${j.birthplace ? ` in ${_htmlEsc(j.birthplace)}` : ''}.` : '';
+    const died = j.died ? ` Died ${_fullDate(j.died)}.` : '';
+    if (born || died) p.push(`<p>${(born + died).trim()}</p>`);
+
+    const tenures = [[j.service_started, j.service_ended], [j.term2_started, j.term2_ended]].filter(([a]) => a);
+    // the first tenure's start links to the first bench they sat on, the last
+    // tenure's end (when over) to the last — same as ussc's justice pages
+    const mine = benches.filter((b) => b.justices.includes(caps));
+    const benchLink = (b, text) => (b ? `<a href="/courts/wasc/?collection=benches&id=${b.id}">${text}</a>` : text);
+    const served = tenures.map(([a, b], i) => {
+        const from = i === 0 ? benchLink(mine[0], _fullDate(a)) : _fullDate(a);
+        const to = !b ? 'present' : i === tenures.length - 1 ? benchLink(mine.at(-1), _fullDate(b)) : _fullDate(b);
+        return `from ${from} to ${to}`;
+    });
+    const yrs = tenures.reduce((n, [a, b]) => n + _years(a, b), 0);
+    const open = tenures.length && !tenures.at(-1)[1];
+    // a sitting justice's tenure keeps growing, so it's computed on view (same
+    // jp-dur script as ussc's justice pages) rather than frozen at build time
+    const dur = !yrs ? '' : open
+        ? ' <span id="jp-dur"></span>'
+        : ` (${yrs.toFixed(1).replace(/\.0$/, '')} years)`;
+    if (served.length) p.push(`<p>Served ${served.join(' and ')}${dur}.</p>`);
+    if (open && yrs) {
+        const since = fullIso(tenures.at(-1)[0]) || `${tenures.at(-1)[0]}-01-01`;
+        const prior = tenures.slice(0, -1).reduce((n, [a, b]) => n + _years(a, b), 0);
+        p.push(`<script>(function(){var e=document.getElementById("jp-dur");if(!e)return;var y=(${prior.toFixed(4)}+(Date.now()-Date.parse("${since}")+86400000)/(365.25*86400000)).toFixed(1).replace(/\\.0$/,"");e.textContent="("+y+" years)";}());</script>`);
+    }
+
+    const cj = [[j.cj_term1_start, j.cj_term1_stop], [j.cj_term2_start, j.cj_term2_stop]].filter(([a]) => a)
+        .map(([a, b]) => `from ${_fullDate(a)} to ${b ? _fullDate(b) : 'present'}`);
+    if (cj.length) p.push(`<p>Chief Justice ${cj.join(' and ')}.</p>`);
+
+    if (j.governor) p.push(`<p>Appointed by Governor ${_htmlEsc(j.governor)}${j.governor_party ? ` (${_htmlEsc(j.governor_party)})` : ''}.</p>`);
+    if (j.party) p.push(`<p>Party: ${_htmlEsc(j.party)}.</p>`);
+
+    if (s && s.cases) {
+        const span = s.first && s.last ? (s.first === s.last ? ` on ${_fullDate(s.first)}` : ` decided from ${_fullDate(s.first)} to ${_fullDate(s.last)}`) : '';
+        let t = `Voted in ${s.cases} case${s.cases === 1 ? '' : 's'}${span} (${s.majority} in the majority, ${s.minority} in dissent)`;
+        const ops = [[s.maj, 'majority opinion'], [s.con, 'concurrence'], [s.dis, 'dissent']].filter(([n]) => n)
+            .map(([n, w]) => `${n} ${w}${n === 1 ? '' : 's'}`);
+        if (ops.length) t += `, writing ${ops.length > 1 ? ops.slice(0, -1).join(', ') + ' and ' + ops.at(-1) : ops[0]}`;
+        p.push(`<p>${t}.</p>`);
+    }
+    const lines = (label, text) => { if (text) p.push(`<p><b>${label}:</b><br>${String(text).split('\n').map(_htmlEsc).join('<br>')}</p>`); };
+    lines('Education', j.education);
+    lines('Career', j.career);
+    return [
+        '<div style="display:flex; gap:1em;">',
+        '<div style="flex:2; min-width:0; overflow:hidden;">',
+        '<h1>{{ page.title }}</h1>',
+        ...p,
+        '</div>',
+        `<div class="jp-frame"><img src="{{ site.wasc_base_url }}/courts/wasc/people/justices/all/${id}/portrait.jpg" alt="{{ page.title }}" onerror="this.parentElement.style.display='none'"></div>`,
+        '</div>',
+    ].join('\n');
+}
+
+const GALLERY_PAGE = `---
+layout: pane
+title: Justice Gallery
+styles:
+- /assets/css/pages.css
+scripts:
+- /assets/js/collections/gallery.js
+---
+<!-- generated by scripts/import_wasc.js --justices -->
+<div class="jg-header">
+  <div class="jg-header-row">
+    <h1 class="jg-heading">Justice Gallery</h1>
+    <label class="filter-label" id="jg-active-label">
+      <input type="checkbox" id="jg-active-only"> Currently Serving
+    </label>
+  </div>
+  <div class="jg-sort-bar" id="jg-sort-bar">
+    <button class="grid-sort-btn jg-sort-btn active" data-sort="joined" data-label="Joined">Seniority</button>
+    <button class="grid-sort-btn jg-sort-btn" data-sort="years" data-label="Served">Served ↓</button>
+  </div>
+</div>
+<div id="jg-grid" class="jg-grid"></div>
+`;
+
+const BENCHES_PAGE = `---
+layout: pane
+title: Justice Benches
+styles:
+- /assets/css/pages.css
+scripts:
+- /assets/js/collections/benches.js
+---
+<!-- generated by scripts/import_wasc.js --justices -->
+<div id="jb-intro" markdown="1">
+
+Every time a new Justice joins or an existing Justice leaves the Washington Supreme Court, a new **Bench** is formed.  Unlike the U.S. Supreme Court, the Chief Justice here is chosen from among the Justices for a fixed term, so the Chief can change while the membership stays the same, and a Justice can serve as Chief more than once (e.g. [Debra Stephens](/courts/wasc/?collection=gallery&id=debra_l_stephens)).  So a new Bench is also formed whenever the Chief Justice changes.  Bench names use the last name of that Bench's Chief Justice, and are numbered in chronological order.
+
+Cases are assigned to a Bench by decision date; service dates known only to the year (common before the 1990s) make some early Bench boundaries approximate.
+
+</div>
+
+<div id="jb-container"></div>
+`;
+
+// Rebuild gallery.json + courts/wasc/justices/{index.md,<id>/index.md}.
+// Pages are fully generated (not hand-edited), so each is simply rewritten
+// whenever its content changes.
+function syncJusticeGallery(justices, files, benches = []) {
+    const stats = justiceStats(files);
+    const today = new Date().toISOString().slice(0, 10);
+    const gallery = [];
+    let written = 0;
+    const put = (p, text) => {
+        if (exists(p) && fs.readFileSync(p, 'utf8') === text) return;
+        written++;
+        if (DRY_RUN) return;
+        fs.mkdirSync(path.dirname(p), { recursive: true });
+        fs.writeFileSync(p, text, 'utf8');
+    };
+    for (const [caps, j] of Object.entries(justices)) {
+        if (!j.id || !j.service_started) continue;
+        const name = j.full_name || caps.toLowerCase().replace(/\b\w/g, (ch) => ch.toUpperCase());
+        const lastStop = j.term2_started ? j.term2_ended : j.service_ended;
+        const active = !lastStop;
+        // Chief Justice rotates here (unlike ussc), so only the sitting chief carries the title
+        const isChief = [[j.cj_term1_start, j.cj_term1_stop], [j.cj_term2_start, j.cj_term2_stop]]
+            .some(([a, b]) => a && a <= today && (!b || b > today));
+        const title = isChief ? 'Chief Justice' : 'Justice';
+        const page = `${JUSTICE_PAGES_URL}/${j.id}`;
+        const e = { id: j.id, name, dateStart: j.service_started, dateStop: active ? '' : (lastStop || '') };
+        if (!active) {
+            const yrs = [[j.service_started, j.service_ended], [j.term2_started, j.term2_ended]]
+                .filter(([a]) => a).reduce((n, [a, b]) => n + _years(a, b), 0);
+            e.yearsServed = Math.round(yrs * 10000) / 10000;
+        }
+        Object.assign(e, { page, cases: [], title });
+        gallery.push(e);
+        put(path.join(JUSTICE_PAGES_DIR, j.id, 'index.md'),
+            `---\ntitle: ${title} ${name}\nlayout: pane\njustice_id: ${j.id}\n---\n${justicePageBody(caps, j, stats.get(caps), benches)}\n`);
+    }
+    put(path.join(JUSTICE_PAGES_DIR, 'benches', 'index.md'), BENCHES_PAGE);
+    gallery.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+    put(path.join(JUSTICE_PAGES_DIR, 'index.md'), GALLERY_PAGE);
+    const next = JSON.stringify(gallery, null, 2) + '\n';
+    if (!exists(GALLERY_JSON) || fs.readFileSync(GALLERY_JSON, 'utf8') !== next) {
+        written++;
+        if (!DRY_RUN) fs.writeFileSync(GALLERY_JSON, next, 'utf8');
+    }
+    return { justices: gallery.length, written };
 }
 
 async function justicesPass() {
@@ -944,12 +1221,22 @@ async function justicesPass() {
     const filled = gapFillJustices(justices, wiki);
     console.log(`  justices.json: ${filled} field(s) gap-filled`);
 
+    const files = loadAllYears();
+    const renamed = normalizeVoteNames(justices, files);
+    if (renamed) console.log(`  votes: ${renamed} alternate-spelling name(s) ${DRY_RUN ? 'would be ' : ''}canonicalised`);
+
     // decision dates across every wasc case, for bench case counts
     const decisionIsos = [];
-    for (const f of loadAllYears().values()) for (const c of f.cases) if (fullIso(c.decision)) decisionIsos.push(c.decision);
+    for (const f of files.values()) for (const c of f.cases) if (fullIso(c.decision)) decisionIsos.push(c.decision);
 
     const benches = rebuildBenches(justices, decisionIsos);
-    console.log(`  benches.json: ${benches.length} bench(es) (${benches.reduce((n, b) => n + b.cases, 0)} case-assignments)`);
+    const ba = assignBenches(benches, files);
+    console.log(`  benches.json: ${benches.length} bench(es) (${benches.reduce((n, b) => n + b.cases, 0)} case-assignments); `
+        + `${ba.assigned} case bench(es) ${DRY_RUN ? 'would be ' : ''}updated, ${ba.written} per-bench file(s) ${DRY_RUN ? 'would change' : 'written'}`
+        + `${ba.removed ? `, ${ba.removed} stale removed` : ''}`);
+
+    const g = syncJusticeGallery(justices, files, benches);
+    console.log(`  gallery: ${g.justices} justice(s), ${g.written} file(s) ${DRY_RUN ? 'would change' : 'written'} (${rel(GALLERY_JSON)}, ${rel(JUSTICE_PAGES_DIR)}/)`);
 
     if (DRY_RUN) {
         for (const b of benches.slice(0, 6)) console.log(`    ${b.name}  ${b.dateStart}..${b.dateStop || 'present'}  ${b.justices.length}J ${b.cases}c`);
@@ -961,7 +1248,9 @@ async function justicesPass() {
     writeJson(JUSTICES_JSON, jSorted);
     fs.mkdirSync(path.dirname(BENCHES_JSON), { recursive: true });
     writeJson(BENCHES_JSON, benches);
-    console.log(`  wrote ${rel(JUSTICES_JSON)} and ${rel(BENCHES_JSON)}`);
+    let casesWritten = 0;
+    for (const f of files.values()) if (f.changed) { writeJson(f.path, f.cases); casesWritten++; }
+    console.log(`  wrote ${rel(JUSTICES_JSON)} and ${rel(BENCHES_JSON)}${casesWritten ? ` (+ ${casesWritten} cases.json)` : ''}`);
 }
 
 // ── --fix-titles: canonicalise "State" / "Washington" party names ─────────

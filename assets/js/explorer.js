@@ -4155,17 +4155,45 @@ const _EVENT_SOURCE_INFO = {
 // docket_url, when known), the facts/questions/conclusions paragraphs (each
 // optional — not every case's own source has every field yet), and an
 // embedded player for the first event with a playable recording, with a
-// "[Source: ...]" caption linking to that event's own page_url.
-function _showWascCaseSummary(caseEntry) {
+// "[Source: ...]" caption linking to that event's own page_url. eventIdx (a
+// 1-based index into the date-sorted events, same as a collection entry's
+// "event") picks a specific recording instead of the first, and startTime
+// (seconds) cues it there — e.g. a "Supreme Court Q&A" collection entry
+// pointing partway into a session's video.
+// ids of every justice in this court's Justice Gallery (people/justices/
+// gallery.json), fetched once — an empty set if the court has none.
+let _galleryIdsPromise = null;
+function _fetchGalleryIds() {
+  if (!_galleryIdsPromise) {
+    _galleryIdsPromise = fetch(courtDataUrl(`/courts/${COURT_ID}/people/justices/gallery.json`))
+      .then(r => (r.ok ? r.json() : []))
+      .then(list => new Set((Array.isArray(list) ? list : []).map(j => j.id)))
+      .catch(() => new Set());
+  }
+  return _galleryIdsPromise;
+}
+
+function _showWascCaseSummary(caseEntry, { eventIdx = 0, startTime = null } = {}) {
   const container = document.getElementById('case-summary');
   container.innerHTML = '';
 
   const row = document.getElementById('justices-row');
   row.innerHTML = '';
   const votes = caseEntry.votes || [];
-  votes.forEach(v => row.appendChild(_buildJusticeRowItem(v, { linkable: false })));
+  // Linked to the justice's gallery page (same as ussc) — but a pro tem judge
+  // (a Court of Appeals judge sitting in) has no gallery entry, so once the
+  // gallery's ids arrive, any item not among them is unlinked again.
+  votes.forEach(v => row.appendChild(_buildJusticeRowItem(v)));
   row.hidden = !votes.length;
   document.getElementById('justices-row-title').hidden = true;
+  if (votes.length) {
+    _fetchGalleryIds().then(ids => {
+      if (_currentCaseEntry !== caseEntry) return;
+      row.querySelectorAll('a.jr-item').forEach((a, i) => {
+        if (!ids.has(_makeAdvocateId(votes[i]?.name || ''))) a.removeAttribute('href');
+      });
+    });
+  }
 
   // The docket number (linked to docket_url, when known) lives in the case
   // title label above instead — see setCaseTitleLabel.
@@ -4186,7 +4214,10 @@ function _showWascCaseSummary(caseEntry) {
   // video_url wins over audio_url when a source offers both (see schema.js);
   // hls_url is stored but unused here — video_url is already a direct file
   // every modern browser plays natively, with no extra player library needed.
-  const mediaEvent = (caseEntry.events || []).find(e => e.video_url || e.audio_url);
+  const _sortedEvents = [...(caseEntry.events || [])].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  const _picked = eventIdx >= 1 ? _sortedEvents[eventIdx - 1] : null;
+  const mediaEvent = (_picked && (_picked.video_url || _picked.audio_url)) ? _picked
+    : (caseEntry.events || []).find(e => e.video_url || e.audio_url);
   if (mediaEvent) {
     const media = document.createElement(mediaEvent.video_url ? 'video' : 'audio');
     media.className = 'case-summary-media';
@@ -4194,6 +4225,12 @@ function _showWascCaseSummary(caseEntry) {
     media.preload = 'metadata';
     media.src = mediaEvent.video_url || mediaEvent.audio_url;
     container.appendChild(media);
+    if (startTime > 0) {
+      // seeking needs the duration, so wait for metadata (already there if cached)
+      const cue = () => { media.currentTime = startTime; };
+      if (media.readyState >= 1) cue(); else media.addEventListener('loadedmetadata', cue, { once: true });
+      media.scrollIntoView({ block: 'nearest' });
+    }
 
     const sourceInfo = _EVENT_SOURCE_INFO[mediaEvent.source];
     if (sourceInfo) {
@@ -6917,7 +6954,9 @@ function buildCollectionItem(sectionUl, collEntry, isTopic = false) {
     if (_fetchPromise) return _fetchPromise;
     _fetchPromise = (async () => {
       try {
-        const res = await fetch(fileUrl, { cache: 'reload' });
+        // courtDataUrl: a cross-origin court's (e.g. wasc) collection files
+        // live on its own data host, not alongside this shell
+        const res = await fetch(courtDataUrl(fileUrl), { cache: 'reload' });
         if (!res.ok) return;
         let groups = await res.json();
         // Merge extra properties (e.g. 'page') from collEntry.groups definitions into fetched groups.
@@ -7684,6 +7723,9 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
     // caseRef.event is a 1-based index into caseEntry.events (original order).
     const defaultAudioIdx = Number.isInteger(caseRef.event) && caseRef.event >= 1 ? caseRef.event : 0;
     const defaultTurn     = Number.isInteger(caseRef.turn)  && caseRef.turn  >= 1 ? caseRef.turn  : null;
+    // caseRef.time ("HH:MM:SS") cues the event's recording to that point — for
+    // a court with no transcript turns to jump to (e.g. wasc's Supreme Court Q&A)
+    const initialTime     = typeof caseRef.time === 'string' && caseRef.time ? parseTime(caseRef.time) : null;
     let audioIdx;
     let initialTurn;
     if (fromRestore) {
@@ -7730,7 +7772,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
       setPageMeta(caseTitle(caseEntry.title) + ' | Argument Aloud');
       navigate(url);
     }
-    await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn, numberOverride });
+    await loadCase(caseRef.term, caseEntry, audioIdx, { forceNoAudio: !hasPlayableAudio, initialTurn, initialTime, numberOverride });
     if (fromRestore) trackPageView(location.href);
     if (collId === 'benches') {
       _showCaseVotesView(caseEntry);
@@ -8184,7 +8226,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId, isTopic = 
       } else if (group.id) {
         // Split format: fetch the per-group JSON file.
         try {
-          const r = await fetch(splitBase + group.id + '.json', { cache: 'reload' });
+          const r = await fetch(courtDataUrl(splitBase + group.id + '.json'), { cache: 'reload' });
           if (r.ok) {
             const advocateData = await r.json();
             const highlights = Array.isArray(advocateData) ? [] : (advocateData.highlights || []);
@@ -8672,7 +8714,7 @@ async function _buildMinutesJournalRecordsFiles(caseEntry, term) {
 // any, falling back to the opinion. Used for historical cases without
 // playable audio, and when a collection click forces no-audio display
 // (forceNoAudio: true).
-async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq = ++_caseLoadSeq) {
+async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq = ++_caseLoadSeq, media = {}) {
   const caseKey = term + '/' + caseId(caseEntry);
   _currentCaseKey = caseKey;
 
@@ -8908,7 +8950,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   // court other than ussc — see loadCase's own hasPlayableAudio gate above)
   // gets a plain case-summary view here instead of ussc's questions widget +
   // empty turn-by-turn transcript pane.
-  if (COURT_ID !== 'ussc') _showWascCaseSummary(caseEntry);
+  if (COURT_ID !== 'ussc') _showWascCaseSummary(caseEntry, media);
 
   playerSection.hidden = false;
 
@@ -8952,7 +8994,7 @@ async function loadCaseAsOpinion(term, caseEntry, numberOverride = null, _mySeq 
   }
 }
 
-async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, numberOverride = null, suppressDocCollapse = false } = {}) {
+async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, initialTurn = null, initialTime = null, numberOverride = null, suppressDocCollapse = false } = {}) {
   // See _caseLoadSeq's own declaration — every await below re-checks this
   // against the live counter and bails out the instant it goes stale, so
   // clicking through several cases in quick succession can't leave a slower
@@ -8975,7 +9017,7 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
   // loadCaseAsOpinion's case-summary path (_showWascCaseSummary) instead.
   const hasPlayableAudio = !forceNoAudio && COURT_ID === 'ussc' && caseEntry.events?.some(a => a.audio_url);
   if (!hasPlayableAudio) {
-    return loadCaseAsOpinion(term, caseEntry, numberOverride, _mySeq);
+    return loadCaseAsOpinion(term, caseEntry, numberOverride, _mySeq, { eventIdx: audioIdx, startTime: initialTime });
   }
 
   // Restore file-select visibility for normal audio cases.
