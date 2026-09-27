@@ -19,10 +19,12 @@
  * optionally followed by the archive.org items it couldn't match (mostly
  * cert-denied orders for cases we don't track).
  *
- * With a docket NUMBER and --add, it instead adds that one
- * unmatched case to our data: provided the year's items with that docket
- * describe exactly one case, and the term containing the decision date has no
- * case with that docket yet, it inserts a new case object into that term's
+ * With a docket NUMBER and --add, it instead adds that case's archive.org
+ * documents to our data, provided the year's items with that docket describe
+ * exactly one case. If the term containing the decision date already has a
+ * case with that docket, the documents are added to its own files.json (after
+ * its existing non-reference entries, skipping any already there) and its
+ * "files" prop is set to true. Otherwise it inserts a new case object into that term's
  * cases.json (in sortCases order; no "id", since such a case presumably isn't
  * in SCDB) and writes cases/<docket>/files.json with one "brief" entry per
  * document PDF in the case's archive.org item(s). Each item holds one PDF per
@@ -359,6 +361,112 @@ function cmpKeys(a, b) {
     return 0;
 }
 
+// ── document titles ────────────────────────────────────────────────────────
+//
+// archive.org's document titles (from its PDF file names) were typed in by
+// hand and carry assorted anomalies: stray trailing characters ("Brief Amicus
+// Curiaeo", "Transcript of RecordM", "Certioraricfcc"), odd capitalization
+// ("Brief OF Petitioners", "Petition for A Writ", "ReHearing", "brief of
+// Amicus Curiae"), typos ("Repondents", "Opposistion", "Breif", "thr"), and
+// joined, doubled or missing words ("inOpposition", "CrossPetition", "Brief
+// for for the", "United State", "Motion Affirm"). cleanTitle() fixes these.
+
+// The words these titles are made of: typos are corrected to one of these
+// (the general dictionary is only used to recognize words as correct).
+const TITLE_WORDS = `
+    a affirm affirms amended amici amicus an and answer answering appeal appellant appellants
+    appellee appellees appendices appendix application argument as behalf bill brief briefs
+    certiorari chart complaint copy cross curiae curiam denial dismiss docketing file for in joint
+    jurisdiction jurisdictional leave legible map memoranda memorandum merits motion motions
+    not notation notice objection of on opening opinion opposing opposition or permission
+    per petition petitioner petitioners petitions post proceedings prologue reargument
+    reconsider reconsideration record rehearing remand reply respondent respondents response
+    responsive statement states submission suggestions supplement supplemental support
+    supporting sur the thereof to transcript united upon vol writ`.trim().split(/\s+/);
+const TITLE_WORD_SET = new Set(TITLE_WORDS);
+
+// Small words kept in lower case (except as a title's first word).
+const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'from', 'in', 'into',
+    'of', 'on', 'or', 'sur', 'the', 'to', 'upon', 'with']);
+
+// Typos too short to correct safely by edit distance (some, like "fot" and
+// "ti", are even real if obscure dictionary words).
+const SHORT_TYPOS = { fo: 'for', fot: 'for', iin: 'in', thr: 'the', ti: 'to' };
+
+let _dictionary;
+function isKnownWord(w) {
+    const lw = w.toLowerCase();
+    if (TITLE_WORD_SET.has(lw) || SMALL_WORDS.has(lw) || /^\d+$/.test(lw) || /^[a-z]$/.test(lw)) return true;
+    _dictionary ??= new Set(fs.readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8').split(/\r?\n/));
+    // (the dictionary has no plurals)
+    return _dictionary.has(lw) || _dictionary.has(lw.replace(/s$/, '')) || _dictionary.has(lw.replace(/es$/, ''));
+}
+
+// Damerau-Levenshtein (optimal string alignment) distance.
+function editDistance(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+            d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+            if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+        }
+    }
+    return d[a.length][b.length];
+}
+
+// Fix one unrecognized word: strip stray trailing characters down to a title
+// word ("Curiaeo", "Certioraricfcc"), else correct it to the unique nearest
+// TITLE_WORDS entry within 1 edit (2 for longer words); anything else is left
+// alone.
+function fixWord(w) {
+    const lw = w.toLowerCase();
+    if (SHORT_TYPOS[lw]) return SHORT_TYPOS[lw];
+    if (isKnownWord(w)) return w;
+    for (let n = 1; n <= 4 && n < w.length - 2; n++) {
+        if (TITLE_WORD_SET.has(lw.slice(0, -n))) return w.slice(0, -n);
+    }
+    const max = lw.length >= 6 ? 2 : lw.length >= 4 ? 1 : 0;
+    let best = null, bestDist = Infinity, tie = false;
+    for (const t of TITLE_WORDS) {
+        if (Math.abs(t.length - lw.length) > max) continue;
+        const dist = editDistance(lw, t);
+        if (dist < bestDist) { best = t; bestDist = dist; tie = false; }
+        else if (dist === bestDist) tie = true;
+    }
+    return best && bestDist <= max && !tie ? best : w;
+}
+
+function cleanTitle(raw) {
+    let t = raw.replace(/\s+/g, ' ').trim()
+        .replace(/ReHearing/g, 'Rehearing')
+        .replace(/\bCross(Petition|Respondent)/g, 'Cross-$1');
+    // Words run together ("inOpposition", "tobDismiss", "vWrit"): split off a
+    // leading small word (less any stray letter after it), or drop a stray
+    // leading letter.
+    t = t.replace(/\b([a-z]{1,4})([A-Z][a-z]+)/g, (m, pre, rest) =>
+        SMALL_WORDS.has(pre) ? `${pre} ${rest}` : SMALL_WORDS.has(pre.slice(0, -1)) ? `${pre.slice(0, -1)} ${rest}`
+            : pre.length === 1 ? rest : m);
+    let words = t.split(' ').flatMap(w => w.split('-').map(fixWord).join('-'))
+        .filter((w, i, all) => i === 0 || w.toLowerCase() !== all[i - 1].toLowerCase());
+    t = words.join(' ')
+        .replace(/\bUS\b/g, 'United States')
+        .replace(/\bUnited(?! States\b)(?: State\b)?/gi, 'United States')
+        .replace(/\bMotion (?:do )?(Affirm|Dismiss)\b/gi, 'Motion to $1')
+        .replace(/\bthere of\b/gi, 'thereof')
+        .replace(/^Petitioner (for (?:Rehearing|a Writ|Writ)\b)/i, 'Petition $1')
+        .replace(/\bPetition Rehearing\b/i, 'Petition for Rehearing');
+    // Title case: small words lower case (but not first), everything else capitalized.
+    return t.split(' ').map((w, i, all) => {
+        const lw = w.toLowerCase();
+        if (/^[A-Z]$/.test(w) && /^(Appendix|Exhibit|Part|Volume|Vol)$/i.test(all[i - 1] || '')) return w;
+        if (i > 0 && SMALL_WORDS.has(lw)) return lw;
+        if (w === w.toUpperCase() && w.length > 1 && !SMALL_WORDS.has(lw)) return w;
+        return w.split('-').map(p => p.charAt(0).toUpperCase() + (p === p.toUpperCase() ? p.slice(1).toLowerCase() : p.slice(1))).join('-');
+    }).join(' ');
+}
+
 // One "brief" files.json entry per numbered document PDF in an item, e.g.
 // "micro_IA40385001_0377 3. Motion to  Dismiss .pdf" -> "Motion to Dismiss".
 async function fetchBriefs(item) {
@@ -372,7 +480,7 @@ async function fetchBriefs(item) {
         if (!f.name.startsWith(prefix)) continue;
         const m = f.name.slice(prefix.length).match(/^(\d+)\.\s*(.*?)\s*\.pdf$/i);
         if (!m) continue;
-        docs.push({ seq: +m[1], entry: { type: 'brief', title: m[2].replace(/\s+/g, ' '), href: href(f.name) } });
+        docs.push({ seq: +m[1], entry: { type: 'brief', title: cleanTitle(m[2]), href: href(f.name) } });
     }
     docs.sort((a, b) => a.seq - b.seq);
     if (!docs.length) {
@@ -381,6 +489,8 @@ async function fetchBriefs(item) {
     }
     return docs.map(d => d.entry);
 }
+
+const citationOf = (item) => item.cites[0] || '';
 
 async function addCase(items, number, decisionArg, dryRun) {
     // The year's items for this docket must all describe one case.
@@ -421,20 +531,60 @@ async function addCase(items, number, decisionArg, dryRun) {
 
     const dockets = [...new Set(hits.flatMap(it => it.dockets))];
     const dockets0 = [number, ...dockets.filter(n => n !== number)];
-    const existing = cases.find(c => splitDockets(c.number).some(n => dockets0.includes(n)));
-    if (existing) {
-        throw new Error(`${term} already has docket ${dockets0.join(", ")}: ${existing.id || existing.number} ${existing.title}`);
-    }
-    const folder = path.join(termDir, 'cases', number);
-    if (fs.existsSync(folder)) throw new Error(`${path.relative(REPO_ROOT, folder)} already exists`);
-
     const briefs = [];
     for (const it of hits) briefs.push(...await fetchBriefs(it));
     if (!briefs.length) throw new Error(`No PDFs found in ${hits.map(it => it.url).join(', ')}`);
 
+    // One summary line in the listing's layout, then the case's local URL and
+    // its archive.org item(s), for comparing the two.
+    const summarize = (c, what) => {
+        console.log(`${term}  ${primaryDocket(c.number).padEnd(8)} ${c.title}` +
+            (c.citation ? `, ${c.citation}` : '') + `, decided ${c.decision || decision}, ${what}` +
+            (pc?.label ? `  [per curiam: ${pc.label}]` : ''));
+        console.log(`    ${LOCAL_SITE}/courts/ussc/?term=${term}&case=${encodeURIComponent(primaryDocket(c.number))}`);
+        for (const it of hits) console.log(`    ${it.url}`);
+    };
+    const nFiles = (n) => `${n} file${n === 1 ? '' : 's'}`;
+
+    // A case we already have: add archive.org's documents to its own
+    // files.json (after its existing non-reference entries, skipping any
+    // already there), and make sure its "files" prop is true.
+    const existing = cases.find(c => splitDockets(c.number).some(n => dockets0.includes(n)));
+    if (existing) {
+        if (existing.decision && existing.decision !== decision) {
+            console.warn(`Warning: ${term}/${primaryDocket(existing.number)} was decided ${existing.decision}, not ${decision}`);
+        }
+        if (existing.citation && citationOf(item) && normCite(existing.citation) !== citationOf(item)) {
+            console.warn(`Warning: ${term}/${primaryDocket(existing.number)} is ${existing.citation}, not ${citationOf(item)}`);
+        }
+        const folder = path.join(termDir, 'cases', primaryDocket(existing.number));
+        const filesPath = path.join(folder, 'files.json');
+        const files = fs.existsSync(filesPath) ? readJson(filesPath) : [];
+        const have = new Set(files.map(f => f.href));
+        const added = briefs.filter(b => !have.has(b.href));
+        const at = files.findLastIndex(f => (f.type || '').toLowerCase() !== 'reference') + 1;
+        files.splice(at, 0, ...added);
+        const setFiles = added.length > 0 && existing.files !== true;
+        if (setFiles) {
+            existing.files = true;
+            cases[cases.indexOf(existing)] = reorderCase(existing);
+        }
+        if (!dryRun && added.length) {
+            fs.mkdirSync(folder, { recursive: true });
+            writeJson(filesPath, files);
+            if (setFiles) writeJson(casesPath, cases);
+        }
+        const skipped = briefs.length - added.length;
+        summarize(existing, `${nFiles(added.length)} ${dryRun ? 'would be added' : 'added'} to existing case` +
+            (skipped ? ` (${skipped} already present)` : '') + (setFiles ? ', "files" set to true' : ''));
+        return;
+    }
+    const folder = path.join(termDir, 'cases', number);
+    if (fs.existsSync(folder)) throw new Error(`${path.relative(REPO_ROOT, folder)} already exists`);
+
     const c = { title: item.name, number: dockets0.join(';'), files: true, references: false,
         decision, decision_day: formatDay(decision) };
-    const citation = item.cites[0];
+    const citation = citationOf(item);
     if (citation) {
         c.citation = citation;
         const vol = +citation.split(' ')[0];
@@ -463,15 +613,7 @@ async function addCase(items, number, decisionArg, dryRun) {
         writeJson(path.join(folder, 'files.json'), briefs);
     }
 
-    // One summary line in the listing's layout, then the new case's local URL
-    // and its archive.org item(s), for comparing the two.
-    const plural = briefs.length === 1 ? '' : 's';
-    console.log(`${term}  ${number.padEnd(8)} ${newCase.title}` +
-        (newCase.citation ? `, ${newCase.citation}` : '') + `, decided ${decision}` +
-        `, ${briefs.length} file${plural} ${dryRun ? 'would be added' : 'added'}` +
-        (pc?.label ? `  [per curiam: ${pc.label}]` : ''));
-    console.log(`    ${LOCAL_SITE}/courts/ussc/?term=${term}&case=${encodeURIComponent(number)}`);
-    for (const it of hits) console.log(`    ${it.url}`);
+    summarize(newCase, `${nFiles(briefs.length)} ${dryRun ? 'would be added' : 'added'}`);
 }
 
 // ── main ───────────────────────────────────────────────────────────────────
