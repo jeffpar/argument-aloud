@@ -5044,6 +5044,19 @@ function _renderFileGroup(fileUl, label, files, makeFileItem, open = false) {
 //                     entries: array of { kind: 'group'|'flat', label?, files }
 //
 // Returns { isEmpty, hideToggle }.
+// Drop the subheading from a lone file category (e.g. just "Briefs") when it's
+// the only thing in a case's file list, so the user isn't forced to expand a
+// useless group of one. Never when other groups (Citations, References,
+// Records, ...) follow it, though, or its files would sit unlabeled above them
+// as if they belonged to none of them. `flattenable` is the set of category
+// labels this applies to (References/Media/Other always keep theirs).
+function _flattenLoneGroup(entries, flattenable) {
+  if (entries.length === 1 && entries[0].kind === 'group' && flattenable.has(entries[0].label)) {
+    entries[0].kind = 'flat';
+    delete entries[0].label;
+  }
+}
+
 async function _buildCaseFileList(fileUl, caseEntry, opts) {
   const rawFiles = (caseEntry.files || caseEntry.references)
     ? await loadFiles(opts.basePath + 'files.json')
@@ -5627,9 +5640,6 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
             if (!groups[typeKey]?.length) return;
             entries.push({ kind: 'group', label: TYPE_LABELS[typeKey] || typeKey, files: groups[typeKey] });
           });
-          const groupEntries = entries.filter(e => e.kind === 'group');
-          const _alwaysLabeled = new Set(['References', 'Media', 'Other']);
-          if (groupEntries.length === 1 && !referenceFiles.length && !_alwaysLabeled.has(groupEntries[0].label)) { groupEntries[0].kind = 'flat'; delete groupEntries[0].label; }
           // Citations, Consolidations, and References come next (in that
           // order), then Records is always the very last group of all.
           const citationsEntry = _buildCitationsEntry(caseEntry);
@@ -5638,6 +5648,7 @@ function buildTermCasesSorted(term, cases, ul, mode, asc = true) {
           if (otherTitlesEntry) entries.push(otherTitlesEntry);
           if (referenceFiles.length) entries.push({ kind: 'group', label: TYPE_LABELS.references, files: referenceFiles });
           if (recordsFiles.length) entries.push({ kind: 'group', label: 'Records', files: recordsFiles });
+          _flattenLoneGroup(entries, new Set(['Petitioner', 'Respondent', 'Briefs', 'Collections']));
           return { entries };
         },
       });
@@ -7614,10 +7625,8 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         ];
 
         const groups = {};
-        let totalFiles = 0;
         rawFiles.forEach(f => {
           if (_isRecordsEntry(f)) return;
-          totalFiles++;
           const key = resolveCategory(f);
           if (!groups[key]) groups[key] = [];
           groups[key].push(f);
@@ -7634,20 +7643,11 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
         });
 
         const effectiveOrder = ALL_CATS.filter(c => activeCatSet.has(c));
-        // Suppress the group subheading when there is only one non-empty
-        // category — listing files directly avoids forcing the user to expand
-        // a useless group of one.
-        const nonEmptyGroupKeys = effectiveOrder.filter(k => groups[k]?.length > 0);
-        const suppressHeader = totalFiles === 1 || nonEmptyGroupKeys.length === 1;
 
         const entries = [];
         effectiveOrder.filter(c => c !== 'References').forEach(typeKey => {
           if (!groups[typeKey] || !groups[typeKey].length) return;
-          entries.push({
-            kind: suppressHeader && typeKey !== 'Media' && typeKey !== 'Other' ? 'flat' : 'group',
-            label: typeKey,
-            files: groups[typeKey],
-          });
+          entries.push({ kind: 'group', label: typeKey, files: groups[typeKey] });
         });
         // Citations, Consolidations, and References come next (in that
         // order), then Records is always the very last group of all.
@@ -7659,6 +7659,7 @@ function _buildCollectionCaseItem(caseRef, collId, groupNumber, groupId, isTopic
           entries.push({ kind: 'group', label: 'References', files: groups.References });
         }
         if (recordsFiles.length) entries.push({ kind: 'group', label: 'Records', files: recordsFiles });
+        _flattenLoneGroup(entries, new Set(['Petitioner', 'Respondent', 'Amicus', 'Briefs', 'Collections']));
 
         return { entries };
       },
