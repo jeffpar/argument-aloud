@@ -1575,6 +1575,15 @@ button.term-case-count.sort-active:hover {
   padding-left: 20px;
 }
 
+/* An audio event's own optional "description" (e.g. a "clip" event's
+   explanation of what it is), shown above the player. */
+#audio-description {
+  font-size: 12.5px;
+  color: #444;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
 #audio-row {
   display: flex;
   align-items: center;
@@ -3005,6 +3014,7 @@ button.term-case-count.sort-active:hover {
   }
 
   #unaligned-note { color: #e06060; }
+  #audio-description { color: #b0b6c2; }
 
   #play-pause-btn,
   #prev-speaker-btn,
@@ -3342,6 +3352,7 @@ html[data-theme="dark"] .tag-add-save-btn:hover { background: #252a3a; }
 html[data-theme="dark"] #case-questions   { color: #9da5b4; }
 html[data-theme="dark"] .questions-more { color: #5eaee0; background: linear-gradient(to right, transparent, #1a1c22 30%); }
 html[data-theme="dark"] #unaligned-note { color: #e06060; }
+html[data-theme="dark"] #audio-description { color: #b0b6c2; }
 
 html[data-theme="dark"] #play-pause-btn,
 html[data-theme="dark"] #prev-speaker-btn,
@@ -3561,6 +3572,7 @@ html[data-theme="light"] .tag-add-save-btn:hover { background: #f0f4ff; }
 html[data-theme="light"] #case-questions   { color: #444; }
 html[data-theme="light"] .questions-more { color: #0066cc; background: linear-gradient(to right, transparent, #fafafa 30%); }
 html[data-theme="light"] #unaligned-note { color: #c0392b; }
+html[data-theme="light"] #audio-description { color: #444; }
 
 html[data-theme="light"] #play-pause-btn,
 html[data-theme="light"] #prev-speaker-btn,

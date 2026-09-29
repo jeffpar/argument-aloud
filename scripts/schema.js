@@ -65,7 +65,9 @@ export const CASE_KEY_ORDER = [
 ];
 
 export const EVENT_KEY_ORDER = [
-    'source', 'type', 'date', 'title', 'time', 'timezone', 'location',
+    // description is an optional plain-text explanation of the event (e.g.
+    // what a "clip" event's excerpt is), shown above the SPA's audio player.
+    'source', 'type', 'date', 'title', 'description', 'time', 'timezone', 'location',
     // page_url is the human-facing source page (e.g. a TVW watch page) for
     // whichever of audio_url/video_url below is the actual playable file --
     // they're often on different hosts and page_url need not match either.

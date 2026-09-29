@@ -8437,8 +8437,11 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
   const transcriptUrl = arg.text_file
     ? (/^https?:\/\//i.test(arg.text_file) ? arg.text_file : (casesPath + arg.text_file))
     : null;
+  // A relative audio_url (e.g. a locally hosted "clip" event's
+  // "14-400/2015-04-01-deleted.mp3") is relative to the same cases/ directory
+  // as text_file.
   const audioUrl = arg.audio_url
-    ? (/^https?:\/\//i.test(arg.audio_url) || arg.audio_url.startsWith('/') ? arg.audio_url : (basePath + arg.audio_url))
+    ? (/^https?:\/\//i.test(arg.audio_url) || arg.audio_url.startsWith('/') ? arg.audio_url : (casesPath + arg.audio_url))
     : (arg.audio != null ? (basePath + arg.audio) : null);
   _currentTranscriptPdfUrl = arg.transcript_url
     ? (/^https?:\/\//i.test(arg.transcript_url) ? arg.transcript_url : (basePath + arg.transcript_url))
@@ -8464,6 +8467,12 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
   loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
   activeTurnIdx = -1;
+
+  // An event's own optional description (e.g. what a "clip" is), shown
+  // above the player.
+  const audioDesc = document.getElementById('audio-description');
+  audioDesc.textContent = arg.description || '';
+  audioDesc.hidden = !arg.description;
 
   try {
     let transcriptData = [];
@@ -8515,7 +8524,7 @@ async function loadAudioEntry(arg, basePath, _caseSeq = null, _suppressCollapse 
     // All-zero timestamps (e.g. Oyez data where alignment failed) should be
     // treated as unaligned to avoid scrolling to the last turn on timeupdate.
     hasTimes = hasRelativeTimes;
-    unalignedNote.hidden = hasTimes;
+    unalignedNote.hidden = hasTimes || arg.type === 'clip';   // a clip has no transcript to sync
     document.getElementById('prev-speaker-btn').disabled = !turns.length;
     document.getElementById('prev-turn-btn').disabled = !turns.length;
     document.getElementById('next-turn-btn').disabled = !turns.length;
@@ -9143,7 +9152,10 @@ async function loadCase(term, caseEntry, audioIdx = 0, { forceNoAudio = false, i
       for (const a of group) offsetCounts.set(a.offset ?? '', (offsetCounts.get(a.offset ?? '') ?? 0) + 1);
       const distinct  = group.filter(a => (a.offset ?? '') && offsetCounts.get(a.offset) === 1);
       const remainder = group.filter(a => !distinct.includes(a));
-      const alignedOnly = remainder.filter(a => a.aligned === true);
+      // A "clip" (a short excerpt, e.g. an outburst deleted from the official
+      // recording) is never a competing copy of an argument, so it always
+      // survives the aligned-preference filter.
+      const alignedOnly = remainder.filter(a => a.aligned === true || a.type === 'clip');
       let kept = alignedOnly.length ? alignedOnly : remainder;
       if (_requestedEv && group.includes(_requestedEv) && !kept.includes(_requestedEv)) {
         kept = [...kept, _requestedEv];

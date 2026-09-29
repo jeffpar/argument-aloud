@@ -10409,7 +10409,10 @@ async function checkLengths(casesPath, caseFilter, update) {
             const urlShort = audioUrl.length > 60 ? '…' + audioUrl.slice(-59) : audioUrl;
             process.stdout.write(`  ${label}: ${urlShort} `);
 
-            const meta = await _ffprobeMeta(audioUrl);
+            // A relative audio_url (a locally hosted "clip") is relative to
+            // the term's cases/ directory, same as text_file.
+            const meta = await _ffprobeMeta(/^https?:\/\//i.test(audioUrl) ? audioUrl
+                : path.join(path.dirname(casesPath), 'cases', audioUrl));
             if (!meta) {
                 console.log('FAILED');
                 failed++;
@@ -13913,7 +13916,7 @@ function _buildTermEpisodes(term, termCases) {
     const groups = new Map(); // "type|date|title" -> {event, caseEntry}
     for (const c of termCases) {
         for (const ev of (c.events || [])) {
-            if (!ev.audio_url || ev.redundant) continue;
+            if (!ev.audio_url || ev.redundant || ev.type === 'clip') continue;   // clips aren't episodes
             const key = `${ev.type || 'argument'}|${ev.date || ''}|${ev.title || ''}`;
             const existing = groups.get(key);
             if (!existing || (_FEED_SOURCE_PRIORITY[ev.source] ?? 9) < (_FEED_SOURCE_PRIORITY[existing.event.source] ?? 9)) {
