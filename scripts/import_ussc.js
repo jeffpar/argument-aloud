@@ -852,6 +852,8 @@ function parseDocket(html, pageUrl) {
     const root = parseHtml(html);
     let questionsUrl = null;
     const proceedings = [];
+    let dismissal = null;
+    let dismissalRule = null;
 
     // First pass: pull out the questions_url and opinion PDF link anywhere on the page.
     let opinionHref = null;
@@ -888,6 +890,15 @@ function parseDocket(html, pageUrl) {
             rowLinks.set(text, href);
         }
 
+        // A "Case Dismissed - Rule 46." row (no links) is the Clerk's own
+        // record of a voluntary dismissal; the parties' stipulation/motion
+        // row(s) name the specific subsection ("pursuant to Rule 46.1").
+        if (!dismissal && /^Case Dismissed\s*-\s*Rule 46\b/i.test(title)) {
+            dismissal = { date, rule: 'Rule 46' };
+        }
+        const ruleMatch = /\bpursuant to (Rule 46\.\d)\b/i.exec(title);
+        if (ruleMatch && !dismissalRule) dismissalRule = ruleMatch[1].replace(/^rule/i, 'Rule');
+
         if (rowLinks.has('Main Document')) {
             proceedings.push({ date, title, href: rowLinks.get('Main Document') });
         }
@@ -899,7 +910,8 @@ function parseDocket(html, pageUrl) {
             });
         }
     }
-    return { questionsUrl, opinionHref, proceedings };
+    if (dismissal && dismissalRule) dismissal.rule = dismissalRule;
+    return { questionsUrl, opinionHref, proceedings, dismissal };
 }
 
 // ── Network entry points ───────────────────────────────────────────────────
@@ -984,8 +996,8 @@ async function fetchDocketInfo(number, termYear = '') {
         console.log(`Warning: could not fetch docket for ${number}: ${exc.message || exc}`);
         return {};
     }
-    const { questionsUrl, opinionHref, proceedings } = parseDocket(html, url);
-    return { questions_url: questionsUrl, decision_gov: opinionHref, proceedings };
+    const { questionsUrl, opinionHref, proceedings, dismissal } = parseDocket(html, url);
+    return { questions_url: questionsUrl, decision_gov: opinionHref, proceedings, dismissal };
 }
 
 // ── Step 0: prospective (not-yet-argued) term import ───────────────────────
@@ -1155,10 +1167,14 @@ async function importProspectiveCases(casesPath, yearStr) {
     if (added.length) {
         writeJson(casesPath, existing);
         reportChange(`\nAdded ${added.length} prospective case(s) to ${casesPath}.`);
-        console.log('Fetching additional docket info (questions, opinions, proceedings) ...');
-        await updateDocketInfo(casesPath, yearStr, new Set(added));
     } else {
         vprint('No new prospective cases to add.');
+    }
+    // Refresh every case's docket, not just newly added ones — prospective
+    // cases keep accruing filings (briefs, dismissals, ...) until argued.
+    if (existing.length) {
+        console.log('Fetching docket info (questions, proceedings, dismissals) ...');
+        await updateDocketInfo(casesPath, yearStr);
     }
 }
 
@@ -1395,9 +1411,10 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
         const info = {
             questions_url: infos.map(i => i.questions_url).find(Boolean) || '',
             proceedings: infos.flatMap(i => i.proceedings || []),
+            dismissal: infos.map(i => i.dismissal).find(Boolean) || null,
         };
 
-        if (!info.questions_url && !info.proceedings.length) {
+        if (!info.questions_url && !info.proceedings.length && !info.dismissal) {
             console.log('skipped');
             continue;
         }
@@ -1409,6 +1426,21 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
             Object.assign(c, reordered);
             casesModified = true;
             changed.push('questions_url');
+        }
+
+        // A Rule 46 voluntary dismissal is the case's final disposition:
+        // record it as decided on the date of the Clerk's dismissal entry.
+        if (info.dismissal && !c.decision) {
+            const { date, rule } = info.dismissal;
+            const reordered = reorderCase({
+                ...c,
+                decision: date,
+                result: `dismissed pursuant to ${rule}; no favorable disposition for petitioning party apparent`,
+            });
+            for (const k of Object.keys(c)) delete c[k];
+            Object.assign(c, reordered);
+            casesModified = true;
+            changed.push(`dismissed (${rule}, ${date})`);
         }
 
         const proceedings = info.proceedings || [];
@@ -1444,7 +1476,7 @@ async function updateDocketInfo(casesPath, termYear = '', caseNumbers = null) {
 
     if (casesModified) {
         writeJson(casesPath, existing);
-        reportChange('Updated cases.json with questions_url entries.');
+        reportChange('Updated cases.json with docket info (questions_url/dismissals).');
     }
 }
 

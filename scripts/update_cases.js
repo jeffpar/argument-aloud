@@ -1242,7 +1242,9 @@ function checkVoteTenures(casesPath, term) {
 // in import_ussc.js) are common enough, and often enough not SCDB-trackable
 // the same way, that they're only warned about with --verbose; unargued
 // cases are still included in the returned count either way, so the
-// top-level "N case(s) ... try --scdb" hint stays accurate.
+// top-level "N case(s) ... try --scdb" hint stays accurate. Dismissed cases
+// (result starting "dismissed", e.g. a Rule 46 voluntary dismissal) are
+// skipped entirely — they often have no vote to record.
 function checkArgumentsHaveVotes(casesPath, term) {
     const data = _readJson(casesPath);
     if (!Array.isArray(data)) return 0;
@@ -1250,6 +1252,7 @@ function checkArgumentsHaveVotes(casesPath, term) {
     for (const c of data) {
         if (Array.isArray(c.votes) && c.votes.length) continue;
         if (!c.decision) continue;
+        if (/^dismissed\b/i.test(c.result || '')) continue;
         count++;
         const argued = !!(c.argument || c.reargument);
         if (!argued && !_VERBOSE) continue;
