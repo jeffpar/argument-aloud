@@ -1,8 +1,8 @@
 ---
 title: Kannon K. Shanmugam
 layout: pane
-case_count: 40
-last_argument: April 28, 2026
+case_count: 41
+last_argument: October 5, 2026
 ---
 
 # {{ page.title }}
