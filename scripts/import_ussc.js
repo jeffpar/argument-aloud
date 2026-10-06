@@ -523,6 +523,9 @@ function _buildTranscriptEnvelope(turns, audioUrl = '', speakers = null) {
         }
         speakers = speakerNames.map(n => ({ name: n }));
     }
+    // Justices (incl. the Chief) first, then everyone else, each in first-appearance order.
+    const isJustice = s => /\bJUSTICE$/.test(s.title || '');
+    speakers = [...speakers.filter(isJustice), ...speakers.filter(s => !isJustice(s))];
     return { media: { url: audioUrl, speakers }, turns };
 }
 
@@ -661,7 +664,7 @@ function _speakersSubset(usscSpk, oyezSpk) {
 }
 
 function _pdfToText(pdfPath) {
-    return execFileSync('pdftotext', ['-layout', pdfPath, '-'], { encoding: 'utf8' });
+    return execFileSync('pdftotext', ['-layout', pdfPath, '-'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
 }
 
 function _parseRawText(rawText, outputPath, audioUrl = '', _term = '', existingSpeakers = null) {
@@ -1347,7 +1350,9 @@ async function updateCasesJson(casesPath, newCases, year, laterTermNumbers = nul
         }
         for (const arg of (c.events || [])) {
             if ((arg.source || 'ussc') !== 'ussc') continue;
-            if (arg.transcript_url) continue;
+            // The transcript listing often posts a transcript before the audio
+            // page does, so a transcript_url alone doesn't mean we're done.
+            if (arg.audio_url && arg.transcript_url) continue;
             process.stdout.write(`Backfilling URLs for ${c.number} (${arg.date || '?'}) ... `);
             const argUrls = await fetchArgumentUrls(scraped.detail_url);
             await sleep(300);
@@ -1871,7 +1876,7 @@ async function extractQuestions(casesPath) {
         try {
             tmpPath = path.join(os.tmpdir(), `import_ussc-q-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`);
             await downloadFile(pdfUrl, tmpPath);
-            const text = execFileSync('pdftotext', ['-layout', tmpPath, '-'], { encoding: 'utf8' });
+            const text = execFileSync('pdftotext', ['-layout', tmpPath, '-'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
             const questions = _extractQuestionsFromText(text);
             if (questions) {
                 const reordered = reorderCase({ ...c, questions });
