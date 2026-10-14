@@ -1,8 +1,8 @@
 ---
 title: Eric J. Feigin
 layout: pane
-case_count: 42
-last_argument: April 27, 2026
+case_count: 43
+last_argument: October 13, 2026
 ---
 
 # {{ page.title }}
