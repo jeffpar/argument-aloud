@@ -1,8 +1,8 @@
 ---
 title: Paul D. Clement
 layout: pane
-case_count: 127
-last_argument: April 27, 2026
+case_count: 128
+last_argument: October 14, 2026
 ---
 
 # {{ page.title }}
