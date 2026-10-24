@@ -16,6 +16,7 @@
  *   node update_cases.js [TERM [CASE]] --unargued
  *   node update_cases.js --audits                      # regenerate auto-computed groups in audits.json
  *   node update_cases.js --feeds                      # rebuild podcast feeds under courts/ussc/feeds/
+ *   node update_cases.js [TERM [CASE]] --nara         # add NARA opinion-announcement events where missing
  *   node update_cases.js [TERM [CASE]] --docket       # probe SCOTUS docket URLs; write docket_url to cases.json
  *   node update_cases.js [TERM] --docket --refetch    # re-probe even cases that already have docket_url
  *   node update_cases.js [TERM] --docket --old        # write old-format URLs (no probe); defaults to terms ≤ 2015-10
@@ -5723,6 +5724,8 @@ function syncTermsJson() {
     // audio hours and averages).
     const allAdvocates = new Set();
     let totalAligned = 0, argSecs = 0, argEvents = 0, opSecs = 0, opEvents = 0;
+    // Every audio_url already counted toward argSecs/opSecs, across all terms.
+    const seenAudioUrls = new Set();
 
     // Auto-discover any term directory on disk (courts/ussc/terms/YYYY-MM/
     // cases.json) not yet listed in terms.json at all — e.g. a prospective
@@ -5824,18 +5827,25 @@ function syncTermsJson() {
                     const oyezArgEvs = evs.filter(e => e.source === 'oyez' && e.audio_url && (e.type === 'argument' || e.type === 'reargument'));
                     if (oyezArgEvs.length && oyezArgEvs.every(e => e.text_file && e.aligned)) totalAligned++;
                     // Audio lengths, de-duplicated per case by title (or date) so an
-                    // event available from both ussc and oyez only counts once.
+                    // event available from both ussc and oyez only counts once, and
+                    // across cases by audio_url so one recording linked from several
+                    // cases (consolidated cases, or every case announced in one NARA
+                    // session) only counts once too. A skipped event still marks its
+                    // title and URL as seen, so a case can't count the same event again
+                    // through its other source's URL.
                     const seenArg = new Set(), seenOp = new Set();
                     for (const e of evs) {
                         if (!e.length) continue;
+                        const isArg = e.type === 'argument' || e.type === 'reargument';
+                        if (!isArg && !(e.type === 'decision' && e.audio_url)) continue;
+                        const seen = isArg ? seenArg : seenOp;
                         const key = e.title || e.date;
-                        if (e.type === 'argument' || e.type === 'reargument') {
-                            if (key && seenArg.has(key)) continue;
-                            seenArg.add(key); argSecs += (_parseDurationSecs(e.length) || 0); argEvents++;
-                        } else if (e.type === 'decision' && e.audio_url) {
-                            if (key && seenOp.has(key)) continue;
-                            seenOp.add(key); opSecs += (_parseDurationSecs(e.length) || 0); opEvents++;
-                        }
+                        const dup = (key && seen.has(key)) || (e.audio_url && seenAudioUrls.has(e.audio_url));
+                        seen.add(key);
+                        if (e.audio_url) seenAudioUrls.add(e.audio_url);
+                        if (dup) continue;
+                        if (isArg) { argSecs += (_parseDurationSecs(e.length) || 0); argEvents++; }
+                        else       { opSecs  += (_parseDurationSecs(e.length) || 0); opEvents++;  }
                     }
                 }
             }
@@ -10650,6 +10660,7 @@ const USAGE = `Usage: node update_cases.js                                # upda
        node update_cases.js TERM CASE --tag WORD_OR_PHRASE   # add a tag to one case
        node update_cases.js TERM CASE --date YYYY-MM-DD --minutes URL   # attach a NARA minutes reference
        node update_cases.js --minutes [--dry-run]              # backfill missing minutes_src values
+       node update_cases.js [TERM [CASE]] --nara [--dry-run]   # add NARA opinion-announcement events (+ length/size/bitrate)
        node update_cases.js TERM CASE --cites [--verbose] [--dry-run]  # scan opinion HTML, build cites
        node update_cases.js [TERM] --cites [--verbose] [--dry-run]     #   ... or every case in a/all term(s)
        node update_cases.js --top-cites [--dry-run]            # rebuild courts/ussc/collections/historical/cites/top_cites.json
@@ -10739,6 +10750,12 @@ Examples:
   node update_cases.js 1881-10 194 --date 1882-01-28 --minutes "https://catalog.archives.gov/id/178843742?objectPage=628" --dry-run
   node update_cases.js --minutes                           # backfill minutes_src for existing minutes_url values
   node update_cases.js --minutes --dry-run                 # preview only
+
+  # Add an "Opinion Announcement" event (source "nara") to every decided case with no
+  # opinion audio yet that's named in a NARA recording (data/nara/ussc/*.json) made on
+  # its decision date — the event links the whole session's recording (no offset yet)
+  node update_cases.js 2025-10 --nara
+  node update_cases.js 2025-10 --nara --dry-run
 
   # Import tags from a JSON file (must contain a "tags" object; file is deleted after import)
   node update_cases.js --import ~/Downloads/ussc-favorites.json
@@ -13301,6 +13318,140 @@ async function runMinutesBackfill(dryRun) {
 }
 
 
+// ── --nara: backfill opinion-announcement events from NARA's session recordings ──
+
+// NARA's titles write original-jurisdiction dockets every which way ("141 Orig.",
+// "143 Original", "126-Orig.") and sometimes keep a stray "Case" prefix — this folds
+// those (and cases.json's own occasional en-dash typos) into cases.json's "141-Orig" form.
+function _normalizeNaraDocket(s) {
+    const d = String(s).trim().replace(/–/g, '-').replace(/^Case:?\s*/i, '');
+    const orig = /^(\d+)[\s.\-]*Orig(?:inal)?\.?$/i.exec(d);
+    return orig ? `${orig[1]}-Orig` : d;
+}
+
+// Indexes the recordings of every NARA audio collection (data/nara/ussc/<id>.json for
+// each type "audio" entry in data/nara/ussc.json) by normalized docket, mapping each
+// docket named in a recording's events (as "(No. X)") to that recording's
+// { date, url, files } — url being its first MP3 (else WAV) and files its audio file
+// count. Only fully dated recordings with audio are included.
+function _loadNaraRecordingsByDocket() {
+    const manifest = _readJson(path.join(REPO_ROOT, 'data', 'nara', 'ussc.json'));
+    const byDocket = new Map();
+    for (const coll of manifest.filter(e => e.type === 'audio')) {
+        const items = _readJson(path.join(REPO_ROOT, 'data', 'nara', 'ussc', `${coll.id}.json`));
+        for (const item of items) {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date || '')) continue;
+            const audio = (item.sources || []).filter(s => /\.(mp3|wav)$/i.test(s));
+            const url = audio.find(s => /\.mp3$/i.test(s)) || audio[0];
+            if (!url) continue;
+            const rec = { date: item.date, url, files: audio.length };
+            for (const ev of item.events || []) {
+                for (const m of String(ev).matchAll(/\(No\. ([^)]+)\)/g)) {
+                    for (const part of m[1].split(/\s*[\/&]\s*/)) {
+                        const d = _normalizeNaraDocket(part);
+                        if (!byDocket.has(d)) byDocket.set(d, []);
+                        if (!byDocket.get(d).includes(rec)) byDocket.get(d).push(rec);
+                    }
+                }
+            }
+        }
+    }
+    return byDocket;
+}
+
+// Adds a source "nara" decision event (with length/size/bitrate from ffprobe) to every
+// case in scope that has no opinion announcement yet but is named in a NARA recording
+// made on its decision date. Cases that already have the Court's own announcement (an
+// Oyez clip of just a dissent or concurrence doesn't count) or an earlier NARA event are
+// skipped. Each event links the whole session's recording; where in it the case's own
+// announcement starts (offset) is left for later.
+async function runNaraOpinions(termFilter, caseFilter, dryRun) {
+    const byDocket = _loadNaraRecordingsByDocket();
+    const terms = termFilter ? [termFilter]
+        : fs.readdirSync(TERMS_DIR).filter(n => /^\d{4}-\d{2}$/.test(n)).sort();
+    // A session's recording is shared by every case announced in it, so probe each just once.
+    const metaByUrl = new Map();
+
+    let eventsAdded = 0, casesAdded = 0, probeFailed = 0;
+    for (const term of terms) {
+        const casesPath = path.join(TERMS_DIR, term, 'cases.json');
+        if (!fs.existsSync(casesPath)) continue;
+        let cases;
+        try { cases = _readJson(casesPath); } catch { continue; }
+        if (!Array.isArray(cases)) continue;
+        let changed = false;
+
+        for (const c of cases) {
+            if (!c || !c.decision || !c.number) continue;
+            if (caseFilter && c.id !== caseFilter && !splitDockets(c.number).includes(caseFilter)) continue;
+            const events = c.events || [];
+            if (events.some(e => e && e.type === 'decision' &&
+                (e.source === 'nara' || (e.audio_url && !/dissent|concur/i.test(e.audio_url))))) continue;
+
+            // A recording on a date the case was also argued (e.g. a same-day per curiam)
+            // is the argument itself, not an opinion announcement.
+            const argued = new Set([
+                ..._parseDateField(c.argument), ..._parseDateField(c.reargument),
+                ...events.filter(e => e && e.type !== 'decision').map(e => e.date),
+            ]);
+            if (argued.has(c.decision)) continue;
+
+            const recs = [];
+            for (const d of splitDockets(c.number)) {
+                for (const rec of byDocket.get(_normalizeNaraDocket(d)) || []) {
+                    if (rec.date === c.decision && !recs.includes(rec)) recs.push(rec);
+                }
+            }
+            if (!recs.length) continue;
+
+            const label = c.number || c.id || '?';
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(c.decision);
+            const dateLabel = `${_MONTHS[parseInt(m[2], 10) - 1]} ${parseInt(m[3], 10)}, ${parseInt(m[1], 10)}`;
+            for (let i = 0; i < recs.length; i++) {
+                const rec = recs[i];
+                const ev = {
+                    source: 'nara',
+                    type: 'decision',
+                    date: c.decision,
+                    title: `Opinion Announcement${recs.length > 1 ? ` Part ${i + 1}` : ''} on ${dateLabel}`,
+                    audio_url: rec.url,
+                };
+                let note = rec.files > 1 ? `  (first of ${rec.files} files in this recording)` : '';
+                if (!dryRun) {
+                    if (!metaByUrl.has(rec.url)) {
+                        metaByUrl.set(rec.url, await _ffprobeMeta(rec.url));
+                        await sleep(500);
+                    }
+                    const meta = metaByUrl.get(rec.url);
+                    if (meta) {
+                        ev.length = meta.length;
+                        if (meta.size    != null) ev.size    = meta.size;
+                        if (meta.bitrate != null) ev.bitrate = meta.bitrate;
+                    } else {
+                        note += '  (ffprobe FAILED)';
+                        probeFailed++;
+                    }
+                    if (!Array.isArray(c.events)) c.events = [];
+                    const insertAt = c.events.findIndex(e => e && e.date && e.date > c.decision);
+                    if (insertAt === -1) c.events.push(reorderEvent(ev));
+                    else c.events.splice(insertAt, 0, reorderEvent(ev));
+                    changed = true;
+                }
+                console.log(`  ${term}/${label}: + ${ev.title}  ${rec.url}${ev.length ? `  ${ev.length}` : ''}${note}`);
+                eventsAdded++;
+            }
+            casesAdded++;
+        }
+
+        if (changed) _writeJson(casesPath, cases);
+    }
+
+    console.log(`\nNARA opinions: ${dryRun ? 'would add' : 'added'} ${eventsAdded} event(s) across ${casesAdded} case(s)` +
+        (probeFailed ? `; ffprobe failed for ${probeFailed} (rerun update_cases.js on that term to retry)` : '') + '.');
+    if (dryRun) console.log('(dry run — no files written)');
+}
+
+
 // ── --justia: scan downloaded Justia HTML opinions for cases missing in cases.json ──
 
 function _decodeHtmlEntities(str) {
@@ -14395,7 +14546,7 @@ async function main() {
                         // slip-opinions page (handles per-curiam decisions and
                         // other cases never imported by import_ussc.js).
                         if (!scdb && !flags.has('--dates') && !flags.has('--split') &&
-                            !flags.has('--unargued') && !flags.has('--dissents')) {
+                            !flags.has('--unargued') && !flags.has('--dissents') && !flags.has('--nara')) {
                             const opinion = await _addCaseFromOpinions(
                                 positional[0], _explicitCase, dryRun);
                             if (!opinion) {
@@ -14554,6 +14705,11 @@ async function main() {
             console.error('       node update_cases.js --minutes [--dry-run]                        # backfill missing minutes_src values');
             process.exit(1);
         }
+        return;
+    }
+
+    if (flags.has('--nara')) {
+        await runNaraOpinions(positional[0] || null, positional[1] || null, dryRun);
         return;
     }
 

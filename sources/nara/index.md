@@ -14,7 +14,7 @@ This [audit](/courts/ussc/?link=/sources/nara/audit) relies in part on the audio
 
   - [Black Series: October 1955 - December 1972](/courts/ussc?link=/sources/nara/audio/black)
   - [Red Series: December 1972 - June 27, 2005](/courts/ussc?link=/sources/nara/audio/red)
-  - [Gold Series: October 3, 2005 - June 27, 2025](/courts/ussc?link=/sources/nara/audio/gold)
+  - [Gold Series: October 3, 2005 - June 30, 2026](/courts/ussc?link=/sources/nara/audio/gold)
 
 Other [Series](https://catalog.archives.gov/search-within/594?levelOfDescription=series&limit=100&sort=title%3Aasc) in NARA's SCOTUS collection include:
 

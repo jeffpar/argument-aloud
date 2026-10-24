@@ -2486,38 +2486,38 @@
         });
       });
 
-      // De-duplicate events per-case (not globally) to avoid counting
-      // both ussc and oyez sources for the same event within a case,
-      // but still count separate cases argued on the same day.
+      // Argument and opinion audio lengths, de-duplicated per case by title
+      // (or date) so an event available from both ussc and oyez only counts
+      // once, and across cases by audio_url so one recording linked from
+      // several cases (consolidated cases, or every case announced in one
+      // NARA session) only counts once too — separate cases argued on the
+      // same day, each with its own recording, still all count. A skipped
+      // event still marks its title and URL as seen. One pass over each
+      // case's events, in order, matching update_cases.js's own all-terms
+      // totals (which decides which stat a recording shared by an argument
+      // and an opinion counts toward).
       var totalSec = 0;
       var eventCount = 0;
-      cases.forEach(function (c) {
-        var caseArgEvents = (c.events || []).filter(function (e) {
-          return (e.type === 'argument' || e.type === 'reargument') && e.length;
-        });
-        var seenTitles = new Set();
-        caseArgEvents.forEach(function (e) {
-          var key = e.title || e.date || ('event-' + caseArgEvents.indexOf(e));
-          if (!seenTitles.has(key)) {
-            seenTitles.add(key);
-            totalSec += parseLen(e.length);
-            eventCount++;
-          }
-        });
-      });
-
-      // De-duplicate opinion events per-case
       var opTotalSec = 0;
       var opEventCount = 0;
+      var seenAudioUrls = new Set();
       cases.forEach(function (c) {
-        var caseOpEvents = (c.events || []).filter(function (e) {
-          return e.type === 'decision' && e.audio_url && e.length;
-        });
+        var seenTitles = new Set();
         var seenOpTitles = new Set();
-        caseOpEvents.forEach(function (e) {
-          var key = e.title || e.date || ('event-' + caseOpEvents.indexOf(e));
-          if (!seenOpTitles.has(key)) {
-            seenOpTitles.add(key);
+        (c.events || []).forEach(function (e, i) {
+          if (!e.length) return;
+          var isArg = e.type === 'argument' || e.type === 'reargument';
+          if (!isArg && !(e.type === 'decision' && e.audio_url)) return;
+          var seen = isArg ? seenTitles : seenOpTitles;
+          var key = e.title || e.date || ('event-' + i);
+          var dup = seen.has(key) || (e.audio_url && seenAudioUrls.has(e.audio_url));
+          seen.add(key);
+          if (e.audio_url) seenAudioUrls.add(e.audio_url);
+          if (dup) return;
+          if (isArg) {
+            totalSec += parseLen(e.length);
+            eventCount++;
+          } else {
             opTotalSec += parseLen(e.length);
             opEventCount++;
           }

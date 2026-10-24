@@ -84,17 +84,18 @@ import.
 Refreshes the NARA catalog JSON files under `data/nara/ussc/` by querying the
 National Archives catalog API. Reads `data/nara/ussc.json` as the manifest and
 fetches every collection marked `collect: true`, reporting added, updated, and
-deleted items.
+deleted items. Collections' fileUnit records (e.g. the Gold Series' per-term
+folders) are skipped, since they only group the items beneath them.
 
 ```
-node scripts/import_nara.js [--dry-run] [--id <naId>] [--csv]
+node scripts/import_nara.js [--dry-run] [--id <naId> [--unit <naId>]]
 ```
 
 | Flag | Description |
 |---|---|
 | `--dry-run` | Show report without writing any files |
 | `--id <naId>` | Refresh only the collection with the given NARA accession ID |
-| `--csv` | Regenerate only the synthetic entries for collection `175704063` (no API fetch) |
+| `--unit <naId>` | With `--id`, fetch only the items under that sub-unit of the collection (e.g. one Gold Series term's fileUnit, like `651401881` for the term beginning October 6, 2025) and merge them into the collection's file, leaving every other item untouched |
 
 **Run frequency:** At least once a year to catch newly cataloged recordings.
 
