@@ -1,8 +1,8 @@
 ---
 title: Eric Schnapper
 layout: pane
-case_count: 23
-last_argument: February 22, 2023
+case_count: 24
+last_argument: November 2, 2026
 ---
 
 # {{ page.title }}
