@@ -110,6 +110,37 @@ node scripts/update_cases.js --collections
 1950-10/336   336_023.pdf      "Joint Appendix … Part 5"
 1961-10/468   468_016.pdf      "Transcript of Record"
 
+## Prerequisites
+
+Everything below assumes macOS with [Homebrew](https://brew.sh).
+
+Required to build the site and run the everyday scripts (`import_ussc.js`, `import_oyez.js`, `update_cases.js`, `update_advocates.js`):
+
+| Prerequisite | Needed for | Install |
+|---|---|---|
+| [Node.js](https://nodejs.org) (with npm) | Every script in `scripts/` | `brew install node` (or [nvm](https://github.com/nvm-sh/nvm)) |
+| npm packages | HTML parsing in the import scripts | `npm install` |
+| Ruby + Bundler | Building/serving the site with Jekyll | `brew install rbenv ruby-build`, then `rbenv install 3.2.11` |
+| Ruby gems | Jekyll (`github-pages`) and its plugins | `bundle install` |
+| [Poppler](https://poppler.freedesktop.org) (`pdftotext`, `pdftoppm`, `pdfinfo`) | Transcript/journal/opinion PDF text extraction and cover thumbnails (`import_ussc.js`, `import_wasc.js`, `parse_journals.js`, `update_cases.js`) | `brew install poppler` |
+| [FFmpeg](https://ffmpeg.org) (`ffprobe`) | Reading audio length/size/bitrate (`update_cases.js`, eg `--nara`) | `brew install ffmpeg` |
+
+Without Poppler, the import scripts fail with `ERROR: spawnSync pdftotext ENOENT`.
+
+Required only for specific tasks:
+
+| Prerequisite | Needed for | Install |
+|---|---|---|
+| Python 3 with `faster-whisper` and `rapidfuzz`, in a repo-root `.venv` | Aligning transcripts to audio (`update_transcripts.js`, which uses `.venv/bin/python3` when present) | `/usr/bin/python3 -m venv .venv`, then `.venv/bin/pip install faster-whisper rapidfuzz` (Homebrew's `python3` refuses a bare `pip3 install`, and `faster-whisper` has no wheels yet for the newest Python) |
+| Playwright browsers | The scripts in `scripts/tests/` (`npm test`, `npm run stress`) | `npx playwright install chromium` |
+| [Tesseract](https://github.com/tesseract-ocr/tesseract) and `rapidfuzz` (Python) | Brief de-duplication in `scripts/pdfs/merge_briefs_overlap.py` and `recover_near_miss_dupes.py` (Tesseract is the OCR fallback) | `brew install tesseract`; run the scripts with `.venv/bin/python3` for `rapidfuzz` |
+| `internetarchive` and `pikepdf` (Python) | Normalizing and uploading briefs to archive.org (`scripts/pdfs/normalize_pdf.py`, `upload_briefs.py`) | `brew install pipx`, `mkdir -p ~/.local/pipx` (so pipx puts its venvs where these scripts' `#!` lines expect), `pipx install internetarchive`, `pipx inject internetarchive pikepdf`, then `~/.local/bin/ia configure` |
+| `rsync`, `sips`, `git` | `publish.sh`, cover resizing in `parse_minutes.js`, the `scripts/pdfs/` merge scripts | Included with macOS / Xcode Command Line Tools |
+
+To serve the site locally:
+
+`bundle exec jekyll serve --host 0.0.0.0 --port 4010 --config _developer.yml`
+
 ## Command-Line Examples
 
 Adding missing cases:

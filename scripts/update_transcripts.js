@@ -37,8 +37,9 @@
  *   node scripts/update_transcripts.js 2014-10 14-378 ussc argument --realign --no-vad
  *   node scripts/update_transcripts.js 2014-10 14-378 oyez opinion --model small
  *
- * Requires: python3 with faster-whisper and rapidfuzz installed.
- *   pip install faster-whisper rapidfuzz
+ * Requires: python3 with faster-whisper and rapidfuzz installed, either in a
+ * repo-root .venv (used automatically if present) or the python3 on PATH.
+ *   python3 -m venv .venv && .venv/bin/pip install faster-whisper rapidfuzz
  *
  * © 2026 by Jeff Parsons
  */
@@ -541,9 +542,14 @@ function runAlignment(audioPath, turns, { modelSize = 'base', beamSize = 5, offs
         vad_filter: vadFilter,
     });
 
+    // Prefer the repo's own venv (see README "Prerequisites"), since a
+    // Homebrew python3 on PATH refuses `pip install` (PEP 668).
+    const venvPython = path.join(REPO_ROOT, '.venv', 'bin', 'python3');
+    const python = fs.existsSync(venvPython) ? venvPython : 'python3';
+
     let output;
     try {
-        output = execFileSync('python3', [pyPath, inputJson], {
+        output = execFileSync(python, [pyPath, inputJson], {
             encoding: 'utf8',
             maxBuffer: 4 * 1024 * 1024,
         });
